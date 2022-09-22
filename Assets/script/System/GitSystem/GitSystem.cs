@@ -49,6 +49,7 @@ public class GitSystem : MonoBehaviour , Panel
     public bool hasPush { private set; get; } = false;
     public bool sync { private set; get; } = false;
     public bool conflicted { private set; get; } = false;
+    public bool isCalledGitVersion { private set; get; } = false;
 
     public bool hasStash { private set; get; } = false;
     List<KeyValuePair<string, string>> stashFiles;
@@ -562,6 +563,10 @@ public class GitSystem : MonoBehaviour , Panel
             commitObjects.RemoveAt(resetCommitIndex+1);
             Destroy(destroyedCommitObject);
         }
+    }
+
+    public void showGitVersion(){
+        isCalledGitVersion = true;
     }
 }
 

@@ -202,6 +202,10 @@ namespace Console
                 case "reset":
                     gitSystem.reset(param[2],param[3]);
                     break;
+                case "--version":
+                    gitSystem.showGitVersion();
+                    console.AddMessageToConsole( "git version 2.37.3.");
+                    break;
                 default:
                     console.AddMessageToConsole( "\"" + param[1] + "\"" + " is not a git command.");
                     break;
