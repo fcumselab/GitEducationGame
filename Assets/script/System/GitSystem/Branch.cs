@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Branch 
 {
-    public Commit nowCommit { private set; get; }
+    public Commit nowCommit { set; get; }
     public List<Commit> commits;
     public string branchName;
     public int commitCounts { private set; get; }

@@ -28,8 +28,11 @@ public class Repository
     {
         Branch branch = new Branch(branchName);
         Debug.Log("CreateBranch: " + branchName);
+        string line = "";
         foreach(Commit commit in nowBranch.commits){
-            Debug.Log(commit.id);
+            
+            line += commit.id;
+            line += " -- ";
             if(commit == nowBranch.nowCommit){
                 branch.setCommit(nowBranch.nowCommit);
                 break;
@@ -37,17 +40,21 @@ public class Repository
                 branch.setCommit(commit);
             }
         }
-        // 
+        Debug.Log("all commit: " + line); 
         branches.Add( branch );
     }
 
     public bool switchBranch(string branchName)
     {
+        
         if  ( branches.Exists( x => x.branchName == branchName )   )
         {
+            
             nowBranch = branches.Find(x => x.branchName == branchName);
+            Debug.Log("success switchBranch: " + nowBranch.branchName);
             return true;
         }
+        Debug.Log("switchBranch: nono");
         return false;
     }
 

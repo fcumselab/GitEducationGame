@@ -22,7 +22,7 @@ public class Commit
         modifiedFiles = new List<KeyValuePair<string, string>>();
         allFiles = new List<KeyValuePair<string, string>>();
         branchUsed = 0;
-        id = randomString(6);
+        id = randomString(2);
     }
 
     public void addModifiedFile(KeyValuePair<string, string> file) 
