@@ -111,15 +111,15 @@ public class GitSystem : MonoBehaviour , Panel
             }
             if (nowCommit == null)
             {
-                // Debug.Log("nowCommit null ");
+                Debug.Log("nowCommit null ");
                 nowCommit = startCommit;
                 startCommit.SetActive(true);
             }
             else
             {
-                
+                //bp
                 // Debug.Log("nowCommit not null! ");
-                // Debug.Log("nowCommit  " + nowCommit);
+                Debug.Log("commit nowCommit  " + nowCommit);
                 GameObject newCommitObject = Instantiate(nowCommit, nowCommit.transform.parent);
                 newCommitObject.transform.GetChild(1).gameObject.SetActive(true);
                 newCommitObject.GetComponent<RectTransform>().localPosition = new Vector3(nowCommit.GetComponent<RectTransform>().localPosition.x - 150, nowCommit.GetComponent<RectTransform>().localPosition.y, nowCommit.GetComponent<RectTransform>().localPosition.z);
@@ -453,7 +453,8 @@ public class GitSystem : MonoBehaviour , Panel
                 headFlag.GetComponent<Image>().color = Color.white;
                 //Debug.Log(headFlag.transform.name);
                 headFlag = switchFlag;
-
+                Debug.Log("find! now branch: " + localRepository.nowBranch.branchName + " -- nowCommit: " + localRepository.nowBranch.nowCommit.name);
+                nowCommit = commitObjects.Find(x => x.name == localRepository.nowBranch.branchName + "_" +localRepository.nowBranch.nowCommit.name );
                 return true;
             }else{
                 Debug.Log("not found: ");

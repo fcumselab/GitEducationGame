@@ -68,7 +68,8 @@ namespace Console
                         gitSystem.untrackFile(param[2]);
                     }
                     break;
-                case "commit":
+                    //commit
+                case "co":
                     if (param.Length != 4 || param[2] != "-m" )
                     {
                         console.AddMessageToConsole("Error format");
