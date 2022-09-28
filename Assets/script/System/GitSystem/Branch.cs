@@ -28,6 +28,10 @@ public class Branch
 
     public int resetCommit(string commitId)
     {
+        for(int i=0;i<commits.Count;i++){
+            Debug.Log(i + " " +  commits[i]);
+            
+        }
         int index = commits.FindIndex(x => x.id.Equals(commitId));
         nowCommit = commits[index];
         int removeCount = commits.Count - index - 1;

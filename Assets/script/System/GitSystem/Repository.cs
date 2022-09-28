@@ -27,7 +27,17 @@ public class Repository
     public void CreateBranch(string branchName)
     {
         Branch branch = new Branch(branchName);
-        branch.setCommit(nowBranch.nowCommit);
+        Debug.Log("CreateBranch: " + branchName);
+        foreach(Commit commit in nowBranch.commits){
+            Debug.Log(commit.id);
+            if(commit == nowBranch.nowCommit){
+                branch.setCommit(nowBranch.nowCommit);
+                break;
+            }else{
+                branch.setCommit(commit);
+            }
+        }
+        // 
         branches.Add( branch );
     }
 

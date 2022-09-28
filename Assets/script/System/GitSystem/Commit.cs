@@ -16,12 +16,13 @@ public class Commit
 
     public Commit(string name, string description)
     {
+        //Debug.Log("commit");
         this.name = name;
         this.description = description;
         modifiedFiles = new List<KeyValuePair<string, string>>();
         allFiles = new List<KeyValuePair<string, string>>();
         branchUsed = 0;
-        id = randomString(5);
+        id = randomString(6);
     }
 
     public void addModifiedFile(KeyValuePair<string, string> file) 

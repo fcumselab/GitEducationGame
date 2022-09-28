@@ -75,7 +75,7 @@ namespace Console
                     }
                     else
                     {
-                        Debug.Log("Commit");
+                        //Debug.Log("Commit");
                         gitSystem.Commit(param[3]);
                     }
                     break;
@@ -110,7 +110,8 @@ namespace Console
                         console.AddMessageToConsole("Cannot clone");
                     }
                     break;
-                case "branch":
+                    //branch
+                case "b":
                     if (param.Length == 2)
                     {
                         Debug.Log(gitSystem.localRepository.branches.ToString());
@@ -128,7 +129,8 @@ namespace Console
                         console.AddMessageToConsole("Error format");
                     }
                     break;
-                case "checkout":
+                    //checkout
+                case "c":
                     if (param.Length != 3)
                     {
                         console.AddMessageToConsole("Error format");

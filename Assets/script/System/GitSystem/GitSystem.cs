@@ -97,11 +97,12 @@ public class GitSystem : MonoBehaviour , Panel
 
     public void Commit(string name)
     {
-        //Debug.Log("Commit!! " + name);
+        // Debug.Log("Commit!! " + name);
         if (hasRepository() && !conflicted)
         {
-
+            //Commit.cs
             Commit newCommit = new Commit(name, "");
+
             for (int i = 0; i < modifiedFiles.Count; i++)
             {
                 newCommit.addModifiedFile(modifiedFiles[i]);
@@ -123,7 +124,8 @@ public class GitSystem : MonoBehaviour , Panel
                 newCommitObject.GetComponent<RectTransform>().localPosition = new Vector3(nowCommit.GetComponent<RectTransform>().localPosition.x - 150, nowCommit.GetComponent<RectTransform>().localPosition.y, nowCommit.GetComponent<RectTransform>().localPosition.z);
                 nowCommit = newCommitObject;
             }
-            nowCommit.GetComponentInChildren<Text>().text = newCommit.name + "\ncommitId:" + newCommit.id;
+            // nowCommit.GetComponentInChildren<Text>().text = newCommit.name + "\ncommitId:" + newCommit.id;
+            nowCommit.GetComponentInChildren<Text>().text = newCommit.name + "\n    " + newCommit.id;
             nowCommit.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(100 - newCommit.name.Length * 5, -49, 0);
             // normal flag set
             headFlag.GetComponent<RectTransform>().localPosition = new Vector3(nowCommit.GetComponent<RectTransform>().localPosition.x - 160, nowCommit.GetComponent<RectTransform>().localPosition.y + 5, headFlag.GetComponent<RectTransform>().localPosition.z);
@@ -414,6 +416,23 @@ public class GitSystem : MonoBehaviour , Panel
 
     public bool checkout(string name)
     {
+        Debug.Log("checkout: " + name);
+        foreach(Branch branch in localRepository.branches){
+            Debug.Log("branch: " + branch.branchName + "---  commits len: " + branch.commits.Count); 
+            Commit findC = branch.commits.Find( commit => commit.id == name );
+            if(findC != null){
+                Debug.Log("find: " + findC.id);
+            }
+            
+            
+            // foreach (Commit commit in branch.commits)
+            // {
+            //     Debug.Log("branch: " + commit.id); 
+            // }
+            
+        }
+        
+        
         GameObject switchFlag = flagObjects.Find(x => x.name == name + "Flag");
         if(switchFlag == headFlag){
             GameSystemManager.GetSystem<DeveloperConsole>().AddMessageToConsole("Already on " + '\"' + name + '\"');

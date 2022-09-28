@@ -138,7 +138,7 @@ namespace Console
             {
                 if ( (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return )))
                 {
-                    Debug.Log("enter: "+ inputText.text);
+                    //Debug.Log("enter: "+ inputText.text);
                     if (inputText.text != "")
                     {
                         AddMessageToConsole(inputText.text);
