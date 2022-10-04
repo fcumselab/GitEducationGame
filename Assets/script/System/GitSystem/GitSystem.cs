@@ -109,13 +109,13 @@ public class GitSystem : MonoBehaviour , Panel
                 fileSystem.untrackFile(modifiedFiles[i].Key);
 
             }
-            // if (nowCommit == null)
-            // {
-            //     Debug.Log("nowCommit null ");
-            //     nowCommit = startCommit;
-            //     startCommit.SetActive(true);
-            // }
-            // else
+            if (nowCommit == null)
+            {
+                Debug.Log("nowCommit null ");
+                nowCommit = startCommit;
+                startCommit.SetActive(true);
+            }
+            else
             {
                 //bp
                 // Debug.Log("nowCommit not null! ");
@@ -453,9 +453,17 @@ public class GitSystem : MonoBehaviour , Panel
                 switchFlag.GetComponent<Image>().color = Color.red;
                 localRepository.switchBranch("HEAD");
                 localRepository.nowBranch.nowCommit = findC;
-                headFlag.GetComponent<Image>().color = Color.white;
+                
                 //Debug.Log(headFlag.transform.name);
-                nowCommit = headFlag.transform.Find(findC.name).gameObject;
+
+                foreach(GameObject flagObj in flagObjects){
+                    Transform findObj = headFlag.transform.Find(findC.name);
+                    if(findObj != null && flagObj.name != "HEAD"){
+                        headFlag.GetComponent<Image>().color = Color.white;
+                        nowCommit = findObj.gameObject;
+                        break;
+                    }
+                }
                 headFlag = switchFlag;
                 Debug.Log("find! findC.name: " +findC.name + " -- nowCommit: " + localRepository.nowBranch.nowCommit.name);                
                 return true;
@@ -484,15 +492,17 @@ public class GitSystem : MonoBehaviour , Panel
             localRepository.switchBranch(name);
             headFlag.GetComponent<Image>().color = Color.white;
             //Debug.Log(headFlag.transform.name);
-            headFlag = switchFlag;
-            Debug.Log("get: " + headFlag.transform.GetChild(headFlag.transform.childCount-1).name);
-            nowCommit = headFlag.transform.GetChild(headFlag.transform.childCount-1).gameObject;
+
+            nowCommit = switchFlag.transform.GetChild(switchFlag.transform.childCount-1).gameObject;
             // commitObjects.Find(x => x.name == localRepository.nowBranch.branchName + "_" +localRepository.nowBranch.nowCommit.name );
             if(nowCommit.name == "arrow")
             {
-                nowCommit = null;
-                // nowCommit = commitObjects.Find(x => x.name == oldBranch + "_" + localRepository.nowBranch.nowCommit.name);
+                nowCommit = headFlag.transform.GetChild(headFlag.transform.childCount-1).gameObject;
             }
+
+            headFlag = switchFlag;
+            // Debug.Log("get: " + headFlag.transform.GetChild(headFlag.transform.childCount-1).name);
+            
             return true;
         }   
         return false;
@@ -521,7 +531,7 @@ public class GitSystem : MonoBehaviour , Panel
         newFlag.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(80 - name.Length * 6, -70, 0);
         Debug.Log("want find:  "+ localRepository.nowBranch.branchName + "_" + localRepository.nowBranch.nowCommit.name);
 
-        Transform nowCommitGameObject = localObjects.transform.Find(headFlag.name).Find(localRepository.nowBranch.branchName + "_" + localRepository.nowBranch.nowCommit.name);
+        Transform nowCommitGameObject = localObjects.transform.Find(localRepository.nowBranch.branchName + "Flag")?.Find(localRepository.nowBranch.nowCommit.name);
         if(nowCommitGameObject != null)
         {
             newFlag.GetComponent<RectTransform>().position = new Vector3(nowCommitGameObject.GetComponent<RectTransform>().position.x, nowCommitGameObject.GetComponent<RectTransform>().position.y - 170, nowCommitGameObject.GetComponent<RectTransform>().position.z);
