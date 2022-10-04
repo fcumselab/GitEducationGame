@@ -12,16 +12,16 @@ public class Level15 : Level
         gitSystem.Commit("Init commit");
         gitSystem.Commit("Front update");
         gitSystem.Commit("Add function");
-        gitSystem.Commit("Fix bugs");
+        // gitSystem.Commit("Fix bugs");
         
 
-        gitSystem.createBranch("hello");
-        gitSystem.checkout("hello");
-        gitSystem.Commit("commit 1");
-        gitSystem.Commit("commit 22");
+        // gitSystem.createBranch("hello");
+        // gitSystem.checkout("hello");
+        // gitSystem.Commit("commit 1");
+        // gitSystem.Commit("commit 22");
         
-        gitSystem.checkout("master");
-        gitSystem.Commit("Fix 5");
+        // gitSystem.checkout("master");
+        // gitSystem.Commit("Fix 5");
         // GameSystemManager.GetSystem<TimerManager>().Add(new Timer(0.05f, push, null));
     }
 

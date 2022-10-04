@@ -109,18 +109,21 @@ public class GitSystem : MonoBehaviour , Panel
                 fileSystem.untrackFile(modifiedFiles[i].Key);
 
             }
-            if (nowCommit == null)
-            {
-                Debug.Log("nowCommit null ");
-                nowCommit = startCommit;
-                startCommit.SetActive(true);
-            }
-            else
+            // if (nowCommit == null)
+            // {
+            //     Debug.Log("nowCommit null ");
+            //     nowCommit = startCommit;
+            //     startCommit.SetActive(true);
+            // }
+            // else
             {
                 //bp
                 // Debug.Log("nowCommit not null! ");
                 Debug.Log("commit nowCommit  " + nowCommit);
-                GameObject newCommitObject = Instantiate(nowCommit, nowCommit.transform.parent);
+                // GameObject newCommitObject = Instantiate(nowCommit, nowCommit.transform.parent);
+                GameObject newCommitObject = Instantiate(nowCommit, headFlag.transform.Find("title").parent);
+                
+                //commit child arrow setActive
                 newCommitObject.transform.GetChild(1).gameObject.SetActive(true);
                 newCommitObject.GetComponent<RectTransform>().localPosition = new Vector3(nowCommit.GetComponent<RectTransform>().localPosition.x - 150, nowCommit.GetComponent<RectTransform>().localPosition.y, nowCommit.GetComponent<RectTransform>().localPosition.z);
                 nowCommit = newCommitObject;
@@ -148,7 +151,7 @@ public class GitSystem : MonoBehaviour , Panel
             headFlag.transform.GetChild(1).gameObject.SetActive(true);
             localRepository.Commit(newCommit);
             modifiedFiles = new List<KeyValuePair<string, string>>();
-            nowCommit.name = localRepository.nowBranch.branchName + "_" + newCommit.name;
+            nowCommit.name = newCommit.name;
             commitObjects.Add(nowCommit);
             //nowCommit.GetComponent<Image>().color = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255));
             sync = false;
@@ -452,9 +455,9 @@ public class GitSystem : MonoBehaviour , Panel
                 localRepository.nowBranch.nowCommit = findC;
                 headFlag.GetComponent<Image>().color = Color.white;
                 //Debug.Log(headFlag.transform.name);
+                nowCommit = headFlag.transform.Find(findC.name).gameObject;
                 headFlag = switchFlag;
-                Debug.Log("find! now branch: " + localRepository.nowBranch.branchName + " -- nowCommit: " + localRepository.nowBranch.nowCommit.name);
-                nowCommit = commitObjects.Find(x => x.name == localRepository.nowBranch.branchName + "_" +localRepository.nowBranch.nowCommit.name );
+                Debug.Log("find! findC.name: " +findC.name + " -- nowCommit: " + localRepository.nowBranch.nowCommit.name);                
                 return true;
             }else{
                 Debug.Log("not found: ");
@@ -482,10 +485,13 @@ public class GitSystem : MonoBehaviour , Panel
             headFlag.GetComponent<Image>().color = Color.white;
             //Debug.Log(headFlag.transform.name);
             headFlag = switchFlag;
-            nowCommit = commitObjects.Find(x => x.name == localRepository.nowBranch.branchName + "_" +localRepository.nowBranch.nowCommit.name );
-            if(nowCommit == null)
+            Debug.Log("get: " + headFlag.transform.GetChild(headFlag.transform.childCount-1).name);
+            nowCommit = headFlag.transform.GetChild(headFlag.transform.childCount-1).gameObject;
+            // commitObjects.Find(x => x.name == localRepository.nowBranch.branchName + "_" +localRepository.nowBranch.nowCommit.name );
+            if(nowCommit.name == "arrow")
             {
-                nowCommit = commitObjects.Find(x => x.name == oldBranch + "_" + localRepository.nowBranch.nowCommit.name);
+                nowCommit = null;
+                // nowCommit = commitObjects.Find(x => x.name == oldBranch + "_" + localRepository.nowBranch.nowCommit.name);
             }
             return true;
         }   
@@ -498,13 +504,24 @@ public class GitSystem : MonoBehaviour , Panel
         if (localRepository.hasBranch(name)) return false;
 
         localRepository.CreateBranch(name);
-        Debug.Log("nowBranch name : " + localRepository.nowBranch.branchName + "-- nowCommit name: " + localRepository.nowBranch.nowCommit.name);
+        Debug.Log("find! now branch: " + localRepository.nowBranch.branchName + " -- nowCommit: " + localRepository.nowBranch.nowCommit.name);
         GameObject newFlag;
+        Debug.Log("headFlag: " + headFlag.name);
         newFlag = Instantiate(headFlag, headFlag.transform.parent);
+        foreach (Transform child in newFlag.transform)
+        {
+            //Debug.Log("hi, " + child.name);
+            if(child.name != "title" && child.name != "arrow")
+            Destroy(child.gameObject);
+            
+            
+        }
         newFlag.GetComponent<Image>().color = Color.white;
         newFlag.GetComponentInChildren<Text>().text = name;
         newFlag.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(80 - name.Length * 6, -70, 0);
-        Transform nowCommitGameObject = localObjects.transform.Find(localRepository.nowBranch.branchName + "_" + localRepository.nowBranch.nowCommit.name);
+        Debug.Log("want find:  "+ localRepository.nowBranch.branchName + "_" + localRepository.nowBranch.nowCommit.name);
+
+        Transform nowCommitGameObject = localObjects.transform.Find(headFlag.name).Find(localRepository.nowBranch.branchName + "_" + localRepository.nowBranch.nowCommit.name);
         if(nowCommitGameObject != null)
         {
             newFlag.GetComponent<RectTransform>().position = new Vector3(nowCommitGameObject.GetComponent<RectTransform>().position.x, nowCommitGameObject.GetComponent<RectTransform>().position.y - 170, nowCommitGameObject.GetComponent<RectTransform>().position.z);

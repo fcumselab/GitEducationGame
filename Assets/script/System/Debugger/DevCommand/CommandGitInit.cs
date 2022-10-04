@@ -69,8 +69,8 @@ namespace Console
                     }
                     break;
                     //commit
-                case "co":
-                    if (param.Length != 4 || param[2] != "-m" )
+                case "co":                              //-m
+                    if (param.Length != 4 || param[2] != "m" )
                     {
                         console.AddMessageToConsole("Error format");
                     }

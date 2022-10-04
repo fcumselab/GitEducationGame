@@ -8,6 +8,7 @@ public class Level2 : Level
     private void Start()
     {
         setUp();
+        gitSystem.buildRepository();
     }
     // Update is called once per frame
     void Update()

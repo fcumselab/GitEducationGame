@@ -51,10 +51,10 @@ public class Repository
         {
             
             nowBranch = branches.Find(x => x.branchName == branchName);
-            Debug.Log("success switchBranch: " + nowBranch.branchName);
+            //Debug.Log("success switchBranch: " + nowBranch.branchName);
             return true;
         }
-        Debug.Log("switchBranch: nono");
+        //Debug.Log("switchBranch: nono");
         return false;
     }
 
