@@ -188,9 +188,13 @@ public class GitSystem : MonoBehaviour , Panel
                 nowCommit = newCommitObject;
             }
             nowCommit.GetComponentInChildren<Text>().text = newCommit.name + "\ncommitId:" + newCommit.id;
+
+            //commit text
             nowCommit.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector3(100 - newCommit.name.Length * 5, -49, 0);
+            
             // normal flag set
             headFlag.GetComponent<RectTransform>().localPosition = new Vector3(nowCommit.GetComponent<RectTransform>().localPosition.x - 160, nowCommit.GetComponent<RectTransform>().localPosition.y + 5, headFlag.GetComponent<RectTransform>().localPosition.z);
+            
             // new branch and start commit
             if (localRepository.nowBranch.branchStart)
             {
@@ -421,93 +425,131 @@ public class GitSystem : MonoBehaviour , Panel
     public bool checkout(string name)
     {
         // Debug.Log("checkout: " + name);
-        string checkoutType = "";
 
-        for(int i=0; i< localRepository.branches.Count; i++){
-            //bp
-            Branch branch = localRepository.branches[i];
+        string[] nameList = name.Split('~','^');
+        
+        GameObject switchFlag = flagObjects.Find(x => x.name == nameList[0] + "Flag");
+        
+        if(switchFlag != null){
+                //bp
+            if(nameList.Length > 1){
+                //type: git checkout <branchName>~2^3 
+                List<char> symbolList = new List<char>();
 
-            string line = "";
-            foreach (Commit commit in branch.commits)
-            {
-                
-                line += commit.id;
-                line += " -- ";
-               
-            }
-            Debug.Log("branch: " + branch.branchName + "---  commits len: " + branch.commits.Count + " : all commit: " + line);
-            Commit findC = branch.commits.Find( commit => commit.id == name );
-            if(findC != null){
-                
-                localRepository.switchBranch(branch.branchName);
-
-                Commit saveCommit = localRepository.nowBranch.nowCommit;
-                Debug.Log("branch: " + localRepository.nowBranch.branchName + " -- saveCommit: " + saveCommit.name);
-                localRepository.nowBranch.nowCommit = findC;
-                // Debug.Log("cool: " + localObjects.transform.Find(branch.branchName + "_" + findC.name));
-                checkoutType = "commitId";
-                createBranch("HEAD");
-                localRepository.nowBranch.nowCommit = saveCommit;
-
-                GameObject switchFlag = flagObjects.Find(x => x.name == "HEADFlag");
-                switchFlag.GetComponent<Image>().color = Color.red;
-                localRepository.switchBranch("HEAD");
-                localRepository.nowBranch.nowCommit = findC;
-                
-                //Debug.Log(headFlag.transform.name);
-
-                foreach(GameObject flagObj in flagObjects){
-                    Transform findObj = headFlag.transform.Find(findC.name);
-                    if(findObj != null && flagObj.name != "HEAD"){
-                        headFlag.GetComponent<Image>().color = Color.white;
-                        nowCommit = findObj.gameObject;
+                int nowP = 0;
+                while (true){
+                    int findP1 = name.IndexOf('^',nowP);
+                    int findP2 = name.IndexOf('~',nowP);
+                    if(findP1 == -1 && findP2 == -1){
                         break;
+                    }else if ((findP1 < findP2 && findP1 != -1) || (findP2 == -1)){
+                        nowP = findP1 + 1;
+                        symbolList.Add('^');
+                    }else if((findP1 > findP2 && findP2 != -1) || (findP1 == -1)){
+                        nowP = findP2 + 1;
+                        symbolList.Add('~');
                     }
                 }
-                headFlag = switchFlag;
-                Debug.Log("find! findC.name: " +findC.name + " -- nowCommit: " + localRepository.nowBranch.nowCommit.name);                
-                return true;
+                
+                Branch branch = localRepository.branches.Find( branch => branch.branchName == nameList[0]);
+
+                //get all commit in a branch
+                string line = "";
+                foreach (Commit commit in branch.commits)
+                {
+                    line += commit.id;
+                    line += " , ";
+                }
+                Debug.Log("0 " + branch.commits[0].id);
+                Debug.Log("branch: " + branch.branchName + "; Length: " + branch.commits.Count + "; All commits: " + line);
+                //end
+
+                int CommitLen = branch.commits.Count - 1;
+                for(int i=0;i<symbolList.Count;i++){
+                    if(symbolList[i] == '~' && nameList[i + 1] == ""){
+                        CommitLen--;
+                        Debug.Log("now ~ " + CommitLen);
+                    }else if(symbolList[i] == '~'){
+                        CommitLen -= Int16.Parse(nameList[i + 1]);
+                        Debug.Log("now ~mul " + CommitLen);
+                    }
+                }
+                if(CommitLen >= 0){
+                    return checkoutByCommitId(branch, branch.commits[CommitLen]);
+                }else{
+                    Debug.Log("Can\'t find this commit.");
+                    return false;
+                }
             }else{
-                Debug.Log("not found: ");
-            }
-            
-        }
-        
-        if(checkoutType != "commitId"){
-            Debug.Log("letgo");
-            GameObject switchFlag = flagObjects.Find(x => x.name == name + "Flag");
-            if(switchFlag == headFlag){
-                GameSystemManager.GetSystem<DeveloperConsole>().AddMessageToConsole("Already on " + '\"' + name + '\"');
+
+                //type: git checkout <branchName>
+                
+                if(switchFlag == headFlag){
+                    GameSystemManager.GetSystem<DeveloperConsole>().AddMessageToConsole("Already on " + '\"' + name + '\"');
+                    return true;
+                }
+
+                switchFlag.GetComponent<Image>().color = Color.red;
+                localRepository.switchBranch(name);
+                headFlag.GetComponent<Image>().color = Color.white;
+
+                nowCommit = switchFlag.transform.GetChild(switchFlag.transform.childCount-1).gameObject;
+                if(nowCommit.name == "arrow")
+                {
+                    nowCommit = headFlag.transform.GetChild(headFlag.transform.childCount-1).gameObject;
+                }
+
+                headFlag = switchFlag;
                 return true;
             }
-
-            if(switchFlag == null)
-            {
-                //Debug.Log("switchFlag == null");
-                return false;
+        }else{
+            //type: git checkout b4z3weacx...(commit id)
+            for(int i=0; i< localRepository.branches.Count; i++){
+                Branch branch = localRepository.branches[i];
+                Commit findC = branch.commits.Find( commit => commit.id == name );
+                return checkoutByCommitId(branch,findC);
             }
-            //Debug.Log("switchFlag !== null");
-            switchFlag.GetComponent<Image>().color = Color.red;
-            string oldBranch = localRepository.nowBranch.branchName;
-            localRepository.switchBranch(name);
-            headFlag.GetComponent<Image>().color = Color.white;
-            //Debug.Log(headFlag.transform.name);
+        }
 
-            nowCommit = switchFlag.transform.GetChild(switchFlag.transform.childCount-1).gameObject;
-            // commitObjects.Find(x => x.name == localRepository.nowBranch.branchName + "_" +localRepository.nowBranch.nowCommit.name );
-            if(nowCommit.name == "arrow")
-            {
-                nowCommit = headFlag.transform.GetChild(headFlag.transform.childCount-1).gameObject;
-            }
-
-            headFlag = switchFlag;
-            // Debug.Log("get: " + headFlag.transform.GetChild(headFlag.transform.childCount-1).name);
-            
-            return true;
-        }   
+        Debug.Log("not found this branch");
         return false;
     }
 
+    bool checkoutByCommitId(Branch branch, Commit findC){
+        if(findC != null){
+            
+            localRepository.switchBranch(branch.branchName);
+
+            Commit saveCommit = localRepository.nowBranch.nowCommit;
+            localRepository.nowBranch.nowCommit = findC;
+            createBranch("HEAD");
+            localRepository.nowBranch.nowCommit = saveCommit;
+
+            GameObject switchFlag = flagObjects.Find(x => x.name == "HEADFlag");
+            switchFlag.GetComponent<Image>().color = Color.red;
+            localRepository.switchBranch("HEAD");
+            localRepository.nowBranch.nowCommit = findC;
+            
+            //Debug.Log(headFlag.transform.name);
+
+            foreach(GameObject flagObj in flagObjects){
+                Transform findObj = flagObj.transform.Find(findC.name);
+                if(findObj != null && flagObj.name != "HEAD"){
+                    headFlag.GetComponent<Image>().color = Color.white;
+                    Debug.Log("headFlag " + headFlag.name + "color " + headFlag.GetComponent<Image>().color);
+                    nowCommit = findObj.gameObject;
+                    break;
+                }
+            }
+            Debug.Log("color " + headFlag.GetComponent<Image>().color);
+            headFlag = switchFlag;
+            // Debug.Log("find! findC.name: " +findC.name + " -- nowCommit: " + localRepository.nowBranch.nowCommit.name);                
+            return true;
+        }else{
+            // Debug.Log("not found: ");
+            return false;
+        }
+    }
     public bool createBranch(string name)
     {
         //bp
@@ -544,6 +586,7 @@ public class GitSystem : MonoBehaviour , Panel
         }
         newFlag.name = name + "Flag";
         flagObjects.Add(newFlag);
+        Debug.Log("branchUse len:  " + localRepository.nowBranch.nowCommit.branchUsed);
         localRepository.nowBranch.nowCommit.branchUsed++;
         return true;
     }
