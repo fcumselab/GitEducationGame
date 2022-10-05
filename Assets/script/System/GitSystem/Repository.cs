@@ -27,7 +27,7 @@ public class Repository
     public void CreateBranch(string branchName)
     {
         Branch branch = new Branch(branchName);
-        Debug.Log("CreateBranch: " + branchName);
+        //Debug.Log("CreateBranch: " + branchName);
         string line = "";
         foreach(Commit commit in nowBranch.commits){
             
@@ -40,7 +40,7 @@ public class Repository
                 branch.setCommit(commit);
             }
         }
-        Debug.Log("all commit: " + line); 
+        //Debug.Log("all commit: " + line); 
         branches.Add( branch );
     }
 
@@ -51,7 +51,7 @@ public class Repository
         {
             
             nowBranch = branches.Find(x => x.branchName == branchName);
-            //Debug.Log("success switchBranch: " + nowBranch.branchName);
+            // Debug.Log("success switchBranch: " + nowBranch.branchName);
             return true;
         }
         //Debug.Log("switchBranch: nono");
