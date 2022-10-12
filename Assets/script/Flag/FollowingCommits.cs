@@ -5,10 +5,6 @@ using UnityEngine.EventSystems;
 
 public class FollowingCommits : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    // Start is called before the first frame update
-    //List<Transform> commits = new List<Transform>();
-    //public Transform followingTarget; 
-
     private bool isDragging = false;
 
     public float moveSpeed = 10f;
@@ -16,48 +12,28 @@ public class FollowingCommits : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     [SerializeField] private Canvas canvas;
     private RectTransform rectTransform;
     
+    private Transform arrow;
     int nowCommitNum;
     Transform nextCommit;
     Transform preCommit;
-    void Start()
-    {
-        /*
-        commits.Add(transform.Find("arrow"));
-
-        for (int i=2; i< transform.childCount; i++)
-        {
-            if (transform.GetChild(i).Find("arrow") != null)
-            {
-                commits.Add(transform.GetChild(i));
-            }
-        }
-       
-        foreach(Transform child in commits)
-        {
-            Debug.Log(child.name);
-        }*/
-        
-    }
-
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         nowCommitNum = transform.GetSiblingIndex();
+        arrow = transform.Find("arrow");
         if (transform.parent.childCount != (nowCommitNum + 1))
         {
             nextCommit = transform.parent.GetChild(nowCommitNum + 1);
         }
         preCommit = (nowCommitNum != 0) ? transform.parent.GetChild(nowCommitNum - 1) : null;
     }
-    // Update is called once per frame
+
     void Update()
     {
+        arrowFollow();
 
-        if (!isDragging)
-        {
-            followObj();
-        }
-        //Vector3 position = transform.position - followingTarget.transform.position;
+        if (!isDragging){ followCommit(); }
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -71,35 +47,34 @@ public class FollowingCommits : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     }
     public void OnDrag(PointerEventData eventData)
     {
-
-        //transform.Rotate(new Vector3(0,0,, XaxisRoatation);
-        //transform.Rotate(Vector3.right, YaxisRoatation);
-        //Debug.Log(XaxisRoatation + " " + YaxisRoatation);
-        //Debug.Log(eventData.delta);
-        //Debug.Log(nextCommit.name + " " + nowCommitNum);
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log("end");
         isDragging = false;
-
     }
+    void arrowFollow(){
 
-    void followObj()
+        if (nextCommit != null)
+        {
+            Vector3 direction = (arrow.position - nextCommit.transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            arrow.GetComponent<Rigidbody2D>().rotation = angle + 180;
+            arrow.position = Vector3.Lerp(transform.position, nextCommit.transform.position, 0.5f);
+            
+        }
+    }
+    void followCommit()
     {        
-        
-
-        //Vector3 direction = nextCommit.transform.position - transform.position;
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //rb.rotation = angle;
-        //Debug.Log(Vector3.Distance(transform.position, nextCommit.transform.position));
         if(nextCommit != null && nowCommitNum != 0)
         {
             if (Vector3.Distance(transform.position, nextCommit.transform.position) > minDistance)
             {
 
                 transform.position = Vector3.Lerp(transform.position, nextCommit.transform.position, moveSpeed * Time.deltaTime);
+                
+                
             }
         }
         
