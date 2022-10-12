@@ -19,10 +19,15 @@ public class ArrowFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        followObj();
+    }
+
+    void followObj()
+    {
         Vector3 direction = target.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
-        if(Vector3.Distance(transform.position, target.transform.position) > minDistance)
+        if (Vector3.Distance(transform.position, target.transform.position) > minDistance)
         {
             //Debug.Log(Vector3.Distance(transform.position, target.transform.position));
             transform.position = Vector3.Lerp(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
@@ -31,6 +36,5 @@ public class ArrowFollow : MonoBehaviour
         {
             //Debug.Log(false);
         }
-        
     }
 }
