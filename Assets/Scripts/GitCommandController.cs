@@ -6,9 +6,12 @@ using TMPro;
 
 public class GitCommandController : MonoBehaviour
 {
+    TMP_InputField tmpInputField;
+    [SerializeField] int historyIndex = -1;
+
     [Header("Reference")]
-    [SerializeField] TextMeshProUGUI inputFieldText;
-    public TMP_InputField tmpInputField;
+    List<string> historyCommands = new List<string>();
+    public TextMeshProUGUI fieldHistoryCommands;
 
     //Singleton instantation
     private static GitCommandController instance;
@@ -21,20 +24,55 @@ public class GitCommandController : MonoBehaviour
         }
     }
 
-    // Activate the main input field when the scene starts.
-    // Start is called before the first frame update
     void Start()
     {
+        tmpInputField = transform.GetComponent<TMP_InputField>();
         tmpInputField.ActivateInputField();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            MissionTarget.Instance.getCommand(inputFieldText.text);
-            Debug.Log("hello" + inputFieldText.text);
+            //MissionTarget.Instance.getCommand(tmpInputField.text);
+
+            fieldHistoryCommands.text += (fieldHistoryCommands.text == "" ? (tmpInputField.text) : ('\n' + tmpInputField.text));
+            historyCommands.Add(tmpInputField.text);
+            tmpInputField.text = "";
+            historyIndex = -1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            Debug.Log("Lines count: " + historyCommands.Count);
+            foreach (var line in historyCommands)
+            {
+                Debug.Log(line);
+            }
+        }
+
+        /* history commands system */
+        if (Input.GetKeyDown(KeyCode.UpArrow) && historyIndex != 0 && historyCommands.Count != 0)
+        {
+            if(historyIndex == -1)
+            {
+                historyIndex = historyCommands.Count;
+            }
+            tmpInputField.text = historyCommands[--historyIndex];
+            
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && historyIndex != -1 && historyIndex != historyCommands.Count)
+        {
+            historyIndex++;
+
+            if (historyIndex == historyCommands.Count)
+            {
+                tmpInputField.text = "";
+            }
+            else
+            {
+                tmpInputField.text = historyCommands[historyIndex];
+            }
         }
     }
 }
