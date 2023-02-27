@@ -31,7 +31,7 @@ public class MissionTarget : MonoBehaviour
         
     }
 
-    public void getCommand(string command)
+    public void GetCommand(string command)
     {
         targetText.text = command;
     }
