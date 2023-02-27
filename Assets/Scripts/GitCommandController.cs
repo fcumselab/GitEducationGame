@@ -8,7 +8,7 @@ public class GitCommandController : MonoBehaviour
 {
     TMP_InputField tmpInputField;
     [SerializeField] int historyIndex = -1;
-
+    //Dictionary<string,>
     [Header("Reference")]
     List<string> historyCommands = new List<string>();
     public TextMeshProUGUI fieldHistoryCommands;
@@ -38,17 +38,16 @@ public class GitCommandController : MonoBehaviour
 
             fieldHistoryCommands.text += (fieldHistoryCommands.text == "" ? (tmpInputField.text) : ('\n' + tmpInputField.text));
             historyCommands.Add(tmpInputField.text);
+            fieldHistoryCommands.rectTransform.sizeDelta = new Vector2(fieldHistoryCommands.rectTransform.sizeDelta.x, fieldHistoryCommands.preferredHeight);
+
             tmpInputField.text = "";
             historyIndex = -1;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Debug.Log("Lines count: " + historyCommands.Count);
-            foreach (var line in historyCommands)
-            {
-                Debug.Log(line);
-            }
+            Debug.Log("Lines count: " + fieldHistoryCommands.preferredHeight);
+
         }
 
         /* history commands system */
