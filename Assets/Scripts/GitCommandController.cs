@@ -127,7 +127,7 @@ public class GitCommandController : MonoBehaviour
         if (findList.Count == 0 && commandList.Count > 1) AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
         else if (findList.Count == 1)
         {
-            if (commandList[1] == "init")
+            if (commandList[1] == "init") 
             if (commandList[1] == "add") addCommand.RunCommand(commandList);
             //AddFieldHistoryCommand("Good");
         }
