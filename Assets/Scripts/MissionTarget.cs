@@ -22,7 +22,7 @@ public class MissionTarget : MonoBehaviour
     void Start()
     {
         targetText = transform.Find("TargetText").GetComponent<TextMeshProUGUI>();
-        targetText.text = "HI";
+        targetText.text = "Mission Target";
     }
 
     // Update is called once per frame

@@ -12,6 +12,13 @@ public class AddCommand : MonoBehaviour
     public void RunCommand(List<string> commandList)
     {
         Debug.Log("run git add");
-        FileManager.Instance.FindFile(commandList[2]);
+        if(commandList.Count > 2)
+        {
+            FileManager.Instance.FindFile(commandList[2]);
+        }
+        else
+        {
+            GitCommandController.Instance.AddFieldHistoryCommand("Nothing specified, nothing added.\n");
+        }
     }
 }
