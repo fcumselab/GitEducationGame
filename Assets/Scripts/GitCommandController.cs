@@ -40,8 +40,10 @@ public class GitCommandController : MonoBehaviour
     [SerializeField] Scrollbar fieldHistoryCommandsScrollbar;
 
     [Header("GitCommands")]
+    [SerializeField] InitCommand initCommand;
     [SerializeField] AddCommand addCommand;
 
+    
     //Singleton instantation
     private static GitCommandController instance;
     public static GitCommandController Instance
@@ -65,10 +67,9 @@ public class GitCommandController : MonoBehaviour
         {
             //MissionTarget.Instance.GetCommand(tmpInputField.text);
             historyCommands.Add(tmpInputField.text);
-            AddFieldHistoryCommand(tmpInputField.text);
+            AddFieldHistoryCommand(FileManager.Instance.fileLocation + "> " + tmpInputField.text);
 
             RunCommand(tmpInputField.text);
-
 
             tmpInputField.text = "";
             historyIndex = -1;
@@ -127,14 +128,14 @@ public class GitCommandController : MonoBehaviour
         if (findList.Count == 0 && commandList.Count > 1) AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
         else if (findList.Count == 1)
         {
-            if (commandList[1] == "init") 
+            if (commandList[1] == "init") initCommand.RunCommand(commandList);
             if (commandList[1] == "add") addCommand.RunCommand(commandList);
             //AddFieldHistoryCommand("Good");
         }
     }
 
     /*用來將輸入的指令、找到的指令表顯示在記錄指令欄位*/
-    void AddFieldHistoryCommand(string text)
+    public void AddFieldHistoryCommand(string text)
     {
         fieldHistoryCommands.text += (fieldHistoryCommands.text == "" ? (text) : ('\n' + text));
         fieldHistoryCommands.rectTransform.sizeDelta = new Vector2(fieldHistoryCommands.rectTransform.sizeDelta.x, fieldHistoryCommands.preferredHeight);

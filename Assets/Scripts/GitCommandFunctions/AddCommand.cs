@@ -11,6 +11,7 @@ public class AddCommand : MonoBehaviour
 
     public void RunCommand(List<string> commandList)
     {
-        Debug.Log("nihao");
+        Debug.Log("run git add");
+        FileManager.Instance.FindFile(commandList[2]);
     }
 }
