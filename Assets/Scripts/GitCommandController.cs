@@ -68,9 +68,9 @@ public class GitCommandController : MonoBehaviour
             //MissionTarget.Instance.GetCommand(tmpInputField.text);
             historyCommands.Add(tmpInputField.text);
             AddFieldHistoryCommand(FileManager.Instance.fileLocation + "> " + tmpInputField.text);
-
             RunCommand(tmpInputField.text);
 
+            fieldHistoryCommandsScrollbar.value = -1;
             tmpInputField.text = "";
             historyIndex = -1;
         }
@@ -130,8 +130,8 @@ public class GitCommandController : MonoBehaviour
         {
             if (commandList[1] == "init") initCommand.RunCommand(commandList);
             if (commandList[1] == "add") addCommand.RunCommand(commandList);
-            //AddFieldHistoryCommand("Good");
         }
+
     }
 
     /*用來將輸入的指令、找到的指令表顯示在記錄指令欄位*/
@@ -139,7 +139,7 @@ public class GitCommandController : MonoBehaviour
     {
         fieldHistoryCommands.text += (fieldHistoryCommands.text == "" ? (text) : ('\n' + text));
         fieldHistoryCommands.rectTransform.sizeDelta = new Vector2(fieldHistoryCommands.rectTransform.sizeDelta.x, fieldHistoryCommands.preferredHeight);
-        fieldHistoryCommandsScrollbar.value = 0;
+        fieldHistoryCommandsScrollbar.value = -1;
     }
 
 

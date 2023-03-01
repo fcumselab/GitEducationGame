@@ -58,8 +58,6 @@ public class FileManager : MonoBehaviour
 
     public void UpdateFileSystemUI()
     {
-        Debug.Log("find: ");
-
         if (fileLists.ContainsKey(fileLocation)){
             for(int i=1; i<= fileLists[fileLocation].Count; i++)
             {
@@ -67,7 +65,6 @@ public class FileManager : MonoBehaviour
                 fileObject.gameObject.SetActive(true);
                 fileObject.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = fileLists[fileLocation][i - 1].GetName();
             }
-            Debug.Log("len: " + fileLists[fileLocation].Count);
         }
     }
 
@@ -76,11 +73,10 @@ public class FileManager : MonoBehaviour
         if (fileLists.ContainsKey(fileLocation))
         {
             NewFile newfile = fileLists[fileLocation].Find(file => file.GetName() == fileName);
-            if(newfile != null)
-            {
-                stagedFileLists.Add(newfile);
+            try{
+                if(newfile.GetName() != "") stagedFileLists.Add(newfile);
             }
-            else
+            catch
             {
                 GitCommandController.Instance.AddFieldHistoryCommand("Cound't find " + fileName + " file.\n");
             }
