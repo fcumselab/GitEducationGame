@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class FileManager : MonoBehaviour
@@ -9,6 +10,12 @@ public class FileManager : MonoBehaviour
     [SerializeField] List<NewFile> stagedFileLists = new List<NewFile>();
 
     public string fileLocation;
+    public int fileLocationSpot = 0;
+    [SerializeField] public List<string> fileLocationHistory = new List<string>();
+
+    [SerializeField] PageButton PageButtonDown;
+    [SerializeField] PageButton PageButtonUp;
+
     [SerializeField] TextMeshProUGUI commandText;
     [SerializeField] TextMeshProUGUI fileSystemText;
     
@@ -26,6 +33,9 @@ public class FileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fileLocationSpot = 0;
+        fileLocationHistory.Add(fileLocation);
+
         UpdateFileLocationText();
         AddNewFile("aaa.txt", fileLocation);
         AddNewFile("bbb.txt", fileLocation);
@@ -35,7 +45,28 @@ public class FileManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {//點擊資料夾觸發，所以會往下走
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            fileLocationSpot++;
+            fileLocationHistory.Add("test" + fileLocationHistory.Count);
+
+            GoToLocation("test" + (fileLocationHistory.Count - 1));
+
+        }
+
+    }
+
+    
+    public void GoToLocation(string location)
     {
+       
+        PageButtonUp.UpdateButton(fileLocationSpot, fileLocationHistory.Count);
+        PageButtonDown.UpdateButton(fileLocationSpot, fileLocationHistory.Count);
+
+        fileLocation = location;
+
+        UpdateFileLocationText();
     }
 
     public void AddNewFile(string name, string location, string content = "")
