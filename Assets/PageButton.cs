@@ -25,9 +25,12 @@ public class PageButton : MonoBehaviour
     
     public void ClickButton()
     {
-        if (buttonType == ButtonType.Up) FileManager.Instance.fileLocationSpot--;
-        else if(buttonType == ButtonType.Down) FileManager.Instance.fileLocationSpot++;
-        
+        if (buttonType == ButtonType.Up)
+        { 
+            FileManager.Instance.fileLocationHistory.RemoveAt(FileManager.Instance.fileLocationSpot);
+            FileManager.Instance.fileLocationSpot--;
+        }
+
         FileManager.Instance.GoToLocation(FileManager.Instance.fileLocationHistory[FileManager.Instance.fileLocationSpot]);
         UpdateButton(FileManager.Instance.fileLocationSpot, FileManager.Instance.fileLocationHistory.Count);
     }
@@ -35,7 +38,6 @@ public class PageButton : MonoBehaviour
     public void UpdateButton(int nowPage, int pageCount)
     {
         if (buttonType == ButtonType.Up && (nowPage == 0)) button.interactable = false;
-        else if (buttonType == ButtonType.Down && nowPage == pageCount-1) button.interactable = false;
         else button.interactable = true;
     }
 }

@@ -15,7 +15,6 @@ public class FileManager : SerializedMonoBehaviour
     public int fileLocationSpot = 0;
     [SerializeField] public List<string> fileLocationHistory = new List<string>();
 
-    [SerializeField] PageButton PageButtonDown;
     [SerializeField] PageButton PageButtonUp;
 
     [SerializeField] TextMeshProUGUI commandText;
@@ -39,37 +38,32 @@ public class FileManager : SerializedMonoBehaviour
         fileLocationHistory.Add(fileLocation);
 
         UpdateFileLocationText();
-        AddNewFile("aaa.txt", fileLocation);
-        AddNewFile("newLocation", fileLocation);
-        AddNewFile("bbb.txt", fileLocation);
-        AddNewFile("ccc.txt", fileLocation);
+        AddNewFile("1.txt", fileLocation,0);
+        AddNewFile("aLoc", fileLocation,0);
+        AddNewFile("bLoc", fileLocation,0);
+        AddNewFile("baLoc", "bLoc", 1);
+        AddNewFile("b.txt", "bLoc", 1);
+
+        AddNewFile("2.txt", fileLocation,0);
+
+
         UpdateFileSystemUI();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
-    
     public void GoToLocation(string location)
     {
        
         PageButtonUp.UpdateButton(fileLocationSpot, fileLocationHistory.Count);
-        PageButtonDown.UpdateButton(fileLocationSpot, fileLocationHistory.Count);
-
         fileLocation = location;
 
         UpdateFileLocationText();
         UpdateFileSystemUI();
     }
 
-    public void AddNewFile(string name, string location, string content = "")
+    public void AddNewFile(string name, string location,int level = 0, string content = "")
     {
         
-        NewFile newfile = new(name, location, content);
+        NewFile newfile = new(name, location, level,  content);
         
         if (fileLists.ContainsKey(location)) fileLists[location].Add(newfile);
         else
@@ -82,14 +76,20 @@ public class FileManager : SerializedMonoBehaviour
 
     public void UpdateFileLocationText()
     {
-        commandText.text = fileLocation;
-        fileSystemText.text = fileLocation + "> ";
+        string newLocation = "";
+        for(int i=0; i< fileLocationHistory.Count-1;i++)
+        {
+            newLocation += (fileLocationHistory[i] + "\\");
+        }
+        commandText.text = (newLocation + fileLocation);
+        fileSystemText.text = (newLocation + fileLocation + "> ");
     }
 
     public void UpdateFileSystemUI()
     {
+        int i = 1;
         if (fileLists.ContainsKey(fileLocation)){
-            for(int i=1; i<= fileLists[fileLocation].Count; i++)
+            for(; i<= fileLists[fileLocation].Count; i++)
             {
                 Transform fileObject = transform.Find("file" + i);
                 fileObject.gameObject.SetActive(true);
@@ -97,13 +97,10 @@ public class FileManager : SerializedMonoBehaviour
                 fileObject.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = fileLists[fileLocation][i - 1].GetName();
             }
         }
-        else
+        for (; i <= 8; i++)
         {
-            for (int i = 1; i <= 8; i++)
-            {
-                Transform fileObject = transform.Find("file" + i);
-                fileObject.gameObject.SetActive(false);
-            }
+            Transform fileObject = transform.Find("file" + i);
+            fileObject.gameObject.SetActive(false);
         }
     }
 

@@ -10,6 +10,7 @@ public class NewFile : SerializedMonoBehaviour
     [SerializeField] Image icon;
     [SerializeField] FileType fileType;
     [SerializeField] string fileName;
+    [SerializeField] int level;
     [SerializeField] string location;
     [SerializeField] string content;
 
@@ -18,7 +19,7 @@ public class NewFile : SerializedMonoBehaviour
         UpdateSprite();
     }
 
-    public NewFile(string name, string location, string content)
+    public NewFile(string name, string location,int level, string content)
     {
         string[] list = name.Split('.');
         if (list.Length == 1)
@@ -30,6 +31,7 @@ public class NewFile : SerializedMonoBehaviour
             fileType = FileType.Txt;
         }
         fileName = name;
+        this.level = level;
         this.location = location;
         this.content = content;
     }
@@ -61,9 +63,10 @@ public class NewFile : SerializedMonoBehaviour
         {
             //go to next folder, file history add.
             Debug.Log("folder");
-            FileManager.Instance.fileLocationSpot++;
             FileManager.Instance.fileLocationHistory.Add(fileName);
+            FileManager.Instance.fileLocationSpot++;
             FileManager.Instance.GoToLocation(fileName);
+
         }
         else if (fileType == FileType.Txt)
         {
