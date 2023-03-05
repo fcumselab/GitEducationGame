@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Sirenix.OdinInspector;
 using TMPro;
 
-public class FileManager : MonoBehaviour
+public class FileManager : SerializedMonoBehaviour
 {
     [SerializeField] Dictionary<string, List<NewFile>> fileLists = new Dictionary<string, List<NewFile>>();
     [SerializeField] List<NewFile> stagedFileLists = new List<NewFile>();
 
+    [Header("FileLocation")]
     public string fileLocation;
     public int fileLocationSpot = 0;
     [SerializeField] public List<string> fileLocationHistory = new List<string>();
@@ -38,6 +40,7 @@ public class FileManager : MonoBehaviour
 
         UpdateFileLocationText();
         AddNewFile("aaa.txt", fileLocation);
+        AddNewFile("newLocation", fileLocation);
         AddNewFile("bbb.txt", fileLocation);
         AddNewFile("ccc.txt", fileLocation);
         UpdateFileSystemUI();
@@ -45,15 +48,8 @@ public class FileManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {//點擊資料夾觸發，所以會往下走
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            fileLocationSpot++;
-            fileLocationHistory.Add("test" + fileLocationHistory.Count);
+    {
 
-            GoToLocation("test" + (fileLocationHistory.Count - 1));
-
-        }
 
     }
 
@@ -67,15 +63,18 @@ public class FileManager : MonoBehaviour
         fileLocation = location;
 
         UpdateFileLocationText();
+        UpdateFileSystemUI();
     }
 
     public void AddNewFile(string name, string location, string content = "")
     {
-        NewFile newfile = new NewFile(name, location, content);
+        
+        NewFile newfile = new(name, location, content);
+        
         if (fileLists.ContainsKey(location)) fileLists[location].Add(newfile);
         else
         {
-            List<NewFile> newFileList = new List<NewFile>();
+            List<NewFile> newFileList = new();
             newFileList.Add(newfile);
             fileLists.Add(location, newFileList);
         }
@@ -94,7 +93,16 @@ public class FileManager : MonoBehaviour
             {
                 Transform fileObject = transform.Find("file" + i);
                 fileObject.gameObject.SetActive(true);
+                fileObject.GetComponent<NewFile>().UpdateFileValue(fileLists[fileLocation][i-1]);
                 fileObject.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = fileLists[fileLocation][i - 1].GetName();
+            }
+        }
+        else
+        {
+            for (int i = 1; i <= 8; i++)
+            {
+                Transform fileObject = transform.Find("file" + i);
+                fileObject.gameObject.SetActive(false);
             }
         }
     }
