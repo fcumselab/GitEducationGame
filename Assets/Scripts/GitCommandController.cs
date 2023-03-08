@@ -40,10 +40,8 @@ public class GitCommandController : MonoBehaviour
     [SerializeField] Scrollbar fieldHistoryCommandsScrollbar;
 
     [Header("GitCommands")]
-    [SerializeField] InitCommand initCommand;
-    [SerializeField] AddCommand addCommand;
+    [SerializeField] GameObject gitCommands;
 
-    
     //Singleton instantation
     private static GitCommandController instance;
     public static GitCommandController Instance
@@ -128,8 +126,10 @@ public class GitCommandController : MonoBehaviour
         if (findList.Count == 0 && commandList.Count > 1) AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
         else if (findList.Count == 1)
         {
-            if (commandList[1] == "init") initCommand.RunCommand(commandList);
-            if (commandList[1] == "add") addCommand.RunCommand(commandList);
+            if (commandList[1] == "init") gitCommands.GetComponent<InitCommand>().RunCommand(commandList);
+            else if (commandList[1] == "add") gitCommands.GetComponent<AddCommand>().RunCommand(commandList);
+            else if (commandList[1] == "commit") gitCommands.GetComponent<CommitCommand>().RunCommand(commandList);
+
         }
 
     }

@@ -11,7 +11,6 @@ public class AddCommand : MonoBehaviour
 
     public void RunCommand(List<string> commandList)
     {
-        Debug.Log("run git add");
         if(commandList.Count > 2)
         {
             FileManager.Instance.FindFile(commandList[2]);

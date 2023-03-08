@@ -40,9 +40,15 @@ public class FileManager : SerializedMonoBehaviour
         UpdateFileLocationText();
         AddNewFile("1.txt", fileLocation,0);
         AddNewFile("aLoc", fileLocation,0);
+        AddNewFile("aa.txt", fileLocation + "\\aLoc", 1);
+
+
         AddNewFile("bLoc", fileLocation,0);
-        AddNewFile("baLoc", "bLoc", 1);
-        AddNewFile("b.txt", "bLoc", 1);
+        AddNewFile("baLoc", fileLocation + "\\bLoc", 1);
+        AddNewFile("baa.txt", fileLocation + "\\bLoc\\baLoc", 2);
+
+
+        AddNewFile("b.txt", fileLocation + "\\bLoc", 1);
 
         AddNewFile("2.txt", fileLocation,0);
 
@@ -76,13 +82,8 @@ public class FileManager : SerializedMonoBehaviour
 
     public void UpdateFileLocationText()
     {
-        string newLocation = "";
-        for(int i=0; i< fileLocationHistory.Count-1;i++)
-        {
-            newLocation += (fileLocationHistory[i] + "\\");
-        }
-        commandText.text = (newLocation + fileLocation);
-        fileSystemText.text = (newLocation + fileLocation + "> ");
+        commandText.text = fileLocation;
+        fileSystemText.text = fileLocation + "> ";
     }
 
     public void UpdateFileSystemUI()
