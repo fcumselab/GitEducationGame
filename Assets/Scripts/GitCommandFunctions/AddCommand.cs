@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class AddCommand : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
     public void RunCommand(List<string> commandList)
     {
         if(commandList.Count > 2)

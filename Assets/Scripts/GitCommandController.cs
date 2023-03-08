@@ -9,32 +9,24 @@ using TMPro;
 public class GitCommandController : MonoBehaviour
 {
     TMP_InputField tmpInputField;
-    int historyIndex = -1;
 
     List<string> gitCommandsDictionary = new List<string>{
-        "git",
-        "good"
+        "git", "good"
     };
-
     List<string> gitCommandsDictionary2 = new List<string>{
-        "git add",
-        "git am",
-        "git aply",
-        "git askme",
-        "git askyou",
+        "git add", "git am", "git aply", "git askme", "git askyou",
         "git commit",
         "git init",
         "git push",
         "git remote"
-
     };
-
     List<string> gitCommandsDictionary3 = new List<string>{
-        "git remote add",
+        "git remote add"
     };
 
 
     [Header("HistoryCommands")]
+    int historyIndex = -1;
     List<string> historyCommands = new List<string>();
     [SerializeField] TextMeshProUGUI fieldHistoryCommands;
     [SerializeField] Scrollbar fieldHistoryCommandsScrollbar;
@@ -79,7 +71,7 @@ public class GitCommandController : MonoBehaviour
         /* history commands system */
         if (Input.GetKeyDown(KeyCode.UpArrow) && historyIndex != 0 && historyCommands.Count != 0)
         {
-            if(historyIndex == -1) historyIndex = historyCommands.Count;
+            if (historyIndex == -1) historyIndex = historyCommands.Count;
             tmpInputField.text = historyCommands[--historyIndex];
             tmpInputField.caretPosition = tmpInputField.text.Length;
         }
@@ -106,7 +98,7 @@ public class GitCommandController : MonoBehaviour
                 commandList.Add(saveCommand);
                 saveCommand = "";
             }
-            else if(ch != ' ') saveCommand += ch;
+            else if (ch != ' ') saveCommand += ch;
         }
         if (saveCommand != "") commandList.Add(saveCommand);
         return commandList;
@@ -144,8 +136,7 @@ public class GitCommandController : MonoBehaviour
 
 
 
-
-    /* AutoComplete Functions Start */
+    # region AutoComplete Functions
     void AutoCompleteCommand(List<string> findList)
     {
         tmpInputField.text = findList[0];
@@ -234,7 +225,7 @@ public class GitCommandController : MonoBehaviour
                 break;
         }
     }
-    /* AutoComplete Functions End */
+    #endregion
 
 }
 

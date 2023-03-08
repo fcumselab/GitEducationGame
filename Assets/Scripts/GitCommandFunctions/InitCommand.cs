@@ -5,10 +5,6 @@ using UnityEngine;
 public class InitCommand : MonoBehaviour
 {
     [SerializeField] GameObject fieldCommit;
-    void Start()
-    {
-        
-    }
 
     public void RunCommand(List<string> commandList)
     {

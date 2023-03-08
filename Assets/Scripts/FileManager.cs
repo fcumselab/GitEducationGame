@@ -8,7 +8,6 @@ using TMPro;
 public class FileManager : SerializedMonoBehaviour
 {
     [SerializeField] Dictionary<string, List<NewFile>> fileLists = new Dictionary<string, List<NewFile>>();
-    [SerializeField] List<NewFile> stagedFileLists = new List<NewFile>();
 
     [Header("FileLocation")]
     public string fileLocation;
@@ -31,7 +30,6 @@ public class FileManager : SerializedMonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         fileLocationSpot = 0;
@@ -52,13 +50,13 @@ public class FileManager : SerializedMonoBehaviour
 
         AddNewFile("2.txt", fileLocation,0);
 
-
         UpdateFileSystemUI();
+        StageFileManager.Instance.UpdateUI();
+
     }
 
     public void GoToLocation(string location)
     {
-       
         PageButtonUp.UpdateButton(fileLocationSpot, fileLocationHistory.Count);
         fileLocation = location;
 
@@ -70,7 +68,7 @@ public class FileManager : SerializedMonoBehaviour
     {
         
         NewFile newfile = new(name, location, level,  content);
-        
+
         if (fileLists.ContainsKey(location)) fileLists[location].Add(newfile);
         else
         {
@@ -78,6 +76,8 @@ public class FileManager : SerializedMonoBehaviour
             newFileList.Add(newfile);
             fileLists.Add(location, newFileList);
         }
+
+        if (name.Split(".").Length != 1) StageFileManager.Instance.unstagedFileLists.Add(newfile); //Folder
     }
 
     public void UpdateFileLocationText()
@@ -111,7 +111,12 @@ public class FileManager : SerializedMonoBehaviour
         {
             NewFile newfile = fileLists[fileLocation].Find(file => file.GetName() == fileName);
             try{
-                if(newfile.GetName() != "") stagedFileLists.Add(newfile);
+                if (newfile.GetName() != "")
+                {
+                    StageFileManager.Instance.stagedFileLists.Add(newfile);
+                    StageFileManager.Instance.unstagedFileLists.Remove(newfile);
+                    StageFileManager.Instance.UpdateUI();
+                }
             }
             catch
             {
