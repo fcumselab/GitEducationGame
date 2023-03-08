@@ -11,7 +11,14 @@ public class CommitCommand : MonoBehaviour
         {
             if(commandList[2] == "-m" || commandList[2] == "--message")
             {
-                Debug.Log(commandList[2]);
+                if(commandList.Count == 3)
+                {
+                    GitCommandController.Instance.AddFieldHistoryCommand("Please add a comment\n");
+                }
+                else if(commandList.Count == 4)
+                {
+
+                }
             }
         }
         else

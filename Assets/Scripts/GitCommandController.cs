@@ -23,7 +23,7 @@ public class GitCommandController : MonoBehaviour
     List<string> gitCommandsDictionary3 = new List<string>{
         "git remote add"
     };
-
+    bool isInitial = false;
 
     [Header("HistoryCommands")]
     int historyIndex = -1;
@@ -118,9 +118,24 @@ public class GitCommandController : MonoBehaviour
         if (findList.Count == 0 && commandList.Count > 1) AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
         else if (findList.Count == 1)
         {
-            if (commandList[1] == "init") gitCommands.GetComponent<InitCommand>().RunCommand(commandList);
-            else if (commandList[1] == "add" || commandList[1] == "reset") gitCommands.GetComponent<AddCommand>().RunCommand(commandList);
-            else if (commandList[1] == "commit") gitCommands.GetComponent<CommitCommand>().RunCommand(commandList);
+            if (isInitial)
+            {
+                if (commandList[1] == "init") AddFieldHistoryCommand("Already have existing Git repository.\n");
+                else if (commandList[1] == "add" || commandList[1] == "reset") gitCommands.GetComponent<AddCommand>().RunCommand(commandList);
+                else if (commandList[1] == "commit") gitCommands.GetComponent<CommitCommand>().RunCommand(commandList);
+            }
+            else
+            {
+                if (commandList[1] == "init")
+                {
+                    gitCommands.GetComponent<InitCommand>().RunCommand(commandList);
+                    isInitial = true;
+                }
+                else
+                {
+                    AddFieldHistoryCommand("You don\'t have Git repository. Please create one.\n");
+                }
+            }
 
         }
 
