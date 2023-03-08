@@ -113,9 +113,21 @@ public class FileManager : SerializedMonoBehaviour
             try{
                 if (newfile.GetName() != "")
                 {
-                    StageFileManager.Instance.stagedFileLists.Add(newfile);
-                    StageFileManager.Instance.unstagedFileLists.Remove(newfile);
-                    StageFileManager.Instance.UpdateUI();
+                    Debug.Log(fileName + " " + fileLocation);
+                    if (StageFileManager.Instance.unstagedFileLists.Exists(file => (file.GetName() == fileName && file.GetLocation() == fileLocation)))
+                    {
+                        StageFileManager.Instance.stagedFileLists.Add(newfile);
+                        for(int i=0; i< StageFileManager.Instance.unstagedFileLists.Count; i++)
+                        {
+                            if(StageFileManager.Instance.unstagedFileLists[i].GetName() == fileName && StageFileManager.Instance.unstagedFileLists[i].GetLocation() == fileLocation)
+                            {
+                                StageFileManager.Instance.unstagedFileLists.RemoveAt(i);
+                                break;
+                            }
+                        }
+                        StageFileManager.Instance.UpdateUI();
+                    }
+                    else GitCommandController.Instance.AddFieldHistoryCommand("Already add" + fileName + " file.\n");
                 }
             }
             catch
