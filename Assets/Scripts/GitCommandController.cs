@@ -15,7 +15,7 @@ public class GitCommandController : MonoBehaviour
     };
     List<string> gitCommandsDictionary2 = new List<string>{
         "git add", "git am", "git aply", "git askme", "git askyou",
-        "git commit",
+        "git commit", "git reset",
         "git init",
         "git push",
         "git remote"
@@ -119,7 +119,7 @@ public class GitCommandController : MonoBehaviour
         else if (findList.Count == 1)
         {
             if (commandList[1] == "init") gitCommands.GetComponent<InitCommand>().RunCommand(commandList);
-            else if (commandList[1] == "add") gitCommands.GetComponent<AddCommand>().RunCommand(commandList);
+            else if (commandList[1] == "add" || commandList[1] == "reset") gitCommands.GetComponent<AddCommand>().RunCommand(commandList);
             else if (commandList[1] == "commit") gitCommands.GetComponent<CommitCommand>().RunCommand(commandList);
 
         }

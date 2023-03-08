@@ -105,7 +105,7 @@ public class FileManager : SerializedMonoBehaviour
         }
     }
 
-    public void FindFile(string fileName)
+    public void FindFile(string fileName, string type)
     {
         if (fileLists.ContainsKey(fileLocation))
         {
@@ -113,21 +113,40 @@ public class FileManager : SerializedMonoBehaviour
             try{
                 if (newfile.GetName() != "")
                 {
-                    Debug.Log(fileName + " " + fileLocation);
-                    if (StageFileManager.Instance.unstagedFileLists.Exists(file => (file.GetName() == fileName && file.GetLocation() == fileLocation)))
+                    if (type == "add")
                     {
-                        StageFileManager.Instance.stagedFileLists.Add(newfile);
-                        for(int i=0; i< StageFileManager.Instance.unstagedFileLists.Count; i++)
+                        if (StageFileManager.Instance.unstagedFileLists.Exists(file => (file.GetName() == fileName && file.GetLocation() == fileLocation)))
                         {
-                            if(StageFileManager.Instance.unstagedFileLists[i].GetName() == fileName && StageFileManager.Instance.unstagedFileLists[i].GetLocation() == fileLocation)
+                            StageFileManager.Instance.stagedFileLists.Add(newfile);
+                            for (int i = 0; i < StageFileManager.Instance.unstagedFileLists.Count; i++)
                             {
-                                StageFileManager.Instance.unstagedFileLists.RemoveAt(i);
-                                break;
+                                if (StageFileManager.Instance.unstagedFileLists[i].GetName() == fileName && StageFileManager.Instance.unstagedFileLists[i].GetLocation() == fileLocation)
+                                {
+                                    StageFileManager.Instance.unstagedFileLists.RemoveAt(i);
+                                    break;
+                                }
                             }
+                            StageFileManager.Instance.UpdateUI();
                         }
-                        StageFileManager.Instance.UpdateUI();
+                        else GitCommandController.Instance.AddFieldHistoryCommand("Already add" + fileName + " file.\n");
                     }
-                    else GitCommandController.Instance.AddFieldHistoryCommand("Already add" + fileName + " file.\n");
+                    else if (type == "reset")
+                    {
+                        if (StageFileManager.Instance.stagedFileLists.Exists(file => (file.GetName() == fileName && file.GetLocation() == fileLocation)))
+                        {
+                            StageFileManager.Instance.unstagedFileLists.Add(newfile);
+                            for (int i = 0; i < StageFileManager.Instance.stagedFileLists.Count; i++)
+                            {
+                                if (StageFileManager.Instance.stagedFileLists[i].GetName() == fileName && StageFileManager.Instance.stagedFileLists[i].GetLocation() == fileLocation)
+                                {
+                                    StageFileManager.Instance.stagedFileLists.RemoveAt(i);
+                                    break;
+                                }
+                            }
+                            StageFileManager.Instance.UpdateUI();
+                        }
+                        else GitCommandController.Instance.AddFieldHistoryCommand("Not found " + fileName + " file.\n");
+                    }
                 }
             }
             catch
