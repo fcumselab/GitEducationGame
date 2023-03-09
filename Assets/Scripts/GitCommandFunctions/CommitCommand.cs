@@ -17,7 +17,11 @@ public class CommitCommand : MonoBehaviour
                 }
                 else if(commandList.Count == 4)
                 {
-
+                    if(StageFileManager.Instance.stagedFileLists.Count != 0)
+                    {
+                        
+                    }
+                    else GitCommandController.Instance.AddFieldHistoryCommand("No changes added to commit\n");
                 }
             }
         }

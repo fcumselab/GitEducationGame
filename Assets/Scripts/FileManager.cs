@@ -18,6 +18,7 @@ public class FileManager : SerializedMonoBehaviour
 
     [SerializeField] TextMeshProUGUI commandText;
     [SerializeField] TextMeshProUGUI fileSystemText;
+    [SerializeField] RectTransform fieldInputTextBox;
     
     //Singleton instantation
     private static FileManager instance;
@@ -83,6 +84,8 @@ public class FileManager : SerializedMonoBehaviour
     public void UpdateFileLocationText()
     {
         commandText.text = fileLocation;
+        Debug.Log(commandText.text.Length);
+        fieldInputTextBox.offsetMin = new Vector2(22 + commandText.text.Length * 22, fieldInputTextBox.offsetMin.y);
         fileSystemText.text = fileLocation + "> ";
     }
 
