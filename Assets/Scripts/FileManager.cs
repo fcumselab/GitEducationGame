@@ -84,7 +84,6 @@ public class FileManager : SerializedMonoBehaviour
     public void UpdateFileLocationText()
     {
         commandText.text = fileLocation;
-        Debug.Log(commandText.text.Length);
         fieldInputTextBox.offsetMin = new Vector2(22 + commandText.text.Length * 22, fieldInputTextBox.offsetMin.y);
         fileSystemText.text = fileLocation + "> ";
     }
@@ -112,41 +111,24 @@ public class FileManager : SerializedMonoBehaviour
     {
         if (fileLists.ContainsKey(fileLocation))
         {
-            NewFile newfile = fileLists[fileLocation].Find(file => file.GetName() == fileName);
+
+            NewFile newfile = fileLists[fileLocation].Find(file => (file.GetName() == fileName || file.GetName().Split(".")[0] == fileName));
             try{
                 if (newfile.GetName() != "")
                 {
                     if (type == "add")
                     {
-                        if (StageFileManager.Instance.unstagedFileLists.Exists(file => (file.GetName() == fileName && file.GetLocation() == fileLocation)))
+                        if (StageFileManager.Instance.unstagedFileLists.Exists(file => (file.GetName() == fileName || file.GetName().Split(".")[0] == fileName) && file.GetLocation() == fileLocation))
                         {
-                            StageFileManager.Instance.stagedFileLists.Add(newfile);
-                            for (int i = 0; i < StageFileManager.Instance.unstagedFileLists.Count; i++)
-                            {
-                                if (StageFileManager.Instance.unstagedFileLists[i].GetName() == fileName && StageFileManager.Instance.unstagedFileLists[i].GetLocation() == fileLocation)
-                                {
-                                    StageFileManager.Instance.unstagedFileLists.RemoveAt(i);
-                                    break;
-                                }
-                            }
-                            StageFileManager.Instance.UpdateUI();
+                            MoveToStageList(newfile, fileName);
                         }
                         else GitCommandController.Instance.AddFieldHistoryCommand("Already add" + fileName + " file.\n");
                     }
                     else if (type == "reset")
                     {
-                        if (StageFileManager.Instance.stagedFileLists.Exists(file => (file.GetName() == fileName && file.GetLocation() == fileLocation)))
+                        if (StageFileManager.Instance.stagedFileLists.Exists(file => (file.GetName() == fileName || file.GetName().Split(".")[0] == fileName) && file.GetLocation() == fileLocation))
                         {
-                            StageFileManager.Instance.unstagedFileLists.Add(newfile);
-                            for (int i = 0; i < StageFileManager.Instance.stagedFileLists.Count; i++)
-                            {
-                                if (StageFileManager.Instance.stagedFileLists[i].GetName() == fileName && StageFileManager.Instance.stagedFileLists[i].GetLocation() == fileLocation)
-                                {
-                                    StageFileManager.Instance.stagedFileLists.RemoveAt(i);
-                                    break;
-                                }
-                            }
-                            StageFileManager.Instance.UpdateUI();
+                            MoveToUnstageList(newfile, fileName);
                         }
                         else GitCommandController.Instance.AddFieldHistoryCommand("Not found " + fileName + " file.\n");
                     }
@@ -154,8 +136,51 @@ public class FileManager : SerializedMonoBehaviour
             }
             catch
             {
-                GitCommandController.Instance.AddFieldHistoryCommand("Cound't find " + fileName + " file.\n");
+                if (fileName == ".")
+                {
+                    foreach (NewFile f in fileLists[fileLocation])
+                    {
+                        if (type == "add" && StageFileManager.Instance.unstagedFileLists.Exists(file => (file.GetName() == f.GetName() && file.GetLocation() == fileLocation)))
+                        {
+                            MoveToStageList(f, f.GetName());
+                        }
+                        else if (type == "reset" && StageFileManager.Instance.stagedFileLists.Exists(file => (file.GetName() == f.GetName() && file.GetLocation() == fileLocation)))
+                        {
+                            MoveToUnstageList(f, f.GetName());
+                        }
+                    }
+                }
+                else GitCommandController.Instance.AddFieldHistoryCommand("Cound't find " + fileName + " file.\n");
             }
         }
     }
+
+    void MoveToStageList(NewFile newfile, string fileName)
+    {
+        StageFileManager.Instance.stagedFileLists.Add(newfile);
+        for (int i = 0; i < StageFileManager.Instance.unstagedFileLists.Count; i++)
+        {
+            if ((StageFileManager.Instance.unstagedFileLists[i].GetName() == fileName || StageFileManager.Instance.unstagedFileLists[i].GetName().Split(".")[0] == fileName) && StageFileManager.Instance.unstagedFileLists[i].GetLocation() == fileLocation)
+            {
+                StageFileManager.Instance.unstagedFileLists.RemoveAt(i);
+                break;
+            }
+        }
+        StageFileManager.Instance.UpdateUI();
+    }
+
+    void MoveToUnstageList(NewFile newfile, string fileName)
+    {
+        StageFileManager.Instance.unstagedFileLists.Add(newfile);
+        for (int i = 0; i < StageFileManager.Instance.stagedFileLists.Count; i++)
+        {
+            if ((StageFileManager.Instance.stagedFileLists[i].GetName() == fileName || StageFileManager.Instance.stagedFileLists[i].GetName().Split(".")[0] == fileName) && StageFileManager.Instance.stagedFileLists[i].GetLocation() == fileLocation)
+            {
+                StageFileManager.Instance.stagedFileLists.RemoveAt(i);
+                break;
+            }
+        }
+        StageFileManager.Instance.UpdateUI();
+    }
 }
+
