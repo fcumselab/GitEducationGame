@@ -90,4 +90,11 @@ public class NewFile : SerializedMonoBehaviour
     {
         return content;
     }
+
+    public string GetFileType()
+    {
+        if (fileType == FileType.Folder) return "folder";
+        else if (fileType == FileType.Txt) return "txt";
+        return "";
+    }
 }
