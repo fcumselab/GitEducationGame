@@ -37,7 +37,7 @@ public class FileManager : SerializedMonoBehaviour
         fileLocationHistory.Add(fileLocation);
 
         UpdateFileLocationText();
-        AddNewFile("1.txt", fileLocation,0);
+        AddNewFile("a1.txt", fileLocation,0);
         AddNewFile("aLoc", fileLocation,0);
         AddNewFile("aa.txt", fileLocation + "\\aLoc", 1);
 
@@ -106,6 +106,23 @@ public class FileManager : SerializedMonoBehaviour
             Transform fileObject = transform.Find("file" + i);
             fileObject.gameObject.SetActive(false);
         }
+    }
+
+    public List<string> FindFile(string type, string keyword = "")
+    {
+        List<string> result = new List<string>();
+
+        if (type == "cd")
+        {
+            List<NewFile> findList = fileLists[fileLocation].FindAll(file => file.GetFileType() == "folder" && file.GetName().StartsWith(keyword));
+            foreach (NewFile f in findList) result.Add("cd " + f.GetName());
+        }
+        else if (type == "add" || type == "reset")
+        {
+            List<NewFile> findList = fileLists[fileLocation].FindAll(file => file.GetName().StartsWith(keyword));
+            foreach (NewFile f in findList) result.Add("git " + type + " " + f.GetName());
+        }
+        return result;
     }
 
     public void FindFile(string fileName, string type, string location)

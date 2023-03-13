@@ -159,21 +159,45 @@ public class GitCommandController : MonoBehaviour
         tmpInputField.caretPosition = tmpInputField.text.Length;
     }
 
-    void CleanDictionaryCommand(List<string> findList, string keyword = "")
+    void CleanDictionaryCommand(List<string> findList, List<string> commandList, string keyword = "")
     {
-        if (keyword != "")
+        if (findList.Count != 0)
         {
-            for (int i = 0; i < findList.Count; i++)
+            if (keyword != "")
             {
-                findList[i] = findList[i].Replace(keyword, "");
-                findList[i] = findList[i].Trim();
+                for (int i = 0; i < findList.Count; i++)
+                {
+                    findList[i] = findList[i].Replace(keyword, "");
+                    findList[i] = findList[i].Trim();
+                }
+            }
+
+            string list = "";
+            foreach (var c in findList) list += (c + " ");
+
+            if (list.Length != 0) AddFieldHistoryCommand(list);
+        }
+        else
+        {
+            if (commandList[0] == "cd")
+            {
+                if(commandList.Count == 1) findList = FileManager.Instance.FindFile("cd", "");
+                else findList = FileManager.Instance.FindFile("cd", commandList[1]);
+
+                if (findList.Count == 1) AutoCompleteCommand(findList);
+                else CleanDictionaryCommand(findList, commandList, commandList[0]);
+            }
+            else if(commandList[0] == "git" && (commandList[1] == "add" || commandList[1] == "reset"))
+            {
+                if (commandList.Count == 2) findList = FileManager.Instance.FindFile(commandList[1], "");
+                else findList = FileManager.Instance.FindFile(commandList[1], commandList[2]);
+
+                if (findList.Count == 1) AutoCompleteCommand(findList);
+                else CleanDictionaryCommand(findList, commandList, "git " + commandList[1]);
             }
         }
 
-        string list = "";
-        foreach (var c in findList) list += (c + " ");
-
-        AddFieldHistoryCommand(list);
+        
     }
 
     void FindCommand(string command)
@@ -187,22 +211,22 @@ public class GitCommandController : MonoBehaviour
             case 0: //Find empty text
                 findList = gitCommandsDictionary;
                 if (findList.Count == 1) AutoCompleteCommand(findList);
-                else CleanDictionaryCommand(findList);
+                else CleanDictionaryCommand(findList, commandList);
                 break;
             case 1:
                 //Find ex: gi
                 if (command[command.Length - 1] != ' ')
                 {
-                    findList = gitCommandsDictionary.FindAll(command => command.Contains(commandList[0]));
+                    findList = gitCommandsDictionary.FindAll(command => command.StartsWith(commandList[0]));
                     if (findList.Count == 1) AutoCompleteCommand(findList);
-                    else CleanDictionaryCommand(findList);
+                    else CleanDictionaryCommand(findList, commandList);
 
                 }
                 else //Find ex: git_
                 {
-                    findList = gitCommandsDictionary2.FindAll(command => command.Contains(commandList[0] + " "));
+                    findList = gitCommandsDictionary2.FindAll(command => command.StartsWith(commandList[0] + " "));
                     if (findList.Count == 1) AutoCompleteCommand(findList);
-                    else CleanDictionaryCommand(findList, commandList[0]);
+                    else CleanDictionaryCommand(findList, commandList, commandList[0]);
                 }
 
                 break;
@@ -210,25 +234,25 @@ public class GitCommandController : MonoBehaviour
                 //Find ex: git_a
                 if (command[command.Length - 1] != ' ')
                 {
-                    findList = gitCommandsDictionary2.FindAll(command => command.Contains(commandList[0] + " " + commandList[1]));
+                    findList = gitCommandsDictionary2.FindAll(command => command.StartsWith(commandList[0] + " " + commandList[1]));
                     if (findList.Count == 1) AutoCompleteCommand(findList);
-                    else CleanDictionaryCommand(findList, commandList[0] + " ");
+                    else CleanDictionaryCommand(findList, commandList, commandList[0] + " ");
                 }
                 else //Find ex: git_add_
                 {
-                    findList = gitCommandsDictionary3.FindAll(command => command.Contains(commandList[0] + " " + commandList[1] + " "));
+                    findList = gitCommandsDictionary3.FindAll(command => command.StartsWith(commandList[0] + " " + commandList[1] + " "));
                     if (findList.Count == 1) AutoCompleteCommand(findList);
-                    else CleanDictionaryCommand(findList, commandList[0] + " " + commandList[1]);
+                    else CleanDictionaryCommand(findList, commandList, commandList[0] + " " + commandList[1]);
                 }
                 break;
-            case 3: //Find ex:git_add_rem
+            case 3: //Find ex:git_remote_ad
                 if (command[command.Length - 1] != ' ')
                 {
-                    findList = gitCommandsDictionary3.FindAll(command => command.Contains(commandList[0] + " " + commandList[1]));
+                    findList = gitCommandsDictionary3.FindAll(command => command.StartsWith(commandList[0] + " " + commandList[1]));
                     if (findList.Count == 1) AutoCompleteCommand(findList);
-                    else CleanDictionaryCommand(findList, commandList[0] + " ");
+                    else CleanDictionaryCommand(findList, commandList, commandList[0] + " ");
                 }
-                else //Find ex: git_add_remote_
+                else //Find ex: git_remote_add_
                 {
                     //gitCommandsDictionary4
                 }
