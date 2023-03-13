@@ -11,7 +11,7 @@ public class GitCommandController : MonoBehaviour
     TMP_InputField tmpInputField;
 
     List<string> gitCommandsDictionary = new List<string>{
-        "git", "good"
+        "git", "good", "cd"
     };
     List<string> gitCommandsDictionary2 = new List<string>{
         "git add", "git am", "git aply", "git askme", "git askyou",
@@ -106,38 +106,39 @@ public class GitCommandController : MonoBehaviour
 
 
     /*輸入指令時觸發的事件*/
-    void RunCommand(string command)
+    public void RunCommand(string command)
     {
         List<string> commandList = ShortedCommand(command);
         List<string> findList = new List<string>();
-        if (commandList.Count > 1)
+       
+        if(commandList[0] == "cd") gitCommands.GetComponent<FileCommand>().RunCommand(commandList);
+        else
         {
-            findList = gitCommandsDictionary2.FindAll(command => command.Contains(commandList[0] + " " + commandList[1]));
-        }
-
-        if (findList.Count == 0 && commandList.Count > 1) AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
-        else if (findList.Count == 1)
-        {
-            if (isInitial)
+            if (commandList.Count > 1) findList = gitCommandsDictionary2.FindAll(command => command.Contains(commandList[0] + " " + commandList[1]));
+            
+            if (findList.Count == 0 && commandList.Count > 1) AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
+            else if (findList.Count == 1)
             {
-                if (commandList[1] == "init") AddFieldHistoryCommand("Already have existing Git repository.\n");
-                else if (commandList[1] == "add" || commandList[1] == "reset") gitCommands.GetComponent<AddCommand>().RunCommand(commandList);
-                else if (commandList[1] == "commit") gitCommands.GetComponent<CommitCommand>().RunCommand(commandList);
-            }
-            else
-            {
-                if (commandList[1] == "init")
+                if (isInitial)
                 {
-                    gitCommands.GetComponent<InitCommand>().RunCommand(commandList);
-                    isInitial = true;
+                    if (commandList[1] == "init") AddFieldHistoryCommand("Already have existing Git repository.\n");
+                    else if (commandList[1] == "add" || commandList[1] == "reset") gitCommands.GetComponent<AddCommand>().RunCommand(commandList);
+                    else if (commandList[1] == "commit") gitCommands.GetComponent<CommitCommand>().RunCommand(commandList);
                 }
                 else
                 {
-                    AddFieldHistoryCommand("You don\'t have Git repository. Please create one.\n");
+                    if (commandList[1] == "init")
+                    {
+                        gitCommands.GetComponent<InitCommand>().RunCommand(commandList);
+                        isInitial = true;
+                    }
+                    else AddFieldHistoryCommand("You don\'t have Git repository. Please create one.\n");
                 }
             }
-
         }
+
+
+        
 
     }
 
@@ -170,11 +171,7 @@ public class GitCommandController : MonoBehaviour
         }
 
         string list = "";
-
-        foreach (var c in findList)
-        {
-            list += (c + " ");
-        }
+        foreach (var c in findList) list += (c + " ");
 
         AddFieldHistoryCommand(list);
     }

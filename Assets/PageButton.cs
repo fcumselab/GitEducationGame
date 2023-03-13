@@ -17,22 +17,19 @@ public class PageButton : MonoBehaviour
         button = GetComponent<Button>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public void ClickButton()
     {
-        if (buttonType == ButtonType.Up)
-        { 
-            FileManager.Instance.fileLocationHistory.RemoveAt(FileManager.Instance.fileLocationSpot);
-            FileManager.Instance.fileLocationSpot--;
-        }
+        if (button.interactable)
+        {
+            if (buttonType == ButtonType.Up)
+            {
+                FileManager.Instance.fileLocationHistory.RemoveAt(FileManager.Instance.fileLocationSpot);
+                FileManager.Instance.fileLocationSpot--;
+            }
 
-        FileManager.Instance.GoToLocation(FileManager.Instance.fileLocationHistory[FileManager.Instance.fileLocationSpot]);
-        UpdateButton(FileManager.Instance.fileLocationSpot, FileManager.Instance.fileLocationHistory.Count);
+            FileManager.Instance.GoToLocation(FileManager.Instance.fileLocationHistory[FileManager.Instance.fileLocationSpot]);
+            UpdateButton(FileManager.Instance.fileLocationSpot, FileManager.Instance.fileLocationHistory.Count);
+        }
     }
 
     public void UpdateButton(int nowPage, int pageCount)

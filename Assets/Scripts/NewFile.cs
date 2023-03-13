@@ -62,7 +62,6 @@ public class NewFile : SerializedMonoBehaviour
         if (fileType == FileType.Folder)
         {
             //go to next folder, file history add.
-            //Debug.Log("folder");
             string newFileLocation = FileManager.Instance.fileLocation + "\\" + fileName;
             FileManager.Instance.fileLocationHistory.Add(newFileLocation);
             FileManager.Instance.fileLocationSpot++;

@@ -14,7 +14,7 @@ public class FileManager : SerializedMonoBehaviour
     public int fileLocationSpot = 0;
     [SerializeField] public List<string> fileLocationHistory = new List<string>();
 
-    [SerializeField] PageButton PageButtonUp;
+    public PageButton PageButtonUp;
 
     [SerializeField] TextMeshProUGUI commandText;
     [SerializeField] TextMeshProUGUI fileSystemText;
@@ -53,6 +53,7 @@ public class FileManager : SerializedMonoBehaviour
 
         UpdateFileSystemUI();
         StageFileManager.Instance.UpdateUI();
+        GitCommandController.Instance.RunCommand("git init");
 
     }
 
@@ -133,6 +134,9 @@ public class FileManager : SerializedMonoBehaviour
                             MoveToUnstageList(newfile, fileName, location);
                         }
                         else GitCommandController.Instance.AddFieldHistoryCommand("Not found " + fileName + " file.\n");
+                    }else if(type == "cd")
+                    {
+                        newfile.ClickEvent();
                     }
                 }
             }
@@ -142,7 +146,7 @@ public class FileManager : SerializedMonoBehaviour
                 {
                     foreach (NewFile f in fileLists[location])
                     {
-                        if(type == "add")
+                        if (type == "add")
                         {
                             if (f.GetFileType() == "folder") FindFile(".", "add", f.GetLocation() + "\\" + f.GetName());
                             else if (StageFileManager.Instance.unstagedFileLists.Exists(file => (file.GetName() == f.GetName() && file.GetLocation() == location)))
@@ -150,7 +154,7 @@ public class FileManager : SerializedMonoBehaviour
                                 MoveToStageList(f, f.GetName(), location);
                             }
                         }
-                        else if(type == "reset")
+                        else if (type == "reset")
                         {
                             if (f.GetFileType() == "folder") FindFile(".", "reset", f.GetLocation() + "\\" + f.GetName());
                             else if (StageFileManager.Instance.stagedFileLists.Exists(file => (file.GetName() == f.GetName() && file.GetLocation() == location)))
@@ -160,7 +164,11 @@ public class FileManager : SerializedMonoBehaviour
                         }
                     }
                 }
-                else GitCommandController.Instance.AddFieldHistoryCommand("Cound't find " + fileName + " file.\n");
+                else
+                {
+                    if(type == "cd") GitCommandController.Instance.AddFieldHistoryCommand("Cannot find the path.\n");
+                    else GitCommandController.Instance.AddFieldHistoryCommand("Cannot find " + fileName + " file.\n");
+                }
             }
         }
     }

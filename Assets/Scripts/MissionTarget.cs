@@ -17,18 +17,11 @@ public class MissionTarget : MonoBehaviour
             return instance;
         }
     }
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         targetText = transform.Find("TargetText").GetComponent<TextMeshProUGUI>();
         targetText.text = "Mission Target";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void GetCommand(string command)
