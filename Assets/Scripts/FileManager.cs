@@ -54,6 +54,13 @@ public class FileManager : SerializedMonoBehaviour
         UpdateFileSystemUI();
         StageFileManager.Instance.UpdateUI();
         GitCommandController.Instance.RunCommand("git init");
+        GitCommandController.Instance.RunCommand("git add 2");
+        GitCommandController.Instance.RunCommand("git commit -m t1");
+        GitCommandController.Instance.RunCommand("git add bLoc");
+        GitCommandController.Instance.RunCommand("git commit -m t2");
+
+        GitCommandController.Instance.RunCommand("git add aLoc");
+
 
     }
 
