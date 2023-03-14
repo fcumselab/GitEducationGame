@@ -37,30 +37,29 @@ public class FileManager : SerializedMonoBehaviour
         fileLocationHistory.Add(fileLocation);
 
         UpdateFileLocationText();
-        AddNewFile("a1.txt", fileLocation,0);
+        
         AddNewFile("aLoc", fileLocation,0);
         AddNewFile("aa.txt", fileLocation + "\\aLoc", 1);
 
-
         AddNewFile("bLoc", fileLocation,0);
         AddNewFile("baLoc", fileLocation + "\\bLoc", 1);
+        AddNewFile("b.txt", fileLocation + "\\bLoc", 1);
         AddNewFile("baa.txt", fileLocation + "\\bLoc\\baLoc", 2);
 
-
-        AddNewFile("b.txt", fileLocation + "\\bLoc", 1);
-
+        AddNewFile("1.txt", fileLocation, 0);
         AddNewFile("2.txt", fileLocation,0);
 
         UpdateFileSystemUI();
         StageFileManager.Instance.UpdateUI();
         GitCommandController.Instance.RunCommand("git init");
-        GitCommandController.Instance.RunCommand("git add 2");
-        GitCommandController.Instance.RunCommand("git commit -m t1");
-        GitCommandController.Instance.RunCommand("git add bLoc");
-        GitCommandController.Instance.RunCommand("git commit -m t2");
-
+        /*
         GitCommandController.Instance.RunCommand("git add aLoc");
+        GitCommandController.Instance.RunCommand("git commit -m add_aLoc");
+        GitCommandController.Instance.RunCommand("git add bLoc");
+        GitCommandController.Instance.RunCommand("git commit -m add_bLoc");
 
+        GitCommandController.Instance.RunCommand("git add 1");
+        */
 
     }
 

@@ -35,15 +35,28 @@ public class CommitManager : MonoBehaviour
         StageFileManager.Instance.stagedFileLists.Clear();
         StageFileManager.Instance.UpdateUI();
 
+        FocusOnCommit();
         GameObject obj;
-        if(nowCommit != null) obj = Instantiate(commit, transform.position + intervel, Quaternion.identity);
-        else obj = Instantiate(commit, transform.position, Quaternion.identity);
-        
+        if (nowCommit != null)
+        {
+            obj = Instantiate(commit, transform.position + intervel, Quaternion.identity);
+            nowCommit.GetComponent<NewCommit>().UpdateSprite(false);
+        }
+        else
+        {
+            obj = Instantiate(commit, transform.position, Quaternion.identity);
+        }
+        obj.GetComponent<NewCommit>().UpdateSprite(true);
+
         obj.transform.SetParent(commitPanel.transform);
         obj.transform.localScale = new Vector3(1.5f, 1.5f, 1);
         obj.name = obj.GetComponent<NewCommit>().GetId();
         nowCommit = obj;
+        FocusOnCommit();
+
     }
+
+    
 
     public void FocusOnCommit() {
         if (nowCommit != null)

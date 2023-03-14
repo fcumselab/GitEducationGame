@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using TMPro;
 
 public class NewCommit : SerializedMonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] Image icon;
+    [SerializeField] TextMeshProUGUI textBoxId;
+    [SerializeField] TextMeshProUGUI textBoxMessage;
+
+    [Header("CommitDatas")]
     [SerializeField] string id;
     [SerializeField] string message;
     [SerializeField] List<NewFile> modifyFileList;
     [SerializeField] Dictionary<string, List<NewFile>> fileLists;
-
     [SerializeField] Dictionary<string, List<string>> preCommitList = new Dictionary<string, List<string>>();
-
-    [SerializeField] TextMeshProUGUI textBoxId;
-    [SerializeField] TextMeshProUGUI textBoxMessage;
 
     public void SetValue(string message, List<NewFile> stageFileList, string preCommitId = "", string nowBranch = "")
     {
@@ -46,5 +49,11 @@ public class NewCommit : SerializedMonoBehaviour
     public string GetId()
     {
         return id;
+    }
+
+    public void UpdateSprite(bool isNowCommit)
+    {
+        if (isNowCommit) icon.sprite = ImageManager.Instance.GetImage("CommitIconFocus");
+        else icon.sprite = ImageManager.Instance.GetImage("CommitIconNotFocus");
     }
 }

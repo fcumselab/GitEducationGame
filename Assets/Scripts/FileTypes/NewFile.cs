@@ -47,14 +47,8 @@ public class NewFile : SerializedMonoBehaviour
 
     void UpdateSprite()
     {
-        if (fileType == FileType.Folder)
-        {
-            icon.sprite = ImageManager.Instance.GetImage("fileIconFolder");
-        }
-        else if (fileType == FileType.Txt)
-        {
-            icon.sprite = ImageManager.Instance.GetImage("fileIconTxt");
-        }
+        if (fileType == FileType.Folder) icon.sprite = ImageManager.Instance.GetImage("fileIconFolder");
+        else if (fileType == FileType.Txt) icon.sprite = ImageManager.Instance.GetImage("fileIconTxt");
     }
 
     public void ClickEvent()
@@ -71,7 +65,7 @@ public class NewFile : SerializedMonoBehaviour
         }
         else if (fileType == FileType.Txt)
         {
-            Debug.Log("Txt");
+
         }
     }
 
