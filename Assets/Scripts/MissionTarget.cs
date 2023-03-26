@@ -20,12 +20,12 @@ public class MissionTarget : MonoBehaviour
     
     void Start()
     {
-        targetText = transform.Find("TargetText").GetComponent<TextMeshProUGUI>();
-        targetText.text = "Mission Target";
+        //targetText = transform.Find("TargetText").GetComponent<TextMeshProUGUI>();
+        //targetText.text = "Mission Target";
     }
 
     public void GetCommand(string command)
     {
-        targetText.text = command;
+        //targetText.text = command;
     }
 }
