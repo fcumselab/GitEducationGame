@@ -55,14 +55,17 @@ public class GitCommandController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            //MissionTarget.Instance.GetCommand(tmpInputField.text);
-            historyCommands.Add(tmpInputField.text);
-            AddFieldHistoryCommand(FileManager.Instance.fileLocation + "> " + tmpInputField.text);
-            RunCommand(tmpInputField.text);
+            if(tmpInputField.text.Trim() != "")
+            {
+                //MissionTarget.Instance.GetCommand(tmpInputField.text);
+                historyCommands.Add(tmpInputField.text);
+                AddFieldHistoryCommand(FileManager.Instance.fileLocation + "> " + tmpInputField.text);
+                RunCommand(tmpInputField.text);
 
-            fieldHistoryCommandsScrollbar.value = -1;
-            tmpInputField.text = "";
-            historyIndex = -1;
+                fieldHistoryCommandsScrollbar.value = -1;
+                tmpInputField.text = "";
+                historyIndex = -1;
+            }
         }
 
         /* autocomplete function */
@@ -110,7 +113,7 @@ public class GitCommandController : MonoBehaviour
     {
         List<string> commandList = ShortedCommand(command);
         List<string> findList = new List<string>();
-       
+        
         if(commandList[0] == "cd") gitCommands.GetComponent<FileCommand>().RunCommand(commandList);
         else
         {

@@ -41,4 +41,15 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void SetObjectActive(GameObject obj)
+    {
+        if (obj.activeSelf)
+        {
+            obj.SetActive(false);
+        }
+        else
+        {
+            obj.SetActive(true);
+        }
+    }
 }
