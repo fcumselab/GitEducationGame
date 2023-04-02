@@ -1,17 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class WindowManager : MonoBehaviour
 {
     [SerializeField] bool isEntering;
-    [SerializeField] Canvas canva;
-    [SerializeField] RectTransform targetPanel;
+    [SerializeField] int activeTipTextBox;
+    [SerializeField] List<GameObject> tipTextBoxs;
 
-    [SerializeField] Texture2D resizeMouseIcon;
+    //Singleton instantation
+    private static WindowManager instance;
+    public static WindowManager Instance
+    {
+        get
+        {
+            if (instance == null) instance = GameObject.FindObjectOfType<WindowManager>();
+            return instance;
+        }
+    }
 
-    CursorMode cursorMode = CursorMode.Auto;
-    Vector2 hotSpot = Vector2.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,26 +32,40 @@ public class WindowManager : MonoBehaviour
         
     }
 
-
-    public void DragObject(BaseEventData data)
+    public void ShowTipTextBox(string content)
     {
-        PointerEventData eventData = (PointerEventData)data;
-        targetPanel.anchoredPosition += eventData.delta / canva.scaleFactor;
-        //Debug.Log(targetPanel.anchoredPosition);
+        foreach(GameObject obj in tipTextBoxs)
+        {
+            if (!obj.activeSelf)
+            {
+                obj.SetActive(true);
+                obj.transform.Find("Text").GetComponent<Text>().text = content;
+                break;
+            }
+        }
+        
+        //tipTextBoxs[activeTipTextBox].SetActive(true);
+        //tipTextBoxs[activeTipTextBox].GetComponent<Animator>().Play("TipTextBoxShow");
+        //activeTipTextBox++;
+    } 
+
+    public void CloseTipTextBox(GameObject obj)
+    {
+        obj.SetActive(false);
+        //obj.GetComponent<Animator>().Play("TipTextBoxClose");
+        //activeTipTextBox--;
+    }
+    public void SetObjectActive(GameObject obj)
+    {
+
+        if (obj.activeSelf)
+        {
+            obj.SetActive(false);
+        }
+        else
+        {
+            obj.SetActive(true);
+        }
     }
 
-    public void EnterPanel(BaseEventData data)
-    {
-        isEntering = true;
-        //Debug.Log("enter");
-        //Cursor.SetCursor(resizeMouseIcon, hotSpot, cursorMode);
-    }
-
-    public void LeavePanel(BaseEventData data)
-    {
-        isEntering = false;
-        //Debug.Log("leave");
-
-        //Cursor.SetCursor(null, hotSpot, cursorMode);
-    }
 }
