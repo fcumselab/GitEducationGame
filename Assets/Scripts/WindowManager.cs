@@ -20,21 +20,11 @@ public class WindowManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ShowTipTextBox(string content)
     {
-        foreach(GameObject obj in tipTextBoxs)
+        //Debug.Log(tipTextBoxs.Count);
+
+        foreach (GameObject obj in tipTextBoxs)
         {
             if (!obj.activeSelf)
             {

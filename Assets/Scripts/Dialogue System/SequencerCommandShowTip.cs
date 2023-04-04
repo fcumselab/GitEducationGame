@@ -11,7 +11,7 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
         public void Start()
         {
             content = GetParameter(0);
-            Debug.Log("con: " + content);
+            //Debug.Log("con: " + content);
             WindowManager.Instance.ShowTipTextBox(content);
             
             Stop();
