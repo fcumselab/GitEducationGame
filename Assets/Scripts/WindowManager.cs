@@ -5,9 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class WindowManager : MonoBehaviour
 {
-    [SerializeField] bool isEntering;
-    [SerializeField] int activeTipTextBox;
-    [SerializeField] List<GameObject> tipTextBoxs;
+    [SerializeField] GameObject tipTextBox;
+    [SerializeField] GameObject tipTextBoxLocation;
 
     //Singleton instantation
     private static WindowManager instance;
@@ -22,28 +21,17 @@ public class WindowManager : MonoBehaviour
 
     public void ShowTipTextBox(string content)
     {
-        //Debug.Log(tipTextBoxs.Count);
-
-        foreach (GameObject obj in tipTextBoxs)
-        {
-            if (!obj.activeSelf)
-            {
-                obj.SetActive(true);
-                obj.transform.Find("Text").GetComponent<Text>().text = content;
-                break;
-            }
-        }
-        
-        //tipTextBoxs[activeTipTextBox].SetActive(true);
-        //tipTextBoxs[activeTipTextBox].GetComponent<Animator>().Play("TipTextBoxShow");
-        //activeTipTextBox++;
+        GameObject obj;
+        obj = Instantiate(tipTextBox, transform.position, Quaternion.identity);
+        obj.transform.SetParent(tipTextBoxLocation.transform);
+        obj.transform.Find("Text").GetComponent<Text>().text = content;
+        obj.transform.localScale = new Vector3(1, 1, 1);
+        obj.name = "TipTextBox";
     } 
 
     public void CloseTipTextBox(GameObject obj)
     {
-        obj.SetActive(false);
-        //obj.GetComponent<Animator>().Play("TipTextBoxClose");
-        //activeTipTextBox--;
+        Destroy(obj);
     }
     public void SetObjectActive(GameObject obj)
     {
