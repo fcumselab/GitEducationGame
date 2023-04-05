@@ -33,6 +33,7 @@ public class WindowManager : MonoBehaviour
     {
         Destroy(obj);
     }
+
     public void SetObjectActive(GameObject obj)
     {
 

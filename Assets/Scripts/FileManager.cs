@@ -7,6 +7,8 @@ using TMPro;
 
 public class FileManager : SerializedMonoBehaviour
 {
+    [SerializeField] int MaxFileNumbers;
+
     [SerializeField] Dictionary<string, List<NewFile>> fileLists = new Dictionary<string, List<NewFile>>();
 
     [Header("FileLocation")]
@@ -50,8 +52,8 @@ public class FileManager : SerializedMonoBehaviour
         AddNewFile("2.txt", fileLocation,0);
 
         UpdateFileSystemUI();
-        StageFileManager.Instance.UpdateUI();
-        GitCommandController.Instance.RunCommand("git init");
+        //StageFileManager.Instance.UpdateUI();
+        //GitCommandController.Instance.RunCommand("git init");
         /*
         GitCommandController.Instance.RunCommand("git add aLoc");
         GitCommandController.Instance.RunCommand("git commit -m add_aLoc");
@@ -85,7 +87,7 @@ public class FileManager : SerializedMonoBehaviour
             fileLists.Add(location, newFileList);
         }
 
-        if (name.Split(".").Length != 1) StageFileManager.Instance.unstagedFileLists.Add(newfile); //Folder
+        //if (name.Split(".").Length != 1) StageFileManager.Instance.unstagedFileLists.Add(newfile); //Folder
     }
 
     public void UpdateFileLocationText()
@@ -104,10 +106,11 @@ public class FileManager : SerializedMonoBehaviour
                 Transform fileObject = transform.Find("file" + i);
                 fileObject.gameObject.SetActive(true);
                 fileObject.GetComponent<NewFile>().UpdateFileValue(fileLists[fileLocation][i-1]);
-                fileObject.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = fileLists[fileLocation][i - 1].GetName();
+                fileObject.GetComponentInChildren<Text>().text = fileLists[fileLocation][i - 1].GetName();
+                //GetComponent<TextMeshProUGUI>().text = fileLists[fileLocation][i - 1].GetName();
             }
         }
-        for (; i <= 8; i++)
+        for (; i <= MaxFileNumbers; i++)
         {
             Transform fileObject = transform.Find("file" + i);
             fileObject.gameObject.SetActive(false);
