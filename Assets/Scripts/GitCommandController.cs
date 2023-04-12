@@ -141,8 +141,7 @@ public class GitCommandController : MonoBehaviour
         }
 
 
-        
-
+        FileManager.Instance.UpdateFileSystemUI();
     }
 
     /*用來將輸入的指令、找到的指令表顯示在記錄指令欄位*/

@@ -32,8 +32,7 @@ public class CommitManager : MonoBehaviour
         {
             commit.GetComponent<NewCommit>().SetValue(message, StageFileManager.Instance.stagedFileLists);
         }
-        StageFileManager.Instance.stagedFileLists.Clear();
-        StageFileManager.Instance.UpdateUI();
+        StageFileManager.Instance.ClearStageList();
 
         FocusOnCommit();
         GameObject obj;

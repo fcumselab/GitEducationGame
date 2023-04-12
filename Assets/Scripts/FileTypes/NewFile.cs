@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
@@ -32,10 +30,10 @@ public class NewFile : SerializedMonoBehaviour
             case FileDatas.StatusType.Unstaged:
                 statusIcon.sprite = ImageManager.Instance.GetImage("fileStatusUnstaged");
                 statusIcon.color = new Color32(255, 168, 165, 255);
-
                 break;
             case FileDatas.StatusType.Staged:
                 statusIcon.sprite = ImageManager.Instance.GetImage("fileStatusStaged");
+                statusIcon.color = new Color32(117, 196, 255, 255);
                 break;
             case FileDatas.StatusType.Uploaded:
                 statusIcon.sprite = ImageManager.Instance.GetImage("fileStatusUploaded");
@@ -53,21 +51,7 @@ public class NewFile : SerializedMonoBehaviour
 
     public void ClickEvent()
     {
-        if (fileDatas.fileType == FileDatas.FileType.Folder)
-        {
-            //go to next folder, file history add.
-            string newFileLocation = FileManager.Instance.fileLocation + "\\" + fileDatas.fileName;
-            FileManager.Instance.fileLocationHistory.Add(newFileLocation);
-            FileManager.Instance.fileLocationSpot++;
-            
-            FileManager.Instance.GoToLocation(newFileLocation);
-
-        }
-        else if (fileDatas.fileType == FileDatas.FileType.Txt)
-        {
-
-        }
+        fileDatas.ClickEvent();
     }
-
     
 }

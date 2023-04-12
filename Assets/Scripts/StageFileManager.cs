@@ -8,54 +8,53 @@ public class StageFileManager : MonoBehaviour
     public List<FileDatas> stagedFileLists = new List<FileDatas>();
     public List<FileDatas> unstagedFileLists = new List<FileDatas>();
 
-    [SerializeField] GameObject fieldStaged;
-    [SerializeField] GameObject fieldUnstaged;
-
     //Singleton instantation
     private static StageFileManager instance;
     public static StageFileManager Instance
     {
         get
         {
-            if (instance == null) instance = GameObject.FindObjectOfType<StageFileManager>();
+            if (instance == null) instance = FindObjectOfType<StageFileManager>();
             return instance;
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void ClearStageList()
     {
-        
+        foreach (var f in stagedFileLists)
+        {
+            f.SetStatus("uploaded");
+        }
+        stagedFileLists.Clear();
     }
 
-    public void UpdateUI()
+    public void MoveToStageList(FileDatas newfile, string fileName, string location)
     {
-        
-        int i;
-        for (i = 1; i <= unstagedFileLists.Count; i++)
+        stagedFileLists.Add(newfile);
+        newfile.SetStatus("staged");
+        for (int i = 0; i < unstagedFileLists.Count; i++)
         {
-            Transform fileObject = fieldUnstaged.transform.Find("file" + i);
-            fileObject.gameObject.SetActive(true);
-            fileObject.GetComponent<NewFile>().UpdateFileValue(unstagedFileLists[i - 1]);
-            fileObject.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = unstagedFileLists[i - 1].GetLocation() + "\\" + unstagedFileLists[i - 1].GetName();
-        }
-        for (; i <= 8; i++)
-        {
-            Transform fileObject = fieldUnstaged.transform.Find("file" + i);
-            fileObject.gameObject.SetActive(false);
-        }
-
-        for (i = 1; i <= stagedFileLists.Count; i++)
-        {
-            Transform fileObject = fieldStaged.transform.Find("file" + i);
-            fileObject.gameObject.SetActive(true);
-            fileObject.GetComponent<NewFile>().UpdateFileValue(stagedFileLists[i - 1]);
-            fileObject.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = stagedFileLists[i - 1].GetLocation() + "\\" + stagedFileLists[i - 1].GetName();
-        }
-        for (; i <= 8; i++)
-        {
-            Transform fileObject = fieldStaged.transform.Find("file" + i);
-            fileObject.gameObject.SetActive(false);
+            if ((unstagedFileLists[i].GetName() == fileName || unstagedFileLists[i].GetName().Split(".")[0] == fileName) && unstagedFileLists[i].GetLocation() == location)
+            {
+                unstagedFileLists.RemoveAt(i);
+                break;
+            }
         }
     }
+
+    public void MoveToUnstageList(FileDatas newfile, string fileName, string location)
+    {
+        unstagedFileLists.Add(newfile);
+        newfile.SetStatus("unstaged");
+        for (int i = 0; i < stagedFileLists.Count; i++)
+        {
+            if ((stagedFileLists[i].GetName() == fileName || stagedFileLists[i].GetName().Split(".")[0] == fileName) && stagedFileLists[i].GetLocation() == location)
+            {
+                stagedFileLists.RemoveAt(i);
+                break;
+            }
+        }
+    }
+
+    
 }

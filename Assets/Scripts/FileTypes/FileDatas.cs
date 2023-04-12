@@ -54,8 +54,41 @@ public class FileDatas : SerializedScriptableObject
 
     public string GetFileType()
     {
-        if (fileType == FileDatas.FileType.Folder) return "folder";
-        else if (fileType == FileDatas.FileType.Txt) return "txt";
+        if (fileType == FileType.Folder) return "folder";
+        else if (fileType == FileType.Txt) return "txt";
         return "";
+    }
+
+    public void SetStatus(string type)
+    {
+        switch (type)
+        {
+            case "unstaged":
+                statusType = StatusType.Unstaged;
+                break;
+            case "staged":
+                statusType = StatusType.Staged;
+                break;
+            case "uploaded":
+                statusType = StatusType.Uploaded;
+                break;
+        }
+    }
+
+    public void ClickEvent()
+    {
+        if (fileType == FileType.Folder)
+        {
+            //go to next folder, file history add.
+            string newFileLocation = FileManager.Instance.fileLocation + "\\" + fileName;
+            FileManager.Instance.fileLocationHistory.Add(newFileLocation);
+            FileManager.Instance.fileLocationSpot++;
+
+            FileManager.Instance.GoToLocation(newFileLocation);
+        }
+        else if (fileType == FileType.Txt)
+        {
+
+        }
     }
 }
