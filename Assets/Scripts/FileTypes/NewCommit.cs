@@ -9,8 +9,8 @@ public class NewCommit : SerializedMonoBehaviour
 {
     [Header("References")]
     [SerializeField] Image icon;
-    [SerializeField] TextMeshProUGUI textBoxId;
-    [SerializeField] TextMeshProUGUI textBoxMessage;
+    [SerializeField] Text textBoxId;
+    [SerializeField] Text textBoxMessage;
 
     [Header("CommitDatas")]
     [SerializeField] string id;
