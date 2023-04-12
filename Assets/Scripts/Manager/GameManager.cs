@@ -32,11 +32,11 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown("1"))
         {
-            Cursor.lockState = CursorLockMode.None;
+            //Cursor.lockState = CursorLockMode.None;
         }
         else if (Input.GetKeyDown("2"))
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            //Cursor.lockState = CursorLockMode.Confined;
         }
 
     }

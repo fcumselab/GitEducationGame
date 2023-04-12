@@ -6,6 +6,7 @@ public class CommitManager : MonoBehaviour
 {
     [SerializeField] GameObject commit;
     [SerializeField] GameObject commitPanel;
+    [SerializeField] GameObject spawnLocation;
 
 
     [SerializeField] Vector3 intervel;
@@ -25,12 +26,13 @@ public class CommitManager : MonoBehaviour
 
     public void AddNewCommit(string message)
     {
-        if(nowCommit != null)
+        CommitDatas newCommit = ScriptableObject.CreateInstance<CommitDatas>();
+        if (nowCommit != null)
         {
-            commit.GetComponent<NewCommit>().SetValue(message, StageFileManager.Instance.stagedFileLists, nowCommit.name, nowBranch);
+            newCommit.InitValue(message, StageFileManager.Instance.stagedFileLists, nowCommit.name, nowBranch);
         }else
         {
-            commit.GetComponent<NewCommit>().SetValue(message, StageFileManager.Instance.stagedFileLists);
+            newCommit.InitValue(message, StageFileManager.Instance.stagedFileLists);
         }
         StageFileManager.Instance.ClearStageList();
 
@@ -38,18 +40,19 @@ public class CommitManager : MonoBehaviour
         GameObject obj;
         if (nowCommit != null)
         {
-            obj = Instantiate(commit, transform.position + intervel, Quaternion.identity);
-            nowCommit.GetComponent<NewCommit>().UpdateSprite(false);
+            obj = Instantiate(commit, spawnLocation.transform.position + intervel, Quaternion.identity);
+            nowCommit.GetComponent<NewCommit>().UpdateCommitUI(false);
         }
         else
         {
-            obj = Instantiate(commit, transform.position, Quaternion.identity);
+            obj = Instantiate(commit, spawnLocation.transform.position, Quaternion.identity);
         }
-        obj.GetComponent<NewCommit>().UpdateSprite(true);
-
+        obj.SetActive(true);
+        obj.GetComponent<NewCommit>().SetCommitDatas(newCommit);
+        obj.GetComponent<NewCommit>().UpdateCommitUI(true);
         obj.transform.SetParent(commitPanel.transform);
         obj.transform.localScale = new Vector3(1.5f, 1.5f, 1);
-        obj.name = obj.GetComponent<NewCommit>().GetId();
+        obj.name = obj.GetComponent<NewCommit>().GetCommitDatas().GetId();
         nowCommit = obj;
         FocusOnCommit();
 
@@ -60,7 +63,7 @@ public class CommitManager : MonoBehaviour
     public void FocusOnCommit() {
         if (nowCommit != null)
         {
-            float diff = nowCommit.transform.position.y - transform.position.y;
+            float diff = nowCommit.transform.position.y - spawnLocation.transform.position.y;
             commitPanel.transform.position = new Vector2(commitPanel.transform.position.x, commitPanel.transform.position.y - diff);
         }
     }
