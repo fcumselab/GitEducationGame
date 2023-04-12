@@ -10,7 +10,7 @@ public class InitCommand : MonoBehaviour
     {
         if(commandList[1] == "init")
         {
-            fieldCommit.SetActive(true);
+            //fieldCommit.SetActive(true);
         }
     }
 }

@@ -6,88 +6,68 @@ using Sirenix.OdinInspector;
 
 public class NewFile : SerializedMonoBehaviour
 {
-    public enum FileType { Txt, Folder }
-    [SerializeField] Image icon;
-    [SerializeField] FileType fileType;
-    [SerializeField] string fileName;
-    [SerializeField] int level;
-    [SerializeField] string location;
-    [SerializeField] string content;
+    public Image statusIcon;
+    public Image fileIcon;
+
+    [SerializeField] FileDatas fileDatas;
 
     private void Start()
     {
         UpdateSprite();
     }
 
-    public NewFile(string name, string location,int level, string content)
+    public void UpdateSprite()
     {
-        string[] list = name.Split('.');
-        if (list.Length == 1)
+        switch (fileDatas.fileType)
         {
-            fileType = FileType.Folder;
+            case FileDatas.FileType.Folder:
+                fileIcon.sprite = ImageManager.Instance.GetImage("fileIconFolder");
+                break;
+            case FileDatas.FileType.Txt:
+                fileIcon.sprite = ImageManager.Instance.GetImage("fileIconTxt");
+                break;
         }
-        else if (list.Length == 2 && list[1] == "txt")
-        {
-            fileType = FileType.Txt;
+
+        switch (fileDatas.statusType) {
+            case FileDatas.StatusType.Unstaged:
+                statusIcon.sprite = ImageManager.Instance.GetImage("fileStatusUnstaged");
+                statusIcon.color = new Color32(255, 168, 165, 255);
+
+                break;
+            case FileDatas.StatusType.Staged:
+                statusIcon.sprite = ImageManager.Instance.GetImage("fileStatusStaged");
+                break;
+            case FileDatas.StatusType.Uploaded:
+                statusIcon.sprite = ImageManager.Instance.GetImage("fileStatusUploaded");
+                statusIcon.color = new Color32(109, 255, 165, 255);
+                break;
         }
-        fileName = name;
-        this.level = level;
-        this.location = location;
-        this.content = content;
+
     }
 
-    public void UpdateFileValue(NewFile file)
+    public void UpdateFileValue(FileDatas file)
     {
-        fileType = file.fileType;
-        fileName = file.GetName();
-        location = file.GetLocation();
-        content = file.GetContent();
+        fileDatas = file;
         UpdateSprite();
-    }
-
-    void UpdateSprite()
-    {
-        if (fileType == FileType.Folder) icon.sprite = ImageManager.Instance.GetImage("fileIconFolder");
-        else if (fileType == FileType.Txt) icon.sprite = ImageManager.Instance.GetImage("fileIconTxt");
     }
 
     public void ClickEvent()
     {
-        if (fileType == FileType.Folder)
+        if (fileDatas.fileType == FileDatas.FileType.Folder)
         {
             //go to next folder, file history add.
-            string newFileLocation = FileManager.Instance.fileLocation + "\\" + fileName;
+            string newFileLocation = FileManager.Instance.fileLocation + "\\" + fileDatas.fileName;
             FileManager.Instance.fileLocationHistory.Add(newFileLocation);
             FileManager.Instance.fileLocationSpot++;
             
             FileManager.Instance.GoToLocation(newFileLocation);
 
         }
-        else if (fileType == FileType.Txt)
+        else if (fileDatas.fileType == FileDatas.FileType.Txt)
         {
 
         }
     }
 
-    public string GetName()
-    {
-        return fileName;
-    }
-
-    public string GetLocation()
-    {
-        return location;
-    }
-
-    public string GetContent()
-    {
-        return content;
-    }
-
-    public string GetFileType()
-    {
-        if (fileType == FileType.Folder) return "folder";
-        else if (fileType == FileType.Txt) return "txt";
-        return "";
-    }
+    
 }

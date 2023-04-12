@@ -5,8 +5,8 @@ using TMPro;
 
 public class StageFileManager : MonoBehaviour
 {
-    public List<NewFile> stagedFileLists = new List<NewFile>();
-    public List<NewFile> unstagedFileLists = new List<NewFile>();
+    public List<FileDatas> stagedFileLists = new List<FileDatas>();
+    public List<FileDatas> unstagedFileLists = new List<FileDatas>();
 
     [SerializeField] GameObject fieldStaged;
     [SerializeField] GameObject fieldUnstaged;

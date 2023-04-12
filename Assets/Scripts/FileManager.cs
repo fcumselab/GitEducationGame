@@ -9,7 +9,7 @@ public class FileManager : SerializedMonoBehaviour
 {
     [SerializeField] int MaxFileNumbers;
 
-    [SerializeField] Dictionary<string, List<NewFile>> fileLists = new Dictionary<string, List<NewFile>>();
+    [SerializeField] Dictionary<string, List<FileDatas>> fileLists = new Dictionary<string, List<FileDatas>>();
 
     [Header("FileLocation")]
     public string fileLocation;
@@ -76,18 +76,18 @@ public class FileManager : SerializedMonoBehaviour
 
     public void AddNewFile(string name, string location,int level = 0, string content = "")
     {
-        
-        NewFile newfile = new(name, location, level,  content);
 
+        FileDatas newfile = ScriptableObject.CreateInstance<FileDatas>();
+        newfile.InitValue(name, location, level, content);
         if (fileLists.ContainsKey(location)) fileLists[location].Add(newfile);
         else
         {
-            List<NewFile> newFileList = new();
+            List<FileDatas> newFileList = new();
             newFileList.Add(newfile);
             fileLists.Add(location, newFileList);
         }
 
-        //if (name.Split(".").Length != 1) StageFileManager.Instance.unstagedFileLists.Add(newfile); //Folder
+        if (name.Split(".").Length != 1) StageFileManager.Instance.unstagedFileLists.Add(newfile); //Folder
     }
 
     public void UpdateFileLocationText()
@@ -123,13 +123,13 @@ public class FileManager : SerializedMonoBehaviour
 
         if (type == "cd")
         {
-            List<NewFile> findList = fileLists[fileLocation].FindAll(file => file.GetFileType() == "folder" && file.GetName().StartsWith(keyword));
-            foreach (NewFile f in findList) result.Add("cd " + f.GetName());
+            List<FileDatas> findList = fileLists[fileLocation].FindAll(file => file.GetFileType() == "folder" && file.GetName().StartsWith(keyword));
+            foreach (FileDatas f in findList) result.Add("cd " + f.GetName());
         }
         else if (type == "add" || type == "reset")
         {
-            List<NewFile> findList = fileLists[fileLocation].FindAll(file => file.GetName().StartsWith(keyword));
-            foreach (NewFile f in findList) result.Add("git " + type + " " + f.GetName());
+            List<FileDatas> findList = fileLists[fileLocation].FindAll(file => file.GetName().StartsWith(keyword));
+            foreach (FileDatas f in findList) result.Add("git " + type + " " + f.GetName());
         }
         return result;
     }
@@ -138,9 +138,14 @@ public class FileManager : SerializedMonoBehaviour
     {
         if (fileLists.ContainsKey(location))
         {
-
-            NewFile newfile = fileLists[location].Find(file => (file.GetName() == fileName || file.GetName().Split(".")[0] == fileName));
-            try{
+            foreach(var i in fileLists[location])
+            {
+                Debug.Log(i.GetName());
+            }
+            FileDatas newfile = fileLists[location].Find(file => (file.GetName() == fileName || file.GetName().Split(".")[0] == fileName));
+            Debug.Log(newfile.GetName());
+            try
+            {
                 if (newfile.GetName() != "")
                 {
                     if (type == "add")
@@ -162,7 +167,7 @@ public class FileManager : SerializedMonoBehaviour
                         else GitCommandController.Instance.AddFieldHistoryCommand("Not found " + fileName + " file.\n");
                     }else if(type == "cd")
                     {
-                        newfile.ClickEvent();
+                        //newfile.ClickEvent();
                     }
                 }
             }
@@ -170,7 +175,7 @@ public class FileManager : SerializedMonoBehaviour
             {
                 if (fileName == ".")
                 {
-                    foreach (NewFile f in fileLists[location])
+                    foreach (FileDatas f in fileLists[location])
                     {
                         if (type == "add")
                         {
@@ -199,8 +204,9 @@ public class FileManager : SerializedMonoBehaviour
         }
     }
 
-    void MoveToStageList(NewFile newfile, string fileName, string location)
+    void MoveToStageList(FileDatas newfile, string fileName, string location)
     {
+        //newfile.UpdateSprite();
         StageFileManager.Instance.stagedFileLists.Add(newfile);
         for (int i = 0; i < StageFileManager.Instance.unstagedFileLists.Count; i++)
         {
@@ -210,11 +216,12 @@ public class FileManager : SerializedMonoBehaviour
                 break;
             }
         }
-        StageFileManager.Instance.UpdateUI();
+        //StageFileManager.Instance.UpdateUI();
     }
 
-    void MoveToUnstageList(NewFile newfile, string fileName, string location)
+    void MoveToUnstageList(FileDatas newfile, string fileName, string location)
     {
+        //newfile.UpdateSprite();
         StageFileManager.Instance.unstagedFileLists.Add(newfile);
         for (int i = 0; i < StageFileManager.Instance.stagedFileLists.Count; i++)
         {

@@ -15,11 +15,11 @@ public class NewCommit : SerializedMonoBehaviour
     [Header("CommitDatas")]
     [SerializeField] string id;
     [SerializeField] string message;
-    [SerializeField] List<NewFile> modifyFileList;
-    [SerializeField] Dictionary<string, List<NewFile>> fileLists;
+    [SerializeField] List<FileDatas> modifyFileList;
+    [SerializeField] Dictionary<string, List<FileDatas>> fileLists;
     [SerializeField] Dictionary<string, List<string>> preCommitList = new Dictionary<string, List<string>>();
 
-    public void SetValue(string message, List<NewFile> stageFileList, string preCommitId = "", string nowBranch = "")
+    public void SetValue(string message, List<FileDatas> stageFileList, string preCommitId = "", string nowBranch = "")
     {
         this.message = message;
         textBoxMessage.text = message;
@@ -34,7 +34,7 @@ public class NewCommit : SerializedMonoBehaviour
                 preCommitList.Add(nowBranch, newList);
             }
         }
-        modifyFileList = new List<NewFile>(stageFileList);
+        modifyFileList = new List<FileDatas>(stageFileList);
         SetId();
     }
 
