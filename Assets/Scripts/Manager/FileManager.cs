@@ -52,10 +52,10 @@ public class FileManager : SerializedMonoBehaviour
         AddNewFile("2.txt", fileLocation,0);
 
         UpdateFileSystemUI();
-        GitCommandController.Instance.RunCommand("git init");
+        //GitCommandController.Instance.RunCommand("git init");
         
-        GitCommandController.Instance.RunCommand("git add 1");
-        GitCommandController.Instance.RunCommand("git commit -m add_aLoc");
+        //GitCommandController.Instance.RunCommand("git add 1");
+        //GitCommandController.Instance.RunCommand("git commit -m add_aLoc");
         /*
         GitCommandController.Instance.RunCommand("git add bLoc");
         GitCommandController.Instance.RunCommand("git commit -m add_bLoc");
@@ -70,6 +70,7 @@ public class FileManager : SerializedMonoBehaviour
         PageButtonUp.UpdateButton(fileLocationSpot, fileLocationHistory.Count);
         fileLocation = location;
 
+        GitFile.Instance.CheckLocation();
         UpdateFileLocationText();
         UpdateFileSystemUI();
     }

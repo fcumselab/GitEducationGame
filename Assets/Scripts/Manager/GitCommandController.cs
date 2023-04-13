@@ -22,7 +22,6 @@ public class GitCommandController : MonoBehaviour
     List<string> gitCommandsDictionary3 = new List<string>{
         "git remote add"
     };
-    bool isInitial = false;
 
     [Header("HistoryCommands")]
     int historyIndex = -1;
@@ -39,7 +38,7 @@ public class GitCommandController : MonoBehaviour
     {
         get
         {
-            if (instance == null) instance = GameObject.FindObjectOfType<GitCommandController>();
+            if (instance == null) instance = FindObjectOfType<GitCommandController>();
             return instance;
         }
     }
@@ -56,7 +55,6 @@ public class GitCommandController : MonoBehaviour
         {
             if(tmpInputField.text.Trim() != "")
             {
-                //MissionTarget.Instance.GetCommand(tmpInputField.text);
                 historyCommands.Add(tmpInputField.text);
                 AddFieldHistoryCommand(FileManager.Instance.fileLocation + "> " + tmpInputField.text);
                 RunCommand(tmpInputField.text);
@@ -121,7 +119,7 @@ public class GitCommandController : MonoBehaviour
             if (findList.Count == 0 && commandList.Count > 1) AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
             else if (findList.Count == 1)
             {
-                if (isInitial)
+                if (GitFile.Instance.GetInitial())
                 {
                     if (commandList[1] == "init") AddFieldHistoryCommand("Already have existing Git repository.\n");
                     else if (commandList[1] == "add" || commandList[1] == "reset") gitCommands.GetComponent<AddCommand>().RunCommand(commandList);
@@ -129,11 +127,7 @@ public class GitCommandController : MonoBehaviour
                 }
                 else
                 {
-                    if (commandList[1] == "init")
-                    {
-                        gitCommands.GetComponent<InitCommand>().RunCommand(commandList);
-                        isInitial = true;
-                    }
+                    if (commandList[1] == "init") GitFile.Instance.SetInitial(true);
                     else AddFieldHistoryCommand("You don\'t have Git repository. Please create one.\n");
                 }
             }
@@ -141,6 +135,7 @@ public class GitCommandController : MonoBehaviour
 
 
         FileManager.Instance.UpdateFileSystemUI();
+        MissionManager.Instance.CheckPoint();
     }
 
     /*用來將輸入的指令、找到的指令表顯示在記錄指令欄位*/
