@@ -24,9 +24,8 @@ public class MissionManager : MonoBehaviour
 
     void Start()
     {
-        //allStep = QuestLog.GetAllQuests(QuestState.Unassigned | QuestState.Active, true, mission);
-        //nowStepName = allStep[0];
-        //nowStepNum = 0;
+        allStep = QuestLog.GetAllQuests(QuestState.Unassigned | QuestState.Active, true, mission);
+        nowStepNum = 0;
     }
 
     public void CheckPoint()
