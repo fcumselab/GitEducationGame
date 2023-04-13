@@ -47,4 +47,9 @@ public class CommitDatas : SerializedScriptableObject
     {
         return message;
     }
+
+    public List<FileDatas> GetModifyFileList()
+    {
+        return modifyFileList;
+    }
 }
