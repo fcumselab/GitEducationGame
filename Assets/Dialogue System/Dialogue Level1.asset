@@ -165,7 +165,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Display Name
-      value: "\u8F38\u5165\u6307\u4EE4git add \u6A94\u6848\u540D\u7A31"
+      value: "\u8F38\u5165\u6307\u4EE4git add 1.txt"
       type: 0
       typeString: 
     - title: Trackable
@@ -176,12 +176,16 @@ MonoBehaviour:
       value: True
       type: 2
       typeString: CustomFieldType_Boolean
+    - title: Entry Count
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
   - id: 3
     fields:
     - title: Name
       value: Level2
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -189,19 +193,19 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Success Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Failure Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: State
       value: unassigned
       type: 0
-      typeString: 
+      typeString: CustomFieldType_QuestState
     - title: Is Item
       value: False
       type: 2
@@ -1256,8 +1260,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 190
-        y: 162
+        x: 149.50412
+        y: 175.22314
         width: 160
         height: 30
     - id: 4
@@ -1366,8 +1370,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 360
-        y: 216
+        x: 407.9339
+        y: 239.1405
         width: 160
         height: 30
     - id: 7
@@ -1375,11 +1379,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
-        value: 
+        value: Level1-1 success
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 2
         type: 5
@@ -1391,15 +1395,19 @@ MonoBehaviour:
       - title: Menu Text
         value: Good!
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'SetDialoguePanel(false);
+
+          Fade(out, 0.3, #ffffff)@Message(Success)->Message(Wait);
+
+          SetDialoguePanel(true)@Message(Wait);'
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -1414,15 +1422,15 @@ MonoBehaviour:
         destinationDialogueID: 12
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Level1-1") == "success"
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 192.12766
-        y: 216.8085
+        x: 158.54913
+        y: 240.12256
         width: 160
         height: 30
     - id: 8
@@ -1531,8 +1539,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: "SetQuestState(\"\u8F38\u5165\u6307\u4EE4git add \u6A94\u6848\u540D\u7A31\",
-        \"active\");\nVariable[\"Alert\"] = \"Start Mession!\""
+      userScript: 'SetQuestState("Level1-2", "active");
+
+        Variable["Alert"]
+        = "Start Mession!"'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -1583,61 +1593,6 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 10
         destinationConversationID: 3
-        destinationDialogueID: 11
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 190
-        y: 432
-        width: 160
-        height: 30
-    - id: 11
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 3
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 3
-        originDialogueID: 11
-        destinationConversationID: 3
         destinationDialogueID: 13
         isConnector: 0
         priority: 2
@@ -1648,8 +1603,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 190
-        y: 486
+        x: 459
+        y: 384
         width: 160
         height: 30
     - id: 12
@@ -1769,7 +1724,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Description
-        value: 
+        value: Level1-2 success
         type: 0
         typeString: 
       - title: Actor
@@ -1789,7 +1744,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: 'SetDialoguePanel(false);
+
+          Fade(out, 0.3, #ffffff)@Message(Success)->Message(Wait);
+
+          SetDialoguePanel(true)@Message(Wait);'
         type: 0
         typeString: 
       conversationID: 3
@@ -1806,7 +1765,7 @@ MonoBehaviour:
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Level1-2") == "success"
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -1867,8 +1826,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 0, y: 10}
+    canvasZoom: 1
   syncInfo:
     syncActors: 0
     syncItems: 0
