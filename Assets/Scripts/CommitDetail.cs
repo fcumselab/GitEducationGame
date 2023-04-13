@@ -25,8 +25,10 @@ public class CommitDetail : SerializedMonoBehaviour
 
     public void UpdateUI(GameObject obj)
     {
+        if (!gameObject.activeSelf) gameObject.SetActive(true);
+        
         CommitDatas data = obj.GetComponent<NewCommit>().GetCommitDatas();
-        timeText.text = DateTime.Now.ToString();
+        timeText.text = data.GetCommitTime();
         commitMessage.text = data.GetMessage();
 
         List<FileDatas> filedatas = data.GetModifyFileList();

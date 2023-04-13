@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -8,6 +9,7 @@ public class CommitDatas : SerializedScriptableObject
     [Header("CommitDatas")]
     [SerializeField] string id;
     [SerializeField] string message;
+    [SerializeField] string commitTime;
     [SerializeField] List<FileDatas> modifyFileList;
     [SerializeField] Dictionary<string, List<FileDatas>> fileLists;
     [SerializeField] Dictionary<string, List<string>> preCommitList = new Dictionary<string, List<string>>();
@@ -15,6 +17,7 @@ public class CommitDatas : SerializedScriptableObject
     public void InitValue(string message, List<FileDatas> stageFileList, string preCommitId = "", string nowBranch = "")
     {
         this.message = message;
+        this.commitTime = DateTime.Now.ToString();
 
         if (preCommitId != "" && nowBranch != "")
         {
@@ -34,7 +37,7 @@ public class CommitDatas : SerializedScriptableObject
     {
         id = "";
         string s = "abcdefghjkmnpqrstuvwxy0123456789";
-        for (int i = 0; i < 8; i++) id += s[Random.Range(0, s.Length)];
+        for (int i = 0; i < 8; i++) id += s[UnityEngine.Random.Range(0, s.Length)];
 
     }
 
@@ -46,6 +49,11 @@ public class CommitDatas : SerializedScriptableObject
     public string GetMessage()
     {
         return message;
+    }
+
+    public string GetCommitTime()
+    {
+        return commitTime;
     }
 
     public List<FileDatas> GetModifyFileList()
