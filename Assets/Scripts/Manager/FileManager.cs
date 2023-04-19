@@ -16,10 +16,11 @@ public class FileManager : SerializedMonoBehaviour
     public int fileLocationSpot = 0;
     [SerializeField] public List<string> fileLocationHistory = new List<string>();
 
+    [Header("References")]
     public PageButton PageButtonUp;
-
-    [SerializeField] TextMeshProUGUI commandText;
-    [SerializeField] TextMeshProUGUI fileSystemText;
+    [SerializeField] GameObject fileParent;
+    [SerializeField] TextMeshProUGUI fileLocationText;
+    [SerializeField] Text fileSystemText;
     [SerializeField] RectTransform fieldInputTextBox;
     
     //Singleton instantation
@@ -93,8 +94,7 @@ public class FileManager : SerializedMonoBehaviour
 
     public void UpdateFileLocationText()
     {
-        commandText.text = fileLocation;
-        fieldInputTextBox.offsetMin = new Vector2(22 + commandText.text.Length * 22, fieldInputTextBox.offsetMin.y);
+        fileLocationText.text = fileLocation + "> ";
         fileSystemText.text = fileLocation + "> ";
     }
 
@@ -107,7 +107,7 @@ public class FileManager : SerializedMonoBehaviour
             {
                 for (; i <= fileLists[fileLocation].Count; i++)
                 {
-                    Transform fileObject = transform.Find("file" + i);
+                    Transform fileObject = fileParent.transform.Find("file" + i);
                     fileObject.gameObject.SetActive(true);
                     fileObject.GetComponent<NewFile>().UpdateFileValue(fileLists[fileLocation][i - 1]);
                     fileObject.GetComponentInChildren<Text>().text = fileLists[fileLocation][i - 1].GetName();
@@ -115,7 +115,7 @@ public class FileManager : SerializedMonoBehaviour
             }
             for (; i <= MaxFileNumbers; i++)
             {
-                Transform fileObject = transform.Find("file" + i);
+                Transform fileObject = fileParent.transform.Find("file" + i);
                 fileObject.gameObject.SetActive(false);
             }
         }
@@ -154,7 +154,7 @@ public class FileManager : SerializedMonoBehaviour
                         {
                             StageFileManager.Instance.MoveToStageList(newfile, fileName, location);
                         }
-                        else GitCommandController.Instance.AddFieldHistoryCommand("Already add " + fileName + " file.\n");
+                        else CommandInputField.Instance.AddFieldHistoryCommand("Already add " + fileName + " file.\n");
                     }
                     else if (type == "reset")
                     {
@@ -163,7 +163,7 @@ public class FileManager : SerializedMonoBehaviour
                         {
                             StageFileManager.Instance.MoveToUnstageList(newfile, fileName, location);
                         }
-                        else GitCommandController.Instance.AddFieldHistoryCommand("Not found " + fileName + " file.\n");
+                        else CommandInputField.Instance.AddFieldHistoryCommand("Not found " + fileName + " file.\n");
                     }else if(type == "cd")
                     {
                         newfile.ClickEvent();
@@ -196,8 +196,8 @@ public class FileManager : SerializedMonoBehaviour
                 }
                 else
                 {
-                    if(type == "cd") GitCommandController.Instance.AddFieldHistoryCommand("Cannot find the path.\n");
-                    else GitCommandController.Instance.AddFieldHistoryCommand("Cannot find " + fileName + " file.\n");
+                    if(type == "cd") CommandInputField.Instance.AddFieldHistoryCommand("Cannot find the path.\n");
+                    else CommandInputField.Instance.AddFieldHistoryCommand("Cannot find " + fileName + " file.\n");
                 }
             }
         }

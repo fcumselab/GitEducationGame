@@ -5,6 +5,7 @@ using UnityEngine;
 public class GitFile : MonoBehaviour
 {
     [SerializeField] bool isInitial;
+    [SerializeField] GameObject fileObject;
     [SerializeField] GameObject imageAndText;
 
     //Singleton instantation

@@ -13,7 +13,7 @@ public class FileCommand : MonoBehaviour
             {
                 FileManager.Instance.FindFile(commandList[1], "cd", FileManager.Instance.fileLocation);
             }
-            else GitCommandController.Instance.AddFieldHistoryCommand("Nothing specified, nothing added.\n");
+            else CommandInputField.Instance.AddFieldHistoryCommand("Nothing specified, nothing added.\n");
         }
         
     }

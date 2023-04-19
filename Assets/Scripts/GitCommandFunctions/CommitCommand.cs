@@ -11,20 +11,20 @@ public class CommitCommand : MonoBehaviour
         {
             if(commandList[2] == "-m" || commandList[2] == "--message")
             {
-                if(commandList.Count == 3) GitCommandController.Instance.AddFieldHistoryCommand("Please add a comment\n");
+                if(commandList.Count == 3) CommandInputField.Instance.AddFieldHistoryCommand("Please add a comment\n");
                 else if(commandList.Count == 4)
                 {
                     if(StageFileManager.Instance.stagedFileLists.Count != 0)
                     {
                         CommitManager.Instance.AddNewCommit(commandList[3]);
                     }
-                    else GitCommandController.Instance.AddFieldHistoryCommand("No changes added to commit\n");
+                    else CommandInputField.Instance.AddFieldHistoryCommand("No changes added to commit\n");
                 }
             }
         }
         else
         {
-            GitCommandController.Instance.AddFieldHistoryCommand("Using -m or --message Commit\n");
+            CommandInputField.Instance.AddFieldHistoryCommand("Using -m or --message Commit\n");
         }
     }
 }

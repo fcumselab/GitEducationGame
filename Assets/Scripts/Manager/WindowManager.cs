@@ -1,10 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-public class WindowManager : MonoBehaviour
+using Sirenix.OdinInspector;
+public class WindowManager : SerializedMonoBehaviour
 {
+    [SerializeField] Dictionary<string, GameObject> windowObjects = new Dictionary<string, GameObject>();
+
     [SerializeField] GameObject tipTextBox;
     [SerializeField] GameObject tipTextBoxLocation;
 
@@ -47,4 +48,30 @@ public class WindowManager : MonoBehaviour
         }
     }
 
+    public bool CheckWindowOpen(string key, bool wantedOpen)
+    {
+        if (windowObjects.ContainsKey(key))
+        {
+            if (windowObjects[key].activeSelf)
+            {
+                if (!wantedOpen)
+                {
+                    windowObjects[key].SetActive(false);
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                if (wantedOpen)
+                {
+                    windowObjects[key].SetActive(true);
+                    return true;
+                }
+                return false;
+            }
+        }
+        Debug.Log("Error, Cannot find key: " + key);
+        return false;
+    }
 }
