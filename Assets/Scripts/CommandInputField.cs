@@ -83,7 +83,7 @@ public class CommandInputField : MonoBehaviour
     public void VaildInput()
     {
         tmpInputField.text = Regex.Replace(tmpInputField.text, 
-          @"[^a-zA-Z0-9`!@#$%^&*()_+|\-=\\{}\[\]:"";'<>?,./]", "");
+          @"[^a-zA-Z0-9`!@#$%^&*()_+|\-=\\{}\[\]:"";'<>?,./ ]", "");
     }
 
     private void OnEnable()
