@@ -10,9 +10,9 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
         string content = "";
         public void Start()
         {
-            content = GetParameter(0);
+            //content = GetParameter(0);
             //Debug.Log("con: " + content);
-            WindowManager.Instance.ShowTipTextBox(content);
+            //WindowManager.Instance.ShowTipTextBox(content);
             
             Stop();
         }
