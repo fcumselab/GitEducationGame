@@ -32,7 +32,7 @@ public class NewCommit : SerializedMonoBehaviour
 
     public void UpdateSprite(bool isNowCommit)
     {
-        if (isNowCommit) icon.sprite = ImageManager.Instance.GetImage("CommitIconFocus");
-        else icon.sprite = ImageManager.Instance.GetImage("CommitIconNotFocus");
+        if (isNowCommit) icon.sprite = ImageManager.Instance.GetIconImage("CommitIconFocus");
+        else icon.sprite = ImageManager.Instance.GetIconImage("CommitIconNotFocus");
     }
 }
