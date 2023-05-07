@@ -1,7 +1,7 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-[CreateAssetMenu(fileName = "FileDatas", menuName = "ScriptableObjects/File")]
+[CreateAssetMenu(fileName = "MyProject/FileDatas", menuName = "ScriptableObjects/File")]
 public class FileDatas : SerializedScriptableObject
 {
     public enum FileType { Txt, Folder }
