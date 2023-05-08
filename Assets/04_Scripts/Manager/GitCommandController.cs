@@ -7,7 +7,7 @@ public class GitCommandController : MonoBehaviour
 {
 
     List<string> gitCommandsDictionary = new List<string>{
-        "git", "good", "cd"
+        "git", "good"
     };
     List<string> gitCommandsDictionary2 = new List<string>{
         "git add", "git am", "git aply", "git askme", "git askyou",
@@ -59,10 +59,10 @@ public class GitCommandController : MonoBehaviour
     {
         List<string> commandList = ShortedCommand(command);
         List<string> findList = new List<string>();
-        
+        /*
         if(commandList[0] == "cd") gitCommands.GetComponent<FileCommand>().RunCommand(commandList);
         else
-        {
+        {*/
             if (commandList.Count > 1) findList = gitCommandsDictionary2.FindAll(command => command.Contains(commandList[0] + " " + commandList[1]));
             
             if (findList.Count == 0 && commandList.Count > 1) CommandInputField.Instance.AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
@@ -80,7 +80,7 @@ public class GitCommandController : MonoBehaviour
                     else CommandInputField.Instance.AddFieldHistoryCommand("You don\'t have Git repository. Please create one.\n");
                 }
             }
-        }
+        /*}*/
 
 
         FileManager.Instance.UpdateFileSystemUI();
@@ -111,22 +111,25 @@ public class GitCommandController : MonoBehaviour
             }
         }
         else
-        {   // Find File Keywords
-            if (commandList[0] == "cd")
+        {   
+            // Find File Keywords
+            /*if (commandList[0] == "cd")
             {
                 if(commandList.Count == 1) findList = FileManager.Instance.FindFile("cd", "");
                 else findList = FileManager.Instance.FindFile("cd", commandList[1]);
 
                 if (findList.Count == 1) CommandInputField.Instance.AutoCompleteCommand(findList);
                 else CleanDictionaryCommand(findList, commandList, commandList[0]);
-            }
-            else if(commandList[0] == "git" && (commandList[1] == "add" || commandList[1] == "reset"))
+            }*/
+            if(commandList[0] == "git" && (commandList[1] == "add" || commandList[1] == "reset"))
             {
+                /*
                 if (commandList.Count == 2) findList = FileManager.Instance.FindFile(commandList[1], "");
                 else findList = FileManager.Instance.FindFile(commandList[1], commandList[2]);
 
                 if (findList.Count == 1) CommandInputField.Instance.AutoCompleteCommand(findList);
-                else CleanDictionaryCommand(findList, commandList, "git " + commandList[1]);
+                else CleanDictionaryCommand(findList, commandList, "git " + commandList[1]);*/
+                return "RunFindFile";
             }
         }
 

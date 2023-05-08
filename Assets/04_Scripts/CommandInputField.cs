@@ -92,11 +92,11 @@ public class CommandInputField : MonoBehaviour
         string result = "";
         for(int i = 0; i < textSplit.Length - 1;i++)
         {
-            result += textSplit[i];
+            result += textSplit[i] + " ";
         }
 
         if(result.Length == 0) tmpInputField.text = keyword;
-        else tmpInputField.text = result + ' ' + keyword;
+        else tmpInputField.text = result + keyword;
 
         tmpInputField.caretPosition = tmpInputField.text.Length;
     }
