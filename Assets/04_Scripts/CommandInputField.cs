@@ -48,10 +48,6 @@ public class CommandInputField : MonoBehaviour
                     historyIndex = -1;
                 }
             }
-
-            /* autocomplete function */
-            if (Input.GetKeyDown(KeyCode.Tab)) GitCommandController.Instance.FindCommand(tmpInputField.text);
-
             /* history commands system */
 
             if (Input.GetKeyDown(KeyCode.UpArrow) && historyIndex != 0 && historyCommands.Count != 0)
@@ -105,10 +101,5 @@ public class CommandInputField : MonoBehaviour
     {
         tmpInputField.text = Regex.Replace(tmpInputField.text, 
           @"[^a-zA-Z0-9`!@#$%^&*()_+|\-=\\{}\[\]:"";'<>?,./ ]", "");
-    }
-
-    private void OnEnable()
-    {
-        //if (tmpInputField) tmpInputField.ActivateInputField();
     }
 }
