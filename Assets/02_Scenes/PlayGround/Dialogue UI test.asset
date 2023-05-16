@@ -9325,7 +9325,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: Delay(3);
         type: 0
         typeString: 
       conversationID: 12
@@ -9347,14 +9347,14 @@ MonoBehaviour:
         Image\", \"Tutorial Popup Parent\", \"Tutorial Popup\");\n\nVariable[\"NotificationText\"]
         = \"\u66F4\u65B0\u7576\u524D\u76EE\u6A19\uFF1A\u958B\u555F\u6A94\u6848\u7BA1\u7406\u8996\u7A97\";\nFSMEvent(\"NotificationTextBox/Show
         TextBox\", \"NotificationTextBoxManager\", \"Create TextBox\");\n\nSetQuestState(\"Step1\",
-        \"active\");"
+        \"active\");\n\n"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1389.8755
-        y: 745.5862
+        x: 1387.4366
+        y: 728.7861
         width: 160
         height: 30
     - id: 12
@@ -9376,7 +9376,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Show arrow
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -9402,14 +9402,15 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Tutorial Arrow/Show Arrow", "StageTrackerArrow", "Arrow
+        Animation");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1402.0969
-        y: 842.8056
+        x: 1398.4384
+        y: 874.27167
         width: 160
         height: 30
     - id: 13
@@ -9450,7 +9451,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 13
+        destinationConversationID: 12
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -9458,8 +9465,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1400.4519
-        y: 893.21265
+        x: 1396.7933
+        y: 915.1638
         width: 160
         height: 30
     - id: 14
@@ -9481,7 +9488,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Close Black Panel & Show arrow & Highlight panel
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -9507,14 +9514,20 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Highlight Panel/Highlight Panel", "Toolbar Panel", "Panel");
+
+        FSMEvent("Tutorial
+        Arrow/Close Arrow", "StageTrackerArrow", "Arrow Animation");
+
+        FSMEvent("Tutorial
+        Arrow/Show Arrow", "FileManagerWindowButtonArrow", "Arrow Animation");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1402.0355
-        y: 958.62354
+        x: 1397.8713
+        y: 953.1753
         width: 160
         height: 30
     - id: 15
@@ -9568,8 +9581,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1407.449
-        y: 1003.912
+        x: 1407.6414
+        y: 999.0585
         width: 160
         height: 30
     - id: 16
@@ -9591,7 +9604,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: Change Image 4
+        value: 
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -9617,10 +9630,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'Variable["ImageNumber"] = 4;
-
-        FSMEvent("Tutorial Popup/Change
-        Image", "Tutorial Popup Parent", "Tutorial Popup");'
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -9669,14 +9679,15 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Tutorial Popup/Close Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1398.8643
-        y: 1107.8333
+        x: 1399.7463
+        y: 1097.2091
         width: 160
         height: 30
     - id: 18
@@ -10719,7 +10730,7 @@ MonoBehaviour:
       - originConversationID: 12
         originDialogueID: 53
         destinationConversationID: 12
-        destinationDialogueID: 12
+        destinationDialogueID: 54
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -10729,8 +10740,64 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1397.8754
-        y: 798.3509
+        x: 1389.3386
+        y: 772.7412
+        width: 160
+        height: 30
+    - id: 54
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: Content Off
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u8B93\u6211\u4F86\u7C21\u55AE\u4ECB\u7D39\u4E00\u4E0B\u9019\u500B\u7CFB\u7D71\u7684\u529F\u80FD"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 54
+        destinationConversationID: 12
+        destinationDialogueID: 12
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: FSMEvent("Tutorial Popup/Close Content Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1386.8997
+        y: 821.5217
         width: 160
         height: 30
     entryGroups:
@@ -10758,8 +10825,8 @@ MonoBehaviour:
         width: 398.26013
         height: 659.9039
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1014.17566, y: 1416.6113}
-    canvasZoom: 0.79000086
+    canvasScrollPosition: {x: 872.8886, y: 307.30206}
+    canvasZoom: 0.67000103
   syncInfo:
     syncActors: 0
     syncItems: 0
