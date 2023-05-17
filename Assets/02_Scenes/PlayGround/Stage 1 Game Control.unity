@@ -1737,7 +1737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 104, y: 475}
+  m_AnchoredPosition: {x: 462, y: 400}
   m_SizeDelta: {x: 810, y: 800}
   m_Pivot: {x: 0.0000000037252903, y: 1}
 --- !u!114 &238067658
@@ -3519,8 +3519,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 51.507812
-        y: 133.16406
+        x: 382.78125
+        y: 100.3125
         width: 100
         height: 16
       isBreakpoint: 0
@@ -3571,8 +3571,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 226.40625
-        y: 106.90625
+        x: 361.6875
+        y: 280.4297
         width: 195
         height: 32
       isBreakpoint: 0
@@ -3698,16 +3698,16 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 316.3828
-        y: 161.19531
+        x: 691.28125
+        y: 322.32812
         width: 113
-        height: 64
+        height: 96
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: 1
+          name: Num/1
           isSystemEvent: 0
           isGlobal: 0
         toState: Get Parent
@@ -3716,19 +3716,37 @@ MonoBehaviour:
         linkTarget: 0
         colorIndex: 0
       - fsmEvent:
-          name: 2
+          name: Num/2
           isSystemEvent: 0
           isGlobal: 0
-        toState: Get Event Sent By
+        toState: 2 Get Event Sent By
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
         colorIndex: 0
       - fsmEvent:
-          name: 3
+          name: Num/3
           isSystemEvent: 0
           isGlobal: 0
-        toState: State 1
+        toState: 3 Get Event Sent By
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: Num/4
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: 4 Get Event Sent By
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: Num/5
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: 5 Get Event Sent By
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -3782,6 +3800,18 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 3
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 4
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 5
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
@@ -3789,20 +3819,24 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
-        - 1
-        - 2
-        - 3
+        - Num/1
+        - Num/2
+        - Num/3
+        - Num/4
+        - Num/5
         byteData: 00
-        arrayParamSizes: 0300000003000000
+        arrayParamSizes: 0500000005000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmInt
         - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 100000000c0000001000000010000000100000000c00000017000000170000001700000001000000
+        paramDataType: 100000000c00000010000000100000001000000010000000100000000c000000170000001700000017000000170000001700000001000000
         paramName:
         - intVariable
         - compareTo
+        - 
+        - 
         - 
         - 
         - 
@@ -3810,16 +3844,18 @@ MonoBehaviour:
         - 
         - 
         - 
+        - 
+        - 
         - everyFrame
-        paramDataPos: 00000000000000000100000002000000030000000100000000000000010000000200000000000000
-        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 0000000000000000010000000200000003000000040000000500000001000000000000000100000002000000030000000400000000000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
     - name: Get Parent
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 154.28906
-        y: 202.59375
+        x: 96.21094
+        y: 539.02344
         width: 100
         height: 32
       isBreakpoint: 0
@@ -3847,18 +3883,18 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: FileWindowParentGot
+          name: Q1/FileWindowParentGot
           tooltip: 
-          showInInspector: 1
+          showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         fsmOwnerDefaultParams:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: FileWindow
+            name: Q1/FileWindow
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 1287902499}
         animationCurveParams: []
@@ -3897,8 +3933,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 102.94531
-        y: 267.89062
+        x: 63.179688
+        y: 598.2031
         width: 163
         height: 32
       isBreakpoint: 0
@@ -3926,18 +3962,18 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: FileWindowParentWanted
+          name: Q1/FileWindowParentWanted
           tooltip: 
-          showInInspector: 1
+          showInInspector: 0
           networkSync: 0
           value: {fileID: 263000231}
         fsmOwnerDefaultParams:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: FileWindowParentGot
+            name: Q1/FileWindowParentGot
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         animationCurveParams: []
@@ -3988,8 +4024,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 141.85938
-        y: 384.6328
+        x: 391.73438
+        y: 891.8203
         width: 125
         height: 16
       isBreakpoint: 0
@@ -4080,14 +4116,14 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 00000000000000000000000000000000
         paramByteDataSize: 00000000000000000000000001000000
-    - name: Get Event Sent By
+    - name: 2 Get Event Sent By
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 342.4453
-        y: 273.48438
-        width: 135
+        x: 296.71875
+        y: 541.66406
+        width: 145
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -4164,65 +4200,13 @@ MonoBehaviour:
         - fsmName
         paramDataPos: 000000000000000001000000
         paramByteDataSize: 000000000000000000000000
-    - name: State 1
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 595.27344
-        y: 302.60156
-        width: 100
-        height: 16
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions: []
-      actionData:
-        actionNames: []
-        customNames: []
-        actionEnabled: 
-        actionIsOpen: 
-        actionStartIndex: 
-        actionHashCodes: 
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 
-        paramName: []
-        paramDataPos: 
-        paramByteDataSize: 
     - name: Is this Add Button Panel?
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 554.6797
-        y: 378.64844
+        x: 283.34375
+        y: 645.60156
         width: 177
         height: 48
       isBreakpoint: 0
@@ -4259,7 +4243,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Selection
+          name: Q2/Selection
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -4321,8 +4305,8 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 368.8047
-        y: 333.10938
+        x: 310.85156
+        y: 595.15625
         width: 118
         height: 32
       isBreakpoint: 0
@@ -4359,7 +4343,7 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams:
-        - variableName: Selection
+        - variableName: Q2/Selection
           objectType: UnityEngine.GameObject
           useVariable: 1
           type: 3
@@ -4385,9 +4369,9 @@ MonoBehaviour:
             objectReferences: []
         fsmArrayParams:
         - useVariable: 1
-          name: AddButtonSelections
+          name: Q2/AddButtonSelections
           tooltip: 
-          showInInspector: 1
+          showInInspector: 0
           networkSync: 0
           type: 3
           objectTypeName: UnityEngine.Object
@@ -4458,8 +4442,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 350.15625
-        y: 410.625
+        x: 321.48438
+        y: 710.4844
         width: 102
         height: 32
       isBreakpoint: 0
@@ -4492,7 +4476,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Selection
+            name: Q2/Selection
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -4517,7 +4501,7 @@ MonoBehaviour:
           networkSync: 0
           value: content
         - useVariable: 1
-          name: content
+          name: Q2/content
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -4529,7 +4513,7 @@ MonoBehaviour:
           networkSync: 0
           value: playerDecision
         - useVariable: 1
-          name: content
+          name: Q2/content
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -4584,29 +4568,1531 @@ MonoBehaviour:
         - boolValue
         paramDataPos: 00000000000000000100000002000000000000000300000004000000000000000000000000000000
         paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000000000000
+    - name: 3 Get Event Sent By
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 543.6875
+        y: 542.35156
+        width: 146
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Is this FileSelectionPanel?
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetEventSentBy
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 46ebaf00
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Sender
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 130000001200000012000000
+        paramName:
+        - sentByGameObject
+        - gameObjectName
+        - fsmName
+        paramDataPos: 000000000000000001000000
+        paramByteDataSize: 000000000000000000000000
+    - name: Is this FileSelectionPanel?
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 532.47656
+        y: 669.4297
+        width: 181
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: success
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Complete Quest
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 8
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GameObjectCompare
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: ef8d8504
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Q3/Selection
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 1267868524}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Sender
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - success
+        - 
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001300000017000000170000001100000001000000
+        paramName:
+        - gameObjectVariable
+        - compareTo
+        - equalEvent
+        - notEqualEvent
+        - storeResult
+        - everyFrame
+        paramDataPos: 000000000000000000000000010000000000000000000000
+        paramByteDataSize: 000000000000000000000000000000000000000001000000
+    - name: 4 Get Event Sent By
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 817.77344
+        y: 503.53906
+        width: 146
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Array Get Next 2
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetEventSentBy
+        - HutongGames.PlayMaker.Actions.SetBoolValue
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000003000000
+        actionHashCodes: 46ebaf0027fbe103
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Sender
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: Q4/isFail
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 130000001200000012000000110000001100000001000000
+        paramName:
+        - sentByGameObject
+        - gameObjectName
+        - fsmName
+        - boolVariable
+        - boolValue
+        - everyFrame
+        paramDataPos: 000000000000000001000000000000000100000000000000
+        paramByteDataSize: 000000000000000000000000000000000000000001000000
+    - name: Did event by rename selection?
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 982.1953
+        y: 543.7969
+        width: 214
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: success
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Change isFail to false
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 8
+      - fsmEvent:
+          name: loop
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Array Get Next 2
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GameObjectCompare
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: ef8d8504
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Q4/Selection
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 693720139}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Sender
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - success
+        - loop
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001300000017000000170000001100000001000000
+        paramName:
+        - gameObjectVariable
+        - compareTo
+        - equalEvent
+        - notEqualEvent
+        - storeResult
+        - everyFrame
+        paramDataPos: 000000000000000000000000010000000000000000000000
+        paramByteDataSize: 000000000000000000000000000000000000000001000000
+    - name: Array Get Next 2
+      description: 
+      colorIndex: 11
+      position:
+        serializedVersion: 2
+        x: 826.0781
+        y: 565.7344
+        width: 128
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: loop
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Did event by rename selection?
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Bool Test 2
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.ArrayGetNext
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 3df26a04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams:
+        - variableName: Q4/Selection
+          objectType: UnityEngine.GameObject
+          useVariable: 1
+          type: 3
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 693720139}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        fsmArrayParams:
+        - useVariable: 1
+          name: Q4/RenameSelections
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          type: 3
+          objectTypeName: UnityEngine.Object
+          floatValues: []
+          intValues: 
+          boolValues: 
+          stringValues: []
+          vector4Values: []
+          objectReferences:
+          - {fileID: 693720139}
+          - {fileID: 1257000428}
+          - {fileID: 419299331}
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - loop
+        - FINISHED
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 2900000010000000100000001700000011000000170000002700000010000000
+        paramName:
+        - array
+        - startIndex
+        - endIndex
+        - loopEvent
+        - resetFlag
+        - finishedEvent
+        - result
+        - currentIndex
+        paramDataPos: 0000000000000000010000000000000000000000010000000000000002000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000
+    - name: Get Next Child
+      description: 
+      colorIndex: 11
+      position:
+        serializedVersion: 2
+        x: 839.91406
+        y: 746.3281
+        width: 115
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: loop
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Is Contain Copy?
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Bool Test
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetNextChild
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 57d56a01
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Q4/Selection
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 693720139}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Q4/Current Folder Panel
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 1770171322}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - loop
+        - FINISHED
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000013000000170000001700000011000000
+        paramName:
+        - gameObject
+        - storeNextChild
+        - loopEvent
+        - finishedEvent
+        - resetFlag
+        paramDataPos: 0000000000000000000000000100000000000000
+        paramByteDataSize: 0000000000000000000000000000000000000000
+    - name: Is Contain Copy?
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 1050.6562
+        y: 721.1094
+        width: 129
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: loop
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Get Next Child
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 11
+      - fsmEvent:
+          name: fail
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Set Bool Value
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 9
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetName
+        - HutongGames.PlayMaker.Actions.StringContains
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000003000000
+        actionHashCodes: 71c75a030c0e5502
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Q4/Selection
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 693720139}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: Q4/ChildName
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: Q4/ChildName
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: Q4/CopyStr
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: "\u8907\u88FD"
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - fail
+        - loop
+        byteData: 0000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 130000001200000001000000120000001200000017000000170000001100000001000000
+        paramName:
+        - gameObject
+        - storeName
+        - everyFrame
+        - stringVariable
+        - containsString
+        - trueEvent
+        - falseEvent
+        - storeResult
+        - everyFrame
+        paramDataPos: 000000000000000000000000010000000200000000000000010000000000000001000000
+        paramByteDataSize: 000000000000000001000000000000000000000000000000000000000000000001000000
+    - name: Init bool
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 856.3281
+        y: 693.7656
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Get Next Child
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetBoolValue
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 27fbe103
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: Q4/isFail
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 110000001100000001000000
+        paramName:
+        - boolVariable
+        - boolValue
+        - everyFrame
+        paramDataPos: 000000000100000000000000
+        paramByteDataSize: 000000000000000001000000
+    - name: Set Bool Value
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 1055.2266
+        y: 794.8906
+        width: 114
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Get Next Child
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetBoolValue
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 27fbe103
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: Q4/isFail
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 110000001100000001000000
+        paramName:
+        - boolVariable
+        - boolValue
+        - everyFrame
+        paramDataPos: 000000000100000000000000
+        paramByteDataSize: 000000000000000001000000
+    - name: Bool Test
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 853.2344
+        y: 838.89844
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: success
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Complete Quest
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 8
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.BoolTest
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: a4c8bf00
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: Q4/isFail
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - success
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 11000000170000001700000001000000
+        paramName:
+        - boolVariable
+        - isTrue
+        - isFalse
+        - everyFrame
+        paramDataPos: 00000000000000000100000000000000
+        paramByteDataSize: 00000000000000000000000001000000
+    - name: Change isFail to false
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 1006
+        y: 623.5625
+        width: 155
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Array Get Next 2
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetBoolValue
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 27fbe103
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: Q4/isFail
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 110000001100000001000000
+        paramName:
+        - boolVariable
+        - boolValue
+        - everyFrame
+        paramDataPos: 000000000100000000000000
+        paramByteDataSize: 000000000000000001000000
+    - name: Bool Test 2
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 850.4922
+        y: 633.64844
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: success
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Init bool
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 8
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.BoolTest
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: a4c8bf00
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: Q4/isFail
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - success
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 11000000170000001700000001000000
+        paramName:
+        - boolVariable
+        - isTrue
+        - isFalse
+        - everyFrame
+        paramDataPos: 00000000000000000100000000000000
+        paramByteDataSize: 00000000000000000000000001000000
+    - name: 5 Get Event Sent By
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 1294.0859
+        y: 537.4375
+        width: 146
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Array Get Next 3
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetEventSentBy
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 46ebaf00
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Sender
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 130000001200000012000000
+        paramName:
+        - sentByGameObject
+        - gameObjectName
+        - fsmName
+        paramDataPos: 000000000000000001000000
+        paramByteDataSize: 000000000000000000000000
+    - name: Is this Add Button Panel? 2
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 1280.7109
+        y: 641.375
+        width: 187
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: success
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: State 1
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 8
+      - fsmEvent:
+          name: loop
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Array Get Next 3
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GameObjectCompare
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: ef8d8504
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Q2/Selection
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Sender
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - success
+        - loop
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001300000017000000170000001100000001000000
+        paramName:
+        - gameObjectVariable
+        - compareTo
+        - equalEvent
+        - notEqualEvent
+        - storeResult
+        - everyFrame
+        paramDataPos: 000000000000000000000000010000000000000000000000
+        paramByteDataSize: 000000000000000000000000000000000000000001000000
+    - name: Array Get Next 3
+      description: 
+      colorIndex: 11
+      position:
+        serializedVersion: 2
+        x: 1308.2188
+        y: 590.9297
+        width: 129
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: loop
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Is this Add Button Panel? 2
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.ArrayGetNext
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 3df26a04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams:
+        - variableName: Q2/Selection
+          objectType: UnityEngine.GameObject
+          useVariable: 1
+          type: 3
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        fsmArrayParams:
+        - useVariable: 1
+          name: Q2/AddButtonSelections
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          type: 3
+          objectTypeName: UnityEngine.Object
+          floatValues: []
+          intValues: 
+          boolValues: 
+          stringValues: []
+          vector4Values: []
+          objectReferences:
+          - {fileID: 1969505703}
+          - {fileID: 271662779}
+          - {fileID: 815974475}
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - loop
+        - 
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 2900000010000000100000001700000011000000170000002700000010000000
+        paramName:
+        - array
+        - startIndex
+        - endIndex
+        - loopEvent
+        - resetFlag
+        - finishedEvent
+        - result
+        - currentIndex
+        paramDataPos: 0000000000000000010000000000000000000000010000000000000002000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000
+    - name: State 1
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 1319.5
+        y: 747.0781
+        width: 100
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
     events:
-    - name: Quest Tracker/Valid Control
-      isSystemEvent: 0
-      isGlobal: 1
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
-    - name: 1
+    - name: loop
       isSystemEvent: 0
       isGlobal: 0
-    - name: success
+    - name: Num/1
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Num/2
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Num/3
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Num/4
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Num/5
       isSystemEvent: 0
       isGlobal: 0
     - name: Quest Tracker/Complete Quest
       isSystemEvent: 0
       isGlobal: 1
-    - name: 2
+    - name: Quest Tracker/Valid Control
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: success
       isSystemEvent: 0
       isGlobal: 0
-    - name: 3
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: loop
+    - name: fail
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions:
@@ -4628,7 +6114,13 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 0
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: Q4/isFail
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       stringVariables:
       - useVariable: 1
         name: CurrentStageName
@@ -4637,11 +6129,23 @@ MonoBehaviour:
         networkSync: 0
         value: 
       - useVariable: 1
-        name: content
+        name: Q2/content
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
+      - useVariable: 1
+        name: Q4/ChildName
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
+      - useVariable: 1
+        name: Q4/CopyStr
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: "\u8907\u88FD"
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -4649,31 +6153,49 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: FileWindow
+        name: Q1/FileWindow
         tooltip: 
-        showInInspector: 1
+        showInInspector: 0
         networkSync: 0
         value: {fileID: 1287902499}
       - useVariable: 1
-        name: FileWindowParentGot
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: FileWindowParentWanted
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: {fileID: 263000231}
-      - useVariable: 1
-        name: Sender
+        name: Q1/FileWindowParentGot
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Selection
+        name: Q1/FileWindowParentWanted
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 263000231}
+      - useVariable: 1
+        name: Q2/Selection
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: Q3/Selection
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 1267868524}
+      - useVariable: 1
+        name: Q4/Current Folder Panel
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 1770171322}
+      - useVariable: 1
+        name: Q4/Selection
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 693720139}
+      - useVariable: 1
+        name: Sender
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -4683,9 +6205,9 @@ MonoBehaviour:
       textureVariables: []
       arrayVariables:
       - useVariable: 1
-        name: AddButtonSelections
+        name: Q2/AddButtonSelections
         tooltip: 
-        showInInspector: 1
+        showInInspector: 0
         networkSync: 0
         type: 3
         objectTypeName: UnityEngine.Object
@@ -4698,13 +6220,31 @@ MonoBehaviour:
         - {fileID: 1969505703}
         - {fileID: 271662779}
         - {fileID: 815974475}
+      - useVariable: 1
+        name: Q4/RenameSelections
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 3
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences:
+        - {fileID: 693720139}
+        - {fileID: 1257000428}
+        - {fileID: 419299331}
       enumVariables: []
       categories:
       - 
       - Q1
       - Q2
+      - Q3
+      - Q4
       - QuestTracker
-      variableCategoryIDs: 030000000300000002000000010000000100000001000000000000000200000002000000
+      variableCategoryIDs: 05000000040000000500000002000000040000000400000001000000010000000100000002000000030000000400000004000000000000000200000004000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -6446,7 +7986,7 @@ MonoBehaviour:
   fsm:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
-    name: button
+    name: Button
     startState: Get Fsm Game Object
     states:
     - name: Send Close Panel Event
@@ -7463,7 +9003,7 @@ MonoBehaviour:
               tooltip: 
               showInInspector: 1
               networkSync: 0
-              value: {fileID: 2425660402031591145}
+              value: {fileID: 253081624}
           fsmName:
             useVariable: 0
             name: 
@@ -10091,7 +11631,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Send Close Panel Event
+        toState: Valid Control Event
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -10779,6 +12319,112 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 0000000001000000020000000300000000000000
         paramByteDataSize: 0000000000000000000000000000000001000000
+    - name: Valid Control Event
+      description: 
+      colorIndex: 10
+      position:
+        serializedVersion: 2
+        x: 876.1094
+        y: 445.41406
+        width: 142
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Send Close Panel Event
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SendEvent
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 5e69bb04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams:
+        - target: 1
+          excludeSelf:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          gameObject:
+            ownerOption: 1
+            gameObject:
+              useVariable: 1
+              name: Quest Tracker
+              tooltip: 
+              showInInspector: 1
+              networkSync: 0
+              value: {fileID: 253081624}
+          fsmName:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          sendToChildren:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          fsmComponent: {fileID: 0}
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - Quest Tracker/Valid Control
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1f000000170000000f00000001000000
+        paramName:
+        - eventTarget
+        - sendEvent
+        - delay
+        - everyFrame
+        paramDataPos: 00000000000000000000000000000000
+        paramByteDataSize: 00000000000000000000000001000000
     events:
     - name: next
       isSystemEvent: 0
@@ -10852,9 +12498,9 @@ MonoBehaviour:
       - useVariable: 1
         name: copyStr
         tooltip: 
-        showInInspector: 0
+        showInInspector: 1
         networkSync: 0
-        value: (Copy)
+        value: "(\u8907\u88FD)"
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -10891,6 +12537,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: {fileID: 2122156360}
+      - useVariable: 1
+        name: Quest Tracker
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 253081624}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -10926,7 +12578,8 @@ MonoBehaviour:
       - 
       - FileName
       - Reference
-      variableCategoryIDs: 00000000000000000000000000000000010000000100000000000000000000000000000002000000020000000200000000000000020000000000000001000000
+      - Quest Tracker
+      variableCategoryIDs: 0000000000000000000000000000000001000000010000000000000000000000000000000200000002000000020000000000000002000000030000000000000001000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -15339,7 +16992,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 53.085938
-        y: 187.28125
+        y: 219.28125
         width: 125
         height: 32
       isBreakpoint: 0
@@ -15426,7 +17079,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 201.20312
-        y: 187.42969
+        y: 219.42969
         width: 173
         height: 32
       isBreakpoint: 0
@@ -15550,8 +17203,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 346.89062
-        y: 430.35938
+        x: 477.35938
+        y: 472.09375
         width: 157
         height: 16
       isBreakpoint: 0
@@ -15737,16 +17390,16 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 475.51562
-        y: 113.53125
+        x: 488.91406
+        y: 100.38281
         width: 317
-        height: 48
+        height: 80
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: 2
+          name: Num/2
           isSystemEvent: 0
           isGlobal: 0
         toState: Start Quest 2
@@ -15755,10 +17408,28 @@ MonoBehaviour:
         linkTarget: 0
         colorIndex: 0
       - fsmEvent:
-          name: 3
+          name: Num/3
           isSystemEvent: 0
           isGlobal: 0
         toState: Start Quest 3
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: Num/4
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Start Quest 4
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: Num/5
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Start Quest 5
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -15806,6 +17477,24 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 3
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 4
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 5
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
@@ -15813,34 +17502,43 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
-        - 2
-        - 3
+        - Num/2
+        - Num/3
+        - Num/4
+        - Num/5
+        - 
         byteData: 00
-        arrayParamSizes: 0200000002000000
+        arrayParamSizes: 0500000005000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmInt
         - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 100000000c00000010000000100000000c000000170000001700000001000000
+        paramDataType: 100000000c00000010000000100000001000000010000000100000000c000000170000001700000017000000170000001700000001000000
         paramName:
         - intVariable
         - compareTo
         - 
         - 
+        - 
+        - 
+        - 
         - sendEvent
         - 
         - 
+        - 
+        - 
+        - 
         - everyFrame
-        paramDataPos: 0000000000000000010000000200000001000000000000000100000000000000
-        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 0000000000000000010000000200000003000000040000000500000001000000000000000100000002000000030000000400000000000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
     - name: Start Quest 2
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
         x: 518.10156
-        y: 213.46875
+        y: 245.46875
         width: 108
         height: 32
       isBreakpoint: 0
@@ -15964,8 +17662,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 664.6094
-        y: 210.78906
+        x: 668.5156
+        y: 251.96094
         width: 109
         height: 32
       isBreakpoint: 0
@@ -16084,6 +17782,256 @@ MonoBehaviour:
         - inactiveEvent
         paramDataPos: 00000000000000000000000001000000000000000100000002000000030000000000000001000000
         paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+    - name: Start Quest 4
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 805.28906
+        y: 255.4375
+        width: 109
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: next
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Clean All Dialog Event
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - PixelCrushers.DialogueSystem.PlayMaker.StartConversation
+        - PixelCrushers.DialogueSystem.PlayMaker.IsConversationActive
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000006000000
+        actionHashCodes: b1d51c015114b801
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Actor
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 1229047809}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Introduce Game/Quest 4
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: -1
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - next
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 12000000100000001300000013000000110000001100000011000000110000001700000017000000
+        paramName:
+        - conversation
+        - startingEntryID
+        - actor
+        - conversant
+        - exclusive
+        - replace
+        - everyFrame
+        - storeResult
+        - activeEvent
+        - inactiveEvent
+        paramDataPos: 00000000000000000000000001000000000000000100000002000000030000000000000001000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+    - name: Start Quest 5
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 953.08594
+        y: 252.44531
+        width: 109
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: next
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Clean All Dialog Event
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - PixelCrushers.DialogueSystem.PlayMaker.StartConversation
+        - PixelCrushers.DialogueSystem.PlayMaker.IsConversationActive
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000006000000
+        actionHashCodes: b1d51c015114b801
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Actor
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 1229047809}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Introduce Game/Quest 5
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: -1
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - next
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 12000000100000001300000013000000110000001100000011000000110000001700000017000000
+        paramName:
+        - conversation
+        - startingEntryID
+        - actor
+        - conversant
+        - exclusive
+        - replace
+        - everyFrame
+        - storeResult
+        - activeEvent
+        - inactiveEvent
+        paramDataPos: 00000000000000000000000001000000000000000100000002000000030000000000000001000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -16110,6 +18058,18 @@ MonoBehaviour:
       isSystemEvent: 0
       isGlobal: 0
     - name: 3
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Num/2
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Num/3
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Num/4
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Num/5
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions:
@@ -17240,8 +19200,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 867.85156
-        y: 490.85938
+        x: 863.4453
+        y: 542.5
         width: 167
         height: 16
       isBreakpoint: 0
@@ -18169,8 +20129,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 845.27344
-        y: 400.27344
+        x: 840.8594
+        y: 402.45312
         width: 200
         height: 32
       isBreakpoint: 0
@@ -18181,7 +20141,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Send Close Panel Event
+        toState: Valid Control Event
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -18869,6 +20829,112 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 0000000001000000020000000300000000000000
         paramByteDataSize: 0000000000000000000000000000000001000000
+    - name: Valid Control Event
+      description: 
+      colorIndex: 10
+      position:
+        serializedVersion: 2
+        x: 875.0547
+        y: 477.41406
+        width: 142
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Send Close Panel Event
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SendEvent
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 5e69bb04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams:
+        - target: 1
+          excludeSelf:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          gameObject:
+            ownerOption: 1
+            gameObject:
+              useVariable: 1
+              name: Quest Tracker
+              tooltip: 
+              showInInspector: 1
+              networkSync: 0
+              value: {fileID: 253081624}
+          fsmName:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          sendToChildren:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          fsmComponent: {fileID: 0}
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - Quest Tracker/Valid Control
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1f000000170000000f00000001000000
+        paramName:
+        - eventTarget
+        - sendEvent
+        - delay
+        - everyFrame
+        paramDataPos: 00000000000000000000000000000000
+        paramByteDataSize: 00000000000000000000000001000000
     events:
     - name: next
       isSystemEvent: 0
@@ -18942,9 +21008,9 @@ MonoBehaviour:
       - useVariable: 1
         name: copyStr
         tooltip: 
-        showInInspector: 0
+        showInInspector: 1
         networkSync: 0
-        value: (Copy)
+        value: "(\u8907\u88FD)"
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -18981,6 +21047,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: {fileID: 2122156360}
+      - useVariable: 1
+        name: Quest Tracker
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 253081624}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -19016,7 +21088,8 @@ MonoBehaviour:
       - 
       - FileName
       - Reference
-      variableCategoryIDs: 00000000000000000000000000000000010000000100000000000000000000000000000002000000020000000200000000000000020000000000000001000000
+      - Quest Tracker
+      variableCategoryIDs: 0000000000000000000000000000000001000000010000000000000000000000000000000200000002000000020000000000000002000000030000000000000001000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -23098,7 +25171,7 @@ MonoBehaviour:
   fsm:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
-    name: button
+    name: Button
     startState: Get Fsm Game Object
     states:
     - name: Send Close Panel Event
@@ -24115,7 +26188,7 @@ MonoBehaviour:
               tooltip: 
               showInInspector: 1
               networkSync: 0
-              value: {fileID: 2425660402031591145}
+              value: {fileID: 253081624}
           fsmName:
             useVariable: 0
             name: 
@@ -32441,7 +34514,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Send Close Panel Event
+        toState: Valid Control Event
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -33129,6 +35202,112 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 0000000001000000020000000300000000000000
         paramByteDataSize: 0000000000000000000000000000000001000000
+    - name: Valid Control Event
+      description: 
+      colorIndex: 10
+      position:
+        serializedVersion: 2
+        x: 896.5
+        y: 447.76562
+        width: 142
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Send Close Panel Event
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SendEvent
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 5e69bb04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams:
+        - target: 1
+          excludeSelf:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          gameObject:
+            ownerOption: 1
+            gameObject:
+              useVariable: 1
+              name: Quest Tracker
+              tooltip: 
+              showInInspector: 1
+              networkSync: 0
+              value: {fileID: 253081624}
+          fsmName:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          sendToChildren:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          fsmComponent: {fileID: 0}
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - Quest Tracker/Valid Control
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1f000000170000000f00000001000000
+        paramName:
+        - eventTarget
+        - sendEvent
+        - delay
+        - everyFrame
+        paramDataPos: 00000000000000000000000000000000
+        paramByteDataSize: 00000000000000000000000001000000
     events:
     - name: next
       isSystemEvent: 0
@@ -33202,9 +35381,9 @@ MonoBehaviour:
       - useVariable: 1
         name: copyStr
         tooltip: 
-        showInInspector: 0
+        showInInspector: 1
         networkSync: 0
-        value: (Copy)
+        value: "(\u8907\u88FD)"
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -33241,6 +35420,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: {fileID: 2122156360}
+      - useVariable: 1
+        name: Quest Tracker
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 253081624}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -33276,7 +35461,8 @@ MonoBehaviour:
       - 
       - FileName
       - Reference
-      variableCategoryIDs: 00000000000000000000000000000000010000000100000000000000000000000000000002000000020000000200000000000000020000000000000001000000
+      - Quest Tracker
+      variableCategoryIDs: 0000000000000000000000000000000001000000010000000000000000000000000000000200000002000000020000000000000002000000030000000000000001000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -33683,8 +35869,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 463.65625
-        y: 179.44531
+        x: 751.8281
+        y: 259.4375
         width: 167
         height: 16
       isBreakpoint: 0
@@ -33977,8 +36163,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 391.14844
-        y: 236.65625
+        x: 387.14844
+        y: 233.65625
         width: 143
         height: 32
       isBreakpoint: 0
@@ -33989,7 +36175,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Send Close Panel Event
+        toState: Valid Control Event
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -34378,6 +36564,112 @@ MonoBehaviour:
         - indexOutOfRange
         paramDataPos: 0000000000000000010000000200000000000000030000000400000000000000050000000000000001000000000000000000000001000000000000000200000001000000010000000200000001000000
         paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000100000000000000
+    - name: Valid Control Event
+      description: 
+      colorIndex: 10
+      position:
+        serializedVersion: 2
+        x: 560.10156
+        y: 239.14062
+        width: 142
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Send Close Panel Event
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SendEvent
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 5e69bb04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams:
+        - target: 1
+          excludeSelf:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          gameObject:
+            ownerOption: 1
+            gameObject:
+              useVariable: 1
+              name: Quest Tracker
+              tooltip: 
+              showInInspector: 1
+              networkSync: 0
+              value: {fileID: 253081624}
+          fsmName:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          sendToChildren:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          fsmComponent: {fileID: 0}
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - Quest Tracker/Valid Control
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1f000000170000000f00000001000000
+        paramName:
+        - eventTarget
+        - sendEvent
+        - delay
+        - everyFrame
+        paramDataPos: 00000000000000000000000000000000
+        paramByteDataSize: 00000000000000000000000001000000
     events:
     - name: next
       isSystemEvent: 0
@@ -34457,6 +36749,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
+      - useVariable: 1
+        name: Quest Tracker
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 253081624}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -34479,7 +36777,8 @@ MonoBehaviour:
       - 
       - Reference
       - FileName
-      variableCategoryIDs: 00000000000000000200000000000000010000000000000001000000000000000000000002000000
+      - Quest Tracker
+      variableCategoryIDs: 0000000000000000020000000000000001000000000000000100000000000000000000000300000002000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -48035,8 +50334,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 55.390625
-        y: 183.41406
+        x: 63.078125
+        y: 176.8125
         width: 133
         height: 48
       isBreakpoint: 0
@@ -48414,8 +50713,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 260.3828
-        y: 204.88281
+        x: 335.10156
+        y: 203.77344
         width: 157
         height: 16
       isBreakpoint: 0
@@ -49368,7 +51667,7 @@ MonoBehaviour:
   fsm:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
-    name: button
+    name: Button
     startState: Get Fsm Game Object
     states:
     - name: Send Close Panel Event
@@ -50385,7 +52684,7 @@ MonoBehaviour:
               tooltip: 
               showInInspector: 1
               networkSync: 0
-              value: {fileID: 2425660402031591145}
+              value: {fileID: 253081624}
           fsmName:
             useVariable: 0
             name: 
@@ -58872,7 +61171,7 @@ PrefabInstance:
     - target: {fileID: 7273482572989237296, guid: b1facb85aaaec8f419d0e860bb9bcf9f,
         type: 3}
       propertyPath: fsm.states.Array.data[7].position.y
-      value: 256
+      value: 227.13281
       objectReference: {fileID: 0}
     - target: {fileID: 7273482572989237296, guid: b1facb85aaaec8f419d0e860bb9bcf9f,
         type: 3}
@@ -58968,7 +61267,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmEventTargetParams.Array.data[0].gameObject.gameObject.value
       value: 
-      objectReference: {fileID: 2425660402031591145}
+      objectReference: {fileID: 253081624}
     - target: {fileID: 7273482572989237296, guid: b1facb85aaaec8f419d0e860bb9bcf9f,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmEventTargetParams.Array.data[0].gameObject.gameObject.showInInspector
