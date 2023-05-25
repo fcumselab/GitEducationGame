@@ -9624,7 +9624,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 96
+    m_FontSize: 108
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -13676,7 +13676,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 26
+  m_Spacing: 47.89
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -19144,6 +19144,7 @@ GameObject:
   - component: {fileID: 622400203}
   - component: {fileID: 622400202}
   - component: {fileID: 622400204}
+  - component: {fileID: 622400205}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -19169,7 +19170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -31, y: -162.3}
+  m_AnchoredPosition: {x: -54, y: -162.3}
   m_SizeDelta: {x: 410.333, y: 94.70099}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &622400202
@@ -19225,17 +19226,17 @@ MonoBehaviour:
   fsm:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
-    name: FSM
-    startState: Get Time Info
+    name: timer
+    startState: Countup Timer
     states:
-    - name: Get Time Info
+    - name: Countup Timer
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 55
-        y: 107
-        width: 108
+        x: 63
+        y: 120
+        width: 117
         height: 16
       isBreakpoint: 0
       isSequence: 0
@@ -19243,22 +19244,24 @@ MonoBehaviour:
       transitions: []
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.GetTimeInfo
+        - HutongGames.PlayMaker.Actions.CountupTimer
+        - HutongGames.PlayMaker.Actions.CallMethod
         - HutongGames.PlayMaker.Actions.UiTextSetText
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000003000000
-        actionHashCodes: 5758750109fbab04
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010000
+        actionStartIndex: 00000000050000000c000000
+        actionHashCodes: 2010f100ca51e90009fbab04
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Time
+            name: TimerText
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -19275,9 +19278,70 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
+          value: StopWatch
+        - useVariable: 1
+          name: timerText
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
           value: 
-        fsmObjectParams: []
-        fsmVarParams: []
+        fsmObjectParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          typeName: MyTimer
+          value: {fileID: 622400205}
+        fsmVarParams:
+        - variableName: Timer
+          objectType: UnityEngine.Object
+          useVariable: 1
+          type: 0
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        - variableName: timerText
+          objectType: UnityEngine.Object
+          useVariable: 1
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams:
@@ -19295,28 +19359,62 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 060000000101
-        arrayParamSizes: 
-        arrayParamTypes: []
+        byteData: 010001
+        arrayParamSizes: 01000000
+        arrayParamTypes:
+        - HutongGames.PlayMaker.FsmVar
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 070000000f0000000100000014000000120000001100000001000000
+        paramDataType: 0f0000001100000011000000110000001100000018000000120000000c0000002700000027000000010000000100000014000000120000001100000001000000
         paramName:
-        - getInfo
-        - storeValue
+        - storeTime
+        - realTime
+        - pause
+        - reset
+        - restartOnEnter
+        - behaviour
+        - methodName
+        - parameters
+        - 
+        - storeResult
         - everyFrame
+        - manualUI
         - gameObject
         - text
         - resetOnExit
         - everyFrame
-        paramDataPos: 00000000000000000400000000000000000000000000000005000000
-        paramByteDataSize: 04000000000000000100000000000000000000000000000001000000
+        paramDataPos: 00000000000000000100000002000000030000000000000000000000000000000000000001000000000000000100000000000000010000000400000002000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -19332,7 +19430,13 @@ MonoBehaviour:
         value: 0
       intVariables: []
       boolVariables: []
-      stringVariables: []
+      stringVariables:
+      - useVariable: 1
+        name: timerText
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -19340,7 +19444,7 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: Time
+        name: TimerText
         tooltip: 
         showInInspector: 1
         networkSync: 0
@@ -19353,7 +19457,7 @@ MonoBehaviour:
       categories:
       - 
       - Children
-      variableCategoryIDs: 0000000001000000
+      variableCategoryIDs: 000000000000000001000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -19401,6 +19505,18 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
+--- !u!114 &622400205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622400199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf2f5ffdbc58284e82c119ba9d688ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &631943777 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8543020978931267687, guid: 9cf7ad67d163fd24c980c60413a836bc,
@@ -49617,7 +49733,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 64
+    m_FontSize: 76
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -49628,7 +49744,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 00:10:00
+  m_Text: 01:00
 --- !u!222 &1963037368
 CanvasRenderer:
   m_ObjectHideFlags: 0
