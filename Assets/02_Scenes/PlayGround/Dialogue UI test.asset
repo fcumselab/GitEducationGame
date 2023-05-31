@@ -454,6 +454,34 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
+  - id: 8
+    fields:
+    - title: Name
+      value: isReplay
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: If use replay function it will be true
+      type: 0
+      typeString: 
+  - id: 9
+    fields:
+    - title: Name
+      value: tag
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: use to identify different path
+      type: 0
+      typeString: 
   conversations:
   - id: 5
     fields:
@@ -1148,6 +1176,12 @@ MonoBehaviour:
         destinationDialogueID: 18
         isConnector: 0
         priority: 2
+      - originConversationID: 5
+        originDialogueID: 11
+        destinationConversationID: 5
+        destinationDialogueID: 35
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -1155,8 +1189,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 902.29114
-        y: 195.40729
+        x: 901.02527
+        y: 190.344
         width: 160
         height: 30
     - id: 12
@@ -1470,8 +1504,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 711.3423
-        y: 196.82202
+        x: 627.798
+        y: 181.63214
         width: 160
         height: 30
     - id: 17
@@ -2636,6 +2670,111 @@ MonoBehaviour:
         y: 1287.9475
         width: 160
         height: 30
+    - id: 35
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u901A\u77E5\u986F\u793A"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 35
+        destinationConversationID: 5
+        destinationDialogueID: 36
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 254.19003
+        y: 327.68576
+        width: 160
+        height: 30
+    - id: 36
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u8A0A\u606F1"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: "Variable[\"NotificationText\"] = \"\u89E3\u9396\u61C9\u7528\u7A0B\u5F0F\uFF1A\u6A94\u6848\u7BA1\u7406\";\nFSMEvent(\"NotificationTextBox/Show
+        TextBox\", \"NotificationTextBoxManager\", \"Create TextBox\");\n"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 254.19003
+        y: 377.68576
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -2677,8 +2816,8 @@ MonoBehaviour:
         width: 472.27658
         height: 235.04256
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 746.41437, y: 0}
-    canvasZoom: 0.79000014
+    canvasScrollPosition: {x: 195.41895, y: 47.3114}
+    canvasZoom: 0.7900002
   - id: 6
     fields:
     - title: Title
@@ -6591,7 +6730,19 @@ MonoBehaviour:
       - originConversationID: 12
         originDialogueID: 0
         destinationConversationID: 12
-        destinationDialogueID: 10
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 12
+        originDialogueID: 0
+        destinationConversationID: 12
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 12
+        originDialogueID: 0
+        destinationConversationID: 12
+        destinationDialogueID: 60
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -6601,8 +6752,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 898.49945
-        y: 59.15793
+        x: 1410.2635
+        y: 8.569733
         width: 160
         height: 30
     - id: 1
@@ -6646,10 +6797,10 @@ MonoBehaviour:
       - originConversationID: 12
         originDialogueID: 1
         destinationConversationID: 12
-        destinationDialogueID: 2
+        destinationDialogueID: 56
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["isReplay"] == false
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
@@ -6659,8 +6810,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1407.9717
-        y: 139.68633
+        x: 1410.3248
+        y: 117.33339
         width: 160
         height: 30
     - id: 2
@@ -6707,7 +6858,7 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["isReplay"] == true and (Variable["tag"] ~= "Story")
       userScript: 'Variable["ImageKey"] = "gitIcon";
 
         FSMEvent("Tutorial
@@ -6717,8 +6868,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1410.4263
-        y: 197.94965
+        x: 1061.5859
+        y: 183.99997
         width: 160
         height: 30
     - id: 3
@@ -6775,8 +6926,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1411.6667
-        y: 248.96463
+        x: 1412.8862
+        y: 250.18414
         width: 160
         height: 30
     - id: 4
@@ -6997,6 +7148,12 @@ MonoBehaviour:
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
+      - originConversationID: 12
+        originDialogueID: 7
+        destinationConversationID: 12
+        destinationDialogueID: 58
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -7052,7 +7209,7 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["isReplay"] == false
       userScript: 'Variable["ImageKey"] = "happyFace";
 
         FSMEvent("Tutorial
@@ -7062,8 +7219,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1387.8163
-        y: 586.68805
+        x: 1391.21
+        y: 578.5147
         width: 160
         height: 30
     - id: 9
@@ -7120,8 +7277,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1387.8422
-        y: 640.0308
+        x: 1390.2811
+        y: 621.73816
         width: 160
         height: 30
     - id: 10
@@ -7165,7 +7322,7 @@ MonoBehaviour:
       - originConversationID: 12
         originDialogueID: 10
         destinationConversationID: 12
-        destinationDialogueID: 11
+        destinationDialogueID: 55
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -7178,72 +7335,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1380.9493
-        y: 699.5031
-        width: 160
-        height: 30
-    - id: 11
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: "Image file\n\u65B0\u589E\u7576\u524D\u76EE\u6A19\uFF1A\u958B\u555F\u6A94\u6848\u7BA1\u7406\u8996\u7A97"
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u6211\u5011\u6216\u8A31\u6703\u60F3\u8981\u958B\u555F\u6587\u4EF6\u4F86\u5E6B\u52A9\u6211\u5011\u5BEB\u8B1B\u7A3F"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 11
-        destinationConversationID: 12
-        destinationDialogueID: 14
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 'Variable["ImageKey"] = "file";
-
-        FSMEvent("Tutorial Popup/Change
-        Image", "Tutorial Popup Parent", "Tutorial Popup");
-
-
-        FSMEvent("Quest
-        Tracker/Add New Quest", "Quest Tracker", "Quest Tracker");
-
-'
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1158.1974
-        y: 745.30743
+        x: 1392.3212
+        y: 676.40295
         width: 160
         height: 30
     - id: 12
@@ -7300,8 +7393,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1409.5536
-        y: 837.35095
+        x: 1392.7711
+        y: 844.16785
         width: 160
         height: 30
     - id: 13
@@ -7356,8 +7449,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1409.5123
-        y: 885.9701
+        x: 1406.7726
+        y: 894.1893
         width: 160
         height: 30
     - id: 14
@@ -7404,6 +7497,12 @@ MonoBehaviour:
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
+      - originConversationID: 12
+        originDialogueID: 14
+        destinationConversationID: 12
+        destinationDialogueID: 57
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: '
 
@@ -7420,8 +7519,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1408.046
-        y: 942.03577
+        x: 1402.8375
+        y: 949.1559
         width: 160
         height: 30
     - id: 15
@@ -7468,15 +7567,15 @@ MonoBehaviour:
         destinationDialogueID: 16
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["isReplay"] == false
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1412.3921
-        y: 987.3279
+        x: 1409.9774
+        y: 996.1046
         width: 160
         height: 30
     - id: 16
@@ -7524,17 +7623,22 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: "Variable[\"NotificationText\"] = \"\u89E3\u9396\u61C9\u7528\u7A0B\u5F0F\uFF1A\u6A94\u6848\u7BA1\u7406\";\nFSMEvent(\"NotificationTextBox/Show
-        TextBox\", \"NotificationTextBoxManager\", \"Create TextBox\");\n\nVariable[\"UnlockButtonName\"]
-        = \"FileManagerWindowButton\"\nFSMEvent(\"Toolbar/Unlock Button\", \"Toolbar
-        Panel\", \"Panel\");\n\n"
+      userScript: '
+
+        Variable["UnlockButtonName"] = "FileManagerWindowButton"
+
+        FSMEvent("Toolbar/Unlock
+        Button", "Toolbar Panel", "Panel");
+
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1405.181
-        y: 1042.642
+        x: 1410.9467
+        y: 1040.4592
         width: 160
         height: 30
     - id: 17
@@ -7556,7 +7660,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: arrow change + black off
+        value: 'arrow change '
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -7584,10 +7688,7 @@ MonoBehaviour:
         "Arrow Animation");
 
         FSMEvent("Tutorial Arrow/Show Arrow", "HelpButtonArrow",
-        "Arrow Animation");
-
-        FSMEvent("Tutorial Popup/Close Black Panel",
-        "Tutorial Popup Parent", "Tutorial Popup");'
+        "Arrow Animation");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -7702,8 +7803,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 930.6187
-        y: 532.1819
+        x: 739.1556
+        y: 538.2794
         width: 160
         height: 30
     - id: 39
@@ -7762,8 +7863,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 843.61566
-        y: 462.9334
+        x: 669.2255
+        y: 461.71393
         width: 160
         height: 30
     - id: 40
@@ -7820,8 +7921,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 995.4009
-        y: 685.9616
+        x: 758.8158
+        y: 654.25433
         width: 160
         height: 30
     - id: 54
@@ -7876,8 +7977,411 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1406.5363
-        y: 785.48157
+        x: 1391.0975
+        y: 791.18896
+        width: 160
+        height: 30
+    - id: 55
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: "Image file\n\u65B0\u589E\u7576\u524D\u76EE\u6A19\uFF1A\u958B\u555F\u6A94\u6848\u7BA1\u7406\u8996\u7A97"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u6211\u5011\u6216\u8A31\u6703\u60F3\u8981\u958B\u555F\u6587\u4EF6\u4F86\u5E6B\u52A9\u6211\u5011\u5BEB\u8B1B\u7A3F"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 55
+        destinationConversationID: 12
+        destinationDialogueID: 54
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["isReplay"] == false
+      userScript: 'Variable["ImageKey"] = "file";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("Quest
+        Tracker/Add New Quest", "Quest Tracker", "Quest Tracker");
+
+'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1390.5309
+        y: 718.771
+        width: 160
+        height: 30
+    - id: 56
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: Image gitIcon
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u5728\u9019\u500B\u6559\u5B78\u904A\u6232\u4E2D\n\u6211\u5011\u5C07\u6703\u5B78\u7FD2\u5230\u4EC0\u9EBC\u662F\u7248\u672C\u63A7\u5236"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 56
+        destinationConversationID: 12
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 'Variable["ImageKey"] = "gitIcon";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1409.8087
+        y: 179.69852
+        width: 160
+        height: 30
+    - id: 57
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u6211\u5011\u53EF\u4EE5\u4F7F\u7528\u6ED1\u9F20\u5DE6\u9375\u4F86\u958B\u555F\u6A94\u6848\u7BA1\u7406\u529F\u80FD"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 57
+        destinationConversationID: 12
+        destinationDialogueID: 17
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["isReplay"] == true
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1055.7089
+        y: 1003.33777
+        width: 160
+        height: 30
+    - id: 58
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: Content Off
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u8B93\u6211\u4F86\u7C21\u55AE\u4ECB\u7D39\u4E00\u4E0B\u9019\u500B\u7CFB\u7D71\u7684\u529F\u80FD"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 58
+        destinationConversationID: 12
+        destinationDialogueID: 59
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["isReplay"] == true
+      userScript: FSMEvent("Tutorial Popup/Close Content Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1061.5336
+        y: 798.0933
+        width: 160
+        height: 30
+    - id: 59
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: Close Black Panel & Show arrow & Highlight panel
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u6211\u5011\u53EF\u4EE5\u5728\u5DE6\u4E0A\u89D2\u7684\u904A\u6232\u76EE\u6A19\u5340\u584A\u4E2D\n\u770B\u5230\u7576\u524D\u7684\u4EFB\u52D9\u76EE\u6A19"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 59
+        destinationConversationID: 12
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: '
+
+        FSMEvent("Tutorial Arrow/Show Arrow", "StageTrackerArrow",
+        "Arrow Animation");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1050.6366
+        y: 845.6628
+        width: 160
+        height: 30
+    - id: 60
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: Image boy5
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u5047\u8A2D\u6211\u5011\u73FE\u5728\u662F\u4E00\u500B\u5B78\u751F\n\u6211\u5011\u60F3\u8981\u505A\u4E00\u500B\u5831\u544A\u8B1B\u7A3F\u4F86\u6E96\u5099\u5E7E\u5929\u5F8C\u7684\u5831\u544A"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 60
+        destinationConversationID: 12
+        destinationDialogueID: 61
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["isReplay"] == true and (Variable["tag"] == "Story")
+      userScript: 'Variable["ImageKey"] = "boy5";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1712.1
+        y: 654.4494
+        width: 160
+        height: 30
+    - id: 61
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: "Image file\n\u65B0\u589E\u7576\u524D\u76EE\u6A19\uFF1A\u958B\u555F\u6A94\u6848\u7BA1\u7406\u8996\u7A97"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u6211\u5011\u6216\u8A31\u6703\u60F3\u8981\u958B\u555F\u6587\u4EF6\u4F86\u5E6B\u52A9\u6211\u5011\u5BEB\u8B1B\u7A3F"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 'Variable["ImageKey"] = "file";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1709.7955
+        y: 728.73987
         width: 160
         height: 30
     entryGroups:
@@ -7897,8 +8401,8 @@ MonoBehaviour:
         width: 398.26013
         height: 659.9039
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 971.9321, y: 556.25287}
-    canvasZoom: 0.9100007
+    canvasScrollPosition: {x: 934.06006, y: 0}
+    canvasZoom: 0.91000086
   - id: 13
     fields:
     - title: Title
@@ -7997,6 +8501,18 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 13
+        originDialogueID: 0
+        destinationConversationID: 13
+        destinationDialogueID: 48
+        isConnector: 0
+        priority: 2
+      - originConversationID: 13
+        originDialogueID: 0
+        destinationConversationID: 13
+        destinationDialogueID: 49
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -8004,8 +8520,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1193.7246
-        y: 57.113327
+        x: 1409.5142
+        y: 24.21859
         width: 160
         height: 30
     - id: 1
@@ -8054,7 +8570,7 @@ MonoBehaviour:
         destinationDialogueID: 41
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["isReplay"] == false
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
@@ -8068,8 +8584,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1401.1809
-        y: 57.55327
+        x: 1410.4474
+        y: 93.07959
         width: 160
         height: 30
     - id: 2
@@ -8116,7 +8632,7 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["isReplay"] == false
       userScript: FSMEvent("Tutorial Popup/Close Content Panel", "Tutorial Popup
         Parent", "Tutorial Popup");
       onExecute:
@@ -8124,8 +8640,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1383.9315
-        y: 615.6691
+        x: 1382.6157
+        y: 565.66907
         width: 160
         height: 30
     - id: 3
@@ -8179,8 +8695,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1380.633
-        y: 683.2111
+        x: 1392.4751
+        y: 633.2111
         width: 160
         height: 30
     - id: 4
@@ -8231,8 +8747,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1387.2661
-        y: 732.7111
+        x: 1393.8451
+        y: 705.0795
         width: 160
         height: 30
     - id: 31
@@ -8653,7 +9169,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u57F7\u884C\u4E86\u4E0D\u76F8\u95DC\u7684\u52D5\u4F5C\u5C31\u6703\u88AB\u8B66\u544A\u4E26\u6263\u5206\uFF01\n\u9023\u6BB5\u4E5F\u6703\u6D88\u5931\uFF01"
+        value: "\u5982\u679C\u57F7\u884C\u4E86\u4E0D\u76F8\u95DC\u7684\u52D5\u4F5C\u5C31\u6703\u88AB\u8B66\u544A\u4E26\u6263\u5206\uFF01\n\u9023\u7E8C\u7B54\u5C0D\u7684\u8A08\u6578\u4E5F\u6703\u6B78\u96F6\uFF01"
         type: 0
         typeString: 
       - title: Sequence
@@ -8852,13 +9368,235 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1392.3304
-        y: 481.45355
+        x: 1388.4371
+        y: 482.82343
+        width: 160
+        height: 30
+    - id: 48
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u53EA\u8981\u6211\u5011\u5B8C\u6210\u4E86\u4E00\u500B\u76EE\u6A19\u5C31\u53EF\u4EE5\u7372\u5F97\u5206\u6578\uFF01"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 13
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 13
+        originDialogueID: 48
+        destinationConversationID: 13
+        destinationDialogueID: 42
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["isReplay"] == true and (Variable["tag"] ~= "Story")
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+
+        Variable["ImageKey"] = "happyFace";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1148.9879
+        y: 140.00807
+        width: 160
+        height: 30
+    - id: 49
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: Close Content
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u6211\u5011\u525B\u525B\u6210\u529F\u958B\u555F\u4E86\u4E00\u500B\u6A94\u6848\u7BA1\u7406\u8996\u7A97\uFF01"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 13
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 13
+        originDialogueID: 49
+        destinationConversationID: 13
+        destinationDialogueID: 50
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["isReplay"] == true and (Variable["tag"] == "Story")
+      userScript: FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1628.0741
+        y: 562.76605
+        width: 160
+        height: 30
+    - id: 50
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u770B\u8D77\u4F86\u5728\u9019\u500B\u7CFB\u7D71\u4E2D\u5DF2\u7D93\u6709\u4E00\u500B\u8B1B\u7A3F\u6587\u4EF6\u4E86"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 13
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 13
+        originDialogueID: 50
+        destinationConversationID: 13
+        destinationDialogueID: 51
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1634.7421
+        y: 629.24426
+        width: 160
+        height: 30
+    - id: 51
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u9019\u6B21\u6211\u5011\u8A66\u8457\u958B\u555F\u5B83\u7136\u5F8C\u65B0\u589E\u4E00\u4E9B\u5167\u5BB9\u5427\uFF01"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 13
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1636.112
+        y: 701.1127
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 710.6662, y: 0}
-    canvasZoom: 0.72999996
+    canvasScrollPosition: {x: 909.4335, y: 0}
+    canvasZoom: 0.9399998
   - id: 14
     fields:
     - title: Title
@@ -9020,8 +9758,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1408.0303
-        y: 139.74506
+        x: 1559.2498
+        y: 147.06212
         width: 160
         height: 30
     - id: 2
@@ -9075,8 +9813,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1412.6991
-        y: 198.37366
+        x: 1563.9187
+        y: 205.69072
         width: 160
         height: 30
     - id: 3
@@ -9130,8 +9868,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1408.0303
-        y: 248.96463
+        x: 1559.2498
+        y: 256.28168
         width: 160
         height: 30
     - id: 4
@@ -9178,6 +9916,12 @@ MonoBehaviour:
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
+      - originConversationID: 14
+        originDialogueID: 4
+        destinationConversationID: 14
+        destinationDialogueID: 41
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -9185,8 +9929,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1408.0303
-        y: 310.9556
+        x: 1559.2498
+        y: 318.27267
         width: 160
         height: 30
     - id: 5
@@ -9227,7 +9971,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: Variable["isReplay"] == false
       userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker", "Quest
         Tracker");
 
@@ -9237,8 +9981,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1407.9802
-        y: 387.39517
+        x: 1551.8827
+        y: 419.1025
         width: 160
         height: 30
     - id: 31
@@ -9468,12 +10212,61 @@ MonoBehaviour:
         y: 685.9616
         width: 160
         height: 30
+    - id: 41
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: "\u65B0\u589E\u7576\u524D\u76EE\u6A19\uFF1A\u5099\u4EFD\u7576\u524D\u8B1B\u7A3F\u6587\u4EF6"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u5C0D\u8457\u60F3\u8981\u5099\u4EFD\u7684\u6587\u4EF6\u9EDE\u64CA\u6ED1\u9F20\u53F3\u9375\u4F86\u958B\u555F\u529F\u80FD\u9078\u55AE\n\u4F86\u8A66\u8A66\u770B\u5427\uFF01"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["isReplay"] == true
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1243.3865
+        y: 421.95114
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
         serializedVersion: 2
-        x: 1281.4939
-        y: 75.74028
+        x: 1432.7134
+        y: 83.05734
         width: 400.99988
         height: 442.79095
       color: {r: 1, g: 1, b: 1, a: 0.5}
@@ -9682,7 +10475,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: Variable["isReplay"] == false
       userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker", "Quest
         Tracker");
 
@@ -9967,6 +10760,12 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
+      - originConversationID: 15
+        originDialogueID: 41
+        destinationConversationID: 15
+        destinationDialogueID: 42
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -9978,6 +10777,58 @@ MonoBehaviour:
         y: 210.84761
         width: 160
         height: 30
+    - id: 42
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: "\u65B0\u589E\u7576\u524D\u76EE\u6A19\uFF1A\u91CD\u65B0\u547D\u540D\u8907\u88FD\u6587\u4EF6"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u9019\u6B21\u6211\u5011\u4F86\u91CD\u65B0\u547D\u540D\u9019\u500B\u8907\u88FD\u7684\u6587\u4EF6\n\u4F60\u53EF\u4EE5\u5728\u6587\u4EF6\u7DE8\u8F2F\u8996\u7A97\u627E\u5230\u547D\u540D\u6309\u9215"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 15
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["isReplay"] == true
+      userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker", "Quest
+        Tracker");
+
+'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1108.672
+        y: 279.01202
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -9987,7 +10838,7 @@ MonoBehaviour:
         width: 400.99988
         height: 442.79095
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 937.35626, y: 67.169975}
+    canvasScrollPosition: {x: 879.46155, y: 0}
     canvasZoom: 0.7600002
   - id: 16
     fields:
@@ -10435,8 +11286,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1422.4042
-        y: 239.79497
+        x: 1417.2495
+        y: 245.98051
         width: 160
         height: 30
     - id: 42
@@ -10663,8 +11514,8 @@ MonoBehaviour:
         width: 400.99988
         height: 442.79095
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 833.8228, y: 0}
-    canvasZoom: 0.64000034
+    canvasScrollPosition: {x: 1014.83417, y: 61.920586}
+    canvasZoom: 0.97
   - id: 17
     fields:
     - title: Title
@@ -11323,14 +12174,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Variable["SelectionType"] = "Tutorial"
+      userScript: Variable["SelectionType"] = "Replay"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 31
-        y: 235.53656
+        x: 55.390244
+        y: 234.31705
         width: 160
         height: 30
     - id: 3
@@ -11386,8 +12237,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 225.78049
-        y: 239.41467
+        x: 244.07318
+        y: 229.6586
         width: 160
         height: 30
     - id: 4
@@ -11443,7 +12294,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 423.78046
+        x: 424.99997
         y: 237.31705
         width: 160
         height: 30
@@ -11500,8 +12351,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 621.78046
-        y: 240.41461
+        x: 615.68286
+        y: 237.97559
         width: 160
         height: 30
     entryGroups: []
@@ -12552,6 +13403,702 @@ MonoBehaviour:
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
+  - id: 21
+    fields:
+    - title: Title
+      value: Introduce Game/Help Selection
+      type: 0
+      typeString: 
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+    - title: Actor
+      value: 1
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant
+      value: 2
+      type: 5
+      typeString: CustomFieldType_Actor
+    overrideSettings:
+      useOverrides: 0
+      overrideSubtitleSettings: 0
+      showNPCSubtitlesDuringLine: 1
+      showNPCSubtitlesWithResponses: 1
+      showPCSubtitlesDuringLine: 0
+      skipPCSubtitleAfterResponseMenu: 0
+      subtitleCharsPerSecond: 30
+      minSubtitleSeconds: 2
+      continueButton: 0
+      overrideSequenceSettings: 0
+      defaultSequence: 
+      defaultPlayerSequence: 
+      defaultResponseMenuSequence: 
+      overrideInputSettings: 0
+      alwaysForceResponseMenu: 1
+      includeInvalidEntries: 0
+      responseTimeout: 0
+      emTagForOldResponses: 0
+      emTagForInvalidResponses: 0
+      cancelSubtitle:
+        key: 27
+        buttonName: 
+      cancelConversation:
+        key: 27
+        buttonName: 
+    nodeColor: 
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: None()
+        type: 0
+        typeString: 
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 21
+        originDialogueID: 0
+        destinationConversationID: 21
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 78
+        y: 55
+        width: 160
+        height: 30
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u4F60\u597D\uFF0C\u8ACB\u554F\u4F60\u76EE\u524D\u9047\u5230\u4E86\u4EC0\u9EBC\u554F\u984C\u5462\uFF1F"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 21
+        originDialogueID: 1
+        destinationConversationID: 21
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 21
+        originDialogueID: 1
+        destinationConversationID: 21
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 21
+        originDialogueID: 1
+        destinationConversationID: 21
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      - originConversationID: 21
+        originDialogueID: 1
+        destinationConversationID: 21
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 79
+        y: 134
+        width: 160
+        height: 30
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: "\u56DE\u9867\u904E\u7A0B\u4E2D\u6240\u6709\u7684\u6559\u5B78\u5167\u5BB9"
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u91CD\u65B0\u89C0\u770B\u6559\u5B78\u5167\u5BB9"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 21
+        originDialogueID: 2
+        destinationConversationID: 21
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Variable["SelectionType"] = "Replay"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 68.39024
+        y: 221.31705
+        width: 160
+        height: 30
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: "\u95DC\u65BC\u672C\u6B65\u9A5F\u7684\u4E00\u4E9B\u63D0\u793A"
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u63D0\u793A\u7576\u524D\u76EE\u6A19"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Variable["SelectionType"] = "Hint"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 259.07318
+        y: 226.6586
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u5361\u95DC\u4E86"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Variable["SelectionType"] = "Answer"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 473.99997
+        y: 221.31705
+        width: 160
+        height: 30
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u6C92\u6709\u554F\u984C"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Variable["SelectionType"] = "Bye"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 650.68286
+        y: 211.97559
+        width: 160
+        height: 30
+    - id: 7
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u60F3\u8981\u56DE\u61B6\u54EA\u4E00\u500B\u90E8\u5206\u5462\uFF1F"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 21
+        originDialogueID: 7
+        destinationConversationID: 21
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      - originConversationID: 21
+        originDialogueID: 7
+        destinationConversationID: 21
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      - originConversationID: 21
+        originDialogueID: 7
+        destinationConversationID: 21
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
+      - originConversationID: 21
+        originDialogueID: 7
+        destinationConversationID: 21
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 58.262573
+        y: 282.99792
+        width: 160
+        height: 30
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u672C\u904A\u6232\u76EE\u7684\u8207\u7CFB\u7D71\u4ECB\u7D39"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: CurrentQuestState("Introduce Game/1") ~= "unassigned"
+      userScript: Variable["SelectionType"] = "1"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 208.36897
+        y: 358.74258
+        width: 160
+        height: 30
+    - id: 9
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u5F97\u5206\u4ECB\u7D39"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: CurrentQuestState("Introduce Game/2") ~= "unassigned"
+      userScript: Variable["SelectionType"] = "2"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 407.83707
+        y: 357.6149
+        width: 160
+        height: 30
+    - id: 10
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u7576\u524D\u76EE\u6A19\u7684\u60C5\u666F"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Variable["SelectionType"] = "Current"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 24.326431
+        y: 358.67874
+        width: 160
+        height: 30
+    - id: 11
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u53D6\u6D88"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Variable["SelectionType"] = "Bye"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 623.15607
+        y: 357.466
+        width: 160
+        height: 30
+    entryGroups: []
+    canvasScrollPosition: {x: 53.67691, y: 42.914013}
+    canvasZoom: 1.1499999
   syncInfo:
     syncActors: 0
     syncItems: 0
