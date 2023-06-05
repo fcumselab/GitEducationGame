@@ -482,6 +482,20 @@ MonoBehaviour:
       value: use to identify different path
       type: 0
       typeString: 
+  - id: 10
+    fields:
+    - title: Name
+      value: canReplay
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: Can click Replay Current Scenario
+      type: 0
+      typeString: 
   conversations:
   - id: 5
     fields:
@@ -8401,8 +8415,8 @@ MonoBehaviour:
         width: 398.26013
         height: 659.9039
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 934.06006, y: 0}
-    canvasZoom: 0.91000086
+    canvasScrollPosition: {x: 651.7783, y: 0}
+    canvasZoom: 0.61000115
   - id: 13
     fields:
     - title: Title
@@ -9029,8 +9043,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1409.3999
-        y: 143.01932
+        x: 1401.9532
+        y: 149.40231
         width: 160
         height: 30
     - id: 42
@@ -9133,10 +9147,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'Variable["ImageKey"] = "alert";
+      userScript: 'FSMEvent("Tutorial Arrow/Close Arrow", "ScoreArrow", "Arrow Animation");
 
-        FSMEvent("Tutorial Popup/Change
-        Image", "Tutorial Popup Parent", "Tutorial Popup");'
+
+        Variable["ImageKey"]
+        = "alert";
+
+        FSMEvent("Tutorial Popup/Change Image", "Tutorial Popup
+        Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -9595,8 +9613,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 909.4335, y: 0}
-    canvasZoom: 0.9399998
+    canvasScrollPosition: {x: 890.2495, y: 0}
+    canvasZoom: 0.90999985
   - id: 14
     fields:
     - title: Title
@@ -13386,7 +13404,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -13945,8 +13963,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 208.36897
-        y: 358.74258
+        x: 217.93419
+        y: 366.56866
         width: 160
         height: 30
     - id: 9
@@ -13994,8 +14012,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 407.83707
-        y: 357.6149
+        x: 414.7936
+        y: 364.57144
         width: 160
         height: 30
     - id: 10
@@ -14036,15 +14054,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: Variable["canReplay"] == true
       userScript: Variable["SelectionType"] = "Current"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 24.326431
-        y: 358.67874
+        x: 29.543816
+        y: 364.7657
         width: 160
         height: 30
     - id: 11
@@ -14092,12 +14110,12 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 623.15607
-        y: 357.466
+        x: 610.1126
+        y: 362.6834
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 53.67691, y: 42.914013}
+    canvasScrollPosition: {x: 0, y: 25.522717}
     canvasZoom: 1.1499999
   syncInfo:
     syncActors: 0
