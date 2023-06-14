@@ -1,9 +1,20 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MyTimer : MonoBehaviour
 {
+    //Singleton instantation
+    private static MyTimer instance;
+    public static MyTimer Instance
+    {
+        get
+        {
+            if (instance == null) instance = GameObject.FindObjectOfType<MyTimer>();
+            return instance;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -37,5 +48,15 @@ public class MyTimer : MonoBehaviour
             return "0" + min + ":" + sec;
         }
         return "error";
+    }
+
+    public int ChangeTimeToSec(string timeStr)
+    {
+        string[] splitTime = timeStr.Split(':');
+        int min = Int32.Parse(splitTime[0]);
+        int sec = Int32.Parse(splitTime[1]);
+
+
+        return min * 60 + sec;
     }
 }
