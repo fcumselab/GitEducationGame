@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MyTooltip : MonoBehaviour
 {
+    [SerializeField] bool isShow;
     [SerializeField] RectTransform GameScreenRectTransform;
     [SerializeField] RectTransform TooltipRectTransform;
     RectTransform rectTransform;
@@ -17,20 +18,26 @@ public class MyTooltip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 anchoredPos = Input.mousePosition / GameScreenRectTransform.localScale.x;
+        if (isShow) { 
+            Vector2 anchoredPos = Input.mousePosition / GameScreenRectTransform.localScale.x;
 
-        if(anchoredPos.x + rectTransform.rect.width > GameScreenRectTransform.rect.width)
-        {
-            anchoredPos.x = GameScreenRectTransform.rect.width - rectTransform.rect.width;
+            if(anchoredPos.x + rectTransform.rect.width > GameScreenRectTransform.rect.width)
+            {
+                anchoredPos.x = GameScreenRectTransform.rect.width - rectTransform.rect.width;
+            }
+
+            if (anchoredPos.y + rectTransform.rect.height > GameScreenRectTransform.rect.height)
+            {
+                anchoredPos.y = GameScreenRectTransform.rect.height - rectTransform.rect.height;
+            }
+
+            TooltipRectTransform.anchoredPosition = anchoredPos;
         }
-
-        if (anchoredPos.y + rectTransform.rect.height > GameScreenRectTransform.rect.height)
-        {
-            anchoredPos.y = GameScreenRectTransform.rect.height - rectTransform.rect.height;
-        }
-
-        TooltipRectTransform.anchoredPosition = anchoredPos;
     }
 
+    public void SetIsShow(bool isShow)
+    {
+        this.isShow = isShow;
+    }
     
 }
