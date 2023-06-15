@@ -15,7 +15,11 @@ public class MySelectionList : MonoBehaviour
 
     public void ShowSelectionList()
     {
-        Vector2 anchoredPos = Input.mousePosition / GameScreenRectTransform.localScale.x;
+        float x = (float)Screen.width / 3840;
+        float y = (float)Screen.height / 2160;
+
+        Vector2 ScreenSize = new Vector2(x, y);
+        Vector2 anchoredPos = Input.mousePosition / ScreenSize;
 
         if (anchoredPos.x + rectTransform.rect.width > GameScreenRectTransform.rect.width && anchoredPos.y + rectTransform.rect.height > GameScreenRectTransform.rect.height)
         {

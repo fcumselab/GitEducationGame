@@ -18,10 +18,14 @@ public class MyTooltip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isShow) { 
-            Vector2 anchoredPos = Input.mousePosition / GameScreenRectTransform.localScale.x;
+        if (isShow) {
+            float x = (float)Screen.width / 3840;
+            float y = (float)Screen.height / 2160;
+            
+            Vector2 ScreenSize = new Vector2(x, y);
+            Vector2 anchoredPos = Input.mousePosition / ScreenSize;
 
-            if(anchoredPos.x + rectTransform.rect.width > GameScreenRectTransform.rect.width)
+            if (anchoredPos.x + rectTransform.rect.width > GameScreenRectTransform.rect.width)
             {
                 anchoredPos.x = GameScreenRectTransform.rect.width - rectTransform.rect.width;
             }
