@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System.Text.RegularExpressions;
+using Sirenix.OdinInspector;
 
-public class CommandInputField : MonoBehaviour
+public class CommandInputField : SerializedMonoBehaviour
 {
     //[SerializeField] TMP_InputField tmpInputField;
-    [SerializeField] InputField tmpInputField;
+    [SerializeField] InputField inputField;
 
     [Header("HistoryCommands")]
     int historyIndex = -1;
@@ -29,6 +29,7 @@ public class CommandInputField : MonoBehaviour
 
     void Start()
     {
+        inputField = GetComponent<InputField>();
         //if (tmpInputField) tmpInputField.ActivateInputField();
     }
     
@@ -37,14 +38,14 @@ public class CommandInputField : MonoBehaviour
         if (false) {
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
-                if (tmpInputField.text.Trim() != "")
+                if (inputField.text.Trim() != "")
                 {
-                    historyCommands.Add(tmpInputField.text);
-                    AddFieldHistoryCommand(FileManager.Instance.fileLocation + "> " + tmpInputField.text);
-                    GitCommandController.Instance.RunCommand(tmpInputField.text);
+                    historyCommands.Add(inputField.text);
+                    AddFieldHistoryCommand(FileManager.Instance.fileLocation + "> " + inputField.text);
+                    GitCommandController.Instance.RunCommand(inputField.text);
 
                     fieldHistoryCommandsScrollbar.value = -1;
-                    tmpInputField.text = "";
+                    inputField.text = "";
                     historyIndex = -1;
                 }
             }
@@ -53,15 +54,15 @@ public class CommandInputField : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) && historyIndex != 0 && historyCommands.Count != 0)
             {
                 if (historyIndex == -1) historyIndex = historyCommands.Count;
-                tmpInputField.text = historyCommands[--historyIndex];
-                tmpInputField.caretPosition = tmpInputField.text.Length;
+                inputField.text = historyCommands[--historyIndex];
+                inputField.caretPosition = inputField.text.Length;
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) && historyIndex != -1 && historyIndex != historyCommands.Count)
             {
                 historyIndex++;
-                if (historyIndex == historyCommands.Count) tmpInputField.text = "";
-                else tmpInputField.text = historyCommands[historyIndex];
-                tmpInputField.caretPosition = tmpInputField.text.Length;
+                if (historyIndex == historyCommands.Count) inputField.text = "";
+                else inputField.text = historyCommands[historyIndex];
+                inputField.caretPosition = inputField.text.Length;
             }
         }
     }
@@ -77,29 +78,41 @@ public class CommandInputField : MonoBehaviour
 
     public void AutoCompleteCommand(List<string> findList)
     {
-        tmpInputField.text = findList[0];
-        tmpInputField.caretPosition = tmpInputField.text.Length;
+        inputField.text = findList[0];
+        inputField.caretPosition = inputField.text.Length;
     }
 
     /*This method use on Keyword Selection Function*/
     public void AutoCompleteCommand(string keyword)
     {
-        string[] textSplit = tmpInputField.text.Split(' ');
+        string[] textSplit = inputField.text.Split(' ');
         string result = "";
         for(int i = 0; i < textSplit.Length - 1;i++)
         {
             result += textSplit[i] + " ";
         }
 
-        if(result.Length == 0) tmpInputField.text = keyword;
-        else tmpInputField.text = result + keyword;
+        if(result.Length == 0) inputField.text = keyword;
+        else inputField.text = result + keyword;
 
-        tmpInputField.caretPosition = tmpInputField.text.Length;
+        inputField.caretPosition = inputField.text.Length;
     }
 
-    public void VaildInput()
+    public void ValidInput()
     {
-        tmpInputField.text = Regex.Replace(tmpInputField.text, 
+        if (inputField == null)
+        {
+            inputField = GetComponent<InputField>();
+            Debug.Log(inputField);
+        }
+        Debug.Log(inputField.text);
+
+        inputField.text = Regex.Replace(inputField.text, 
           @"[^a-zA-Z0-9`!@#$%^&*()_+|\-=\\{}\[\]:"";'<>?,./ ]", "");
+    }
+
+    public void DeselectAllText()
+    {
+        //inputField.MoveTextEnd();
     }
 }
