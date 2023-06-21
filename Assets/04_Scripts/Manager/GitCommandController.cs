@@ -149,7 +149,11 @@ public class GitCommandController : MonoBehaviour
         {
             case 0: //Find empty text
                 findList = gitCommandsDictionary;
-                if (findList.Count == 1) CommandInputField.Instance.AutoCompleteCommand(findList);
+                if (findList.Count == 1)
+                {
+                    CommandLineInputField.Instance.AutoCompleteCommand(findList);
+                    result = "AutoCompleted";
+                }
                 else result = CleanDictionaryCommand(findList, commandList);
                 break;
             case 1:
@@ -157,14 +161,22 @@ public class GitCommandController : MonoBehaviour
                 if (command[command.Length - 1] != ' ')
                 {
                     findList = gitCommandsDictionary.FindAll(command => command.StartsWith(commandList[0]));
-                    if (findList.Count == 1) CommandInputField.Instance.AutoCompleteCommand(findList);
+                    if (findList.Count == 1)
+                    {
+                        CommandLineInputField.Instance.AutoCompleteCommand(findList);
+                        result = "AutoCompleted";
+                    }
                     else result = CleanDictionaryCommand(findList, commandList);
 
                 }
                 else //Find ex: git_
                 {
                     findList = gitCommandsDictionary2.FindAll(command => command.StartsWith(commandList[0] + " "));
-                    if (findList.Count == 1) CommandInputField.Instance.AutoCompleteCommand(findList);
+                    if (findList.Count == 1)
+                    {
+                        CommandLineInputField.Instance.AutoCompleteCommand(findList);
+                        result = "AutoCompleted";
+                    }
                     else result = CleanDictionaryCommand(findList, commandList, commandList[0]);
                 }
 
@@ -174,13 +186,21 @@ public class GitCommandController : MonoBehaviour
                 if (command[command.Length - 1] != ' ')
                 {
                     findList = gitCommandsDictionary2.FindAll(command => command.StartsWith(commandList[0] + " " + commandList[1]));
-                    if (findList.Count == 1) CommandInputField.Instance.AutoCompleteCommand(findList);
+                    if (findList.Count == 1)
+                    {
+                        CommandLineInputField.Instance.AutoCompleteCommand(findList);
+                        result = "AutoCompleted";
+                    }
                     else result = CleanDictionaryCommand(findList, commandList, commandList[0] + " ");
                 }
                 else //Find ex: git_add_
                 {
                     findList = gitCommandsDictionary3.FindAll(command => command.StartsWith(commandList[0] + " " + commandList[1] + " "));
-                    if (findList.Count == 1) CommandInputField.Instance.AutoCompleteCommand(findList);
+                    if (findList.Count == 1)
+                    {
+                        CommandLineInputField.Instance.AutoCompleteCommand(findList);
+                        result = "AutoCompleted";
+                    }
                     else result = CleanDictionaryCommand(findList, commandList, commandList[0] + " " + commandList[1]);
                 }
                 break;
@@ -188,7 +208,11 @@ public class GitCommandController : MonoBehaviour
                 if (command[command.Length - 1] != ' ')
                 {
                     findList = gitCommandsDictionary3.FindAll(command => command.StartsWith(commandList[0] + " " + commandList[1]));
-                    if (findList.Count == 1) CommandInputField.Instance.AutoCompleteCommand(findList);
+                    if (findList.Count == 1)
+                    {
+                        CommandLineInputField.Instance.AutoCompleteCommand(findList);
+                        result = "AutoCompleted";
+                    }
                     else result = CleanDictionaryCommand(findList, commandList, commandList[0] + " ");
                 }
                 else //Find ex: git_remote_add_

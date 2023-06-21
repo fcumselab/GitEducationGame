@@ -14,10 +14,43 @@ public class CommandLineInputField : SerializedMonoBehaviour
         
     }
 
+    //Singleton instantation
+    private static CommandLineInputField instance;
+    public static CommandLineInputField Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<CommandLineInputField>();
+            return instance;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void AutoCompleteCommand(List<string> findList)
+    {
+        inputField.text = findList[0];
+        inputField.caretPosition = inputField.text.Length;
+    }
+
+    /*This method use on Keyword Selection Function*/
+    public void AutoCompleteCommand(string keyword)
+    {
+        string[] textSplit = inputField.text.Split(' ');
+        string result = "";
+        for (int i = 0; i < textSplit.Length - 1; i++)
+        {
+            result += textSplit[i] + " ";
+        }
+
+        if (result.Length == 0) inputField.text = keyword;
+        else inputField.text = result + keyword;
+
+        inputField.caretPosition = inputField.text.Length;
     }
 
     public void ValidText()
