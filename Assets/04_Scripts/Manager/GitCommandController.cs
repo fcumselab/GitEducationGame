@@ -1,28 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 
-public class GitCommandController : MonoBehaviour
+public class GitCommandController : SerializedMonoBehaviour
 {
-
-    List<string> gitCommandsDictionary = new List<string>{
+    [Header("GitCommands")]
+    [SerializeField] List<string> gitCommandsDictionary = new List<string>{
         "git", "good"
     };
-    List<string> gitCommandsDictionary2 = new List<string>{
+
+    [SerializeField] List<string> gitCommandsDictionary2 = new List<string>{
         "git add", "git am", "git aply", "git askme", "git askyou",
         "git commit", "git reset",
         "git init",
         "git push",
         "git remote"
     };
-    List<string> gitCommandsDictionary3 = new List<string>{
+
+    [SerializeField] List<string> gitCommandsDictionary3 = new List<string>{
         "git remote add"
     };
-
-
-    [Header("GitCommands")]
-    [SerializeField] GameObject gitCommands;
 
     //Singleton instantation
     private static GitCommandController instance;
@@ -35,7 +34,7 @@ public class GitCommandController : MonoBehaviour
         }
     }
 
-    /*將指令分成多個string，另外去除指令頭尾的空格和將字串中同時出現的多個空格去成一個*/
+    /*Let commands divide into multiple command, then trim space at the front and back*/
     List<string> ShortedCommand(string command)
     {
         List<string> commandList = new List<string>();
@@ -55,36 +54,41 @@ public class GitCommandController : MonoBehaviour
     }
 
     /*輸入指令時觸發的事件*/
-    public void RunCommand(string command)
+    public string[] RunCommand(string command)
     {
         List<string> commandList = ShortedCommand(command);
-        List<string> findList = new List<string>();
-        /*
-        if(commandList[0] == "cd") gitCommands.GetComponent<FileCommand>().RunCommand(commandList);
-        else
-        {*/
-            if (commandList.Count > 1) findList = gitCommandsDictionary2.FindAll(command => command.Contains(commandList[0] + " " + commandList[1]));
+        List<string> findList = new();
+        List<string> resultList = new();
+
+        if (commandList.Count > 1) findList = gitCommandsDictionary2.FindAll(command => command.Equals(commandList[0] + " " + commandList[1]));
             
-            if (findList.Count == 0 && commandList.Count > 1) CommandInputField.Instance.AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
-            else if (findList.Count == 1)
+        //if (findList.Count == 0 && commandList.Count > 1) CommandInputField.Instance.AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
+        if (findList.Count == 1)
+        {
+            resultList.Add("findOne");
+            
+
+            /*
+            if (GitFile.Instance.GetInitial())
             {
-                if (GitFile.Instance.GetInitial())
-                {
-                    if (commandList[1] == "init") CommandInputField.Instance.AddFieldHistoryCommand("Already have existing Git repository.\n");
-                    else if (commandList[1] == "add" || commandList[1] == "reset") gitCommands.GetComponent<AddCommand>().RunCommand(commandList);
-                    else if (commandList[1] == "commit") gitCommands.GetComponent<CommitCommand>().RunCommand(commandList);
-                }
-                else
-                {
-                    if (commandList[1] == "init") GitFile.Instance.SetInitial(true);
-                    else CommandInputField.Instance.AddFieldHistoryCommand("You don\'t have Git repository. Please create one.\n");
-                }
+                if (commandList[1] == "init") CommandInputField.Instance.AddFieldHistoryCommand("Already have existing Git repository.\n");
+                else if (commandList[1] == "add" || commandList[1] == "reset") GetComponent<AddCommand>().RunCommand(commandList);
+                else if (commandList[1] == "commit") GetComponent<CommitCommand>().RunCommand(commandList);
             }
-        /*}*/
-
-
-        FileManager.Instance.UpdateFileSystemUI();
-        MissionManager.Instance.CheckPoint();
+            else
+            {*/
+            //if (commandList[1] == "init") GitFile.Instance.SetInitial(true);
+            //else CommandInputField.Instance.AddFieldHistoryCommand("You don\'t have Git repository. Please create one.\n");
+            /*}*/
+        }else if(findList.Count > 1)
+        {
+            Debug.Log("Show many result!");
+        }else if(findList.Count == 0)
+        {
+            resultList.Add("findZero");
+        }
+        resultList.AddRange(commandList);
+        return resultList.ToArray();
     }
 
     string CleanDictionaryCommand(List<string> findList, List<string> commandList, string keyword = "")
@@ -115,20 +119,10 @@ public class GitCommandController : MonoBehaviour
             // Find File Keywords
             /*if (commandList[0] == "cd")
             {
-                if(commandList.Count == 1) findList = FileManager.Instance.FindFile("cd", "");
-                else findList = FileManager.Instance.FindFile("cd", commandList[1]);
-
-                if (findList.Count == 1) CommandInputField.Instance.AutoCompleteCommand(findList);
-                else CleanDictionaryCommand(findList, commandList, commandList[0]);
+                
             }*/
             if(commandList[0] == "git" && (commandList[1] == "add" || commandList[1] == "reset"))
             {
-                /*
-                if (commandList.Count == 2) findList = FileManager.Instance.FindFile(commandList[1], "");
-                else findList = FileManager.Instance.FindFile(commandList[1], commandList[2]);
-
-                if (findList.Count == 1) CommandInputField.Instance.AutoCompleteCommand(findList);
-                else CleanDictionaryCommand(findList, commandList, "git " + commandList[1]);*/
                 return "RunFindFile";
             }
         }
@@ -136,9 +130,7 @@ public class GitCommandController : MonoBehaviour
         return "";
     }
 
-    public void FindCommandTest(string command)
-    {
-    }
+    //Pressing tab button or search button
     public string FindCommand(string command)
     {
         List<string> commandList = ShortedCommand(command);
