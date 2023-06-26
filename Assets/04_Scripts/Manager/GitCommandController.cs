@@ -37,7 +37,7 @@ public class GitCommandController : SerializedMonoBehaviour
     /*Let commands divide into multiple command, then trim space at the front and back*/
     List<string> ShortedCommand(string command)
     {
-        List<string> commandList = new List<string>();
+        List<string> commandList = new();
         string cleanCommand = command.Trim();
         string saveCommand = "";
         foreach (char ch in cleanCommand)
@@ -50,36 +50,25 @@ public class GitCommandController : SerializedMonoBehaviour
             else if (ch != ' ') saveCommand += ch;
         }
         if (saveCommand != "") commandList.Add(saveCommand);
+
         return commandList;
     }
 
     /*輸入指令時觸發的事件*/
     public string[] RunCommand(string command)
     {
+
         List<string> commandList = ShortedCommand(command);
         List<string> findList = new();
         List<string> resultList = new();
 
         if (commandList.Count > 1) findList = gitCommandsDictionary2.FindAll(command => command.Equals(commandList[0] + " " + commandList[1]));
             
-        //if (findList.Count == 0 && commandList.Count > 1) CommandInputField.Instance.AddFieldHistoryCommand("\'" + commandList[1] + "\' is not a git command.");
         if (findList.Count == 1)
         {
             resultList.Add("findOne");
-            
+           
 
-            /*
-            if (GitFile.Instance.GetInitial())
-            {
-                if (commandList[1] == "init") CommandInputField.Instance.AddFieldHistoryCommand("Already have existing Git repository.\n");
-                else if (commandList[1] == "add" || commandList[1] == "reset") GetComponent<AddCommand>().RunCommand(commandList);
-                else if (commandList[1] == "commit") GetComponent<CommitCommand>().RunCommand(commandList);
-            }
-            else
-            {*/
-            //if (commandList[1] == "init") GitFile.Instance.SetInitial(true);
-            //else CommandInputField.Instance.AddFieldHistoryCommand("You don\'t have Git repository. Please create one.\n");
-            /*}*/
         }else if(findList.Count > 1)
         {
             Debug.Log("Show many result!");
@@ -105,12 +94,11 @@ public class GitCommandController : SerializedMonoBehaviour
             }
 
             string list = "";
-            
+
             foreach (var c in findList) list += (c + " ");
 
             if (list.Length != 0)
             {
-                CommandInputField.Instance.AddFieldHistoryCommand(list);
                 return list;
             }
         }
@@ -134,7 +122,7 @@ public class GitCommandController : SerializedMonoBehaviour
     public string FindCommand(string command)
     {
         List<string> commandList = ShortedCommand(command);
-        List<string> findList = new List<string>();
+        List<string> findList = new();
         string result = "";
         //有空格和沒有空格的需要做判斷
         switch (commandList.Count)
