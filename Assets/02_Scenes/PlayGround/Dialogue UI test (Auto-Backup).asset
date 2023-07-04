@@ -76,7 +76,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 21300000, guid: 069bc1ba55041409d9da7e08adc1b3cf, type: 3}
     alternatePortraits: []
     spritePortraits: []
   items:
@@ -6766,8 +6766,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1410.2635
-        y: 8.569733
+        x: 1408.6241
+        y: 6.9303894
         width: 160
         height: 30
     - id: 1
@@ -6818,14 +6818,16 @@ MonoBehaviour:
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
-'
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChat Fold Icon", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1410.3248
-        y: 117.33339
+        x: 1405.6373
+        y: 112.64589
         width: 160
         height: 30
     - id: 2
@@ -6876,7 +6878,11 @@ MonoBehaviour:
       userScript: 'Variable["ImageKey"] = "gitIcon";
 
         FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChat Fold Icon", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6998,8 +7004,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1408.0303
-        y: 301.7451
+        x: 1404.9053
+        y: 303.3076
         width: 160
         height: 30
     - id: 5
@@ -7114,8 +7120,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1407.77
-        y: 406.11496
+        x: 1409.2625
+        y: 407.60745
         width: 160
         height: 30
     - id: 7
@@ -7291,8 +7297,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1390.2811
-        y: 621.73816
+        x: 1388.9113
+        y: 635.43677
         width: 160
         height: 30
     - id: 10
@@ -8055,8 +8061,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1390.5309
-        y: 718.771
+        x: 1393.2706
+        y: 725.62036
         width: 160
         height: 30
     - id: 56
@@ -8334,7 +8340,11 @@ MonoBehaviour:
       userScript: 'Variable["ImageKey"] = "boy5";
 
         FSMEvent("Tutorial Popup/Change
-        Image", "Tutorial Popup Parent", "Tutorial Popup");'
+        Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChat Fold Icon", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -8415,8 +8425,8 @@ MonoBehaviour:
         width: 398.26013
         height: 659.9039
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1162.9216, y: 17.045414}
-    canvasZoom: 0.8800008
+    canvasScrollPosition: {x: 696.87946, y: 516.29224}
+    canvasZoom: 0.67000103
   - id: 13
     fields:
     - title: Title
@@ -8585,8 +8595,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: Variable["isReplay"] == false
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'FSMEvent("DialogueChatWindow/expand window", "DialogueChat Fold
+        Icon", "Button");
+
+
+        FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial
+        Popup Parent", "Tutorial Popup");
 
 
         Variable["ImageKey"] = "happyFace";
@@ -9442,7 +9456,11 @@ MonoBehaviour:
         Variable["ImageKey"] = "happyFace";
 
         FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChat Fold Icon", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -9497,14 +9515,18 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: Variable["isReplay"] == true and (Variable["tag"] == "Story")
-      userScript: FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChat Fold Icon", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1630.272
+        x: 1628.6327
         y: 563.8649
         width: 160
         height: 30
@@ -9613,8 +9635,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1192.2001, y: 0}
-    canvasZoom: 0.90999967
+    canvasScrollPosition: {x: 594.69525, y: 246.46501}
+    canvasZoom: 0.49000004
   - id: 14
     fields:
     - title: Title
@@ -9769,8 +9791,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: Variable["isReplay"] == false
-      userScript: FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChat Fold Icon", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -10288,8 +10314,8 @@ MonoBehaviour:
         width: 400.99988
         height: 442.79095
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1137.7191, y: 39.850464}
-    canvasZoom: 0.91000015
+    canvasScrollPosition: {x: 639.9435, y: 0}
+    canvasZoom: 0.46000046
   - id: 15
     fields:
     - title: Title
@@ -10444,8 +10470,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChat Fold Icon", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -11012,8 +11042,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChat Fold Icon", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -12537,7 +12571,11 @@ MonoBehaviour:
         Variable["ImageKey"] = "happyFace";
 
         FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChat Fold Icon", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -13321,8 +13359,8 @@ MonoBehaviour:
         width: 433.94113
         height: 688.0588
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 881.6749, y: 35.32507}
-    canvasZoom: 0.7600002
+    canvasScrollPosition: {x: 800.35406, y: 250.04501}
+    canvasZoom: 0.5500004
   - id: 20
     fields:
     - title: Title
@@ -14391,7 +14429,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.84999967
+    canvasZoom: 0.7299998
   - id: 22
     fields:
     - title: Title
@@ -16075,11 +16113,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: CurrentQuestState("Introduce Game/1") == "active"
-      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Dialog Button",
-        "Button");
+      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Button", "Button");
 
-        FSMEvent("Dialog Button/Hide Button", "Skip Button",
-        "Button");'
+        FSMEvent("Dialog
+        Button/Hide Button", "Skip Button", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -16243,11 +16280,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Dialog Button",
-        "Button");
+      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Button", "Button");
 
-        FSMEvent("Dialog Button/Hide Button", "Skip Button",
-        "Button");'
+        FSMEvent("Dialog
+        Button/Hide Button", "Skip Button", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -16312,8 +16348,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1335.9818
-        y: 201.44089
+        x: 1334.6661
+        y: 198.80933
         width: 160
         height: 30
     - id: 96
@@ -16410,11 +16446,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Dialog Button",
-        "Button");
+      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Button", "Button");
 
-        FSMEvent("Dialog Button/Hide Button", "Skip Button",
-        "Button");'
+        FSMEvent("Dialog
+        Button/Hide Button", "Skip Button", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -16577,11 +16612,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Dialog Button",
-        "Button");
+      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Button", "Button");
 
-        FSMEvent("Dialog Button/Hide Button", "Skip Button",
-        "Button");'
+        FSMEvent("Dialog
+        Button/Hide Button", "Skip Button", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -16745,11 +16779,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Dialog Button",
-        "Button");
+      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Button", "Button");
 
-        FSMEvent("Dialog Button/Hide Button", "Skip Button",
-        "Button");'
+        FSMEvent("Dialog
+        Button/Hide Button", "Skip Button", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -16912,11 +16945,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Dialog Button",
-        "Button");
+      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Button", "Button");
 
-        FSMEvent("Dialog Button/Hide Button", "Skip Button",
-        "Button");'
+        FSMEvent("Dialog
+        Button/Hide Button", "Skip Button", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -17079,11 +17111,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Dialog Button",
-        "Button");
+      userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Button", "Button");
 
-        FSMEvent("Dialog Button/Hide Button", "Skip Button",
-        "Button");'
+        FSMEvent("Dialog
+        Button/Hide Button", "Skip Button", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -17094,8 +17125,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1222.1124, y: 0}
-    canvasZoom: 0.79
+    canvasScrollPosition: {x: 1442.0043, y: 50.684937}
+    canvasZoom: 0.7300001
   syncInfo:
     syncActors: 0
     syncItems: 0

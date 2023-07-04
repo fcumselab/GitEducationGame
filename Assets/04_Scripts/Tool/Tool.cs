@@ -26,6 +26,13 @@ public class Tool : MonoBehaviour
         return word.Split(new string[] { keyword }, StringSplitOptions.None);
     }
 
+    public string TrimString(string word, bool isTrimFront, bool isTrimBack)
+    {
+        if (isTrimFront) word = word.TrimStart();
+        if (isTrimBack) word = word.TrimEnd();
+        return word;
+    }
+
     public void AddCompleteQuestData(string questName, string time, string type)
     {
         completeQuestNameList.Add(questName);
