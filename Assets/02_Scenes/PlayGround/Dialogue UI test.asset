@@ -20424,7 +20424,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: Variable["isReplay"] == false
-      userScript: 
+      userScript: FSMEvent("Hint/Window/Open Hint Mode", "CommandLineWindow", "Window");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -20553,14 +20553,18 @@ MonoBehaviour:
       userScript: 'FSMEvent("Dialog Button/Hide Button", "Continue Button", "Button");
 
         FSMEvent("Dialog
-        Button/Hide Button", "Skip Button", "Button");'
+        Button/Hide Button", "Skip Button", "Button");
+
+
+        FSMEvent("Hint/Window/Close
+        Hint Mode", "CommandLineWindow", "Window");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1445.9694
-        y: 627.0243
+        x: 1448.2421
+        y: 630.4334
         width: 160
         height: 30
     - id: 31
@@ -21258,8 +21262,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1026.808, y: 130.225}
-    canvasZoom: 1.03
+    canvasScrollPosition: {x: 901.7828, y: 0}
+    canvasZoom: 0.8800001
   - id: 26
     fields:
     - title: Title
