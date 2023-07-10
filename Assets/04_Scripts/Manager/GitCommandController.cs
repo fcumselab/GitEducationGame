@@ -62,8 +62,11 @@ public class GitCommandController : SerializedMonoBehaviour
         List<string> findList = new();
         List<string> resultList = new();
 
-        if (commandList.Count > 1) findList = gitCommandsDictionary2.FindAll(command => command.Equals(commandList[0] + " " + commandList[1]));
-            
+        if (commandList.Count > 1)
+        {
+            findList = gitCommandsDictionary2.FindAll(command => command.Equals(commandList[0] + " " + commandList[1]));
+        }
+
         if (findList.Count == 1)
         {
             resultList.Add("findOne");
@@ -74,10 +77,11 @@ public class GitCommandController : SerializedMonoBehaviour
             Debug.Log("Show many result!");
         }else if(findList.Count == 0)
         {
-            if(commandList[0] == "git")
+            if (commandList[0] == "git")
             {
-                if(commandList[1] == "--version" && commandList[1] == "-v") resultList.Add("findOne");
-            }
+                if(commandList[1] == "--version" || commandList[1] == "-v") resultList.Add("findOne");
+                else resultList.Add("findZero");
+            } 
             else
             {
                 resultList.Add("findZero");
