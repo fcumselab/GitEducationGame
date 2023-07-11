@@ -199,7 +199,7 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Panel
-    startState: Game Object Is Null
+    startState: close Alert Panel first
     states:
     - name: Open Panel
       description: 
@@ -409,7 +409,7 @@ MonoBehaviour:
             useVariable: 1
             name: Quest Tracker
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         - ownerOption: 1
@@ -891,196 +891,6 @@ MonoBehaviour:
         paramName: []
         paramDataPos: 
         paramByteDataSize: 
-    - name: Game Object Is Null
-      description: 
-      colorIndex: 9
-      position:
-        serializedVersion: 2
-        x: 586.4375
-        y: 104.17969
-        width: 176
-        height: 48
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: next
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: close Alert Panel first
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 8
-      - fsmEvent:
-          name: Reference/QuestTracker
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Find Game Object
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 9
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.GameObjectIsNull
-        - HutongGames.PlayMaker.Actions.NextFrameEvent
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000005000000
-        actionHashCodes: 1565620588611604
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Quest Tracker
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - Reference/QuestTracker
-        - 
-        - next
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 130000001700000017000000110000000100000017000000
-        paramName:
-        - gameObject
-        - isNull
-        - isNotNull
-        - storeResult
-        - everyFrame
-        - sendEvent
-        paramDataPos: 000000000000000001000000000000000000000002000000
-        paramByteDataSize: 000000000000000000000000000000000100000000000000
-    - name: Find Game Object
-      description: 
-      colorIndex: 9
-      position:
-        serializedVersion: 2
-        x: 812.5078
-        y: 112.94531
-        width: 134
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Game Object Is Null
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.FindGameObject
-        - HutongGames.PlayMaker.Actions.DebugLog
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000003000000
-        actionHashCodes: 786b39029c59e501
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Quest Tracker
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Quest Tracker
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Untagged
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "\u627E\u4E0D\u5230Reference\uFF01\u9019\u88E1\u8981\u88DCReference"
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 0000000001
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 120000001200000013000000070000001200000001000000
-        paramName:
-        - objectName
-        - withTag
-        - store
-        - logLevel
-        - text
-        - sendToUnityLog
-        paramDataPos: 000000000100000000000000000000000200000004000000
-        paramByteDataSize: 000000000000000000000000040000000000000001000000
     events:
     - name: Alert Message/Show Message
       isSystemEvent: 0
@@ -1149,7 +959,7 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 3740579530420664122}
       - useVariable: 1
-        name: Quest Tracker
+        name: 
         tooltip: 
         showInInspector: 1
         networkSync: 0
@@ -1171,7 +981,7 @@ MonoBehaviour:
       - Parent
       - Quest Tracker
       - Reference
-      variableCategoryIDs: 0300000001000000010000000300000002000000
+      variableCategoryIDs: 0300000001000000010000000200000000000000
     description: 
     docUrl: 
     showStateLabel: 0

@@ -5640,7 +5640,7 @@ MonoBehaviour:
               useVariable: 1
               name: Quest Tracker
               tooltip: 
-              showInInspector: 1
+              showInInspector: 0
               networkSync: 0
               value: {fileID: 0}
           fsmName:
@@ -6148,7 +6148,7 @@ MonoBehaviour:
         x: 197.20312
         y: 105.328125
         width: 144
-        height: 96
+        height: 80
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -6181,15 +6181,6 @@ MonoBehaviour:
         linkTarget: 0
         colorIndex: 0
       - fsmEvent:
-          name: Num/3
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Find Game Object 3
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      - fsmEvent:
           name: Num/4
           isSystemEvent: 0
           isGlobal: 0
@@ -6203,18 +6194,16 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.GameObjectIsNull
         - HutongGames.PlayMaker.Actions.GameObjectIsNull
         - HutongGames.PlayMaker.Actions.GameObjectIsNull
-        - HutongGames.PlayMaker.Actions.GameObjectIsNull
         - HutongGames.PlayMaker.Actions.NextFrameEvent
         customNames:
         - 
         - 
         - 
         - 
-        - 
-        actionEnabled: 0101010101
-        actionIsOpen: 0101010101
-        actionStartIndex: 00000000050000000a0000000f00000014000000
-        actionHashCodes: 1565620515656205156562051565620588611604
+        actionEnabled: 01010101
+        actionIsOpen: 01010101
+        actionStartIndex: 00000000050000000a0000000f000000
+        actionHashCodes: 15656205156562051565620588611604
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -6225,12 +6214,6 @@ MonoBehaviour:
           value: {fileID: 0}
         - useVariable: 1
           name: Target Window
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: Quest Tracker
           tooltip: 
           showInInspector: 1
           networkSync: 0
@@ -6274,12 +6257,6 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -6290,17 +6267,15 @@ MonoBehaviour:
         - 
         - Num/2
         - 
-        - Num/3
-        - 
         - Num/4
         - 
         - next
-        byteData: 00000000
+        byteData: 000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 130000001700000017000000110000000100000013000000170000001700000011000000010000001300000017000000170000001100000001000000130000001700000017000000110000000100000017000000
+        paramDataType: 13000000170000001700000011000000010000001300000017000000170000001100000001000000130000001700000017000000110000000100000017000000
         paramName:
         - gameObject
         - isNull
@@ -6317,14 +6292,9 @@ MonoBehaviour:
         - isNotNull
         - storeResult
         - everyFrame
-        - gameObject
-        - isNull
-        - isNotNull
-        - storeResult
-        - everyFrame
         - sendEvent
-        paramDataPos: 000000000000000001000000000000000000000001000000020000000300000001000000010000000200000004000000050000000200000002000000030000000600000007000000030000000300000008000000
-        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000010000000000000000000000000000000000000001000000000000000000000000000000000000000100000000000000
+        paramDataPos: 00000000000000000100000000000000000000000100000002000000030000000100000001000000020000000400000005000000020000000200000006000000
+        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000001000000000000000000000000000000000000000100000000000000
     - name: Find Game Object
       description: 
       colorIndex: 9
@@ -6515,108 +6485,13 @@ MonoBehaviour:
         - sendToUnityLog
         paramDataPos: 000000000100000000000000000000000200000004000000
         paramByteDataSize: 000000000000000000000000040000000000000001000000
-    - name: Find Game Object 3
-      description: 
-      colorIndex: 9
-      position:
-        serializedVersion: 2
-        x: 371.16406
-        y: 233.22656
-        width: 145
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Game Object Is Null
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.FindGameObject
-        - HutongGames.PlayMaker.Actions.DebugLog
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000003000000
-        actionHashCodes: 786b39029c59e501
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Quest Tracker
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Quest Tracker
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Untagged
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "\u627E\u4E0D\u5230Reference\uFF01\u9019\u88E1\u8981\u88DCReference"
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 0000000001
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 120000001200000013000000070000001200000001000000
-        paramName:
-        - objectName
-        - withTag
-        - store
-        - logLevel
-        - text
-        - sendToUnityLog
-        paramDataPos: 000000000100000000000000000000000200000004000000
-        paramByteDataSize: 000000000000000000000000040000000000000001000000
     - name: Find Game Object 4
       description: 
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 419.35938
-        y: 160.75781
+        x: 366.6172
+        y: 237.17969
         width: 145
         height: 32
       isBreakpoint: 0
@@ -6779,7 +6654,7 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 2855842616025050977}
       - useVariable: 1
-        name: Quest Tracker
+        name: 
         tooltip: 
         showInInspector: 1
         networkSync: 0
@@ -6826,7 +6701,7 @@ MonoBehaviour:
       - isOpen
       - Quest Tracker
       - Tooltip
-      variableCategoryIDs: 050000000300000002000000040000000300000003000000020000000100000000000000
+      variableCategoryIDs: 050000000300000002000000030000000300000002000000010000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -6835,7 +6710,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 0500000007000000
+    outVariableIndices: 0400000006000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
