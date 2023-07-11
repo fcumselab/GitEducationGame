@@ -323,8 +323,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 1174.9297
-        y: 425.7578
+        x: 1322.2656
+        y: 430.9922
         width: 100
         height: 32
       isBreakpoint: 0
@@ -423,8 +423,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 758.9297
-        y: 422.64062
+        x: 779.9219
+        y: 418.6328
         width: 100
         height: 48
       isBreakpoint: 0
@@ -523,9 +523,9 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 873.2969
-        y: 504.95312
-        width: 100
+        x: 905.71875
+        y: 510.17188
+        width: 164
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -709,8 +709,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 1162.7344
-        y: 512.375
+        x: 1310.0703
+        y: 517.6094
         width: 142
         height: 32
       isBreakpoint: 0
@@ -1001,8 +1001,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1012.40625
-        y: 511.9297
+        x: 1159.7422
+        y: 517.16406
         width: 119
         height: 32
       isBreakpoint: 0
@@ -1080,9 +1080,9 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1014.8906
-        y: 428.16406
-        width: 121
+        x: 1039.875
+        y: 431.26562
+        width: 159
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -1848,21 +1848,6 @@ MonoBehaviour:
         paramDataPos: 000000000100000000000000000000000200000004000000
         paramByteDataSize: 000000000000000000000000040000000000000001000000
     events:
-    - name: Tooltip/Show Tooltip
-      isSystemEvent: 0
-      isGlobal: 1
-    - name: InField
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: close
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: leaveField
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: click
-      isSystemEvent: 0
-      isGlobal: 0
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
@@ -1884,13 +1869,34 @@ MonoBehaviour:
     - name: Num/2
       isSystemEvent: 0
       isGlobal: 0
-    - name: Num/3
-      isSystemEvent: 0
-      isGlobal: 0
     - name: Num/4
       isSystemEvent: 0
       isGlobal: 0
-    globalTransitions: []
+    - name: Window/Show Window
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: Window/Hide Window
+      isSystemEvent: 0
+      isGlobal: 1
+    globalTransitions:
+    - fsmEvent:
+        name: Window/Hide Window
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: close animation
+      linkStyle: 0
+      linkConstraint: 0
+      linkTarget: 0
+      colorIndex: 0
+    - fsmEvent:
+        name: Window/Show Window
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: Show Panel
+      linkStyle: 0
+      linkConstraint: 0
+      linkTarget: 0
+      colorIndex: 0
     variables:
       floatVariables: []
       intVariables: []

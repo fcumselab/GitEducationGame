@@ -5407,9 +5407,9 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 873.2969
-        y: 504.95312
-        width: 100
+        x: 869.2969
+        y: 514.9531
+        width: 164
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -5885,8 +5885,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1012.40625
-        y: 511.9297
+        x: 1042.4062
+        y: 513.9297
         width: 119
         height: 32
       isBreakpoint: 0
@@ -5964,9 +5964,9 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1014.8906
-        y: 428.16406
-        width: 121
+        x: 953.8906
+        y: 424.16406
+        width: 159
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -6623,7 +6623,31 @@ MonoBehaviour:
     - name: Num/4
       isSystemEvent: 0
       isGlobal: 0
-    globalTransitions: []
+    - name: Window/Hide Window
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: Window/Show Window
+      isSystemEvent: 0
+      isGlobal: 1
+    globalTransitions:
+    - fsmEvent:
+        name: Window/Hide Window
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: close animation
+      linkStyle: 0
+      linkConstraint: 0
+      linkTarget: 0
+      colorIndex: 0
+    - fsmEvent:
+        name: Window/Show Window
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: Show Panel
+      linkStyle: 0
+      linkConstraint: 0
+      linkTarget: 0
+      colorIndex: 0
     variables:
       floatVariables: []
       intVariables: []
