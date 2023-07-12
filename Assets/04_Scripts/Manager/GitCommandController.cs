@@ -79,8 +79,13 @@ public class GitCommandController : SerializedMonoBehaviour
         {
             if (commandList[0] == "git")
             {
-                if(commandList[1] == "--version" || commandList[1] == "-v") resultList.Add("findOne");
-                else resultList.Add("findZero");
+                if (commandList.Count == 1) resultList.Add("findZero");
+                else
+                {
+                    if (commandList[1] == "--version" || commandList[1] == "-v") resultList.Add("findOne");
+                    else resultList.Add("findZero");
+                }
+                
             } 
             else
             {
