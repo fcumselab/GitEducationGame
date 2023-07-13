@@ -9819,7 +9819,7 @@ MonoBehaviour:
         serializedVersion: 2
         x: 544.72656
         y: 140.72656
-        width: 125
+        width: 238
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -10098,8 +10098,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 699.5469
-        y: 150.3125
+        x: 834.89844
+        y: 161.26562
         width: 124
         height: 16
       isBreakpoint: 0
@@ -10185,7 +10185,19 @@ MonoBehaviour:
     - name: Reference/HideWindow
       isSystemEvent: 0
       isGlobal: 0
-    globalTransitions: []
+    - name: File Content Window/Close Window
+      isSystemEvent: 0
+      isGlobal: 1
+    globalTransitions:
+    - fsmEvent:
+        name: File Content Window/Close Window
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: Close Animation
+      linkStyle: 0
+      linkConstraint: 0
+      linkTarget: 0
+      colorIndex: 0
     variables:
       floatVariables: []
       intVariables: []
