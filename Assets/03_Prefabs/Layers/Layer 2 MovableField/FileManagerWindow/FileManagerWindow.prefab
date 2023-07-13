@@ -1088,7 +1088,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 0101
-        actionIsOpen: 0101
+        actionIsOpen: 0100
         actionStartIndex: 0000000003000000
         actionHashCodes: a8a7c80209fbab04
         unityObjectParams: []
@@ -1097,11 +1097,11 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: PageUp Button
+            name: Close Button
             tooltip: 
             showInInspector: 1
             networkSync: 0
-            value: {fileID: 1788550127924157765}
+            value: {fileID: 1788550127057357286}
         - ownerOption: 1
           gameObject:
             useVariable: 1
@@ -1135,7 +1135,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 0
+          value: 1
         - useVariable: 0
           name: 
           tooltip: 
@@ -1197,16 +1197,18 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.SetBoolValue
         - HutongGames.PlayMaker.Actions.ActivateGameObject
         - HutongGames.PlayMaker.Actions.UiSetIsInteractable
+        - HutongGames.PlayMaker.Actions.UiSetIsInteractable
         - HutongGames.PlayMaker.Actions.UiTextSetText
         customNames:
         - 
         - 
         - 
         - 
-        actionEnabled: 01010101
-        actionIsOpen: 01010101
-        actionStartIndex: 0000000003000000080000000b000000
-        actionHashCodes: 27fbe103b2cf1000a8a7c80209fbab04
+        - 
+        actionEnabled: 0101010101
+        actionIsOpen: 0101010101
+        actionStartIndex: 0000000003000000080000000b0000000e000000
+        actionHashCodes: 27fbe103b2cf1000a8a7c802a8a7c80209fbab04
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1226,6 +1228,14 @@ MonoBehaviour:
             showInInspector: 1
             networkSync: 0
             value: {fileID: 1788550127924157765}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Close Button
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 1788550127057357286}
         - ownerOption: 1
           gameObject:
             useVariable: 1
@@ -1296,6 +1306,18 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -1307,7 +1329,7 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 110000001100000001000000140000001100000011000000010000000100000014000000110000001100000014000000120000001100000001000000
+        paramDataType: 110000001100000001000000140000001100000011000000010000000100000014000000110000001100000014000000110000001100000014000000120000001100000001000000
         paramName:
         - boolVariable
         - boolValue
@@ -1321,11 +1343,14 @@ MonoBehaviour:
         - isInteractable
         - resetOnExit
         - gameObject
+        - isInteractable
+        - resetOnExit
+        - gameObject
         - text
         - resetOnExit
         - everyFrame
-        paramDataPos: 000000000100000000000000000000000200000003000000010000000200000001000000040000000500000002000000000000000600000003000000
-        paramByteDataSize: 000000000000000001000000000000000000000000000000010000000100000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 000000000100000000000000000000000200000003000000010000000200000001000000040000000500000002000000060000000700000003000000000000000800000003000000
+        paramByteDataSize: 000000000000000001000000000000000000000000000000010000000100000000000000000000000000000000000000000000000000000000000000000000000000000001000000
     - name: Enable Loading Animation
       description: 
       colorIndex: 0
@@ -1583,6 +1608,12 @@ MonoBehaviour:
     - name: true
       isSystemEvent: 0
       isGlobal: 0
+    - name: Random Data/Enable Control
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: Random Data/Disable Control
+      isSystemEvent: 0
+      isGlobal: 1
     globalTransitions:
     - fsmEvent:
         name: Random Data/Loading Animation
@@ -1628,6 +1659,12 @@ MonoBehaviour:
         showInInspector: 1
         networkSync: 0
         value: {fileID: 1788550127924157765}
+      - useVariable: 1
+        name: Close Button
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 1788550127057357286}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -1635,8 +1672,9 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
+      - Children
       - Reference
-      variableCategoryIDs: 00000000010000000100000000000000
+      variableCategoryIDs: 0000000002000000020000000100000001000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -2225,7 +2263,7 @@ GameObject:
   - component: {fileID: 1788550127057357285}
   - component: {fileID: 1788550127057357284}
   m_Layer: 5
-  m_Name: Close Button (1)
+  m_Name: Close Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2308,13 +2346,13 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2329,7 +2367,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1788550127057357280}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
