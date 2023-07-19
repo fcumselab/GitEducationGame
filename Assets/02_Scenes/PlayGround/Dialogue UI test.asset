@@ -913,6 +913,20 @@ MonoBehaviour:
       value: Can click Replay Current Scenario
       type: 0
       typeString: 
+  - id: 11
+    fields:
+    - title: Name
+      value: UnlockKey
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: (category ) / (list name) / (notification)
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: Unlock GameManualWindow List
+      type: 0
+      typeString: 
   conversations:
   - id: 5
     fields:
@@ -19197,7 +19211,7 @@ MonoBehaviour:
         destinationDialogueID: 56
         isConnector: 0
         priority: 2
-      conditionsString: Variable["isReplay"] == false
+      conditionsString: 
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
@@ -20583,8 +20597,8 @@ MonoBehaviour:
         width: 278.49963
         height: 283.4997
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 702.9601, y: 460.02536}
-    canvasZoom: 0.7300007
+    canvasScrollPosition: {x: 761.02277, y: 0}
+    canvasZoom: 0.7000007
   - id: 25
     fields:
     - title: Title
@@ -20690,8 +20704,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1398.3185
-        y: 52.057976
+        x: 1410.8185
+        y: 48.932976
         width: 160
         height: 30
     - id: 1
@@ -20884,14 +20898,26 @@ MonoBehaviour:
 
 
         FSMEvent("Quest Tracker/Add
-        New Quest", "Quest Tracker", "Quest Tracker");'
+        New Quest", "Quest Tracker", "Quest Tracker");
+
+
+
+        Variable["UnlockKey"]
+        = "command/git/true"
+
+        FSMEvent("GameManualWindow/Unlock List", "GameManualWindow",
+        "UnlockMessage");
+
+
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1447.1057
-        y: 692.22314
+        x: 1442.4182
+        y: 695.34814
         width: 160
         height: 30
     - id: 31
@@ -21253,8 +21279,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1422.3947
-        y: 490.00598
+        x: 1438.0197
+        y: 507.19342
         width: 160
         height: 30
     - id: 59
@@ -21643,7 +21669,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1431.9485
-        y: 616.9055
+        y: 615.343
         width: 160
         height: 30
     entryGroups: []
