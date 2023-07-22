@@ -8,15 +8,17 @@ public class GitCommandController : SerializedMonoBehaviour
 {
     [Header("GitCommands")]
     [SerializeField] List<string> gitCommandsDictionary = new List<string>{
-        "git", "good"
+        "git"
     };
 
     [SerializeField] List<string> gitCommandsDictionary2 = new List<string>{
-        "git add", "git am", "git aply", "git askme", "git askyou",
+        "git add",
         "git commit", "git reset",
         "git init",
         "git push",
-        "git remote"
+        "git remote",
+        "git status"
+
     };
 
     [SerializeField] List<string> gitCommandsDictionary3 = new List<string>{
