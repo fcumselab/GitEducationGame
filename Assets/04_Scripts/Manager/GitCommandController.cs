@@ -25,6 +25,9 @@ public class GitCommandController : SerializedMonoBehaviour
         "git remote add"
     };
 
+    [SerializeField]
+    List<string> gitCommandsDictionary4 = new List<string>{};
+
     //Singleton instantation
     private static GitCommandController instance;
     public static GitCommandController Instance
@@ -130,6 +133,9 @@ public class GitCommandController : SerializedMonoBehaviour
             if(commandList[0] == "git" && (commandList[1] == "add" || commandList[1] == "reset"))
             {
                 return "RunFindFile";
+            }else if(commandList[0] == "git" && commandList[1] == "commit" && commandList[2] == "-m")
+            {
+                return "Commit";
             }
         }
 
@@ -215,13 +221,69 @@ public class GitCommandController : SerializedMonoBehaviour
                 }
                 else //Find ex: git_remote_add_
                 {
-                    //gitCommandsDictionary4
+                    findList = gitCommandsDictionary4.FindAll(command => command.StartsWith(commandList[0] + " " + commandList[1] + " "));
+                    if (findList.Count == 1)
+                    {
+                        CommandLineInputField.Instance.AutoCompleteCommand(findList);
+                        result = "AutoCompleted";
+                    }
+                    else result = CleanDictionaryCommand(findList, commandList, commandList[0] + " " + commandList[1]);
                 }
                 break;
             case 4:
                 break;
         }
         return result;
+    }
+
+    public string[] SplitCommitCommand(string command)
+    {
+        int startPos = -1;
+        int endPos = -1;
+
+        string word = "";
+        List<string> commandList = new();
+
+        if (command.Contains("\""))
+        {
+            for (int i = 0; i < command.Length; i++)
+            {
+                if(command[i] == '\"')
+                {
+                    startPos = i;
+                    break;
+                }
+            }
+            for (int i = command.Length - 1; i >= 0; i--)
+            {
+                if (command[i] == '\"')
+                {
+                    endPos = i;
+                    break;
+                }
+            }
+        }
+
+        for(int i = 0; i< command.Length; i++)
+        {
+            if(startPos <= i && i <= endPos)
+            {
+                word += command[i];
+            }
+            else if(command[i] != ' ')
+            {
+                word += command[i];
+            }else if(command[i] == ' ' && word.Length != 0)
+            {
+                commandList.Add(word);
+                word = "";
+            }
+        }
+
+
+        if(word.Length != 0) commandList.Add(word);
+        
+        return commandList.ToArray();
     }
 
 }
