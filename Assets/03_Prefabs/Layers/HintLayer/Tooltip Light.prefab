@@ -1,5 +1,81 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &235357451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 235357452}
+  - component: {fileID: 235357454}
+  - component: {fileID: 235357453}
+  m_Layer: 5
+  m_Name: Border
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &235357452
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235357451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4456412128153417923}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &235357454
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235357451}
+  m_CullTransparentMesh: 1
+--- !u!114 &235357453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235357451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.95294124, g: 0.5803922, b: 0.13333334, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 784e4533a00504fee8c9762a47252e6f, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 3
 --- !u!1 &242745241867483013
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,8 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 40
-    m_Right: 40
+    m_Left: 36
+    m_Right: 36
     m_Top: 24
     m_Bottom: 24
   m_ChildAlignment: 1
@@ -148,7 +224,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 235357452}
   m_Father: {fileID: 242745241867483012}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -178,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8941177, b: 0.7686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -283,18 +360,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 32
+    m_FontSize: 42
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 46
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The size adapts automatically to its content.
+  m_Text: "\u6587\u5B57Word"
 --- !u!1 &4982205670219784191
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +396,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4982205670219784191}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -356,8 +433,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 183.17969
-        y: 109.88281
+        x: 207.64844
+        y: 108.96094
         width: 152
         height: 32
       isBreakpoint: 0
@@ -566,7 +643,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 50.734375
-        y: 124.47656
+        y: 116.47656
         width: 100
         height: 16
       isBreakpoint: 0
@@ -577,13 +654,15 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
         - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
+        - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000004000000
-        actionHashCodes: 8479fb008479fb00
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000400000008000000
+        actionHashCodes: 8479fb008479fb008479fb00
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -603,6 +682,14 @@ MonoBehaviour:
             showInInspector: 1
             networkSync: 0
             value: {fileID: 2057947911938108448}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: border
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 235357451}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
@@ -621,26 +708,44 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
-        - useVariable: 1
-          name: showTime
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0.1
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
-        - useVariable: 1
-          name: showTime
+        - useVariable: 0
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 0.1
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmIntParams: []
         fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         - useVariable: 0
           name: 
           tooltip: 
@@ -664,7 +769,7 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000000f0000000f00000011000000140000000f0000000f00000011000000
+        paramDataType: 140000000f0000000f00000011000000140000000f0000000f00000011000000140000000f0000000f00000011000000
         paramName:
         - gameObject
         - alpha
@@ -674,15 +779,19 @@ MonoBehaviour:
         - alpha
         - duration
         - ignoreTimeScale
-        paramDataPos: 0000000000000000010000000000000001000000020000000300000001000000
-        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000
+        - gameObject
+        - alpha
+        - duration
+        - ignoreTimeScale
+        paramDataPos: 000000000000000001000000000000000100000002000000030000000100000002000000040000000500000002000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     - name: Turn off Tooltip Screen
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 367.85156
-        y: 121.890625
+        x: 410.85156
+        y: 108.890625
         width: 165
         height: 16
       isBreakpoint: 0
@@ -693,15 +802,17 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
         - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
+        - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
         - HutongGames.PlayMaker.Actions.CallMethod
         customNames:
         - 
         - 
         - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 000000000400000008000000
-        actionHashCodes: 8479fb008479fb00ca51e900
+        - 
+        actionEnabled: 01010101
+        actionIsOpen: 01010101
+        actionStartIndex: 0000000004000000080000000c000000
+        actionHashCodes: 8479fb008479fb008479fb00ca51e900
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -713,6 +824,14 @@ MonoBehaviour:
             showInInspector: 1
             networkSync: 0
             value: {fileID: 4352136750633935962}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: border
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 235357451}
         - ownerOption: 1
           gameObject:
             useVariable: 1
@@ -818,8 +937,26 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0.1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: showTime
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0.1
         fsmIntParams: []
         fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         - useVariable: 0
           name: 
           tooltip: 
@@ -844,8 +981,12 @@ MonoBehaviour:
         - HutongGames.PlayMaker.FsmVar
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000000f0000000f00000011000000140000000f0000000f0000001100000018000000120000000c00000027000000270000000100000001000000
+        paramDataType: 140000000f0000000f00000011000000140000000f0000000f00000011000000140000000f0000000f0000001100000018000000120000000c00000027000000270000000100000001000000
         paramName:
+        - gameObject
+        - alpha
+        - duration
+        - ignoreTimeScale
         - gameObject
         - alpha
         - duration
@@ -861,15 +1002,15 @@ MonoBehaviour:
         - storeResult
         - everyFrame
         - manualUI
-        paramDataPos: 000000000000000001000000000000000100000002000000030000000100000000000000000000000000000000000000010000000000000001000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000001000000
+        paramDataPos: 00000000000000000100000000000000010000000200000003000000010000000200000004000000050000000200000000000000000000000000000000000000010000000000000001000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000001000000
     - name: UI Text Set Text
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 195.35938
-        y: 171.91406
+        x: 216.04688
+        y: 163.95312
         width: 125
         height: 32
       isBreakpoint: 0
@@ -889,15 +1030,17 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
         - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
+        - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
         - HutongGames.PlayMaker.Actions.UiTextSetText
         customNames:
         - 
         - 
         - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 000000000400000008000000
-        actionHashCodes: 8479fb008479fb0009fbab04
+        - 
+        actionEnabled: 01010101
+        actionIsOpen: 01010101
+        actionStartIndex: 0000000004000000080000000c000000
+        actionHashCodes: 8479fb008479fb008479fb0009fbab04
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -909,6 +1052,14 @@ MonoBehaviour:
             showInInspector: 1
             networkSync: 0
             value: {fileID: 4352136750633935962}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: border
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 235357451}
         - ownerOption: 1
           gameObject:
             useVariable: 1
@@ -967,8 +1118,26 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0.1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 1
+          name: showTime
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0.1
         fsmIntParams: []
         fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         - useVariable: 0
           name: 
           tooltip: 
@@ -998,8 +1167,12 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000000f0000000f00000011000000140000000f0000000f0000001100000014000000120000001100000001000000
+        paramDataType: 140000000f0000000f00000011000000140000000f0000000f00000011000000140000000f0000000f0000001100000014000000120000001100000001000000
         paramName:
+        - gameObject
+        - alpha
+        - duration
+        - ignoreTimeScale
         - gameObject
         - alpha
         - duration
@@ -1012,15 +1185,15 @@ MonoBehaviour:
         - text
         - resetOnExit
         - everyFrame
-        paramDataPos: 000000000000000001000000000000000100000002000000030000000100000002000000000000000200000000000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 00000000000000000100000000000000010000000200000003000000010000000200000004000000050000000200000003000000000000000300000000000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
     - name: turn on
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 213
-        y: 233
+        x: 228.94531
+        y: 221.28906
         width: 100
         height: 16
       isBreakpoint: 0
@@ -1291,6 +1464,12 @@ MonoBehaviour:
         showInInspector: 1
         networkSync: 0
         value: {fileID: 2057947911938108448}
+      - useVariable: 1
+        name: border
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 235357451}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -1298,7 +1477,8 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      - Children
+      variableCategoryIDs: 00000000000000000000000000000000010000000100000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
