@@ -38,6 +38,7 @@ public class BranchTool : SerializedMonoBehaviour
             text = commit.Value.transform.Find("Text").GetComponent<Text>();
             text.color = selectedColor;
             text.text = branchName[0].ToString();
+            //Debug.Log("set: " + commit.Key);
         }
 
         GameObject TargetCommit = CommitDict[targetCommit];
