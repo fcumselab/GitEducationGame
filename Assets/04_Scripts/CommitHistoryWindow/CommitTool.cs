@@ -96,4 +96,6 @@ public class CommitTool : MonoBehaviour
         return commitHistorySize;
 
     }
+
+    
 }

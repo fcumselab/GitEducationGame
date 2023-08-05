@@ -8,16 +8,18 @@ using UnityEngine.UI;
 public class BranchTool : SerializedMonoBehaviour
 {
     [SerializeField] Dictionary<string, GameObject> CommitDict = new();
-    // Start is called before the first frame update
-    void Start()
+
+    public Dictionary<string, GameObject> GetCommitDict()
     {
-        
+        return CommitDict;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetCommitDict(Dictionary<string, GameObject> newDict)
     {
-        
+        foreach(var dict in newDict)
+        {
+            if (!CommitDict.ContainsKey(dict.Key)) CommitDict.Add(dict.Key, dict.Value);
+        }
     }
 
     public bool AddCommit(string commitId, GameObject Commit)
@@ -49,6 +51,31 @@ public class BranchTool : SerializedMonoBehaviour
         text.color = grayColor;
         text.text = branchName[0].ToString();
 
+        return true;
+    }
+
+    public string FindMergeType(GameObject TargetB, string targetBCommit, string commit)
+    {   // current master C8  keyword newF C2 (A > B)
+        // current master C2  keyword newF C8 (A < B)
+        // current master C8  keyword newF D2 (A < B)
+        // current master C2  keyword newF D8 (A > B)
+
+        Dictionary<string, GameObject> TargetDict = TargetB.GetComponent<BranchTool>().GetCommitDict();
+        if(TargetDict.Count > CommitDict.Count)
+        {
+            if (TargetDict.ContainsKey(commit)) return "FastForward";
+            else return "Merge";
+        }
+        else
+        {
+            if (CommitDict.ContainsKey(targetBCommit)) return "UpToDate";
+            else return "Merge";
+        }
+    }
+
+    public bool FastForward(GameObject TargetB)
+    {
+        SetCommitDict(TargetB.GetComponent<BranchTool>().GetCommitDict());
         return true;
     }
 }
