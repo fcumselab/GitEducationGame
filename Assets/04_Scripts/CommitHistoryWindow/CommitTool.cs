@@ -116,4 +116,20 @@ public class CommitTool : SerializedMonoBehaviour
 
         return branchColumn[currentBranch];
     }
+
+    public bool UpdateBranchColumn(string deleteBranch, string replaceBranch = "")
+    {
+        //replace branch ex: git checkout -b branchName (now branchName is HEAD)
+        if(replaceBranch.Length != 0)
+        {
+            int value = branchColumn[deleteBranch];
+            branchColumn.Add(replaceBranch, value);
+            branchColumn.Remove(deleteBranch);
+        }
+        else //Remove target branch (git branch -d branchName)
+        {
+            branchColumn.Remove(deleteBranch);
+        }
+        return true;
+    }
 }
