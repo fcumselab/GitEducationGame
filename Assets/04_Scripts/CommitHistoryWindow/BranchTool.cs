@@ -14,16 +14,6 @@ public class BranchTool : SerializedMonoBehaviour
         return CommitDict;
     }
 
-    public bool UpdateDictByOtherBranch(GameObject TargetB)
-    {
-        Dictionary<string, GameObject> targetDict = TargetB.GetComponent<BranchTool>().GetCommitDict();
-        foreach (var dict in targetDict)
-        {
-            if (!CommitDict.ContainsKey(dict.Key)) CommitDict.Add(dict.Key, dict.Value);
-        }
-        return true;
-    }
-
     public bool AddCommit(string commitId, GameObject Commit)
     {
         CommitDict.Add(commitId, Commit);
