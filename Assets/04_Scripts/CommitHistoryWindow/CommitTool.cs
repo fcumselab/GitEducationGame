@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 using HutongGames.PlayMaker;
 
-public class CommitTool : MonoBehaviour
+public class CommitTool : SerializedMonoBehaviour
 {
     [SerializeField] List<string> generateCommitIdList = new();
+    [SerializeField] Dictionary<string, int> branchColumn = new();
+    [SerializeField] int currentBranchColumnCount = 0;
+
+    private void Start()
+    {
+        //branchColumn.Add("master", 0);
+        //currentBranchColumnCount = 1;
+    }
 
     public string SetRandomId()
     {
@@ -97,5 +106,14 @@ public class CommitTool : MonoBehaviour
 
     }
 
-    
+    public int GetBranchColumn(string currentBranch)
+    {
+        if (!branchColumn.ContainsKey(currentBranch))
+        {
+            currentBranchColumnCount++;
+            branchColumn.Add(currentBranch, currentBranchColumnCount);
+        }
+
+        return branchColumn[currentBranch];
+    }
 }
