@@ -14,12 +14,14 @@ public class BranchTool : SerializedMonoBehaviour
         return CommitDict;
     }
 
-    public void SetCommitDict(Dictionary<string, GameObject> newDict)
+    public bool UpdateDictByOtherBranch(GameObject TargetB)
     {
-        foreach(var dict in newDict)
+        Dictionary<string, GameObject> targetDict = TargetB.GetComponent<BranchTool>().GetCommitDict();
+        foreach (var dict in targetDict)
         {
             if (!CommitDict.ContainsKey(dict.Key)) CommitDict.Add(dict.Key, dict.Value);
         }
+        return true;
     }
 
     public bool AddCommit(string commitId, GameObject Commit)
@@ -71,11 +73,5 @@ public class BranchTool : SerializedMonoBehaviour
             if (CommitDict.ContainsKey(targetBCommit)) return "UpToDate";
             else return "Merge";
         }
-    }
-
-    public bool FastForward(GameObject TargetB)
-    {
-        SetCommitDict(TargetB.GetComponent<BranchTool>().GetCommitDict());
-        return true;
     }
 }
