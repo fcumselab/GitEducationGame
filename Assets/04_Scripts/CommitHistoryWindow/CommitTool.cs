@@ -18,9 +18,10 @@ public class CommitTool : SerializedMonoBehaviour
 
     public string SetRandomId()
     {
-        
+
         string key = "0123456789abcdefghijkmnpqrstuvwxyz";
-        while (true) {
+        while (true)
+        {
             string result = "";
 
             for (int i = 0; i < 6; i++)
@@ -42,23 +43,23 @@ public class CommitTool : SerializedMonoBehaviour
         Dictionary<string, int> branchCountDic = new();
 
         Transform Commits = commitHistory.transform.Find("Commits");
-        for(int x=0; x< Commits.childCount; x++)
+        for (int x = 0; x < Commits.childCount; x++)
         {
             Transform child = Commits.GetChild(x);
             if (child.gameObject.activeSelf)
             {
                 PlayMakerFSM[] fsm = child.GetComponents<PlayMakerFSM>();
                 PlayMakerFSM targetFsm = null;
-                for (int y=0; y < fsm.Length; y++)
+                for (int y = 0; y < fsm.Length; y++)
                 {
-                    if(fsm[y].FsmName == "Content")
+                    if (fsm[y].FsmName == "Content")
                     {
                         targetFsm = fsm[y];
                         break;
                     }
                 }
 
-                for(int y=0; y< targetFsm.FsmVariables.GetFsmArray("branchList").Length; y++)
+                for (int y = 0; y < targetFsm.FsmVariables.GetFsmArray("branchList").Length; y++)
                 {
                     string branchName = (string)targetFsm.FsmVariables.GetFsmArray("branchList").Get(y);
                     if (branchCountDic.ContainsKey(branchName))
@@ -76,7 +77,7 @@ public class CommitTool : SerializedMonoBehaviour
         int maxWidthLen = 0;
         foreach (var branch in branchCountDic)
         {
-            if(maxHeightLen < branch.Value) maxHeightLen = branch.Value;
+            if (maxHeightLen < branch.Value) maxHeightLen = branch.Value;
         }
 
         Transform Branches = commitHistory.transform.Find("Branches");
@@ -120,7 +121,7 @@ public class CommitTool : SerializedMonoBehaviour
     public bool UpdateBranchColumn(string deleteBranch, string replaceBranch = "")
     {
         //replace branch ex: git checkout -b branchName (now branchName is HEAD)
-        if(replaceBranch.Length != 0)
+        if (replaceBranch.Length != 0)
         {
             int value = branchColumn[deleteBranch];
             branchColumn.Add(replaceBranch, value);
@@ -130,6 +131,87 @@ public class CommitTool : SerializedMonoBehaviour
         {
             branchColumn.Remove(deleteBranch);
         }
+        return true;
+    }
+
+    public string[] DivideCheckoutCommand(string command)
+    {
+        List<string> resultList = new();
+        int branchLen = -1;
+        string keyword = "";
+        for (int i = 0; i < command.Length; i++)
+        {
+            if (command[i] == '^' || command[i] == '~')
+            {
+                branchLen = i;
+                break;
+            }
+            keyword += command[i];
+        }
+
+        if (keyword.Length != 0)
+        {
+            resultList.Add(keyword);
+            keyword = "";
+        }
+
+        bool needDivide = false;
+        for (int i = branchLen; i < command.Length; i++)
+        {
+            if ((command[i] == '^' || command[i] == '~') && !needDivide) needDivide = true;
+            else if ((command[i] == '^' || command[i] == '~') && needDivide)
+            {
+                resultList.Add(keyword);
+                keyword = "";
+            }
+            keyword += command[i];
+        }
+
+        if (keyword.Length != 0) resultList.Add(keyword);
+
+        return resultList.ToArray();
+    }
+
+    public string[] ValidCheckoutCommand(string[] commandList)
+    {
+        List<string> resultList = new();
+        bool isOk = true;
+        for (int i = 1; i < commandList.Length; i++)
+        {
+            if (commandList[i].Length == 1)
+            {
+                commandList[i] += "1";
+                continue;
+            }
+
+            string command = commandList[i][1..];
+            if (IsDigitsOnly(command))
+            {
+                //Debug.Log(command + "-> is Ok");
+            }
+            else
+            {
+                //Debug.Log(command + "-> is not Ok");
+                isOk = false;
+                break;
+            }
+        }
+        if (isOk)
+        {
+            resultList.Add("true");
+            resultList.AddRange(commandList);
+        }
+        else
+        {
+            resultList.Add("false");
+        }
+
+        return resultList.ToArray();
+    }
+
+    bool IsDigitsOnly(string str)
+    {
+        foreach (char c in str) if (c < '0' || c > '9') return false;
         return true;
     }
 }
