@@ -17,16 +17,16 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 11400000}
     name: Loading Animation
-    startState: UI Text Get Text
+    startState: Init
     states:
-    - name: UI Text Get Text
+    - name: Init
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
         x: 179.92969
         y: 112.75781
-        width: 126
+        width: 100
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -44,12 +44,14 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.UiTextGetText
+        - HutongGames.PlayMaker.Actions.SetIntValue
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 599a9305
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000003000000
+        actionHashCodes: 599a9305603dd905
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -79,7 +81,19 @@ MonoBehaviour:
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
-        fsmIntParams: []
+        fsmIntParams:
+        - useVariable: 1
+          name: curCount
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
@@ -87,18 +101,21 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 00
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001200000001000000
+        paramDataType: 140000001200000001000000100000001000000001000000
         paramName:
         - gameObject
         - text
         - everyFrame
-        paramDataPos: 000000000000000000000000
-        paramByteDataSize: 000000000000000001000000
+        - intVariable
+        - intValue
+        - everyFrame
+        paramDataPos: 000000000000000000000000000000000100000001000000
+        paramByteDataSize: 000000000000000001000000000000000000000001000000
     - name: Wait
       description: 
       colorIndex: 0
@@ -150,7 +167,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 0.2
+          value: 0.35
         fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
@@ -635,7 +652,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: .
+          value: ' .'
         - useVariable: 1
           name: text
           tooltip: 
@@ -755,7 +772,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: ..
+          value: ' ..'
         - useVariable: 1
           name: text
           tooltip: 
@@ -875,7 +892,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: ...
+          value: ' ...'
         - useVariable: 1
           name: text
           tooltip: 
