@@ -20,7 +20,7 @@ public class BranchTool : SerializedMonoBehaviour
         return true;
     }
 
-    public bool UpdateCommitsColor(string branchName, string targetCommit, Color selectedColor, Color grayColor)
+    public bool UpdateCommitsColor(string branchName, string targetCommit, Color TextColor, Color ImageColor, Color grayColor)
     {
         Image image;
         Text text;
@@ -30,14 +30,14 @@ public class BranchTool : SerializedMonoBehaviour
             image.color = grayColor;
 
             text = commit.Value.transform.Find("Text").GetComponent<Text>();
-            text.color = selectedColor;
+            text.color = TextColor;
             text.text = branchName[0].ToString();
             //Debug.Log("set: " + commit.Key);
         }
 
         GameObject TargetCommit = CommitDict[targetCommit];
         image = TargetCommit.transform.Find("Image").GetComponent<Image>();
-        image.color = selectedColor;
+        image.color = ImageColor;
 
         text = TargetCommit.transform.Find("Text").GetComponent<Text>();
         text.color = grayColor;
