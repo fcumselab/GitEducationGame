@@ -12,8 +12,8 @@ public class CommitTool : SerializedMonoBehaviour
 
     private void Start()
     {
-        //branchColumn.Add("master", 0);
-        //currentBranchColumnCount = 1;
+        GetBranchColumn("master");
+        
     }
 
     public string SetRandomId()
@@ -111,8 +111,8 @@ public class CommitTool : SerializedMonoBehaviour
     {
         if (!branchColumn.ContainsKey(currentBranch))
         {
-            currentBranchColumnCount++;
             branchColumn.Add(currentBranch, currentBranchColumnCount);
+            currentBranchColumnCount++;
         }
 
         return branchColumn[currentBranch];
