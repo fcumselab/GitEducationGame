@@ -18,7 +18,6 @@ public class CommitTool : SerializedMonoBehaviour
 
     public string SetRandomId()
     {
-
         string key = "0123456789abcdefghijkmnpqrstuvwxyz";
         while (true)
         {
@@ -46,19 +45,10 @@ public class CommitTool : SerializedMonoBehaviour
         for (int x = 0; x < Commits.childCount; x++)
         {
             Transform child = Commits.GetChild(x);
+
             if (child.gameObject.activeSelf)
             {
-                PlayMakerFSM[] fsm = child.GetComponents<PlayMakerFSM>();
-                PlayMakerFSM targetFsm = null;
-                for (int y = 0; y < fsm.Length; y++)
-                {
-                    if (fsm[y].FsmName == "Content")
-                    {
-                        targetFsm = fsm[y];
-                        break;
-                    }
-                }
-
+                PlayMakerFSM targetFsm = MyPlayMakerScriptHelper.GetFsmByName(child.gameObject, "Content");
                 for (int y = 0; y < targetFsm.FsmVariables.GetFsmArray("branchList").Length; y++)
                 {
                     string branchName = (string)targetFsm.FsmVariables.GetFsmArray("branchList").Get(y);
@@ -86,16 +76,8 @@ public class CommitTool : SerializedMonoBehaviour
             Transform child = Branches.GetChild(x);
             if (child.gameObject.activeSelf)
             {
-                PlayMakerFSM[] fsm = child.GetComponents<PlayMakerFSM>();
-                PlayMakerFSM targetFsm = null;
-                for (int y = 0; y < fsm.Length; y++)
-                {
-                    if (fsm[y].FsmName == "Branch")
-                    {
-                        targetFsm = fsm[y];
-                        break;
-                    }
-                }
+                PlayMakerFSM targetFsm = MyPlayMakerScriptHelper.GetFsmByName(child.gameObject, "Branch");
+
                 int branchId = targetFsm.FsmVariables.GetFsmInt("branchId").ToInt();
                 if (maxWidthLen < branchId) maxWidthLen = branchId;
             }
@@ -104,7 +86,6 @@ public class CommitTool : SerializedMonoBehaviour
         maxHeightLen *= 175;
         Vector2 commitHistorySize = new(maxWidthLen, maxHeightLen);
         return commitHistorySize;
-
     }
 
     public int GetBranchColumn(string currentBranch)
