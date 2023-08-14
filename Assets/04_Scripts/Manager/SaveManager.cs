@@ -20,11 +20,13 @@ public class SaveManager : SerializedMonoBehaviour
         Debug.Log(saveJson);
     }
 
+    //LoadPlayerData 
     public void LoadPlayerData()
     {
         saveData = JsonUtility.FromJson<SaveData>(saveJson);
     }
 
+    //LoadStageData -> in "Stage Selection" scene -> Run function from "Stage Manager" GameObject
     public bool LoadStageData(GameObject stageObj)
     {
         List<StageData> stageData = saveData.stageData;
@@ -52,6 +54,20 @@ public class SaveManager : SerializedMonoBehaviour
         }
         return true;
     }
+
+    public void SaveStageLeaderBoardData(string stageName, string[] nameList, int[] scoreList, int[] starList, string[] timeList)
+    {
+        StageData findStage = saveData.stageData.Find((stage) => stage.stageName == stageName);
+
+        for (int i = 0; i < nameList.Length ; i++)
+        {
+            findStage.stageLeaderboard.playerName[i] = nameList[i];
+            findStage.stageLeaderboard.playerScore[i] = scoreList[i];
+            findStage.stageLeaderboard.playerStar[i] = starList[i];
+            findStage.stageLeaderboard.playerClearTime[i] = timeList[i];
+        }
+    }
+
 }
 
 
@@ -73,6 +89,7 @@ public class StageData
     public bool isStageClear;
     public bool isStageUnlock;
     public StageLeaderBoardData stageLeaderboard = new();
+    public List<string> nextStageNameList;
 }
 
 [Serializable]
