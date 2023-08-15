@@ -68,6 +68,22 @@ public class SaveManager : SerializedMonoBehaviour
         }
     }
 
+    public void UnlockNextStages(string stageName)
+    {
+        StageData targetStage = saveData.stageData.Find((stage) => stage.stageName == stageName);
+        targetStage.isStageClear = true;
+        for (int i = 0; i < targetStage.nextStageNameList.Count ; i++)
+        {
+            StageData unlockStage = saveData.stageData.Find((stage) => stage.stageName == targetStage.nextStageNameList[i]);
+            unlockStage.isStageUnlock = true;
+
+            if (unlockStage == null)
+            {
+                Debug.Log("Cannot find Stage : " + stageName);
+            }
+        }
+        
+    }
 }
 
 
