@@ -76,14 +76,34 @@ public class SaveManager : SerializedMonoBehaviour
         {
             StageData unlockStage = saveData.stageData.Find((stage) => stage.stageName == targetStage.nextStageNameList[i]);
             unlockStage.isStageUnlock = true;
+            
+            if (unlockStage == null) Debug.Log("Cannot find Stage : " + stageName);
+        }
+    }
 
-            if (unlockStage == null)
+    public void LoadGameManualData(GameObject MaunalWindow, string fsmName)
+    {
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(MaunalWindow, fsmName);
+
+        for (int i = 0; i < saveData.gameManualData.Count; i++)
+        {
+            GameManualData manualData = saveData.gameManualData[i];
+            string type = manualData.manualType;
+            //CommandNameList, RuleAndWindowNameList, VersionControlNameList...
+            FsmArray nameList = fsm.FsmVariables.FindFsmArray(type + "NameList");
+            FsmArray unlockProgressList = fsm.FsmVariables.FindFsmArray(type + "UnlockProgressList");
+            FsmArray isUnlockList = fsm.FsmVariables.FindFsmArray(type + "IsUnlockList");
+
+            for (int t = 0; t < manualData.items.Count; t++)
             {
-                Debug.Log("Cannot find Stage : " + stageName);
+                GameManualItem item = manualData.items[t];
+                nameList.InsertItem(item.listName, t);
+                unlockProgressList.InsertItem(item.listUnlockProgress, t);
+                isUnlockList.InsertItem(item.isUnlock, t);
             }
         }
-        
     }
+
 }
 
 
@@ -121,7 +141,7 @@ public class StageLeaderBoardData
 public class GameManualData
 {
     public string manualType;
-    public List<GameManualItem> manualListData = new();
+    public List<GameManualItem> items = new();
 }
 
 [Serializable]
