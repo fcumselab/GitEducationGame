@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 1219815696, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
   m_Name: unselected button
   m_EditorClassIdentifier: 
-  category: GameManualWindow/Category/unselect button
+  category: GameManualWindow/Category/select button
   fsm:
     dataVersion: 2
     usedInTemplate: {fileID: 11400000}
@@ -24,8 +24,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 212.63281
-        y: 235.25781
+        x: 116.63281
+        y: 427.2578
         width: 176
         height: 32
       isBreakpoint: 0
@@ -176,8 +176,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 466.1172
-        y: 222.55469
+        x: 370.1172
+        y: 414.5547
         width: 167
         height: 48
       isBreakpoint: 0
@@ -383,8 +383,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 316.6953
-        y: 372.78125
+        x: 295.27344
+        y: 599.0625
         width: 186
         height: 32
       isBreakpoint: 0
@@ -490,9 +490,9 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 708.41406
-        y: 234.875
-        width: 153
+        x: 554.2422
+        y: 426.71875
+        width: 255
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -524,7 +524,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Target content
+            name: Target Category List
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -623,8 +623,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 892.02344
-        y: 236.51562
+        x: 832.96094
+        y: 425.2422
         width: 157
         height: 48
       isBreakpoint: 0
@@ -663,13 +663,13 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: selected list
+          name: selectedCategory
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: selected list
+          name: selectedCategory
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -678,9 +678,9 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: List Panel
+            name: Window/GameManualWindow
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         animationCurveParams: []
@@ -695,13 +695,13 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Select
+          value: ManualContent
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Selected List
+          value: selectedManualCategory
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -747,8 +747,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 1138.9141
-        y: 229.07812
+        x: 1079.3125
+        y: 397.28906
         width: 150
         height: 32
       isBreakpoint: 0
@@ -789,9 +789,9 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: List Panel
+            name: Window/GameManualWindow
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         - ownerOption: 1
@@ -818,7 +818,7 @@ MonoBehaviour:
             ownerOption: 1
             gameObject:
               useVariable: 1
-              name: selected list
+              name: selectedCategory
               tooltip: 
               showInInspector: 0
               networkSync: 0
@@ -846,19 +846,20 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Select
+          value: ManualContent
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Selected List
+          value: selectedManualCategory
         - useVariable: 1
           name: titleText
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: "\u904A \u6232 \u898F \u5247 \u8207 \u8996 \u7A97 \u5217 \u8868"
+          value: "\u904A \u6232 \u898F \u5247 \u8207 \u8996 \u7A97 \u6559 \u5B78
+            \u5217 \u8868"
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -884,7 +885,7 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
-        - GameManualWindow/deselect list
+        - GameManualWindow/Category/Deselect
         byteData: 000000
         arrayParamSizes: 
         arrayParamTypes: []
@@ -912,8 +913,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1114.2734
-        y: 267.90625
+        x: 1036.9375
+        y: 467.01562
         width: 229
         height: 32
       isBreakpoint: 0
@@ -933,15 +934,13 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetFsmGameObject
         - HutongGames.PlayMaker.Actions.UiTextSetText
-        - HutongGames.PlayMaker.Actions.ActivateGameObject
         customNames:
         - 
         - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 000000000500000009000000
-        actionHashCodes: 5b66cf0009fbab04b2cf1000
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000005000000
+        actionHashCodes: 5b66cf0009fbab04
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -954,23 +953,15 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: List Panel
+            name: Window/GameManualWindow
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         - ownerOption: 1
           gameObject:
             useVariable: 1
             name: List Panel Text
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Default Content
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -987,19 +978,20 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Select
+          value: ManualContent
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Selected List
+          value: selectedManualCategory
         - useVariable: 1
           name: titleText
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: "\u904A \u6232 \u898F \u5247 \u8207 \u8996 \u7A97 \u5217 \u8868"
+          value: "\u904A \u6232 \u898F \u5247 \u8207 \u8996 \u7A97 \u6559 \u5B78
+            \u5217 \u8868"
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -1013,30 +1005,18 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 00000000
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000012000000120000001300000001000000140000001200000011000000010000001400000011000000110000000100000001000000
+        paramDataType: 140000001200000012000000130000000100000014000000120000001100000001000000
         paramName:
         - gameObject
         - fsmName
@@ -1047,21 +1027,16 @@ MonoBehaviour:
         - text
         - resetOnExit
         - everyFrame
-        - gameObject
-        - activate
-        - recursive
-        - resetOnExit
-        - everyFrame
-        paramDataPos: 0000000000000000010000000000000000000000010000000200000000000000010000000200000001000000020000000200000003000000
-        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000001000000
-    - name: Deselect obj
+        paramDataPos: 000000000000000001000000000000000000000001000000020000000000000001000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000001000000
+    - name: Deselect Category List
       description: 
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 347.10938
-        y: 110.89844
-        width: 230
+        x: 123.94531
+        y: 215.38281
+        width: 165
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -1071,7 +1046,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: List deactivate Selected Content
+        toState: Set Default Content & Title
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -1091,7 +1066,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Target content
+            name: Target Category List
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -1142,290 +1117,13 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 0000000000000000010000000000000001000000
         paramByteDataSize: 0000000000000000000000000100000001000000
-    - name: List deactivate Selected Content
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 54.125
-        y: 103.25781
-        width: 223
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: next
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Enable FSM
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.ActionsInternal.Header
-        - HutongGames.PlayMaker.Actions.GetFsmGameObject
-        - HutongGames.PlayMaker.Actions.GameObjectIsNull
-        - HutongGames.PlayMaker.Actions.GetFsmGameObject
-        - HutongGames.PlayMaker.Actions.ActivateGameObject
-        - HutongGames.PlayMaker.Actions.NextFrameEvent
-        customNames:
-        - List selected Content deactivate
-        - 
-        - 
-        - 
-        - 
-        - 
-        actionEnabled: 010101010101
-        actionIsOpen: 000101010101
-        actionStartIndex: 0000000002000000070000000c0000001100000016000000
-        actionHashCodes: da2097045b66cf00156562055b66cf00b2cf100088611604
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Selected List
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: Selected List
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: deselectObj
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Content Panel
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Selected List
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: deselectObj
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Select
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Selected List
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Button
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Target content
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - Double-click to edit comment.
-        - next
-        - 
-        - next
-        byteData: 000000000000000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 0300000000000000140000001200000012000000130000000100000013000000170000001700000011000000010000001400000012000000120000001300000001000000140000001100000011000000010000000100000017000000
-        paramName:
-        - comment
-        - colorId
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        - gameObject
-        - isNull
-        - isNotNull
-        - storeResult
-        - everyFrame
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        - gameObject
-        - activate
-        - recursive
-        - resetOnExit
-        - everyFrame
-        - sendEvent
-        paramDataPos: 0000000000000000000000000000000001000000000000000400000001000000010000000200000000000000050000000100000002000000030000000200000006000000020000000100000002000000070000000800000003000000
-        paramByteDataSize: 0000000004000000000000000000000000000000000000000100000000000000000000000000000000000000010000000000000000000000000000000000000001000000000000000000000000000000010000000100000000000000
-    - name: Enable FSM
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 154.23438
-        y: 163.32812
-        width: 100
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: UI On Pointer Enter Event
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.EnableFSM
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 87aa9700
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Content Panel
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Select
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 14000000120000001100000011000000
-        paramName:
-        - gameObject
-        - fsmName
-        - enable
-        - resetOnExit
-        paramDataPos: 00000000000000000000000001000000
-        paramByteDataSize: 00000000000000000000000000000000
     - name: Set Color
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1402.375
-        y: 261.9297
+        x: 1335.0703
+        y: 453.89844
         width: 100
         height: 16
       isBreakpoint: 0
@@ -1579,6 +1277,437 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 00000000000000000000000001000000020000000300000000000000000000000100000001000000040000000500000006000000070000000100000001000000
         paramByteDataSize: 00000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000
+    - name: Deselect Content
+      description: 
+      colorIndex: 9
+      position:
+        serializedVersion: 2
+        x: 65.09375
+        y: 111.484375
+        width: 270
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: next
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Deselect Category List
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: skip
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Deselect Category List
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetFsmGameObject
+        - HutongGames.PlayMaker.Actions.GameObjectIsNull
+        - HutongGames.PlayMaker.Actions.SendEvent
+        - HutongGames.PlayMaker.Actions.GetFsmGameObject
+        - HutongGames.PlayMaker.Actions.IsActive
+        customNames:
+        - 
+        - 
+        - 
+        - 
+        - 
+        actionEnabled: 0101010101
+        actionIsOpen: 0101010101
+        actionStartIndex: 00000000050000000a0000000e00000013000000
+        actionHashCodes: 5b66cf00156562055e69bb045b66cf004ded5503
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: selectedManualItem
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: selectedManualItem
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: obj
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: obj
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Window/GameManualWindow
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: selectedManualItem
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams:
+        - target: 1
+          excludeSelf:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          gameObject:
+            ownerOption: 1
+            gameObject:
+              useVariable: 1
+              name: selectedManualItem
+              tooltip: 
+              showInInspector: 0
+              networkSync: 0
+              value: {fileID: 0}
+          fsmName:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          sendToChildren:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          fsmComponent: {fileID: 0}
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: ManualContent
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: selectedManualItem
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Button
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Target content
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - skip
+        - 
+        - GameManualWindow/ManualItem/Deselect
+        - 
+        - next
+        byteData: 0000000101
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001200000012000000130000000100000013000000170000001700000011000000010000001f000000170000000f0000000100000014000000120000001200000013000000010000001300000011000000170000001700000001000000
+        paramName:
+        - gameObject
+        - fsmName
+        - variableName
+        - storeValue
+        - everyFrame
+        - gameObject
+        - isNull
+        - isNotNull
+        - storeResult
+        - everyFrame
+        - eventTarget
+        - sendEvent
+        - delay
+        - everyFrame
+        - gameObject
+        - fsmName
+        - variableName
+        - storeValue
+        - everyFrame
+        - gameObject
+        - isActive
+        - isActiveEvent
+        - isNotActiveEvent
+        - everyFrame
+        paramDataPos: 000000000000000001000000000000000000000001000000000000000100000000000000010000000000000002000000000000000200000001000000020000000300000002000000030000000300000001000000030000000400000004000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000000000000010000000000000000000000000000000000000001000000
+    - name: Set Default Content & Title
+      description: 
+      colorIndex: 8
+      position:
+        serializedVersion: 2
+        x: 114.53906
+        y: 263.97656
+        width: 186
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Set Item null
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.ActivateGameObject
+        - HutongGames.PlayMaker.Actions.UiTextSetText
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000005000000
+        actionHashCodes: b2cf100009fbab04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: DefaultContent
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: ContentTitle
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 000000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001100000011000000010000000100000014000000120000001100000001000000
+        paramName:
+        - gameObject
+        - activate
+        - recursive
+        - resetOnExit
+        - everyFrame
+        - gameObject
+        - text
+        - resetOnExit
+        - everyFrame
+        paramDataPos: 000000000000000001000000000000000100000001000000000000000200000002000000
+        paramByteDataSize: 000000000000000000000000010000000100000000000000000000000000000001000000
+    - name: Set Item null
+      description: 
+      colorIndex: 9
+      position:
+        serializedVersion: 2
+        x: 146.14062
+        y: 325.66406
+        width: 102
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: UI On Pointer Enter Event
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetFsmGameObject
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 5b66cf00
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Window/GameManualWindow
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: ManualContent
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: selectedManualItem
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000120000001300000001000000
+        paramName:
+        - gameObject
+        - fsmName
+        - variableName
+        - setValue
+        - everyFrame
+        paramDataPos: 0000000000000000010000000000000000000000
+        paramByteDataSize: 0000000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -1586,22 +1715,10 @@ MonoBehaviour:
     - name: UI POINTER CLICK
       isSystemEvent: 1
       isGlobal: 0
-    - name: UI POINTER EXIT
+    - name: UI POINTER ENTER
       isSystemEvent: 1
       isGlobal: 0
-    - name: empty
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: Select/deselect
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: GameManualWindow/deselect list
-      isSystemEvent: 0
-      isGlobal: 1
-    - name: Select/select
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: UI POINTER ENTER
+    - name: UI POINTER EXIT
       isSystemEvent: 1
       isGlobal: 0
     - name: Animation/Button/hover
@@ -1613,15 +1730,48 @@ MonoBehaviour:
     - name: Animation/Button/select
       isSystemEvent: 0
       isGlobal: 1
+    - name: empty
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: GameManualWindow/Category/Deselect
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: GameManualWindow/deselect list
+      isSystemEvent: 0
+      isGlobal: 1
     - name: next
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Select/deselect
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Select/select
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: GameManualWindow/Category/Select
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: GameManualWindow/ManualItem/Deselect
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: skip
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions:
     - fsmEvent:
-        name: GameManualWindow/deselect list
+        name: GameManualWindow/Category/Select
         isSystemEvent: 0
         isGlobal: 1
-      toState: Deselect obj
+      toState: Activate Content Obj
+      linkStyle: 0
+      linkConstraint: 0
+      linkTarget: 0
+      colorIndex: 0
+    - fsmEvent:
+        name: GameManualWindow/Category/Deselect
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: Deselect Content
       linkStyle: 0
       linkConstraint: 0
       linkTarget: 0
@@ -1631,12 +1781,6 @@ MonoBehaviour:
       intVariables: []
       boolVariables: []
       stringVariables:
-      - useVariable: 1
-        name: name
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: 
       - useVariable: 1
         name: titleText
         tooltip: 
@@ -1657,7 +1801,7 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: Default Content
+        name: Content Panel TopBar
         tooltip: 
         showInInspector: 1
         networkSync: 0
@@ -1669,55 +1813,49 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: List Panel
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
         name: List Panel Text
         tooltip: 
         showInInspector: 1
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Target content
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: selected list
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: Selected List
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: Content Panel
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: deselectObj
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: Content Panel TopBar
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
         name: List Panel TopBar
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: Target Category List
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: selectedCategory
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: selectedManualItem
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: obj
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: DefaultContent
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: ContentTitle
         tooltip: 
         showInInspector: 1
         networkSync: 0
@@ -1729,9 +1867,10 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      - Reference
+      - Default
       - List & Content
-      variableCategoryIDs: 0000000000000000000000000000000001000000010000000100000000000000000000000200000000000000020000000200000002000000
+      - Reference
+      variableCategoryIDs: 000000000200000000000000030000000200000003000000000000000000000000000000010000000100000002000000
     description: 
     docUrl: 
     showStateLabel: 0

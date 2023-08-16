@@ -25,7 +25,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 52.632812
-        y: 219.25781
+        y: 235.25781
         width: 176
         height: 32
       isBreakpoint: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 306.1172
-        y: 206.55469
+        y: 222.55469
         width: 167
         height: 48
       isBreakpoint: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 555.2578
-        y: 231.41406
+        y: 247.41406
         width: 153
         height: 32
       isBreakpoint: 0
@@ -419,7 +419,7 @@ MonoBehaviour:
             useVariable: 1
             name: Target content
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         animationCurveParams: []
@@ -516,8 +516,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 743.0469
-        y: 242.76562
+        x: 741.58594
+        y: 247.30469
         width: 157
         height: 48
       isBreakpoint: 0
@@ -556,13 +556,13 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: selected list
+          name: selectedItem
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: selected list
+          name: selectedItem
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -571,9 +571,9 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Content Panel
+            name: Window/GameManualWindow
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         animationCurveParams: []
@@ -588,13 +588,13 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Select
+          value: ManualContent
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Selected List
+          value: selectedManualItem
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -640,8 +640,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 989.9375
-        y: 235.32812
+        x: 988.7422
+        y: 243.07812
         width: 150
         height: 16
       isBreakpoint: 0
@@ -681,9 +681,9 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Content Panel
+            name: Window/GameManualWindow
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         - ownerOption: 1
@@ -710,7 +710,7 @@ MonoBehaviour:
             ownerOption: 1
             gameObject:
               useVariable: 1
-              name: selected list
+              name: selectedItem
               tooltip: 
               showInInspector: 0
               networkSync: 0
@@ -738,13 +738,13 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Select
+          value: ManualContent
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Selected List
+          value: selectedManualItem
         - useVariable: 1
           name: name
           tooltip: 
@@ -782,7 +782,7 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
-        - GameManualWindow/deselect list
+        - GameManualWindow/ManualItem/Deselect
         byteData: 00000000
         arrayParamSizes: 
         arrayParamTypes: []
@@ -813,9 +813,9 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 148.03906
-        y: 100.71875
-        width: 230
+        x: 118.25
+        y: 98.88281
+        width: 283
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -847,7 +847,7 @@ MonoBehaviour:
             useVariable: 1
             name: Target content
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         animationCurveParams: []
@@ -902,7 +902,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 965.2969
-        y: 274.15625
+        y: 290.15625
         width: 229
         height: 16
       isBreakpoint: 0
@@ -942,9 +942,9 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Content Panel
+            name: Window/GameManualWindow
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         - ownerOption: 1
@@ -958,7 +958,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Default Content
+            name: DefaultContent
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -975,13 +975,13 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Select
+          value: ManualContent
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Selected List
+          value: selectedManualItem
         - useVariable: 1
           name: name
           tooltip: 
@@ -1057,7 +1057,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 156.69531
-        y: 356.78125
+        y: 372.78125
         width: 186
         height: 32
       isBreakpoint: 0
@@ -1192,9 +1192,12 @@ MonoBehaviour:
     - name: Animation/Button/select
       isSystemEvent: 0
       isGlobal: 1
+    - name: GameManualWindow/ManualItem/Deselect
+      isSystemEvent: 0
+      isGlobal: 1
     globalTransitions:
     - fsmEvent:
-        name: GameManualWindow/deselect list
+        name: GameManualWindow/ManualItem/Deselect
         isSystemEvent: 0
         isGlobal: 1
       toState: Deselect obj
@@ -1220,21 +1223,9 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: Target content
+        name: Content Panel Text
         tooltip: 
         showInInspector: 1
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: Content Panel
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: selected list
-        tooltip: 
-        showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
@@ -1244,13 +1235,19 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Content Panel Text
+        name: Target content
         tooltip: 
-        showInInspector: 1
+        showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Default Content
+        name: selectedItem
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: DefaultContent
         tooltip: 
         showInInspector: 1
         networkSync: 0
@@ -1263,7 +1260,7 @@ MonoBehaviour:
       categories:
       - 
       - Reference
-      variableCategoryIDs: 00000000010000000100000000000000000000000100000000000000
+      variableCategoryIDs: 000000000100000000000000010000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -1272,7 +1269,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 
+    outVariableIndices: 03000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
