@@ -104,6 +104,35 @@ public class SaveManager : SerializedMonoBehaviour
         }
     }
 
+    public void SaveGameManualData(string[] typeList, string[] nameList, int[] unlockProgressList)
+    {
+        GameManualData CommandManual = saveData.gameManualData[0];
+        GameManualData RuleAndWindowManual = saveData.gameManualData[1];
+        GameManualData VersionControlManual = saveData.gameManualData[2];
+
+        for (int i = 0; i < typeList.Length; i++)
+        {
+            GameManualItem findItem;
+            switch (typeList[i])
+            {
+                case "C":
+                    findItem = CommandManual.items.Find((item) => item.listName == nameList[i]);
+                    break;
+                case "RAW":
+                    findItem = RuleAndWindowManual.items.Find((item) => item.listName == nameList[i]);
+                    break;
+                case "VC":
+                    findItem = VersionControlManual.items.Find((item) => item.listName == nameList[i]);
+                    break;
+                default:
+                    Debug.Log("SaveGameManualData Error!");
+                    return;
+            }
+
+            if (!findItem.isUnlock) findItem.isUnlock = true;
+            findItem.listUnlockProgress = unlockProgressList[i];
+        }
+    }
 }
 
 
