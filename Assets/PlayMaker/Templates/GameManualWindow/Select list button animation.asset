@@ -25,8 +25,8 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 643.1328
-        y: 98.11719
-        width: 169
+        y: 114.11719
+        width: 173
         height: 16
       isBreakpoint: 0
       isSequence: 0
@@ -234,9 +234,9 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 432.40625
-        y: 103.265625
-        width: 171
+        x: 404.40625
+        y: 108.265625
+        width: 173
         height: 16
       isBreakpoint: 0
       isSequence: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: {r: 1, g: 0.7568628, b: 0.4666667, a: 1}
+          value: {r: 0, g: 0, b: 0, a: 1}
         - useVariable: 1
           name: 
           tooltip: 
@@ -445,7 +445,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 76.30469
-        y: 171.66406
+        y: 187.66406
         width: 118
         height: 32
       isBreakpoint: 0
@@ -536,7 +536,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 59.078125
-        y: 107.07031
+        y: 123.07031
         width: 163
         height: 32
       isBreakpoint: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 268.8203
-        y: 350.09375
+        y: 366.09375
         width: 100
         height: 16
       isBreakpoint: 0
@@ -778,8 +778,8 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 530.21875
-        y: 225.39844
-        width: 174
+        y: 241.39844
+        width: 175
         height: 16
       isBreakpoint: 0
       isSequence: 0
@@ -988,7 +988,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 66.390625
-        y: 334.23438
+        y: 350.23438
         width: 123
         height: 32
       isBreakpoint: 0
@@ -1214,7 +1214,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 83.53125
-        y: 243
+        y: 259
         width: 118
         height: 48
       isBreakpoint: 0
@@ -1307,36 +1307,27 @@ MonoBehaviour:
         paramDataPos: 000000000100000000000000000000000100000000000000
         paramByteDataSize: 000000000000000000000000000000000000000001000000
     events:
-    - name: leaveField
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: empty
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: inField
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: UI POINTER ENTER
-      isSystemEvent: 1
-      isGlobal: 0
-    - name: UI POINTER EXIT
-      isSystemEvent: 1
-      isGlobal: 0
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
-    - name: Animation/Button/hover
+    - name: Animation/Button/Hover
       isSystemEvent: 0
-      isGlobal: 1
-    - name: Animation/Button/select
+      isGlobal: 0
+    - name: Animation/Button/Leave
       isSystemEvent: 0
-      isGlobal: 1
-    - name: Animation/Button/leave
+      isGlobal: 0
+    - name: Animation/Button/Select
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
+    - name: init
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: skip
+      isSystemEvent: 0
+      isGlobal: 0
     globalTransitions:
     - fsmEvent:
-        name: Animation/Button/hover
+        name: Animation/Button/Hover
         isSystemEvent: 0
         isGlobal: 1
       toState: hover color
@@ -1345,7 +1336,7 @@ MonoBehaviour:
       linkTarget: 0
       colorIndex: 0
     - fsmEvent:
-        name: Animation/Button/leave
+        name: Animation/Button/Leave
         isSystemEvent: 0
         isGlobal: 1
       toState: leave hover color
@@ -1354,7 +1345,7 @@ MonoBehaviour:
       linkTarget: 0
       colorIndex: 0
     - fsmEvent:
-        name: Animation/Button/select
+        name: Animation/Button/Select
         isSystemEvent: 0
         isGlobal: 1
       toState: click color
