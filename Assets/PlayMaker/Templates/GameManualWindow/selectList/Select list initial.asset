@@ -24,8 +24,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 201.42969
-        y: 99.421875
+        x: 236.47656
+        y: 102.17969
         width: 168
         height: 32
       isBreakpoint: 0
@@ -118,8 +118,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 227.01562
-        y: 169.94531
+        x: 267.04688
+        y: 168.25
         width: 106
         height: 32
       isBreakpoint: 0
@@ -266,8 +266,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 223.35156
-        y: 422.3125
+        x: 255.35156
+        y: 502.3125
         width: 117
         height: 16
       isBreakpoint: 0
@@ -350,8 +350,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 228.30469
-        y: 234.35938
+        x: 269.48438
+        y: 232.67969
         width: 100
         height: 48
       isBreakpoint: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
           tooltip: Get from GameManualWIndow
           showInInspector: 0
           networkSync: 0
-          value: 1
+          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -434,8 +434,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 60.351562
-        y: 301.51562
+        x: 68.609375
+        y: 302.5078
         width: 112
         height: 32
       isBreakpoint: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Close this FSM
+        toState: Set Item Text
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -549,8 +549,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 382.89844
-        y: 306.47656
+        x: 409.60156
+        y: 308.8125
         width: 100
         height: 32
       isBreakpoint: 0
@@ -659,6 +659,157 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 00000000000000000100000000000000010000000100000002000000030000000200000003000000
         paramByteDataSize: 00000000000000000000000001000000010000000000000000000000000000000100000001000000
+    - name: Set Item Text
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 62.132812
+        y: 388.89062
+        width: 109
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Close this FSM
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetName
+        - HutongGames.PlayMaker.Actions.BuildString
+        - HutongGames.PlayMaker.Actions.UiTextSetText
+        customNames:
+        - 
+        - 
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 00000000030000000b000000
+        actionHashCodes: 71c75a037370ae0509fbab04
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Itself
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: ItemText
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: name
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: ItemId
+          tooltip: 001 - 999
+          showInInspector: 1
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: ' - '
+        - useVariable: 1
+          name: name
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: name
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 1
+          name: name
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 000000
+        arrayParamSizes: 03000000
+        arrayParamTypes:
+        - HutongGames.PlayMaker.FsmString
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1300000012000000010000000c0000001200000012000000120000001200000011000000120000000100000014000000120000001100000001000000
+        paramName:
+        - gameObject
+        - storeName
+        - everyFrame
+        - stringParts
+        - 
+        - 
+        - 
+        - separator
+        - addToEnd
+        - storeResult
+        - everyFrame
+        - gameObject
+        - text
+        - resetOnExit
+        - everyFrame
+        paramDataPos: 000000000000000000000000000000000100000002000000030000000400000000000000050000000100000000000000060000000100000002000000
+        paramByteDataSize: 000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -706,9 +857,15 @@ MonoBehaviour:
         networkSync: 0
         value: 
       - useVariable: 1
-        name: string
+        name: name
         tooltip: 
         showInInspector: 0
+        networkSync: 0
+        value: 
+      - useVariable: 1
+        name: ItemId
+        tooltip: 001 - 999
+        showInInspector: 1
         networkSync: 0
         value: 
       vector2Variables: []
@@ -735,6 +892,18 @@ MonoBehaviour:
         showInInspector: 1
         networkSync: 0
         value: {fileID: 0}
+      - useVariable: 1
+        name: ItemText
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: Itself
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 0}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -757,7 +926,7 @@ MonoBehaviour:
       categories:
       - 
       - Children
-      variableCategoryIDs: 0000000000000000000000000000000001000000010000000100000000000000
+      variableCategoryIDs: 0000000000000000000000000000000000000000010000000100000001000000010000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -766,7 +935,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 0200000001000000
+    outVariableIndices: 0100000002000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
