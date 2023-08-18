@@ -11,20 +11,9 @@ public class MyTimer : MonoBehaviour
     {
         get
         {
-            if (instance == null) instance = GameObject.FindObjectOfType<MyTimer>();
+            if (instance == null) instance = FindObjectOfType<MyTimer>();
             return instance;
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public string StopWatch(float timer)

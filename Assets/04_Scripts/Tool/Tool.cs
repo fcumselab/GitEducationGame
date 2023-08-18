@@ -7,6 +7,7 @@ public class Tool : MonoBehaviour
 {
     [SerializeField] List<string> completeQuestNameList;
     [SerializeField] List<string> completeQuestTimeList;
+    [SerializeField] List<int> completeQuestUsedTimeList;
     [SerializeField] List<string> completeQuestTypeList;
 
     public string[] SplitStringIntoArray(string word, string keyword)
@@ -21,10 +22,15 @@ public class Tool : MonoBehaviour
         return word;
     }
 
-    public void AddCompleteQuestData(string questName, string time, string type)
+    //type: self, hint, answer
+    public void AddCompleteQuestData(string questName, string time, string type, string lastCompletedTime)
     {
+        int completedTime = MyTimer.Instance.ChangeTimeToSec(time);
+        int lastCompletedTimeNum = MyTimer.Instance.ChangeTimeToSec(lastCompletedTime);
+
         completeQuestNameList.Add(questName);
         completeQuestTimeList.Add(time);
+        completeQuestUsedTimeList.Add(completedTime - lastCompletedTimeNum);
         completeQuestTypeList.Add(type);
     }
 
@@ -38,11 +44,17 @@ public class Tool : MonoBehaviour
         return completeQuestTimeList.ToArray();
     }
 
+    public int[] GetCompleteQuestUsedTime()
+    {
+        return completeQuestUsedTimeList.ToArray();
+    }
+
     public string[] GetCompleteQuestType()
     {
         return completeQuestTypeList.ToArray();
     }
 
+    
     public int CompareLeaderboard(GameObject ResultWindow ,int[] scoreList, string[] timeList, int score, int star, string time)
     {
         for (int i=0; i < scoreList.Length; i++)
