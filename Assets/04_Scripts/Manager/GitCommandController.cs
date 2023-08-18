@@ -11,15 +11,7 @@ public class GitCommandController : SerializedMonoBehaviour
         "git"
     };
 
-    [SerializeField] List<string> gitCommandsDictionary2 = new List<string>{
-        "git add",
-        "git commit", "git reset",
-        "git init",
-        "git push",
-        "git remote",
-        "git status"
-
-    };
+    [SerializeField] List<string> gitCommandsDictionary2 = new();
 
     [SerializeField] List<string> gitCommandsDictionary3 = new List<string>{
         "git remote add"
