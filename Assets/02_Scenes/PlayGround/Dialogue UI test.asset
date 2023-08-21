@@ -899,6 +899,20 @@ MonoBehaviour:
       value: Unlock GameManualWindow List
       type: 0
       typeString: 
+  - id: 12
+    fields:
+    - title: Name
+      value: TestingDialog
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: True
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: For dialog system
+      type: 0
+      typeString: CustomFieldType_Text
   conversations:
   - id: 5
     fields:
@@ -7533,7 +7547,7 @@ MonoBehaviour:
       - originConversationID: 12
         originDialogueID: 0
         destinationConversationID: 12
-        destinationDialogueID: 81
+        destinationDialogueID: 65
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -7543,8 +7557,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1408.6241
-        y: 6.9303894
+        x: 1395.4325
+        y: 10.362793
         width: 160
         height: 30
     - id: 1
@@ -7599,7 +7613,8 @@ MonoBehaviour:
         destinationDialogueID: 56
         isConnector: 0
         priority: 2
-      conditionsString: Variable["isReplay"] == false
+      conditionsString: Variable["isReplay"] == false  and (Variable["TestingDialog"]
+        == false)
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
@@ -7611,8 +7626,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1404.0748
-        y: 106.763535
+        x: 1397.5175
+        y: 101.845505
         width: 160
         height: 30
     - id: 2
@@ -7668,6 +7683,7 @@ MonoBehaviour:
         isConnector: 1
         priority: 2
       conditionsString: Variable["isReplay"] == true and (Variable["tag"] == "Concept")
+        and (Variable["TestingDialog"] == false)
       userScript: 'Variable["ImageKey"] = "gitIcon";
 
         FSMEvent("Tutorial
@@ -7681,8 +7697,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1070.592
-        y: 222.53955
+        x: 1036.1659
+        y: 88.113556
         width: 160
         height: 30
     - id: 3
@@ -9309,7 +9325,8 @@ MonoBehaviour:
         destinationDialogueID: 61
         isConnector: 0
         priority: 2
-      conditionsString: Variable["isReplay"] == true and (Variable["tag"] == "Story")
+      conditionsString: Variable["isReplay"] == true and (Variable["tag"] == "Story") 
+        and (Variable["TestingDialog"] == false)
       userScript: 'Variable["ImageKey"] = "boy5";
 
         FSMEvent("Tutorial Popup/Change
@@ -9634,7 +9651,7 @@ MonoBehaviour:
         destinationDialogueID: 66
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["TestingDialog"] == true
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
@@ -9652,8 +9669,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2082.7773
-        y: 50.885757
+        x: 2073.4026
+        y: 55.276566
         width: 160
         height: 30
     - id: 66
@@ -10300,14 +10317,24 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Close Content Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
+
+        FSMEvent("Tutorial Popup/Close Black
+        Panel", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("Stage
+        Manager/Load Default Background Story", "Stage Manager", "Controller");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 2080.1812
-        y: 584.73645
+        y: 583.67267
         width: 160
         height: 30
     - id: 76
@@ -10625,63 +10652,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 2080.1812
         y: 834.73645
-        width: 160
-        height: 30
-    - id: 81
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: canvasRect
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1408.6241
-        y: 56.93039
         width: 160
         height: 30
     - id: 82
@@ -11392,8 +11362,8 @@ MonoBehaviour:
         width: 398.26013
         height: 659.9039
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1106.5525, y: 208.57117}
-    canvasZoom: 0.70000094
+    canvasScrollPosition: {x: 1655.2001, y: 465.95493}
+    canvasZoom: 0.9400012
   - id: 13
     fields:
     - title: Title
@@ -21827,8 +21797,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 736.5747, y: 0}
-    canvasZoom: 0.73000026
+    canvasScrollPosition: {x: 887.6265, y: 23.022074}
+    canvasZoom: 0.94000006
   - id: 27
     fields:
     - title: Title
