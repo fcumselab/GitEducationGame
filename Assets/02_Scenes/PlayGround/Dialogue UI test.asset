@@ -11446,8 +11446,8 @@ MonoBehaviour:
         width: 398.26013
         height: 659.9039
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1697.8558, y: 723.8789}
-    canvasZoom: 0.67000157
+    canvasScrollPosition: {x: 1625.292, y: 0}
+    canvasZoom: 0.6700015
   - id: 13
     fields:
     - title: Title
@@ -13396,7 +13396,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1901.0294
+        x: 1899.2114
         y: 824.90656
         width: 160
         height: 30
@@ -13786,8 +13786,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'Variable["UnlockKey"] = "RAW/Manual about GameManualWindow/0,RAW/Manual
-        about FileManagerWindow/0,RAW/Manual about DialogAndHelpFunction/0"
+      userScript: 'Variable["UnlockKey"] = "RAW/Manual about GameManualWindow/1,RAW/Manual
+        about FileManagerWindow/1,RAW/Manual about DialogAndHelpFunction/1"
 
 
         FSMEvent("GameManualWindow/Unlock
@@ -13897,8 +13897,8 @@ MonoBehaviour:
         width: 314.92413
         height: 211.12665
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1541.1426, y: 647.14276}
-    canvasZoom: 0.70000005
+    canvasScrollPosition: {x: 1594.1501, y: 534.36145}
+    canvasZoom: 0.82
   - id: 14
     fields:
     - title: Title
@@ -15037,8 +15037,8 @@ MonoBehaviour:
         width: 400.99988
         height: 442.79095
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1658.5745, y: 0}
-    canvasZoom: 0.9400001
+    canvasScrollPosition: {x: 1628.4794, y: 0}
+    canvasZoom: 0.8800002
   - id: 15
     fields:
     - title: Title
@@ -17614,7 +17614,7 @@ MonoBehaviour:
       - originConversationID: 19
         originDialogueID: 0
         destinationConversationID: 19
-        destinationDialogueID: 1
+        destinationDialogueID: 98
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -17624,8 +17624,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1074.5466
-        y: 72.18182
+        x: 1790.8726
+        y: 55.855286
         width: 160
         height: 30
     - id: 1
@@ -18868,6 +18868,341 @@ MonoBehaviour:
         y: 885.25916
         width: 160
         height: 30
+    - id: 98
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: BlackOn happyFace
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u975E\u5E38\u597D\uFF01\r\n\u60A8\u6210\u529F\u7684\u4FEE\u6539\u4E86\u7B2C\u4E09\u7248\u672C\u7684\u671F\u4E2D\u5831\u544A"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 19
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 19
+        originDialogueID: 98
+        destinationConversationID: 19
+        destinationDialogueID: 99
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+
+        Variable["ImageKey"] = "happyFace";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChat Fold Icon", "Button");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1803.5316
+        y: 139.2633
+        width: 160
+        height: 30
+    - id: 99
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: file
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u800C\u7D93\u904E\u9019\u5169\u6B21\u7684\u4FEE\u6539\u5F8C\r\n\u6211\u5011\u6210\u529F\u6E96\u5099\u597D\u4E86\u8AB2\u5802\u7C21\u5831\r\n\u4EE3\u8868\u672C\u6B21\u6A21\u64EC\u80CC\u666F\u7684\u4E3B\u8981\u76EE\u6A19\u5DF2\u7D93\u6210\u529F\u9054\u6210\u4E86\uFF01"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 19
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 19
+        originDialogueID: 99
+        destinationConversationID: 19
+        destinationDialogueID: 100
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: '
+
+        Variable["ImageKey"] = "file";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1810.4081
+        y: 184.91515
+        width: 160
+        height: 30
+    - id: 100
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: happyFace
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u900F\u904E\u7B2C\u4E00\u95DC\u5361\u7684\u904A\u73A9\u5F8C\r\n\u6211\u60F3\u60A8\u5C0D\u672C\u904A\u6232\u7684\u95DC\u5361\u6D41\u7A0B\u8207\u73A9\u6CD5\u5DF2\u7D93\u6E05\u695A\u4E86\u5F88\u591A"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 19
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 19
+        originDialogueID: 100
+        destinationConversationID: 19
+        destinationDialogueID: 101
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 'Variable["ImageKey"] = "happyFace";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1808.2219
+        y: 248.54285
+        width: 160
+        height: 30
+    - id: 101
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: gitIcon
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u5728\u4E0B\u4E00\u95DC\u5361\u4E2D\r\n\u6211\u5011\u5C07\u6703\u6B63\u5F0F\u958B\u59CB\u5B78\u7FD2\u7248\u672C\u63A7\u5236\u8207
+          Git"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 19
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 19
+        originDialogueID: 101
+        destinationConversationID: 19
+        destinationDialogueID: 104
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 'Variable["ImageKey"] = "gitIcon";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1808.1223
+        y: 331.3285
+        width: 160
+        height: 30
+    - id: 104
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: happyFace
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u606D\u559C\u60A8\u901A\u904E\u672C\u6B21\u7684\u6559\u5B78\u95DC\u5361\uFF01"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 19
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 'Variable["ImageKey"] = "happyFace";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1809.3416
+        y: 394.7431
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -18877,7 +19212,7 @@ MonoBehaviour:
         width: 433.94113
         height: 688.0588
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 976.0347, y: 0}
+    canvasScrollPosition: {x: 1313.4967, y: 82.313354}
     canvasZoom: 0.7300003
   - id: 22
     fields:
