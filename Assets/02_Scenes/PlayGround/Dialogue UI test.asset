@@ -9652,7 +9652,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 2078.6738
-        y: 61.348526
+        y: 62.84105
         width: 160
         height: 30
     - id: 66
@@ -9714,8 +9714,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2080.3347
-        y: 113.42497
+        x: 2078.842
+        y: 114.917496
         width: 160
         height: 30
     - id: 67
@@ -11591,8 +11591,8 @@ MonoBehaviour:
         width: 398.26013
         height: 659.9039
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1777.9866, y: 820.3452}
-    canvasZoom: 0.82000124
+    canvasScrollPosition: {x: 1569.9906, y: 371.6912}
+    canvasZoom: 0.52000153
   - id: 13
     fields:
     - title: Title
@@ -13393,6 +13393,10 @@ MonoBehaviour:
         Particle");
 
 
+        FSMEvent("GameManualWindow/Unlock Button", "GameManualButton",
+        "LockButton");
+
+
         Variable["ImageKey"] = "book";
 
         FSMEvent("Tutorial
@@ -13404,8 +13408,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1901.8268
-        y: 740.9769
+        x: 1903.1967
+        y: 730.98883
         width: 160
         height: 30
     - id: 85
@@ -13470,8 +13474,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1896.3457
-        y: 793.1742
+        x: 1900.5087
+        y: 781.8828
         width: 160
         height: 30
     - id: 86
@@ -13537,8 +13541,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1896.9198
-        y: 844.989
+        x: 1901.0294
+        y: 824.90656
         width: 160
         height: 30
     - id: 87
@@ -13591,7 +13595,7 @@ MonoBehaviour:
       - originConversationID: 13
         originDialogueID: 87
         destinationConversationID: 13
-        destinationDialogueID: 88
+        destinationDialogueID: 92
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -13604,8 +13608,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1900.203
-        y: 894.11316
+        x: 1899.4049
+        y: 871.9229
         width: 160
         height: 30
     - id: 88
@@ -13870,6 +13874,75 @@ MonoBehaviour:
         y: 1152.65
         width: 160
         height: 30
+    - id: 92
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u73FE\u5728\u5C07\u5C0D\u8A71\u4E2D\u63D0\u5230\u7684\u77E5\u8B58\u90FD\u653E\u5165\u5230\u624B\u518A\u4E2D\u4E86\uFF01\n\u6709\u7A7A\u7684\u8A71\u5C31\u6253\u958B\u4F86\u770B\u770B\u5427\uFF01"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 13
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 13
+        originDialogueID: 92
+        destinationConversationID: 13
+        destinationDialogueID: 88
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 'Variable["UnlockKey"] = "RAW/Manual about GameManualWindow/0,RAW/Manual
+        about FileManagerWindow/0,RAW/Manual about DialogAndHelpFunction/0,RAW/Manual
+        about FileContentWindow/0"
+
+
+        FSMEvent("GameManualWindow/Unlock List",
+        "GameManualWindow", "UnlockMessage");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1891.3071
+        y: 921.761
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -13903,8 +13976,8 @@ MonoBehaviour:
         width: 314.92413
         height: 211.12665
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1516.1011, y: 622.7724}
-    canvasZoom: 0.7299998
+    canvasScrollPosition: {x: 1591.0566, y: 606.5097}
+    canvasZoom: 0.78999996
   - id: 14
     fields:
     - title: Title
@@ -21826,8 +21899,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1405.2227
-        y: 709.0749
+        x: 1401.7744
+        y: 717.6956
         width: 160
         height: 30
     - id: 13
@@ -22617,8 +22690,8 @@ MonoBehaviour:
         width: 278.49963
         height: 283.4997
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 909.7401, y: 0}
-    canvasZoom: 0.58000046
+    canvasScrollPosition: {x: 1126.54, y: 363.08685}
+    canvasZoom: 0.82000035
   - id: 25
     fields:
     - title: Title
@@ -23693,8 +23766,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 887.6265, y: 23.022074}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 1252.1842, y: 385.6225}
+    canvasZoom: 0.8800001
   - id: 27
     fields:
     - title: Title
