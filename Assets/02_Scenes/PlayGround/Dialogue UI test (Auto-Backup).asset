@@ -137,7 +137,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u4FEE\u6539\u8B1B\u7A3F\u6587\u4EF6\u5167\u5BB9"
+      value: "\u5099\u4EFD\u6587\u4EF6 \"\u671F\u4E2D\u5831\u544Av1\""
       type: 0
       typeString: CustomFieldType_Text
     - title: Success Description
@@ -183,7 +183,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u5099\u4EFD\u7576\u524D\u8B1B\u7A3F\u6587\u4EF6"
+      value: "\u91CD\u65B0\u547D\u540D\u8907\u88FD\u7684\u6587\u4EF6"
       type: 0
       typeString: 
     - title: Success Description
@@ -229,7 +229,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u91CD\u65B0\u547D\u540D\u8907\u88FD\u7684\u6587\u4EF6"
+      value: "\u7CBE\u7C21\u65B0\u7248\u672C\u6587\u4EF6\u5167\u5BB9"
       type: 0
       typeString: 
     - title: Success Description
@@ -275,7 +275,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u5728\u65B0\u5275\u5EFA\u7684\u6587\u4EF6\u4E2D\u65B0\u589E\u5167\u5BB9"
+      value: "\u5099\u4EFD\u6587\u4EF6 \"\u671F\u4E2D\u5831\u544Av2\""
       type: 0
       typeString: 
     - title: Success Description
@@ -321,7 +321,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u5099\u4EFD\u4FEE\u6539\u904E\u5F8C\u7684\u6587\u4EF6"
+      value: "\u91CD\u65B0\u547D\u540D\u8907\u88FD\u7684\u6587\u4EF6"
       type: 0
       typeString: 
     - title: Success Description
@@ -367,7 +367,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u91CD\u65B0\u547D\u540D\u8907\u88FD\u5F8C\u7684\u6A94\u6848"
+      value: "\u4FEE\u6539\u9700\u8981\u8ABF\u6574\u7684\u5167\u5BB9"
       type: 0
       typeString: 
     - title: Success Description
@@ -10724,7 +10724,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2084.8982
+        x: 2087.171
         y: 890.3968
         width: 160
         height: 30
@@ -11592,8 +11592,8 @@ MonoBehaviour:
         width: 398.26013
         height: 659.9039
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1880.4336, y: 1041.5746}
-    canvasZoom: 0.9100011
+    canvasScrollPosition: {x: 1554.0073, y: 901.9807}
+    canvasZoom: 0.7300013
   - id: 13
     fields:
     - title: Title
@@ -13903,8 +13903,8 @@ MonoBehaviour:
         width: 314.92413
         height: 211.12665
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1730.4233, y: 711.25665}
-    canvasZoom: 0.69999975
+    canvasScrollPosition: {x: 1460.3098, y: 649.2967}
+    canvasZoom: 0.51999986
   - id: 14
     fields:
     - title: Title
@@ -18685,6 +18685,12 @@ MonoBehaviour:
         destinationDialogueID: 81
         isConnector: 0
         priority: 2
+      - originConversationID: 22
+        originDialogueID: 0
+        destinationConversationID: 22
+        destinationDialogueID: 85
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -18776,7 +18782,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6211\u5011\u53EF\u4EE5\u85C9\u7531\u4E0A\u65B9\u7684\u76EE\u6A19\u77E5\u9053\r\n\u6211\u5011\u9700\u8981<color=red>\u958B\u555F\u6A94\u6848\u7BA1\u7406\u8996\u7A97</color>"
+        value: "\u6211\u5011\u53EF\u4EE5\u85C9\u7531\u4E0A\u65B9\u7684\u76EE\u6A19\u77E5\u9053\r\n\u6211\u5011\u9700\u8981\u958B\u555F
+          \"\u6A94\u6848\u7BA1\u7406\" \u8996\u7A97"
         type: 0
         typeString: 
       - title: Sequence
@@ -18808,8 +18815,8 @@ MonoBehaviour:
       conditionsString: CurrentQuestState("Introduce Game/1") == "active"
       userScript: '
 
-        FSMEvent("Tutorial Arrow/Show Arrow", "StageTrackerArrow",
-        "Arrow Animation");'
+        FSMEvent("Hint/Tutorial Highlight/show highlight", "Quest
+        & Title Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -18842,7 +18849,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u904A\u6232\u4E0B\u65B9\u7684<color=#FF0004>\u5DE5\u5177\u6B04</color>\u662F\u6211\u5011\u53EF\u4EE5\u4F7F\u7528\u7684\u61C9\u7528\u7A0B\u5F0F"
+        value: "\u70BA\u4E86\u6253\u958B\u529F\u80FD\u8996\u7A97\uFF0C\n\u6211\u5011\u53EF\u4EE5\u5728
+          \"\u5DE5\u5177\u6B04\" \u4E2D\u5C0B\u627E\u5230\u5C0D\u61C9\u7684\u8996\u7A97"
         type: 0
         typeString: 
       - title: Sequence
@@ -18872,20 +18880,18 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: '
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "Quest & Title
+        Hint", "Hint");
 
-        FSMEvent("Tutorial Arrow/Close Arrow", "StageTrackerArrow",
-        "Arrow Animation");
-
-        FSMEvent("Tutorial Arrow/Show Arrow", "FileManagerWindowButtonArrow",
-        "Arrow Animation");'
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "Toolbar Panel Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 776.3132
-        y: 259.03406
+        x: 760.84924
+        y: 261.09592
         width: 160
         height: 30
     - id: 74
@@ -18911,7 +18917,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u5C07\u6ED1\u9F20\u79FB\u52D5\u5230\u6309\u9215\u4E0A\u65B9\r\n\u5C31\u53EF\u4EE5\u770B\u5230\u80FD\u5920\u958B\u555F\u8996\u7A97\u7684\u540D\u5B57"
+        value: "\u5C07\u6ED1\u9F20\u79FB\u52D5\u5230\u6309\u9215\u4E0A\u65B9\r\n\u53EF\u4EE5\u770B\u5230\u6309\u9215\u80FD\u5920\u958B\u555F\u4EC0\u9EBC\u8996\u7A97"
         type: 0
         typeString: 
       - title: Sequence
@@ -18947,8 +18953,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 754.2463
-        y: 320.62848
+        x: 772.8029
+        y: 330.93777
         width: 160
         height: 30
     - id: 75
@@ -18974,7 +18980,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u770B\u5230<color=#FF0004>\u6A94\u6848\u7BA1\u7406\u8996\u7A97</color>\u7684\u8A71\n\u5C31\u900F\u904E<color=#FF0004>\u6ED1\u9F20\u5DE6\u9375</color>\u9EDE\u64CA\u5B83\u5427\uFF01"
+        value: "\u5982\u679C\u770B\u5230 \"\u6A94\u6848\u7BA1\u7406\" \u8996\u7A97\u7684\u8A71\n\u5C31\u900F\u904E\u6ED1\u9F20\u5DE6\u9375\u9EDE\u64CA\u5B83\u5427\uFF01"
         type: 0
         typeString: 
       - title: Sequence
@@ -19004,8 +19010,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 753.34595
-        y: 394.25833
+        x: 772.9336
+        y: 396.3202
         width: 160
         height: 30
     - id: 76
@@ -19027,11 +19033,12 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 2,5
+        value: 4
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u6211\u5011\u6253\u958B\u4E86<color=#FF0004>\u6A94\u6848\u7BA1\u7406\u8996\u7A97</color>\u5F8C\r\n\u53EF\u4EE5\u770B\u5230\u9019\u500B\u96FB\u8166\u88E1\u7684\u6240\u6709\u6A94\u6848"
+        value: "\u60F3\u5728\u522A\u9664\u6587\u4EF6\u5167\u5BB9\r\n\u6211\u5011\u9700\u8981\u5148\u9EDE\u64CA\u6587\u4EF6\u4F86\u958B\u555F
+          \"\u6A94\u6848\u7DE8\u8F2F\" \u8996\u7A97"
         type: 0
         typeString: 
       - title: Sequence
@@ -19060,16 +19067,15 @@ MonoBehaviour:
         destinationDialogueID: 77
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Introduce Game/2") == "active" or (CurrentQuestState("Introduce
-        Game/5") == "active")
+      conditionsString: CurrentQuestState("Introduce Game/4") == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1125.6975
-        y: 196.19624
+        x: 1776.6879
+        y: 157.2782
         width: 160
         height: 30
     - id: 77
@@ -19095,7 +19101,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6211\u5011\u53EF\u4EE5\u900F\u904E\u9EDE\u64CA<color=#FF0004>\u6ED1\u9F20\u5DE6\u9375</color>\u4F86\u958B\u555F<color=#FF0004>\u6A94\u6848\u7DE8\u8F2F\u756B\u9762</color>"
+        value: "\u5728\u8996\u7A97\u4E2D\u53EF\u4EE5\u770B\u5230\u6587\u4EF6\u7684\u5167\u5BB9\uFF0C\n\u800C\u6BCF\u4E00\u884C\u90FD\u6709\u7DE8\u8F2F\u3001\u522A\u9664\u6309\u9215\u3002"
         type: 0
         typeString: 
       - title: Sequence
@@ -19124,12 +19130,6 @@ MonoBehaviour:
         destinationDialogueID: 78
         isConnector: 0
         priority: 2
-      - originConversationID: 22
-        originDialogueID: 77
-        destinationConversationID: 22
-        destinationDialogueID: 85
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -19137,8 +19137,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1130.7042
-        y: 256.18753
+        x: 1778.8658
+        y: 222.70059
         width: 160
         height: 30
     - id: 78
@@ -19160,12 +19160,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 2
+        value: 
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u958B\u555F\u7DE8\u8F2F\u756B\u9762\u4E4B\u5F8C\n\u5617\u8A66\u8457\u900F\u904E\u9EDE\u64CA<color=#FF0004>
-          + \u7B26\u865F\u6309\u9215</color>\u4F86\u65B0\u589E\u5167\u5BB9\u5427\uFF01"
+        value: "\u6C7A\u5B9A\u597D\u8981\u522A\u9664\u7684\u4F4D\u7F6E\u5F8C\uFF0C\n\u9EDE\u64CA\u522A\u9664\u6309\u9215\u4E26\u57F7\u884C\u522A\u9664\u64CD\u4F5C\u5427"
         type: 0
         typeString: 
       - title: Sequence
@@ -19188,15 +19187,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: CurrentQuestState("Introduce Game/2") == "active"
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1013.0465
-        y: 340.4465
+        x: 1777.9922
+        y: 322.63724
         width: 160
         height: 30
     - id: 79
@@ -19218,11 +19217,12 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 3,6
+        value: 2 5
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6211\u5011\u53EF\u4EE5\u5728<color=#FF0004>\u6A94\u6848\u7BA1\u7406\u8996\u7A97</color>\u4E2D\u627E\u5230\u60F3\u8981\u5099\u4EFD\u7684\u6A94\u6848\r\n\u5C0D\u8457\u6A94\u6848\u9EDE\u64CA<color=#FF0004>\u6ED1\u9F20\u53F3\u9375</color>\u4F86\u6253\u958B\u529F\u80FD\u9078\u55AE"
+        value: "\u5728\u6211\u5011\u6253\u958B\u4E86 \"\u6A94\u6848\u7BA1\u7406\"
+          \u8996\u7A97\u5F8C\r\n\u53EF\u4EE5\u770B\u5230\u6A21\u64EC\u96FB\u8166\u4E2D\u7684\u6240\u6709\u6A94\u6848"
         type: 0
         typeString: 
       - title: Sequence
@@ -19251,16 +19251,16 @@ MonoBehaviour:
         destinationDialogueID: 80
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Introduce Game/3") == "active" or (CurrentQuestState("Introduce
-        Game/6") == "active")
+      conditionsString: CurrentQuestState("Introduce Game/2") == "active" or (CurrentQuestState("Introduce
+        Game/5") == "active")
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1467.7291
-        y: 197.94612
+        x: 1068.4098
+        y: 173.48589
         width: 160
         height: 30
     - id: 80
@@ -19286,7 +19286,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4E4B\u5F8C\u9EDE\u64CA<color=#FF0004>\u8907\u88FD\u6A94\u6848</color>\u6309\u9215\u5C31\u53EF\u4EE5\u9032\u884C\u8907\u88FD\u4E86"
+        value: "\u5C0D\u8457\u6587\u4EF6\u985E\u578B\u7684\u6A94\u6848\uFF0C\n\u53EF\u4EE5\u4F7F\u7528\u6ED1\u9F20\u53F3\u9375\u4F86\u958B\u555F\u529F\u80FD\u9078\u55AE"
         type: 0
         typeString: 
       - title: Sequence
@@ -19312,7 +19312,7 @@ MonoBehaviour:
       - originConversationID: 22
         originDialogueID: 80
         destinationConversationID: 22
-        destinationDialogueID: 89
+        destinationDialogueID: 95
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -19322,8 +19322,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1463.5363
-        y: 259.94293
+        x: 1069.8773
+        y: 232.6525
         width: 160
         height: 30
     - id: 81
@@ -19345,11 +19345,12 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 4,7
+        value: 3 6
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u60F3\u5728\u9019\u500B\u96FB\u8166\u4E2D\u547D\u540D\u6587\u4EF6\r\n\u9700\u8981\u5148\u9EDE\u64CA\u60F3\u8981\u547D\u540D\u7684\u6587\u4EF6\u4F86\u958B\u555F\u7DE8\u8F2F\u756B\u9762"
+        value: "\u60F3\u5728\u9019\u500B\u96FB\u8166\u4E2D\u547D\u540D\u6587\u4EF6\r\n\u9700\u8981\u5148\u9EDE\u64CA\u8981\u547D\u540D\u7684\u6587\u4EF6\u4F86\u958B\u555F
+          \"\u6A94\u6848\u7DE8\u8F2F\" \u8996\u7A97"
         type: 0
         typeString: 
       - title: Sequence
@@ -19378,16 +19379,16 @@ MonoBehaviour:
         destinationDialogueID: 82
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Introduce Game/4") == "active" or (CurrentQuestState("Introduce
-        Game/7") == "active")
+      conditionsString: CurrentQuestState("Introduce Game/3") == "active" or (CurrentQuestState("Introduce
+        Game/6") == "active")
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1762.511
-        y: 195.29417
+        x: 1374.0573
+        y: 161.40729
         width: 160
         height: 30
     - id: 82
@@ -19413,7 +19414,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4E4B\u5F8C\u53EF\u4EE5\u5728\u7DE8\u8F2F\u4E2D\u627E\u5230<color=#FF0004>\u547D\u540D\u6309\u9215\r</color>\n\u9EDE\u64CA\u5C31\u53EF\u4EE5\u9032\u884C\u547D\u540D\u4E86"
+        value: "\u60A8\u53EF\u4EE5\u5728\u8996\u7A97\u4E2D\u627E\u5230\u547D\u540D\u6309\u9215\n\u9EDE\u64CA\u6ED1\u9F20\u5DE6\u9375\u5C31\u53EF\u4EE5\u9032\u884C\u547D\u540D\u4E86"
         type: 0
         typeString: 
       - title: Sequence
@@ -19449,8 +19450,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1762.5292
-        y: 266.8998
+        x: 1369.1974
+        y: 234.23244
         width: 160
         height: 30
     - id: 85
@@ -19472,11 +19473,12 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 5
+        value: 7
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4F46\u662F\u8981\u6CE8\u610F\u7684\u662F\r\n<color=#FF0004>\u5FC5\u9808\u8981\u548C\u7576\u524D\u76EE\u6A19\u8981\u6C42\u7684\u6A94\u6848\u4E00\u81F4</color>"
+        value: "\u60F3\u5728\u4FEE\u6539\u6587\u4EF6\u5167\u5BB9\r\n\u6211\u5011\u9700\u8981\u5148\u9EDE\u64CA\u6587\u4EF6\u4F86\u958B\u555F
+          \"\u6A94\u6848\u7DE8\u8F2F\" \u8996\u7A97"
         type: 0
         typeString: 
       - title: Sequence
@@ -19505,15 +19507,15 @@ MonoBehaviour:
         destinationDialogueID: 86
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Introduce Game/5") == "active"
+      conditionsString: CurrentQuestState("Introduce Game/7") == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1231.5588
-        y: 347.62527
+        x: 2117.2363
+        y: 151.76717
         width: 160
         height: 30
     - id: 86
@@ -19539,7 +19541,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u66F4\u6539\u4E86<color=#FF0004>\u4E0D\u76F8\u95DC\u7684\u6587\u4EF6</color>\u6642\u5C31\u6703\u6263\u5206\uFF01"
+        value: "\u5728\u8996\u7A97\u4E2D\u53EF\u4EE5\u770B\u5230\u6587\u4EF6\u7684\u5167\u5BB9\uFF0C\n\u800C\u6BCF\u4E00\u884C\u90FD\u6709\u7DE8\u8F2F\u3001\u522A\u9664\u6309\u9215\u3002"
         type: 0
         typeString: 
       - title: Sequence
@@ -19561,7 +19563,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 86
+        destinationConversationID: 22
+        destinationDialogueID: 96
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -19569,8 +19577,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1237.2405
-        y: 430.5798
+        x: 2119.2593
+        y: 227.40457
         width: 160
         height: 30
     - id: 89
@@ -19592,11 +19600,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 6
+        value: 5
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4F46\u662F\u8981\u6CE8\u610F\u7684\u662F\r\n<color=#FF0004>\u5FC5\u9808\u8981\u548C\u7576\u524D\u76EE\u6A19\u8981\u6C42\u7684\u6A94\u6848\u4E00\u81F4</color>"
+        value: "\u4F46\u662F\u8981\u6CE8\u610F\u7684\u662F\r\n\u9078\u64C7\u8907\u88FD\u7684\u6A94\u6848\u5FC5\u9808\u548C\u76EE\u6A19\u4E0A\u7684\u4E00\u81F4"
         type: 0
         typeString: 
       - title: Sequence
@@ -19625,15 +19633,15 @@ MonoBehaviour:
         destinationDialogueID: 90
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Introduce Game/6") == "active"
+      conditionsString: CurrentQuestState("Introduce Game/5") == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1569.2682
-        y: 352.31674
+        x: 1166.1753
+        y: 407.1018
         width: 160
         height: 30
     - id: 90
@@ -19659,7 +19667,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u5C0D\u8457<color=#FF0004>\u4E0D\u76F8\u95DC\u7684\u6587\u4EF6</color>\u57F7\u884C\u8907\u88FD\u64CD\u4F5C\u6642\u5C31\u6703\u6263\u5206\uFF01\n"
+        value: "\u5C0D\u8457\u4E0D\u76F8\u95DC\u7684\u6587\u4EF6\u57F7\u884C\u8907\u88FD\u64CD\u4F5C\u6642\u5C31\u6703\u6263\u5206\uFF01\n"
         type: 0
         typeString: 
       - title: Sequence
@@ -19689,8 +19697,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1558.2587
-        y: 430.85995
+        x: 1173.0903
+        y: 481.87137
         width: 160
         height: 30
     - id: 93
@@ -19712,11 +19720,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 7
+        value: 6
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4F46\u662F\u8981\u6CE8\u610F\u7684\u662F\r\n<color=#FF0004>\u5FC5\u9808\u8981\u548C\u7576\u524D\u76EE\u6A19\u8981\u6C42\u7684\u6A94\u6848\u4E00\u81F4</color>"
+        value: "\u4F46\u662F\u8981\u6CE8\u610F\u7684\u662F\r\n\u547D\u540D\u7684\u6A94\u6848\u5FC5\u9808\u8981\u548C\u76EE\u6A19\u8981\u6C42\u7684\u6A94\u6848\u4E00\u81F4"
         type: 0
         typeString: 
       - title: Sequence
@@ -19745,15 +19753,15 @@ MonoBehaviour:
         destinationDialogueID: 94
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Introduce Game/7") == "active"
+      conditionsString: CurrentQuestState("Introduce Game/6") == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1917.4825
-        y: 352.22296
+        x: 1499.7606
+        y: 317.11658
         width: 160
         height: 30
     - id: 94
@@ -19779,7 +19787,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u5C0D\u8457<color=#FF0004>\u4E0D\u76F8\u95DC\u7684\u6587\u4EF6</color>\u57F7\u884C\u547D\u540D\u64CD\u4F5C\u6642\u5C31\u6703\u6263\u5206\uFF01"
+        value: "\u5C0D\u8457\u4E0D\u76F8\u95DC\u7684\u6587\u4EF6\u57F7\u884C\u547D\u540D\u64CD\u4F5C\u6642\u5C31\u6703\u6263\u5206\uFF01"
         type: 0
         typeString: 
       - title: Sequence
@@ -19809,13 +19817,133 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1904.824
-        y: 423.7419
+        x: 1517.5898
+        y: 388.63556
+        width: 160
+        height: 30
+    - id: 95
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u8907\u88FD\u529F\u80FD\u53EF\u4EE5\u5F9E\u529F\u80FD\u9078\u55AE\u627E\u5230"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 95
+        destinationConversationID: 22
+        destinationDialogueID: 89
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1074.5945
+        y: 300.57703
+        width: 160
+        height: 30
+    - id: 96
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u6C7A\u5B9A\u597D\u8981\u4FEE\u6539\u5167\u5BB9\u7684\u4F4D\u7F6E\u5F8C\uFF0C\n\u9EDE\u64CA\u4FEE\u6539\u6309\u9215\u4E26\u57F7\u884C\u4FEE\u6539\u5167\u5BB9\u7684\u64CD\u4F5C\u5427"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2121.9277
+        y: 325.6098
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 663.7939, y: 0}
-    canvasZoom: 0.6700001
+    canvasScrollPosition: {x: 1440.9521, y: 7.3170776}
+    canvasZoom: 0.8199999
   - id: 23
     fields:
     - title: Title
