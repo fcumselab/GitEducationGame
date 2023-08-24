@@ -8,6 +8,7 @@ namespace AGame
 	public enum FileType
 	{
 		txt,
-		folder		
+		folder,
+		exe		
 	}
 }
