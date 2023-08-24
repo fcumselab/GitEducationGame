@@ -17577,8 +17577,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 34.06598, y: 32.255215}
-    canvasZoom: 0.91000015
+    canvasScrollPosition: {x: 0, y: 45.017452}
+    canvasZoom: 0.8800002
   - id: 19
     fields:
     - title: Title
@@ -32675,6 +32675,24 @@ MonoBehaviour:
         destinationDialogueID: 118
         isConnector: 0
         priority: 2
+      - originConversationID: 35
+        originDialogueID: 0
+        destinationConversationID: 35
+        destinationDialogueID: 120
+        isConnector: 0
+        priority: 2
+      - originConversationID: 35
+        originDialogueID: 0
+        destinationConversationID: 35
+        destinationDialogueID: 121
+        isConnector: 0
+        priority: 2
+      - originConversationID: 35
+        originDialogueID: 0
+        destinationConversationID: 35
+        destinationDialogueID: 122
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -32683,7 +32701,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 945.0831
-        y: 219.90048
+        y: 218.17636
         width: 160
         height: 30
     - id: 65
@@ -32739,7 +32757,7 @@ MonoBehaviour:
         destinationDialogueID: 66
         isConnector: 0
         priority: 2
-      conditionsString: Variable["isReplay"] == false
+      conditionsString: Variable["isReplay"] == false and (Variable["tag"] == "")
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
@@ -33329,7 +33347,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 928.0742
-        y: 1002.0972
+        y: 1003.413
         width: 160
         height: 30
     - id: 75
@@ -34017,10 +34035,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Hint/Particle/Show Particle", "Help Button", "Highlight
-        Particle");
-
-        w Particle", "GameManualButton", "Highlight Particle");'
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -34153,7 +34168,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1282.9899
-        y: 1121.3142
+        y: 1122.6301
         width: 160
         height: 30
     - id: 88
@@ -35104,8 +35119,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1987.8938
-        y: 802.5242
+        x: 1989.2097
+        y: 805.15576
         width: 160
         height: 30
     - id: 103
@@ -35231,7 +35246,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1984.3865
-        y: 896.8096
+        y: 899.44116
         width: 160
         height: 30
     - id: 105
@@ -35350,7 +35365,7 @@ MonoBehaviour:
         destinationDialogueID: 107
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["isReplay"] == false
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -35730,8 +35745,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1283.9779
-        y: 984.489
+        x: 1285.2937
+        y: 985.8048
         width: 160
         height: 30
     - id: 115
@@ -35976,15 +35991,16 @@ MonoBehaviour:
         destinationDialogueID: 119
         isConnector: 0
         priority: 2
-      conditionsString: Variable["isReplay"] == true or (Variable["tag"] == "1")
+      conditionsString: ((Variable["isReplay"] == false) and (Variable["tag"] ==
+        "")) or (Variable["tag"] == "1")
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 708.8884
-        y: 759.94855
+        x: 749.9843
+        y: 769.5376
         width: 160
         height: 30
     - id: 119
@@ -36102,15 +36118,16 @@ MonoBehaviour:
         destinationDialogueID: 79
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: ((Variable["isReplay"] == false) and (Variable["tag"] ==
+        "")) or (Variable["tag"] == "2")
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1292.6963
-        y: 717.0632
+        x: 1307.9136
+        y: 681.953
         width: 160
         height: 30
     - id: 121
@@ -36165,7 +36182,8 @@ MonoBehaviour:
         destinationDialogueID: 90
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: ((Variable["isReplay"] == false) and (Variable["tag"] ==
+        "")) or (Variable["tag"] == "3")
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -36228,7 +36246,8 @@ MonoBehaviour:
         destinationDialogueID: 101
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: ((Variable["isReplay"] == false) and (Variable["tag"] ==
+        "")) or (Variable["tag"] == "4")
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -36297,15 +36316,15 @@ MonoBehaviour:
         destinationDialogueID: 125
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: Variable["isReplay"] == false
+      userScript: Variable["tag"] = ""
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 919.32416
-        y: 1234.3303
+        y: 1231.4731
         width: 160
         height: 30
     - id: 124
@@ -36487,15 +36506,15 @@ MonoBehaviour:
         destinationDialogueID: 128
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: Variable["isReplay"] == false
+      userScript: Variable["tag"] = ""
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1276.6229
-        y: 1325.6216
+        x: 1278.0516
+        y: 1328.4788
         width: 160
         height: 30
     - id: 127
@@ -36614,8 +36633,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1368.2649
-        y: 1388.5181
+        x: 1366.9491
+        y: 1389.8337
         width: 160
         height: 30
     - id: 129
@@ -36676,8 +36695,8 @@ MonoBehaviour:
         destinationDialogueID: 131
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: Variable["isReplay"] == false
+      userScript: Variable["tag"] = ""
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -36808,8 +36827,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 482.60938, y: 232.08578}
-    canvasZoom: 0.7299998
+    canvasScrollPosition: {x: 1331.6687, y: 857.1163}
+    canvasZoom: 0.61000013
   - id: 36
     fields:
     - title: Title
@@ -37053,7 +37072,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Variable["ReadChapter"] == 2
-      userScript: Variable["SelectionType"] = "Continue"
+      userScript: 'Variable["SelectionType"] = "next";
+
+        Variable["tag"] =
+        "2";'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -37254,7 +37276,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Variable["ReadChapter"] == 3
-      userScript: Variable["SelectionType"] = "Continue"
+      userScript: 'Variable["SelectionType"] = "next";
+
+        Variable["tag"] =
+        "3";'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -37311,7 +37336,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Variable["ReadChapter"] == 4
-      userScript: Variable["SelectionType"] = "Continue"
+      userScript: 'Variable["SelectionType"] = "next";
+
+        Variable["tag"] =
+        "4";'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -37557,8 +37585,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 36.143745
-        y: 378.6226
+        x: 34.71518
+        y: 381.47974
         width: 160
         height: 30
     - id: 31
@@ -37620,7 +37648,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.6100004
+    canvasZoom: 0.7000003
   syncInfo:
     syncActors: 0
     syncItems: 0
