@@ -421,8 +421,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 731.9219
-        y: 489.0078
+        x: 727.1797
+        y: 476.45312
         width: 122
         height: 32
       isBreakpoint: 0
@@ -3392,12 +3392,14 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetIntValue
+        - HutongGames.PlayMaker.Actions.SetBoolValue
         customNames:
         - 
-        actionEnabled: 00
-        actionIsOpen: 00
-        actionStartIndex: 00000000
-        actionHashCodes: 603dd905
+        - 
+        actionEnabled: 0000
+        actionIsOpen: 0001
+        actionStartIndex: 0000000003000000
+        actionHashCodes: 603dd90527fbe103
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -3426,25 +3428,40 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
-        fsmBoolParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: isActionStage
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 00
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 100000001000000001000000
+        paramDataType: 100000001000000001000000110000001100000001000000
         paramName:
         - intVariable
         - intValue
         - everyFrame
-        paramDataPos: 000000000100000000000000
-        paramByteDataSize: 000000000000000001000000
+        - boolVariable
+        - boolValue
+        - everyFrame
+        paramDataPos: 000000000100000000000000000000000100000001000000
+        paramByteDataSize: 000000000000000001000000000000000000000001000000
     - name: Send Clean Points Event
       description: 'Event: Response Button Panel'
       colorIndex: 10
@@ -4308,6 +4325,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 0
+      - useVariable: 1
+        name: isActionStage
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 0
       stringVariables:
       - useVariable: 1
         name: CurrentStageName
@@ -4420,10 +4443,11 @@ MonoBehaviour:
       categories:
       - 
       - Dialog System
+      - GameData Manager
       - Quest
       - Quest Tracker
       - Reference
-      variableCategoryIDs: 030000000000000000000000000000000000000003000000000000000000000001000000030000000000000000000000000000000000000000000000000000000000000000000000020000000400000004000000020000000000000000000000
+      variableCategoryIDs: 04000000000000000000000000000000000000000400000000000000000000000100000002000000040000000000000000000000000000000000000000000000000000000000000000000000030000000500000005000000030000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -4432,7 +4456,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 0800000009000000
+    outVariableIndices: 080000000a000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
