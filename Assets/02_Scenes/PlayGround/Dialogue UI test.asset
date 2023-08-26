@@ -13324,7 +13324,7 @@ MonoBehaviour:
         Particle");
 
 
-        FSMEvent("GameManualWindow/Unlock Button", "GameManualButton",
+        FSMEvent("GameManualWindow/Button/Unlock Button", "GameManualButton",
         "LockButton");
 
 
@@ -13973,8 +13973,8 @@ MonoBehaviour:
         width: 314.92413
         height: 211.12665
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 817.1317, y: 0}
-    canvasZoom: 0.31000027
+    canvasScrollPosition: {x: 1554.6431, y: 372.52145}
+    canvasZoom: 0.6700002
   - id: 14
     fields:
     - title: Title
@@ -37232,8 +37232,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1850.8385, y: 756.24414}
-    canvasZoom: 0.87999994
+    canvasScrollPosition: {x: 1622.5919, y: 927.17224}
+    canvasZoom: 0.64000016
   - id: 36
     fields:
     - title: Title
@@ -41070,7 +41070,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u4E0B\u4E00\u984C"
+        value: "\u606D\u559C\u60A8\u7B54\u5C0D\u4E86\u9019\u984C\uFF01\n\u8B93\u6211\u5011\u7E7C\u7E8C\u5427"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -41106,8 +41106,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1681.31
-        y: 1030.4698
+        x: 1678.4529
+        y: 1047.6128
         width: 160
         height: 30
     - id: 73
@@ -41163,8 +41163,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1674.0538
-        y: 1094.136
+        x: 1677.5155
+        y: 1135.5096
         width: 160
         height: 30
     - id: 74
@@ -46700,8 +46700,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 744.6421, y: 46.428284}
-    canvasZoom: 0.28000015
+    canvasScrollPosition: {x: 1184.8784, y: 764.4619}
+    canvasZoom: 0.6999999
   - id: 38
     fields:
     - title: Title
@@ -46797,7 +46797,7 @@ MonoBehaviour:
       - originConversationID: 38
         originDialogueID: 0
         destinationConversationID: 38
-        destinationDialogueID: 65
+        destinationDialogueID: 74
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -46808,7 +46808,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 946.2596
-        y: 140.5293
+        y: 62.943085
         width: 160
         height: 30
     - id: 65
@@ -46830,7 +46830,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: BlackOn speechSquare
+        value: ' speechSquare'
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -46864,13 +46864,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
-
-
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChat Fold Icon", "Button");
-
+      userScript: '
 
         Variable["ImageKey"] = "speechSquare";
 
@@ -46883,7 +46877,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 950.21655
+        x: 946.7683
         y: 203.91345
         width: 160
         height: 30
@@ -47407,9 +47401,83 @@ MonoBehaviour:
         y: 717.79816
         width: 160
         height: 30
+    - id: 74
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: BlackOn happyFace
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u606D\u559C\u60A8\u5B8C\u6210\u4E86\u672C\u95DC\u7684\u56DE\u9867\u6E2C\u9A57\uFF01\n\u60A8\u505A\u7684\u5F88\u597D\uFF01"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 38
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 38
+        originDialogueID: 74
+        destinationConversationID: 38
+        destinationDialogueID: 65
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChat Fold Icon", "Button");
+
+
+        Variable["ImageKey"] = "happyFace";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 956.60443
+        y: 126.736176
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 305.17932, y: 164.73778}
-    canvasZoom: 0.6100003
+    canvasScrollPosition: {x: 494.8512, y: 42.509476}
+    canvasZoom: 0.5799999
   syncInfo:
     syncActors: 0
     syncItems: 0
