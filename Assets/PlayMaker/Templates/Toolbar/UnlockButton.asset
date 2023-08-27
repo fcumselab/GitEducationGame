@@ -883,7 +883,7 @@ MonoBehaviour:
         serializedVersion: 2
         x: 748.0078
         y: 469.46875
-        width: 159
+        width: 216
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -1573,7 +1573,7 @@ MonoBehaviour:
         serializedVersion: 2
         x: 723.6406
         y: 650.97656
-        width: 164
+        width: 221
         height: 48
       isBreakpoint: 0
       isSequence: 0
@@ -1719,10 +1719,19 @@ MonoBehaviour:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
+    - name: back
+      isSystemEvent: 0
+      isGlobal: 0
     - name: Common/Controller/Disable Control
       isSystemEvent: 0
       isGlobal: 1
     - name: Common/Controller/Enable Control
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: Common/Window/Hide Window
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: Common/Window/Show Window
       isSystemEvent: 0
       isGlobal: 1
     - name: false
@@ -1740,18 +1749,9 @@ MonoBehaviour:
     - name: true
       isSystemEvent: 0
       isGlobal: 0
-    - name: Window/Hide Window
-      isSystemEvent: 0
-      isGlobal: 1
-    - name: Window/Show Window
-      isSystemEvent: 0
-      isGlobal: 1
-    - name: back
-      isSystemEvent: 0
-      isGlobal: 0
     globalTransitions:
     - fsmEvent:
-        name: Window/Hide Window
+        name: Common/Window/Hide Window
         isSystemEvent: 0
         isGlobal: 1
       toState: close animation
@@ -1778,7 +1778,7 @@ MonoBehaviour:
       linkTarget: 0
       colorIndex: 0
     - fsmEvent:
-        name: Window/Show Window
+        name: Common/Window/Show Window
         isSystemEvent: 0
         isGlobal: 1
       toState: Get z Position
