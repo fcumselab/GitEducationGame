@@ -9,6 +9,7 @@ namespace AGame
 	{
 		txt,
 		folder,
-		exe		
+		exe,
+		gitFolder		
 	}
 }
