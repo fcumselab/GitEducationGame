@@ -43844,7 +43844,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u60A8\u505A\u7684\u5F88\u597D\uFF01\r\n\u60A8\u8A18\u4F4F\u4E86\u4E0A\u4E00\u95DC\u5361\u4E2D\u8F38\u5165\u6307\u4EE4\u7684\u65B9\u5F0F\r\n\u4E26\u6210\u529F\u7684\u57F7\u884C\u4E86\u6307\u4EE4
-          \"git status\"\uFF01"
+          \"git status\" \uFF01"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -43919,7 +43919,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u5728\u9019\u500B\u5340\u57DF\u4E2D\r\n\u986F\u793A\u4E86 \"\u5DE5\u4F5C\u76EE\u9304\"
-          \u8207 \"\u66AB\u5B58\u5340\u57DF\" \u6A94\u6848\u7684\u5DEE\u7570"
+          \u8207 \"\u66AB\u5B58\u5340\u57DF\" \u6A94\u6848\u4E4B\u9593\u7684\u5DEE\u7570"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -44025,7 +44025,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 429.5263
-        y: 294.11755
+        y: 295.3834
         width: 160
         height: 30
     - id: 76
@@ -44089,8 +44089,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 429.5263
-        y: 328.11755
+        x: 430.7921
+        y: 330.6492
         width: 160
         height: 30
     - id: 77
@@ -44426,7 +44426,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 779.2941
-        y: 376.8905
+        y: 378.1563
         width: 160
         height: 30
     - id: 82
@@ -44453,7 +44453,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u60A8\u53EF\u4EE5\u770B\u5230\u5728\u96FB\u8166\u4E2D\u6709\u4E00\u4EFD\u6587\u4EF6\r\n\u8B93\u6211\u5011\u8A66\u8457\u8F38\u5165
-          \"git add \u6E2C\u8A66\u6587\u4EF6.txt\" \u5427"
+          <color=red>\"git add \u6E2C\u8A66\u6587\u4EF6.txt\"</color> \u5427"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -44488,7 +44488,7 @@ MonoBehaviour:
 
 
         FSMEvent("Common/Window/Show Window",
-        "StagingAreaWindow", "Window");
+        "FileManagerWindow", "Window");
 
         FSMEvent("Hint/Tutorial Highlight/show
         highlight", "FileManagerWindow Hint", "Hint");'
@@ -44687,10 +44687,10 @@ MonoBehaviour:
 
 
         FSMEvent("Common/Window/Show Window",
-        "FileManagerWindowButton", "UnlockButton");
+        "StagingAreaWindow", "Window");
 
-        FSMEvent("Hint/Tutorial
-        Highlight/show highlight", "StagingAreaWindow Hint", "Hint");'
+        FSMEvent("Hint/Tutorial Highlight/show
+        highlight", "StagingAreaWindow Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -44974,7 +44974,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: "\u65B0\u589E\u4EFB\u52D9 + \u5141\u8A31\u64CD\u4F5C(\u7121\u6CD5\u95DC\u9589\u5C0D\u8A71)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -45003,13 +45003,24 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Common/Controller/Enable Control", "Stage Manager Parent",
+        "Button Controller");
+
+        FSMEvent("Dialog Button/Hide Button", "Continue
+        Button", "Button");
+
+        FSMEvent("Dialog Button/Hide Button", "Skip
+        Button", "Button");
+
+
+        FSMEvent("Quest Tracker/Add New Quest", "Quest
+        Tracker", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1117.6444
+        x: 1116.3787
         y: 603.1094
         width: 160
         height: 30
@@ -45038,7 +45049,7 @@ MonoBehaviour:
         width: 328.2727
         height: 362.36356
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 529.1302, y: 88.274536}
+    canvasScrollPosition: {x: 971.3757, y: 217.34239}
     canvasZoom: 0.7900001
   - id: 47
     fields:
@@ -45489,7 +45500,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: "\u5141\u8A31\u64CD\u4F5C(\u7121\u6CD5\u95DC\u9589\u5C0D\u8A71)"
+        value: "\u65B0\u589E\u4EFB\u52D9 + \u5141\u8A31\u64CD\u4F5C(\u7121\u6CD5\u95DC\u9589\u5C0D\u8A71)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -45526,7 +45537,11 @@ MonoBehaviour:
         Button", "Button");
 
         FSMEvent("Dialog Button/Hide Button", "Skip
-        Button", "Button");'
+        Button", "Button");
+
+
+        FSMEvent("Quest Tracker/Add New Quest", "Quest
+        Tracker", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45537,7 +45552,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0, y: 245.58826}
     canvasZoom: 1.3599997
   - id: 48
     fields:
@@ -46051,7 +46066,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: "\u65B0\u589E\u4EFB\u52D9"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -46079,18 +46094,19 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker", "Quest
+        Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 19.938232
-        y: 443
+        x: 18.938232
+        y: 444
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 6.938138}
+    canvasScrollPosition: {x: 0, y: 174.93814}
     canvasZoom: 1
   - id: 49
     fields:
@@ -46978,8 +46994,8 @@ MonoBehaviour:
         width: 271.7547
         height: 249.11325
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 50.428726, y: 207.67566}
-    canvasZoom: 1.06
+    canvasScrollPosition: {x: 138.64088, y: 441.29907}
+    canvasZoom: 1.03
   syncInfo:
     syncActors: 0
     syncItems: 0
