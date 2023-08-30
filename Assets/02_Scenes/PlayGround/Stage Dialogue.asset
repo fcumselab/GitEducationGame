@@ -1262,6 +1262,20 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: CustomFieldType_Text
+  - id: 15
+    fields:
+    - title: Name
+      value: Switch
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: Control highlight panel spot
+      type: 0
+      typeString: CustomFieldType_Text
   conversations:
   - id: 12
     fields:
@@ -41935,7 +41949,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1923.6189
-        y: 2.5801086
+        y: 1.4437408
         width: 160
         height: 30
     - id: 60
@@ -42000,8 +42014,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1916.5187
-        y: 80.681366
+        x: 1915.3824
+        y: 81.81773
         width: 160
         height: 30
     - id: 61
@@ -43123,8 +43137,8 @@ MonoBehaviour:
         width: 252.92279
         height: 220.23053
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1737.1962, y: 777.89734}
-    canvasZoom: 1.0899998
+    canvasScrollPosition: {x: 1617.1212, y: 447.3352}
+    canvasZoom: 0.85
   - id: 45
     fields:
     - title: Title
@@ -43355,7 +43369,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1564.3881
-        y: 143.17052
+        y: 145.00539
         width: 160
         height: 30
     - id: 76
@@ -43709,7 +43723,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1423.5142, y: 60.51457}
+    canvasScrollPosition: {x: 1397.826, y: 0}
     canvasZoom: 1.09
   - id: 46
     fields:
@@ -43955,8 +43969,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 429.52945
-        y: 234.3529
+        x: 427.71127
+        y: 243.44385
         width: 160
         height: 30
     - id: 75
@@ -44024,8 +44038,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 429.5263
-        y: 295.3834
+        x: 428.03375
+        y: 292.39835
         width: 160
         height: 30
     - id: 76
@@ -44287,10 +44301,15 @@ MonoBehaviour:
         Hint", "Hint");
 
 
-        Variable["ImageKey"] = "cmd";
+        FSMEvent("Highlight Panel/Turn Off Highlight",
+        "Layer 2 MovableField", "Window Controller");
 
-        FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+
+        Variable["ImageKey"]
+        = "cmd";
+
+        FSMEvent("Tutorial Popup/Change Image", "Tutorial Popup
+        Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -44360,7 +44379,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 776.20135
-        y: 326.89053
+        y: 317.93533
         width: 160
         height: 30
     - id: 81
@@ -44425,7 +44444,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 779.2941
+        x: 777.8016
         y: 378.1563
         width: 160
         height: 30
@@ -44483,21 +44502,24 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial Popup
-        Parent", "Tutorial Popup");
+      userScript: 'FSMEvent("Common/Window/Show Window", "FileManagerWindow", "Window");
 
 
-        FSMEvent("Common/Window/Show Window",
-        "FileManagerWindow", "Window");
+        Variable["Switch"]
+        = "10";
 
-        FSMEvent("Hint/Tutorial Highlight/show
-        highlight", "FileManagerWindow Hint", "Hint");'
+        FSMEvent("Highlight Panel/Highlight Panel", "FileManagerWindow",
+        "Window Display");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "FileManagerWindow Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 776.20135
+        x: 774.7088
         y: 427.9214
         width: 160
         height: 30
@@ -44555,7 +44577,22 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "FileManagerWindow
+        Hint", "Hint");
+
+
+        FSMEvent("Common/Window/Show Window", "CommandLineWindow",
+        "Window");
+
+
+        Variable["Switch"] = "01";
+
+        FSMEvent("Highlight
+        Panel/Highlight Panel", "CommandLineWindow", "Window Display");
+
+
+        FSMEvent("Hint/Tutorial
+        Highlight/show highlight", "CommandLineWindow Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -44625,8 +44662,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1116.8557
-        y: 278.71826
+        x: 1110.8855
+        y: 296.62872
         width: 160
         height: 30
     - id: 116
@@ -44682,21 +44719,28 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial Popup
+      userScript: 'FSMEvent("Tutorial Popup/Close Content Panel", "Tutorial Popup
         Parent", "Tutorial Popup");
 
 
         FSMEvent("Common/Window/Show Window",
         "StagingAreaWindow", "Window");
 
-        FSMEvent("Hint/Tutorial Highlight/show
-        highlight", "StagingAreaWindow Hint", "Hint");'
+
+        Variable["Switch"] = "10";
+
+        FSMEvent("Highlight
+        Panel/Highlight Panel", "StagingAreaWindow", "Window Display");
+
+
+        FSMEvent("Hint/Tutorial
+        Highlight/show highlight", "StagingAreaWindow Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 426.38794
+        x: 424.8954
         y: 152.36665
         width: 160
         height: 30
@@ -45003,18 +45047,26 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'FSMEvent("Common/Controller/Enable Control", "Stage Manager Parent",
-        "Button Controller");
-
-        FSMEvent("Dialog Button/Hide Button", "Continue
-        Button", "Button");
-
-        FSMEvent("Dialog Button/Hide Button", "Skip
-        Button", "Button");
+      userScript: 'FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
 
 
-        FSMEvent("Quest Tracker/Add New Quest", "Quest
-        Tracker", "Quest Tracker");'
+        FSMEvent("Highlight Panel/Turn Off
+        Highlight", "Layer 2 MovableField", "Window Controller");
+
+
+        FSMEvent("Common/Controller/Enable
+        Control", "Stage Manager Parent", "Button Controller");
+
+        FSMEvent("Dialog
+        Button/Hide Button", "Continue Button", "Button");
+
+        FSMEvent("Dialog
+        Button/Hide Button", "Skip Button", "Button");
+
+
+        FSMEvent("Quest
+        Tracker/Add New Quest", "Quest Tracker", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45049,8 +45101,8 @@ MonoBehaviour:
         width: 328.2727
         height: 362.36356
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 971.3757, y: 217.34239}
-    canvasZoom: 0.7900001
+    canvasScrollPosition: {x: 310.02527, y: 53.09085}
+    canvasZoom: 0.5500003
   - id: 47
     fields:
     - title: Title

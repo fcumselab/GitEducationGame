@@ -1262,6 +1262,20 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: CustomFieldType_Text
+  - id: 15
+    fields:
+    - title: Name
+      value: Switch
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: Control highlight panel spot
+      type: 0
+      typeString: CustomFieldType_Text
   conversations:
   - id: 12
     fields:
@@ -3353,8 +3367,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1835.8303, y: 540.87933}
-    canvasZoom: 0.7600019
+    canvasScrollPosition: {x: 1740.0183, y: 0}
+    canvasZoom: 0.8500018
   - id: 13
     fields:
     - title: Title
@@ -13115,7 +13129,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1556.5287
+        x: 1557.6276
         y: 607.1815
         width: 160
         height: 30
@@ -13489,8 +13503,8 @@ MonoBehaviour:
         width: 272.55963
         height: 235.8624
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1347.3888, y: 422.17816}
-    canvasZoom: 0.9400002
+    canvasScrollPosition: {x: 1407.5479, y: 41.315384}
+    canvasZoom: 0.9100002
   - id: 29
     fields:
     - title: Title
@@ -35621,13 +35635,13 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: FSMEvent("Common/Window/Show Window", "xxxxxxxWindowButton", "UnlockButton");
+      userScript: FSMEvent("Common/Window/Show Window", "StagingAreaWindow", "Window");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1958.3593
+        x: 1959.5787
         y: 505.49017
         width: 160
         height: 30
@@ -35749,8 +35763,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1153.4418
-        y: 387.45734
+        x: 1158.1642
+        y: 388.52115
         width: 160
         height: 30
     - id: 119
@@ -35816,7 +35830,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 966.55676
-        y: 392.37537
+        y: 393.4392
         width: 160
         height: 30
     - id: 120
@@ -35936,8 +35950,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 936.3946, y: 0}
-    canvasZoom: 0.4900005
+    canvasScrollPosition: {x: 1361.6771, y: 186.58536}
+    canvasZoom: 0.8200001
   - id: 40
     fields:
     - title: Title
@@ -43123,8 +43137,8 @@ MonoBehaviour:
         width: 252.92279
         height: 220.23053
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1789.1257, y: 612.02655}
-    canvasZoom: 1.3599995
+    canvasScrollPosition: {x: 1737.1962, y: 777.89734}
+    canvasZoom: 1.0899998
   - id: 45
     fields:
     - title: Title
@@ -43230,8 +43244,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1569.8347
-        y: 32.539543
+        x: 1560.5563
+        y: 37.694176
         width: 160
         height: 30
     - id: 31
@@ -43516,7 +43530,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u8996\u7A97\u4E2D\u7684\u8A2D\u8A08\u6703\u76E1\u91CF\u4FDD\u6301\u8207
+        value: "\u8996\u7A97\u4E2D\u7684\u8A2D\u8A08\u6703\u76E1\u91CF\u4FDD\u6301\n\u8207
           \"git status\" \u57F7\u884C\u7D50\u679C\u76F8\u540C\r\n\u4E26\u4E14\u7C21\u5316\u4E86\u539F\u5148\u8F03\u70BA\u96E3\u61C2\u7684\u754C\u9762\r\n\u5E0C\u671B\u9019\u7A2E\u8A2D\u8A08\u65B9\u5F0F\u80FD\u63D0\u5347\u60A8\u5C0D
           \"\u66AB\u5B58\u5340\u57DF\" \u7684\u7406\u89E3"
         type: 0
@@ -43580,7 +43594,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: "\u65B0\u589E\u4EFB\u52D9 + \u5141\u8A31\u64CD\u4F5C(\u7121\u6CD5\u95DC\u9589\u5C0D\u8A71)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -43612,7 +43626,19 @@ MonoBehaviour:
       userScript: 'FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial Popup
         Parent", "Tutorial Popup");
 
-'
+
+        FSMEvent("Common/Controller/Enable
+        Control", "Stage Manager Parent", "Button Controller");
+
+        FSMEvent("Dialog
+        Button/Hide Button", "Continue Button", "Button");
+
+        FSMEvent("Dialog
+        Button/Hide Button", "Skip Button", "Button");
+
+
+        FSMEvent("Quest
+        Tracker/Add New Quest", "Quest Tracker", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43692,13 +43718,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1562.7437
-        y: 91.27002
+        x: 1564.8057
+        y: 92.30095
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1293.6063, y: 0}
-    canvasZoom: 0.97000015
+    canvasScrollPosition: {x: 1423.5142, y: 60.51457}
+    canvasZoom: 1.09
   - id: 46
     fields:
     - title: Title
@@ -43832,7 +43858,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u60A8\u505A\u7684\u5F88\u597D\uFF01\r\n\u60A8\u8A18\u4F4F\u4E86\u4E0A\u4E00\u95DC\u5361\u4E2D\u8F38\u5165\u6307\u4EE4\u7684\u65B9\u5F0F\r\n\u4E26\u6210\u529F\u7684\u57F7\u884C\u4E86\u6307\u4EE4
-          \"git status\"\uFF01"
+          \"git status\" \uFF01"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -43907,7 +43933,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u5728\u9019\u500B\u5340\u57DF\u4E2D\r\n\u986F\u793A\u4E86 \"\u5DE5\u4F5C\u76EE\u9304\"
-          \u8207 \"\u66AB\u5B58\u5340\u57DF\" \u6A94\u6848\u7684\u5DEE\u7570"
+          \u8207 \"\u66AB\u5B58\u5340\u57DF\" \u6A94\u6848\u4E4B\u9593\u7684\u5DEE\u7570"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -44001,14 +44027,19 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "StagingAreaWindow
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "UnstagedFiles Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 429.5263
-        y: 294.11755
+        y: 295.3834
         width: 160
         height: 30
     - id: 76
@@ -44072,8 +44103,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 429.5263
-        y: 328.11755
+        x: 430.7921
+        y: 330.6492
         width: 160
         height: 30
     - id: 77
@@ -44131,7 +44162,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "UnstagedFiles
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "StagedFiles Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -44225,7 +44261,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: cmd
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -44261,14 +44297,21 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "StagedFiles
+        Hint", "Hint");
+
+
+        Variable["ImageKey"] = "cmd";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 779.4869
-        y: 228.62546
+        x: 775.5395
+        y: 249.6781
         width: 160
         height: 30
     - id: 80
@@ -44353,7 +44396,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: file
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -44387,14 +44430,17 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "file";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 776.20135
-        y: 376.8905
+        x: 779.2941
+        y: 378.1563
         width: 160
         height: 30
     - id: 82
@@ -44421,7 +44467,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u60A8\u53EF\u4EE5\u770B\u5230\u5728\u96FB\u8166\u4E2D\u6709\u4E00\u4EFD\u6587\u4EF6\r\n\u8B93\u6211\u5011\u8A66\u8457\u8F38\u5165
-          \"git add \u6E2C\u8A66\u6587\u4EF6.txt\" \u5427"
+          <color=red>\"git add \u6E2C\u8A66\u6587\u4EF6.txt\"</color> \u5427"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -44451,14 +44497,22 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
+
+
+        FSMEvent("Common/Window/Show Window",
+        "FileManagerWindow", "Window");
+
+        FSMEvent("Hint/Tutorial Highlight/show
+        highlight", "FileManagerWindow Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 776.20135
-        y: 426.89044
+        y: 427.9214
         width: 160
         height: 30
     - id: 83
@@ -44521,8 +44575,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1116.8557
-        y: 228.71823
+        x: 1116.571
+        y: 244.79254
         width: 160
         height: 30
     - id: 84
@@ -44646,14 +44700,17 @@ MonoBehaviour:
         Parent", "Tutorial Popup");
 
 
+        FSMEvent("Common/Window/Show Window",
+        "StagingAreaWindow", "Window");
+
         FSMEvent("Hint/Tutorial Highlight/show
-        highlight", "xxxxx Hint", "Hint");'
+        highlight", "StagingAreaWindow Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 425.28903
+        x: 426.38794
         y: 152.36665
         width: 160
         height: 30
@@ -44931,7 +44988,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: "\u65B0\u589E\u4EFB\u52D9 + \u5141\u8A31\u64CD\u4F5C(\u7121\u6CD5\u95DC\u9589\u5C0D\u8A71)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -44960,13 +45017,24 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Common/Controller/Enable Control", "Stage Manager Parent",
+        "Button Controller");
+
+        FSMEvent("Dialog Button/Hide Button", "Continue
+        Button", "Button");
+
+        FSMEvent("Dialog Button/Hide Button", "Skip
+        Button", "Button");
+
+
+        FSMEvent("Quest Tracker/Add New Quest", "Quest
+        Tracker", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1117.6444
+        x: 1116.3787
         y: 603.1094
         width: 160
         height: 30
@@ -44995,8 +45063,8 @@ MonoBehaviour:
         width: 328.2727
         height: 362.36356
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 394.8603, y: 26.315796}
-    canvasZoom: 0.7600001
+    canvasScrollPosition: {x: 971.3757, y: 217.34239}
+    canvasZoom: 0.7900001
   - id: 47
     fields:
     - title: Title
@@ -45446,7 +45514,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: "\u65B0\u589E\u4EFB\u52D9 + \u5141\u8A31\u64CD\u4F5C(\u7121\u6CD5\u95DC\u9589\u5C0D\u8A71)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -45476,7 +45544,18 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Common/Controller/Enable Control", "Stage Manager Parent",
+        "Button Controller");
+
+        FSMEvent("Dialog Button/Hide Button", "Continue
+        Button", "Button");
+
+        FSMEvent("Dialog Button/Hide Button", "Skip
+        Button", "Button");
+
+
+        FSMEvent("Quest Tracker/Add New Quest", "Quest
+        Tracker", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45487,8 +45566,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 245.58826}
+    canvasZoom: 1.3599997
   - id: 48
     fields:
     - title: Title
@@ -46001,7 +46080,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: "\u65B0\u589E\u4EFB\u52D9"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -46029,18 +46108,19 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker", "Quest
+        Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 19.938232
-        y: 443
+        x: 18.938232
+        y: 444
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 6.938138}
+    canvasScrollPosition: {x: 0, y: 174.93814}
     canvasZoom: 1
   - id: 49
     fields:
@@ -46211,8 +46291,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 345
-        y: 121
+        x: 347.27274
+        y: 105.09091
         width: 160
         height: 30
     - id: 71
@@ -46238,8 +46318,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u60A8\u5B78\u6703\u4E86\u900F\u904E \"git status\" \r\n\u4F86\u89C0\u770B
-          \"\u66AB\u5B58\u5340\u57DF\" \u7684\u5167\u5BB9"
+        value: "\u8B93\u6211\u5011\u4F86\u56DE\u9867\u4E00\u4E0B\u672C\u6B21\u95DC\u5361\u4E2D\u5B78\u5230\u7684\u77E5\u8B58\u8207\u6307\u4EE4\u5427\uFF01"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -46275,8 +46354,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 343.93823
-        y: 181
+        x: 346.21097
+        y: 178.72726
         width: 160
         height: 30
     - id: 72
@@ -46302,9 +46381,583 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u4E26\u4E14\u4F7F\u7528\u4E86\r\n\"git add\" \u8207 \"git reset\"
-          \u9019\u5169\u500B\u6307\u4EE4\r\n\u5C07\u4FEE\u6539\u7684\u6A94\u6848\u79FB\u5165\u3001\u79FB\u51FA\u5230\u4E86
-          \"\u66AB\u5B58\u5340\u57DF\" \u4E2D"
+        value: "\u9996\u5148\uFF0C\u60A8\u5B78\u6703\u4E86\u900F\u904E \"git status\"
+          \u6307\u4EE4 \r\n\u4F86\u89C0\u770B \"\u66AB\u5B58\u5340\u57DF\" \u7684\u5167\u5BB9"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 49
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 49
+        originDialogueID: 72
+        destinationConversationID: 49
+        destinationDialogueID: 74
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 342.93823
+        y: 262.72726
+        width: 160
+        height: 30
+    - id: 74
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u4E26\u4E14\u5728 \"\u66AB\u5B58\u5340\u57DF\" \u8996\u7A97\u4E2D\r\n\u4E86\u89E3\u4E86\u6BCF\u500B\u5340\u57DF\u7684\u610F\u7FA9"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 49
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 49
+        originDialogueID: 74
+        destinationConversationID: 49
+        destinationDialogueID: 75
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 344.21658
+        y: 296.66357
+        width: 160
+        height: 30
+    - id: 75
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "Git \u6839\u64DA \"\u5DE5\u4F5C\u76EE\u9304\" \u8207 \"\u66AB\u5B58\u5340\u57DF\"\u6A94\u6848\u4E4B\u9593\u7684\u5DEE\u7570\r\n\u5206\u6210\u4E86
+          \"\u672A\u8FFD\u8E64\" \u548C \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 49
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 49
+        originDialogueID: 75
+        destinationConversationID: 49
+        destinationDialogueID: 76
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 340.8075
+        y: 335.29993
+        width: 160
+        height: 30
+    - id: 76
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\"\u672A\u8FFD\u8E64\" \u5340\u57DF\u4EE3\u8868\u4E86\r\n\u5728\u6211\u5011
+          \"\u5DE5\u4F5C\u76EE\u9304\" \u4E0B\u9032\u884C\u8B8A\u66F4\u7684\u6A94\u6848\r\n\u4E26\u4E14\u5B83\u5011\u9084\u6C92\u6709\u79FB\u52D5\u5230
+          \"\u66AB\u5B58\u5340\u57DF\" "
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 49
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 49
+        originDialogueID: 76
+        destinationConversationID: 49
+        destinationDialogueID: 77
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 340.8075
+        y: 369.3908
+        width: 160
+        height: 30
+    - id: 77
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\"\u5DF2\u8FFD\u8E64\" \u5340\u57DF\u5247\u4EE3\u8868\r\n\u9019\u4E9B\u8B8A\u66F4\u7684\u6A94\u6848\u5DF2\u7D93\u79FB\u52D5\u5230
+          \"\u66AB\u5B58\u5340\u57DF\"\r\n\u5728\u78BA\u5B9A\u597D\u8B8A\u66F4\u5F8C\u5C31\u53EF\u4EE5\u6E96\u5099\u63D0\u4EA4\u5230
+          \"\u5B58\u5132\u5EAB\" \u4E2D\u4E86"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 49
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 49
+        originDialogueID: 77
+        destinationConversationID: 49
+        destinationDialogueID: 78
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 345.35297
+        y: 414.84537
+        width: 160
+        height: 30
+    - id: 78
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u800C \"git add\" \u8207 \"git reset\" \u9019\u5169\u500B\u6307\u4EE4\r\n\u7528\u4F86\u63A7\u5236\u6A94\u6848\u662F\u4F4D\u65BC
+          \"\u672A\u8FFD\u8E64\" \u9084\u662F \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 49
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 49
+        originDialogueID: 78
+        destinationConversationID: 49
+        destinationDialogueID: 79
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 343.18567
+        y: 503.48175
+        width: 160
+        height: 30
+    - id: 79
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u672C\u6B21\u7684\u95DC\u5361\u5DF2\u7D93\u5C07\u6A94\u6848\u6210\u529F\u79FB\u52D5\u5230\u4E86
+          \"\u66AB\u5B58\u5340\u57DF\" \u4E2D\r"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 49
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 49
+        originDialogueID: 79
+        destinationConversationID: 49
+        destinationDialogueID: 80
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 344.90533
+        y: 587.3429
+        width: 160
+        height: 30
+    - id: 80
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u6240\u4EE5\u5728\u63A5\u4E0B\u4F86\u7684\u95DC\u5361\u4E2D\r\n\u6211\u5011\u8981\u6B63\u5F0F\u79FB\u52D5\u6A94\u6848\u5230
+          \"\u5B58\u5132\u5EAB\" \u4E2D\r\n\u4E26\u5B8C\u6210\u7B2C\u4E00\u6B21\u63D0\u4EA4\uFF01"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 49
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 49
+        originDialogueID: 80
+        destinationConversationID: 49
+        destinationDialogueID: 81
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 343.24734
+        y: 625.9596
+        width: 160
+        height: 30
+    - id: 81
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u60A8\u5C07\u6703\u5B78\u7FD2\u5230\u5169\u500B\u65B0\u7684\u6307\u4EE4\u4F86\u9032\u884C\u64CD\u4F5C\uFF01"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 49
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 49
+        originDialogueID: 81
+        destinationConversationID: 49
+        destinationDialogueID: 82
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 347.2835
+        y: 674.92865
+        width: 160
+        height: 30
+    - id: 82
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u6700\u5F8C\uFF0C\u606D\u559C\u60A8\u5B8C\u6210\u672C\u6B21\u7684\u95DC\u5361\uFF01\r\n\u60A8\u505A\u7684\u5F88\u68D2\uFF01"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -46334,13 +46987,29 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 342.93823
-        y: 240
+        x: 341.71066
+        y: 719.2683
         width: 160
         height: 30
-    entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    entryGroups:
+    - name: Group
+      rect:
+        serializedVersion: 2
+        x: 295.4545
+        y: 230.6818
+        width: 272.5909
+        height: 243.04541
+      color: {r: 1, g: 1, b: 1, a: 0.5}
+    - name: Group
+      rect:
+        serializedVersion: 2
+        x: 298.54193
+        y: 554.84546
+        width: 271.7547
+        height: 249.11325
+      color: {r: 1, g: 1, b: 1, a: 0.5}
+    canvasScrollPosition: {x: 138.64088, y: 441.29907}
+    canvasZoom: 1.03
   syncInfo:
     syncActors: 0
     syncItems: 0
