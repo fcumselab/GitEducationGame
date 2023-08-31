@@ -42107,7 +42107,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1915.3824
-        y: 81.81773
+        y: 81.444214
         width: 160
         height: 30
     - id: 61
@@ -42174,8 +42174,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1910.0588
-        y: 119.65941
+        x: 1920.1857
+        y: 122.19104
         width: 160
         height: 30
     - id: 62
@@ -42241,8 +42241,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1914.2963
-        y: 159.48993
+        x: 1915.5621
+        y: 172.14818
         width: 160
         height: 30
     - id: 63
@@ -42863,8 +42863,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1921.3293
-        y: 893.53
+        x: 1906.1394
+        y: 903.6566
         width: 160
         height: 30
     - id: 73
@@ -42933,8 +42933,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1922.9979
-        y: 948.59924
+        x: 1907.8079
+        y: 958.7258
         width: 160
         height: 30
     - id: 74
@@ -42997,8 +42997,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1922.1063
-        y: 1008.6023
+        x: 1906.9163
+        y: 1018.7289
         width: 160
         height: 30
     - id: 94
@@ -43224,13 +43224,13 @@ MonoBehaviour:
     - name: Group
       rect:
         serializedVersion: 2
-        x: 1877.1589
-        y: 844.22986
+        x: 1861.969
+        y: 854.35645
         width: 252.92279
         height: 220.23053
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1397.3936, y: 15.569977}
-    canvasZoom: 0.61000025
+    canvasScrollPosition: {x: 1366.5775, y: 526.58215}
+    canvasZoom: 0.7900001
   - id: 45
     fields:
     - title: Title
@@ -44702,7 +44702,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1116.571
-        y: 244.79254
+        y: 246.05838
         width: 160
         height: 30
     - id: 84
@@ -44759,14 +44759,19 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "CommandLineWindow
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "SearchCommandButton Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 1118.1582
-        y: 299.6664
+        y: 302.19806
         width: 160
         height: 30
     - id: 116
@@ -44870,7 +44875,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u5982\u679C\u8981\u4F7F\u7528\u9019\u500B\u529F\u80FD\r\n\u8ACB\u7167\u8457\u4EE5\u4E0B\u6307\u793A\u64CD\u4F5C\uFF1A"
+        value: "\u5982\u679C\u8981\u4F7F\u7528\u9019\u500B\u529F\u80FD\r\n\u8ACB\u5728\u8F38\u5165\u6B04\u4E2D\u7167\u8457\u4EE5\u4E0B\u6307\u793A\u64CD\u4F5C\uFF1A"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -44900,14 +44905,21 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "SearchCommandButton
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "CommandInputField Hint", "Hint");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1114.1957
-        y: 404.68237
+        x: 1116.7272
+        y: 407.21402
         width: 160
         height: 30
     - id: 118
@@ -44964,8 +44976,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: FSMEvent("Common/Controller/Enable Control", "Stage Manager Parent",
-        "Button Controller");
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "CommandInputField
+        Hint", "Hint");
+
+
+        FSMEvent("Common/Controller/Enable Control", "Stage
+        Manager Parent", "Button Controller");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45093,7 +45109,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Hint/Tutorial Highlight/show highlight", "SearchCommandButton
+        Hint", "Hint");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45155,8 +45172,12 @@ MonoBehaviour:
         Parent", "Tutorial Popup");
 
 
-        FSMEvent("Highlight Panel/Turn Off
-        Highlight", "Layer 2 MovableField", "Window Controller");
+        FSMEvent("Hint/Tutorial Highlight/close
+        highlight", "SearchCommandButton Hint", "Hint");
+
+
+        FSMEvent("Highlight
+        Panel/Turn Off Highlight", "Layer 2 MovableField", "Window Controller");
 
 
 
@@ -45373,8 +45394,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 425.07785
-        y: 481.86877
+        x: 432.67276
+        y: 484.40045
         width: 160
         height: 30
     - id: 125
@@ -45530,8 +45551,8 @@ MonoBehaviour:
         width: 338.2727
         height: 453.79208
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 378.5713, y: 99.99997}
-    canvasZoom: 0.70000017
+    canvasScrollPosition: {x: 345.5875, y: 21.482792}
+    canvasZoom: 0.7900001
   - id: 47
     fields:
     - title: Title
@@ -46139,8 +46160,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1.8867798, y: 138.27863}
-    canvasZoom: 1.06
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.94
   - id: 48
     fields:
     - title: Title
@@ -46694,7 +46715,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u9019\u6B21\u8ACB\u60A8\u5C07 \"\u5BE6\u9A57\u8A18\u9304.txt\" \u7684\u6A94\u6848\u79FB\u51FA
+        value: "\u9019\u6B21\u8ACB\u60A8\u5C07 \"\u5BE6\u9A57\u8A18\u9304.txt\" \u79FB\u51FA
           \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF\r\n\u4E26\u4E14\u9700\u8981\u53BB\u78BA\u8A8D
           \"\u66AB\u5B58\u5340\u57DF\" \u662F\u5426\u6A94\u6848\u7684\u72C0\u6CC1\uFF01"
         type: 0
@@ -46801,7 +46822,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 20}
+    canvasScrollPosition: {x: 194.11763, y: 187.0588}
     canvasZoom: 0.8500001
   - id: 49
     fields:
