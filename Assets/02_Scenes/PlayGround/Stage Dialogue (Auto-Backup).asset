@@ -1287,8 +1287,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u78BA\u8A8D \"\u8CC7\u6599\u593EB\" \u7684\u6A94\u6848\u79FB\u5165
-        \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF"
+      value: "\u5C07 \"\u8CC7\u6599\u593EB\" \u7684\u6A94\u6848\u79FB\u5165 \"\u5DF2\u8FFD\u8E64\" "
       type: 0
       typeString: CustomFieldType_Text
     - title: Success Description
@@ -1334,8 +1333,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u78BA\u8A8D \"\u8CC7\u6599\u593EB\" \u7684\u6A94\u6848\u79FB\u51FA
-        \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF"
+      value: "\u5C07 \"\u8CC7\u6599\u593EB\" \u7684\u6A94\u6848\u79FB\u51FA \"\u5DF2\u8FFD\u8E64\" "
       type: 0
       typeString: CustomFieldType_Text
     - title: Success Description
@@ -36656,8 +36654,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 757.64606, y: 0.33855247}
-    canvasZoom: 0.7300004
+    canvasScrollPosition: {x: 1321.669, y: 140.20865}
+    canvasZoom: 0.76000035
   - id: 40
     fields:
     - title: Title
@@ -51243,10 +51241,24 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'Variable["ImageKey"] = "folder";
+      userScript: 'FSMEvent("Tutorial Popup/Close Content Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
 
-        FSMEvent("Tutorial Popup/Change
-        Image", "Tutorial Popup Parent", "Tutorial Popup");'
+
+        FSMEvent("Common/Window/Show Window",
+        "FileManagerWindow", "Window");
+
+
+        Variable["Switch"] = "10";
+
+        FSMEvent("Highlight
+        Panel/Highlight Panel", "FileManagerWindow", "Window Display");
+
+
+        FSMEvent("Hint/Tutorial
+        Highlight/show highlight", "FileManagerWindow Hint", "Hint");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -51304,30 +51316,30 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'Variable["ImageKey"] = "windowOutline";
+      userScript: '
 
-        FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
-
-
-        FSMEvent("Hint/Tutorial
-        Highlight/show highlight", "BackgroundStory Hint", "Hint");
+        FSMEvent("Hint/Tutorial Highlight/close highlight",
+        "FileManagerWindow Hint", "Hint");
 
 
-        FSMEvent("Quest
-        Tracker/Add New Quest", "Quest Tracker", "Quest Tracker");'
+        FSMEvent("Hint/Tutorial Highlight/show
+        highlight", "BackgroundStory Hint", "Hint");
+
+
+        FSMEvent("Quest Tracker/Add
+        New Quest", "Quest Tracker", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.447
+        x: 1919.3105
         y: 135.79124
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1474.7236, y: 0}
-    canvasZoom: 0.8800002
+    canvasScrollPosition: {x: 1501.601, y: 9.506708}
+    canvasZoom: 0.9400001
   - id: 53
     fields:
     - title: Title
@@ -51770,7 +51782,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u9996\u5148\uFF0C\u5F9E \"\u8CC7\u6599\u593EA\" \u958B\u59CB\r\n\u60A8\u53EF\u4EE5\u767C\u73FE\u9019\u500B\u8CC7\u6599\u593E\u4E2D\u6C92\u6709\u4EFB\u4F55\u6A94\u6848"
+        value: "\u9996\u5148\uFF0C\u5F9E \"\u8CC7\u6599\u593EA\" \u958B\u59CB\r\n\u6253\u958B
+          \"\u8CC7\u6599\u593EA\" \u5F8C\r\n\u60A8\u6703\u767C\u73FE\u9019\u500B\u8CC7\u6599\u593E\u4E2D\u6C92\u6709\u4EFB\u4F55\u6A94\u6848"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -51909,8 +51922,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u63A5\u4E0B\u4F86\u662F \"\u8CC7\u6599\u593EB\"\r\n\"\u8CC7\u6599\u593EB\"
-          \u4E2D\u542B\u6709\u5176\u4ED6\u672A\u8FFD\u8E64\u7684\u6A94\u6848"
+        value: "\u63A5\u4E0B\u4F86\u662F \"\u8CC7\u6599\u593EB\"\r\n\u7576\u958B\u555F\u4E86
+          \"\u8CC7\u6599\u593EB\"\r\n\u60A8\u6703\u767C\u73FE\u8CC7\u6599\u593E\u88E1\u9762\u542B\u6709\u5176\u4ED6\u672A\u8FFD\u8E64\u7684\u6A94\u6848"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -51954,7 +51967,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1922.1802
-        y: 368.78772
+        y: 358.69598
         width: 160
         height: 30
     - id: 79
@@ -52053,7 +52066,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "\u9019\u662F\u56E0\u70BA Git \u5C07\u6574\u500B\u8CC7\u6599\u593E\u8996\u70BA\u4E00\u500B\u55AE\u4F4D\u4F86\u986F\u793A\r\n\u7576\u6211\u5011\u8FFD\u8E64\u4E86
           \"\u8CC7\u6599\u593EB\" \u88E1\u7684\u81F3\u5C11\u4E00\u500B\u6A94\u6848\u5F8C\r\nGit
-          \u7CFB\u7D71\u5C31\u6703\u5C07 \"\u8CC7\u6599\u593EB\" \u5167\u7684\u6A94\u6848\u986F\u793A\u5728\u8FFD\u8E64\u5340\u57DF\u4E2D"
+          \u7CFB\u7D71\u5C31\u6703\u5C07 \"\u8CC7\u6599\u593EB\" \u5167\u7684\u6A94\u6848\r\n\u986F\u793A\u5728\u8FFD\u8E64\u5340\u57DF\u4E2D"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -52615,7 +52628,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u5BE6\u969B\u4E0A\uFF0C\u5728\u73FE\u5BE6\u7684 Git \u4E2D\r\n\"git
-          add\" \u9084\u6709\u591A\u7A2E\u7528\u6CD5\uFF0C\u63D0\u4F9B\u4E0D\u540C\u7684\u529F\u80FD\u7D66\u4F7F\u7528\u8005\u4F7F\u7528"
+          add\" \u9084\u6709\u591A\u7A2E\u7528\u6CD5\r\n\u63D0\u4F9B\u4E0D\u540C\u7684\u529F\u80FD\u7D66\u4F7F\u7528\u8005\u4F7F\u7528"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -52949,7 +52962,8 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u8ACB\u60A8\u5C0D\u8457 \"\u8CC7\u6599\u593EB\" \u57F7\u884C\u9019\u500B\u6307\u4EE4\u5427\uFF01\r\n\u4E26\u8A18\u5F97\u900F\u904E
-          \"git status\" \u518D\u6B21\u78BA\u8A8D \"\u66AB\u5B58\u5340\u57DF\" \u66F4\u65B0\u5F8C\u7684\u60C5\u6CC1"
+          \"git status\" \r\n\u518D\u6B21\u78BA\u8A8D \"\u66AB\u5B58\u5340\u57DF\"
+          \u66F4\u65B0\u5F8C\u7684\u60C5\u6CC1"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -53158,8 +53172,8 @@ MonoBehaviour:
         width: 348.36844
         height: 247.05267
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1162.8492, y: 490.16388}
-    canvasZoom: 0.6100001
+    canvasScrollPosition: {x: 1647.0409, y: 292.86078}
+    canvasZoom: 1.0299999
   - id: 54
     fields:
     - title: Title
@@ -53494,8 +53508,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1915.1973
-        y: 173.946
+        x: 1912.6658
+        y: 172.68019
         width: 160
         height: 30
     - id: 75
@@ -53616,7 +53630,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: '
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight", "UnstagedFiles
+        Hint", "Hint");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -53691,6 +53710,10 @@ MonoBehaviour:
 
         FSMEvent("Highlight
         Panel/Highlight Panel", "CommandLineWindow", "Window Display");
+
+
+        FSMEvent("Hint/Tutorial
+        Highlight/close highlight", "UnstagedFiles Hint", "Hint");
 
 '
       onExecute:
@@ -53828,7 +53851,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1910.8016
-        y: 517.25775
+        y: 515.99194
         width: 160
         height: 30
     entryGroups:
@@ -53848,7 +53871,7 @@ MonoBehaviour:
         width: 329.08466
         height: 213.31674
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1374.8499, y: 0}
+    canvasScrollPosition: {x: 1584.9761, y: 191.13925}
     canvasZoom: 0.79
   - id: 55
     fields:
@@ -54070,8 +54093,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u4E0D\u904E\uFF0C\u65E2\u7136\u53EF\u4EE5\u4F7F\u7528 \"\u6307\u5B9A\u7684\u6A94\u6848\u540D\u7A31\"
-          \u548C \"\u8CC7\u6599\u593E\u540D\u7A31\"\r\n\u90A3\u6709\u6C92\u6709\u8FA6\u6CD5\u4E00\u6B21\u6027\u5C07\u6240\u6709\u7684\u6A94\u6848\u90FD\u653E\u5165
+        value: "\u4E0D\u904E\uFF0C\u65E2\u7136\u53EF\u4EE5\u5728\u6307\u4EE4\u524D\u65B9\u52A0\u5165\r\n\"\u6307\u5B9A\u7684\u6A94\u6848\u540D\u7A31\"
+          \u548C \"\u8CC7\u6599\u593E\u540D\u7A31\"\r\n\u90A3\u6709\u6C92\u6709\u8FA6\u6CD5\u4E00\u6B21\u6027\u5C07\r\n\u6240\u6709\u7684\u6A94\u6848\u90FD\u653E\u5165
           \"\u66AB\u5B58\u5340\u57DF\" \u4E2D\u5462\uFF1F"
         type: 0
         typeString: CustomFieldType_Text
@@ -54211,7 +54234,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u6211\u5011\u53EF\u4EE5\u5728 \"git add\" \u6307\u4EE4\u524D\u65B9\u4E2D\u52A0\u5165
-          \".\" \u7B26\u865F\r\n\u4F86\u8B93 \"\u547D\u4EE4\u884C\" \u7576\u524D\u8DEF\u5F91\u4E0B\u7684\u6A94\u6848\u5168\u90E8\u653E\u5165
+          \".\" \u7B26\u865F\r\n\u4F86\u8B93 \"\u547D\u4EE4\u884C\" \u7576\u524D\u8DEF\u5F91\u4E0B\u7684\u6A94\u6848\r\n\u5168\u90E8\u653E\u5165
           \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF\u88E1"
         type: 0
         typeString: CustomFieldType_Text
@@ -54281,7 +54304,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u4E0D\u904E\u8981\u6CE8\u610F\u7684\u662F\r\n\u4F7F\u7528\u4E86
-          \"git add .\" \u6307\u4EE4\r\n\u6709\u53EF\u80FD\u6703\u628A\u4E0D\u60F3\u8981\u4E0A\u50B3\u7684\u6A94\u6848\u4E5F\u79FB\u52D5\u5230
+          \"git add .\" \u6307\u4EE4\r\n\u53EF\u80FD\u6703\u628A\u4E0D\u60F3\u8981\u4E0A\u50B3\u7684\u6A94\u6848\u4E5F\u79FB\u52D5\u5230
           \"\u66AB\u5B58\u5340\u57DF\" \uFF01"
         type: 0
         typeString: CustomFieldType_Text
@@ -54323,8 +54346,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1911.0385
-        y: 339.66708
+        x: 1910.121
+        y: 341.50195
         width: 160
         height: 30
     - id: 77
@@ -54476,7 +54499,7 @@ MonoBehaviour:
         width: 236.85162
         height: 167.68564
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1489.2423, y: 0}
+    canvasScrollPosition: {x: 1707.591, y: 1.8348694}
     canvasZoom: 1.0899999
   - id: 56
     fields:
@@ -54670,8 +54693,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1916.5967
-        y: 9.094719
+        x: 1915.5967
+        y: 8.094719
         width: 160
         height: 30
     - id: 60
@@ -54867,7 +54890,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1912.2991
+        x: 1911.2991
         y: 285.5583
         width: 160
         height: 30
@@ -54880,7 +54903,7 @@ MonoBehaviour:
         width: 254.92163
         height: 124.4845
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1566, y: 0}
+    canvasScrollPosition: {x: 1629, y: 0}
     canvasZoom: 1
   - id: 57
     fields:
@@ -55010,7 +55033,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: BlackOn happyFace
+        value: "BlackOn \u9AD8\u4EAE\u8996\u7A97"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -55211,7 +55234,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1918.7803
-        y: 133.97513
+        y: 132.97513
         width: 160
         height: 30
     - id: 78
@@ -55233,7 +55256,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: flag
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -55267,7 +55290,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "flag";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -55296,7 +55322,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: crossing
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -55331,14 +55357,17 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "crossing";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1915
-        y: 280
+        x: 1916
+        y: 279
         width: 160
         height: 30
     - id: 96
@@ -55360,7 +55389,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: lens
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -55395,13 +55424,16 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "lens";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1915
+        x: 1916
         y: 330
         width: 160
         height: 30
@@ -55424,7 +55456,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: lightBulb
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -55458,7 +55490,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "lightBulb";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -55487,7 +55522,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: cmd
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -55521,7 +55556,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "cmd";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -55550,7 +55588,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: "book \u9AD8\u4EAE\u7C92\u5B50"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -55584,7 +55622,16 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: '
+
+        Variable["ImageKey"] = "book";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("Hint/Particle/Show
+        Particle", "GameManualButton", "Highlight Particle");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -55613,7 +55660,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: happyFace
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -55641,7 +55688,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "happyFace";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("Hint/Particle/Close
+        Particle", "GameManualButton", "Highlight Particle");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -55668,8 +55722,8 @@ MonoBehaviour:
         width: 274
         height: 174
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1690, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 1725.0515, y: 271.80414}
+    canvasZoom: 0.97
   - id: 58
     fields:
     - title: Title
@@ -55872,7 +55926,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: reload
+        value: cmd
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -55907,7 +55961,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'Variable["ImageKey"] = "reload";
+      userScript: 'Variable["ImageKey"] = "cmd";
 
         FSMEvent("Tutorial Popup/Change
         Image", "Tutorial Popup Parent", "Tutorial Popup");'
@@ -55939,7 +55993,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: cmd
+        value: reload
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -55973,7 +56027,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'Variable["ImageKey"] = "cmd";
+      userScript: 'Variable["ImageKey"] = "reload";
 
         FSMEvent("Tutorial Popup/Change
         Image", "Tutorial Popup Parent", "Tutorial Popup");'
@@ -56039,7 +56093,22 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Close Content Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChat Fold Icon", "Button");
+
+
+        FSMEvent("Common/Window/Show
+        Window", "FileManagerWindow", "Window");
+
+
+        Variable["Switch"] = "10";
+
+        FSMEvent("Highlight
+        Panel/Highlight Panel", "FileManagerWindow", "Window Display");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -56103,14 +56172,21 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Common/Window/Show Window", "StagingAreaWindow", "Window");
+
+
+        Variable["Switch"]
+        = "01";
+
+        FSMEvent("Highlight Panel/Highlight Panel", "StagingAreaWindow",
+        "Window Display");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 1920.1185
-        y: 211.96216
+        y: 215.84564
         width: 160
         height: 30
     - id: 77
@@ -56324,7 +56400,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: cmd
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -56360,7 +56436,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Highlight Panel/Turn Off Highlight", "Layer 2 MovableField",
+        "Window Controller");
+
+
+        Variable["ImageKey"] = "cmd";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -56453,7 +56536,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: flyShoes
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -56488,7 +56571,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "flyShoes";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -56517,7 +56603,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: folder
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -56552,7 +56638,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "folder";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -56581,11 +56670,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: crossing
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u800C\u5728 \"git add\"\u3001 \"git reset\" \u52A0\u5165 \".\" \u7B26\u865F\r\n\u53EF\u4EE5\u4E00\u6B21\u6027\u7684\u5C07\u7576\u524D\u8DEF\u5F91\u4E0B\u7684\u6240\u6709\u6A94\u6848\u653E\u5165\u3001\u79FB\u51FA
+        value: "\u800C\u5728 \"git add\"\u3001 \"git reset\" \u52A0\u5165 \".\" \u7B26\u865F\r\n\u53EF\u4EE5\u4E00\u6B21\u6027\u7684\u5C07\r\n\u7576\u524D\u8DEF\u5F91\u4E0B\u7684\u6240\u6709\u6A94\u6848\u653E\u5165\u3001\u79FB\u51FA
           \"\u66AB\u5B58\u5340\u57DF\""
         type: 0
         typeString: CustomFieldType_Text
@@ -56616,14 +56705,17 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "crossing";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 1916.4265
-        y: 730.43335
+        y: 729.46246
         width: 160
         height: 30
     - id: 88
@@ -56645,7 +56737,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: playButton
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -56679,7 +56771,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "playButton";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -56708,11 +56803,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: pencil
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u5728\u548C \"\u66AB\u5B58\u5340\u57DF\" \u76F8\u95DC\u7684\u95DC\u5361\u4E2D\r\n\u6211\u5011\u5DF2\u7D93\u6210\u529F\u5730\u5C07\u4FEE\u6539\u597D\u7684\u6A94\u6848\u79FB\u52D5\u5230\u4E86
+        value: "\u5728\u548C \"\u66AB\u5B58\u5340\u57DF\" \u76F8\u95DC\u7684\u95DC\u5361\u4E2D\r\n\u6211\u5011\u5DF2\u7D93\u6210\u529F\u5730\r\n\u5C07\u4FEE\u6539\u597D\u7684\u6A94\u6848\u79FB\u52D5\u5230\u4E86
           \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF"
         type: 0
         typeString: CustomFieldType_Text
@@ -56743,7 +56838,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "pencil";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -56772,7 +56870,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: gift
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -56807,14 +56905,17 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "gift";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 1906.8695
-        y: 951.0551
+        y: 950.08417
         width: 160
         height: 30
     - id: 91
@@ -56836,7 +56937,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: checkmark
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -56871,7 +56972,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "checkmark";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -56900,11 +57004,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: happyFace
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u6700\u5F8C\uFF0C\u606D\u559C\u60A8\u5B8C\u6210\u672C\u6B21\u7684\u95DC\u5361\uFF01\r\n\u60A8\u5DF2\u7D93\u7406\u89E3\u4E86\u7D44\u6210
+        value: "\u6700\u5F8C\uFF0C\u606D\u559C\u60A8\u5B8C\u6210\u672C\u6B21\u7684\u95DC\u5361\uFF01\r\n\u60A8\u5DF2\u7D93\u7406\u89E3\u4E86\r\n\u7D44\u6210
           Git \u7684\u4E09\u5927\u5340\u57DF\u4E4B\u4E00 \u2014\u2014 \"\u66AB\u5B58\u5340\u57DF\"\r\n\u975E\u5E38\u7684\u53B2\u5BB3\uFF01"
         type: 0
         typeString: CustomFieldType_Text
@@ -56929,7 +57033,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "happyFace";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -56964,8 +57071,8 @@ MonoBehaviour:
         width: 347.57523
         height: 290.04102
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1369.5967, y: 136.60637}
-    canvasZoom: 0.73000026
+    canvasScrollPosition: {x: 1646.9324, y: 770.75073}
+    canvasZoom: 0.85000026
   syncInfo:
     syncActors: 0
     syncItems: 0
