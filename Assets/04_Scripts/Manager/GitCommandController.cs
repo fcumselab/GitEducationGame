@@ -122,13 +122,22 @@ public class GitCommandController : SerializedMonoBehaviour
             {
                 
             }*/
-            if(commandList[0] == "git" && (commandList[1] == "add" || commandList[1] == "reset"))
+            if(commandList.Count >= 2)
             {
-                return "RunFindFile";
-            }else if(commandList[0] == "git" && commandList[1] == "commit" && commandList[2] == "-m")
-            {
-                return "Commit";
+                if (commandList[0] == "git" && (commandList[1] == "add" || commandList[1] == "reset"))
+                {
+                    return "RunFindFile";
+                }
             }
+
+            if (commandList.Count >= 4)
+            {
+                if (commandList[0] == "git" && commandList[1] == "commit" && commandList[2] == "-m" && commandList[3] == "\"\"")
+                {
+                    return "Commit";
+                }
+            }
+            
         }
 
         return "";
@@ -223,6 +232,7 @@ public class GitCommandController : SerializedMonoBehaviour
                 }
                 break;
             case 4:
+                result = CleanDictionaryCommand(findList, commandList);
                 break;
         }
         return result;
