@@ -7,7 +7,7 @@
 讓 "暫存區域" 的內容移動到 "存儲庫"
 這些內容將會保存成第一個報告版本
 
-這個指令是 <color=red>"git commit -m"</color>
+這個指令是 "<color=#CF001C>git commit -m</color>"
 讓我們來了解一下指令的意義吧
 
 "git commit" 指令會讓
@@ -23,7 +23,7 @@
 並且我們在編寫提交訊息時
 也需要去注意訊息的內容
 
-編寫<color=red>清晰、簡潔、有意義</color>的提交訊息
+編寫<color=#CF001C>清晰、簡潔、有意義</color>的提交訊息
 可以幫助自己和團隊
 更好地理解檔案變更的目的和內容
 
@@ -37,16 +37,16 @@
 請照著以下的步驟來執行這個指令：
 
 第 1 步：
-在輸入欄中輸入 <color=red>"git commit -m"</color>
+在輸入欄中輸入 "<color=#CF001C>git commit -m</color>"
 
 第 2 步：
 在指令的後方加入一個空格鍵
-指令會變成 <color=red>"git commit -m "</color>
+指令會變成 "<color=#CF001C>git commit -m </color>"
 
 第 3 步：
 由於 Git 指令會按照空格鍵區分指令欄位
-所以在提交訊息時會需要透過 <color=red>""</color> 符號把訊息包起來
-現在指令內容為：「<color=red>git commit -m ""</color>」
+所以在提交訊息時會需要透過 <color=#CF001C>"</color> 符號把訊息包起來
+現在指令內容為：「<color=#CF001C>git commit -m ""</color>」
 
 第 4 步：
 在本遊戲中，您不需要自己輸入提交訊息
@@ -55,12 +55,12 @@
 透過 Tab 鍵 或 點擊搜尋按鈕
 來開啟提交訊息選項
 並從多個選項中點擊滑鼠左鍵
-來<color=red>選擇一個清晰、簡潔、有意義的提交訊息</color>
+來<color=#CF001C>選擇一個清晰、簡潔、有意義的提交訊息</color>
 
 第 5 步：
 在選擇完成之後
 輸入欄的內容應該會是：
-「<color=red>git commit -m "選擇的提交訊息"</color>」
+「<color=#CF001C>git commit -m "選擇的提交訊息"</color>」
 
 當您輸入的內容相同時
 就可以執行正確的指令了！
