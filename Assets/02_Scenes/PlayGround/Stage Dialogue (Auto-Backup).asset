@@ -35676,7 +35676,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1804.7451
-        y: 136.0655
+        y: 134.92914
         width: 160
         height: 30
     - id: 97
@@ -37390,8 +37390,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1332.5151, y: 33.09337}
-    canvasZoom: 0.9100002
+    canvasScrollPosition: {x: 1044.5781, y: 152.27274}
+    canvasZoom: 0.88000023
   - id: 40
     fields:
     - title: Title
@@ -58118,7 +58118,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1916.8773
+        x: 1918.5167
         y: 148.73242
         width: 160
         height: 30
@@ -58683,7 +58683,7 @@ MonoBehaviour:
         width: 371.6009
         height: 236.67929
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1508.1582, y: 160.2226}
+    canvasScrollPosition: {x: 1511.4369, y: 0}
     canvasZoom: 0.6099999
   - id: 60
     fields:
@@ -60592,8 +60592,8 @@ MonoBehaviour:
         width: 307.21912
         height: 451.05484
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1250.719, y: 0}
-    canvasZoom: 0.61
+    canvasScrollPosition: {x: 1361.2665, y: 0}
+    canvasZoom: 0.7599999
   - id: 62
     fields:
     - title: Title
@@ -60852,7 +60852,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1649.7427, y: 0}
+    canvasScrollPosition: {x: 1534.4482, y: 0}
     canvasZoom: 0.85000026
   - id: 63
     fields:
@@ -61047,7 +61047,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1919.2203
-        y: 9.195488
+        y: 7.825615
         width: 160
         height: 30
     - id: 60
@@ -61104,13 +61104,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: '
-
-        FSMEvent("Hint/Tutorial Highlight/close highlight",
-        "StagedFiles Hint", "Hint");
-
-        FSMEvent("Hint/Tutorial Highlight/close
-        highlight", "UnstagedFiles Hint", "Hint");'
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -61300,17 +61294,31 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'Variable["ImageKey"] = "lens";
+      userScript: '
 
-        FSMEvent("Tutorial Popup/Change
-        Image", "Tutorial Popup Parent", "Tutorial Popup");'
+        FSMEvent("Hint/Tutorial Highlight/close highlight",
+        "StagedFiles Hint", "Hint");
+
+        FSMEvent("Hint/Tutorial Highlight/close
+        highlight", "UnstagedFiles Hint", "Hint");
+
+
+        FSMEvent("Highlight
+        Panel/Turn Off Highlight", "Layer 2 MovableField", "Window Controller");
+
+
+        Variable["ImageKey"]
+        = "lens";
+
+        FSMEvent("Tutorial Popup/Change Image", "Tutorial Popup
+        Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1902.3278
-        y: 303.23135
+        x: 1904.6005
+        y: 305.50406
         width: 160
         height: 30
     - id: 97
@@ -61705,17 +61713,8 @@ MonoBehaviour:
       userScript: 'FSMEvent("Hint/Particle/Close Particle", "GameManualButton", "Highlight
         Particle");
 
-        FSMEvent("Tutorial Popup/Close Content Panel", "Tutorial
+        FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial
         Popup Parent", "Tutorial Popup");
-
-
-        FSMEvent("Common/Window/Show
-        Window", "CommandLineWindow", "Window");
-
-        Variable["Switch"] = "10";
-
-        FSMEvent("Highlight
-        Panel/Highlight Panel", "CommandLineWindow", "Window Display");
 
 
         FSMEvent("Common/Controller/Enable
@@ -61764,8 +61763,8 @@ MonoBehaviour:
         width: 251.54936
         height: 203.19772
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1759.6542, y: 476.63583}
-    canvasZoom: 1.3299999
+    canvasScrollPosition: {x: 1526.4299, y: 0}
+    canvasZoom: 0.7900004
   - id: 64
     fields:
     - title: Title
@@ -61894,7 +61893,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: BlackOn happyFace
+        value: "BlackOn \u9AD8\u4EAE\u8996\u7A97"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -61932,22 +61931,30 @@ MonoBehaviour:
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
-
         FSMEvent("DialogueChatWindow/expand window",
         "DialogueChat Fold Icon", "Button");
 
 
-        Variable["ImageKey"] = "happyFace";
+        FSMEvent("Common/Window/Show
+        Window", "CommitHistoryWindow", "Window");
 
-        FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+
+        Variable["Switch"] =
+        "10";
+
+        FSMEvent("Highlight Panel/Highlight Panel", "CommitHistoryWindow",
+        "Window Display");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "CommitHistoryWindow Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1919.2203
-        y: 9.195488
+        x: 1916.1609
+        y: 8.059128
         width: 160
         height: 30
     - id: 60
@@ -62004,7 +62011,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "CommitHistoryWindow
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "CommitHistory Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -62202,8 +62214,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1914.4451
-        y: 259.62256
+        x: 1918.2083
+        y: 298.44196
         width: 160
         height: 30
     - id: 97
@@ -62229,7 +62241,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u5728\u5F48\u51FA\u7684\u5F48\u7A97\u4E2D\r\n\u60A8\u53EF\u4EE5\u770B\u898B\u63D0\u4EA4\u6642\u7684\u65E5\u671F\u3001\u4F5C\u8005\u3001\u4EE5\u53CA\u6211\u5011\u525B\u624D\u7DE8\u5BEB\u7684\u8A0A\u606F\r\n\u9019\u4E9B\u8CC7\u8A0A\u53EF\u4EE5\u5E6B\u52A9\u60A8\u4E86\u89E3\u9019\u6B21\u63D0\u4EA4\u6240\u505A\u7684\u8B8A\u66F4"
+        value: "\u5728\u5F48\u51FA\u7684\u5F48\u7A97\u4E2D\r\n\u60A8\u53EF\u4EE5\u770B\u898B\uFF1A\n\u63D0\u4EA4\u6642\u7684\u65E5\u671F\u3001\u4F5C\u8005\u3001\u4EE5\u53CA\u6211\u5011\u525B\u624D\u7DE8\u5BEB\u7684\u8A0A\u606F\r"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -62259,14 +62271,21 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "CommitHistory
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "DateAuthorContent Hint", "Hint");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1908.6084
-        y: 327.37177
+        x: 1916.6042
+        y: 343.37906
         width: 160
         height: 30
     - id: 98
@@ -62323,14 +62342,21 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "DateAuthorContent
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "Branch Hint", "Hint");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1908.6084
-        y: 376.34082
+        x: 1913.1425
+        y: 387.71973
         width: 160
         height: 30
     - id: 99
@@ -62393,8 +62419,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1908.6084
-        y: 430.46454
+        x: 1909.71
+        y: 435.05746
         width: 160
         height: 30
     - id: 100
@@ -62457,8 +62483,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1908.6084
-        y: 477.37177
+        x: 1913.0067
+        y: 484.1626
         width: 160
         height: 30
     - id: 101
@@ -62515,14 +62541,15 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Hint/Tutorial Highlight/close highlight", "Branch Hint",
+        "Hint");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1908.6084
-        y: 527.3717
+        x: 1913.2234
+        y: 534.3793
         width: 160
         height: 30
     - id: 102
@@ -62584,8 +62611,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1910.7319
-        y: 588.7207
+        x: 1912.8202
+        y: 580.926
         width: 160
         height: 30
     - id: 103
@@ -62637,7 +62664,7 @@ MonoBehaviour:
       - originConversationID: 64
         originDialogueID: 103
         destinationConversationID: 64
-        destinationDialogueID: 104
+        destinationDialogueID: 115
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -62647,8 +62674,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2191.3025
-        y: 585.2018
+        x: 2341.0852
+        y: 315.29602
         width: 160
         height: 30
     - id: 104
@@ -62674,8 +62701,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u5728 \"\u63D0\u4EA4\u8A18\u9304\" \u8996\u7A97\u7684\u5DE6\u65B9\u5217\u8868\u4E2D\r\n\u986F\u793A\u7684\u662F\u7576\u524D
-          \"\u5B58\u5132\u5EAB\" \u6240\u6709\u7684\u5206\u652F\u540D\u7A31\u548C\u5716\u6A19"
+        value: "\u63A5\u8457\uFF0C\u60A8\u53EF\u4EE5\u5728 \"\u63D0\u4EA4\u8A18\u9304\"
+          \u8996\u7A97\u7684\u5DE6\u65B9\u5217\u8868\u4E2D\r\n\u770B\u898B\u7576\u524D
+          \"\u5B58\u5132\u5EAB\" \u6240\u6709\u7684\u5206\u652F\u540D\u7A31\u548C\u5C0D\u61C9\u5716\u6A19"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -62705,14 +62733,15 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Hint/Tutorial Highlight/show highlight", "BranchTag Hint",
+        "Hint");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2198.7654
-        y: 641.172
+        x: 2339.3806
+        y: 459.67905
         width: 160
         height: 30
     - id: 105
@@ -62739,7 +62768,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u5206\u652F\u6703\u6309\u7167\u4E0D\u540C\u7684\u984F\u8272\u4F86\u505A\u986F\u793A\r\n\u50CF\u662F\u5C6C\u65BC
-          master \u5206\u652F\u7684\u63D0\u4EA4\r\n\u6703\u662F\u4EE5\u85CD\u8272\u52A0\u4E0A
+          master \u5206\u652F\u7684 \"\u63D0\u4EA4\"\r\n\u6703\u662F\u4EE5\u85CD\u8272\u52A0\u4E0A
           M \u9996\u5B57\u6BCD\u4F5C\u70BA\u8FA8\u8A8D"
         type: 0
         typeString: CustomFieldType_Text
@@ -62776,8 +62805,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2198.7654
-        y: 691.172
+        x: 2336.7893
+        y: 493.83536
         width: 160
         height: 30
     - id: 106
@@ -62804,7 +62833,8 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u800C\u65D7\u5B50\u5716\u793A\u7684 HEAD \r\n\u6703\u7AD9\u5728
-          \"\u63D0\u4EA4\" \u7684\u4E0A\u65B9\r\n\u9019\u4EE3\u8868\u7684\u662F\u6211\u5011\u73FE\u5728\u6240\u5728\u7684\u7248\u672C"
+          \"\u63D0\u4EA4\" \u7684\u4E0A\u65B9\r\n\u9019\u4EE3\u8868\u7684\u662F\u6211\u5011\u73FE\u5728\u6240\u5728\u7684
+          \"\u63D0\u4EA4\" \u7248\u672C"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -62840,8 +62870,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2198.7654
-        y: 741.172
+        x: 2333.4924
+        y: 531.7471
         width: 160
         height: 30
     - id: 107
@@ -62867,8 +62897,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\"HEAD -> master\" \u6587\u5B57\r\n\u4E5F\u662F\u4EE3\u8868\u4E86\u65D7\u5B50
-          HEAD \u73FE\u5728\u6307\u5411\u4E86 master \u5206\u652F"
+        value: "\u525B\u624D \"\u63D0\u4EA4\" \u986F\u793A\u7684 \"HEAD -> master\"
+          \u6587\u5B57\r\n\u4E5F\u662F\u4EE3\u8868\u4E86\u65D7\u5B50 HEAD \u73FE\u5728\u6307\u5411\u4E86
+          master \u5206\u652F"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -62898,14 +62929,19 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "BranchTag
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "Branch Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2198.7654
-        y: 791.172
+        x: 2332.3936
+        y: 568.56006
         width: 160
         height: 30
     - id: 108
@@ -62961,14 +62997,15 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Hint/Tutorial Highlight/close highlight", "Branch Hint",
+        "Hint");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2200.889
-        y: 851.2552
+        x: 2334.517
+        y: 639.6323
         width: 160
         height: 30
     - id: 109
@@ -63031,8 +63068,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2200.889
-        y: 901.25525
+        x: 2334.517
+        y: 677.54456
         width: 160
         height: 30
     - id: 110
@@ -63094,8 +63131,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2202.1548
-        y: 951.25525
+        x: 2329.1895
+        y: 746.22565
         width: 160
         height: 30
     - id: 111
@@ -63117,7 +63154,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: cmd
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -63152,14 +63189,21 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Highlight Panel/Turn Off Highlight", "Layer 2 MovableField",
+        "Window Controller");
+
+
+        Variable["ImageKey"] = "cmd";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2200.889
-        y: 1001.25525
+        x: 2341.9973
+        y: 879.199
         width: 160
         height: 30
     - id: 112
@@ -63181,7 +63225,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: pencil
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -63217,14 +63261,17 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "pencil";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2202.889
-        y: 1053.2552
+        x: 2340.7004
+        y: 915.3296
         width: 160
         height: 30
     - id: 113
@@ -63246,7 +63293,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: file Q
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -63280,14 +63327,21 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "file";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("Quest
+        Tracker/Add New Quest", "Quest Tracker Parent", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2202.889
-        y: 1103.2552
+        x: 2338.5027
+        y: 955.4396
         width: 160
         height: 30
     - id: 114
@@ -63309,11 +63363,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: happyFace
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u52A0\u6CB9\uFF01"
+        value: "\u8ACB\u7E7C\u7E8C\u52A0\u6CB9\uFF01"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -63337,14 +63391,85 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
+      userScript: 'Variable["ImageKey"] = "happyFace";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2337.4036
+        y: 997.7473
+        width: 160
+        height: 30
+    - id: 115
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "\u8ACB\u60A8\u5148\u4F7F\u7528\u6ED1\u9F20\u5DE6\u9375\n\u9EDE\u64CA
+          \"\u63D0\u4EA4\u8A18\u9304\" \u8996\u7A97\u7684\u4EFB\u610F\u5340\u57DF\n\u4EE5\u95DC\u9589
+          \"\u63D0\u4EA4\" \u7684\u8A73\u7D30\u5167\u5BB9"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 64
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 64
+        originDialogueID: 115
+        destinationConversationID: 64
+        destinationDialogueID: 104
+        isConnector: 0
+        priority: 2
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2202.889
-        y: 1153.2552
+        x: 2341.3215
+        y: 394.8188
         width: 160
         height: 30
     entryGroups:
@@ -63353,11 +63478,27 @@ MonoBehaviour:
         serializedVersion: 2
         x: 1882.4998
         y: 54.360153
-        width: 242.46332
-        height: 302.3864
+        width: 248.14514
+        height: 209.20459
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1881.3992, y: 785.2886}
-    canvasZoom: 0.7900001
+    - name: Group
+      rect:
+        serializedVersion: 2
+        x: 1884.5836
+        y: 270.90027
+        width: 248.25276
+        height: 365.8352
+      color: {r: 1, g: 1, b: 1, a: 0.5}
+    - name: Group
+      rect:
+        serializedVersion: 2
+        x: 2302.3435
+        y: 834.7075
+        width: 237.26375
+        height: 209.7912
+      color: {r: 1, g: 1, b: 1, a: 0.5}
+    canvasScrollPosition: {x: 1771.1592, y: 42.69211}
+    canvasZoom: 0.70000005
   - id: 65
     fields:
     - title: Title
@@ -63560,7 +63701,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: windowOutline Q
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -63589,13 +63730,20 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "windowOutline";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("Quest
+        Tracker/Add New Quest", "Quest Tracker Parent", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1918.202
+        x: 1916.7736
         y: 96.93295
         width: 160
         height: 30
@@ -63730,7 +63878,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: BlackOn happyFace
+        value: "BlackOn \u9AD8\u4EAE\u8996\u7A97"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -63768,22 +63916,29 @@ MonoBehaviour:
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
-
         FSMEvent("DialogueChatWindow/expand window",
         "DialogueChat Fold Icon", "Button");
 
 
-        Variable["ImageKey"] = "happyFace";
+        FSMEvent("Common/Window/Show
+        Window", "StagingAreaWindow", "Window");
 
-        FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+
+        Variable["Switch"] = "10";
+
+        FSMEvent("Highlight
+        Panel/Highlight Panel", "StagingAreaWindow", "Window Display");
+
+
+        FSMEvent("Hint/Tutorial
+        Highlight/show highlight", "StagingAreaWindow Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1919.2203
-        y: 9.195488
+        x: 1916.7812
+        y: 17.73207
         width: 160
         height: 30
     - id: 60
@@ -63841,14 +63996,19 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "StagingAreaWindow
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "UnstagedFiles Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.5549
-        y: 89.874115
+        x: 1918.116
+        y: 88.6546
         width: 160
         height: 30
     - id: 75
@@ -63874,8 +64034,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u9019\u4EE3\u8868\u4E86 Git \u7CFB\u7D71\u6BD4\u8F03\u4E86\r\n\"\u5DE5\u4F5C\u76EE\u9304\"
-          \u8207 \u7B2C\u4E00\u500B\u63D0\u4EA4\u7248\u672C"
+        value: "\u9019\u662F\u56E0\u70BA Git \u7CFB\u7D71\u6BD4\u8F03\u4E86\r\n\"\u5DE5\u4F5C\u76EE\u9304\"
+          \u8207 \"\u7B2C\u4E00\u500B\u63D0\u4EA4\u7248\u672C\" \u7684\u6A94\u6848"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -63911,8 +64071,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.1138
-        y: 174.11761
+        x: 1916.4553
+        y: 133.87375
         width: 160
         height: 30
     - id: 76
@@ -63938,7 +64098,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u4E26\u767C\u73FE\u4E86 \"\u671F\u4E2D\u5831\u544A\" \u7684\u5167\u5BB9\u4E0D\u540C"
+        value: "\u4E26\u767C\u73FE\u4E86 \"\u671F\u4E2D\u5831\u544A\" \u9019\u500B\u6A94\u6848\u7684\u5167\u5BB9\u4E0D\u4E00\u81F4"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -63974,8 +64134,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.1138
-        y: 224.11761
+        x: 1911.5771
+        y: 174.11758
         width: 160
         height: 30
     - id: 77
@@ -64037,8 +64197,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1918.9373
-        y: 274.1176
+        x: 1912.8397
+        y: 238.75177
         width: 160
         height: 30
     - id: 78
@@ -64060,7 +64220,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Q
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -64095,14 +64255,24 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "UnstagedFiles
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "StagedFiles Hint", "Hint");
+
+
+
+        FSMEvent("Quest Tracker/Add New Quest",
+        "Quest Tracker Parent", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.1138
-        y: 324.1176
+        x: 1911.577
+        y: 346.06882
         width: 160
         height: 30
     - id: 79
@@ -64128,8 +64298,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u5728\u5B8C\u6210\u4E4B\u5F8C\uFF0C\r\n\u8ACB\u60A8\u5728\u4F7F\u7528
-          \"git status\" \u78BA\u8A8D\u4FEE\u6539\u5F8C\u7684\u72C0\u6CC1"
+        value: "\u5728\u5B8C\u6210\u4E4B\u5F8C\uFF0C\r\n\u8ACB\u60A8\u518D\u6B21\u78BA\u8A8D\u4FEE\u6539\u5F8C
+          \"\u66AB\u5B58\u5340\u57DF\" \u7684\u72C0\u6CC1"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -64153,14 +64323,22 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "StagedFiles
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "StagingAreaWindow Hint", "Hint");
+
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.1138
-        y: 374.1176
+        x: 1907.9186
+        y: 394.8493
         width: 160
         height: 30
     entryGroups: []
@@ -64294,7 +64472,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: BlackOn happyFace
+        value: "BlackOn \u9AD8\u4EAE\u8996\u7A97"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -64333,15 +64511,22 @@ MonoBehaviour:
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
-
         FSMEvent("DialogueChatWindow/expand window",
         "DialogueChat Fold Icon", "Button");
 
 
-        Variable["ImageKey"] = "happyFace";
+        FSMEvent("Common/Window/Show
+        Window", "StagingAreaWindow", "Window");
 
-        FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+
+        Variable["Switch"] = "10";
+
+        FSMEvent("Highlight
+        Panel/Highlight Panel", "StagingAreaWindow", "Window Display");
+
+
+        FSMEvent("Hint/Tutorial
+        Highlight/show highlight", "StagingAreaWindow Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -64370,7 +64555,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: cmd Q
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -64406,14 +64591,25 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Highlight Panel/Turn Off Highlight", "Layer 2 MovableField",
+        "Window Controller");
+
+
+        Variable["ImageKey"] = "cmd";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("Quest
+        Tracker/Add New Quest", "Quest Tracker Parent", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.5549
-        y: 89.874115
+        x: 1911.2767
+        y: 85.75043
         width: 160
         height: 30
     - id: 75
@@ -64463,14 +64659,23 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "book";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("Hint/Particle/Show
+        Particle", "GameManualButton", "Highlight Particle");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.1138
-        y: 174.11761
+        x: 1912.8973
+        y: 166.9011
         width: 160
         height: 30
     entryGroups: []
@@ -64604,7 +64809,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: BlackOn happyFace
+        value: "BlackOn \u9AD8\u4EAE\u8996\u7A97"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -64642,15 +64847,24 @@ MonoBehaviour:
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
-
         FSMEvent("DialogueChatWindow/expand window",
         "DialogueChat Fold Icon", "Button");
 
 
-        Variable["ImageKey"] = "happyFace";
+        FSMEvent("Common/Window/Show
+        Window", "CommandLineWindow", "Window");
 
-        FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+
+        Variable["Switch"] = "10";
+
+        FSMEvent("Highlight
+        Panel/Highlight Panel", "CommandLineWindow", "Window Display");
+
+
+        FSMEvent("Hint/Tutorial
+        Highlight/show highlight", "CommandHistoryDetailed Hint", "Hint");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -64679,7 +64893,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: windowOutline
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -64714,13 +64928,25 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "CommandHistoryDetailed
+        Hint", "Hint");
+
+
+        FSMEvent("Highlight Panel/Turn Off Highlight",
+        "Layer 2 MovableField", "Window Controller");
+
+
+        Variable["ImageKey"]
+        = "windowOutline";
+
+        FSMEvent("Tutorial Popup/Change Image", "Tutorial
+        Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.5549
+        x: 1918.5549
         y: 89.874115
         width: 160
         height: 30
@@ -64743,7 +64969,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: lightBulb
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -64778,14 +65004,19 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: '
+
+        Variable["ImageKey"] = "lightBulb";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1917.1138
-        y: 145.11761
+        x: 1916.1138
+        y: 190.11761
         width: 160
         height: 30
     - id: 76
@@ -64807,7 +65038,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: controller
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -64841,14 +65072,19 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: '
+
+        Variable["ImageKey"] = "controller";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.1138
-        y: 224.11761
+        x: 1918.1138
+        y: 235.11761
         width: 160
         height: 30
     - id: 77
@@ -64870,7 +65106,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: lens
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -64904,14 +65140,19 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: '
+
+        Variable["ImageKey"] = "lens";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1918.9373
-        y: 274.1176
+        x: 1916.9373
+        y: 277.1176
         width: 160
         height: 30
     - id: 78
@@ -64933,7 +65174,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: flyShoes
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -64968,14 +65209,19 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: '
+
+        Variable["ImageKey"] = "flyShoes";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.1138
-        y: 324.1176
+        x: 1916.1138
+        y: 322.1176
         width: 160
         height: 30
     - id: 79
@@ -64997,7 +65243,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: lens Q
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -65027,19 +65273,34 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
+
+
+        Variable["ImageKey"] = "lens";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.1138
-        y: 374.1176
+        x: 1916.1138
+        y: 427.1176
         width: 160
         height: 30
-    entryGroups: []
-    canvasScrollPosition: {x: 1727, y: 0}
-    canvasZoom: 1
+    entryGroups:
+    - name: Group
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 157
+        width: 215
+        height: 210
+      color: {r: 1, g: 1, b: 1, a: 0.5}
+    canvasScrollPosition: {x: 1688.464, y: 102.113434}
+    canvasZoom: 0.97
   - id: 69
     fields:
     - title: Title
@@ -65168,13 +65429,13 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: BlackOn happyFace
+        value: "BlackOn \u9AD8\u4EAE\u8996\u7A97"
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u5F88\u597D\r\n\u57F7\u884C\u4E86 \"git status\" \u6307\u4EE4\r\n\u6211\u5011\u78BA\u8A8D\u4E86
-          \"\u671F\u4E2D\u5831\u544A\" \u5DF2\u7D93\u79FB\u52D5\u5230\u4E86 \"\u5B58\u5132\u5EAB\"
-          \u4E2D"
+          \"\u671F\u4E2D\u5831\u544A\" \u5DF2\u7D93\r\n\u5F9E \"\u66AB\u5B58\u5340\u57DF\"
+          \u79FB\u52D5\u5230\u4E86 \"\u5B58\u5132\u5EAB\" \u4E2D"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -65207,15 +65468,22 @@ MonoBehaviour:
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
-
         FSMEvent("DialogueChatWindow/expand window",
         "DialogueChat Fold Icon", "Button");
 
 
-        Variable["ImageKey"] = "happyFace";
+        FSMEvent("Common/Window/Show
+        Window", "StagingAreaWindow", "Window");
 
-        FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+
+        Variable["Switch"] = "10";
+
+        FSMEvent("Highlight
+        Panel/Highlight Panel", "StagingAreaWindow", "Window Display");
+
+
+        FSMEvent("Hint/Tutorial
+        Highlight/show highlight", "StagedFiles Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -65244,11 +65512,13 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: cmd Q
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u90A3\u9EBC\uFF0C\u8ACB\u60A8\u4F7F\u7528 \"git log\" \u6307\u4EE4\r\n\u4F86\u89C0\u770B\u63D0\u4EA4\u5F8C\u7684\u5167\u5BB9\u5427\uFF01"
+        value: "\u90A3\u9EBC\uFF0C\u63A5\u4E0B\u4F86\u8ACB\u60A8\u518D\u6B21\u4F7F\u7528
+          \"git log\" \u6307\u4EE4\r\n\u4F86\u89C0\u770B\u65B0\u589E\u4E86\u7B2C\u4E8C\u500B
+          \"\u63D0\u4EA4\" \u5F8C\r\n\"\u63D0\u4EA4\u8A18\u9304\" \u8996\u7A97\u6709\u4E86\u4EC0\u9EBC\u6A23\u7684\u8B8A\u5316\u5427\uFF01"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -65272,19 +65542,32 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "StagedFiles
+        Hint", "Hint");
+
+
+        Variable["ImageKey"] = "cmd";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");
+
+
+        FSMEvent("Quest
+        Tracker/Add New Quest", "Quest Tracker Parent", "Quest Tracker");
+
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 1918.202
-        y: 96.93295
+        y: 97.903824
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1664, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 1673.8156, y: 2.6504788}
+    canvasZoom: 1.03
   - id: 70
     fields:
     - title: Title
@@ -66038,8 +66321,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1803, y: 272}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 1643.3401, y: 0}
+    canvasZoom: 0.97
   syncInfo:
     syncActors: 0
     syncItems: 0
@@ -66058,4 +66341,4 @@ MonoBehaviour:
     Value","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Description","value":"","type":0,"typeString":"CustomFieldType_Text"}],"conversationFields":[{"title":"Title","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Description","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Actor","value":"0","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Conversant","value":"0","type":5,"typeString":"CustomFieldType_Actor"}],"dialogueEntryFields":[{"title":"Title","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Description","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Actor","value":"","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Conversant","value":"","type":5,"typeString":"CustomFieldType_Actor"},{"title":"Menu
     Text","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Dialogue
     Text","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Sequence","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"canvasRect","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Response
-    Menu Sequence","value":"","type":0,"typeString":"CustomFieldType_Text"}],"actorPrimaryFieldTitles":[],"itemPrimaryFieldTitles":[],"questPrimaryFieldTitles":[],"locationPrimaryFieldTitles":[],"variablePrimaryFieldTitles":[],"conversationPrimaryFieldTitles":[],"dialogueEntryPrimaryFieldTitles":[],"npcLineColor":{"r":1.0,"g":0.0,"b":0.0,"a":1.0},"pcLineColor":{"r":0.0,"g":0.0,"b":1.0,"a":1.0},"repeatLineColor":{"r":0.5,"g":0.5,"b":0.5,"a":1.0}}'
+    Menu Sequence","value":"","type":0,"typeString":"CustomFieldType_Text"}],"actorPrimaryFieldTitles":[],"itemPrimaryFieldTitles":[],"questPrimaryFieldTitles":[],"locationPrimaryFieldTitles":[],"variablePrimaryFieldTitles":[],"conversationPrimaryFieldTitles":[],"dialogueEntryPrimaryFieldTitles":[],"npcLineColor":{"r":1.0,"g":0.7493479251861572,"b":0.5235849022865295,"a":1.0},"pcLineColor":{"r":0.5235849022865295,"g":0.6516783237457275,"b":1.0,"a":1.0},"repeatLineColor":{"r":0.5,"g":0.5,"b":0.5,"a":1.0}}'
