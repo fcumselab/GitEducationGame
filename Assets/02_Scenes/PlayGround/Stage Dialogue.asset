@@ -2255,7 +2255,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u63D0\u4EA4\u7C21\u5831\u7684\u7B2C\u4E09\u500B\u7248\u672C"
+      value: "\u5C07\u8B8A\u66F4\u6A94\u6848\u79FB\u5165\u66AB\u5B58\u5340\u57DF\u4E26\u78BA\u8A8D\u72C0\u614B"
       type: 0
       typeString: CustomFieldType_Text
     - title: Success Description
@@ -2301,7 +2301,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u78BA\u8A8D\u66AB\u5B58\u5340\u57DF\u7684\u72C0\u614B"
+      value: "\u63D0\u4EA4\u7C21\u5831\u7684\u7B2C\u4E09\u500B\u7248\u672C"
       type: 0
       typeString: CustomFieldType_Text
     - title: Success Description
@@ -2340,6 +2340,52 @@ MonoBehaviour:
     fields:
     - title: Name
       value: 'The basics of Git: Creating your first Git project version/16'
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: "\u78BA\u8A8D\u66AB\u5B58\u5340\u57DF\u7684\u72C0\u614B"
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Success Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Failure Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: State
+      value: unassigned
+      type: 0
+      typeString: CustomFieldType_QuestState
+    - title: Is Item
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Trackable
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Track
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Entry Count
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Group
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 52
+    fields:
+    - title: Name
+      value: 'The basics of Git: Creating your first Git project version/17'
       type: 0
       typeString: CustomFieldType_Text
     - title: Pictures
@@ -37044,10 +37090,17 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 39
+        originDialogueID: 118
+        destinationConversationID: 39
+        destinationDialogueID: 124
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 'FSMEvent("Common/Controller/Enable Control", "Stage Manager Parent",
         "Button Controller");
+
 
         FSMEvent("Dialog Button/Hide Button", "Continue
         Button", "Button");
@@ -37059,8 +37112,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1158.1642
-        y: 388.52115
+        x: 1143.6906
+        y: 341.15274
         width: 160
         height: 30
     - id: 119
@@ -37389,9 +37442,67 @@ MonoBehaviour:
         y: 660.56195
         width: 160
         height: 30
+    - id: 124
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: "\u5141\u8A31\u64CD\u4F5C(\u53EA\u6709\u6307\u4EE4\u8F38\u5165)"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 39
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: FSMEvent("CommandLineWindow/CommandInputField/Enable Control",
+        "CommandLineWindow", "Window");
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1143.3748
+        y: 400.36328
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1044.5781, y: 152.27274}
-    canvasZoom: 0.88000023
+    canvasScrollPosition: {x: 881.74866, y: 158.19508}
+    canvasZoom: 1.0000001
   - id: 40
     fields:
     - title: Title
@@ -44577,7 +44688,7 @@ MonoBehaviour:
         width: 252.92279
         height: 220.23053
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1408.0337, y: 403.5028}
+    canvasScrollPosition: {x: 1495.1768, y: 270.6457}
     canvasZoom: 0.70000017
   - id: 45
     fields:
@@ -46328,8 +46439,8 @@ MonoBehaviour:
         Hint", "Hint");
 
 
-        FSMEvent("Common/Controller/Enable Control", "Stage
-        Manager Parent", "Button Controller");'
+        FSMEvent("CommandLineWindow/CommandInputField/Enable
+        Control", "CommandLineWindow", "Window");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -46528,6 +46639,8 @@ MonoBehaviour:
         Panel/Turn Off Highlight", "Layer 2 MovableField", "Window Controller");
 
 
+        FSMEvent("Common/Controller/Enable
+        Control", "Stage Manager Parent", "Button Controller");
 
         FSMEvent("Dialog
         Button/Hide Button", "Continue Button", "Button");
@@ -46899,8 +47012,8 @@ MonoBehaviour:
         width: 338.2727
         height: 453.79208
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 681.0305, y: 179.71062}
-    canvasZoom: 0.7900001
+    canvasScrollPosition: {x: 237.6069, y: 0}
+    canvasZoom: 0.82000005
   - id: 47
     fields:
     - title: Title
@@ -47081,8 +47194,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 258.79245
-        y: 128.09927
+        x: 252.40945
+        y: 121.71631
         width: 160
         height: 30
     - id: 71
@@ -47695,8 +47808,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 354.94116
-        y: 127.58824
+        x: 352.58826
+        y: 126.41177
         width: 160
         height: 30
     - id: 71
@@ -48170,7 +48283,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 115.29411, y: 0}
+    canvasScrollPosition: {x: 98.82353, y: 60.000046}
     canvasZoom: 0.8500001
   - id: 49
     fields:
@@ -50383,7 +50496,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: BlackOn happyFace
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -50418,14 +50531,25 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChat Fold Icon", "Button");
+
+
+        Variable["ImageKey"] = "happyFace";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 642.65027
-        y: 133.06303
+        x: 641.65027
+        y: 124.063034
         width: 160
         height: 30
     - id: 84
@@ -50447,7 +50571,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: star
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -50481,7 +50605,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "star";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -50510,7 +50637,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: shuffle
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -50544,7 +50671,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "shuffle";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -50608,14 +50738,29 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Close Content Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
+
+
+        FSMEvent("Common/Window/Show Window",
+        "StagingAreaWindow", "Window");
+
+
+        Variable["Switch"] = "10";
+
+        FSMEvent("Highlight
+        Panel/Highlight Panel", "StagingAreaWindow", "Window Display");
+
+
+        FSMEvent("Hint/Tutorial
+        Highlight/show highlight", "StagedFiles Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 642.65027
-        y: 283.06296
+        y: 293.23245
         width: 160
         height: 30
     - id: 87
@@ -50673,14 +50818,19 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "StagedFiles
+        Hint", "Hint");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "UnstagedFiles Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 642.65027
-        y: 333.06302
+        x: 640.1079
+        y: 338.1478
         width: 160
         height: 30
     - id: 88
@@ -50702,7 +50852,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: checkmark
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -50736,7 +50886,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "checkmark";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -50765,7 +50918,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: star
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -50799,7 +50952,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "star";
+
+        FSMEvent("Tutorial Popup/Change
+        Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -50828,7 +50984,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: happyFace
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
@@ -50856,7 +51012,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["ImageKey"] = "happyFace";
+
+        FSMEvent("Tutorial
+        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -50867,8 +51026,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 105.864655, y: 0}
-    canvasZoom: 0.7600002
+    canvasScrollPosition: {x: 540.08154, y: 179.93962}
+    canvasZoom: 1.18
   - id: 51
     fields:
     - title: Title
@@ -56455,7 +56614,7 @@ MonoBehaviour:
         width: 274
         height: 174
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1610.8994, y: 81.818146}
+    canvasScrollPosition: {x: 1596.1266, y: 0}
     canvasZoom: 0.88000005
   - id: 58
     fields:
@@ -60101,15 +60260,15 @@ MonoBehaviour:
         Hint", "Hint");
 
 
-        FSMEvent("Common/Controller/Enable Control", "Stage
-        Manager Parent", "Button Controller");'
+        FSMEvent("CommandLineWindow/CommandInputField/Enable
+        Control", "CommandLineWindow", "Window");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 1913.6643
-        y: 789.9441
+        y: 787.0869
         width: 160
         height: 30
     - id: 104
@@ -60480,13 +60639,15 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: '
+      userScript: 'FSMEvent("Common/Controller/Enable Control", "Stage Manager Parent",
+        "Button Controller");
 
-        FSMEvent("Dialog Button/Hide Button", "Continue Button",
-        "Button");
 
-        FSMEvent("Dialog Button/Hide Button", "Skip Button",
-        "Button");'
+        FSMEvent("Dialog Button/Hide Button", "Continue
+        Button", "Button");
+
+        FSMEvent("Dialog Button/Hide Button", "Skip
+        Button", "Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -60587,7 +60748,7 @@ MonoBehaviour:
         width: 307.21912
         height: 451.05484
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1412.0935, y: 170}
+    canvasScrollPosition: {x: 1580.6652, y: 601.4286}
     canvasZoom: 0.6999999
   - id: 62
     fields:
@@ -60847,7 +61008,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1534.4482, y: 0}
+    canvasScrollPosition: {x: 1565.0363, y: 0}
     canvasZoom: 0.85000026
   - id: 63
     fields:
@@ -61447,8 +61608,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1901.6459
-        y: 464.62677
+        x: 1900.3801
+        y: 476.01923
         width: 160
         height: 30
     - id: 99
@@ -61758,7 +61919,7 @@ MonoBehaviour:
         width: 251.54936
         height: 203.19772
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1526.4299, y: 0}
+    canvasScrollPosition: {x: 1608.7085, y: 346.8353}
     canvasZoom: 0.7900004
   - id: 64
     fields:
@@ -63626,7 +63787,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u5F88\u68D2\uFF01\r\n\u60A8\u70BA \"\u671F\u4E2D\u5831\u544A\" \u65B0\u589E\u4E86\u5167\u5BB9"
+        value: "\u5F88\u68D2\uFF01\r\n\u60A8\u4FEE\u6B63\u4E86 \"\u671F\u4E2D\u5831\u544A\"
+          \u4E2D\r\n\u932F\u8AA4\u7684\u904B\u884C\u6B65\u9A5F "
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -65294,7 +65456,7 @@ MonoBehaviour:
         width: 215
         height: 210
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1688.464, y: 102.113434}
+    canvasScrollPosition: {x: 1675.0619, y: 0}
     canvasZoom: 0.97
   - id: 69
     fields:
@@ -66316,8 +66478,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1643.3401, y: 0}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 1880.6475, y: 111.76468}
+    canvasZoom: 0.85000014
   syncInfo:
     syncActors: 0
     syncItems: 0
