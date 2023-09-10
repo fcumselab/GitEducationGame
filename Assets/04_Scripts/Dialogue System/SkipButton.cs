@@ -27,6 +27,11 @@ public class SkipButton : MonoBehaviour
         }
     }
 
+    public void StopSkip()
+    {
+        skip = false;
+    }
+
     void OnConversationLine(Subtitle subtitle)
     {
         if (skip) StartCoroutine(ContinueAtEndOfFrame());
