@@ -64761,7 +64761,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1910.4071
+        x: 1911.2767
         y: 85.589066
         width: 160
         height: 30
@@ -65100,7 +65100,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1918.5549
-        y: 89.874115
+        y: 90.905045
         width: 160
         height: 30
     - id: 75
@@ -65452,7 +65452,7 @@ MonoBehaviour:
         width: 215
         height: 210
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1641.0413, y: 139.17526}
+    canvasScrollPosition: {x: 1721.4536, y: 0}
     canvasZoom: 0.97
   - id: 69
     fields:
@@ -65887,22 +65887,30 @@ MonoBehaviour:
       userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
         "Tutorial Popup");
 
-
         FSMEvent("DialogueChatWindow/expand window",
         "DialogueChat Fold Icon", "Button");
 
 
-        Variable["ImageKey"] = "happyFace";
+        FSMEvent("Common/Window/Show
+        Window", "CommitHistoryWindow", "Window");
 
-        FSMEvent("Tutorial
-        Popup/Change Image", "Tutorial Popup Parent", "Tutorial Popup");'
+
+        Variable["Switch"] =
+        "10";
+
+        FSMEvent("Highlight Panel/Highlight Panel", "CommitHistoryWindow",
+        "Window Display");
+
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "CommitHistoryWindow Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1919.2203
-        y: 9.195488
+        x: 1916.8674
+        y: 8.01902
         width: 160
         height: 30
     - id: 60
@@ -65960,7 +65968,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Hint/Tutorial Highlight/close highlight", "CommitHistoryWindow
+        Hint", "Hint");
+
+        FSMEvent("Hint/Tutorial Highlight/show highlight",
+        "CommitHistory Hint", "Hint");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -66030,7 +66042,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1920.1138
+        x: 1921.2902
         y: 174.11761
         width: 160
         height: 30
@@ -66157,8 +66169,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1924.9373
-        y: 320.1176
+        x: 1921.5564
+        y: 313.0588
         width: 160
         height: 30
     - id: 78
@@ -66220,8 +66232,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1926.1138
-        y: 371.2941
+        x: 1925.1428
+        y: 366.43973
         width: 160
         height: 30
     - id: 79
@@ -66474,8 +66486,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1532.4121, y: 144.7059}
-    canvasZoom: 0.85000014
+    canvasScrollPosition: {x: 1760.076, y: 132.02731}
+    canvasZoom: 1.03
   syncInfo:
     syncActors: 0
     syncItems: 0
