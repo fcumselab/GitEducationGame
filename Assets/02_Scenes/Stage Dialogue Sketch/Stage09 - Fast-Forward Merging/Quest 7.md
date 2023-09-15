@@ -19,7 +19,7 @@ Git 系統裡就只剩下 "master" 分支了
 在 Git 中， 有以下三種合併模式：
 1. 快轉合併（Fast-Forward Merge）
 2. 自動合併（Auto Merge）
-3. 有衝突的合併（Merge Conflict）
+3. 合併衝突（Merge Conflict）
 
 快轉合併的觸發情況為：
 「當兩個分支的提交記錄呈現線性，就像是一條直線，沒有分叉」
