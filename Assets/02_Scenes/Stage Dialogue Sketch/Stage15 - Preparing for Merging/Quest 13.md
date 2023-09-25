@@ -14,17 +14,17 @@
 我們就可以將 "new-feature" 分支推入到遠端儲存庫中了
 
 執行第 4 步驟
-是為了在建立 pull request 請求時
+是為了在建立 Pull Request 請求時
 不會出現文件衝突
 
-pull request 是我們在合併遠端 "master" 分支時
+Pull Request 是我們在合併遠端 "master" 分支時
 需要建立的一個合併請求
 團隊成員將會查看請求並決定是否要合併分支
 
 在下一個關卡中
-我們會進一步學習 pull request 的概念
+我們會進一步學習 Pull Request 的概念
 並實際建立它
 
 那麼，現在我們需要透過
 "git push origin new-feature" 指令
-將本地分支的內容推入到遠端儲存庫中
+將本地分支的內容上傳到遠端儲存庫中
