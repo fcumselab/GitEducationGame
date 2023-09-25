@@ -1,5 +1,5 @@
 歡迎來到關卡
-"建立 Pull Request：合併您的分支" ！
+"團隊協作：審核 Pull Request" ！
 
 在這個關卡中，我們將學習以下內容：
 1. 什麼是 Pull Request
