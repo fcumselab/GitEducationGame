@@ -8,3 +8,4 @@
 
 如果看到<color=red>檔案管理視窗</color>的話
 就透過<color=red>滑鼠左鍵</color>點擊它吧！
+

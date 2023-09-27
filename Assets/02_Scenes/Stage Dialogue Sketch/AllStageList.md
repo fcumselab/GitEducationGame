@@ -1,17 +1,18 @@
-1. 遊戲環境介紹 （Introduce Game）
-2. 版本控制 與 Git 的介紹（Version Control and Git）
-3. Git 的基礎 ：建立第一個本地存儲庫（）
-4. Git 的基礎 ：與暫存區域的互動
-5. 擴展您的 Git 技能：進階的暫存區域操作
-6. Git 的基礎：創建您的第一個 Git 專案版本
-7. Git 的基礎：切換專案版本
-8. 分支管理：基礎分支操作
-9. 分支管理：快進 (Fast-Forward) 合併分支
-10. 分支管理：自動（Auto）合併分支
-11. 分支管理：解決合併衝突
-12. 遠端管理：創建您的第一個遠端儲存庫
-13. 遠端管理：創建與推送遠端分支
-14. 遠端管理：保持分支同步
-15. 遠端管理：合併前的確認
-16. 團隊協作：創建 Pull Request
-17. 團隊協作：審核 Pull Request
+| 關卡主題   | 英文 ID                 | 關卡中文名稱                            | 關卡英文名稱                  |
+| :--------- | :---------------------- | :-------------------------------------- | :---------------------------- |
+| Git 的基礎 | Game Introduction       | 遊戲環境介紹                            | Game Environment Introduction |
+| Git 的基礎 | Version Control and Git | Git 的基礎 ：建立第一個本地存儲庫       |                               |
+| Git 的基礎 | Version Control and Git | Git 的基礎 ：與暫存區域的互動           |                               |
+| Git 的基礎 | Version Control and Git | 擴展您的 Git 技能：進階的暫存區域操作   |                               |
+| Git 的基礎 | Version Control and Git | Git 的基礎：創建您的第一個 Git 專案版本 |                               |
+| Git 的基礎 | Version Control and Git | Git 的基礎：切換專案版本                |                               |
+| 分支管理   | Version Control and Git | 分支管理：基礎分支操作                  |
+| 分支管理   |                         | 分支管理：快進 (Fast-Forward) 合併分支  |
+| 分支管理   |                         | 分支管理：自動（Auto）合併分支          |
+| 分支管理   |                         | 分支管理：解決合併衝突                  |
+| 遠端管理   |                         | 遠端管理：創建您的第一個遠端儲存庫      |
+| 遠端管理   |                         | 遠端管理：創建與推送遠端分支            |
+| 遠端管理   |                         | 遠端管理：保持分支同步                  |
+| 遠端管理   |                         | 遠端管理：合併前的確認                  |
+| 遠端管理   |                         | 團隊協作：創建 Pull Request             |
+| 遠端管理   |                         | 團隊協作：審核 Pull Request             |
