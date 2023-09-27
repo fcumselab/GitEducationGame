@@ -1,12 +1,12 @@
-| 關卡主題   | 英文 ID                 | 關卡中文名稱                            | 關卡英文名稱                  |
-| :--------- | :---------------------- | :-------------------------------------- | :---------------------------- |
-| Git 的基礎 | Game Introduction       | 遊戲環境介紹                            | Game Environment Introduction |
-| Git 的基礎 | Version Control and Git | Git 的基礎 ：建立第一個本地存儲庫       |                               |
-| Git 的基礎 | Version Control and Git | Git 的基礎 ：與暫存區域的互動           |                               |
-| Git 的基礎 | Version Control and Git | 擴展您的 Git 技能：進階的暫存區域操作   |                               |
-| Git 的基礎 | Version Control and Git | Git 的基礎：創建您的第一個 Git 專案版本 |                               |
-| Git 的基礎 | Version Control and Git | Git 的基礎：切換專案版本                |                               |
-| 分支管理   | Version Control and Git | 分支管理：基礎分支操作                  |
+| 關卡主題   | 英文 ID                 | 關卡中文名稱                            | 關卡英文名稱                            |
+| :--------- | :---------------------- | :-------------------------------------- | :-------------------------------------- |
+| Git 的基礎 | Game Introduction       | 遊戲環境介紹                            | Game Environment Introduction           |
+| Git 的基礎 | Version Control and Git | Git 的基礎 ：建立第一個本地存儲庫       | Introduction to Version Control and Git |
+| Git 的基礎 |                         | Git 的基礎 ：與暫存區域的互動           |                                         |
+| Git 的基礎 |                         | 擴展您的 Git 技能：進階的暫存區域操作   |                                         |
+| Git 的基礎 |                         | Git 的基礎：創建您的第一個 Git 專案版本 |                                         |
+| Git 的基礎 |                         | Git 的基礎：切換專案版本                |                                         |
+| 分支管理   |                         | 分支管理：基礎分支操作                  |
 | 分支管理   |                         | 分支管理：快進 (Fast-Forward) 合併分支  |
 | 分支管理   |                         | 分支管理：自動（Auto）合併分支          |
 | 分支管理   |                         | 分支管理：解決合併衝突                  |
