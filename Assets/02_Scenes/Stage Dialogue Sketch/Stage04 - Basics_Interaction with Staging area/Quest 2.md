@@ -2,7 +2,7 @@
 您已經成功開啟 "命令行" 視窗
 接下來我們來嘗試輸入一個新的指令吧！
 
-本次我們要學習的指令是<color=red> "git status"</color>
+本次我們要學習的指令是<color=#CF001C> "git status"</color>
 
 透過這個指令
 Git 會將 "暫存區域" 中的內容
@@ -16,4 +16,4 @@ Git 會將 "暫存區域" 中的內容
 並且簡化了原先較為難懂的界面
 希望這種設計方式能提升您對 "暫存區域" 的理解
 
-那就請您先輸入並執行 <color=red> "git status"</color> 指令吧！
+那就請您先輸入並執行 <color=#CF001C> "git status"</color> 指令吧！

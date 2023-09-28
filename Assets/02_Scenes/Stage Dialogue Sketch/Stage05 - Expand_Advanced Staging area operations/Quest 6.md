@@ -8,5 +8,5 @@
 這也是本次關卡中學到的最後一個指令！
 
 這次，您需要在 "git reset" 指令前面增加 "." 符號
-藉著指令 <color=red>"git reset ."</color> 來完成以上要求吧！
+藉著指令 <color=#CF001C>"git reset ."</color> 來完成以上要求吧！
 加油！

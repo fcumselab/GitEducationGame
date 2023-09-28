@@ -1,6 +1,6 @@
 您學得很快！
 您使用了 "git add" 指令中的
-另一個功能 <color=red>"git add 資料夾名稱"</color> ！
+另一個功能 <color=#CF001C>"git add 資料夾名稱"</color> ！
 
 透過 "暫存區域" 視窗
 您會發現這個指令會將 "資料夾B" 中的所有檔案
@@ -15,7 +15,7 @@
 那麼，這次讓我們把 "資料夾B" 中的檔案
 全部移出 "已追蹤" 區域吧！
 
-這次要透過 <color=red>"git reset 資料夾名稱"</color>
+這次要透過 <color=#CF001C>"git reset 資料夾名稱"</color>
 來進行檔案的移動
 
 就和 "git add 資料夾名稱" 的結構相同
