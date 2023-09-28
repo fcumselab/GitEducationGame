@@ -45,8 +45,8 @@
 
 第 3 步：
 由於 Git 指令會按照空格鍵區分指令欄位
-所以在提交訊息時會需要透過 <color=#CF001C>"</color> 符號把訊息包起來
-現在指令內容為：「<color=#CF001C>git commit -m ""</color>」
+所以在提交訊息時會需要透過 "<color=#CF001C></color> 符號把訊息包起來
+現在指令內容為：「<color=#CF001C>git commit -m "</color>"」
 
 第 4 步：
 在本遊戲中，您不需要自己輸入提交訊息
@@ -60,7 +60,7 @@
 第 5 步：
 在選擇完成之後
 輸入欄的內容應該會是：
-「<color=#CF001C>git commit -m "選擇的提交訊息"</color>」
+「<color=#CF001C>git commit -m "選擇的提交訊息</color>"」
 
 當您輸入的內容相同時
 就可以執行正確的指令了！

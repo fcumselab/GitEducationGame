@@ -44,10 +44,10 @@ HEAD 指向了第 3 個 "提交"
 <color=#CF001C>請記得切換回您想要維護的分支！</color>
 
 本次關卡教導的最後一個指令
-<color=#CF001C>"git checkout 分支名稱"</color>
+"<color=#CF001C>git checkout 分支名稱</color>"
 通過它，您就可以將 HEAD 移動到分支上了
 
-試試看在命令行中輸入：<color=#CF001C>"git checkout master"</color>
+試試看在命令行中輸入："<color=#CF001C>git checkout master</color>"
 讓 HEAD 移動回 master 分支吧
 移動後就可以開始更改文字顏色了！
 
