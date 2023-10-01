@@ -64,4 +64,4 @@
 「<color=#CF001C>git commit -m "選擇的提交訊息"</color>」
 
 請您按照以上步驟
-執行 "git commit -m" 指令吧
+創建您的第一個專案版本吧

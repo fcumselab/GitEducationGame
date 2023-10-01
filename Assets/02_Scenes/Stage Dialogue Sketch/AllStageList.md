@@ -7,7 +7,7 @@
 | 5       | Git 的基礎 | Advanced Staging Area      | Git 暫存區域的進階操作       | Advanced Git Staging Area Operations    |
 | 6       | Git 的基礎 | Creating First Version     | 創建您的第一個 Git 專案版本  | Creating Your First Git Project Version |
 | 7       | Git 的基礎 | Switching Project Versions | 切換專案版本                 | Switching Project Versions              |
-| 8       | 分支管理   |                            | 基礎分支操作                 |
+| 8       | 分支管理   | Git Branching Basics       | Git 分支基礎教學             | Git Branching Basics Tutorial           |
 | 9       | 分支管理   |                            | 快進 (Fast-Forward) 合併分支 |
 | 10      | 分支管理   |                            | 自動（Auto）合併分支         |
 | 11      | 分支管理   |                            | 解決合併衝突                 |
