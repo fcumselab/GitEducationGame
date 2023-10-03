@@ -1,5 +1,5 @@
 很好！
-您通過指令 "git branch -r"
+您通過 "git branch -r" 指令
 成功確認了遠端儲存庫的分支情況
 
 根據命名行顯示的結果
@@ -27,15 +27,15 @@
 我們可以得到 "git checkout -b 本地分支名稱" 指令
 
 這個指令將創建並切換到這個新分支
-等同於同時執行 "git branch" 和 "git checkout" 指令
+等同於依序執行 "git branch" 和 "git checkout" 指令
 
 在第 5 欄位輸入的 "遠端分支名稱"
 表示要將 "新創建的本地分支" 連接到 "指定的遠端分支"
 這樣本地分支就可以獲取遠端分支的 "提交記錄"
 
-通過執行指令 "git checkout -b 本地分支名稱 遠端分支名稱"
-我們可以快速的獲得遠端分支的內容
-並且直接切換到新創建的分支上
+通過執行 "git checkout -b 本地分支名稱 遠端分支名稱" 指令
+我們可以快速地獲得遠端分支的內容
+並直接切換到新創建的分支上
  
 接下來，請您執行指令
 "<color=#CF001C>git checkout -b member-branch origin/member-branch</color>" 
