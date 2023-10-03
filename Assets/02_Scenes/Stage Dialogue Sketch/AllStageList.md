@@ -12,7 +12,7 @@
 | 10      | 分支管理   | Auto Merging               | 自動（Auto）合併分支         | Auto Merging                            |
 | 11      | 分支管理   | Merge Conflicts            | 解決合併衝突                 | Resolving Merge Conflicts               |
 | 12      | 遠端管理   | Create Remote Repository   | 創建您的第一個遠端儲存庫     | Creating Your First Remote Repository   |
-| 13      | 遠端管理   |                            | 創建與推送遠端分支           |
+| 13      | 遠端管理   | Push to Remote Branches    | 創建與推送遠端分支           | Creating and Pushing to Remote Branches |
 | 14      | 遠端管理   |                            | 保持分支同步                 |
 | 15      | 遠端管理   |                            | 合併前的確認                 |
 | 16      | 遠端管理   |                            | 創建 Pull Request            |
