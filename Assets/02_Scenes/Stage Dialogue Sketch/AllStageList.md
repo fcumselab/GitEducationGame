@@ -10,7 +10,7 @@
 | 8       | 分支管理   | Git Branching Basics       | Git 分支基礎教學             | Git Branching Basics Tutorial           |
 | 9       | 分支管理   | Fast-Forward Merging       | 快進 (Fast-Forward) 合併分支 | Fast-Forward Merging                    |
 | 10      | 分支管理   | Auto Merging               | 自動（Auto）合併分支         | Auto Merging                            |
-| 11      | 分支管理   |                            | 解決合併衝突                 |
+| 11      | 分支管理   | Merge Conflicts            | 解決合併衝突                 | Resolving Merge Conflicts               |
 | 12      | 遠端管理   |                            | 創建您的第一個遠端儲存庫     |
 | 13      | 遠端管理   |                            | 創建與推送遠端分支           |
 | 14      | 遠端管理   |                            | 保持分支同步                 |
