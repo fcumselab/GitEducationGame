@@ -1,5 +1,5 @@
 您好！
-歡迎來到 Git Education Game 的遊戲世界！
+歡迎來到 Git Education Game 教學遊戲！
 
 在遊戲開始之前
 讓我們先來了解本遊戲的特色與目標
