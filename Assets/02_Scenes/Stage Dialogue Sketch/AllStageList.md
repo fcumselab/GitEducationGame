@@ -15,5 +15,5 @@
 | 13      | 遠端管理   | Push to Remote Branches    | 創建與推送遠端分支           | Creating and Pushing to Remote Branches |
 | 14      | 遠端管理   | Keep Branches in Sync      | 保持分支同步                 | Keeping Branches in Sync                |
 | 15      | 遠端管理   | Preparation for Merging    | 合併前的確認                 | Preparation for Merging                 |
-| 16      | 遠端管理   | Creating a pull request    | 創建 Pull Request            | Creating a pull request                 |
+| 16      | 遠端管理   | Creating a Pull Request    | 創建 Pull Request            | Creating a Pull Request                 |
 | 17      | 遠端管理   |                            | 審核 Pull Request            |
