@@ -1,6 +1,6 @@
-關卡："團隊協作：審核 Pull Request"
+關卡："審核與合併 Pull Request"
 
-1. 回顧前一關 "團隊協作：創建 Pull Request" 的內容 ->
+1. 回顧前一關 "創建 Pull Request" 的內容
 2. 建構背景環境
 3. 開啟 "瀏覽器" 視窗     Q1
 
@@ -10,13 +10,18 @@
    2. 選擇要審核的合併請求
    3. 在合併請求頁面上，點擊 "文件修改" 分頁
    4. 對需要修改的地方，點選 + 符號以新增建議
-   5. 回到 "對話" 分頁
+   5. 點擊 Finish your review 按鈕
+   6. 輸入修改建議，並且選擇 Request changes 類型
+   7. 點擊 Submit review 按鈕
 
 流程 5 學習如何批准 Pull Request（當別人修改完成後）
 5.  批准合併請求 Q3
-    1.  點擊 "文件修改" 分頁
-    2.  點擊 "Review Changes" 按鈕
-    3.  選擇 Approve 後給予訊息
+    1.  重新整理頁面
+    2.  展開已經解決的對話
+    3.  點擊 "文件修改" 分頁
+    4.  點擊 "Review Changes" 按鈕
+    5.  選擇 Approve 後給予訊息
+    6.  點擊 Submit review 按鈕
 
 流程 6 學習如何合併 Pull Request（批准完成後）
 6. 合併 Pull Request Q4
