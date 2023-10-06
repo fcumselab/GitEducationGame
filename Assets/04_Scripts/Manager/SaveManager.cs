@@ -92,14 +92,12 @@ public class SaveManager : SerializedMonoBehaviour
             //CommandNameList, RuleAndWindowNameList, VersionControlNameList...
             FsmArray nameList = fsm.FsmVariables.FindFsmArray(type + "NameList");
             FsmArray unlockProgressList = fsm.FsmVariables.FindFsmArray(type + "UnlockProgressList");
-            FsmArray isUnlockList = fsm.FsmVariables.FindFsmArray(type + "IsUnlockList");
 
             for (int t = 0; t < manualData.items.Count; t++)
             {
                 GameManualItem item = manualData.items[t];
                 nameList.InsertItem(item.listName, t);
                 unlockProgressList.InsertItem(item.listUnlockProgress, t);
-                isUnlockList.InsertItem(item.isUnlock, t);
             }
         }
     }
@@ -129,7 +127,6 @@ public class SaveManager : SerializedMonoBehaviour
                     return;
             }
 
-            if (!findItem.isUnlock) findItem.isUnlock = true;
             findItem.listUnlockProgress = unlockProgressList[i];
         }
     }
@@ -178,7 +175,6 @@ public class GameManualItem
 {
     public string listName;
     public int listUnlockProgress;
-    public bool isUnlock;
 }
 
 

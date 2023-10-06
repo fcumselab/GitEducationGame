@@ -17,15 +17,15 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 11400000}
     name: Animation
-    startState: Game Manager ready?
+    startState: initial color
     states:
     - name: leave hover color
       description: 
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 659.1328
-        y: 194.11719
+        x: 467.1328
+        y: 114.11719
         width: 173
         height: 16
       isBreakpoint: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
         - useVariable: 1
           name: bg color
           tooltip: 
-          showInInspector: 0
+          showInInspector: 1
           networkSync: 0
           value: {r: 0, g: 0, b: 0, a: 1}
         - useVariable: 1
@@ -174,7 +174,7 @@ MonoBehaviour:
         - useVariable: 1
           name: bg color
           tooltip: 
-          showInInspector: 0
+          showInInspector: 1
           networkSync: 0
           value: {r: 0, g: 0, b: 0, a: 1}
         fsmRectParams: []
@@ -234,8 +234,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 448.40625
-        y: 199.26562
+        x: 256.40625
+        y: 119.265625
         width: 173
         height: 16
       isBreakpoint: 0
@@ -366,7 +366,7 @@ MonoBehaviour:
         - useVariable: 1
           name: hover color
           tooltip: 
-          showInInspector: 0
+          showInInspector: 1
           networkSync: 0
           value: {r: 0, g: 0, b: 0, a: 1}
         - useVariable: 1
@@ -384,7 +384,7 @@ MonoBehaviour:
         - useVariable: 1
           name: border color
           tooltip: 
-          showInInspector: 0
+          showInInspector: 1
           networkSync: 0
           value: {r: 0, g: 0, b: 0, a: 1}
         fsmRectParams: []
@@ -439,412 +439,13 @@ MonoBehaviour:
         - updateType
         paramDataPos: 00000000000000000000000004000000080000000c00000001000000100000000200000000000000000000000000000001000000000000001400000000000000180000001c0000001d00000021000000010000000300000025000000290000002d00000004000000310000000500000002000000010000000100000003000000010000003500000001000000390000003d0000003e000000
         paramByteDataSize: 0400000000000000000000000400000004000000040000000000000004000000000000000000000000000000000000000000000000000000040000000000000004000000010000000400000004000000000000000000000004000000040000000400000000000000040000000000000000000000000000000000000000000000000000000400000000000000040000000100000004000000
-    - name: Is Fsm Enabled
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 88.47656
-        y: 172.69531
-        width: 118
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Color Compare
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.IsFsmEnabled
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 68943404
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: GameManger
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Initial Manager
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - 
-        - FINISHED
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 140000001200000011000000170000001700000001000000
-        paramName:
-        - gameObject
-        - fsmName
-        - isEnabled
-        - isEnabledEvent
-        - isDisabledEvent
-        - everyFrame
-        paramDataPos: 000000000000000000000000000000000100000000000000
-        paramByteDataSize: 000000000000000000000000000000000000000001000000
-    - name: Game Manager ready?
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 61.125
-        y: 101.58594
-        width: 163
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Is Fsm Enabled
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.GameObjectIsNull
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 15656205
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: GameManger
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - 
-        - FINISHED
-        byteData: 01
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1300000017000000170000001100000001000000
-        paramName:
-        - gameObject
-        - isNull
-        - isNotNull
-        - storeResult
-        - everyFrame
-        paramDataPos: 0000000000000000010000000000000000000000
-        paramByteDataSize: 0000000000000000000000000000000001000000
-    - name: Get Fsm Color
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 69.21094
-        y: 331.9375
-        width: 113
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: initial color
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.GetFsmColor
-        - HutongGames.PlayMaker.Actions.GetFsmColor
-        - HutongGames.PlayMaker.Actions.GetFsmColor
-        - HutongGames.PlayMaker.Actions.GetFsmColor
-        - HutongGames.PlayMaker.Actions.GetFsmColor
-        customNames:
-        - 
-        - 
-        - 
-        - 
-        - 
-        actionEnabled: 0101010101
-        actionIsOpen: 0101010101
-        actionStartIndex: 00000000050000000a0000000f00000014000000
-        actionHashCodes: d2122203d2122203d2122203d2122203d2122203
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: GameManger
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: GameManger
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: GameManger
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: GameManger
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: GameManger
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Color Manager
-        - useVariable: 1
-          name: selected bg color key
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: deep orange3
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Color Manager
-        - useVariable: 1
-          name: selected border color key
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: deep orange2
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Color Manager
-        - useVariable: 1
-          name: border color key
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: orange
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Color Manager
-        - useVariable: 1
-          name: bg color key
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: light orange
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Color Manager
-        - useVariable: 1
-          name: hover color key
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: light orange2
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams:
-        - useVariable: 1
-          name: selected bg color
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
-        - useVariable: 1
-          name: selected border color
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
-        - useVariable: 1
-          name: border color
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {r: 0, g: 0, b: 0, a: 1}
-        - useVariable: 1
-          name: bg color
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {r: 0, g: 0, b: 0, a: 1}
-        - useVariable: 1
-          name: hover color
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {r: 0, g: 0, b: 0, a: 1}
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 0000000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 14000000120000001200000019000000010000001400000012000000120000001900000001000000140000001200000012000000190000000100000014000000120000001200000019000000010000001400000012000000120000001900000001000000
-        paramName:
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        paramDataPos: 00000000000000000100000000000000000000000100000002000000030000000100000001000000020000000400000005000000020000000200000003000000060000000700000003000000030000000400000008000000090000000400000004000000
-        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000000000000010000000000000000000000000000000000000001000000
     - name: initial color
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 261.53906
-        y: 336.35938
+        x: 62.835938
+        y: 100.296875
         width: 100
         height: 16
       isBreakpoint: 0
@@ -961,13 +562,13 @@ MonoBehaviour:
         - useVariable: 1
           name: bg color
           tooltip: 
-          showInInspector: 0
+          showInInspector: 1
           networkSync: 0
           value: {r: 0, g: 0, b: 0, a: 1}
         - useVariable: 1
           name: bg color
           tooltip: 
-          showInInspector: 0
+          showInInspector: 1
           networkSync: 0
           value: {r: 0, g: 0, b: 0, a: 1}
         fsmRectParams: []
@@ -1003,8 +604,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 546.21875
-        y: 321.39844
+        x: 354.21875
+        y: 241.39844
         width: 175
         height: 16
       isBreakpoint: 0
@@ -1135,7 +736,7 @@ MonoBehaviour:
         - useVariable: 1
           name: selected bg color
           tooltip: 
-          showInInspector: 0
+          showInInspector: 1
           networkSync: 0
           value: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
         - useVariable: 1
@@ -1153,7 +754,7 @@ MonoBehaviour:
         - useVariable: 1
           name: selected border color
           tooltip: 
-          showInInspector: 0
+          showInInspector: 1
           networkSync: 0
           value: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
         fsmRectParams: []
@@ -1208,104 +809,6 @@ MonoBehaviour:
         - updateType
         paramDataPos: 00000000000000000000000004000000080000000c00000001000000100000000200000000000000000000000000000001000000000000001400000000000000180000001c0000001d00000021000000010000000300000025000000290000002d00000004000000310000000500000002000000010000000100000003000000010000003500000001000000390000003d0000003e000000
         paramByteDataSize: 0400000000000000000000000400000004000000040000000000000004000000000000000000000000000000000000000000000000000000040000000000000004000000010000000400000004000000000000000000000004000000040000000400000000000000040000000000000000000000000000000000000000000000000000000400000000000000040000000100000004000000
-    - name: Color Compare
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 71.69531
-        y: 237.02344
-        width: 118
-        height: 48
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: init
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Get Fsm Color
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      - fsmEvent:
-          name: skip
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: initial color
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.ColorCompare
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: ef74ef02
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams:
-        - useVariable: 1
-          name: bg color
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {r: 0, g: 0, b: 0, a: 1}
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {r: 0, g: 0, b: 0, a: 1}
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - init
-        - skip
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 19000000190000000f000000170000001700000001000000
-        paramName:
-        - color1
-        - color2
-        - tolerance
-        - equal
-        - notEqual
-        - everyFrame
-        paramDataPos: 000000000100000000000000000000000100000000000000
-        paramByteDataSize: 000000000000000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -1363,68 +866,38 @@ MonoBehaviour:
         value: 0.1
       intVariables: []
       boolVariables: []
-      stringVariables:
-      - useVariable: 1
-        name: bg color key
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: light orange
-      - useVariable: 1
-        name: border color key
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: orange
-      - useVariable: 1
-        name: hover color key
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: light orange2
-      - useVariable: 1
-        name: selected bg color key
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: deep orange3
-      - useVariable: 1
-        name: selected border color key
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: deep orange2
+      stringVariables: []
       vector2Variables: []
       vector3Variables: []
       colorVariables:
       - useVariable: 1
         name: bg color
         tooltip: 
-        showInInspector: 0
+        showInInspector: 1
         networkSync: 0
         value: {r: 0, g: 0, b: 0, a: 1}
       - useVariable: 1
         name: border color
         tooltip: 
-        showInInspector: 0
+        showInInspector: 1
         networkSync: 0
         value: {r: 0, g: 0, b: 0, a: 1}
       - useVariable: 1
         name: hover color
         tooltip: 
-        showInInspector: 0
+        showInInspector: 1
         networkSync: 0
         value: {r: 0, g: 0, b: 0, a: 1}
       - useVariable: 1
         name: selected bg color
         tooltip: 
-        showInInspector: 0
+        showInInspector: 1
         networkSync: 0
         value: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
       - useVariable: 1
         name: selected border color
         tooltip: 
-        showInInspector: 0
+        showInInspector: 1
         networkSync: 0
         value: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
       rectVariables: []
@@ -1445,7 +918,7 @@ MonoBehaviour:
       - 
       - Children
       - Color
-      variableCategoryIDs: 000000000200000002000000020000000200000002000000010000000000000000000000000000000000000000000000
+      variableCategoryIDs: 00000000010000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -1454,7 +927,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 0700000008000000090000000a0000000b000000
+    outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
