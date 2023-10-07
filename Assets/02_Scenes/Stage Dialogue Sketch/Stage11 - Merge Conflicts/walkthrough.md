@@ -8,7 +8,7 @@
    
 流程 4-7 返回一個提交並建立 change-text-color 分支，
 4. 切換到 master 分支的前一個提交上  Q2
-5. 建立並切換到 change-text-color 分支        Q3
+5. 創建並切換到 change-text-color 分支        Q3
 6. 新增文件內容                     Q4
 7. 新增提交並更新 "提交記錄"         Q5
 
