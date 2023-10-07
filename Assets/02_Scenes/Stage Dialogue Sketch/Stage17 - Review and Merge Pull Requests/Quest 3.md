@@ -51,4 +51,3 @@ Pull Request 也隨之更新了
 在選擇了正確的訊息類型後
 請點擊 "Submit review" 按鈕
 以提交您的審核評論
-

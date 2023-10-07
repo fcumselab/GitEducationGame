@@ -71,6 +71,3 @@ Git 系統將會視它們為 "<color=#CF001C>未追蹤</color>" 檔案
 
 那麼，請您按照以上操作
 執行 "<color=#CF001C>git add 實驗文件.txt</color>" 指令吧
-
-
-

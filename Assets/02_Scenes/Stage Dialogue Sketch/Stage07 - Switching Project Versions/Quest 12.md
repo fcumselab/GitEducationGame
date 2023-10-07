@@ -23,4 +23,3 @@ HEAD 的顏色不再透明
 來複習學到的兩個指令
 "git checkout 提交ID" 和 "git checkout 分支名稱" 吧
 請加油！
-

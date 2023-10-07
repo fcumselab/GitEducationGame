@@ -36,7 +36,7 @@
 通過執行 "git checkout -b 本地分支名稱 遠端分支名稱" 指令
 我們可以快速地獲取遠端分支的內容
 並直接切換到新創建的分支上
- 
+
 接下來，請您執行指令
 "<color=#CF001C>git checkout -b member-branch origin/member-branch</color>" 
 來獲取團隊成員正在開發中的分支吧

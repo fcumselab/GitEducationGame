@@ -44,6 +44,3 @@
 那麼，讓我們先從 "主分支" 開始
 請您切換到  "master" 分支
 之後執行 "git pull origin master" 指令來同步分支
-
-
-
