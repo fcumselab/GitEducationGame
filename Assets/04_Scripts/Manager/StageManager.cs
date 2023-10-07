@@ -15,9 +15,12 @@ public class StageManager : SerializedMonoBehaviour
         //key == gameobject's Tag
         if(key == "GameManualType/Command")
         {
-            if (UsedCommandDict.ContainsKey(targetName)) return UsedCommandDict[targetName];
-
-        }else if(key == "GameManualType/RuleAndWindow")
+            if (UsedCommandDict.ContainsKey(targetName))
+            {
+                return UsedCommandDict[targetName];
+            }
+        }
+        else if(key == "GameManualType/RuleAndWindow")
         {
             if (UsedRuleAndWindowDict.ContainsKey(targetName)) return UsedRuleAndWindowDict[targetName];
         }
