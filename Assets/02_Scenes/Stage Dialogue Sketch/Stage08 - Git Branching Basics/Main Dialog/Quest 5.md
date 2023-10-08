@@ -5,8 +5,7 @@
 帶有 "<color=#CF001C>*</color>" 符號的分支
 表示 HEAD 當前所在的分支
 
-在了解了 "git branch" 指令的功能
-以及輸出結果後
+在了解了 "git branch" 指令的功能和輸出結果後
 
 您可能會注意到
 "git log" 和 "git branch" 這兩個指令
