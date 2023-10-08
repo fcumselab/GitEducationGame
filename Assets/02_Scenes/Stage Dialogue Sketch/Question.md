@@ -1,4 +1,4 @@
-如何順利將 md 文件內容放入 Dialogue System 中的 CSV 檔案裡
+如何順利將 md 文件內容放入 Dialogue System 中的 CSV 檔案裡 (透過VSCode中的檔案搜尋與取代功能)
 1. Ctrl + F 開啟搜尋加取代功能
 2. 確認檔案的間隔都只有一個Enter鍵，並且最後沒有Enter鍵
 3. 搜尋中打上 Ctrl+Enter，可以搜尋Enter鍵
