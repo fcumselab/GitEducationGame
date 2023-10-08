@@ -7,14 +7,14 @@
 我們使用了兩個 Git 指令：
 "git --version" 和 "git init" 
 
-其中，"git init" 作為建立 Git 管理系統的基礎
+其中，"git init" 作為創建 Git 管理系統的基礎
 是我們開始使用 Git 系統時需要輸入的第一個指令
 
-執行指令後生成的 ".git" 資料夾 
+執行指令後創建的 ".git" 資料夾 
 就是我們 Git 系統的核心
 
 接著，我們介紹了 ".git" 資料夾的功能
-並提到組成 Git 三個重要區域
+並提到組成 Git 的三個重要區域
 
 分別是：
 "工作目錄" (Working Directory)
