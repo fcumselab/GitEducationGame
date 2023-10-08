@@ -13,4 +13,4 @@
 
 請切換到 "new-feature" 分支
 然後執行 "git pull origin new-feature" 指令
-來同步分支
+來同步 "new-feature" 分支
