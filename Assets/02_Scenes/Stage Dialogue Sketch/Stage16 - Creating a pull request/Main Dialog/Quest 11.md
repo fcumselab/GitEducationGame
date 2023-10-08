@@ -2,7 +2,7 @@
 您提醒了審核人員
 需要再次審核我們新增的內容
 
-並且在我們點擊 "Resolve Conversation" 按鈕後
+並且，在我們點擊 "Resolve Conversation" 按鈕後
 "未解決的對話" 已經被我們解決
 
 在 "合併狀態" 區域中
@@ -26,6 +26,5 @@
 並使用 "git pull origin master" 指令
 來更新本地的 "master" 分支至遠端分支的版本
 
-藉由以上方式來確認
-遠端 "master" 分支是否
-確實合併了 "new-feature" 分支的內容
+我們要藉由以上方式來確認
+遠端 "master" 分支是否確實合併了 "new-feature" 分支的內容
