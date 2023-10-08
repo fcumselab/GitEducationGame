@@ -8,11 +8,11 @@
 我們需要在 "new-feature"（新功能）分支上繼續開發功能
 
 但是如果想要繼續開發專案
-就得想辦法先同步遠端的 "new-feature"（新功能）分支
+就得想辦法先同步遠端的 "new-feature" 分支
 
 本次我們要學習的指令是
-"<color=#CF001C>git pull origin 分支名稱</color>" 來進行同步
-這個指令的作用是將遠端分支的 "提交記錄" 同步到本地分支
+"<color=#CF001C>git pull origin 分支名稱</color>"
+這個指令的作用是將本地分支的 "提交記錄" 同步到遠端分支的版本
 
 當您執行指令時，它會依序執行以下兩個操作：
 1. 從遠端儲存庫下載最新的 "提交記錄"
@@ -41,4 +41,5 @@ Git 將會採用 "自動合併"（Auto Merge）
 所以並不需要解決文件衝突
 
 接下來，請您切換到 "new-feature" 分支
-然後執行 "<color=#CF001C>git pull origin new-feature</color>" 指令吧
+然後執行 "<color=#CF001C>git pull origin new-feature</color>" 指令
+來同步 "new-feature" 分支的 "提交記錄"
