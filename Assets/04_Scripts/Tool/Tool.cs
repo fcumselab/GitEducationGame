@@ -22,7 +22,7 @@ public class Tool : MonoBehaviour
         return word;
     }
 
-    //type: self, hint, answer
+    //type: self, hint, answer, perfect
     public void AddCompleteQuestData(string questName, string time, string type, string lastCompletedTime)
     {
         int completedTime = MyTimer.Instance.ChangeTimeToSec(time);
