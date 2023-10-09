@@ -39,12 +39,11 @@ public class SaveManager : SerializedMonoBehaviour
         }
         
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(stageObj, "Button Initial"); 
-        fsm.FsmVariables.FindFsmString("stageName").Value = findStage.stageName;
         fsm.FsmVariables.FindFsmBool("isStageClear").Value = findStage.isStageClear;
         fsm.FsmVariables.FindFsmBool("isStageUnlock").Value = findStage.isStageUnlock;
         if (findStage.isStageUnlock)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < findStage.stageLeaderboard.playerName.Count; i++)
             {
                 fsm.FsmVariables.FindFsmArray("playerNameList").Set(i, findStage.stageLeaderboard.playerName[i]);
                 fsm.FsmVariables.FindFsmArray("playerScoreList").Set(i, findStage.stageLeaderboard.playerScore[i]);
