@@ -1257,7 +1257,7 @@ NPC_72_27,72,27,2,2,,,,FALSE,Block,Normal,,,,,,388.8723;720.8511
 NPC_72_28,72,28,2,2,,,,FALSE,Block,Normal,,,,,,388.8723;770.8511
 NPC_72_29,72,29,2,2,,,,FALSE,Block,Normal,,,,,,388.8723;820.8511
 NPC_72_30,72,30,2,2,,,,FALSE,Block,Normal,,,,,,388.8723;870.8511
-NPC_73_0,73,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_73_0,73,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_73_1,73,1,2,2,,,"歡迎來到\r\n""切換專案版本"" 關卡！",FALSE,Block,Normal,,,,,,141;90
 NPC_73_2,73,2,2,2,,,在這個關卡中\r\n我們將學習如何切換您的專案版本\r\n以便您可以在新舊版本之間切換,FALSE,Block,Normal,,,,,,141;140
 NPC_73_3,73,3,2,2,,,首先，讓我們快速回顧一下上一關中學到的知識和指令,FALSE,Block,Normal,,,,,,141;190
@@ -1266,9 +1266,9 @@ NPC_73_5,73,5,2,2,,,"我們使用了 ""git commit -m"" 指令\r\n將 ""暫存區
 NPC_73_6,73,6,2,2,,,"這些變更會形成一個 ""提交""\r\n並存放在 ""提交記錄"" 中",FALSE,Block,Normal,,,,,,144.1915;380.4255
 NPC_73_7,73,7,2,2,,,"執行 ""git log"" 指令\r\n可以讓我們檢視 ""提交記錄"" 區域的內容",FALSE,Block,Normal,,,,,,142.0638;428.2979
 NPC_73_8,73,8,2,2,,,回顧完前一關的內容後\r\n現在讓我們馬上開始本次的教學,FALSE,Block,Normal,,,,,,142.0638;479.4743
-NPC_73_9,73,9,2,2,,,首先，我們先建構本次的遊戲場景,FALSE,Block,Normal,,,,,,142.0638;528.298
-NPC_73_10,73,10,2,2,,,"在建立好了關卡場景後\r\n請您先開啟 ""提交記錄"" 視窗吧\r\n我們要先確認目前所有 ""提交"" 的狀況",FALSE,Block,Normal,,,,,,142.0638;578.298
-NPC_74_0,74,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_73_9,73,9,2,2,,(建構開始\r),首先，我們先建構本次的遊戲場景,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Close Tutorial Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");",,,,142.0638;528.298
+NPC_73_10,73,10,2,2,,(新增任務),"在建立好了關卡場景後\r\n請您先開啟 ""提交記錄"" 視窗吧\r\n我們要先確認目前所有 ""提交"" 的狀況",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,142.0638;578.298
+NPC_74_0,74,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_74_1,74,1,2,2,,,"好的，在開啟 ""提交記錄"" 視窗後\r\n我們來查看每個 ""提交"" 的狀態",FALSE,Block,Normal,,,,,,141;90
 NPC_74_2,74,2,2,2,,,"您可以看到\r\n在這個專案中已經有了 3 個 ""提交""\r\n您可以點擊 ""提交"" 圓形圖示來查看各自的訊息",FALSE,Block,Normal,,,,,,141;140
 NPC_74_3,74,3,2,2,,,"在第 1 個 ""提交"" 中\r\n作者將需要管理的文件 ""我的網頁.html""\r\n放入到 ""儲存庫"" 中",FALSE,Block,Normal,,,,,,141;190
@@ -1276,12 +1276,12 @@ NPC_74_4,74,4,2,2,,,"在第 2 個 ""提交"" 中\r\n作者新增了 ""網頁樣�
 NPC_74_5,74,5,2,2,,,"在第 3 個 ""提交"" 中\r\n作者把文字改成了 ""藍色""\r\n希望這個顏色的文字更合適一點",FALSE,Block,Normal,,,,,,141;290
 NPC_74_6,74,6,2,2,,,"按照這些 ""提交"" 中的提交訊息\r\n您應該可以了解每個 ""提交""\r\n都做了哪些變更",FALSE,Block,Normal,,,,,,144.1915;380.4255
 NPC_74_7,74,7,2,2,,,"再來，您可以看到 HEAD\r\n目前正在最新的 ""提交"" 上",FALSE,Block,Normal,,,,,,142.0638;428.2979
-NPC_74_8,74,8,2,2,,,"那麼，請您先開啟 ""檔案管理"" 視窗\r\n來確認 ""工作目錄"" 的內容",FALSE,Block,Normal,,,,,,142.0638;479.4743
-NPC_75_0,75,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_74_8,74,8,2,2,,(新增任務),"接下來，請您先開啟 ""檔案管理"" 視窗\r\n來確認 ""工作目錄"" 的內容",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,142.0638;479.4743
+NPC_75_0,75,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_75_1,75,1,2,2,,,"在開啟 ""檔案管理"" 視窗後\r\n我們看到了兩個檔案",FALSE,Block,Normal,,,,,,141;90
 NPC_75_2,75,2,2,2,,,"根據 ""提交記錄"" 區域中最新的 ""提交""\r\n""工作路徑"" 確實有兩個文件\r\n""我的網頁.html"" 和 ""網頁樣式.css""",FALSE,Block,Normal,,,,,,141;140
-NPC_75_3,75,3,2,2,,,"接下來，請您開啟 ""網頁樣式.css"" 文件\r\n以確認其中的內容",FALSE,Block,Normal,,,,,,141;190
-NPC_76_0,76,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_75_3,75,3,2,2,,(新增任務),"接下來，請您開啟 ""網頁樣式.css"" 文件\r\n以確認其中的內容",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,141;190
+NPC_76_0,76,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_76_1,76,1,2,2,,,"好的，在開啟 ""網頁樣式.css"" 文件後",FALSE,Block,Normal,,,,,,141;90
 NPC_76_2,76,2,2,2,,,"從內容中可以發現\r\n作者將網頁中的文字設置成了 ""藍色""\r\n這與最新的 ""提交"" 訊息是一致的",FALSE,Block,Normal,,,,,,141;140
 NPC_76_3,76,3,2,2,,,"不過，如果我們要讓網頁再改變成 ""橙色""\r\n來比對兩個顏色哪個更適合時\r\n那應該怎麼做呢？",FALSE,Block,Normal,,,,,,141;190
@@ -1299,22 +1299,22 @@ NPC_76_14,76,14,2,2,,,"首先，我們需要通過指令開啟 ""提交記錄"" 
 NPC_76_15,76,15,2,2,,,"接著，點擊您想要查看的 ""提交"" 圓形圖示\r\n由於我們想要查看 ""橙色"" 的文字是否合適\r\n所以點擊第 2 個提交",FALSE,Block,Normal,,,,,,142.0638;872.9788
 NPC_76_16,76,16,2,2,,,"在彈窗中\r\n您可以看見訊息裡出現了 ""提交"" 的 ID \r\n(例如：abc123)",FALSE,Block,Normal,,,,,,388.8724;87.87238
 NPC_76_17,76,17,2,2,,,"那麼，我們就可以在 ""命令行""\r\n輸入指令 ""<color=#CF001C>git checkout abc123</color>""\r\n來進行移動了",FALSE,Block,Normal,,,,,,388.8724;137.8724
-NPC_76_18,76,18,2,2,,,請您根據以上教學\r\n執行這個新的指令吧,FALSE,Block,Normal,,,,,,388.8724;187.8724
-NPC_77_0,77,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_76_18,76,18,2,2,,(新增任務),請您根據以上教學\r\n執行這個新的指令吧,FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,388.8724;187.8724
+NPC_77_0,77,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_77_1,77,1,2,2,,,"非常好！\r\n您已經成功使用 ""git checkout 提交ID"" 指令\r\n並且命令行返回了成功提示",FALSE,Block,Normal,,,,,,141;90
 NPC_77_2,77,2,2,2,,,"在命令行的當前路徑中\r\n您可以看到最右方的文字變成了您移動到的 ""提交"" ID\r\n這個文字可以幫助您確認目前所在的 ""提交"" 和 ""分支"" 在哪裡",FALSE,Block,Normal,,,,,,141;140
 NPC_77_3,77,3,2,2,,,"在默認情況下\r\n這裡顯示的文字會是 ""master""\r\n表示您現在位於 ""master"" 分支中",FALSE,Block,Normal,,,,,,141;190
-NPC_77_4,77,4,2,2,,,"現在，既然我們成功地移動到對應的 ""提交"" 中\r\n請您再次確認 ""提交記錄"" 中的狀態吧",FALSE,Block,Normal,,,,,,141;241.0638
-NPC_78_0,78,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_77_4,77,4,2,2,,(新增任務),"現在，既然我們成功地移動到對應的 ""提交"" 中\r\n請您再次確認 ""提交記錄"" 中的狀態吧",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,141;241.0638
+NPC_78_0,78,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_78_1,78,1,2,2,,,"很好！\r\n在使用 ""git checkout 提交ID"" 指令後\r\n我們隨後更新了 ""提交記錄"" 視窗的內容",FALSE,Block,Normal,,,,,,141;90
 NPC_78_2,78,2,2,2,,,"您可以看到 HEAD 移動到了第 2 個 ""提交"" 中",FALSE,Block,Normal,,,,,,141;140
 NPC_78_3,78,3,2,2,,,"在成功移動 HEAD 後\r\n""工作目錄"" 中的檔案也會恢復成這個 ""提交"" 的內容",FALSE,Block,Normal,,,,,,141;190
-NPC_78_4,78,4,2,2,,,"那麼，請您開啟 ""檔案管理"" 視窗\r\n並確認 ""網頁樣式.css"" 中的內容",FALSE,Block,Normal,,,,,,141;241.0638
-NPC_79_0,79,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_78_4,78,4,2,2,,(新增任務),"那麼，請您開啟 ""檔案管理"" 視窗\r\n並確認 ""網頁樣式.css"" 中的內容",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,141;241.0638
+NPC_79_0,79,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_79_1,79,1,2,2,,,"好的，在開啟了 ""網頁樣式.css"" 檔案後\r\n你會注意到文字顏色已經恢復成了 ""橙色"" \r\n這是第 2 個 ""提交"" 的修改內容",FALSE,Block,Normal,,,,,,141;90
 NPC_79_2,79,2,2,2,,,"那麼，讓我們再來練習一次\r\n請再次使用 ""git checkout 提交ID"" 指令來切換版本",FALSE,Block,Normal,,,,,,141;140
-NPC_79_3,79,3,2,2,,,"這次請將 HEAD 移動到第 3 個 ""提交""\r\n來查看 ""藍色"" 文字是否合適吧",FALSE,Block,Normal,,,,,,141;190
-NPC_80_0,80,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_79_3,79,3,2,2,,(新增任務),"這次請將 HEAD 移動到第 3 個 ""提交""\r\n來查看 ""藍色"" 文字是否合適吧",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,141;190
+NPC_80_0,80,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_80_1,80,1,2,2,,,"非常出色！\r\n您已經成功地將 HEAD 移動到了第 3 個 ""提交"" 中",FALSE,Block,Normal,,,,,,141;90
 NPC_80_2,80,2,2,2,,,"您的朋友在對比了第 2 和第 3 個 ""提交"" 後\r\n最後決定採用 ""橘色"" 的文字\r\n也就是第 2 個提交",FALSE,Block,Normal,,,,,,141;140
 NPC_80_3,80,3,2,2,,,"不過，我們應該怎麼把第 2 個提交的內容\r\n在移動到最新的 ""提交"" 中呢？",FALSE,Block,Normal,,,,,,141;190
@@ -1330,8 +1330,8 @@ NPC_80_12,80,12,2,2,,,"當點擊第 3 個 ""提交"" 來查看提交訊息時\r\
 NPC_80_13,80,13,2,2,,,"在這種情況下\r\n就算我們新建一個 ""提交"" \r\n也不會在 ""master"" 分支形成第 4 個 ""提交""",FALSE,Block,Normal,,,,,,142.0638;772.9788
 NPC_80_14,80,14,2,2,,,"所以，當我們查看完 ""提交"" 之間的差異後\r\n想要繼續開發專案時\r\n<color=#CF001C>請記得切換回您想要維護的分支！</color>",FALSE,Block,Normal,,,,,,142.0638;822.9788
 NPC_80_15,80,15,2,2,,,"接下來，本關卡要學習的最後一個指令是\r\n""<color=#CF001C>git checkout 分支名稱</color>""\r\n通過這個指令，您就可以將 HEAD 移動到分支上了",FALSE,Block,Normal,,,,,,142.0638;872.9788
-NPC_80_16,80,16,2,2,,,"試試看在命令行中輸入：""<color=#CF001C>git checkout master</color>""\r\n讓 HEAD 移動回 ""master"" 分支吧\r\n移動後就可以開始更改文字顏色了\r\n請加油！",FALSE,Block,Normal,,,,,,388.8724;87.87238
-NPC_81_0,81,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_80_16,80,16,2,2,,(新增任務),"試試看在命令行中輸入：""<color=#CF001C>git checkout master</color>""\r\n讓 HEAD 移動回 ""master"" 分支吧\r\n移動後就可以開始更改文字顏色了\r\n請加油！",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,388.8724;87.87238
+NPC_81_0,81,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_81_1,81,1,2,2,,,"非常好！\r\n執行 ""git checkout master"" 指令後",FALSE,Block,Normal,,,,,,141;90
 NPC_81_2,81,2,2,2,,,"在 ""命令行"" 視窗中\r\n當前 HEAD 的位置顯示回了 ""master"" 分支",FALSE,Block,Normal,,,,,,141;140
 NPC_81_3,81,3,2,2,,,"並且在 ""提交記錄"" 區域中 \r\nHEAD 的顏色不再透明\r\n它回到 ""master"" 分支中最新的 ""提交""",FALSE,Block,Normal,,,,,,141;190
@@ -1339,7 +1339,7 @@ NPC_81_4,81,4,2,2,,,"當您點擊這個 ""提交"" 後\r\n您會發現在分支�
 NPC_81_5,81,5,2,2,,,"那麼，在我們幫助了朋友比對不同版本的差異後\r\n他新建了一個新的 ""提交""\r\n將文字顏色改回了 ""橙色""",FALSE,Block,Normal,,,,,,141;290
 NPC_81_6,81,6,2,2,,,總結下來，我們幫助他決定了網頁的文字顏色\r\n本次模擬背景的目標達成了！,FALSE,Block,Normal,,,,,,144.1915;380.4255
 NPC_81_7,81,7,2,2,,,"接下來，讓我們再通過模擬場景的遊玩\r\n來複習學到的兩個指令\r\n""git checkout 提交ID"" 和 ""git checkout 分支名稱"" 吧\r\n請加油！",FALSE,Block,Normal,,,,,,142.0638;428.2979
-NPC_82_0,82,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_82_0,82,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_82_1,82,1,2,2,,,恭喜您！\r\n您已成功完成了模擬背景的目標,FALSE,Block,Normal,,,,,,141;90
 NPC_82_2,82,2,2,2,,,通過這些練習\r\n您現在應該已經熟悉了如何切換不同的專案版本了,FALSE,Block,Normal,,,,,,141;140
 NPC_82_3,82,3,2,2,,,接下來，讓我們回顧一下本次關卡學到的知識和指令吧,FALSE,Block,Normal,,,,,,141;190

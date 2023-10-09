@@ -14195,8 +14195,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1099.9998, y: 0}
-    canvasZoom: 0.5800002
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   - id: 23
     fields:
     - title: Title
@@ -15286,8 +15286,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1254.5449, y: 0}
-    canvasZoom: 0.55000025
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   - id: 24
     fields:
     - title: Title
@@ -65403,7 +65403,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -65437,7 +65437,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -65940,7 +65944,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5EFA\u69CB\u958B\u59CB\r)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -65974,7 +65978,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
+
+        FSMEvent("Stage Manager/Load Default
+        Background Story", "Stage Manager Parent", "Background Controller");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -65999,7 +66007,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -66029,7 +66037,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -66040,8 +66049,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 139.7727}
+    canvasZoom: 0.8800001
   - id: 74
     fields:
     - title: Title
@@ -66103,7 +66112,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -66137,7 +66146,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -66586,11 +66599,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u90A3\u9EBC\uFF0C\u8ACB\u60A8\u5148\u958B\u555F \"\u6A94\u6848\u7BA1\u7406\"
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u8ACB\u60A8\u5148\u958B\u555F \"\u6A94\u6848\u7BA1\u7406\"
           \u8996\u7A97\r\n\u4F86\u78BA\u8A8D \"\u5DE5\u4F5C\u76EE\u9304\" \u7684\u5167\u5BB9"
         type: 0
         typeString: 
@@ -66615,7 +66628,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -66689,7 +66703,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -66723,7 +66737,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -66868,7 +66886,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -66897,7 +66915,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -66971,7 +66990,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -67005,7 +67024,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -68053,7 +68076,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -68081,7 +68104,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -68155,7 +68179,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -68189,7 +68213,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -68395,7 +68423,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -68425,7 +68453,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -68499,7 +68528,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -68533,7 +68562,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -68740,7 +68773,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -68769,7 +68802,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -68843,7 +68877,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -68877,7 +68911,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -69023,7 +69061,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -69052,7 +69090,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -69126,7 +69165,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -69160,7 +69199,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -70090,7 +70133,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -70120,7 +70163,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -70194,7 +70238,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -70228,7 +70272,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -70718,7 +70766,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -70752,7 +70800,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
