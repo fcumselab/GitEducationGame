@@ -75,7 +75,7 @@ git branch new-feature
 **第三頁：**
 *指令的格式：* 
 ```
-git branch -d 分支名稱
+git branch -d 或 --delete 分支名稱
 ```
 
 *指令的用途：* 
@@ -98,7 +98,10 @@ git branch -d new-feature
 
 **第四頁：**
 *指令的格式：* 
-"git branch -r 或 --remote"
+```
+
+git branch -r 或 --remote
+```
 
 *指令的用途：*
 用於查看所有遠端分支的名稱，
