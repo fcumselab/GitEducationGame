@@ -115,6 +115,7 @@ public class CommitTool : SerializedMonoBehaviour
         return true;
     }
 
+    //Checkout ^ ~¡Adon't use in this Game.
     public string[] DivideCheckoutCommand(string command)
     {
         List<string> resultList = new();
@@ -153,6 +154,7 @@ public class CommitTool : SerializedMonoBehaviour
         return resultList.ToArray();
     }
 
+    //Checkout ^ ~¡Adon't use in this Game.
     public string[] ValidCheckoutCommand(string[] commandList)
     {
         List<string> resultList = new();
