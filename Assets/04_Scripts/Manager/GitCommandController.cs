@@ -130,14 +130,21 @@ public class GitCommandController : SerializedMonoBehaviour
                 }
             }
 
-            if (commandList.Count >= 4)
+            if (commandList.Count == 4)
             {
                 if (commandList[0] == "git" && commandList[1] == "commit" && commandList[2] == "-m" && commandList[3] == "\"\"")
                 {
                     return "Commit";
                 }
             }
-            
+
+            if (commandList.Count == 2)
+            {
+                if (commandList[0] == "git" && commandList[1] == "branch")
+                {
+                    return "Branch";
+                }
+            }
         }
 
         return "";
