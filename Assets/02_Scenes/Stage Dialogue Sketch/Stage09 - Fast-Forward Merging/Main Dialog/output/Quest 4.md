@@ -5,5 +5,5 @@
 您可以將這個指令理解為：\r\n「<color=#CF001C>將 "指定的分支" 內容傳送給 "目前所在的分支" 中</color>」\r\n以上的解釋會更簡單一些
 然而，在執行指令之前\r\n我們需要先注意指令的執行規則
 目前我們所在的分支為 "new-feature"\r\n如果想要將 "new-feature" 分支合併到 "master" 分支的話
-需要先讓 HEAD 指向 "master" 分支\r\n然後才能夠使用 "git merge new-feature" 指令進行分支合併
+需要先讓 HEAD 指向 "master" 分支\r\n然後才能夠使用 "git merge" 指令合併分支
 接下來，為了將 "new-feature" 分支合併到 "master" 分支\r\n請您先使用切換分支的指令\r\n移動到 "master" 分支上吧

@@ -23,7 +23,7 @@
 如果想要將 "new-feature" 分支合併到 "master" 分支的話
 
 需要先讓 HEAD 指向 "master" 分支
-然後才能夠使用 "git merge new-feature" 指令進行分支合併
+然後才能夠使用 "git merge" 指令合併分支
 
 接下來，為了將 "new-feature" 分支合併到 "master" 分支
 請您先使用切換分支的指令

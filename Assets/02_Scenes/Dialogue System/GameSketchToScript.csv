@@ -1454,16 +1454,16 @@ NPC_94_17,94,17,2,2,,,"該怎麼做才能讓這些修改\r\n從 ""new-feature"" 
 NPC_94_18,94,18,2,2,,,在下一關卡裡\r\n我們將學習如何將分支中的內容\r\n移動到另一個分支,FALSE,Block,Normal,,,,,,388.8724;187.8724
 NPC_94_19,94,19,2,2,,,"在 Git 中\r\n我們稱這個動作為 ""合併"" (Merge)",FALSE,Block,Normal,,,,,,388.8724;237.8724
 NPC_94_20,94,20,2,2,,,最後，恭喜您完成本次的關卡\r\n您做得很好！,FALSE,Block,Normal,,,,,,388.8724;287.8724
-NPC_95_0,95,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_95_0,95,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_95_1,95,1,2,2,,,"歡迎來到\r\n""快進 (Fast-Forward) 合併分支"" 關卡！",FALSE,Block,Normal,,,,,,141;90
 NPC_95_2,95,2,2,2,,,在本次關卡中\r\n我們將學習如何將分支中的修改內容\r\n合併到另一個分支中,FALSE,Block,Normal,,,,,,141;140
 NPC_95_3,95,3,2,2,,,在開始之前\r\n讓我們回顧一下上一關學到的知識和指令吧,FALSE,Block,Normal,,,,,,141;190
 NPC_95_4,95,4,2,2,,,在上一關卡中\r\n我們介紹了分支系統所帶來的優點,FALSE,Block,Normal,,,,,,141;241.0638
 NPC_95_5,95,5,2,2,,,並學習了一些基本的分支操作指令\r\n包括分支的創建、查看和刪除,FALSE,Block,Normal,,,,,,141;290
 NPC_95_6,95,6,2,2,,,在關卡的模擬環境中\r\n我們了解了如何運用分支來確保主分支的穩定性\r\n避免開發中的分支影響到穩定版本,FALSE,Block,Normal,,,,,,144.1915;380.4255
-NPC_95_7,95,7,2,2,,,接下來，在回顧完了上一關卡的內容後\r\n我們來建構本次的遊戲場景,FALSE,Block,Normal,,,,,,142.0638;428.2979
-NPC_95_8,95,8,2,2,,,"在建立好了關卡場景後\r\n請您查看 ""提交記錄"" 的狀態",FALSE,Block,Normal,,,,,,142.0638;479.4743
-NPC_96_0,96,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_95_7,95,7,2,2,,(建構開始\r),接下來，在回顧完了上一關卡的內容後\r\n我們來建構本次的遊戲場景,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Close Tutorial Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");",,,,142.0638;428.2979
+NPC_95_8,95,8,2,2,,(新增任務),"在建立好了關卡場景後\r\n請您查看 ""提交記錄"" 的狀態",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,142.0638;479.4743
+NPC_96_0,96,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_96_1,96,1,2,2,,,"好的，在開啟了 ""提交記錄"" 視窗後\r\n我們一起來查看所有 ""提交"" 的狀態",FALSE,Block,Normal,,,,,,141;90
 NPC_96_2,96,2,2,2,,,"首先，您可以看到本次有兩個分支\r\n分別是 ""master"" 和 ""new-feature"" 分支",FALSE,Block,Normal,,,,,,141;140
 NPC_96_3,96,3,2,2,,,"在 ""master"" 分支裡\r\n作者目前已經創建了 3 個 ""提交""\r\n這些 ""提交"" 裡，作者完成了基礎的俄羅斯方塊遊戲",FALSE,Block,Normal,,,,,,141;190
@@ -1472,8 +1472,8 @@ NPC_96_5,96,5,2,2,,,為了確保穩定版本不受到新功能的影響\r\n作�
 NPC_96_6,96,6,2,2,,,"在 ""new-feature"" 分支裡\r\n作者創建了一個 ""提交""\r\n對開發到一半的內容做了保存",FALSE,Block,Normal,,,,,,144.1915;380.4255
 NPC_96_7,96,7,2,2,,,"從 ""提交記錄"" 的內容裡\r\n我們可以看到作者很好地運用分支來管理專案",FALSE,Block,Normal,,,,,,142.0638;428.2979
 NPC_96_8,96,8,2,2,,,"這樣的方式可以確保 ""master"" 分支的穩定\r\n減少了開發失敗時可能帶來的損失",FALSE,Block,Normal,,,,,,142.0638;479.4743
-NPC_96_9,96,9,2,2,,,"接下來，請您在 ""new-feature"" 分支上\r\n開始開發新功能吧",FALSE,Block,Normal,,,,,,142.0638;528.298
-NPC_97_0,97,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_96_9,96,9,2,2,,(新增任務),"接下來，根據背景故事\r\n請您在 ""new-feature"" 分支上\r\n開始開發新功能吧",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,142.0638;528.298
+NPC_97_0,97,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_97_1,97,1,2,2,,,非常好！\r\n您已成功開發了新的遊戲功能,FALSE,Block,Normal,,,,,,141;90
 NPC_97_2,97,2,2,2,,,在經過多次遊戲測試後\r\n遊戲在運行上非常穩定\r\n並且這個功能確實讓遊戲變得更加有趣,FALSE,Block,Normal,,,,,,141;140
 NPC_97_3,97,3,2,2,,,"在確認新的功能運行穩定後\r\n現在可以正式將它合併到 ""master"" 分支中",FALSE,Block,Normal,,,,,,141;190
@@ -1482,16 +1482,16 @@ NPC_97_5,97,5,2,2,,,"您可以將這個指令理解為：\r\n「<color=#CF001C>�
 NPC_97_6,97,6,2,2,,,然而，在執行指令之前\r\n我們需要先注意指令的執行規則,FALSE,Block,Normal,,,,,,144.1915;380.4255
 NPC_97_7,97,7,2,2,,,"目前我們所在的分支為 ""new-feature""\r\n如果想要將 ""new-feature"" 分支合併到 ""master"" 分支的話",FALSE,Block,Normal,,,,,,142.0638;428.2979
 NPC_97_8,97,8,2,2,,,"需要先讓 HEAD 指向 ""master"" 分支\r\n然後才能夠使用 ""git merge new-feature"" 指令進行分支合併",FALSE,Block,Normal,,,,,,142.0638;479.4743
-NPC_97_9,97,9,2,2,,,"接下來，為了將 ""new-feature"" 分支合併到 ""master"" 分支\r\n請您先使用切換分支的指令\r\n移動到 ""master"" 分支上吧",FALSE,Block,Normal,,,,,,142.0638;528.298
-NPC_98_0,98,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_97_9,97,9,2,2,,(新增任務),"接下來，為了將 ""new-feature"" 分支合併到 ""master"" 分支\r\n請您先使用切換分支的指令\r\n移動到 ""master"" 分支上吧",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,142.0638;528.298
+NPC_98_0,98,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_98_1,98,1,2,2,,,"好的，您已經切換到了 ""master"" 分支\r\n並且更新了 ""提交記錄"" 的狀態",FALSE,Block,Normal,,,,,,141;90
 NPC_98_2,98,2,2,2,,,"您可以將滑鼠移至分支列表\r\n來查看不同分支的 ""提交記錄""",FALSE,Block,Normal,,,,,,141;140
 NPC_98_3,98,3,2,2,,,"在 ""提交記錄"" 中\r\n您可以看到目前 ""master"" 分支只有 3 個 ""提交""",FALSE,Block,Normal,,,,,,141;190
 NPC_98_4,98,4,2,2,,,"而 ""new-feature"" 分支在開發新功能的過程中\r\n新增了 2 個 ""提交""\r\n分支上總共有 5 個 ""提交""",FALSE,Block,Normal,,,,,,141;241.0638
 NPC_98_5,98,5,2,2,,,"在確定好 HEAD 所在位置是 ""master"" 分支後\r\n現在讓我們試著執行合併分支的指令 \r\n""<color=#CF001C>git merge 分支名稱</color>"" 吧",FALSE,Block,Normal,,,,,,141;290
 NPC_98_6,98,6,2,2,,,"為了將 ""new-feature"" 分支合併到 ""master"" 中\r\n請執行 ""<color=#CF001C>git merge new-feature</color>"" 指令",FALSE,Block,Normal,,,,,,144.1915;380.4255
-NPC_98_7,98,7,2,2,,,"在完成合併後\r\n請您通過指令來確認 ""提交記錄"" 內容發生了什麼變化",FALSE,Block,Normal,,,,,,142.0638;428.2979
-NPC_99_0,99,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_98_7,98,7,2,2,,(新增任務),"在完成合併後\r\n請您通過指令來確認 ""提交記錄"" 內容發生了什麼變化",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,142.0638;428.2979
+NPC_99_0,99,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_99_1,99,1,2,2,,,"非常好！\r\n您已成功使用 ""git merge 分支名稱"" 指令來合併分支\r\n命令行回傳了 ""合併成功"" 的訊息",FALSE,Block,Normal,,,,,,141;90
 NPC_99_2,99,2,2,2,,,"接下來，讓我們一起觀察 ""提交記錄"" 更新後的狀態",FALSE,Block,Normal,,,,,,141;140
 NPC_99_3,99,3,2,2,,,"您會注意到目前 ""master"" 分支的內容\r\n與 ""new-feature"" 分支的 ""提交記錄"" 是相同的",FALSE,Block,Normal,,,,,,141;190
@@ -1499,8 +1499,8 @@ NPC_99_4,99,4,2,2,,,"""new-feature"" 分支開發的 2 個 ""提交"" \r\n已經
 NPC_99_5,99,5,2,2,,,"您可以在命令行中點擊之前輸入過的 ""git log"" 指令\r\n""提交記錄"" 視窗會更新成之前的狀態\r\n藉此來觀察合併分支前後的差異",FALSE,Block,Normal,,,,,,141;290
 NPC_99_6,99,6,2,2,,,"在確認 ""new-feature"" 分支的 ""提交""\r\n已經合併到 ""master"" 分支後",FALSE,Block,Normal,,,,,,144.1915;380.4255
 NPC_99_7,99,7,2,2,,,"""new-feature"" 分支已經完成它的目標了\r\n在通常情況下，我們會選擇刪除這個分支",FALSE,Block,Normal,,,,,,142.0638;428.2979
-NPC_99_8,99,8,2,2,,,"那麼，請您將 ""new-feature"" 分支\r\n從 Git 系統裡面刪除吧",FALSE,Block,Normal,,,,,,142.0638;479.4743
-NPC_100_0,100,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_99_8,99,8,2,2,,(新增任務),"那麼，請您將 ""new-feature"" 分支\r\n從 Git 系統裡面刪除吧",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,142.0638;479.4743
+NPC_100_0,100,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_100_1,100,1,2,2,,,"很好！\r\n您刪除了已達成目標的 ""new-feature"" 分支",FALSE,Block,Normal,,,,,,141;90
 NPC_100_2,100,2,2,2,,,"更新 ""提交記錄"" 後\r\nGit 系統裡就只剩下 ""master"" 分支了",FALSE,Block,Normal,,,,,,141;140
 NPC_100_3,100,3,2,2,,,"經過前面的練習後\r\n您已經完成了一次 ""合併分支"" 的流程\r\n也代表您已學會如何使用分支功能來開發專案了",FALSE,Block,Normal,,,,,,141;190
@@ -1515,7 +1515,7 @@ NPC_100_11,100,11,2,2,,,"在後續的關卡中\r\n會遇到 ""提交"" 出現分
 NPC_100_12,100,12,2,2,,,"我們將進一步討論 ""自動合併"" 和 ""合併衝突"" \r\n這兩種合併模式",FALSE,Block,Normal,,,,,,142.0638;722.9788
 NPC_100_13,100,13,2,2,,,"接下來，讓我們再次透過模擬背景的遊玩\r\n再次練習 ""合併分支"" 的流程吧",FALSE,Block,Normal,,,,,,142.0638;772.9788
 NPC_100_14,100,14,2,2,,,希望您能夠從中熟練\r\n使用分支系統開發專案的流程\r\n請加油！,FALSE,Block,Normal,,,,,,142.0638;822.9788
-NPC_101_0,101,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_101_0,101,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_101_1,101,1,2,2,,,非常出色！\r\n您已成功完成了模擬背景的目標,FALSE,Block,Normal,,,,,,141;90
 NPC_101_2,101,2,2,2,,,"通過這些練習\r\n您現在應該更加熟練 ""使用分支系統開發專案"" 的流程了",FALSE,Block,Normal,,,,,,141;140
 NPC_101_3,101,3,2,2,,,接下來，讓我們回顧一下本次關卡中學到的知識和指令,FALSE,Block,Normal,,,,,,141;190

@@ -1,7 +1,7 @@
 好的，您已經切換到了 "master" 分支
 並且更新了 "提交記錄" 的狀態
 
-您可以將滑鼠移至分支列表
+您可以將滑鼠點擊指定的分支列表
 來查看不同分支的 "提交記錄"
 
 在 "提交記錄" 中
@@ -15,8 +15,8 @@
 現在讓我們試著執行合併分支的指令 
 "<color=#CF001C>git merge 分支名稱</color>" 吧
 
-為了將 "new-feature" 分支合併到 "master" 中
-請執行 "<color=#CF001C>git merge new-feature</color>" 指令
+執行 "<color=#CF001C>git merge new-feature</color>" 指令
+來將 "new-feature" 分支合併到 "master" 分支中
 
-在完成合併後
-請您通過指令來確認 "提交記錄" 內容發生了什麼變化
+執行後，請您更新 "提交記錄" 視窗
+來確認合併後的內容發生了什麼變化
