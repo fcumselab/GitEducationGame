@@ -1,14 +1,14 @@
 好的，在切換到 "master" 分支後
-讓我們先來合併 "new-image" 分支的內容
+讓我們先來合併 "new-design" 分支的內容
 
 首先，我們先來判斷
-"master" 和 "new-image" 這兩個分支在進行合併時
+"master" 和 "new-design" 這兩個分支在進行合併時
 屬於哪一種合併模式
 
-您可以將滑鼠移至分支列表
+您可以將滑鼠點擊指定的分支列表
 來查看不同分支的 "提交記錄"
 
-"new-image" 基於 "master" 分支
+"new-design" 基於 "master" 分支
 創建了兩個新的 "提交"
 
 而 "master" 分支並沒有再新增 "提交"
@@ -19,9 +19,9 @@
 
 在這種模式下
 "master" 分支會更新 "提交記錄"
-最後和 "new-image" 分支的 "提交記錄" 相同 
+最後和 "new-design" 分支的 "提交記錄" 相同 
 
-接下來，讓我們來使用 "git merge new-image" 指令
+接下來，讓我們來使用 "git merge new-design" 指令
 來進行分支的合併吧
 
 合併之後，請更新 "提交記錄" 的狀態

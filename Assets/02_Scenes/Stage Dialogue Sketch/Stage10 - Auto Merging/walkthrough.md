@@ -13,7 +13,7 @@
 
 流程 7-9 使用 git merge 合併分支，並觀看每次合併後的結果。本次遇到的類型為上一關使用的 Fast-Forward 合併模式
 7.  切換並確認目前位於 master 分支                 Q5
-8.  使用 "git merge new-image" 指令 (Fast-Forward) Q6
+8.  使用 "git merge new-design" 指令 (Fast-Forward) Q6
 9.  確認 "提交記錄"                         Q7
 
 流程 10-11 使用 git merge 合併分支，並觀看每次合併後的結果。本次遇到的類型為本關要學習的 Auto Merge 合併模式
@@ -22,7 +22,7 @@
 
 
 流程 12-13 合併完成後，刪除完成任務的分支
-12.   刪除 "new-article"、"new-image" 分支  Q10
+12.   刪除 "new-article"、"new-design" 分支  Q10
 13.   確認 "提交記錄" 視窗                 Q11
 
 14.    模擬背景練習   Q12

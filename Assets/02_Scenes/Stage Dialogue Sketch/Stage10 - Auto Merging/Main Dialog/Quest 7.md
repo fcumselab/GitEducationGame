@@ -1,10 +1,10 @@
 非常好！
-您已成功將 "new-image" 分支合併到 "master" 分支
+您已成功將 "new-design" 分支合併到 "master" 分支
 
 查看更新後的 "提交記錄" 內容
 
 正如我們預測的那樣
-"master" 分支 和 "new-image" 分支的
+"master" 分支 和 "new-design" 分支的
 "提交記錄" 現在是相同的
 
 接下來，我們要將 "new-article" 分支
@@ -39,7 +39,7 @@ Git 系統將提醒團隊成員文件存在衝突
 我們將在下一關進一步了解這種合併模式
 
 根據模擬背景的 "提交記錄"
-"new-image" 與 "new-article" 不會造成文件衝突
+"new-design" 與 "new-article" 分支不會造成文件衝突
 
 這時，Git 會直接合併這兩個分支的內容
 並在合併後的分支上創建一個新的 "提交"
