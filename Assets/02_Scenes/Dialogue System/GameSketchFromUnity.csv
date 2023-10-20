@@ -161,11 +161,11 @@ Number,Text,Text,Text,Text
 3,ImageKey,,Show image according to the key.,Text
 6,UnlockButtonName,none,Function which triggers Toolbar,Text
 7,playerDecision,none,Three button to add content (get),Text
-8,isReplay,False,If use replay function it will be true,Boolean
+8,isReplay,FALSE,If use replay function it will be true,Boolean
 9,tag,,use to identify different path,Text
-10,canReplay,False,Can click Replay Current Scenario,Boolean
+10,canReplay,FALSE,Can click Replay Current Scenario,Boolean
 11,UnlockKey,(category ) / (list name) / (unlockProgress),Unlock GameManualWindow List,Text
-12,TestingDialog,True,For dialog system,Boolean
+12,TestingDialog,TRUE,For dialog system,Boolean
 13,ReadChapter,0,Save Read Chapter,Number
 14,Counter,0,,Number
 15,Switch,,Control highlight panel spot,Text
@@ -1694,7 +1694,7 @@ NPC_118_0,118,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent
 NPC_118_1,118,1,2,2,,,"很好！\r\n當您將解決衝突後的檔案推入 ""暫存區域"" \r\n並建立新的 ""提交"" 後",False,Block,Normal,,,,,,141;90
 NPC_118_2,118,2,2,2,,,"您會注意到在 ""提交記錄"" 中\r\n""reset-score-function"" 分支已成功合併到 ""master"" 分支\r\n表示我們已成功完成一次 ""解決合併衝突"" 流程",False,Block,Normal,,,,,,141;140
 NPC_118_3,118,3,2,2,,,"現在，網頁中有兩個功能按鈕\r\n您可以點擊它們來執行加分和重置分數功能\r\n這表示我們已完成 ""點擊按鈕遊戲"" 的開發",False,Block,Normal,,,,,,141;190
-NPC_118_4,118,4,2,2,,,在完成合併後\r\n請記住要刪除掉已經完成目標的兩個分支,False,Block,Normal,,,,,,141;241.0638
+NPC_118_4,118,4,2,2,,,在完成合併後\r\n請記住要刪除掉已經完成目標的兩個分支,False,Block,Normal,,,,,,140;240.0638
 NPC_118_5,118,5,2,2,,,"接下來，為了讓您更熟悉 ""解決合併衝突"" 的流程\r\n請嘗試解決下一個模擬背景中的問題吧\r\n加油！",False,Block,Normal,,,,,,143;295.0638
 NPC_121_0,121,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_121_1,121,1,2,2,,,非常出色！\r\n您已成功完成了模擬背景的目標,False,Block,Normal,,,,,,141;90
@@ -1723,7 +1723,6 @@ NPC_122_11,122,11,2,2,,,在本地儲存庫完成開發後\r\n再將其上傳到�
 NPC_122_12,122,12,2,2,,,這種流程可以大幅提高專案開發的效率,False,Block,Normal,,,,,,142.0638;722.9788
 NPC_122_13,122,13,2,2,,,在了解了使用遠端儲存庫的優勢後\r\n接下來，讓我們正式進入本次的關卡吧！,False,Block,Normal,,,,,,142.0638;772.9788
 NPC_122_14,122,14,2,2,,,我們要先學習如何創建一個遠端儲存庫\r\n並將它複製到本地設備中,False,Block,Normal,,,,,,142.0638;822.9788
-NPC_122_15,122,15,2,2,,,"建立好模擬環境後\r\n請先打開 ""檔案管理"" 視窗吧",False,Block,Normal,,,,,,142.0638;872.9788
 NPC_123_0,123,0,2,2,START,,,False,Block,Normal,,,Continue(),,,139.8235;38.82352
 NPC_123_1,123,1,2,2,,,"好的，您開啟了 ""檔案管理"" 視窗\r\n您會注意到我們尚未建立本地儲存庫",False,Block,Normal,,,,,,141;90
 NPC_123_2,123,2,2,2,,,這一次，我們將使用網路瀏覽器\r\n透過像 GitHub 等 Git 服務平台來創建遠端儲存庫,False,Block,Normal,,,,,,141;140
@@ -1761,7 +1760,6 @@ NPC_126_8,126,8,2,2,,,請您移動到 Home 目錄下,False,Block,Normal,,,,,,142
 NPC_126_9,126,9,2,2,,,"第 3 步：\r\n在命令行視窗中，輸入指令 ""git clone""\r\n並在指令前方加一個空格\r\n變成 ""<color=#CF001C>git clone </color>""",False,Block,Normal,,,,,,142.0638;528.298
 NPC_126_10,126,10,2,2,,,"第 4 步：\r\n當輸入欄位處於選取狀態時\r\n對著輸入欄 ""按下滑鼠右鍵"" 或是 ""同時按下 ctrl 和 v 鍵""\r\n將剛才複製的網址文字貼到輸入欄位中",False,Block,Normal,,,,,,142.0638;578.298
 NPC_126_11,126,11,2,2,,,"您的輸入應該會變成 ""<color=#CF001C>git clone 遠端儲存庫網址</color>""\r\n接下來，您就可以執行指令了",False,Block,Normal,,,,,,142.0638;672.9788
-NPC_126_12,126,12,2,2,,,那麼，請您按照以上步驟\r\n來將遠端儲存庫複製到本地電腦上吧,False,Block,Normal,,,,,,142.0638;722.9788
 NPC_127_0,127,0,2,2,START,,,False,Block,Normal,,,Continue(),,,139.8235;38.82352
 NPC_127_1,127,1,2,2,,,"非常好！\r\n您已成功執行了指令 ""<color=#CF001C>git clone 遠端儲存庫網址</color>""\r\n命令行返回了 ""複製成功"" 的訊息",False,Block,Normal,,,,,,141;90
 NPC_127_2,127,2,2,2,,,"打開 ""檔案管理"" 視窗\r\n您會發現電腦中新增了 ""test-remote-repo"" 資料夾",False,Block,Normal,,,,,,141;140
@@ -1799,7 +1797,6 @@ NPC_129_11,129,11,2,2,,,"然後，我們通過實際操作成功創建了一個�
 NPC_129_12,129,12,2,2,,,"在新創建的專案資料夾裡\r\n我們使用 ""git remote -v"" 指令來檢查\r\n這個專案是否成功連接到了遠端儲存庫",False,Block,Normal,,,,,,142.0638;722.9788
 NPC_129_13,129,13,2,2,,,接下來，在我們已經成功創建並連接遠端儲存庫後,False,Block,Normal,,,,,,142.0638;772.9788
 NPC_129_14,129,14,2,2,,,下一關我們要正式學習\r\n如何與遠端儲存庫進行互動,False,Block,Normal,,,,,,142.0638;822.9788
-NPC_129_15,129,15,2,2,,,最後，再次恭喜您完成本次的關卡\r\n您做得很棒！,False,Block,Normal,,,,,,142.0638;872.9788
 NPC_130_0,130,0,2,2,START,,,False,Block,Normal,,,Continue(),,,139.8235;38.82352
 NPC_130_1,130,1,2,2,,,"歡迎來到\r\n""創建與推送遠端分支"" 關卡！",False,Block,Normal,,,,,,141;90
 NPC_130_2,130,2,2,2,,,在這個關卡中\r\n我們將學習如何將本地儲存庫的分支\r\n推送到遠端儲存庫中,False,Block,Normal,,,,,,141;140
@@ -3668,7 +3665,6 @@ Number,Number,Number,Number,Special
 122,11,122,12,Normal
 122,12,122,13,Normal
 122,13,122,14,Normal
-122,14,122,15,Normal
 123,0,123,1,Normal
 123,1,123,2,Normal
 123,2,123,3,Normal
@@ -3702,7 +3698,6 @@ Number,Number,Number,Number,Special
 126,8,126,9,Normal
 126,9,126,10,Normal
 126,10,126,11,Normal
-126,11,126,12,Normal
 127,0,127,1,Normal
 127,1,127,2,Normal
 127,2,127,3,Normal
@@ -3737,7 +3732,6 @@ Number,Number,Number,Number,Special
 129,11,129,12,Normal
 129,12,129,13,Normal
 129,13,129,14,Normal
-129,14,129,15,Normal
 130,0,130,1,Normal
 130,1,130,2,Normal
 130,2,130,3,Normal
