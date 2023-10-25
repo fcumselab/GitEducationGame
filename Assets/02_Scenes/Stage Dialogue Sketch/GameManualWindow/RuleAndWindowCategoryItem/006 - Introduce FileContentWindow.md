@@ -1,4 +1,4 @@
-**Introduce FileContentWindow - 檔案內容視窗介紹**
+**Introduce FileContentWindow - 檔案內容視窗**
 
 **視 窗 介 紹**
 檔案內容視窗模擬了電腦系統中的文件編輯工具，
