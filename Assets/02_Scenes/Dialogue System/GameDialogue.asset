@@ -4616,7 +4616,8 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u5C07 \"update-README\" \u5206\u652F\u4E0A\u50B3\u5230\u9060\u7AEF\u5132\u5B58\u5EAB\u4E2D"
+      value: "\u5C07 \"update-README\" \u5206\u652F\u4E0A\u50B3\u5230\u9060\u7AEF\u5132\u5B58\u5EAB\u4E2D\n\u4E26\u66F4\u65B0
+        \"\u63D0\u4EA4\u8A18\u9304\" \u72C0\u614B"
       type: 0
       typeString: 
     - title: Success Description
@@ -4662,54 +4663,8 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u78BA\u8A8D \"\u63D0\u4EA4\u8A18\u9304\" \u8996\u7A97\u7684\u72C0\u614B"
-      type: 0
-      typeString: 
-    - title: Success Description
-      value: 
-      type: 0
-      typeString: 
-    - title: Failure Description
-      value: 
-      type: 0
-      typeString: 
-    - title: State
-      value: unassigned
-      type: 0
-      typeString: 
-    - title: Is Item
-      value: FALSE
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Trackable
-      value: FALSE
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Track
-      value: FALSE
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Entry Count
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Group
-      value: StageID13
-      type: 0
-      typeString: 
-  - id: 114
-    fields:
-    - title: Name
-      value: Push to Remote Branches/7
-      type: 0
-      typeString: 
-    - title: Pictures
-      value: '[]'
-      type: 3
-      typeString: CustomFieldType_Files
-    - title: Description
       value: "\u522A\u9664\u9060\u7AEF\u5132\u5B58\u5EAB\u4E2D\u7684 \"update-README\"
-        \u5206\u652F"
+        \u5206\u652F\n\u4E26\u66F4\u65B0 \"\u63D0\u4EA4\u8A18\u9304\" \u72C0\u614B"
       type: 0
       typeString: 
     - title: Success Description
@@ -4743,53 +4698,7 @@ MonoBehaviour:
     - title: Group
       value: StageID13
       type: 0
-      typeString: 
-  - id: 115
-    fields:
-    - title: Name
-      value: Push to Remote Branches/8
-      type: 0
-      typeString: 
-    - title: Pictures
-      value: '[]'
-      type: 3
-      typeString: CustomFieldType_Files
-    - title: Description
-      value: "\u78BA\u8A8D \"\u63D0\u4EA4\u8A18\u9304\" \u8996\u7A97\u7684\u72C0\u614B"
-      type: 0
-      typeString: 
-    - title: Success Description
-      value: 
-      type: 0
-      typeString: 
-    - title: Failure Description
-      value: 
-      type: 0
-      typeString: 
-    - title: State
-      value: unassigned
-      type: 0
-      typeString: 
-    - title: Is Item
-      value: FALSE
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Trackable
-      value: FALSE
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Track
-      value: FALSE
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Entry Count
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Group
-      value: StageID13
-      type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
   - id: 116
     fields:
     - title: Name
@@ -4835,7 +4744,7 @@ MonoBehaviour:
     - title: Group
       value: StageID14
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
   - id: 117
     fields:
     - title: Name
@@ -95846,8 +95755,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 35.29416}
-    canvasZoom: 0.8500001
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   - id: 123
     fields:
     - title: Title
@@ -97476,8 +97385,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1.1363525, y: 35.227295}
-    canvasZoom: 0.8800001
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   - id: 126
     fields:
     - title: Title
@@ -99646,7 +99555,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.94000006
+    canvasZoom: 1
   - id: 129
     fields:
     - title: Title
@@ -100644,7 +100553,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -100678,7 +100587,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -100826,7 +100739,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u958B\u59CB\u4E4B\u524D\r\n\u8B93\u6211\u5011\u5148\u4F86\u56DE\u9867\u4E0A\u4E00\u500B\u95DC\u5361\u5B78\u5230\u7684\u77E5\u8B58\u8207\u6307\u4EE4"
+        value: "\u5728\u958B\u59CB\u4E4B\u524D\r\n\u8B93\u6211\u5011\u5148\u4F86\u56DE\u9867\u4E0A\u4E00\u95DC\u5361\u5B78\u5230\u7684\u77E5\u8B58\u8207\u6307\u4EE4"
         type: 0
         typeString: 
       - title: Sequence
@@ -100885,7 +100798,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u4E0A\u4E00\u95DC\u4E2D\uFF0C\u6211\u5011\u4E86\u89E3\u4E86\u9060\u7AEF\u5132\u5B58\u5EAB\u7684\u512A\u52E2"
+        value: "\u5728\u4E0A\u4E00\u95DC\u4E2D\r\n\u6211\u5011\u4E86\u89E3\u4E86\u4F7F\u7528\u9060\u7AEF\u5132\u5B58\u5EAB\u7684\u5404\u7A2E\u512A\u52E2"
         type: 0
         typeString: 
       - title: Sequence
@@ -101003,7 +100916,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6B64\u5916\uFF0C\u5B83\u9084\u652F\u63F4\u591A\u4EBA\u5171\u540C\u958B\u767C\u5C08\u6848\r\n\u5927\u5E45\u63D0\u5347\u4E86\u5718\u968A\u7684\u958B\u767C\u6548\u7387"
+        value: "\u6B64\u5916\uFF0C\u5B83\u9084\u652F\u63F4\u591A\u4EBA\u5171\u540C\u958B\u767C\u5C08\u6848\r\n\u5927\u5E45\u63D0\u5347\u5718\u968A\u7684\u958B\u767C\u6548\u7387"
         type: 0
         typeString: 
       - title: Sequence
@@ -101122,7 +101035,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7136\u5F8C\uFF0C\u4F7F\u7528 \"git remote -v\" \u6307\u4EE4\u78BA\u8A8D\u4E86\u8907\u88FD\u7684\u5C08\u6848\r\n\u662F\u5426\u5DF2\u6210\u529F\u9023\u63A5\u5230\u9060\u7AEF\u5132\u5B58\u5EAB"
+        value: "\u7136\u5F8C\uFF0C\u6211\u5011\u4F7F\u7528 \"git remote -v\" \u6307\u4EE4\r\n\u4F86\u78BA\u8A8D\u8907\u88FD\u7684\u5C08\u6848\u662F\u5426\u5DF2\u6210\u529F\u9023\u63A5\u5230\u9060\u7AEF\u5132\u5B58\u5EAB"
         type: 0
         typeString: 
       - title: Sequence
@@ -101177,7 +101090,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5EFA\u69CB\u958B\u59CB\r)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -101211,7 +101124,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
+
+        FSMEvent("Stage Manager/Load Default
+        Background Story", "Stage Manager Parent", "Background Controller");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -101295,7 +101212,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -101325,7 +101242,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -101399,7 +101317,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -101433,7 +101351,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -101522,7 +101444,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u60A8\u6703\u6CE8\u610F\u5230\uFF0C\u8996\u7A97\u4E2D\u591A\u4E86\u4E00\u500B\u6298\u758A\u6309\u9215\r\n\u8ACB\u9EDE\u64CA\u6B64\u6309\u9215\uFF0C\u4EE5\u5C55\u958B
+        value: "\u60A8\u53EF\u4EE5\u6CE8\u610F\u5230\r\n\u8996\u7A97\u4E2D\u7684\u7BAD\u982D\u6309\u9215\u76EE\u524D\u5DF2\u7D93\u80FD\u5920\u9EDE\u64CA\u4E86\r\n\u8ACB\u9EDE\u64CA\u6B64\u6309\u9215\uFF0C\u4EE5\u5C55\u958B
           \"\u63D0\u4EA4\u8A18\u9304\" \u8996\u7A97"
         type: 0
         typeString: 
@@ -101939,7 +101861,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -101974,7 +101896,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -102280,7 +102203,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -102314,7 +102237,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -102822,8 +102749,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "\u7136\u5F8C\uFF0C\u6307\u4EE4\u7684\u7B2C\u56DB\u500B\u6B04\u4F4D\u662F
-          \"\u672C\u5730\u5206\u652F\u540D\u7A31\"\r\n\u5373\u60A8\u60F3\u8981\u4E0A\u50B3\u81F3\u9060\u7AEF\u5132\u5B58\u5EAB\u7684\u672C\u5730\u5206\u652F\u540D\u7A31\r\n\u4E5F\u5C31\u662F\u6211\u5011\u5728\u672C\u5730\u96FB\u8166\u4E2D\u958B\u767C\u7684\u5206\u652F
-          \"update-README\""
+          \"\u672C\u5730\u5206\u652F\u540D\u7A31\"\r\n\u5373\u60A8\u60F3\u8981\u4E0A\u50B3\u81F3\u9060\u7AEF\u5132\u5B58\u5EAB\u7684\u672C\u5730\u5206\u652F\u540D\u7A31\r\n\u4E5F\u5C31\u662F\u6211\u5011\u5728\u672C\u5730\u96FB\u8166\u4E2D\u958B\u767C\u7684
+          \"update-README\" \u5206\u652F"
         type: 0
         typeString: 
       - title: Sequence
@@ -102883,7 +102810,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "\u5982\u679C\u9060\u7AEF\u5132\u5B58\u5EAB\u4E2D\u6C92\u6709\u627E\u5230\u5C0D\u61C9\u7684\u5206\u652F\u540D\u7A31\r\nGit
-          \u5C07\u6703\u5275\u5EFA\u4E00\u500B\u540C\u540D\u7684\u9060\u7AEF\u5206\u652F\r\n\u4E26\u5F9E\u5C0D\u61C9\u7684\u5206\u652F\u4E0A\u8907\u88FD\u76F8\u540C\u7684
+          \u5C07\u6703\u5275\u5EFA\u4E00\u500B\u540C\u540D\u7684\u9060\u7AEF\u5206\u652F\r\n\u4E26\u7372\u5F97\u5C0D\u61C9\u672C\u5730\u5206\u652F\u76F8\u540C\u7684
           \"\u63D0\u4EA4\u8A18\u9304\""
         type: 0
         typeString: 
@@ -102943,7 +102870,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u9060\u7AEF\u5206\u652F\u5DF2\u7D93\u5B58\u5728\r\n\u5247\u6703\u66F4\u65B0\u5230\u8207\u672C\u5730\u5206\u652F\u76F8\u540C\u7684
+        value: "\u5982\u679C\u9060\u7AEF\u5206\u652F\u5DF2\u7D93\u5B58\u5728\r\n\u5247\u6703\u66F4\u65B0\u5230\u8207\u5C0D\u61C9\u672C\u5730\u5206\u652F\u76F8\u540C\u7684
           \"\u63D0\u4EA4\u8A18\u9304\""
         type: 0
         typeString: 
@@ -102999,7 +102926,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -103028,7 +102955,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -103044,7 +102972,7 @@ MonoBehaviour:
   - id: 133
     fields:
     - title: Title
-      value: Push to Remote Branches/Quest 7
+      value: Push to Remote Branches/Quest 6
       type: 0
       typeString: 
     - title: Description
@@ -103102,7 +103030,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -103136,7 +103064,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -103166,7 +103098,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "\u5F88\u597D\uFF01\r\n\u60A8\u5DF2\u6210\u529F\u4F7F\u7528 \"git
-          push origin \u672C\u5730\u5206\u652F\u540D\u7A31\" \u6307\u4EE4\r\n\u5C07\u6211\u5011\u958B\u767C\u7684\u672C\u5730\u5206\u652F\u4E0A\u50B3\u81F3\u9060\u7AEF\u5132\u5B58\u5EAB\u4E2D"
+          push origin \u672C\u5730\u5206\u652F\u540D\u7A31\" \u6307\u4EE4\r\n\u5C07
+          \"update-README\" \u672C\u5730\u5206\u652F\u4E0A\u50B3\u81F3\u9060\u7AEF\u5132\u5B58\u5EAB\u4E2D"
         type: 0
         typeString: 
       - title: Sequence
@@ -103403,7 +103336,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -103432,7 +103365,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -103448,7 +103382,7 @@ MonoBehaviour:
   - id: 134
     fields:
     - title: Title
-      value: Push to Remote Branches/Quest 9
+      value: Push to Remote Branches/Quest 7
       type: 0
       typeString: 
     - title: Description
@@ -103506,7 +103440,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -103540,7 +103474,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -103631,7 +103569,8 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "\u96D6\u7136\u5728\u66F4\u65B0\u4E86 \"\u63D0\u4EA4\u8A18\u9304\"
           \u5167\u5BB9\u5F8C\r\n\u672C\u5730\u5132\u5B58\u5EAB\u4E2D\u7684 \"update-README\"
-          \u5206\u652F\u4E26\u672A\u88AB\u522A\u9664"
+          \u5206\u652F\u4E26\u672A\u88AB\u522A\u9664\r\n\u4F46\u662F\u9060\u7AEF\u5132\u5B58\u5EAB\u7684
+          \"origin/update-README\" \u5206\u652F\u5DF2\u7D93\u88AB\u79FB\u9664\u4E86"
         type: 0
         typeString: 
       - title: Sequence
@@ -103690,8 +103629,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4F46\u662F\u9060\u7AEF\u5132\u5B58\u5EAB\u7684 \"origin/update-README\"
-          \u5206\u652F\u5DF2\u7D93\u88AB\u79FB\u9664\u4E86"
+        value: "\u5F9E\u672C\u6B21\u7684\u6559\u5B78\u95DC\u5361\u4E2D\r\n\u60A8\u5DF2\u7D93\u5B78\u6703\u4E86\u5982\u4F55\u5275\u5EFA\u548C\u66F4\u65B0\u9060\u7AEF\u5206\u652F\r\n\u4E26\u5B78\u6703\u901A\u904E\u6307\u4EE4\u4F86\u522A\u9664\u6307\u5B9A\u7684\u9060\u7AEF\u5206\u652F"
         type: 0
         typeString: 
       - title: Sequence
@@ -103750,65 +103688,6 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5F9E\u672C\u6B21\u7684\u6559\u5B78\u95DC\u5361\u4E2D\r\n\u60A8\u5DF2\u7D93\u5B78\u6703\u4E86\u5982\u4F55\u5275\u5EFA\u548C\u66F4\u65B0\u9060\u7AEF\u5206\u652F\r\n\u4E26\u4E14\u5B78\u6703\u901A\u904E\u6307\u4EE4\u4F86\u522A\u9664\u6307\u5B9A\u7684\u9060\u7AEF\u5206\u652F"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 134
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 134
-        originDialogueID: 4
-        destinationConversationID: 134
-        destinationDialogueID: 5
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 141
-        y: 241.0638
-        width: 160
-        height: 30
-    - id: 5
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
         value: "\u63A5\u4E0B\u4F86\uFF0C\u5728\u5F8C\u534A\u90E8\u5206\u7684\u95DC\u5361\r\n\u6211\u5011\u518D\u4F86\u719F\u6089\u5982\u4F55\u901A\u904E\u6307\u4EE4\u4F86\u5275\u5EFA\u8207\u522A\u9664\u9060\u7AEF\u5206\u652F\u5427\r\n\u8ACB\u52A0\u6CB9\uFF01"
         type: 0
         typeString: 
@@ -103840,7 +103719,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 141
-        y: 290
+        y: 241.0638
         width: 160
         height: 30
     entryGroups: []
@@ -103907,7 +103786,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -103941,7 +103820,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -104088,7 +103971,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u63A5\u4E0B\u4F86\uFF0C\u8B93\u6211\u5011\u56DE\u9867\u4E00\u4E0B\u672C\u6B21\u95DC\u5361\u4E2D\u5B78\u5230\u7684\u77E5\u8B58\u548C\u6307\u4EE4"
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u8B93\u6211\u5011\u4F86\u56DE\u9867\u672C\u6B21\u95DC\u5361\u4E2D\u5B78\u5230\u7684\u77E5\u8B58\u548C\u6307\u4EE4"
         type: 0
         typeString: 
       - title: Sequence
