@@ -16,6 +16,11 @@ public class CommitTool : SerializedMonoBehaviour
         
     }
 
+    public int GetGenerateCommitIdListSize()
+    {
+        return generateCommitIdList.Count;
+    }
+
     public string SetRandomId()
     {
         string key = "0123456789abcdefghijkmnpqrstuvwxyz";
