@@ -9,7 +9,9 @@ public class CommitLine : MonoBehaviour
 
     public void GenerateCommitLine(Vector2 pos, Color color)
     {
+        uiLine.enabled = false;
         uiLine.Points[0] = pos;
         uiLine.color = color;
+        uiLine.enabled = true;
     }
 }

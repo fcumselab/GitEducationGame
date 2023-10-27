@@ -136,6 +136,7 @@ public class BranchTool : SerializedMonoBehaviour
 
         UpdateTargetCommitBranchList(NeedUpdateCommitList, Commits);
         
+
         foreach(string commitID in NeedUpdateCommitList)
         {
             CommitList.Add(commitID);
