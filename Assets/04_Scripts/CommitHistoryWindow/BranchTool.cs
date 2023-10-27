@@ -61,7 +61,13 @@ public class BranchTool : SerializedMonoBehaviour
 
     public bool UpdateCommitBranchList(GameObject Commits)
     {
-        foreach(string commitID in CommitList)
+        UpdateTargetCommitBranchList(CommitList, Commits);
+        return true;
+    }
+
+    void UpdateTargetCommitBranchList(List<string> TargetCommitList, GameObject Commits)
+    {
+        foreach (string commitID in TargetCommitList)
         {
             // if a commit's branchList already has thisGameObject's name. 
             // true -> skip / false -> give this commit's branchList this name 
@@ -84,9 +90,8 @@ public class BranchTool : SerializedMonoBehaviour
             if (branchList.Contains(name)) continue;
             else targetFsm.FsmVariables.GetFsmArray("branchList").InsertItem(name, branchList.Count);
         }
-
-        return true;
     }
+
 
     public bool UpdateCommitsColor(string branchName, Color TextColor, Color ImageColor)
     {
@@ -120,25 +125,39 @@ public class BranchTool : SerializedMonoBehaviour
     public void FastForwardMerge(GameObject TargetBranch, GameObject Commits)
     {   
         List<string> TBCommitList = TargetBranch.GetComponent<BranchTool>().GetCommitList();
-        string latestCommitID = CommitList[CommitList.Count - 1];
-
+        List<string> NeedUpdateCommitList = new();
         for (int i = 0; i< TBCommitList.Count;i++)
         {
-            if (TBCommitList[i] == latestCommitID)
+            if (!CommitList.Contains(TBCommitList[i]))
             {
-                CommitList.Clear();
-                foreach (string commitID in TBCommitList)
-                {
-                    CommitList.Add(commitID);
-                }
-                CommitList.RemoveRange(0, i + 1);
-                break;
+                NeedUpdateCommitList.Add(TBCommitList[i]);
             }
         }
- 
-        UpdateCommitBranchList(Commits);
-        CommitList.Clear();
-        foreach(string commitID in TBCommitList)
+
+        UpdateTargetCommitBranchList(NeedUpdateCommitList, Commits);
+        
+        foreach(string commitID in NeedUpdateCommitList)
+        {
+            CommitList.Add(commitID);
+        }
+    }
+
+    public void AutoMergeMerge(GameObject TargetBranch, GameObject Commits)
+    {
+        List<string> TBCommitList = TargetBranch.GetComponent<BranchTool>().GetCommitList();
+        List<string> NeedUpdateCommitList = new();
+
+        for (int i = 0; i < TBCommitList.Count; i++)
+        {
+            if (!CommitList.Contains(TBCommitList[i]))
+            {
+                NeedUpdateCommitList.Add(TBCommitList[i]);
+            }
+        }
+
+        UpdateTargetCommitBranchList(NeedUpdateCommitList, Commits);
+
+        foreach (string commitID in NeedUpdateCommitList)
         {
             CommitList.Add(commitID);
         }
