@@ -20,6 +20,11 @@ public class CommitTool : SerializedMonoBehaviour
     {
         return generateCommitIdList.Count;
     }
+    
+    public void RemoveGenerateCommitId(string commitId)
+    {
+        generateCommitIdList.Remove(commitId);
+    }
 
     public string SetRandomId()
     {
