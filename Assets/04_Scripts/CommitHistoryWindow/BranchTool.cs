@@ -63,7 +63,8 @@ public class BranchTool : SerializedMonoBehaviour
     {
         foreach(string commitID in CommitList)
         {
-            
+            // if a commit's branchList already has thisGameObject's name. 
+            // true -> skip / false -> give this commit's branchList this name 
             Transform foundCommit = Commits.transform.Find(commitID);
             PlayMakerFSM targetFsm = MyPlayMakerScriptHelper.GetFsmByName(foundCommit.gameObject, "Content");
 
@@ -91,37 +92,55 @@ public class BranchTool : SerializedMonoBehaviour
     {
         /*
         Image image;
-        Text text;
-        
-        foreach (var commit in CommitList)
-        {
-            image = commit.Value.transform.Find("Image").GetComponent<Image>();
-            image.color = ImageColor;
-
-            text = commit.Value.transform.Find("Text").GetComponent<Text>();
-            text.color = TextColor;
-            text.text = branchName[0].ToString();
-        }*/
-
+        Text text;*/
         return true;
     }
 
-    public string FindMergeType(GameObject TargetB, string targetBCommit, string commit)
+    public string FindMergeType(GameObject TargetBranch)
     {   // current master C8  keyword newF C2 (A > B)
         // current master C2  keyword newF C8 (A < B)
         // current master C8  keyword newF D2 (A < B)
         // current master C2  keyword newF D8 (A > B)
+        List<string> TBCommitList = TargetBranch.GetComponent<BranchTool>().GetCommitList();
 
-        List<string> TargetList = TargetB.GetComponent<BranchTool>().GetCommitList();
-        if(TargetList.Count > CommitList.Count)
+        if(TBCommitList.Count > CommitList.Count)
         {
-            if (TargetList.Contains(commit)) return "FastForward";
-            else return "Merge";
+            string latestCommitID = CommitList[CommitList.Count - 1];
+            if (TBCommitList.Contains(latestCommitID)) return "FastForward";
+            else return "AutoMerge";
         }
         else
         {
-            if (CommitList.Contains(targetBCommit)) return "UpToDate";
-            else return "Merge";
+            string latestCommitID = TBCommitList[TBCommitList.Count - 1];
+            if (CommitList.Contains(latestCommitID)) return "UpToDate";
+            else return "AutoMerge";
+        }
+    }
+
+    public void FastForwardMerge(GameObject TargetBranch, GameObject Commits)
+    {   
+        List<string> TBCommitList = TargetBranch.GetComponent<BranchTool>().GetCommitList();
+        string latestCommitID = CommitList[CommitList.Count - 1];
+
+        for (int i = 0; i< TBCommitList.Count;i++)
+        {
+            if (TBCommitList[i] == latestCommitID)
+            {
+                CommitList.Clear();
+                foreach (string commitID in TBCommitList)
+                {
+                    CommitList.Add(commitID);
+                }
+                CommitList.RemoveRange(0, i + 1);
+                break;
+            }
+        }
+ 
+        UpdateCommitBranchList(Commits);
+        CommitList.Clear();
+        foreach(string commitID in TBCommitList)
+        {
+            CommitList.Add(commitID);
         }
     }
 }
