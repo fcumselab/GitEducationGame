@@ -47,55 +47,25 @@ public class CommitTool : SerializedMonoBehaviour
         }
     }
 
-    public Vector2 SetCommitHistoryPanelSize(GameObject commitHistory)
+    public int GetCommitHistoryPanelSizeY()
     {
-        Dictionary<string, int> branchCountDic = new();
-
-        Transform Commits = commitHistory.transform.Find("Commits");
-        for (int x = 0; x < Commits.childCount; x++)
-        {
-            Transform child = Commits.GetChild(x);
-
-            if (child.gameObject.activeSelf)
-            {
-                PlayMakerFSM targetFsm = MyPlayMakerScriptHelper.GetFsmByName(child.gameObject, "Content");
-                for (int y = 0; y < targetFsm.FsmVariables.GetFsmArray("branchList").Length; y++)
-                {
-                    string branchName = (string)targetFsm.FsmVariables.GetFsmArray("branchList").Get(y);
-                    if (branchCountDic.ContainsKey(branchName))
-                    {
-                        branchCountDic[branchName]++;
-                    }
-                    else
-                    {
-                        branchCountDic.Add(branchName, 1);
-                    }
-                }
-            }
-        }
         int maxHeightLen = 0;
-        int maxWidthLen = 0;
-        foreach (var branch in branchCountDic)
-        {
-            if (maxHeightLen < branch.Value) maxHeightLen = branch.Value;
-        }
 
-        Transform Branches = commitHistory.transform.Find("Branches");
+        Transform Branches = gameObject.transform.Find("Branches");
         for (int x = 0; x < Branches.childCount; x++)
         {
             Transform child = Branches.GetChild(x);
             if (child.gameObject.activeSelf)
             {
-                PlayMakerFSM targetFsm = MyPlayMakerScriptHelper.GetFsmByName(child.gameObject, "Branch");
-
-                int branchId = targetFsm.FsmVariables.GetFsmInt("branchId").ToInt();
-                if (maxWidthLen < branchId) maxWidthLen = branchId;
+                List<string> commitList = child.GetComponent<BranchTool>().GetCommitList();
+                if(maxHeightLen < commitList.Count)
+                {
+                    maxHeightLen = commitList.Count;
+                }
             }
         }
-        maxWidthLen = ((maxWidthLen + 1) * 175);
         maxHeightLen *= 175;
-        Vector2 commitHistorySize = new(maxWidthLen, maxHeightLen);
-        return commitHistorySize;
+        return maxHeightLen;
     }
 
     public int GetBranchColumn(string currentBranch)
