@@ -31,6 +31,11 @@ public class BranchTool : SerializedMonoBehaviour
         CommitList.Remove(commitId);
     }
 
+    public void ClearAllCommitList()
+    {
+        CommitList.Clear();
+    }
+
     public bool RemoveThisBranch(GameObject Commits)
     {
         foreach (string commitID in CommitList)
@@ -58,11 +63,66 @@ public class BranchTool : SerializedMonoBehaviour
 
         return true;
     }
-
+    
     public bool UpdateCommitBranchList(GameObject Commits)
     {
         UpdateTargetCommitBranchList(CommitList, Commits);
         return true;
+    }
+
+    public void SyncLocalAndRemoteCommitBranchList(GameObject BaseBranch, GameObject TargetBranch)
+    {
+        //Base = latest BranchList  Target = wanted to sync.
+        Transform BaseBranches = BaseBranch.transform.parent;
+        Transform TargetBranches = TargetBranch.transform.parent;
+        Transform BaseCommitHistory = BaseBranches.transform.parent;
+        Transform TargetCommitHistory = TargetBranches.transform.parent;
+        Transform BaseCommits = BaseCommitHistory.Find("Commits");
+        Transform TargetCommits = TargetCommitHistory.Find("Commits");
+        PlayMakerFSM targetFsm;
+
+        List<string> BaseCommitList = BaseBranch.GetComponent<BranchTool>().GetCommitList();
+        List<string> TargetCommitList = TargetBranch.GetComponent<BranchTool>().GetCommitList();
+        List<string> TargetGenerateCommitList = TargetCommitHistory.GetComponent<CommitTool>().GetGenerateCommitIdList();
+
+
+        List<string> NeedAddBranchList = new();
+        foreach (string baseCommitID in BaseCommitList)
+        {
+            if(TargetCommitList.Contains(baseCommitID))
+            {
+                NeedAddBranchList.Add(baseCommitID);
+            }
+            else
+            {
+                Transform foundCommit = TargetCommits.Find(baseCommitID);
+                //Debug.Log("found: " + foundCommit.name);
+                if (foundCommit != null)
+                {
+                    NeedAddBranchList.Add(baseCommitID);
+                    continue;
+                }
+                //Debug.Log("next: " + baseCommitID);
+
+                Transform CopyCommit = BaseCommits.Find(baseCommitID);
+                Transform NewCommit = Instantiate(CopyCommit, TargetCommits);
+                NewCommit.name = CopyCommit.name;
+
+                targetFsm = MyPlayMakerScriptHelper.GetFsmByName(NewCommit.gameObject, "Line Generator");
+                targetFsm.enabled = true;
+
+                TargetCommitList.Add(baseCommitID);
+                TargetGenerateCommitList.Add(baseCommitID);
+            }
+        }
+
+        UpdateTargetCommitBranchList(NeedAddBranchList, TargetCommits.gameObject);
+
+        //Update TargetBranch's latestCommit.
+        targetFsm = MyPlayMakerScriptHelper.GetFsmByName(BaseBranch, "Branch");
+        string latestCommit = targetFsm.FsmVariables.GetFsmString("LatestCommit").Value;
+        targetFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetBranch, "Branch");
+        targetFsm.FsmVariables.GetFsmString("LatestCommit").Value = latestCommit;
     }
 
     void UpdateTargetCommitBranchList(List<string> TargetCommitList, GameObject Commits)
@@ -91,7 +151,6 @@ public class BranchTool : SerializedMonoBehaviour
             else targetFsm.FsmVariables.GetFsmArray("branchList").InsertItem(name, branchList.Count);
         }
     }
-
 
     public bool UpdateCommitsColor(string branchName, Color TextColor, Color ImageColor)
     {
@@ -130,17 +189,12 @@ public class BranchTool : SerializedMonoBehaviour
         {
             if (!CommitList.Contains(TBCommitList[i]))
             {
-                NeedUpdateCommitList.Add(TBCommitList[i]);
+                NeedUpdateCommitList.Add(TBCommitList[i]); 
+                CommitList.Add(TBCommitList[i]);
             }
         }
 
         UpdateTargetCommitBranchList(NeedUpdateCommitList, Commits);
-        
-
-        foreach(string commitID in NeedUpdateCommitList)
-        {
-            CommitList.Add(commitID);
-        }
     }
 
     public void AutoMergeMerge(GameObject TargetBranch, GameObject Commits)
@@ -153,14 +207,18 @@ public class BranchTool : SerializedMonoBehaviour
             if (!CommitList.Contains(TBCommitList[i]))
             {
                 NeedUpdateCommitList.Add(TBCommitList[i]);
+                CommitList.Add(TBCommitList[i]);
             }
         }
 
         UpdateTargetCommitBranchList(NeedUpdateCommitList, Commits);
+    }
 
-        foreach (string commitID in NeedUpdateCommitList)
-        {
-            CommitList.Add(commitID);
-        }
+    public void RemoveGenerateCommitId(string commitId)
+    {
+        Transform Branches = transform.parent;
+        Transform TargetCommitHistory = Branches.parent;
+
+        TargetCommitHistory.GetComponent<CommitTool>().RemoveGenerateCommitId(commitId);
     }
 }
