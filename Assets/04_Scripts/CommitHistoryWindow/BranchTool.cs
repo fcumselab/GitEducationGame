@@ -118,11 +118,21 @@ public class BranchTool : SerializedMonoBehaviour
 
         UpdateTargetCommitBranchList(NeedAddBranchList, TargetCommits.gameObject);
 
+        PlayMakerFSM targetBranchFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetBranch, "Branch");
+        string latestCommit = targetBranchFsm.FsmVariables.GetFsmString("LatestCommit").Value;
+        //Debug.Log("targetB latestCommit : " + latestCommit);
+
+        //Set previous TargetBranch's HEAD Commit to false.
+        Transform TargetHEADCommit = TargetCommits.Find(latestCommit);
+        //Debug.Log("TargetHEADCommit : " + TargetHEADCommit.name);
+        targetFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetHEADCommit.gameObject, "Content");
+        targetFsm.FsmVariables.GetFsmBool("isLatestCommit").Value = false;
+
         //Update TargetBranch's latestCommit.
         targetFsm = MyPlayMakerScriptHelper.GetFsmByName(BaseBranch, "Branch");
-        string latestCommit = targetFsm.FsmVariables.GetFsmString("LatestCommit").Value;
-        targetFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetBranch, "Branch");
-        targetFsm.FsmVariables.GetFsmString("LatestCommit").Value = latestCommit;
+        targetBranchFsm.FsmVariables.GetFsmString("LatestCommit").Value = targetFsm.FsmVariables.GetFsmString("LatestCommit").Value;
+
+
     }
 
     void UpdateTargetCommitBranchList(List<string> TargetCommitList, GameObject Commits)
