@@ -14,6 +14,11 @@ public class BranchTool : SerializedMonoBehaviour
         return CommitList;
     }
 
+    public int GetCommitListSize()
+    {
+        return CommitList.Count;
+    }
+
     public string[] GetCommitListToPlayMaker(bool needReverse)
     {
         List<string> CL = CommitList;
