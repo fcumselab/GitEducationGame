@@ -101,23 +101,23 @@ public class BranchTool : SerializedMonoBehaviour
             else
             {
                 Transform foundCommit = TargetCommits.Find(baseCommitID);
-                //Debug.Log("found: " + foundCommit.name);
-                if (foundCommit != null)
+                if (foundCommit != null) //Commit has created (curB is newF but master has commits)
                 {
                     NeedAddBranchList.Add(baseCommitID);
-                    continue;
                 }
-                //Debug.Log("next: " + baseCommitID);
+                else
+                {
+                    Transform CopyCommit = BaseCommits.Find(baseCommitID);
+                    Transform NewCommit = Instantiate(CopyCommit, TargetCommits);
+                    NewCommit.name = CopyCommit.name;
 
-                Transform CopyCommit = BaseCommits.Find(baseCommitID);
-                Transform NewCommit = Instantiate(CopyCommit, TargetCommits);
-                NewCommit.name = CopyCommit.name;
+                    targetFsm = MyPlayMakerScriptHelper.GetFsmByName(NewCommit.gameObject, "Line Generator");
+                    targetFsm.enabled = true;
 
-                targetFsm = MyPlayMakerScriptHelper.GetFsmByName(NewCommit.gameObject, "Line Generator");
-                targetFsm.enabled = true;
+                    TargetGenerateCommitList.Add(baseCommitID);
+                }
 
                 TargetCommitList.Add(baseCommitID);
-                TargetGenerateCommitList.Add(baseCommitID);
             }
         }
 
@@ -125,15 +125,12 @@ public class BranchTool : SerializedMonoBehaviour
 
         PlayMakerFSM targetBranchFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetBranch, "Branch");
         string latestCommit = targetBranchFsm.FsmVariables.GetFsmString("LatestCommit").Value;
-        //Debug.Log("targetB latestCommit : " + latestCommit);
 
         //Set previous TargetBranch's HEAD Commit to false.
         Transform TargetHEADCommit = TargetCommits.Find(latestCommit);
-        //Debug.Log("TargetHEADCommit : " + TargetHEADCommit.name);
         targetFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetHEADCommit.gameObject, "Content");
         targetFsm.FsmVariables.GetFsmBool("isLatestCommit").Value = false;
 
-        //Update TargetBranch's latestCommit.
         targetFsm = MyPlayMakerScriptHelper.GetFsmByName(BaseBranch, "Branch");
         targetBranchFsm.FsmVariables.GetFsmString("LatestCommit").Value = targetFsm.FsmVariables.GetFsmString("LatestCommit").Value;
 
