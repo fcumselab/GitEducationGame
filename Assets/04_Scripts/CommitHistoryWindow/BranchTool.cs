@@ -112,6 +112,7 @@ public class BranchTool : SerializedMonoBehaviour
                     NewCommit.name = CopyCommit.name;
 
                     targetFsm = MyPlayMakerScriptHelper.GetFsmByName(NewCommit.gameObject, "Line Generator");
+                    targetFsm.FsmVariables.GetFsmString("runType").Value = "position";
                     targetFsm.enabled = true;
 
                     TargetGenerateCommitList.Add(baseCommitID);
