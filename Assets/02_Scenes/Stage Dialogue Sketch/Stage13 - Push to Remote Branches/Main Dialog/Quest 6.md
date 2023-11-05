@@ -1,17 +1,17 @@
 很好！
 您已成功使用 "git push origin 本地分支名稱" 指令
-將 "update-README" 本地分支上傳至遠端儲存庫中
+將 "update-readme" 本地分支上傳至遠端儲存庫中
 
 這個操作也更新了 "提交記錄" 的內容
-遠端儲存庫創建了一個名為 "origin/update-README" 的分支
+遠端儲存庫創建了一個名為 "origin/update-readme" 的分支
 其 "提交記錄" 也與對應的本地分支相同
 
 您可以開啟瀏覽器視窗
 來確認目前遠端儲存庫的狀態
 
 在專案首頁中點選分支選單
-並選擇 "update-README" 分支
-視窗中將顯示 "update-README" 分支的內容
+並選擇 "update-readme" 分支
+視窗中將顯示 "update-readme" 分支的內容
 
 選擇分支後可以發現
 頁面上的 "README" 的文件已加上剛才新增的內容
@@ -26,4 +26,4 @@
 這個指令用來删除指定的遠端分支
 
 請您執行根據當前目標執行指令
-以刪除 "update-README" 遠端分支
+以刪除 "update-readme" 遠端分支

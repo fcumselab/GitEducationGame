@@ -25,7 +25,7 @@
 
 然後，指令的第四個欄位是 "本地分支名稱"
 即您想要上傳至遠端儲存庫的本地分支名稱
-也就是我們在本地電腦中開發的 "update-README" 分支
+也就是我們在本地電腦中開發的 "update-readme" 分支
 
 如果遠端儲存庫中沒有找到對應的分支名稱
 Git 將會創建一個同名的遠端分支
@@ -35,5 +35,5 @@ Git 將會創建一個同名的遠端分支
 則會更新到與對應本地分支相同的 "提交記錄"
 
 按照上述說明，現在讓我們執行指令
-<color=#CF001C>git push origin update-README</color>
-將 "update-README" 分支的修改內容上傳至遠端儲存庫吧
+<color=#CF001C>git push origin update-readme</color>
+將 "update-readme" 分支的修改內容上傳至遠端儲存庫吧

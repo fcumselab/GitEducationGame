@@ -2,15 +2,15 @@
 您已成功執行 "git push origin -d 本地分支名稱" 指令
 
 雖然在更新了 "提交記錄" 內容後
-本地儲存庫中的 "update-README" 分支並未被刪除
-但是遠端儲存庫的 "origin/update-README" 分支已經被移除了
+本地儲存庫中的 "update-readme" 分支並未被刪除
+但是遠端儲存庫的 "origin/update-readme" 分支已經被移除了
 
 您可以開啟瀏覽器視窗
 來確認目前遠端儲存庫的狀態
 
 進入到 Git 服務平台首頁
 您會發現現在只剩下 "master" 分支
-表示我們已成功刪除遠端 "update-README" 分支
+表示我們已成功刪除遠端 "update-readme" 分支
 
 從本次的教學關卡中
 您已經學會了如何創建和更新遠端分支
