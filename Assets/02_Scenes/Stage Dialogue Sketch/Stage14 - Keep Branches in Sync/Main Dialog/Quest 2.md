@@ -1,14 +1,14 @@
 好的，在您開啟了 "提交記錄" 視窗後
 讓我們來確認其中的內容
 
-首先，您會注意到遠端儲存庫中出現了透明的 "提交"
-表示這台電腦目前落後於遠端的版本
+首先，您會注意到遠端儲存庫的 "update-readme" 分支
+比本地存儲庫還多了一個提交
 
 根據背景故事
-我們需要在 "new-feature"（新功能）分支上繼續開發功能
+我們需要在 "update-readme" 分支上繼續開發功能
 
 但是如果想要繼續開發專案
-就得想辦法先同步遠端的 "new-feature" 分支
+就得想辦法先同步遠端的 "update-readme" 分支
 
 本次我們要學習的指令是
 "<color=#CF001C>git pull origin 分支名稱</color>"
@@ -36,10 +36,10 @@ Git 將會採用 "自動合併"（Auto Merge）
 但是，如果檔案出現衝突
 請小心處理，以確保同步順利完成
 
-我們本次要開發的 "new-feature" 分支
+我們本次要開發的 "update-readme" 分支
 由於本地和遠端分支的 "提交記錄" 是呈現一條直線的
 所以並不需要解決文件衝突
 
-接下來，請您切換到 "new-feature" 分支
-然後執行 "<color=#CF001C>git pull origin new-feature</color>" 指令
-來同步 "new-feature" 分支的 "提交記錄"
+接下來，請您切換到 "update-readme" 分支
+然後執行 "<color=#CF001C>git pull origin update-readme</color>" 指令
+來同步 "update-readme" 分支的 "提交記錄"
