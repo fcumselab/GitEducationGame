@@ -149,6 +149,10 @@ public class BranchTool : SerializedMonoBehaviour
                 else
                 {
                     Transform CopyCommit = BaseCommits.Find(baseCommitID);
+                    targetFsm = MyPlayMakerScriptHelper.GetFsmByName(CopyCommit.gameObject, "LockController");
+                    targetFsm.FsmVariables.GetFsmBool("isLock").Value = false;
+                    targetFsm.enabled = true;
+
                     Transform NewCommit = Instantiate(CopyCommit, TargetCommits);
                     NewCommit.name = CopyCommit.name;
 
