@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using HutongGames.PlayMaker;
@@ -39,6 +40,46 @@ public class BranchTool : SerializedMonoBehaviour
     public void ClearAllCommitList()
     {
         CommitList.Clear();
+    }
+
+    List<string> GetCommitList(Transform TargetCommit, GameObject Commits)
+    {
+        List<string> resultCommitList = new();
+        PlayMakerFSM targetFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetCommit.gameObject, "Content");
+        resultCommitList.Add(TargetCommit.name);
+
+        for (int y = 0; y < targetFsm.FsmVariables.GetFsmArray("commitParentList").Length; y++)
+        {
+            string commitID = (string)targetFsm.FsmVariables.GetFsmArray("commitParentList").Get(y);
+            List<string> parentList = GetCommitList(Commits.transform.Find(commitID), Commits);
+            resultCommitList.AddRange(parentList);
+        }
+
+        return resultCommitList;
+    }
+
+    public void CreateBranchByCommit(GameObject BaseBranch, GameObject BaseCommit, GameObject Commits)
+    {
+        List<string> resultCommitList = new();
+
+        List<string> getCommitList = GetCommitList(BaseCommit.transform, Commits);
+        List<string> BaseCommitList = BaseBranch.GetComponent<BranchTool>().GetCommitList();
+        foreach(string commitID in BaseCommitList)
+        {
+            if (getCommitList.Contains(commitID) && !resultCommitList.Contains(commitID))
+            {
+                resultCommitList.Add(commitID);
+            }
+        }
+        UpdateTargetCommitBranchList(resultCommitList, Commits);
+
+        PlayMakerFSM targetBranchFsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Branch");
+        targetBranchFsm.FsmVariables.GetFsmString("LatestCommit").Value = BaseCommit.name;
+
+        foreach (string commitID in resultCommitList)
+        {
+            CommitList.Add(commitID);
+        }
     }
 
     public bool RemoveThisBranch(GameObject Commits)
