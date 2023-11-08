@@ -149,12 +149,14 @@ public class BranchTool : SerializedMonoBehaviour
                 else
                 {
                     Transform CopyCommit = BaseCommits.Find(baseCommitID);
+                    CopyCommit.GetComponent<CircleCollider2D>().enabled = false;
                     targetFsm = MyPlayMakerScriptHelper.GetFsmByName(CopyCommit.gameObject, "LockController");
                     targetFsm.FsmVariables.GetFsmBool("isLock").Value = false;
                     targetFsm.enabled = true;
 
                     Transform NewCommit = Instantiate(CopyCommit, TargetCommits);
                     NewCommit.name = CopyCommit.name;
+                    CopyCommit.GetComponent<CircleCollider2D>().enabled = true;
 
                     targetFsm = MyPlayMakerScriptHelper.GetFsmByName(NewCommit.gameObject, "Line Generator");
                     targetFsm.FsmVariables.GetFsmString("runType").Value = "position";
