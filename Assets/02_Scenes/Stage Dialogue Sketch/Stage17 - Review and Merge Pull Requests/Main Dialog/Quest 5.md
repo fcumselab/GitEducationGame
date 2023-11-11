@@ -1,10 +1,10 @@
 非常出色！
-您已成功完成一次 "合併 Pull Request" 流程
+您已成功完成 "合併 Pull Request" 流程
 
 合併後的結果，就如同我們在上一個關卡中
 使用 "git pull" 來同步 "master" 分支一樣
 
-"master" 分支現在已經包含了 "new-feature" 分支的修改內容
+"master" 分支現在已經包含了 "update-readme" 分支的修改內容
 並且在合併的過程中創建了一個新的 "提交"
 
 這個 "提交" 就是我們在合併 Pull Request 後

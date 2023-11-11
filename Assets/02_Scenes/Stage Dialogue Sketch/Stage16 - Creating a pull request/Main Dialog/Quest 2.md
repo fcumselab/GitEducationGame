@@ -5,14 +5,14 @@
 目前本地與遠端儲存庫的 "提交記錄" 是同步的
 
 此外，作者已經將本地 "master" 分支
-合併到 "new-feature" 分支中
+合併到 "update-readme" 分支中
 
-點擊 "new-feature" 分支上的最新 "提交" 可以看到
+點擊 "update-readme" 分支上的最新 "提交" 可以看到
 作者成功解決了合併時的衝突
 
 這個模擬場景與我們上一關卡的結尾一樣
 作者已經完成了 "合併前的確認"
-並準備將 "new-feature" 分支合併到遠端 "master" 分支上
+並準備將 "update-readme" 分支合併到遠端 "master" 分支上
 
 在完成 "合併前的確認" 流程後
 接下來，我們要創建 Pull Request
