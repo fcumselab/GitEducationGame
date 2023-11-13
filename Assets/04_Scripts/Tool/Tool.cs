@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tool : MonoBehaviour
 {
@@ -92,4 +93,16 @@ public class Tool : MonoBehaviour
         fsm.FsmVariables.FindFsmArray("playerClearTimeList").Resize(3);
     }
 
+    public void ScrollRectLockTargetContent(GameObject Target, GameObject Scroll, GameObject ContentPanel)
+    {
+        RectTransform targetRect = Target.GetComponent<RectTransform>();
+        ScrollRect scrollRect = Scroll.GetComponent<ScrollRect>();
+        RectTransform contentPanelRect = ContentPanel.GetComponent<RectTransform>();
+
+        Canvas.ForceUpdateCanvases();
+
+        contentPanelRect.anchoredPosition =
+                (Vector2)scrollRect.transform.InverseTransformPoint(contentPanelRect.position)
+                - (Vector2)scrollRect.transform.InverseTransformPoint(targetRect.position);
+    }
 }
