@@ -281,4 +281,18 @@ public class BranchTool : SerializedMonoBehaviour
 
         TargetCommitHistory.GetComponent<CommitTool>().RemoveGenerateCommitId(commitId);
     }
+
+    public string[] CompareTwoCommitList(GameObject BaseBranch, GameObject CompareBranch)
+    {
+        List<string> baseBranchCommmitList = BaseBranch.GetComponent<BranchTool>().GetCommitList();
+        List<string> compareBranchCommmitList = CompareBranch.GetComponent<BranchTool>().GetCommitList();
+        List<string> resultCommitList = new();
+
+        foreach(string commit in compareBranchCommmitList)
+        {
+            if (!baseBranchCommmitList.Contains(commit)) resultCommitList.Add(commit);
+        }
+
+        return resultCommitList.ToArray();
+    }
 }
