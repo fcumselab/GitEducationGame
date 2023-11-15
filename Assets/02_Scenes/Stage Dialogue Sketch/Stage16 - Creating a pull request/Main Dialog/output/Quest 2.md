@@ -1,14 +1,14 @@
 好的，在開啟 "提交記錄" 視窗後\r\n讓我們來檢查其中的狀態
 您會注意到\r\n目前本地與遠端儲存庫的 "提交記錄" 是同步的
-此外，作者已經將本地 "master" 分支\r\n合併到 "new-feature" 分支中
-點擊 "new-feature" 分支上的最新 "提交" 可以看到\r\n作者成功解決了合併時的衝突
-這個模擬場景與我們上一關卡的結尾一樣\r\n作者已經完成了 "合併前的確認"\r\n並準備將 "new-feature" 分支合併到遠端 "master" 分支上
+此外，作者已經將本地 "master" 分支\r\n合併到 "update-readme" 分支中
+點擊 "update-readme" 分支上的最新 "提交" 可以看到\r\n作者成功解決了合併時的衝突
+這個模擬場景與我們上一關卡的結尾一樣\r\n作者已經完成了 "合併前的確認"\r\n並準備將 "update-readme" 分支合併到遠端 "master" 分支上
 在完成 "合併前的確認" 流程後\r\n接下來，我們要創建 Pull Request\r\n來將分支合併到遠端 "master" 上
-在開始之前\r\n讓我們先了解一下什麼是 Pull Request
+在開始之前\r\n讓我們先了解什麼是 Pull Request
 Pull Request 是一個合併請求\r\n它是 Git 服務平台中提供的功能
-Pull Request 就和 "git merge" 指令有相同的作用\r\n都是將一個分支合併至另一個分支\r\n但是 Pull Request 主要用於合併遠端的分支
+Pull Request 就和 "git merge" 指令有相同的作用\r\n都是將一個分支合併至另一個分支\r\n但是 Pull Request 主要用於合併遠端分支
 通常，在合併本地分支的時候\r\n我們只需要根據快進合併或自動合併\r\n來執行操作即可
-而 Pull Request 合併請求\r\n需要讓團隊成員查看並審核我們的修改
+而 Pull Request 合併請求\r\n需要讓團隊成員查看並審核請求內容\r\n通過這個流程來決定是否要執行合併
 這樣的方式可以讓團隊參與討論\r\n進一步保證專案的品質和安全性
 在已經了解什麼是 Pull Request 後\r\n讓我們開始創建合併請求吧
 請您先打開 "瀏覽器" 視窗\r\n我們要從 Git 服務平台網站中創建合併請求
