@@ -23,7 +23,6 @@ public class CommandHistoryTooltip : MonoBehaviour, IPointerEnterHandler, IPoint
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Enter");
         string tooltipMessage = Content.FsmVariables.GetFsmString("tooltipMessage").ToString();
         ToolTipControlFSM.FsmVariables.GetFsmString("tooltipMessage").Value = tooltipMessage;
         ToolTipControlFSM.SendEvent("Tooltip/Show Tooltip by Script");
@@ -31,8 +30,6 @@ public class CommandHistoryTooltip : MonoBehaviour, IPointerEnterHandler, IPoint
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Exit");
-
         ToolTipControlFSM.SendEvent("Tooltip/Close Tooltip");
     }
 }
