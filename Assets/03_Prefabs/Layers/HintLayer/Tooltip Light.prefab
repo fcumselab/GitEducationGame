@@ -430,7 +430,7 @@ MonoBehaviour:
     states:
     - name: Get Sender Info
       description: 
-      colorIndex: 0
+      colorIndex: 8
       position:
         serializedVersion: 2
         x: 207.64844
@@ -445,7 +445,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: UI Text Set Text
+        toState: Set Text by Sender
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -643,7 +643,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 50.734375
-        y: 116.47656
+        y: 112.47656
         width: 100
         height: 16
       isBreakpoint: 0
@@ -787,7 +787,7 @@ MonoBehaviour:
         paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     - name: Turn off Tooltip Screen
       description: 
-      colorIndex: 0
+      colorIndex: 9
       position:
         serializedVersion: 2
         x: 410.85156
@@ -804,15 +804,17 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
         - HutongGames.PlayMaker.Actions.UiGraphicCrossFadeAlpha
         - HutongGames.PlayMaker.Actions.CallMethod
+        - HutongGames.PlayMaker.Actions.SetStringValue
         customNames:
         - 
         - 
         - 
         - 
-        actionEnabled: 01010101
-        actionIsOpen: 01010101
-        actionStartIndex: 0000000004000000080000000c000000
-        actionHashCodes: 8479fb008479fb008479fb00ca51e900
+        - 
+        actionEnabled: 0101010101
+        actionIsOpen: 0101010101
+        actionStartIndex: 0000000004000000080000000c00000013000000
+        actionHashCodes: 8479fb008479fb008479fb00ca51e900c030f103
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -853,6 +855,18 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: SetIsShow
+        - useVariable: 1
+          name: tooltipMessage
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
         fsmObjectParams:
         - useVariable: 0
           name: 
@@ -975,13 +989,13 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 0000
+        byteData: 000000
         arrayParamSizes: 01000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmVar
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000000f0000000f00000011000000140000000f0000000f00000011000000140000000f0000000f0000001100000018000000120000000c00000027000000270000000100000001000000
+        paramDataType: 140000000f0000000f00000011000000140000000f0000000f00000011000000140000000f0000000f0000001100000018000000120000000c00000027000000270000000100000001000000120000001200000001000000
         paramName:
         - gameObject
         - alpha
@@ -1002,16 +1016,19 @@ MonoBehaviour:
         - storeResult
         - everyFrame
         - manualUI
-        paramDataPos: 00000000000000000100000000000000010000000200000003000000010000000200000004000000050000000200000000000000000000000000000000000000010000000000000001000000
-        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000001000000
-    - name: UI Text Set Text
+        - stringVariable
+        - stringValue
+        - everyFrame
+        paramDataPos: 00000000000000000100000000000000010000000200000003000000010000000200000004000000050000000200000000000000000000000000000000000000010000000000000001000000010000000200000002000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000001000000000000000000000001000000
+    - name: Set Text by Sender
       description: 
-      colorIndex: 0
+      colorIndex: 8
       position:
         serializedVersion: 2
         x: 216.04688
-        y: 163.95312
-        width: 125
+        y: 191.95312
+        width: 143
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -1189,11 +1206,11 @@ MonoBehaviour:
         paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
     - name: turn on
       description: 
-      colorIndex: 0
+      colorIndex: 8
       position:
         serializedVersion: 2
-        x: 228.94531
-        y: 221.28906
+        x: 229.94531
+        y: 268.28906
         width: 100
         height: 16
       isBreakpoint: 0
@@ -1310,6 +1327,95 @@ MonoBehaviour:
         - manualUI
         paramDataPos: 00000000000000000000000000000000010000000000000001000000
         paramByteDataSize: 00000000000000000000000000000000000000000100000001000000
+    - name: ready
+      description: 
+      colorIndex: 1
+      position:
+        serializedVersion: 2
+        x: 617
+        y: 107
+        width: 209
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: finish
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Set Text by Sender
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 8
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.StringCompare
+        customNames:
+        - String Compare
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 0c0e5502
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: tooltipMessage
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - finish
+        byteData: 01
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 120000001200000017000000170000001100000001000000
+        paramName:
+        - stringVariable
+        - compareTo
+        - equalEvent
+        - notEqualEvent
+        - storeResult
+        - everyFrame
+        paramDataPos: 000000000100000000000000010000000000000000000000
+        paramByteDataSize: 000000000000000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -1324,6 +1430,12 @@ MonoBehaviour:
       isSystemEvent: 0
       isGlobal: 0
     - name: PosX outside
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Tooltip/Show Tooltip by Script
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: finish
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions:
@@ -1341,6 +1453,15 @@ MonoBehaviour:
         isSystemEvent: 0
         isGlobal: 1
       toState: Turn off Tooltip Screen
+      linkStyle: 0
+      linkConstraint: 0
+      linkTarget: 0
+      colorIndex: 0
+    - fsmEvent:
+        name: Tooltip/Show Tooltip by Script
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: ready
       linkStyle: 0
       linkConstraint: 0
       linkTarget: 0
@@ -1489,7 +1610,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 02000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
