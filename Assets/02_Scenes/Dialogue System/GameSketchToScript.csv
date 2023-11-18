@@ -136,8 +136,8 @@ Number,Text,Files,Text,Text,Text,Text,Boolean,Boolean,Boolean,Number,Text,,,,,
 146,Creating a Pull Request/10,[],"同步遠端 ""master"" 分支的內容\n並更新 ""提交記錄"" 狀態",,,unassigned,FALSE,FALSE,FALSE,0,StageID16,,,,,
 147,Creating a Pull Request/11,[],"刪除本地、遠端的 ""update-readme"" 分支\n並更新 ""提交記錄"" 狀態",,,unassigned,FALSE,FALSE,FALSE,0,StageID16,,,,,
 149,Review and Merge Pull Requests/1,[],"開啟 ""瀏覽器"" 視窗",,,unassigned,FALSE,FALSE,FALSE,0,StageID17,,,,,
-150,Review and Merge Pull Requests/2,[],在合併請求上新增修改建議,,,unassigned,FALSE,FALSE,FALSE,0,StageID17,,,,,
-151,Review and Merge Pull Requests/3,[],批准合併請求,,,unassigned,FALSE,FALSE,FALSE,0,StageID17,,,,,
+150,Review and Merge Pull Requests/2,[],在 Pull Request 上新增修改建議,,,unassigned,FALSE,FALSE,FALSE,0,StageID17,,,,,
+151,Review and Merge Pull Requests/3,[],批准 Pull Request,,,unassigned,FALSE,FALSE,FALSE,0,StageID17,,,,,
 152,Review and Merge Pull Requests/4,[],合併 Pull Request,,,unassigned,FALSE,FALSE,FALSE,0,StageID17,,,,,
 Locations,,,,,,,,,,,,,,,,
 ID,,,,,,,,,,,,,,,,
@@ -2108,7 +2108,7 @@ NPC_157_7,157,7,2,2,,,請點擊這個 Pull Request 來進入詳細頁面,FALSE,B
 NPC_157_8,157,8,2,2,,,"在頁面中，您會注意到目前合併狀態區域已經消失\r\n並且在標題旁邊顯示為 ""Merged""（已合併）",FALSE,Block,Normal,,,,,,142.0638;479.4743
 NPC_157_9,157,9,2,2,,,"表示審核人員批准了您的合併請求\r\n並將 ""update-readme"" 分支合併到 ""master"" 分支中",FALSE,Block,Normal,,,,,,142.0638;528.298
 NPC_157_10,157,10,2,2,,,"在遠端 ""master"" 分支合併 ""update-readme"" 分支的內容後",FALSE,Block,Normal,,,,,,139.7109;577.1215
-NPC_157_11,157,11,2,2,,(新增任務),"讓我們開啟 ""提交記錄""\r\n並使用同步遠端分支指令\r\n來更新本地的 ""master"" 分支至遠端分支的版本",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,140.8873;654.1804
+NPC_157_11,157,11,2,2,,(新增任務),"讓我們開啟 ""提交記錄""\r\n並使用同步遠端分支指令\r\n來更新本地的 ""master"" 分支至遠端分支的版本",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,140.8873;653.1804
 NPC_157_12,157,12,2,2,,,"我們要藉由以上方式來確認\r\n遠端 ""master"" 分支\r\n是否確實合併 ""update-readme"" 分支的內容",FALSE,Block,Normal,,,,,,139.7109;703.0039
 NPC_158_0,158,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_158_1,158,1,2,2,,,"好的，在您同步 ""master"" 分支後\r\n您會注意到 ""master"" 分支\r\n獲得了 ""update-readme"" 分支的 ""提交記錄""",FALSE,Block,Normal,,,,,,141;90
@@ -2133,7 +2133,7 @@ NPC_160_11,160,11,2,2,,,"最後，在刪除達成目標的分支後\r\n我們完
 NPC_160_12,160,12,2,2,,,"在下一關卡中\r\n我們將扮演 ""審核人員"" 的角色\r\n學習如何去審核、批准別人的合併請求",FALSE,Block,Normal,,,,,,142.0638;722.9788
 NPC_160_13,160,13,2,2,,,完成了下一關卡後\r\n您就掌握最重要且實用的 Git 技術了！,FALSE,Block,Normal,,,,,,142.0638;772.9788
 NPC_160_14,160,14,2,2,,,最後，再次恭喜您完成了本次的關卡\r\n做得非常好！,FALSE,Block,Normal,,,,,,142.0638;822.9788
-NPC_161_0,161,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_161_0,161,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_161_1,161,1,2,2,,,"歡迎來到\r\n""審核與合併 Pull Request"" 關卡！",FALSE,Block,Normal,,,,,,141;90
 NPC_161_2,161,2,2,2,,,在這個關卡中，我們將學習以下內容：\r\n1. 審核 Pull Request 請求\r\n2. 合併 Pull Request 請求,FALSE,Block,Normal,,,,,,141;140
 NPC_161_3,161,3,2,2,,,在開始之前\r\n讓我們先回顧上一個關卡學到的內容,FALSE,Block,Normal,,,,,,141;190
@@ -2141,88 +2141,87 @@ NPC_161_4,161,4,2,2,,,在上一個關卡中\r\n我們扮演了創建合併請求
 NPC_161_5,161,5,2,2,,,我們在 Git 服務平台上\r\n創建了第一個 Pull Request 合併請求,FALSE,Block,Normal,,,,,,141;290
 NPC_161_6,161,6,2,2,,,"在這個過程中\r\n我們按照審核人員的修改建議更新了分支內容\r\n最後完成了一次 ""合併遠端主分支"" 流程",FALSE,Block,Normal,,,,,,144.1915;380.4255
 NPC_161_7,161,7,2,2,,,在本次關卡中\r\n我們將扮演審核合併請求的角色\r\n給予開發者修改建議並批准合併請求,FALSE,Block,Normal,,,,,,142.0638;428.2979
-NPC_161_8,161,8,2,2,,,接下來，讓我們建立本次關卡的模擬環境,FALSE,Block,Normal,,,,,,142.0638;479.4743
+NPC_161_8,161,8,2,2,,(建構開始\r),接下來，讓我們建立本次關卡的模擬環境,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Close Tutorial Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");",,,,142.0638;479.4743
 NPC_161_9,161,9,2,2,,,"當模擬環境建立好後\r\n請您先開啟 ""瀏覽器"" 視窗",FALSE,Block,Normal,,,,,,142.0638;528.298
-NPC_161_10,161,10,2,2,,,我們將從 Git 服務平台中\r\n查看其他開發者創建的 Pull Request 請求,FALSE,Block,Normal,,,,,,142.0638;578.298
-NPC_162_0,162,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_161_10,161,10,2,2,,(新增任務),我們將從 Git 服務平台中\r\n查看其他開發者創建的 Pull Request 請求,FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,142.0638;578.298
+NPC_162_0,162,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_162_1,162,1,2,2,,,"好的，在開啟 ""瀏覽器"" 視窗後\r\n我們現在位於開發專案的首頁",FALSE,Block,Normal,,,,,,141;90
 NPC_162_2,162,2,2,2,,,接下來，請按照以下步驟\r\n學習如何審核 Pull Request：,FALSE,Block,Normal,,,,,,141;140
 NPC_162_3,162,3,2,2,,,"首先，我們需要切換到 ""Pull Request"" 分頁\r\n這樣我們才能看到開發者創建的合併請求",FALSE,Block,Normal,,,,,,141;190
-NPC_162_4,162,4,2,2,,,"在選擇分頁後\r\n您會發現 ""合併請求"" 區域中\r\n有一個 Pull Request 請求",FALSE,Block,Normal,,,,,,141;241.0638
+NPC_162_4,162,4,2,2,,,在選擇分頁後\r\n您會發現在 Pull Request 列表中\r\n有一個 Pull Request 請求,FALSE,Block,Normal,,,,,,141;241.0638
 NPC_162_5,162,5,2,2,,,請點擊這個合併請求\r\n以進入合併請求的詳細頁面,FALSE,Block,Normal,,,,,,141;290
 NPC_162_6,162,6,2,2,,,就像上一個關卡一樣\r\n當我們創建 Pull Request 時\r\n會進入到詳細頁面中,FALSE,Block,Normal,,,,,,144.1915;380.4255
-NPC_162_7,162,7,2,2,,,"在這個詳細頁面中\r\n我們可以從合併請求的標題和內容得知\r\n這位開發者負責為 ""README"" 檔案新增內容\r\n以讓授課老師知道創建這個專案的目的",FALSE,Block,Normal,,,,,,142.0638;428.2979
-NPC_162_8,162,8,2,2,,,"為了審核他所做的修改\r\n請您點擊 ""Files changed"" (檔案更改) 分頁",FALSE,Block,Normal,,,,,,142.0638;479.4743
-NPC_162_9,162,9,2,2,,,在這個分頁中\r\n會顯示這位開發者對哪些文件做了哪些改動,FALSE,Block,Normal,,,,,,142.0638;528.298
-NPC_162_10,162,10,2,2,,,"由於這位開發者只負責 ""README"" 檔案的部分\r\n所以畫面中只有這個檔案的改動",FALSE,Block,Normal,,,,,,142.0638;578.298
-NPC_162_11,162,11,2,2,,,"根據開發者的修改\r\n畫面中可能會出現 ""紅色"" 與 ""綠色"" 兩個不同顏色的文字",FALSE,Block,Normal,,,,,,142.0638;672.9788
-NPC_162_12,162,12,2,2,,,"""紅色"" 表示被刪除掉的內容\r\n而 ""綠色"" 表示新增加的內容",FALSE,Block,Normal,,,,,,142.0638;722.9788
-NPC_162_13,162,13,2,2,,,"例如，這位開發者將 ""README"" 檔案中的預設標題刪除\r\n並新增了網站名稱以替換標題文字",FALSE,Block,Normal,,,,,,142.0638;772.9788
-NPC_162_14,162,14,2,2,,,然後，開發者在內容中新增了專案的創建目的,FALSE,Block,Normal,,,,,,142.0638;822.9788
-NPC_162_15,162,15,2,2,,,"然而，仔細觀察他新增的內容\r\n您會發現在第 5 行的地方\r\n""程式碼"" 打成了 ""城市碼""",FALSE,Block,Normal,,,,,,142.0638;872.9788
-NPC_162_16,162,16,2,2,,,接下來，我們來提醒這位開發者要修改以下地方吧,FALSE,Block,Normal,,,,,,388.8724;87.87238
-NPC_162_17,162,17,2,2,,,"將滑鼠移動到第 5 行上方\r\n會出現 ""+"" 符號按鈕\r\n請您點擊這個按鈕以開啟訊息輸入欄",FALSE,Block,Normal,,,,,,388.8724;137.8724
-NPC_162_18,162,18,2,2,,,這個方法能夠讓開發者清楚知道\r\n在檔案中的第幾行出現了問題,FALSE,Block,Normal,,,,,,388.8724;187.8724
-NPC_162_19,162,19,2,2,,,"請您在這裡輸入修改建議的內容\r\n然後點擊 ""Start a review""（開始審核）按鈕\r\n以保存您的輸入內容",FALSE,Block,Normal,,,,,,388.8724;237.8724
-NPC_162_20,162,20,2,2,,,"請注意，在保存輸入後\r\n這個訊息框會顯示 ""Pending"" (待定)\r\n表示這份訊息只是草稿，其他人無法看見",FALSE,Block,Normal,,,,,,388.8724;287.8724
-NPC_162_21,162,21,2,2,,,"這時，我們需要點擊 ""Finish your review""（完成您的審核） 按鈕\r\n將這些草稿正式提交至 Pull Request 中",FALSE,Block,Normal,,,,,,390.9362;378.1703
-NPC_162_22,162,22,2,2,,,在彈出的訊息輸入欄中\r\n請提供明確的建議\r\n指出需要修改的內容以及您的意見,FALSE,Block,Normal,,,,,,389.9362;426.1703
-NPC_162_23,162,23,2,2,,,例如，您可以這樣填寫\r\n「您好，我發現在第 5 行出現了錯別字\r\n  請您修改以上部分，謝謝您」,FALSE,Block,Normal,,,,,,389.9362;476.1703
-NPC_162_24,162,24,2,2,,,請確保您的修改建議清晰且友善\r\n以幫助開發者理解您的建議,FALSE,Block,Normal,,,,,,389.9362;526.1703
-NPC_162_25,162,25,2,2,,,當您完成評論後\r\n請從下面三個選項中選擇一個適當的選項,FALSE,Block,Normal,,,,,,389.9362;576.1703
-NPC_162_26,162,26,2,2,,,"如果要要求開發者進行修改\r\n請選擇 ""Request changes"" (要求修改) 選項",FALSE,Block,Normal,,,,,,388.8723;670.8511
-NPC_162_27,162,27,2,2,,,這種方式可以確保我們提出的問題得到解決\r\n開發者需要解決這個問題才可以批准合併,FALSE,Block,Normal,,,,,,388.8723;720.8511
-NPC_162_28,162,28,2,2,,,"在選擇了正確的訊息類型後\r\n請點擊 ""Submit review""（提交審核）按鈕\r\n以提交您的審核評論",FALSE,Block,Normal,,,,,,388.8723;770.8511
-NPC_162_29,162,29,2,2,,,"提交後，您的建議將顯示在 ""討論"" 分頁上\r\n以供開發者參考和回應",FALSE,Block,Normal,,,,,,388.8723;820.8511
-NPC_163_0,163,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_162_7,162,7,2,2,,,"在這個詳細頁面中\r\n我們可以從標題和創建內容得知\r\n團隊成員 A 負責為 ""README"" 檔案新增內容\r\n以讓授課老師知道創建這個專案的目的",FALSE,Block,Normal,,,,,,142.0638;428.2979
+NPC_162_8,162,8,2,2,,,"為了審核他所做的修改\r\n請您點擊 ""文件改動"" 分頁",FALSE,Block,Normal,,,,,,142.0638;479.4743
+NPC_162_9,162,9,2,2,,,在這個分頁中\r\n會顯示團隊成員 A 對哪些文件做了哪些改動,FALSE,Block,Normal,,,,,,142.0638;528.298
+NPC_162_10,162,10,2,2,,,"本次請求只修改了 ""README"" 檔案內容\r\n只能看見 ""README"" 檔案的版本差異",FALSE,Block,Normal,,,,,,142.0638;578.298
+NPC_162_11,162,11,2,2,,,每行的第一列表示 Base 分支的檔案內容\r\n第二列表示 Compare 分支的內容,FALSE,Block,Normal,,,,,,142.0638;672.9788
+NPC_162_12,162,12,2,2,,,"而根據開發者的修改\r\n畫面中可能會出現 ""白色""、""紅色""、""綠色""\r\n三種不同顏色的內容",FALSE,Block,Normal,,,,,,142.0638;722.9788
+NPC_162_13,162,13,2,2,,,"""白色"" 表示兩個目標分支的內容相同\r\n""紅色"" 表示被刪除掉的內容\r\n而 ""綠色"" 表示新增加的內容",FALSE,Block,Normal,,,,,,142.0638;772.9788
+NPC_162_14,162,14,2,2,,,"這位開發者將 ""README"" 檔案中的預設標題刪除\r\n增加了網站名稱以替換標題文字\r\n然後，團隊成員 A 新增了建立網站原因",FALSE,Block,Normal,,,,,,142.0638;822.9788
+NPC_162_15,162,15,2,2,,,"不過，當您仔細查看裡面的內容時\r\n您會發現在最後一行的地方\r\n""加強程式能力"" 打成了 ""加強城市能力""",FALSE,Block,Normal,,,,,,142.0638;872.9788
+NPC_162_16,162,16,2,2,,,接下來，我們來提醒這位開發者要修改文字內容吧,FALSE,Block,Normal,,,,,,388.8724;87.87238
+NPC_162_17,162,17,2,2,,,請您將滑鼠移動到需要更改的文字內容中\r\n並通過左鍵點擊來決定在此處增加修改建議,FALSE,Block,Normal,,,,,,388.8724;137.8724
+NPC_162_18,162,18,2,2,,,這個方法能讓開發者清楚知道\r\n需要在哪個位置修改內容,FALSE,Block,Normal,,,,,,388.8724;187.8724
+NPC_162_19,162,19,2,2,,,當選擇了正確的位置後\r\n本遊戲會直接填入並創建修改建議,FALSE,Block,Normal,,,,,,388.8724;237.8724
+NPC_162_20,162,20,2,2,,,"不過請注意，完成輸入後\r\n您會注意到創建的訊息框會顯示 ""Pending"" (待定) 符號\r\n表示這份訊息只是草稿，無法讓其他人看見",FALSE,Block,Normal,,,,,,388.8724;287.8724
+NPC_162_21,162,21,2,2,,,"在完成修改建議時\r\n我們需要點擊 ""Review Changes""（完成審核） 按鈕\r\n將 Pending 的訊息正式顯示到 Pull Request 中",FALSE,Block,Normal,,,,,,390.9362;378.1703
+NPC_162_22,162,22,2,2,,,在彈出的訊息輸入欄中\r\n請填寫完整的建議內容\r\n來指出需要修改的內容以及您的意見,FALSE,Block,Normal,,,,,,389.9362;426.1703
+NPC_162_23,162,23,2,2,,,請確保您的修改建議清晰且友善\r\n以幫助開發者理解您的建議,FALSE,Block,Normal,,,,,,389.9362;476.1703
+NPC_162_24,162,24,2,2,,,在完成填寫後\r\n需要從三個選項裡選擇一個適合的評論類型,FALSE,Block,Normal,,,,,,389.9362;526.1703
+NPC_162_25,162,25,2,2,,,"當我們需要要求開發者進行修改\r\n請選擇 ""Request Changes"" (提出修改建議)",FALSE,Block,Normal,,,,,,389.9362;576.1703
+NPC_162_26,162,26,2,2,,,這種方式可以確保我們提出的問題得到解決\r\n開發者需要解決這個問題才可以批准合併,FALSE,Block,Normal,,,,,,388.8723;670.8511
+NPC_162_27,162,27,2,2,,,"在選擇了正確的訊息類型後\r\n請點擊 ""提交審核"" 按鈕\r\n以提交您的審核評論",FALSE,Block,Normal,,,,,,388.8723;720.8511
+NPC_162_28,162,28,2,2,,(新增任務),"提交後，您的建議將顯示在 ""討論區"" 分頁上\r\n以供開發者參考和回應",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,388.8723;770.8511
+NPC_163_0,163,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_163_1,163,1,2,2,,,非常好！\r\n您已成功為這個 Pull Request \r\n創建了修改建議,FALSE,Block,Normal,,,,,,141;90
-NPC_163_2,163,2,2,2,,,"在 ""討論"" 分頁上\r\n您可以看到您創建的修改建議\r\n這樣開發者就可以根據建議進行修正",FALSE,Block,Normal,,,,,,141;140
-NPC_163_3,163,3,2,2,,,"同時，在 ""合併狀態"" 區域中\r\n更新了紅色禁止狀態 ""未解決的對話"" ",FALSE,Block,Normal,,,,,,141;190
+NPC_163_2,163,2,2,2,,,"在 ""討論區"" 分頁上\r\n您能夠看到您剛剛創建的修改建議\r\n這樣開發者就可以根據建議進行修正",FALSE,Block,Normal,,,,,,141;140
+NPC_163_3,163,3,2,2,,,"同時，在 ""合併狀態"" 區域中\r\n紅色圖示 ""未解決的對話"" 出現了",FALSE,Block,Normal,,,,,,141;190
 NPC_163_4,163,4,2,2,,,表示開發者必須解決修改建議的問題\r\n才能夠繼續合併,FALSE,Block,Normal,,,,,,141;241.0638
 NPC_163_5,163,5,2,2,,,經過一段時間後\r\n開發者將修正的內容上傳到了遠端分支上\r\nPull Request 也隨之更新了,FALSE,Block,Normal,,,,,,141;290
 NPC_163_6,163,6,2,2,,,請點擊重新整理按鈕\r\n以更新 Pull Request 頁面,FALSE,Block,Normal,,,,,,144.1915;380.4255
 NPC_163_7,163,7,2,2,,,"更新頁面後\r\n您會注意到，修改建議的對話欄已被折疊\r\n表示開發者已標記此對話為 ""已解決""",FALSE,Block,Normal,,,,,,142.0638;428.2979
 NPC_163_8,163,8,2,2,,,展開後，您會發現開發者回覆了您的修改建議\r\n他根據建議修復了錯別字問題,FALSE,Block,Normal,,,,,,142.0638;479.4743
-NPC_163_9,163,9,2,2,,,"現在，請切換到 ""Files changed"" 分頁\r\n我們要再次審核對方的修改內容",FALSE,Block,Normal,,,,,,142.0638;528.298
-NPC_163_10,163,10,2,2,,,"您會注意到第 5 行中的文字內容已修正為 ""程式碼""",FALSE,Block,Normal,,,,,,142.0638;578.298
+NPC_163_9,163,9,2,2,,,"現在，請切換到 ""文件改動"" 分頁\r\n我們要再次審核對方的修改內容",FALSE,Block,Normal,,,,,,142.0638;528.298
+NPC_163_10,163,10,2,2,,,在更改的內容中\r\n您會發現錯別字問題已被修復,FALSE,Block,Normal,,,,,,142.0638;578.298
 NPC_163_11,163,11,2,2,,,再次瀏覽整個文件內容\r\n也沒有發現需要修正或增加的地方,FALSE,Block,Normal,,,,,,142.0638;672.9788
 NPC_163_12,163,12,2,2,,,在這種情況下\r\n我們就可以批准這個合併請求了,FALSE,Block,Normal,,,,,,142.0638;722.9788
-NPC_163_13,163,13,2,2,,,"接下來，請點擊 ""Review changes"" 按鈕\r\n來批准這個合併請求",FALSE,Block,Normal,,,,,,142.0638;772.9788
-NPC_163_14,163,14,2,2,,,"在彈出的訊息輸入欄中\r\n您可以用簡短的訊息說明為什麼要批准這個合併請求\r\n例如：""未發現問題，批准本次合併""",FALSE,Block,Normal,,,,,,142.0638;822.9788
+NPC_163_13,163,13,2,2,,,"接下來，請點擊 ""Review Changes"" 按鈕\r\n來批准這個合併請求",FALSE,Block,Normal,,,,,,142.0638;772.9788
+NPC_163_14,163,14,2,2,,,在彈出的訊息輸入欄中\r\n您可以用簡短的訊息說明為什麼要批准這個合併請求,FALSE,Block,Normal,,,,,,142.0638;822.9788
 NPC_163_15,163,15,2,2,,,"在輸入完成後\r\n請在下面的選項選擇 ""Approve""（批准）\r\n表示您同意本次的合併",FALSE,Block,Normal,,,,,,142.0638;872.9788
-NPC_163_16,163,16,2,2,,,"在選擇了正確的訊息類型後\r\n請點擊 ""Submit review"" 按鈕\r\n以提交您的審核評論",FALSE,Block,Normal,,,,,,388.8724;87.87238
-NPC_164_0,164,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_163_16,163,16,2,2,,(新增任務),"在選擇正確的訊息類型後\r\n請點擊 ""提交審核"" 按鈕\r\n以提交您的審核評論",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,388.8724;87.87238
+NPC_164_0,164,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_164_1,164,1,2,2,,,非常好！\r\n您已經批准了這個合併請求,FALSE,Block,Normal,,,,,,141;90
 NPC_164_2,164,2,2,2,,,"您會注意到在 ""合併狀態"" 區域中\r\n所有的合併條件都已經變成了綠色打勾狀態\r\n代表可以正式合併這個 Pull Request 了",FALSE,Block,Normal,,,,,,141;140
-NPC_164_3,164,3,2,2,,,"要開始合併請求\r\n我們需要點擊 ""合併狀態"" 區域中的\r\n""Merge Pull Request""（合併 Pull Request）按鈕",FALSE,Block,Normal,,,,,,141;190
-NPC_164_4,164,4,2,2,,,點擊按鈕後 \r\nGit 將創建一個新的合併提交\r\n將開發者的更改合併到目標分支（通常是 master 分支）,FALSE,Block,Normal,,,,,,141;241.0638
+NPC_164_3,164,3,2,2,,,"要開始合併請求\r\n我們需要點擊 ""合併狀態"" 區域中的\r\n""合併 Pull Request"" 按鈕",FALSE,Block,Normal,,,,,,141;190
+NPC_164_4,164,4,2,2,,,點擊按鈕後 \r\nGit 將創建一個新的合併提交\r\n將 Compare 分支的內容合併到 Base 分支,FALSE,Block,Normal,,,,,,141;241.0638
 NPC_164_5,164,5,2,2,,,在開始合併之前\r\nGit 需要您輸入提交訊息\r\n這些訊息描述了這次合併的內容和目的,FALSE,Block,Normal,,,,,,141;290
 NPC_164_6,164,6,2,2,,,"第一個輸入欄為 ""標題""（Title）\r\n通常用來簡要描述這次合併的目的\r\n就像我們在使用 ""git commit -m"" 指令時所做的一樣",FALSE,Block,Normal,,,,,,144.1915;380.4255
 NPC_164_7,164,7,2,2,,,"第二行輸入欄為 ""描述""（Description）\r\n這是對合併內容的詳細描述\r\n您可以在這裡提供更多細節",FALSE,Block,Normal,,,,,,142.0638;428.2979
-NPC_164_8,164,8,2,2,,,"填寫完成後\r\n請點擊 ""Confirm Merge""（確認合併） 按鈕\r\n這樣就完成了 ""合併 Pull Request"" 流程",FALSE,Block,Normal,,,,,,142.0638;479.4743
-NPC_165_0,165,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
-NPC_165_1,165,1,2,2,,,"非常出色！\r\n您已成功完成一次 ""合併 Pull Request"" 流程",FALSE,Block,Normal,,,,,,141;90
-NPC_165_2,165,2,2,2,,,"合併後的結果，就如同我們在上一個關卡中\r\n使用 ""git pull"" 來同步 ""master"" 分支一樣",FALSE,Block,Normal,,,,,,141;140
-NPC_165_3,165,3,2,2,,,"""master"" 分支現在已經包含了 ""new-feature"" 分支的修改內容\r\n並且在合併的過程中創建了一個新的 ""提交""",FALSE,Block,Normal,,,,,,141;190
+NPC_164_8,164,8,2,2,,,一般情況下，\r\nGit 服務平台已經為您填寫好了提交訊息\r\n我們通常可以直接使用此訊息來進行合併,FALSE,Block,Normal,,,,,,142.0638;479.4743
+NPC_164_9,164,9,2,2,,(新增任務),"接下來，請點擊 ""確認合併"" 按鈕\r\n來合併 Pull Request 吧",FALSE,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,142.0638;529.4743
+NPC_165_0,165,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
+NPC_165_1,165,1,2,2,,,"非常出色！\r\n您已成功完成 ""合併 Pull Request"" 流程",FALSE,Block,Normal,,,,,,141;90
+NPC_165_2,165,2,2,2,,,"合併後的結果，應該會像我們在上一個關卡中\r\n使用 ""git pull"" 來同步 ""master"" 分支一樣",FALSE,Block,Normal,,,,,,141;140
+NPC_165_3,165,3,2,2,,,"""master"" 分支應該包含了 ""member-branch"" 分支的內容\r\n並在合併的過程中創建了一個新的 ""提交""",FALSE,Block,Normal,,,,,,141;190
 NPC_165_4,165,4,2,2,,,"這個 ""提交"" 就是我們在合併 Pull Request 後\r\n創建的 ""提交""",FALSE,Block,Normal,,,,,,141;241.0638
 NPC_165_5,165,5,2,2,,,"通過以上的教學\r\n您現在應該對如何 ""審核與合併 Pull Request"" 有了一定的經驗",FALSE,Block,Normal,,,,,,141;290
 NPC_165_6,165,6,2,2,,,"為了讓您能夠更加熟悉 ""審核與合併 Pull Request"" 的流程\r\n請繼續在模擬環境中進行練習吧\r\n加油！",FALSE,Block,Normal,,,,,,144.1915;380.4255
-NPC_166_0,166,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
+NPC_166_0,166,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",Continue(),,,139.8235;38.82352
 NPC_166_1,166,1,2,2,,,恭喜您！\r\n您已經成功通過了模擬背景的目標,FALSE,Block,Normal,,,,,,141;90
 NPC_166_2,166,2,2,2,,,透過本次練習\r\n您現在應該更加熟悉如何審核 Pull Request 合併請求\r\n並將批准的合併請求合併至主分支中,FALSE,Block,Normal,,,,,,141;140
 NPC_166_3,166,3,2,2,,,接下來，讓我們回顧一下本次關卡中學到的內容,FALSE,Block,Normal,,,,,,141;190
 NPC_166_4,166,4,2,2,,,在本關卡裡\r\n我們扮演了合併請求的審核人員\r\n通過查看開發者的修改來給予修改建議或批准請求,FALSE,Block,Normal,,,,,,141;241.0638
-NPC_166_5,166,5,2,2,,,"我們從 ""Files changed"" (檔案更改) 分頁\r\n查看合併請求中的修改內容",FALSE,Block,Normal,,,,,,141;290
+NPC_166_5,166,5,2,2,,,"我們從 ""文件改動"" 分頁中\r\n查看合併請求中的修改內容",FALSE,Block,Normal,,,,,,141;290
 NPC_166_6,166,6,2,2,,,其中，紅色的文字表示被刪除的內容\r\n而綠色的文字表示新增的內容,FALSE,Block,Normal,,,,,,144.1915;380.4255
 NPC_166_7,166,7,2,2,,,如果要向開發者提出修改建議\r\n我們可以點擊特定行數來輸入修改建議,FALSE,Block,Normal,,,,,,142.0638;428.2979
-NPC_166_8,166,8,2,2,,,"完成輸入後\r\n透過 ""Finish your review"" 按鈕\r\n將這些草稿提交到 Pull Request 上",FALSE,Block,Normal,,,,,,142.0638;479.4743
-NPC_166_9,166,9,2,2,,,"顯示的訊息提交欄上\r\n可以選擇 ""Request changes"" (要求修改) 類型\r\n這會要求開發者必須修改內容才能夠繼續合併請求",FALSE,Block,Normal,,,,,,142.0638;528.298
-NPC_166_10,166,10,2,2,,,"當我們已確認開發者修改的內容沒有問題時\r\n就可以使用 ""Approve"" 類型\r\n來批准本次合併請求",FALSE,Block,Normal,,,,,,142.0638;578.298
+NPC_166_8,166,8,2,2,,,"完成輸入後\r\n透過 ""Review Changes"" 按鈕\r\n將已完成的草稿正式顯示到 Pull Request 上",FALSE,Block,Normal,,,,,,142.0638;479.4743
+NPC_166_9,166,9,2,2,,,"在彈出的視窗中，\r\n選擇 ""Request Changes"" (提出修改建議)\r\n來要求開發者必須完成修改建議後才能繼續合併請求",FALSE,Block,Normal,,,,,,142.0638;528.298
+NPC_166_10,166,10,2,2,,,"當我們已確認開發者修改的內容沒有問題時\r\n就可以使用 ""Approve""（批准）\r\n來批准本次合併請求",FALSE,Block,Normal,,,,,,142.0638;578.298
 NPC_166_11,166,11,2,2,,,最後，我們學會了合併 Pull Request,FALSE,Block,Normal,,,,,,142.0638;672.9788
-NPC_166_12,166,12,2,2,,,"在頁面上點擊 ""合併狀態"" 區域中的\r\n""Merge Pull Request""（合併 Pull Request）按鈕\r\n就可以合併請求",FALSE,Block,Normal,,,,,,142.0638;722.9788
-NPC_166_13,166,13,2,2,,,"這樣就完成了一次 ""審核 Pull Request"" 流程",FALSE,Block,Normal,,,,,,142.0638;772.9788
-NPC_166_14,166,14,2,2,,,在回顧完本次關卡學到的知識和指令後,FALSE,Block,Normal,,,,,,142.0638;822.9788
-NPC_166_15,166,15,2,2,,,"恭喜您通過了本次關卡！\r\n這也代表您成功完成了 ""遠端管理"" 主題關卡\r\n您做得很棒！",FALSE,Block,Normal,,,,,,142.0638;872.9788
+NPC_166_12,166,12,2,2,,,"在 ""討論區"" 分面上點擊 ""合併狀態"" 區域中的\r\n""合併 Pull Request"" 按鈕\r\n就可以合併請求",FALSE,Block,Normal,,,,,,142.0638;722.9788
+NPC_166_13,166,13,2,2,,,在回顧完本次關卡學到的知識和指令後,FALSE,Block,Normal,,,,,,142.0638;772.9788
+NPC_166_14,166,14,2,2,,,"恭喜您通過了本次關卡！\r\n這也代表您成功完成了 ""遠端管理"" 主題關卡\r\n您做得很棒！",FALSE,Block,Normal,,,,,,142.0638;822.9788
 NPC_167_0,167,0,2,2,START,,,FALSE,Block,Normal,,,Continue(),,,139.8235;38.82352
 NPC_167_1,167,1,2,2,,,"您好！\r\n歡迎來到 ""Git 基礎"" 主題關卡的最後總結",FALSE,Block,Normal,,,,,,141;90
 NPC_167_2,167,2,2,2,,,在這裡，我們會回顧主題關卡中學到的知識和指令,FALSE,Block,Normal,,,,,,141;140
@@ -4079,7 +4078,6 @@ Number,Number,Number,Number,Special,,,,,,,,,,,,
 162,25,162,26,Normal,,,,,,,,,,,,
 162,26,162,27,Normal,,,,,,,,,,,,
 162,27,162,28,Normal,,,,,,,,,,,,
-162,28,162,29,Normal,,,,,,,,,,,,
 163,0,163,1,Normal,,,,,,,,,,,,
 163,1,163,2,Normal,,,,,,,,,,,,
 163,2,163,3,Normal,,,,,,,,,,,,
@@ -4104,6 +4102,7 @@ Number,Number,Number,Number,Special,,,,,,,,,,,,
 164,5,164,6,Normal,,,,,,,,,,,,
 164,6,164,7,Normal,,,,,,,,,,,,
 164,7,164,8,Normal,,,,,,,,,,,,
+164,8,164,9,Normal,,,,,,,,,,,,
 165,0,165,1,Normal,,,,,,,,,,,,
 165,1,165,2,Normal,,,,,,,,,,,,
 165,2,165,3,Normal,,,,,,,,,,,,
@@ -4124,7 +4123,6 @@ Number,Number,Number,Number,Special,,,,,,,,,,,,
 166,11,166,12,Normal,,,,,,,,,,,,
 166,12,166,13,Normal,,,,,,,,,,,,
 166,13,166,14,Normal,,,,,,,,,,,,
-166,14,166,15,Normal,,,,,,,,,,,,
 167,0,167,1,Normal,,,,,,,,,,,,
 167,1,167,2,Normal,,,,,,,,,,,,
 167,2,167,3,Normal,,,,,,,,,,,,

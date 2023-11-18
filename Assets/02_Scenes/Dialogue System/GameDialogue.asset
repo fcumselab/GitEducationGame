@@ -5870,7 +5870,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u5728\u5408\u4F75\u8ACB\u6C42\u4E0A\u65B0\u589E\u4FEE\u6539\u5EFA\u8B70"
+      value: "\u5728 Pull Request \u4E0A\u65B0\u589E\u4FEE\u6539\u5EFA\u8B70"
       type: 0
       typeString: 
     - title: Success Description
@@ -5916,7 +5916,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: "\u6279\u51C6\u5408\u4F75\u8ACB\u6C42"
+      value: "\u6279\u51C6 Pull Request"
       type: 0
       typeString: 
     - title: Success Description
@@ -120821,7 +120821,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 137}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
   - id: 158
     fields:
@@ -122399,7 +122399,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -122433,7 +122433,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -122876,7 +122880,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5EFA\u69CB\u958B\u59CB\r)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -122910,7 +122914,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial Popup
+        Parent", "Tutorial Popup");
+
+        FSMEvent("Stage Manager/Load Default
+        Background Story", "Stage Manager Parent", "Background Controller");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -122995,7 +123003,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -123024,7 +123032,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -123098,7 +123107,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -123132,7 +123141,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -123340,9 +123353,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u9078\u64C7\u5206\u9801\u5F8C\r\n\u60A8\u6703\u767C\u73FE
-          \"\u5408\u4F75\u8ACB\u6C42\" \u5340\u57DF\u4E2D\r\n\u6709\u4E00\u500B Pull
-          Request \u8ACB\u6C42"
+        value: "\u5728\u9078\u64C7\u5206\u9801\u5F8C\r\n\u60A8\u6703\u767C\u73FE\u5728
+          Pull Request \u5217\u8868\u4E2D\r\n\u6709\u4E00\u500B Pull Request \u8ACB\u6C42"
         type: 0
         typeString: 
       - title: Sequence
@@ -123520,8 +123532,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u9019\u500B\u8A73\u7D30\u9801\u9762\u4E2D\r\n\u6211\u5011\u53EF\u4EE5\u5F9E\u5408\u4F75\u8ACB\u6C42\u7684\u6A19\u984C\u548C\u5167\u5BB9\u5F97\u77E5\r\n\u9019\u4F4D\u958B\u767C\u8005\u8CA0\u8CAC\u70BA
-          \"README\" \u6A94\u6848\u65B0\u589E\u5167\u5BB9\r\n\u4EE5\u8B93\u6388\u8AB2\u8001\u5E2B\u77E5\u9053\u5275\u5EFA\u9019\u500B\u5C08\u6848\u7684\u76EE\u7684"
+        value: "\u5728\u9019\u500B\u8A73\u7D30\u9801\u9762\u4E2D\r\n\u6211\u5011\u53EF\u4EE5\u5F9E\u6A19\u984C\u548C\u5275\u5EFA\u5167\u5BB9\u5F97\u77E5\r\n\u5718\u968A\u6210\u54E1
+          A \u8CA0\u8CAC\u70BA \"README\" \u6A94\u6848\u65B0\u589E\u5167\u5BB9\r\n\u4EE5\u8B93\u6388\u8AB2\u8001\u5E2B\u77E5\u9053\u5275\u5EFA\u9019\u500B\u5C08\u6848\u7684\u76EE\u7684"
         type: 0
         typeString: 
       - title: Sequence
@@ -123581,7 +123593,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "\u70BA\u4E86\u5BE9\u6838\u4ED6\u6240\u505A\u7684\u4FEE\u6539\r\n\u8ACB\u60A8\u9EDE\u64CA
-          \"Files changed\" (\u6A94\u6848\u66F4\u6539) \u5206\u9801"
+          \"\u6587\u4EF6\u6539\u52D5\" \u5206\u9801"
         type: 0
         typeString: 
       - title: Sequence
@@ -123640,7 +123652,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u9019\u500B\u5206\u9801\u4E2D\r\n\u6703\u986F\u793A\u9019\u4F4D\u958B\u767C\u8005\u5C0D\u54EA\u4E9B\u6587\u4EF6\u505A\u4E86\u54EA\u4E9B\u6539\u52D5"
+        value: "\u5728\u9019\u500B\u5206\u9801\u4E2D\r\n\u6703\u986F\u793A\u5718\u968A\u6210\u54E1
+          A \u5C0D\u54EA\u4E9B\u6587\u4EF6\u505A\u4E86\u54EA\u4E9B\u6539\u52D5"
         type: 0
         typeString: 
       - title: Sequence
@@ -123699,8 +123712,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7531\u65BC\u9019\u4F4D\u958B\u767C\u8005\u53EA\u8CA0\u8CAC \"README\"
-          \u6A94\u6848\u7684\u90E8\u5206\r\n\u6240\u4EE5\u756B\u9762\u4E2D\u53EA\u6709\u9019\u500B\u6A94\u6848\u7684\u6539\u52D5"
+        value: "\u672C\u6B21\u8ACB\u6C42\u53EA\u4FEE\u6539\u4E86 \"README\" \u6A94\u6848\u5167\u5BB9\r\n\u53EA\u80FD\u770B\u898B
+          \"README\" \u6A94\u6848\u7684\u7248\u672C\u5DEE\u7570"
         type: 0
         typeString: 
       - title: Sequence
@@ -123759,8 +123772,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6839\u64DA\u958B\u767C\u8005\u7684\u4FEE\u6539\r\n\u756B\u9762\u4E2D\u53EF\u80FD\u6703\u51FA\u73FE
-          \"\u7D05\u8272\" \u8207 \"\u7DA0\u8272\" \u5169\u500B\u4E0D\u540C\u984F\u8272\u7684\u6587\u5B57"
+        value: "\u6BCF\u884C\u7684\u7B2C\u4E00\u5217\u8868\u793A Base \u5206\u652F\u7684\u6A94\u6848\u5167\u5BB9\r\n\u7B2C\u4E8C\u5217\u8868\u793A
+          Compare \u5206\u652F\u7684\u5167\u5BB9"
         type: 0
         typeString: 
       - title: Sequence
@@ -123819,8 +123832,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\"\u7D05\u8272\" \u8868\u793A\u88AB\u522A\u9664\u6389\u7684\u5167\u5BB9\r\n\u800C
-          \"\u7DA0\u8272\" \u8868\u793A\u65B0\u589E\u52A0\u7684\u5167\u5BB9"
+        value: "\u800C\u6839\u64DA\u958B\u767C\u8005\u7684\u4FEE\u6539\r\n\u756B\u9762\u4E2D\u53EF\u80FD\u6703\u51FA\u73FE
+          \"\u767D\u8272\"\u3001\"\u7D05\u8272\"\u3001\"\u7DA0\u8272\"\r\n\u4E09\u7A2E\u4E0D\u540C\u984F\u8272\u7684\u5167\u5BB9"
         type: 0
         typeString: 
       - title: Sequence
@@ -123879,8 +123892,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4F8B\u5982\uFF0C\u9019\u4F4D\u958B\u767C\u8005\u5C07 \"README\"
-          \u6A94\u6848\u4E2D\u7684\u9810\u8A2D\u6A19\u984C\u522A\u9664\r\n\u4E26\u65B0\u589E\u4E86\u7DB2\u7AD9\u540D\u7A31\u4EE5\u66FF\u63DB\u6A19\u984C\u6587\u5B57"
+        value: "\"\u767D\u8272\" \u8868\u793A\u5169\u500B\u76EE\u6A19\u5206\u652F\u7684\u5167\u5BB9\u76F8\u540C\r\n\"\u7D05\u8272\"
+          \u8868\u793A\u88AB\u522A\u9664\u6389\u7684\u5167\u5BB9\r\n\u800C \"\u7DA0\u8272\"
+          \u8868\u793A\u65B0\u589E\u52A0\u7684\u5167\u5BB9"
         type: 0
         typeString: 
       - title: Sequence
@@ -123939,7 +123953,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7136\u5F8C\uFF0C\u958B\u767C\u8005\u5728\u5167\u5BB9\u4E2D\u65B0\u589E\u4E86\u5C08\u6848\u7684\u5275\u5EFA\u76EE\u7684"
+        value: "\u9019\u4F4D\u958B\u767C\u8005\u5C07 \"README\" \u6A94\u6848\u4E2D\u7684\u9810\u8A2D\u6A19\u984C\u522A\u9664\r\n\u589E\u52A0\u4E86\u7DB2\u7AD9\u540D\u7A31\u4EE5\u66FF\u63DB\u6A19\u984C\u6587\u5B57\r\n\u7136\u5F8C\uFF0C\u5718\u968A\u6210\u54E1
+          A \u65B0\u589E\u4E86\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0"
         type: 0
         typeString: 
       - title: Sequence
@@ -123998,9 +124013,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7136\u800C\uFF0C\u4ED4\u7D30\u89C0\u5BDF\u4ED6\u65B0\u589E\u7684\u5167\u5BB9\r\n\u60A8\u6703\u767C\u73FE\u5728\u7B2C
-          5 \u884C\u7684\u5730\u65B9\r\n\"\u7A0B\u5F0F\u78BC\" \u6253\u6210\u4E86
-          \"\u57CE\u5E02\u78BC\""
+        value: "\u4E0D\u904E\uFF0C\u7576\u60A8\u4ED4\u7D30\u67E5\u770B\u88E1\u9762\u7684\u5167\u5BB9\u6642\r\n\u60A8\u6703\u767C\u73FE\u5728\u6700\u5F8C\u4E00\u884C\u7684\u5730\u65B9\r\n\"\u52A0\u5F37\u7A0B\u5F0F\u80FD\u529B\"
+          \u6253\u6210\u4E86 \"\u52A0\u5F37\u57CE\u5E02\u80FD\u529B\""
         type: 0
         typeString: 
       - title: Sequence
@@ -124059,7 +124073,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u63A5\u4E0B\u4F86\uFF0C\u6211\u5011\u4F86\u63D0\u9192\u9019\u4F4D\u958B\u767C\u8005\u8981\u4FEE\u6539\u4EE5\u4E0B\u5730\u65B9\u5427"
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u6211\u5011\u4F86\u63D0\u9192\u9019\u4F4D\u958B\u767C\u8005\u8981\u4FEE\u6539\u6587\u5B57\u5167\u5BB9\u5427"
         type: 0
         typeString: 
       - title: Sequence
@@ -124118,8 +124132,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5C07\u6ED1\u9F20\u79FB\u52D5\u5230\u7B2C 5 \u884C\u4E0A\u65B9\r\n\u6703\u51FA\u73FE
-          \"+\" \u7B26\u865F\u6309\u9215\r\n\u8ACB\u60A8\u9EDE\u64CA\u9019\u500B\u6309\u9215\u4EE5\u958B\u555F\u8A0A\u606F\u8F38\u5165\u6B04"
+        value: "\u8ACB\u60A8\u5C07\u6ED1\u9F20\u79FB\u52D5\u5230\u9700\u8981\u66F4\u6539\u7684\u6587\u5B57\u5167\u5BB9\u4E2D\r\n\u4E26\u901A\u904E\u5DE6\u9375\u9EDE\u64CA\u4F86\u6C7A\u5B9A\u5728\u6B64\u8655\u589E\u52A0\u4FEE\u6539\u5EFA\u8B70"
         type: 0
         typeString: 
       - title: Sequence
@@ -124178,7 +124191,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u9019\u500B\u65B9\u6CD5\u80FD\u5920\u8B93\u958B\u767C\u8005\u6E05\u695A\u77E5\u9053\r\n\u5728\u6A94\u6848\u4E2D\u7684\u7B2C\u5E7E\u884C\u51FA\u73FE\u4E86\u554F\u984C"
+        value: "\u9019\u500B\u65B9\u6CD5\u80FD\u8B93\u958B\u767C\u8005\u6E05\u695A\u77E5\u9053\r\n\u9700\u8981\u5728\u54EA\u500B\u4F4D\u7F6E\u4FEE\u6539\u5167\u5BB9"
         type: 0
         typeString: 
       - title: Sequence
@@ -124237,8 +124250,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u8ACB\u60A8\u5728\u9019\u88E1\u8F38\u5165\u4FEE\u6539\u5EFA\u8B70\u7684\u5167\u5BB9\r\n\u7136\u5F8C\u9EDE\u64CA
-          \"Start a review\"\uFF08\u958B\u59CB\u5BE9\u6838\uFF09\u6309\u9215\r\n\u4EE5\u4FDD\u5B58\u60A8\u7684\u8F38\u5165\u5167\u5BB9"
+        value: "\u7576\u9078\u64C7\u4E86\u6B63\u78BA\u7684\u4F4D\u7F6E\u5F8C\r\n\u672C\u904A\u6232\u6703\u76F4\u63A5\u586B\u5165\u4E26\u5275\u5EFA\u4FEE\u6539\u5EFA\u8B70"
         type: 0
         typeString: 
       - title: Sequence
@@ -124297,8 +124309,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u8ACB\u6CE8\u610F\uFF0C\u5728\u4FDD\u5B58\u8F38\u5165\u5F8C\r\n\u9019\u500B\u8A0A\u606F\u6846\u6703\u986F\u793A
-          \"Pending\" (\u5F85\u5B9A)\r\n\u8868\u793A\u9019\u4EFD\u8A0A\u606F\u53EA\u662F\u8349\u7A3F\uFF0C\u5176\u4ED6\u4EBA\u7121\u6CD5\u770B\u898B"
+        value: "\u4E0D\u904E\u8ACB\u6CE8\u610F\uFF0C\u5B8C\u6210\u8F38\u5165\u5F8C\r\n\u60A8\u6703\u6CE8\u610F\u5230\u5275\u5EFA\u7684\u8A0A\u606F\u6846\u6703\u986F\u793A
+          \"Pending\" (\u5F85\u5B9A) \u7B26\u865F\r\n\u8868\u793A\u9019\u4EFD\u8A0A\u606F\u53EA\u662F\u8349\u7A3F\uFF0C\u7121\u6CD5\u8B93\u5176\u4ED6\u4EBA\u770B\u898B"
         type: 0
         typeString: 
       - title: Sequence
@@ -124357,9 +124369,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u9019\u6642\uFF0C\u6211\u5011\u9700\u8981\u9EDE\u64CA \"Finish your
-          review\"\uFF08\u5B8C\u6210\u60A8\u7684\u5BE9\u6838\uFF09 \u6309\u9215\r\n\u5C07\u9019\u4E9B\u8349\u7A3F\u6B63\u5F0F\u63D0\u4EA4\u81F3
-          Pull Request \u4E2D"
+        value: "\u5728\u5B8C\u6210\u4FEE\u6539\u5EFA\u8B70\u6642\r\n\u6211\u5011\u9700\u8981\u9EDE\u64CA
+          \"Review Changes\"\uFF08\u5B8C\u6210\u5BE9\u6838\uFF09 \u6309\u9215\r\n\u5C07
+          Pending \u7684\u8A0A\u606F\u6B63\u5F0F\u986F\u793A\u5230 Pull Request \u4E2D"
         type: 0
         typeString: 
       - title: Sequence
@@ -124418,7 +124430,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u5F48\u51FA\u7684\u8A0A\u606F\u8F38\u5165\u6B04\u4E2D\r\n\u8ACB\u63D0\u4F9B\u660E\u78BA\u7684\u5EFA\u8B70\r\n\u6307\u51FA\u9700\u8981\u4FEE\u6539\u7684\u5167\u5BB9\u4EE5\u53CA\u60A8\u7684\u610F\u898B"
+        value: "\u5728\u5F48\u51FA\u7684\u8A0A\u606F\u8F38\u5165\u6B04\u4E2D\r\n\u8ACB\u586B\u5BEB\u5B8C\u6574\u7684\u5EFA\u8B70\u5167\u5BB9\r\n\u4F86\u6307\u51FA\u9700\u8981\u4FEE\u6539\u7684\u5167\u5BB9\u4EE5\u53CA\u60A8\u7684\u610F\u898B"
         type: 0
         typeString: 
       - title: Sequence
@@ -124477,8 +124489,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4F8B\u5982\uFF0C\u60A8\u53EF\u4EE5\u9019\u6A23\u586B\u5BEB\r\n\u300C\u60A8\u597D\uFF0C\u6211\u767C\u73FE\u5728\u7B2C
-          5 \u884C\u51FA\u73FE\u4E86\u932F\u5225\u5B57\r\n \_\u8ACB\u60A8\u4FEE\u6539\u4EE5\u4E0A\u90E8\u5206\uFF0C\u8B1D\u8B1D\u60A8\u300D"
+        value: "\u8ACB\u78BA\u4FDD\u60A8\u7684\u4FEE\u6539\u5EFA\u8B70\u6E05\u6670\u4E14\u53CB\u5584\r\n\u4EE5\u5E6B\u52A9\u958B\u767C\u8005\u7406\u89E3\u60A8\u7684\u5EFA\u8B70"
         type: 0
         typeString: 
       - title: Sequence
@@ -124537,7 +124548,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u8ACB\u78BA\u4FDD\u60A8\u7684\u4FEE\u6539\u5EFA\u8B70\u6E05\u6670\u4E14\u53CB\u5584\r\n\u4EE5\u5E6B\u52A9\u958B\u767C\u8005\u7406\u89E3\u60A8\u7684\u5EFA\u8B70"
+        value: "\u5728\u5B8C\u6210\u586B\u5BEB\u5F8C\r\n\u9700\u8981\u5F9E\u4E09\u500B\u9078\u9805\u88E1\u9078\u64C7\u4E00\u500B\u9069\u5408\u7684\u8A55\u8AD6\u985E\u578B"
         type: 0
         typeString: 
       - title: Sequence
@@ -124596,7 +124607,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7576\u60A8\u5B8C\u6210\u8A55\u8AD6\u5F8C\r\n\u8ACB\u5F9E\u4E0B\u9762\u4E09\u500B\u9078\u9805\u4E2D\u9078\u64C7\u4E00\u500B\u9069\u7576\u7684\u9078\u9805"
+        value: "\u7576\u6211\u5011\u9700\u8981\u8981\u6C42\u958B\u767C\u8005\u9032\u884C\u4FEE\u6539\r\n\u8ACB\u9078\u64C7
+          \"Request Changes\" (\u63D0\u51FA\u4FEE\u6539\u5EFA\u8B70)"
         type: 0
         typeString: 
       - title: Sequence
@@ -124655,8 +124667,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u8981\u8981\u6C42\u958B\u767C\u8005\u9032\u884C\u4FEE\u6539\r\n\u8ACB\u9078\u64C7
-          \"Request changes\" (\u8981\u6C42\u4FEE\u6539) \u9078\u9805"
+        value: "\u9019\u7A2E\u65B9\u5F0F\u53EF\u4EE5\u78BA\u4FDD\u6211\u5011\u63D0\u51FA\u7684\u554F\u984C\u5F97\u5230\u89E3\u6C7A\r\n\u958B\u767C\u8005\u9700\u8981\u89E3\u6C7A\u9019\u500B\u554F\u984C\u624D\u53EF\u4EE5\u6279\u51C6\u5408\u4F75"
         type: 0
         typeString: 
       - title: Sequence
@@ -124715,7 +124726,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u9019\u7A2E\u65B9\u5F0F\u53EF\u4EE5\u78BA\u4FDD\u6211\u5011\u63D0\u51FA\u7684\u554F\u984C\u5F97\u5230\u89E3\u6C7A\r\n\u958B\u767C\u8005\u9700\u8981\u89E3\u6C7A\u9019\u500B\u554F\u984C\u624D\u53EF\u4EE5\u6279\u51C6\u5408\u4F75"
+        value: "\u5728\u9078\u64C7\u4E86\u6B63\u78BA\u7684\u8A0A\u606F\u985E\u578B\u5F8C\r\n\u8ACB\u9EDE\u64CA
+          \"\u63D0\u4EA4\u5BE9\u6838\" \u6309\u9215\r\n\u4EE5\u63D0\u4EA4\u60A8\u7684\u5BE9\u6838\u8A55\u8AD6"
         type: 0
         typeString: 
       - title: Sequence
@@ -124770,72 +124782,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5728\u9078\u64C7\u4E86\u6B63\u78BA\u7684\u8A0A\u606F\u985E\u578B\u5F8C\r\n\u8ACB\u9EDE\u64CA
-          \"Submit review\"\uFF08\u63D0\u4EA4\u5BE9\u6838\uFF09\u6309\u9215\r\n\u4EE5\u63D0\u4EA4\u60A8\u7684\u5BE9\u6838\u8A55\u8AD6"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 162
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 162
-        originDialogueID: 28
-        destinationConversationID: 162
-        destinationDialogueID: 29
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 388.8723
-        y: 770.8511
-        width: 160
-        height: 30
-    - id: 29
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
         value: "\u63D0\u4EA4\u5F8C\uFF0C\u60A8\u7684\u5EFA\u8B70\u5C07\u986F\u793A\u5728
-          \"\u8A0E\u8AD6\" \u5206\u9801\u4E0A\r\n\u4EE5\u4F9B\u958B\u767C\u8005\u53C3\u8003\u548C\u56DE\u61C9"
+          \"\u8A0E\u8AD6\u5340\" \u5206\u9801\u4E0A\r\n\u4EE5\u4F9B\u958B\u767C\u8005\u53C3\u8003\u548C\u56DE\u61C9"
         type: 0
         typeString: 
       - title: Sequence
@@ -124859,14 +124811,15 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 388.8723
-        y: 820.8511
+        y: 770.8511
         width: 160
         height: 30
     entryGroups: []
@@ -124933,7 +124886,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -124967,7 +124920,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -125056,7 +125013,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728 \"\u8A0E\u8AD6\" \u5206\u9801\u4E0A\r\n\u60A8\u53EF\u4EE5\u770B\u5230\u60A8\u5275\u5EFA\u7684\u4FEE\u6539\u5EFA\u8B70\r\n\u9019\u6A23\u958B\u767C\u8005\u5C31\u53EF\u4EE5\u6839\u64DA\u5EFA\u8B70\u9032\u884C\u4FEE\u6B63"
+        value: "\u5728 \"\u8A0E\u8AD6\u5340\" \u5206\u9801\u4E0A\r\n\u60A8\u80FD\u5920\u770B\u5230\u60A8\u525B\u525B\u5275\u5EFA\u7684\u4FEE\u6539\u5EFA\u8B70\r\n\u9019\u6A23\u958B\u767C\u8005\u5C31\u53EF\u4EE5\u6839\u64DA\u5EFA\u8B70\u9032\u884C\u4FEE\u6B63"
         type: 0
         typeString: 
       - title: Sequence
@@ -125115,8 +125072,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u540C\u6642\uFF0C\u5728 \"\u5408\u4F75\u72C0\u614B\" \u5340\u57DF\u4E2D\r\n\u66F4\u65B0\u4E86\u7D05\u8272\u7981\u6B62\u72C0\u614B
-          \"\u672A\u89E3\u6C7A\u7684\u5C0D\u8A71\" "
+        value: "\u540C\u6642\uFF0C\u5728 \"\u5408\u4F75\u72C0\u614B\" \u5340\u57DF\u4E2D\r\n\u7D05\u8272\u5716\u793A
+          \"\u672A\u89E3\u6C7A\u7684\u5C0D\u8A71\" \u51FA\u73FE\u4E86"
         type: 0
         typeString: 
       - title: Sequence
@@ -125473,7 +125430,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u73FE\u5728\uFF0C\u8ACB\u5207\u63DB\u5230 \"Files changed\" \u5206\u9801\r\n\u6211\u5011\u8981\u518D\u6B21\u5BE9\u6838\u5C0D\u65B9\u7684\u4FEE\u6539\u5167\u5BB9"
+        value: "\u73FE\u5728\uFF0C\u8ACB\u5207\u63DB\u5230 \"\u6587\u4EF6\u6539\u52D5\"
+          \u5206\u9801\r\n\u6211\u5011\u8981\u518D\u6B21\u5BE9\u6838\u5C0D\u65B9\u7684\u4FEE\u6539\u5167\u5BB9"
         type: 0
         typeString: 
       - title: Sequence
@@ -125532,8 +125490,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u60A8\u6703\u6CE8\u610F\u5230\u7B2C 5 \u884C\u4E2D\u7684\u6587\u5B57\u5167\u5BB9\u5DF2\u4FEE\u6B63\u70BA
-          \"\u7A0B\u5F0F\u78BC\""
+        value: "\u5728\u66F4\u6539\u7684\u5167\u5BB9\u4E2D\r\n\u60A8\u6703\u767C\u73FE\u932F\u5225\u5B57\u554F\u984C\u5DF2\u88AB\u4FEE\u5FA9"
         type: 0
         typeString: 
       - title: Sequence
@@ -125710,7 +125667,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u63A5\u4E0B\u4F86\uFF0C\u8ACB\u9EDE\u64CA \"Review changes\" \u6309\u9215\r\n\u4F86\u6279\u51C6\u9019\u500B\u5408\u4F75\u8ACB\u6C42"
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u8ACB\u9EDE\u64CA \"Review Changes\" \u6309\u9215\r\n\u4F86\u6279\u51C6\u9019\u500B\u5408\u4F75\u8ACB\u6C42"
         type: 0
         typeString: 
       - title: Sequence
@@ -125769,7 +125726,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u5F48\u51FA\u7684\u8A0A\u606F\u8F38\u5165\u6B04\u4E2D\r\n\u60A8\u53EF\u4EE5\u7528\u7C21\u77ED\u7684\u8A0A\u606F\u8AAA\u660E\u70BA\u4EC0\u9EBC\u8981\u6279\u51C6\u9019\u500B\u5408\u4F75\u8ACB\u6C42\r\n\u4F8B\u5982\uFF1A\"\u672A\u767C\u73FE\u554F\u984C\uFF0C\u6279\u51C6\u672C\u6B21\u5408\u4F75\""
+        value: "\u5728\u5F48\u51FA\u7684\u8A0A\u606F\u8F38\u5165\u6B04\u4E2D\r\n\u60A8\u53EF\u4EE5\u7528\u7C21\u77ED\u7684\u8A0A\u606F\u8AAA\u660E\u70BA\u4EC0\u9EBC\u8981\u6279\u51C6\u9019\u500B\u5408\u4F75\u8ACB\u6C42"
         type: 0
         typeString: 
       - title: Sequence
@@ -125884,12 +125841,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u9078\u64C7\u4E86\u6B63\u78BA\u7684\u8A0A\u606F\u985E\u578B\u5F8C\r\n\u8ACB\u9EDE\u64CA
-          \"Submit review\" \u6309\u9215\r\n\u4EE5\u63D0\u4EA4\u60A8\u7684\u5BE9\u6838\u8A55\u8AD6"
+        value: "\u5728\u9078\u64C7\u6B63\u78BA\u7684\u8A0A\u606F\u985E\u578B\u5F8C\r\n\u8ACB\u9EDE\u64CA
+          \"\u63D0\u4EA4\u5BE9\u6838\" \u6309\u9215\r\n\u4EE5\u63D0\u4EA4\u60A8\u7684\u5BE9\u6838\u8A55\u8AD6"
         type: 0
         typeString: 
       - title: Sequence
@@ -125913,7 +125870,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -125987,7 +125945,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -126021,7 +125979,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -126171,8 +126133,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "\u8981\u958B\u59CB\u5408\u4F75\u8ACB\u6C42\r\n\u6211\u5011\u9700\u8981\u9EDE\u64CA
-          \"\u5408\u4F75\u72C0\u614B\" \u5340\u57DF\u4E2D\u7684\r\n\"Merge Pull Request\"\uFF08\u5408\u4F75
-          Pull Request\uFF09\u6309\u9215"
+          \"\u5408\u4F75\u72C0\u614B\" \u5340\u57DF\u4E2D\u7684\r\n\"\u5408\u4F75
+          Pull Request\" \u6309\u9215"
         type: 0
         typeString: 
       - title: Sequence
@@ -126231,8 +126193,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u9EDE\u64CA\u6309\u9215\u5F8C \r\nGit \u5C07\u5275\u5EFA\u4E00\u500B\u65B0\u7684\u5408\u4F75\u63D0\u4EA4\r\n\u5C07\u958B\u767C\u8005\u7684\u66F4\u6539\u5408\u4F75\u5230\u76EE\u6A19\u5206\u652F\uFF08\u901A\u5E38\u662F
-          master \u5206\u652F\uFF09"
+        value: "\u9EDE\u64CA\u6309\u9215\u5F8C \r\nGit \u5C07\u5275\u5EFA\u4E00\u500B\u65B0\u7684\u5408\u4F75\u63D0\u4EA4\r\n\u5C07
+          Compare \u5206\u652F\u7684\u5167\u5BB9\u5408\u4F75\u5230 Base \u5206\u652F"
         type: 0
         typeString: 
       - title: Sequence
@@ -126469,9 +126431,67 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u586B\u5BEB\u5B8C\u6210\u5F8C\r\n\u8ACB\u9EDE\u64CA \"Confirm Merge\"\uFF08\u78BA\u8A8D\u5408\u4F75\uFF09
-          \u6309\u9215\r\n\u9019\u6A23\u5C31\u5B8C\u6210\u4E86 \"\u5408\u4F75 Pull
-          Request\" \u6D41\u7A0B"
+        value: "\u4E00\u822C\u60C5\u6CC1\u4E0B\uFF0C\r\nGit \u670D\u52D9\u5E73\u53F0\u5DF2\u7D93\u70BA\u60A8\u586B\u5BEB\u597D\u4E86\u63D0\u4EA4\u8A0A\u606F\r\n\u6211\u5011\u901A\u5E38\u53EF\u4EE5\u76F4\u63A5\u4F7F\u7528\u6B64\u8A0A\u606F\u4F86\u9032\u884C\u5408\u4F75"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 164
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 164
+        originDialogueID: 8
+        destinationConversationID: 164
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 142.0638
+        y: 479.4743
+        width: 160
+        height: 30
+    - id: 9
+      fields:
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Menu Text
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u8ACB\u9EDE\u64CA \"\u78BA\u8A8D\u5408\u4F75\"
+          \u6309\u9215\r\n\u4F86\u5408\u4F75 Pull Request \u5427"
         type: 0
         typeString: 
       - title: Sequence
@@ -126495,14 +126515,15 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 142.0638
-        y: 479.4743
+        y: 529.4743
         width: 160
         height: 30
     entryGroups: []
@@ -126569,7 +126590,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -126603,7 +126624,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -126632,7 +126657,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u975E\u5E38\u51FA\u8272\uFF01\r\n\u60A8\u5DF2\u6210\u529F\u5B8C\u6210\u4E00\u6B21
+        value: "\u975E\u5E38\u51FA\u8272\uFF01\r\n\u60A8\u5DF2\u6210\u529F\u5B8C\u6210
           \"\u5408\u4F75 Pull Request\" \u6D41\u7A0B"
         type: 0
         typeString: 
@@ -126692,7 +126717,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5408\u4F75\u5F8C\u7684\u7D50\u679C\uFF0C\u5C31\u5982\u540C\u6211\u5011\u5728\u4E0A\u4E00\u500B\u95DC\u5361\u4E2D\r\n\u4F7F\u7528
+        value: "\u5408\u4F75\u5F8C\u7684\u7D50\u679C\uFF0C\u61C9\u8A72\u6703\u50CF\u6211\u5011\u5728\u4E0A\u4E00\u500B\u95DC\u5361\u4E2D\r\n\u4F7F\u7528
           \"git pull\" \u4F86\u540C\u6B65 \"master\" \u5206\u652F\u4E00\u6A23"
         type: 0
         typeString: 
@@ -126752,8 +126777,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\"master\" \u5206\u652F\u73FE\u5728\u5DF2\u7D93\u5305\u542B\u4E86
-          \"new-feature\" \u5206\u652F\u7684\u4FEE\u6539\u5167\u5BB9\r\n\u4E26\u4E14\u5728\u5408\u4F75\u7684\u904E\u7A0B\u4E2D\u5275\u5EFA\u4E86\u4E00\u500B\u65B0\u7684
+        value: "\"master\" \u5206\u652F\u61C9\u8A72\u5305\u542B\u4E86 \"member-branch\"
+          \u5206\u652F\u7684\u5167\u5BB9\r\n\u4E26\u5728\u5408\u4F75\u7684\u904E\u7A0B\u4E2D\u5275\u5EFA\u4E86\u4E00\u500B\u65B0\u7684
           \"\u63D0\u4EA4\""
         type: 0
         typeString: 
@@ -127032,7 +127057,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -127066,7 +127091,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
+        "Tutorial Popup");
+
+        FSMEvent("DialogueChatWindow/expand window",
+        "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -127332,7 +127361,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6211\u5011\u5F9E \"Files changed\" (\u6A94\u6848\u66F4\u6539) \u5206\u9801\r\n\u67E5\u770B\u5408\u4F75\u8ACB\u6C42\u4E2D\u7684\u4FEE\u6539\u5167\u5BB9"
+        value: "\u6211\u5011\u5F9E \"\u6587\u4EF6\u6539\u52D5\" \u5206\u9801\u4E2D\r\n\u67E5\u770B\u5408\u4F75\u8ACB\u6C42\u4E2D\u7684\u4FEE\u6539\u5167\u5BB9"
         type: 0
         typeString: 
       - title: Sequence
@@ -127509,9 +127538,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5B8C\u6210\u8F38\u5165\u5F8C\r\n\u900F\u904E \"Finish your review\"
-          \u6309\u9215\r\n\u5C07\u9019\u4E9B\u8349\u7A3F\u63D0\u4EA4\u5230 Pull Request
-          \u4E0A"
+        value: "\u5B8C\u6210\u8F38\u5165\u5F8C\r\n\u900F\u904E \"Review Changes\"
+          \u6309\u9215\r\n\u5C07\u5DF2\u5B8C\u6210\u7684\u8349\u7A3F\u6B63\u5F0F\u986F\u793A\u5230
+          Pull Request \u4E0A"
         type: 0
         typeString: 
       - title: Sequence
@@ -127570,8 +127599,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u986F\u793A\u7684\u8A0A\u606F\u63D0\u4EA4\u6B04\u4E0A\r\n\u53EF\u4EE5\u9078\u64C7
-          \"Request changes\" (\u8981\u6C42\u4FEE\u6539) \u985E\u578B\r\n\u9019\u6703\u8981\u6C42\u958B\u767C\u8005\u5FC5\u9808\u4FEE\u6539\u5167\u5BB9\u624D\u80FD\u5920\u7E7C\u7E8C\u5408\u4F75\u8ACB\u6C42"
+        value: "\u5728\u5F48\u51FA\u7684\u8996\u7A97\u4E2D\uFF0C\r\n\u9078\u64C7
+          \"Request Changes\" (\u63D0\u51FA\u4FEE\u6539\u5EFA\u8B70)\r\n\u4F86\u8981\u6C42\u958B\u767C\u8005\u5FC5\u9808\u5B8C\u6210\u4FEE\u6539\u5EFA\u8B70\u5F8C\u624D\u80FD\u7E7C\u7E8C\u5408\u4F75\u8ACB\u6C42"
         type: 0
         typeString: 
       - title: Sequence
@@ -127631,7 +127660,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "\u7576\u6211\u5011\u5DF2\u78BA\u8A8D\u958B\u767C\u8005\u4FEE\u6539\u7684\u5167\u5BB9\u6C92\u6709\u554F\u984C\u6642\r\n\u5C31\u53EF\u4EE5\u4F7F\u7528
-          \"Approve\" \u985E\u578B\r\n\u4F86\u6279\u51C6\u672C\u6B21\u5408\u4F75\u8ACB\u6C42"
+          \"Approve\"\uFF08\u6279\u51C6\uFF09\r\n\u4F86\u6279\u51C6\u672C\u6B21\u5408\u4F75\u8ACB\u6C42"
         type: 0
         typeString: 
       - title: Sequence
@@ -127750,9 +127779,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u9801\u9762\u4E0A\u9EDE\u64CA \"\u5408\u4F75\u72C0\u614B\"
-          \u5340\u57DF\u4E2D\u7684\r\n\"Merge Pull Request\"\uFF08\u5408\u4F75 Pull
-          Request\uFF09\u6309\u9215\r\n\u5C31\u53EF\u4EE5\u5408\u4F75\u8ACB\u6C42"
+        value: "\u5728 \"\u8A0E\u8AD6\u5340\" \u5206\u9762\u4E0A\u9EDE\u64CA \"\u5408\u4F75\u72C0\u614B\"
+          \u5340\u57DF\u4E2D\u7684\r\n\"\u5408\u4F75 Pull Request\" \u6309\u9215\r\n\u5C31\u53EF\u4EE5\u5408\u4F75\u8ACB\u6C42"
         type: 0
         typeString: 
       - title: Sequence
@@ -127811,8 +127839,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u9019\u6A23\u5C31\u5B8C\u6210\u4E86\u4E00\u6B21 \"\u5BE9\u6838 Pull
-          Request\" \u6D41\u7A0B"
+        value: "\u5728\u56DE\u9867\u5B8C\u672C\u6B21\u95DC\u5361\u5B78\u5230\u7684\u77E5\u8B58\u548C\u6307\u4EE4\u5F8C"
         type: 0
         typeString: 
       - title: Sequence
@@ -127871,65 +127898,6 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u56DE\u9867\u5B8C\u672C\u6B21\u95DC\u5361\u5B78\u5230\u7684\u77E5\u8B58\u548C\u6307\u4EE4\u5F8C"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 166
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 166
-        originDialogueID: 14
-        destinationConversationID: 166
-        destinationDialogueID: 15
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 142.0638
-        y: 822.9788
-        width: 160
-        height: 30
-    - id: 15
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
         value: "\u606D\u559C\u60A8\u901A\u904E\u4E86\u672C\u6B21\u95DC\u5361\uFF01\r\n\u9019\u4E5F\u4EE3\u8868\u60A8\u6210\u529F\u5B8C\u6210\u4E86
           \"\u9060\u7AEF\u7BA1\u7406\" \u4E3B\u984C\u95DC\u5361\r\n\u60A8\u505A\u5F97\u5F88\u68D2\uFF01"
         type: 0
@@ -127962,7 +127930,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 142.0638
-        y: 872.9788
+        y: 822.9788
         width: 160
         height: 30
     entryGroups: []
