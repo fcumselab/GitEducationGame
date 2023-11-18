@@ -28,4 +28,4 @@
 已審核並確認 README 內容沒有問題。\n批准本次合併請求。
 
 *ShortMsg - PRMerge - 4*
-您 合併了這個 Pull Request。
+您 合併了這個 Pull Request
