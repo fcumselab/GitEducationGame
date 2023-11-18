@@ -2,8 +2,8 @@
 "審核與合併 Pull Request" 關卡！
 
 在這個關卡中，我們將學習以下內容：
-1. 審核 Pull Request 請求
-2. 合併 Pull Request 請求
+1. 審核 Pull Request
+2. 合併 Pull Request
 
 在開始之前
 讓我們先回顧上一個關卡學到的內容

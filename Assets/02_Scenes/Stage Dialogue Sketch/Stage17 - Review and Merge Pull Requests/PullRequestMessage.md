@@ -1,28 +1,31 @@
-*創建PR - PlayerAction - 3*
-新增 README 內容: 建立網站原因並為網站命名
+*創建PR - NPCAction*
+新增 README 內容: 網站名稱及建立原因
 這個 PR 包含了我在 "member-branch" 分支上所做的變更，\n我新增了網站名稱 "開心購物網"，並增加了建立網站原因。
 
-*FileChanged(Main) - Refresh - 5*
+*FileChanged(Main) - SubmitReview - 2*
 您
-您好，我注意到在 "建立網站原因" 內容裡出現了錯別字。\n建議您將該處的內容修正，謝謝。
+您好，我注意到在 "建立網站原因" 內容裡出現了錯別字。\n再請您修正一下，謝謝。
 
-*FileChanged(Reply) - Refresh - 5*
+*FileChanged(Reply) - SubmitReview - 2*
 您
 請您將 "加強城市能力" 修正為 "加強程式能力"。
 
-*FileChanged(Reply) - Refresh - 5*
+*FileChanged(Reply) - Refresh - 3*
 團隊成員 A
 感想您的建議，我會將此處的內容修正，謝謝。
 
-*FileChanged(Reply) - PlayerAction - 9*
+*ShortMsg - Push - 3*
+**團隊成員 A 新增提交**
+
+*FileChanged(Reply) - Refresh - 3*
 團隊成員 A
 您好，我已將 "建立網站原因" 中的錯別字修正。
-再請您進行審核，如果途中有需要修正的地方。
-請隨時提出，謝謝。
+如果您在審核途中發現其他需要修正的地方，
+請隨時指出，謝謝。
 
-*Approve - Refresh - 10*
+*Approve - SubmitReview - 3*
 您
-已再次審核，README 內容現在沒有問題。\n批准本次合併請求。
+已審核並確認 README 內容沒有問題。\n批准本次合併請求。
 
-*ShortMsg - Refresh - 10*
+*ShortMsg - PRMerge - 4*
 您 合併了這個 Pull Request。

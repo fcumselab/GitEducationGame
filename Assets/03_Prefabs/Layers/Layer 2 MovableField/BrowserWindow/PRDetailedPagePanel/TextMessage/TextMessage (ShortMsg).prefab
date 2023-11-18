@@ -1962,6 +1962,12 @@ MonoBehaviour:
         showInInspector: 1
         networkSync: 0
         value: 
+      - useVariable: 1
+        name: actionType
+        tooltip: "\u7528\u65BC NPC Action"
+        showInInspector: 1
+        networkSync: 0
+        value: 
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -1975,7 +1981,8 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 0000000000000000
+      - If renderType is Refresh, will do some action by this actionType
+      variableCategoryIDs: 000000000000000001000000
     description: "\u5728\u9032\u884C\u7279\u5B9A\u64CD\u4F5C\u6642\uFF08\u5982\u91CD\u6574\u3001\u63D0\u4EA4\u5BE9\u6838\u7B49\uFF09\uFF0C\n\u8981\u7B26\u5408\u9019\u500B
       FSM \u7684\u689D\u4EF6\n\u624D\u6703\u5C07Message\u79FB\u52D5\u5230\u756B\u9762\u4E2D"
     docUrl: 
@@ -1987,7 +1994,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
