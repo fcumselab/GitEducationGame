@@ -1369,20 +1369,22 @@ MonoBehaviour:
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
-        colorIndex: 0
+        colorIndex: 8
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetGameObject
         - HutongGames.PlayMaker.Actions.SetStringValue
-        - HutongGames.PlayMaker.Actions.IsFsmEnabled
+        - HutongGames.PlayMaker.Actions.GetFsmBool
+        - HutongGames.PlayMaker.Actions.BoolTest
         customNames:
         - 
         - 
         - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 000000000300000006000000
-        actionHashCodes: 4d51cf04c030f10368943404
+        - 
+        actionEnabled: 01010101
+        actionIsOpen: 01010101
+        actionStartIndex: 0000000003000000060000000b000000
+        actionHashCodes: 4d51cf04c030f10368fece05a4c8bf00
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -1431,6 +1433,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: Quest Valider
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: canDetectQuest
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -1439,7 +1447,13 @@ MonoBehaviour:
         fsmIntParams: []
         fsmBoolParams:
         - useVariable: 1
-          name: 
+          name: canDetectQuest
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: canDetectQuest
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -1452,12 +1466,12 @@ MonoBehaviour:
         stringParams:
         - true
         - false
-        byteData: 000000
+        byteData: 00000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 130000001300000001000000120000001200000001000000140000001200000011000000170000001700000001000000
+        paramDataType: 130000001300000001000000120000001200000001000000140000001200000012000000110000000100000011000000170000001700000001000000
         paramName:
         - variable
         - gameObject
@@ -1467,12 +1481,15 @@ MonoBehaviour:
         - everyFrame
         - gameObject
         - fsmName
-        - isEnabled
-        - isEnabledEvent
-        - isDisabledEvent
+        - variableName
+        - storeValue
         - everyFrame
-        paramDataPos: 000000000100000000000000000000000100000001000000000000000200000000000000000000000100000002000000
-        paramByteDataSize: 000000000000000001000000000000000000000001000000000000000000000000000000000000000000000001000000
+        - boolVariable
+        - isTrue
+        - isFalse
+        - everyFrame
+        paramDataPos: 000000000100000000000000000000000100000001000000000000000200000003000000000000000200000001000000000000000100000003000000
+        paramByteDataSize: 000000000000000001000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000001000000
     - name: Stop this Action
       description: 
       colorIndex: 9
@@ -6072,7 +6089,13 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 0
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: canDetectQuest
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       stringVariables:
       - useVariable: 1
         name: SenderFSMName
@@ -6207,7 +6230,7 @@ MonoBehaviour:
       - Get
       - Reference
       - returnMessage
-      variableCategoryIDs: 030000000000000000000000000000000000000002000000020000000000000005000000010000000500000000000000000000000000000003000000040000000400000001000000000000000000000000000000
+      variableCategoryIDs: 03000000000000000000000000000000000000000000000002000000020000000000000005000000010000000500000000000000000000000000000003000000040000000400000001000000000000000000000000000000
     description: "\u57F7\u884CValider\u5F8C\u9762\u64CD\u4F5C\u4E4B\u524D\uFF0C\u6703\u5148\u6839\u64DA\u767C\u9001\u4E8B\u4EF6\u7684Gameobject\u6C7A\u5B9A\u8981\u4E0D\u8981\u505A\u5F8C\u7E8C\u64CD\u4F5C"
     docUrl: 
     showStateLabel: 0
@@ -6216,7 +6239,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 000000000500000006000000090000000e00000011000000100000000f000000
+    outVariableIndices: 0000000006000000070000000a0000000f000000100000001100000012000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
