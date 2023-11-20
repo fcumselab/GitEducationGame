@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 3500258029670196279}
   - component: {fileID: 3500258029670196272}
   - component: {fileID: 3500258029670196273}
-  - component: {fileID: 3500258029670196274}
+  - component: {fileID: 5035640132294576810}
   m_Layer: 0
   m_Name: DefaultData
   m_TagString: Untagged
@@ -381,7 +381,7 @@ MonoBehaviour:
         - "\u6587\u4EF6B2.txt"
         - "\u6587\u4EF6B3.txt"
         - "\u6587\u4EF6C.txt"
-        - X
+        - 
         vector4Values: []
         objectReferences: []
       - useVariable: 1
@@ -427,7 +427,7 @@ MonoBehaviour:
         - "\u8CC7\u6599\u593EB\\\u6587\u4EF6B2.txt"
         - "\u8CC7\u6599\u593EB\\\u6587\u4EF6B3.txt"
         - "\u6587\u4EF6C.txt"
-        - x
+        - 
         vector4Values: []
         objectReferences: []
       - useVariable: 1
@@ -636,7 +636,7 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
---- !u!114 &3500258029670196274
+--- !u!114 &5035640132294576810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -651,7 +651,7 @@ MonoBehaviour:
   fsm:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
-    name: Initial Data
+    name: BranchName data
     startState: State 1
     states:
     - name: State 1
@@ -659,7 +659,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 52
+        x: 100
         y: 100
         width: 100
         height: 16
@@ -707,21 +707,45 @@ MonoBehaviour:
         paramDataPos: 
         paramByteDataSize: 
     events:
-    - name: FINISHED
-      isSystemEvent: 1
-      isGlobal: 0
     - name: loop
       isSystemEvent: 0
       isGlobal: 0
     - name: next
       isSystemEvent: 0
       isGlobal: 0
+    - name: FINISHED
+      isSystemEvent: 1
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables: []
-      intVariables: []
-      boolVariables: []
-      stringVariables: []
+      intVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
+      boolVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
+      stringVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -731,13 +755,65 @@ MonoBehaviour:
       objectVariables: []
       materialVariables: []
       textureVariables: []
-      arrayVariables: []
+      arrayVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        type: 1
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        type: 2
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
       enumVariables: []
       categories:
       - 
       - CommitMessage
-      variableCategoryIDs: 
-    description: Close it first.
+      variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000
+    description: "BranchNamingPopup\n\u7528\u4F86\u958B\u555F\u547D\u540D\u5206\u652F\u8996\u7A97\n\u5982\u679C\u6709\u4F7F\u7528\u7684\u8A71\u8981Enable\uFF0C\u624D\u53EF\u9032\u884C\u521D\u59CB\u5316"
     docUrl: 
     showStateLabel: 0
     maxLoopCount: 0
@@ -5936,13 +6012,37 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
       Data: git add
+    - Name: $v
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: git reset
+    - Name: $v
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: git status
     - Name: $v
       Entry: 3
       Data: 1
