@@ -21245,7 +21245,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Valid Control Event
+        toState: Enable Quest Valider
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -21354,14 +21354,14 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 000000000000000001000000020000000000000001000000030000000000000001000000
         paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
-    - name: Valid Control Event
+    - name: Enable Quest Valider
       description: 
-      colorIndex: 10
+      colorIndex: 12
       position:
         serializedVersion: 2
         x: 516.46094
         y: 474.28906
-        width: 142
+        width: 152
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -21380,7 +21380,7 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetFsmGameObject
         - HutongGames.PlayMaker.Actions.SetFsmString
-        - HutongGames.PlayMaker.Actions.SendEvent
+        - HutongGames.PlayMaker.Actions.EnableFSM
         customNames:
         - 
         - 
@@ -21388,7 +21388,7 @@ MonoBehaviour:
         actionEnabled: 010101
         actionIsOpen: 010101
         actionStartIndex: 00000000050000000a000000
-        actionHashCodes: 5b66cf0052221a025e69bb04
+        actionHashCodes: 5b66cf0052221a0287aa9700
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 0
@@ -21414,42 +21414,18 @@ MonoBehaviour:
             showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Quest Tracker
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 1
-            gameObject:
-              useVariable: 1
-              name: Quest Tracker
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
+        fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams:
@@ -21483,32 +21459,43 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: Button
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Quest Valider
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams:
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
-        fsmIntParams: []
-        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams:
-        - Quest Tracker/Valid Control
-        byteData: 000000
+        stringParams: []
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001200000012000000130000000100000014000000120000001200000012000000010000001f000000170000000f00000001000000
+        paramDataType: 1400000012000000120000001300000001000000140000001200000012000000120000000100000014000000120000001100000011000000
         paramName:
         - gameObject
         - fsmName
@@ -21520,12 +21507,12 @@ MonoBehaviour:
         - variableName
         - setValue
         - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        paramDataPos: 0000000000000000010000000000000000000000010000000200000003000000040000000100000000000000000000000000000002000000
-        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000001000000
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        paramDataPos: 0000000000000000010000000000000000000000010000000200000003000000040000000100000002000000050000000000000001000000
+        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -68292,7 +68279,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Valid Control Event
+        toState: Enable Quest Valider
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -68401,14 +68388,14 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 000000000000000001000000020000000000000001000000030000000000000001000000
         paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
-    - name: Valid Control Event
+    - name: Enable Quest Valider
       description: 
-      colorIndex: 10
+      colorIndex: 12
       position:
         serializedVersion: 2
-        x: 520.21875
-        y: 815.2344
-        width: 142
+        x: 519.14844
+        y: 825.8672
+        width: 152
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -68427,7 +68414,7 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetFsmGameObject
         - HutongGames.PlayMaker.Actions.SetFsmString
-        - HutongGames.PlayMaker.Actions.SendEvent
+        - HutongGames.PlayMaker.Actions.EnableFSM
         customNames:
         - 
         - 
@@ -68435,7 +68422,7 @@ MonoBehaviour:
         actionEnabled: 010101
         actionIsOpen: 010101
         actionStartIndex: 00000000050000000a000000
-        actionHashCodes: 5b66cf0052221a025e69bb04
+        actionHashCodes: 5b66cf0052221a0287aa9700
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 0
@@ -68461,42 +68448,18 @@ MonoBehaviour:
             showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Quest Tracker
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 1
-            gameObject:
-              useVariable: 1
-              name: Quest Tracker
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
+        fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams:
@@ -68530,32 +68493,43 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: Button
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Quest Valider
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams:
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
-        fsmIntParams: []
-        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams:
-        - Quest Tracker/Valid Control
-        byteData: 000000
+        stringParams: []
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001200000012000000130000000100000014000000120000001200000012000000010000001f000000170000000f00000001000000
+        paramDataType: 1400000012000000120000001300000001000000140000001200000012000000120000000100000014000000120000001100000011000000
         paramName:
         - gameObject
         - fsmName
@@ -68567,12 +68541,12 @@ MonoBehaviour:
         - variableName
         - setValue
         - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        paramDataPos: 0000000000000000010000000000000000000000010000000200000003000000040000000100000000000000000000000000000002000000
-        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000001000000
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        paramDataPos: 0000000000000000010000000000000000000000010000000200000003000000040000000100000002000000050000000000000001000000
+        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000000000000
     - name: runType
       description: 
       colorIndex: 0
@@ -140856,32 +140830,32 @@ PrefabInstance:
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[0].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[3].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[4].value
-      value: "\u60A8"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[6].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[8].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[9].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510719014839, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}

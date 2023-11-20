@@ -53773,7 +53773,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Valid Control Event
+        toState: Enable Quest Valider
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -53882,14 +53882,14 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 000000000000000001000000020000000000000001000000030000000000000001000000
         paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
-    - name: Valid Control Event
+    - name: Enable Quest Valider
       description: 
-      colorIndex: 10
+      colorIndex: 12
       position:
         serializedVersion: 2
         x: 516.46094
         y: 474.28906
-        width: 142
+        width: 152
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -53908,7 +53908,7 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetFsmGameObject
         - HutongGames.PlayMaker.Actions.SetFsmString
-        - HutongGames.PlayMaker.Actions.SendEvent
+        - HutongGames.PlayMaker.Actions.EnableFSM
         customNames:
         - 
         - 
@@ -53916,7 +53916,7 @@ MonoBehaviour:
         actionEnabled: 010101
         actionIsOpen: 010101
         actionStartIndex: 00000000050000000a000000
-        actionHashCodes: 5b66cf0052221a025e69bb04
+        actionHashCodes: 5b66cf0052221a0287aa9700
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 0
@@ -53942,42 +53942,18 @@ MonoBehaviour:
             showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Quest Tracker
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 1
-            gameObject:
-              useVariable: 1
-              name: Quest Tracker
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
+        fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams:
@@ -54011,32 +53987,43 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: Button
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Quest Valider
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams:
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
-        fsmIntParams: []
-        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams:
-        - Quest Tracker/Valid Control
-        byteData: 000000
+        stringParams: []
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001200000012000000130000000100000014000000120000001200000012000000010000001f000000170000000f00000001000000
+        paramDataType: 1400000012000000120000001300000001000000140000001200000012000000120000000100000014000000120000001100000011000000
         paramName:
         - gameObject
         - fsmName
@@ -54048,12 +54035,12 @@ MonoBehaviour:
         - variableName
         - setValue
         - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        paramDataPos: 0000000000000000010000000000000000000000010000000200000003000000040000000100000000000000000000000000000002000000
-        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000001000000
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        paramDataPos: 0000000000000000010000000000000000000000010000000200000003000000040000000100000002000000050000000000000001000000
+        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -83774,7 +83761,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Valid Control Event
+        toState: Enable Quest Valider
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -83883,14 +83870,14 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 000000000000000001000000020000000000000001000000030000000000000001000000
         paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
-    - name: Valid Control Event
+    - name: Enable Quest Valider
       description: 
-      colorIndex: 10
+      colorIndex: 12
       position:
         serializedVersion: 2
-        x: 504.21875
-        y: 815.2344
-        width: 142
+        x: 510.8047
+        y: 826.21094
+        width: 152
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -83909,7 +83896,7 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetFsmGameObject
         - HutongGames.PlayMaker.Actions.SetFsmString
-        - HutongGames.PlayMaker.Actions.SendEvent
+        - HutongGames.PlayMaker.Actions.EnableFSM
         customNames:
         - 
         - 
@@ -83917,7 +83904,7 @@ MonoBehaviour:
         actionEnabled: 010101
         actionIsOpen: 010101
         actionStartIndex: 00000000050000000a000000
-        actionHashCodes: 5b66cf0052221a025e69bb04
+        actionHashCodes: 5b66cf0052221a0287aa9700
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 0
@@ -83943,42 +83930,18 @@ MonoBehaviour:
             showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Quest Tracker
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 1
-            gameObject:
-              useVariable: 1
-              name: Quest Tracker
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
+        fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams:
@@ -84012,32 +83975,43 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: Button
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Quest Valider
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams:
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
-        fsmIntParams: []
-        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams:
-        - Quest Tracker/Valid Control
-        byteData: 000000
+        stringParams: []
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001200000012000000130000000100000014000000120000001200000012000000010000001f000000170000000f00000001000000
+        paramDataType: 1400000012000000120000001300000001000000140000001200000012000000120000000100000014000000120000001100000011000000
         paramName:
         - gameObject
         - fsmName
@@ -84049,12 +84023,12 @@ MonoBehaviour:
         - variableName
         - setValue
         - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        paramDataPos: 0000000000000000010000000000000000000000010000000200000003000000040000000100000000000000000000000000000002000000
-        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000001000000
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        paramDataPos: 0000000000000000010000000000000000000000010000000200000003000000040000000100000002000000050000000000000001000000
+        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000000000000
     - name: runType
       description: 
       colorIndex: 0
@@ -123050,7 +123024,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u64CD\u4F5C\u8AAA\u660E"
+      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\uFF1A"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -123065,7 +123039,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u64CD\u4F5C\u8AAA\u660E"
+      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\uFF1A"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -123075,7 +123049,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u64CD\u4F5C\u8AAA\u660E"
+      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\uFF1A"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -123544,7 +123518,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u7CFB\u7D71\u67B6\u69CB"
+      value: "\u672C\u7DB2\u7AD9\u662F\u5728 \"\u7A0B\u5F0F\u8A2D\u8A08\" \u8AB2\u7A0B\u4E2D\u505A\u51FA\u4F86\u7684\u5BE6\u4F5C"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -123553,18 +123527,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u7CFB\u7D71\u67B6\u69CB"
+      value: "\u672C\u7DB2\u7AD9\u662F\u5728 \"\u7A0B\u5F0F\u8A2D\u8A08\" \u8AB2\u7A0B\u4E2D\u505A\u51FA\u4F86\u7684\u5BE6\u4F5C"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[2].value
-      value: 2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u7CFB\u7D71\u67B6\u69CB"
+      value: "\u672C\u7DB2\u7AD9\u662F\u5728 \"\u7A0B\u5F0F\u8A2D\u8A08\" \u8AB2\u7A0B\u4E2D\u505A\u51FA\u4F86\u7684\u5BE6\u4F5C"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -123574,7 +123553,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[2].value
-      value: 2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -124768,7 +124747,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u6211\u5011\u4F7F\u7528\u4E86 Git \u4F86\u7BA1\u7406\u5C08\u6848"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -124777,18 +124756,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u6211\u5011\u4F7F\u7528\u4E86 Git \u4F86\u7BA1\u7406\u5C08\u6848"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[2].value
-      value: 3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u6211\u5011\u4F7F\u7528\u4E86 Git \u4F86\u7BA1\u7406\u5C08\u6848"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -124798,7 +124782,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[2].value
-      value: 3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -125257,17 +125241,42 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[1].value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: D
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[2].value
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[1].value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[2].value
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -125361,12 +125370,12 @@ PrefabInstance:
     - target: {fileID: 6444159739309689798, guid: 2889d99f704c91b49b3d0d756bc193e2,
         type: 3}
       propertyPath: fsm.states.Array.data[0].actionData.fsmIntParams.Array.data[0].value
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6444159739309689798, guid: 2889d99f704c91b49b3d0d756bc193e2,
         type: 3}
       propertyPath: fsm.states.Array.data[0].actionData.fsmStringParams.Array.data[0].value
-      value: Refresh
+      value: SubmitReview
       objectReference: {fileID: 0}
     - target: {fileID: 7862072042068434698, guid: 2889d99f704c91b49b3d0d756bc193e2,
         type: 3}
@@ -125751,22 +125760,22 @@ PrefabInstance:
     - target: {fileID: 7862072042890329270, guid: 2889d99f704c91b49b3d0d756bc193e2,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u5718\u968A\u6210\u54E1 A"
+      value: "\u60A8"
       objectReference: {fileID: 0}
     - target: {fileID: 7862072042890329270, guid: 2889d99f704c91b49b3d0d756bc193e2,
         type: 3}
       propertyPath: fsm.states.Array.data[3].actionData.fsmStringParams.Array.data[0].value
-      value: "\u5DF2\u518D\u6B21\u5BE9\u6838\uFF0CREADME \u5167\u5BB9\u73FE\u5728\u6C92\u6709\u554F\u984C\u3002\\n\u6279\u51C6\u672C\u6B21\u5408\u4F75\u8ACB\u6C42\u3002"
+      value: "\u5DF2\u5BE9\u6838\u4E26\u78BA\u8A8D README \u5167\u5BB9\u6C92\u6709\u554F\u984C\u3002\\n\u6279\u51C6\u672C\u6B21\u5408\u4F75\u8ACB\u6C42\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 7862072042890329270, guid: 2889d99f704c91b49b3d0d756bc193e2,
         type: 3}
       propertyPath: fsm.states.Array.data[3].actionData.fsmStringParams.Array.data[3].value
-      value: "\u5DF2\u518D\u6B21\u5BE9\u6838\uFF0CREADME \u5167\u5BB9\u73FE\u5728\u6C92\u6709\u554F\u984C\u3002\\n\u6279\u51C6\u672C\u6B21\u5408\u4F75\u8ACB\u6C42\u3002"
+      value: "\u5DF2\u5BE9\u6838\u4E26\u78BA\u8A8D README \u5167\u5BB9\u6C92\u6709\u554F\u984C\u3002\\n\u6279\u51C6\u672C\u6B21\u5408\u4F75\u8ACB\u6C42\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 7862072042890329270, guid: 2889d99f704c91b49b3d0d756bc193e2,
         type: 3}
       propertyPath: fsm.states.Array.data[3].actionData.fsmStringParams.Array.data[4].value
-      value: "\u5DF2\u518D\u6B21\u5BE9\u6838\uFF0CREADME \u5167\u5BB9\u73FE\u5728\u6C92\u6709\u554F\u984C\u3002\\n\u6279\u51C6\u672C\u6B21\u5408\u4F75\u8ACB\u6C42\u3002"
+      value: "\u5DF2\u5BE9\u6838\u4E26\u78BA\u8A8D README \u5167\u5BB9\u6C92\u6709\u554F\u984C\u3002\\n\u6279\u51C6\u672C\u6B21\u5408\u4F75\u8ACB\u6C42\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 7862072042890329270, guid: 2889d99f704c91b49b3d0d756bc193e2,
         type: 3}
@@ -127176,7 +127185,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u64CD\u4F5C\u8AAA\u660E"
+      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\uFF1A"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -127191,7 +127200,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u64CD\u4F5C\u8AAA\u660E"
+      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\uFF1A"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -127201,7 +127210,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u64CD\u4F5C\u8AAA\u660E"
+      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\uFF1A"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -127414,6 +127423,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 461366011596429452, guid: dbf55e69efb616043b1cb62281ceaf41,
         type: 3}
+      propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[1].value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 461366011596429452, guid: dbf55e69efb616043b1cb62281ceaf41,
+        type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: D
+      objectReference: {fileID: 0}
+    - target: {fileID: 461366011596429452, guid: dbf55e69efb616043b1cb62281ceaf41,
+        type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
       value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
       objectReference: {fileID: 0}
@@ -127421,6 +127440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
       value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      objectReference: {fileID: 0}
+    - target: {fileID: 461366011596429452, guid: dbf55e69efb616043b1cb62281ceaf41,
+        type: 3}
+      propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[1].value
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 461366011596429452, guid: dbf55e69efb616043b1cb62281ceaf41,
         type: 3}
@@ -128532,32 +128556,32 @@ PrefabInstance:
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[0].value
-      value: "\u5408\u4F75\u4E86 Pull Request"
+      value: "\u5408\u4F75\u4E86\u9019\u500B Pull Request"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[3].value
-      value: "\u5408\u4F75\u4E86 Pull Request"
+      value: "\u5408\u4F75\u4E86\u9019\u500B Pull Request"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[4].value
-      value: "\u5718\u968A\u6210\u54E1 A"
+      value: "\u60A8"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[6].value
-      value: "\u5408\u4F75\u4E86 Pull Request"
+      value: "\u5408\u4F75\u4E86\u9019\u500B Pull Request"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[8].value
-      value: "\u5408\u4F75\u4E86 Pull Request"
+      value: "\u5408\u4F75\u4E86\u9019\u500B Pull Request"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[9].value
-      value: "\u5408\u4F75\u4E86 Pull Request"
+      value: "\u5408\u4F75\u4E86\u9019\u500B Pull Request"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510719014839, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
@@ -128907,7 +128931,7 @@ PrefabInstance:
     - target: {fileID: 6366755142685257124, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmBoolParams.Array.data[0].value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6366755142685257124, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -129007,37 +129031,42 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u5E0C\u671B\u80FD\u901A\u904E\u5718\u968A\u5171\u540C\u5275\u5EFA\u7DB2\u7AD9\u4F86\u52A0\u5F37\u57CE\u5E02\u80FD\u529B"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[1].value
-      value: 5
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u5E0C\u671B\u80FD\u901A\u904E\u5718\u968A\u5171\u540C\u5275\u5EFA\u7DB2\u7AD9\u4F86\u52A0\u5F37\u57CE\u5E02\u80FD\u529B"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[2].value
-      value: 3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u5E0C\u671B\u80FD\u901A\u904E\u5718\u968A\u5171\u540C\u5275\u5EFA\u7DB2\u7AD9\u4F86\u52A0\u5F37\u57CE\u5E02\u80FD\u529B"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[1].value
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[2].value
-      value: 3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -129456,32 +129485,32 @@ PrefabInstance:
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[0].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: "\u5275\u5EFA\u4E86\u65B0\u7684\u63D0\u4EA4 - \u4FEE\u6B63 README \u5167\u5BB9\uFF1A\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\u4E2D\u7684\u932F\u5225\u5B57"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[3].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: "\u5275\u5EFA\u4E86\u65B0\u7684\u63D0\u4EA4 - \u4FEE\u6B63 README \u5167\u5BB9\uFF1A\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\u4E2D\u7684\u932F\u5225\u5B57"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[4].value
-      value: "\u60A8"
+      value: "\u5718\u968A\u6210\u54E1 A"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[6].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: "\u5275\u5EFA\u4E86\u65B0\u7684\u63D0\u4EA4 - \u4FEE\u6B63 README \u5167\u5BB9\uFF1A\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\u4E2D\u7684\u932F\u5225\u5B57"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[8].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: "\u5275\u5EFA\u4E86\u65B0\u7684\u63D0\u4EA4 - \u4FEE\u6B63 README \u5167\u5BB9\uFF1A\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\u4E2D\u7684\u932F\u5225\u5B57"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[9].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: "\u5275\u5EFA\u4E86\u65B0\u7684\u63D0\u4EA4 - \u4FEE\u6B63 README \u5167\u5BB9\uFF1A\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\u4E2D\u7684\u932F\u5225\u5B57"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510719014839, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
@@ -129936,7 +129965,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u6211\u5011\u4F7F\u7528\u4E86 Git \u4F86\u7BA1\u7406\u5C08\u6848"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -129945,18 +129974,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u6211\u5011\u4F7F\u7528\u4E86 Git \u4F86\u7BA1\u7406\u5C08\u6848"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[2].value
-      value: 3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u6211\u5011\u4F7F\u7528\u4E86 Git \u4F86\u7BA1\u7406\u5C08\u6848"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -129966,7 +130000,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[2].value
-      value: 3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -130330,7 +130364,7 @@ PrefabInstance:
     - target: {fileID: 6366755142685257124, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmBoolParams.Array.data[0].value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6366755142685257124, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -130430,37 +130464,42 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u5E0C\u671B\u80FD\u901A\u904E\u5718\u968A\u5171\u540C\u5275\u5EFA\u7DB2\u7AD9\u4F86\u52A0\u5F37\u7A0B\u5F0F\u80FD\u529B"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[1].value
-      value: 5
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u5E0C\u671B\u80FD\u901A\u904E\u5718\u968A\u5171\u540C\u5275\u5EFA\u7DB2\u7AD9\u4F86\u52A0\u5F37\u7A0B\u5F0F\u80FD\u529B"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[2].value
-      value: 3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u622A\u5716"
+      value: "\u5E0C\u671B\u80FD\u901A\u904E\u5718\u968A\u5171\u540C\u5275\u5EFA\u7DB2\u7AD9\u4F86\u52A0\u5F37\u7A0B\u5F0F\u80FD\u529B"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[1].value
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[2].value
-      value: 3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -130914,17 +130953,32 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "# \u958B\u5FC3\u8CFC\u7269\u7DB2 - \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "# \u958B\u5FC3\u8CFC\u7269\u7DB2 - \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[2].value
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "# \u958B\u5FC3\u8CFC\u7269\u7DB2 - \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[2].value
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -131383,7 +131437,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u7CFB\u7D71\u67B6\u69CB"
+      value: "\u672C\u7DB2\u7AD9\u662F\u5728 \"\u7A0B\u5F0F\u8A2D\u8A08\" \u8AB2\u7A0B\u4E2D\u505A\u51FA\u4F86\u7684\u5BE6\u4F5C"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -131392,18 +131446,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u7CFB\u7D71\u67B6\u69CB"
+      value: "\u672C\u7DB2\u7AD9\u662F\u5728 \"\u7A0B\u5F0F\u8A2D\u8A08\" \u8AB2\u7A0B\u4E2D\u505A\u51FA\u4F86\u7684\u5BE6\u4F5C"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[2].value
-      value: 2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "\u7DB2\u9801\u7CFB\u7D71\u67B6\u69CB"
+      value: "\u672C\u7DB2\u7AD9\u662F\u5728 \"\u7A0B\u5F0F\u8A2D\u8A08\" \u8AB2\u7A0B\u4E2D\u505A\u51FA\u4F86\u7684\u5BE6\u4F5C"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -131413,7 +131472,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[2].value
-      value: 2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -131872,7 +131931,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -131887,7 +131946,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -131897,7 +131956,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -132110,6 +132169,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 461366011596429452, guid: dbf55e69efb616043b1cb62281ceaf41,
         type: 3}
+      propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[1].value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 461366011596429452, guid: dbf55e69efb616043b1cb62281ceaf41,
+        type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: D
+      objectReference: {fileID: 0}
+    - target: {fileID: 461366011596429452, guid: dbf55e69efb616043b1cb62281ceaf41,
+        type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
       value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
       objectReference: {fileID: 0}
@@ -132117,6 +132186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
       value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      objectReference: {fileID: 0}
+    - target: {fileID: 461366011596429452, guid: dbf55e69efb616043b1cb62281ceaf41,
+        type: 3}
+      propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[1].value
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 461366011596429452, guid: dbf55e69efb616043b1cb62281ceaf41,
         type: 3}
@@ -133238,32 +133312,32 @@ PrefabInstance:
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[0].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: "\u6307\u6D3E\u4E86\u60A8\u70BA\u5BE9\u6838\u4EBA\u54E1"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[3].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: "\u6307\u6D3E\u4E86\u60A8\u70BA\u5BE9\u6838\u4EBA\u54E1"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[4].value
-      value: "\u60A8"
+      value: "\u5718\u968A\u6210\u54E1 A"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[6].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: "\u6307\u6D3E\u4E86\u60A8\u70BA\u5BE9\u6838\u4EBA\u54E1"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[8].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: "\u6307\u6D3E\u4E86\u60A8\u70BA\u5BE9\u6838\u4EBA\u54E1"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510598345726, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
       propertyPath: fsm.states.Array.data[4].actionData.fsmStringParams.Array.data[9].value
-      value: "\u6307\u6D3E\u4E86\u5718\u968A\u6210\u54E1 A \u70BA\u5BE9\u6838\u4EBA\u54E1"
+      value: "\u6307\u6D3E\u4E86\u60A8\u70BA\u5BE9\u6838\u4EBA\u54E1"
       objectReference: {fileID: 0}
     - target: {fileID: 3170120510719014839, guid: dffe9febe3bcaa040ab08a81a26399b8,
         type: 3}
@@ -133708,7 +133782,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -133723,7 +133797,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -133733,7 +133807,7 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -134197,17 +134271,32 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "# \u958B\u5FC3\u8CFC\u7269\u7DB2 - \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "# \u958B\u5FC3\u8CFC\u7269\u7DB2 - \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[2].value
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "# \u958B\u5FC3\u8CFC\u7269\u7DB2 - \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[2].value
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
@@ -134666,17 +134755,42 @@ PrefabInstance:
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[1].actionData.fsmStringParams.Array.data[1].value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[2].actionData.fsmStringParams.Array.data[0].value
+      value: D
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[6].actionData.fsmStringParams.Array.data[2].value
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
       propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[0].value
-      value: "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+      value: "\u8CFC\u7269\u7DB2\u7AD9\u4ECB\u7D39"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[1].value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
+        type: 3}
+      propertyPath: fsm.states.Array.data[7].actionData.fsmStringParams.Array.data[2].value
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6849128133523727804, guid: 53b3a2c9aa9b67f4ea62cf6ccce56001,
         type: 3}
