@@ -227,14 +227,14 @@ MonoBehaviour:
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: error
+          name: skip
           isSystemEvent: 0
           isGlobal: 0
-        toState: Error
+        toState: Enable FSM
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
-        colorIndex: 15
+        colorIndex: 12
       - fsmEvent:
           name: next
           isSystemEvent: 0
@@ -243,7 +243,7 @@ MonoBehaviour:
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
-        colorIndex: 0
+        colorIndex: 8
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.ArrayContains
@@ -326,7 +326,7 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - next
-        - error
+        - skip
         byteData: 
         arrayParamSizes: 
         arrayParamTypes: []
@@ -407,7 +407,7 @@ MonoBehaviour:
         paramByteDataSize: 040000000000000001000000
     - name: ' Delete At'
       description: 
-      colorIndex: 0
+      colorIndex: 8
       position:
         serializedVersion: 2
         x: 236.48438
@@ -1648,7 +1648,7 @@ MonoBehaviour:
         - useVariable: 1
           name: Lines
           tooltip: 
-          showInInspector: 1
+          showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
@@ -1666,7 +1666,7 @@ MonoBehaviour:
         - useVariable: 1
           name: Lines
           tooltip: 
-          showInInspector: 1
+          showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         fsmOwnerDefaultParams:
@@ -1778,6 +1778,9 @@ MonoBehaviour:
       isSystemEvent: 0
       isGlobal: 0
     - name: loop
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: skip
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions: []
