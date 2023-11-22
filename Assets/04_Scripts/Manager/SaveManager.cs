@@ -39,16 +39,16 @@ public class SaveManager : SerializedMonoBehaviour
         }
         
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(stageObj, "Button Initial"); 
-        fsm.FsmVariables.FindFsmBool("isStageClear").Value = findStage.isStageClear;
+        fsm.FsmVariables.FindFsmInt("stageClearTimes").Value = findStage.stageClearTimes;
         fsm.FsmVariables.FindFsmBool("isStageUnlock").Value = findStage.isStageUnlock;
         if (findStage.isStageUnlock)
         {
-            for (int i = 0; i < findStage.stageLeaderboard.playerName.Count; i++)
+            for (int i = 0; i < findStage.selfStageLeaderboardData.Count; i++)
             {
-                fsm.FsmVariables.FindFsmArray("playerNameList").Set(i, findStage.stageLeaderboard.playerName[i]);
-                fsm.FsmVariables.FindFsmArray("playerScoreList").Set(i, findStage.stageLeaderboard.playerScore[i]);
-                fsm.FsmVariables.FindFsmArray("playerStarList").Set(i, findStage.stageLeaderboard.playerStar[i]);
-                fsm.FsmVariables.FindFsmArray("playerClearTimeList").Set(i, findStage.stageLeaderboard.playerClearTime[i]);
+                fsm.FsmVariables.FindFsmArray("playerNameList").Set(i, findStage.selfStageLeaderboardData[i].playerName);
+                fsm.FsmVariables.FindFsmArray("playerScoreList").Set(i, findStage.selfStageLeaderboardData[i].playerScore);
+                fsm.FsmVariables.FindFsmArray("playerStarList").Set(i, findStage.selfStageLeaderboardData[i].playerStar);
+                fsm.FsmVariables.FindFsmArray("playerClearTimeList").Set(i, findStage.selfStageLeaderboardData[i].playerClearTime);
             }
         }
         return true;
