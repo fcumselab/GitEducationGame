@@ -7,29 +7,29 @@ using UnityEngine;
 
 public class SaveManager : SerializedMonoBehaviour
 {
-    [Header("Default SaveData")]
-    [SerializeField] SaveData defaultSaveData = new();
+    [Header("Default PlayerSaveData")]
+    [SerializeField] PlayerSaveData defaultSaveData = new();
 
-    [Header("Player Current SaveData")]
-    [SerializeField] SaveData saveData = new();
+    [Header("Current PlayerSaveData")]
+    [SerializeField] PlayerSaveData playerSaveData = new();
     [SerializeField] string saveJson;
 
     public void SavePlayerData()
     {
-        saveJson = JsonUtility.ToJson(saveData,true);
+        saveJson = JsonUtility.ToJson(playerSaveData, true);
         Debug.Log(saveJson);
     }
 
     //LoadPlayerData 
     public void LoadPlayerData()
     {
-        saveData = JsonUtility.FromJson<SaveData>(saveJson);
+        playerSaveData = JsonUtility.FromJson<PlayerSaveData>(saveJson);
     }
 
     //LoadStageData -> in "Stage Selection" scene -> Run function from "Stage Manager" GameObject
     public bool LoadStageData(GameObject stageObj)
     {
-        List<StageData> stageData = saveData.stageData;
+        List<StageData> stageData = playerSaveData.stageData;
         StageData findStage = stageData.Find((stage) => stage.stageName == stageObj.name);
         
         if (findStage == null)
@@ -54,26 +54,26 @@ public class SaveManager : SerializedMonoBehaviour
         return true;
     }
 
-    public void SaveStageLeaderBoardData(string stageName, string[] nameList, int[] scoreList, int[] starList, string[] timeList)
+    public void SaveStageLeaderBoardData(string stageName, string[] nameList, int[] scoreList, int[] starList, int[] timeList)
     {
-        StageData findStage = saveData.stageData.Find((stage) => stage.stageName == stageName);
+        StageData findStage = playerSaveData.stageData.Find((stage) => stage.stageName == stageName);
 
         for (int i = 0; i < nameList.Length ; i++)
         {
-            findStage.stageLeaderboard.playerName[i] = nameList[i];
-            findStage.stageLeaderboard.playerScore[i] = scoreList[i];
-            findStage.stageLeaderboard.playerStar[i] = starList[i];
-            findStage.stageLeaderboard.playerClearTime[i] = timeList[i];
+            findStage.selfStageLeaderboardData[i].playerName = nameList[i];
+            findStage.selfStageLeaderboardData[i].playerScore = scoreList[i];
+            findStage.selfStageLeaderboardData[i].playerStar = starList[i];
+            findStage.selfStageLeaderboardData[i].playerClearTime = timeList[i];
         }
     }
 
     public void UnlockNextStages(string stageName)
     {
-        StageData targetStage = saveData.stageData.Find((stage) => stage.stageName == stageName);
-        targetStage.isStageClear = true;
-        for (int i = 0; i < targetStage.nextStageNameList.Count ; i++)
+        StageData targetStage = playerSaveData.stageData.Find((stage) => stage.stageName == stageName);
+        targetStage.stageClearTimes++;
+        for (int i = 0; i < targetStage.nextUnlockStageNameList.Count ; i++)
         {
-            StageData unlockStage = saveData.stageData.Find((stage) => stage.stageName == targetStage.nextStageNameList[i]);
+            StageData unlockStage = playerSaveData.stageData.Find((stage) => stage.stageName == targetStage.nextUnlockStageNameList[i]);
             unlockStage.isStageUnlock = true;
             
             if (unlockStage == null) Debug.Log("Cannot find Stage : " + stageName);
@@ -84,9 +84,9 @@ public class SaveManager : SerializedMonoBehaviour
     {
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(MaunalWindow, fsmName);
 
-        for (int i = 0; i < saveData.gameManualData.Count; i++)
+        for (int i = 0; i < playerSaveData.gameManualData.Count; i++)
         {
-            GameManualData manualData = saveData.gameManualData[i];
+            GameManualData manualData = playerSaveData.gameManualData[i];
             string type = manualData.manualType;
             //CommandNameList, RuleAndWindowNameList, VersionControlNameList...
             FsmArray nameList = fsm.FsmVariables.FindFsmArray(type + "NameList");
@@ -103,9 +103,9 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void SaveGameManualData(string[] typeList, string[] nameList, int[] unlockProgressList)
     {
-        GameManualData CommandManual = saveData.gameManualData[0];
-        GameManualData RuleAndWindowManual = saveData.gameManualData[1];
-        GameManualData VersionControlManual = saveData.gameManualData[2];
+        GameManualData CommandManual = playerSaveData.gameManualData[0];
+        GameManualData RuleAndWindowManual = playerSaveData.gameManualData[1];
+        GameManualData VersionControlManual = playerSaveData.gameManualData[2];
 
         for (int i = 0; i < typeList.Length; i++)
         {
@@ -133,38 +133,75 @@ public class SaveManager : SerializedMonoBehaviour
 
 
 [Serializable]
-public class SaveData
+public class PlayerSaveData
 {
-    public int level;
-    public float timeElapsed;
-    public string playerName;
+    private string playerName;
+    private string password; 
+
+    //遊玩遊戲總記錄
+    public GameRecordData gameRecordData = new();
+    //單個關卡資料
     public List<StageData> stageData = new();
-    public List<GameManualData> gameManualData = new();
-     
+    //手冊資料，C, RAW, VC
+    public List<GameManualData> gameManualData = new(3);
+}
+
+[Serializable]
+public class GameRecordData
+{
+    [Header("Stage & Score")]
+    public int totalStarCount;
+    public int totalStageScore;
+    public int totalPlayTime;
+    public int totalTimesStageClear;
+
+    [Header("Help")]
+    public int totalTimesUsedGameManual;
+
+    [Header("Command")]
+    public int totalRunCommandTimes;
+    public int totalTimesQuestClearPerfect;
+    public int totalTimesQuestClearGood;
+    public int totalTimesQuestClearHint;
+    public int totalTimesQuestClearAnswer;
 }
 
 [Serializable]
 public class StageData
 {
+    // StageData:
+    // stageName:               Game Introduction
+    // isStageUnlock:           true
+    // stageClearTimes:         1
+    // selfStageLeaderboard:    [{A,3,1000,10:50},{B,2,500,08:22},{C,1,250,04:33}]
+
     public string stageName;
-    public bool isStageClear;
     public bool isStageUnlock;
-    public StageLeaderBoardData stageLeaderboard = new();
-    public List<string> nextStageNameList;
+    public int stageClearTimes;
+
+    //Three player data in this leaderboard
+    public List<SelfStageLeaderboardData> selfStageLeaderboardData = new(3);
+    public List<string> nextUnlockStageNameList = new();
 }
 
 [Serializable]
-public class StageLeaderBoardData
+public class SelfStageLeaderboardData
 {
-    public List<string> playerName;
-    public List<int> playerScore;
-    public List<int> playerStar;
-    public List<string> playerClearTime;
+    public string playerName;
+    public int playerStar;
+    public int playerScore;
+    public int playerClearTime;
 }
 
 [Serializable]
 public class GameManualData
 {
+    //manualType:           C -> Command
+    //List<GameManualItem>: [{git add, 0}, {git reset, 3}]
+    //manualType:           RAW -> RuleAndWindow
+    //                      [...]
+    //manualType:           VC -> VersionControl
+    //                      [...]
     public string manualType;
     public List<GameManualItem> items = new();
 }
@@ -172,6 +209,9 @@ public class GameManualData
 [Serializable]
 public class GameManualItem
 {
+    // GameManualItem:
+    //      listName: git add
+    //      listUnlockProgress: 0
     public string listName;
     public int listUnlockProgress;
 }
