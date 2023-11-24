@@ -59,6 +59,12 @@ public class CommandLineInputField : SerializedMonoBehaviour
           @"[^a-zA-Z0-9`!@#$%^&*()_+|\-=\\{}\[\]:"";'<>?,./ ]", "");
     }
 
+    public void ValidTextOnlyLettersAndNumbers()
+    {
+        inputField.text = Regex.Replace(inputField.text,
+          @"[^a-zA-Z0-9]", "");
+    }
+
     public void DeselectAllText()
     {
         // Activate and select the chatInputField to allow the player to just continue typing.
