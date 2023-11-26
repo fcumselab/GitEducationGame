@@ -14,6 +14,17 @@ public class SaveManager : SerializedMonoBehaviour
     [SerializeField] PlayerSaveData playerSaveData = new();
     [SerializeField] string saveJson;
 
+    //Singleton instantation
+    private static SaveManager instance;
+    public static SaveManager Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<SaveManager>();
+            return instance;
+        }
+    }
+
     public void SavePlayerData()
     {
         saveJson = JsonUtility.ToJson(playerSaveData, true);
@@ -24,6 +35,11 @@ public class SaveManager : SerializedMonoBehaviour
     public void LoadPlayerData()
     {
         playerSaveData = JsonUtility.FromJson<PlayerSaveData>(saveJson);
+    }
+
+    public List<StageData> GetStageDataListFromPlayerData()
+    {
+        return playerSaveData.stageData;
     }
 
     //LoadStageData -> in "Stage Selection" scene -> Run function from "Stage Manager" GameObject
@@ -129,7 +145,7 @@ public class SaveManager : SerializedMonoBehaviour
             findItem.listUnlockProgress = unlockProgressList[i];
         }
     }
-
+    
 }
 
 [Serializable]
