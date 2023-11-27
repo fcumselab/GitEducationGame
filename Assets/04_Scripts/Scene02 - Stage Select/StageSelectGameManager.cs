@@ -33,6 +33,8 @@ public class StageSelectGameManager : MonoBehaviour
                 fsm.FsmVariables.FindFsmInt("totalStar").Value = totalStar;
                 fsm.FsmVariables.FindFsmInt("totalStage").Value = totalStage;
                 fsm.FsmVariables.FindFsmInt("totalClearStage").Value = totalClearStage;
+                fsm.FsmVariables.FindFsmBool("isStageCategoryUnlock").Value = (totalStage == totalClearStage || totalClearStage == 1);
+
                 fsm.enabled = true;
 
                 totalStage = 0;
@@ -81,6 +83,8 @@ public class StageSelectGameManager : MonoBehaviour
         fsm.FsmVariables.FindFsmInt("totalStar").Value = totalStar;
         fsm.FsmVariables.FindFsmInt("totalStage").Value = totalStage;
         fsm.FsmVariables.FindFsmInt("totalClearStage").Value = totalClearStage;
+        fsm.FsmVariables.FindFsmBool("isStageCategoryUnlock").Value = (totalStage == totalClearStage || totalClearStage == 1);
+
         fsm.enabled = true;
             
         SelectStageCategory.gameObject.SetActive(false);
