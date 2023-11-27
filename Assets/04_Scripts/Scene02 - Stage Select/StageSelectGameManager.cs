@@ -6,6 +6,7 @@ public class StageSelectGameManager : MonoBehaviour
 {
     public void InitializeStageCategoryAndStageItem(GameObject SelectStageCategory, GameObject StageItemsContent)
     {
+        SelectStageCategory.gameObject.SetActive(true);
         List<StageData> stageData = SaveManager.Instance.GetStageDataListFromPlayerData();
 
         int totalStar = 0;
@@ -16,13 +17,18 @@ public class StageSelectGameManager : MonoBehaviour
         string currentStageType = "Basic"; //Basic -> Branch -> Remote
         Transform targetStageCategoryButton = SelectStageCategory.transform.Find("StageCategoryButton - Basic");
         Transform targetStageItems = StageItemsContent.transform.Find("StageItems - Basic");
-
+        targetStageCategoryButton.gameObject.SetActive(true);
+        targetStageItems.gameObject.SetActive(true);
         foreach (StageData stage in stageData)
         {
+            Debug.Log("stage info: " + stage.stageName + " - " + stage.stageType);
             if(stage.stageType != currentStageType)
             {
                 targetStageCategoryButton = SelectStageCategory.transform.Find("StageCategoryButton - " + currentStageType);
                 targetStageItems = StageItemsContent.transform.Find("StageItems - " + currentStageType);
+                targetStageCategoryButton.gameObject.SetActive(true);
+                targetStageItems.gameObject.SetActive(true);
+
                 fsm = MyPlayMakerScriptHelper.GetFsmByName(targetStageCategoryButton.gameObject, "Update Content");
                 fsm.FsmVariables.FindFsmInt("totalStar").Value = totalStar;
                 fsm.FsmVariables.FindFsmInt("totalStage").Value = totalStage;
@@ -44,9 +50,10 @@ public class StageSelectGameManager : MonoBehaviour
             }
 
             //Give StageItem Value
-            Transform targetStage = targetStageItems.transform.GetChild(totalStage);
-            if(targetStage != null)
+            if (targetStageItems.transform.childCount >= totalStage)
             {
+                Transform targetStage = targetStageItems.transform.GetChild(totalStage - 1);
+
                 fsm = MyPlayMakerScriptHelper.GetFsmByName(targetStage.gameObject, "Content");
                 fsm.FsmVariables.FindFsmString("stageName").Value = stage.stageName;
                 fsm.FsmVariables.FindFsmBool("isStageUnlock").Value = stage.isStageUnlock;
@@ -63,7 +70,7 @@ public class StageSelectGameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("缺少足夠的 StageItem, 請複製到 " + currentStageType);
+                Debug.Log("Doesnt have enough StageItem, Please add: " + currentStageType);
             }
             
         }
@@ -75,5 +82,8 @@ public class StageSelectGameManager : MonoBehaviour
         fsm.FsmVariables.FindFsmInt("totalStage").Value = totalStage;
         fsm.FsmVariables.FindFsmInt("totalClearStage").Value = totalClearStage;
         fsm.enabled = true;
+            
+        SelectStageCategory.gameObject.SetActive(false);
+
     }
 }
