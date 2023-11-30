@@ -4,15 +4,21 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using HutongGames.PlayMaker;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class SaveManager : SerializedMonoBehaviour
 {
     [Header("Default PlayerSaveData")]
-    [SerializeField] PlayerSaveData defaultSaveData = new();
+    //[SerializeField] PlayerSaveData defaultSaveData = new();
 
     [Header("Current PlayerSaveData")]
     [SerializeField] PlayerSaveData playerSaveData = new();
     [SerializeField] string saveJson;
+
+    private void Start()
+    {
+        StartCoroutine(GetWebData());
+    }
 
     //Singleton instantation
     private static SaveManager instance;
@@ -59,12 +65,12 @@ public class SaveManager : SerializedMonoBehaviour
         fsm.FsmVariables.FindFsmBool("isStageUnlock").Value = findStage.isStageUnlock;
         if (findStage.isStageUnlock)
         {
-            for (int i = 0; i < findStage.selfStageLeaderboardData.Count; i++)
+            for (int i = 0; i < findStage.stageLeaderboardData.Count; i++)
             {
-                fsm.FsmVariables.FindFsmArray("playerNameList").Set(i, findStage.selfStageLeaderboardData[i].playerName);
-                fsm.FsmVariables.FindFsmArray("playerScoreList").Set(i, findStage.selfStageLeaderboardData[i].playerScore);
-                fsm.FsmVariables.FindFsmArray("playerStarList").Set(i, findStage.selfStageLeaderboardData[i].playerStar);
-                fsm.FsmVariables.FindFsmArray("playerClearTimeList").Set(i, findStage.selfStageLeaderboardData[i].playerClearTime);
+                fsm.FsmVariables.FindFsmArray("playerNameList").Set(i, findStage.stageLeaderboardData[i].playerName);
+                fsm.FsmVariables.FindFsmArray("playerScoreList").Set(i, findStage.stageLeaderboardData[i].playerScore);
+                fsm.FsmVariables.FindFsmArray("playerStarList").Set(i, findStage.stageLeaderboardData[i].playerStar);
+                fsm.FsmVariables.FindFsmArray("playerClearTimeList").Set(i, findStage.stageLeaderboardData[i].playerClearTime);
             }
         }
         return true;
@@ -76,10 +82,10 @@ public class SaveManager : SerializedMonoBehaviour
 
         for (int i = 0; i < nameList.Length; i++)
         {
-            findStage.selfStageLeaderboardData[i].playerName = nameList[i];
-            findStage.selfStageLeaderboardData[i].playerScore = scoreList[i];
-            findStage.selfStageLeaderboardData[i].playerStar = starList[i];
-            findStage.selfStageLeaderboardData[i].playerClearTime = timeList[i];
+            findStage.stageLeaderboardData[i].playerName = nameList[i];
+            findStage.stageLeaderboardData[i].playerScore = scoreList[i];
+            findStage.stageLeaderboardData[i].playerStar = starList[i];
+            findStage.stageLeaderboardData[i].playerClearTime = timeList[i];
         }
     }
 
@@ -146,92 +152,49 @@ public class SaveManager : SerializedMonoBehaviour
         }
     }
     
+    public void TestSendRequestToServer(string type)
+    {
+        if(type == "POST")
+        {
+            StartCoroutine(PostWebData());
+
+        }
+        else if (type == "GET"){
+            StartCoroutine(GetWebData());
+        }
+    }
+
+    IEnumerator GetWebData()
+    {
+        UnityWebRequest www = UnityWebRequest.Get("localhost:5050/getData");
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Debug.Log(www.downloadHandler.text);
+        }
+    }
+
+    IEnumerator PostWebData()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("myField", "myData");
+
+        UnityWebRequest www = UnityWebRequest.Post("localhost:5050/postData", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Debug.Log(www.downloadHandler.text);
+        }
+    }
 }
-
-[Serializable]
-public class PlayerSaveData
-{
-    private string playerName;
-    private string password; 
-
-    //遊玩遊戲總記錄
-    public GameRecordData gameRecordData = new();
-    //單個關卡資料
-    public List<StageData> stageData = new();
-    //手冊資料，C, RAW, VC
-    public List<GameManualData> gameManualData = new(3);
-}
-
-[Serializable]
-public class GameRecordData
-{
-    [Header("Stage & Score")]
-    public int totalStarCount;
-    public int totalStageScore;
-    public int totalPlayTime;
-    public int totalTimesStageClear;
-
-    [Header("Help")]
-    public int totalTimesUsedGameManual;
-
-    [Header("Command")]
-    public int totalRunCommandTimes;
-    public int totalTimesQuestClearPerfect;
-    public int totalTimesQuestClearGood;
-    public int totalTimesQuestClearHint;
-    public int totalTimesQuestClearAnswer;
-}
-
-[Serializable]
-public class StageData
-{
-    // StageData:
-    // stageName:               Game Introduction
-    // stageType:               Basic/Branch/Remote
-    // isStageUnlock:           true
-    // stageClearTimes:         1
-    // selfStageLeaderboard:    [{A,3,1000,10:50},{B,2,500,08:22},{C,1,250,04:33}]
-
-    public string stageName;
-    public string stageType;
-    public bool isStageUnlock;
-    public int stageClearTimes;
-
-    //Three player data in this leaderboard
-    public List<SelfStageLeaderboardData> selfStageLeaderboardData = new(3);
-    public List<string> nextUnlockStageNameList = new();
-}
-
-[Serializable]
-public class SelfStageLeaderboardData
-{
-    public string playerName;
-    public int playerStar;
-    public int playerScore;
-    public int playerClearTime;
-}
-
-[Serializable]
-public class GameManualData
-{
-    //manualType:           C -> Command
-    //List<GameManualItem>: [{git add, 0}, {git reset, 3}]
-    //manualType:           RAW -> RuleAndWindow
-    //                      [...]
-    //manualType:           VC -> VersionControl
-    //                      [...]
-    public string manualType;
-    public List<GameManualItem> items = new();
-}
-
-[Serializable]
-public class GameManualItem
-{
-    // GameManualItem:
-    //      listName: git add
-    //      listUnlockProgress: 0
-    public string listName;
-    public int listUnlockProgress;
-}
-
 

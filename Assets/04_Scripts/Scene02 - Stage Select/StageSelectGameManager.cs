@@ -29,19 +29,23 @@ public class StageSelectGameManager : MonoBehaviour
                 fsm.FsmVariables.FindFsmInt("totalStar").Value = totalStar;
                 fsm.FsmVariables.FindFsmInt("totalStage").Value = totalStage;
                 fsm.FsmVariables.FindFsmInt("totalClearStage").Value = totalClearStage;
-                fsm.FsmVariables.FindFsmBool("isStageCategoryUnlock").Value = (totalStage == totalClearStage || totalClearStage == 1);
+                if(currentStageType == "Basic") fsm.FsmVariables.FindFsmBool("isStageCategoryUnlock").Value = true;
                 fsm.enabled = true;
 
                 //Next Category
-                totalStage = 0;
-                totalClearStage = 0;
-                totalStar = 0;
                 currentStageType = stage.stageType;
 
                 targetStageCategoryButton = SelectStageCategory.transform.Find("StageCategoryButton - " + currentStageType);
                 targetStageItems = StageItemsContent.transform.Find("StageItems - " + currentStageType);
                 targetStageCategoryButton.gameObject.SetActive(true);
                 targetStageItems.gameObject.SetActive(true);
+
+                fsm = MyPlayMakerScriptHelper.GetFsmByName(targetStageCategoryButton.gameObject, "Update Content");
+                fsm.FsmVariables.FindFsmBool("isStageCategoryUnlock").Value = (totalStage == totalClearStage || totalClearStage == 1);
+
+                totalStage = 0;
+                totalClearStage = 0;
+                totalStar = 0;
             }
 
             //for StageCategory
@@ -49,7 +53,7 @@ public class StageSelectGameManager : MonoBehaviour
             if (stage.stageClearTimes > 0)
             {
                 totalClearStage++;
-                totalStar += stage.selfStageLeaderboardData[0].playerStar;
+                totalStar += stage.stageLeaderboardData[0].playerStar;
             }
 
             //Give StageItem Value
@@ -63,12 +67,12 @@ public class StageSelectGameManager : MonoBehaviour
                 fsm.FsmVariables.FindFsmBool("isStageUnlock").Value = stage.isStageUnlock;
                 if (stage.isStageUnlock)
                 {
-                    for (int i = 0; i < stage.selfStageLeaderboardData.Count; i++)
+                    for (int i = 0; i < stage.stageLeaderboardData.Count; i++)
                     {
-                        fsm.FsmVariables.FindFsmArray("playerNameList").Set(i, stage.selfStageLeaderboardData[i].playerName);
-                        fsm.FsmVariables.FindFsmArray("playerScoreList").Set(i, stage.selfStageLeaderboardData[i].playerScore);
-                        fsm.FsmVariables.FindFsmArray("playerStarList").Set(i, stage.selfStageLeaderboardData[i].playerStar);
-                        fsm.FsmVariables.FindFsmArray("playerClearTimeList").Set(i, stage.selfStageLeaderboardData[i].playerClearTime);
+                        fsm.FsmVariables.FindFsmArray("playerNameList").Set(i, stage.stageLeaderboardData[i].playerName);
+                        fsm.FsmVariables.FindFsmArray("playerScoreList").Set(i, stage.stageLeaderboardData[i].playerScore);
+                        fsm.FsmVariables.FindFsmArray("playerStarList").Set(i, stage.stageLeaderboardData[i].playerStar);
+                        fsm.FsmVariables.FindFsmArray("playerClearTimeList").Set(i, stage.stageLeaderboardData[i].playerClearTime);
                     }
                 }
                 fsm.enabled = true;
@@ -86,7 +90,6 @@ public class StageSelectGameManager : MonoBehaviour
         fsm.FsmVariables.FindFsmInt("totalStar").Value = totalStar;
         fsm.FsmVariables.FindFsmInt("totalStage").Value = totalStage;
         fsm.FsmVariables.FindFsmInt("totalClearStage").Value = totalClearStage;
-        fsm.FsmVariables.FindFsmBool("isStageCategoryUnlock").Value = (totalStage == totalClearStage || totalClearStage == 1);
 
         fsm.enabled = true;
             
