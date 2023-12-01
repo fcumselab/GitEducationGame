@@ -8,17 +8,11 @@ using UnityEngine.Networking;
 
 public class SaveManager : SerializedMonoBehaviour
 {
-    [Header("Default PlayerSaveData")]
-    //[SerializeField] PlayerSaveData defaultSaveData = new();
-
     [Header("Current PlayerSaveData")]
-    [SerializeField] PlayerSaveData playerSaveData = new();
-    [SerializeField] string saveJson;
+    public string userName;
+    [SerializeField] PlayerSaveData playerSaveData;
 
-    private void Start()
-    {
-        StartCoroutine(GetWebData());
-    }
+    //[SerializeField] string saveJson;
 
     //Singleton instantation
     private static SaveManager instance;
@@ -31,16 +25,18 @@ public class SaveManager : SerializedMonoBehaviour
         }
     }
 
+    /* ready to delete this.
     public void SavePlayerData()
     {
         saveJson = JsonUtility.ToJson(playerSaveData, true);
         Debug.Log(saveJson);
-    }
+    }*/
 
-    //LoadPlayerData 
-    public void LoadPlayerData()
+    //LoadPlayerData - from LoginManager.cs
+    public void LoadPlayerSaveData(string username, PlayerSaveData playerSaveData)
     {
-        playerSaveData = JsonUtility.FromJson<PlayerSaveData>(saveJson);
+        userName = username;
+        this.playerSaveData = playerSaveData;
     }
 
     public List<StageData> GetStageDataListFromPlayerData()
@@ -152,18 +148,20 @@ public class SaveManager : SerializedMonoBehaviour
         }
     }
     
-    public void TestSendRequestToServer(string type)
+    /*
+    public void SendRequestToServer(string type, WWWForm form)
     {
         if(type == "POST")
         {
-            StartCoroutine(PostWebData());
+            StartCoroutine(PostWebData(form));
 
         }
         else if (type == "GET"){
             StartCoroutine(GetWebData());
         }
-    }
+    }*/
 
+    
     IEnumerator GetWebData()
     {
         UnityWebRequest www = UnityWebRequest.Get("localhost:5050/getData");
@@ -178,11 +176,11 @@ public class SaveManager : SerializedMonoBehaviour
             Debug.Log(www.downloadHandler.text);
         }
     }
-
-    IEnumerator PostWebData()
+    /*
+    IEnumerator PostWebData(WWWForm form)
     {
-        WWWForm form = new WWWForm();
-        form.AddField("myField", "myData");
+        
+        form.AddField("playerSaveData", saveJson);
 
         UnityWebRequest www = UnityWebRequest.Post("localhost:5050/postData", form);
         yield return www.SendWebRequest();
@@ -195,6 +193,6 @@ public class SaveManager : SerializedMonoBehaviour
         {
             Debug.Log(www.downloadHandler.text);
         }
-    }
+    }*/
 }
 

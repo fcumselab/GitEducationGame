@@ -9,9 +9,6 @@ using UnityEngine;
 [Serializable]
 public class PlayerSaveData
 {
-    [SerializeField] string playerName;
-    private string password;
-
     //遊玩遊戲總記錄
     public GameRecordData gameRecordData = new();
     //單個關卡資料
