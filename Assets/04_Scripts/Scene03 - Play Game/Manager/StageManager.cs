@@ -13,14 +13,33 @@ public class StageManager : SerializedMonoBehaviour
     [SerializeField] Dictionary<string, int> UsedRuleAndWindowDict = new();
     [SerializeField] Dictionary<string, int> UsedVersionControlDict = new();
 
+    [Header("Reference/ExistGameObject")]
     [SerializeField] GameObject RenderWindowLayer;
     [SerializeField] GameObject GameScreen;
+    public GameObject StageManagerParent;
+    public GameObject QuestTrackerParent;
+    public GameObject GameManager;
+
+    [Header("MessageForPlayMaker")]
+    public bool isFinishInitialize;
+
+    [Header("BackgroundStory")]
+    public string backgroundStoryText = "";
 
     private void Start()
     {
+        isFinishInitialize = false;
+
+        StageManagerParent = transform.parent.gameObject;
+        GameManager = StageManagerParent.transform.parent.gameObject;
+        QuestTrackerParent = GameManager.transform.Find("Quest Tracker Parent").gameObject;
+
         RenderWindowLayer = GameObject.Find("Layer 2");
         GameScreen = GameObject.Find("GameScreen");
+
         RenderTargetWindow();
+
+
     }
 
     public void RenderTargetWindow()
@@ -33,6 +52,8 @@ public class StageManager : SerializedMonoBehaviour
             cloneWindow.name = windowName;
             cloneWindow.transform.SetParent(RenderWindowLayer.transform, true);
         }
+
+        isFinishInitialize = true;
     }
 
     public int FindMatchKey(string key, string targetName)

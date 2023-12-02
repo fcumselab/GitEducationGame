@@ -17,16 +17,16 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 11400000}
     name: Initial
-    startState: Stage Manager != null
+    startState: Find Obj
     states:
-    - name: Stage Manager != null
+    - name: Loading StageManager finish
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
         x: 182
-        y: 99
-        width: 158
+        y: 179
+        width: 202
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -43,29 +43,37 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.GameObjectIsNull
+        - HutongGames.PlayMaker.Actions.IsFsmEnabled
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 15656205
+        actionHashCodes: 68943404
         unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Stage Manager
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Stage Manager Parent
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
-        fsmStringParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Loading StageManager
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -92,22 +100,23 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1300000017000000170000001100000001000000
+        paramDataType: 140000001200000011000000170000001700000001000000
         paramName:
         - gameObject
-        - isNull
-        - isNotNull
-        - storeResult
+        - fsmName
+        - isEnabled
+        - isEnabledEvent
+        - isDisabledEvent
         - everyFrame
-        paramDataPos: 0000000000000000010000000000000000000000
-        paramByteDataSize: 0000000000000000000000000000000001000000
+        paramDataPos: 000000000000000000000000000000000100000000000000
+        paramByteDataSize: 000000000000000000000000000000000000000001000000
     - name: Get Cur stage
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
         x: 206
-        y: 156
+        y: 236
         width: 112
         height: 32
       isBreakpoint: 0
@@ -142,7 +151,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Stage Manager
+            name: Stage Manager Parent
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -171,13 +180,13 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Stage Manager
+          value: Loading StageManager
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: CurrentStageName
+          value: selectStageName
         - useVariable: 1
           name: CurrentStageName
           tooltip: 
@@ -246,7 +255,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 201
-        y: 215
+        y: 295
         width: 118
         height: 48
       isBreakpoint: 0
@@ -377,7 +386,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 352.84375
-        y: 312.97656
+        y: 392.97656
         width: 100
         height: 32
       isBreakpoint: 0
@@ -519,7 +528,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 52.695312
-        y: 307.03906
+        y: 387.03906
         width: 140
         height: 32
       isBreakpoint: 0
@@ -661,7 +670,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 181.375
-        y: 395.9453
+        y: 475.9453
         width: 117
         height: 16
       isBreakpoint: 0
@@ -739,6 +748,90 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 00000000000000000000000001000000
         paramByteDataSize: 00000000000000000000000000000000
+    - name: Find Obj
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 222.625
+        y: 106.328125
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Loading StageManager finish
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.FindGameObject
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 786b3902
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Stage Manager Parent
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Stage Manager Parent
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: GameStage/StageManager
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 120000001200000013000000
+        paramName:
+        - objectName
+        - withTag
+        - store
+        paramDataPos: 000000000100000000000000
+        paramByteDataSize: 000000000000000000000000
     events:
     - name: next
       isSystemEvent: 0
@@ -775,7 +868,13 @@ MonoBehaviour:
       colorVariables: []
       rectVariables: []
       quaternionVariables: []
-      gameObjectVariables: []
+      gameObjectVariables:
+      - useVariable: 1
+        name: Stage Manager Parent
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -798,7 +897,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 000000000000000000000000
+      variableCategoryIDs: 00000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0

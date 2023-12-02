@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1683010038177273115}
   - component: {fileID: 1683010038177273114}
   - component: {fileID: 6209051630498663364}
+  - component: {fileID: 4518984069738142887}
   m_Layer: 0
   m_Name: 001-Game Introduction
   m_TagString: GameStage/QuestTracker
@@ -51,7 +52,7 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Quest Valider
-    startState: canDetectQuest
+    startState: Game Object Is Null
     states:
     - name: Current Quest
       description: 
@@ -59,7 +60,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 371.52344
-        y: 244
+        y: 372
         width: 113
         height: 128
       isBreakpoint: 0
@@ -250,8 +251,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 368.78125
-        y: 105.61719
+        x: 373.8125
+        y: 198.14062
         width: 126
         height: 48
       isBreakpoint: 0
@@ -335,7 +336,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 340.35156
-        y: 165.83594
+        y: 293.83594
         width: 171
         height: 32
       isBreakpoint: 0
@@ -429,7 +430,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 50.828125
-        y: 511.46094
+        y: 639.46094
         width: 260
         height: 32
       isBreakpoint: 0
@@ -580,7 +581,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 538.97656
-        y: 519.4297
+        y: 647.4297
         width: 100
         height: 32
       isBreakpoint: 0
@@ -641,7 +642,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 372.5078
-        y: 631.91406
+        y: 759.91406
         width: 100
         height: 32
       isBreakpoint: 0
@@ -736,7 +737,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 372.52344
-        y: 426.92188
+        y: 554.9219
         width: 100
         height: 48
       isBreakpoint: 0
@@ -853,7 +854,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 374.28906
-        y: 696.97656
+        y: 824.97656
         width: 100
         height: 16
       isBreakpoint: 0
@@ -939,7 +940,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 58.882812
-        y: 259.1875
+        y: 387.1875
         width: 250
         height: 32
       isBreakpoint: 0
@@ -1097,7 +1098,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 668.78125
-        y: 267.67188
+        y: 395.67188
         width: 286.5
         height: 32
       isBreakpoint: 0
@@ -1255,7 +1256,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 667.78125
-        y: 189.67188
+        y: 317.67188
         width: 285
         height: 32
       isBreakpoint: 0
@@ -1413,7 +1414,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 667.78125
-        y: 111.671875
+        y: 239.67188
         width: 312
         height: 32
       isBreakpoint: 0
@@ -1571,7 +1572,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 668.78125
-        y: 342.67188
+        y: 470.67188
         width: 288
         height: 32
       isBreakpoint: 0
@@ -1721,6 +1722,228 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000000000001000000020000000000000001000000030000000000000001000000020000000400000002000000000000000100000001000000
         paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000001000000
+    - name: Game Object Is Null
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 367.3203
+        y: 108.13281
+        width: 144
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: next
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: canDetectQuest
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GameObjectIsNull
+        - HutongGames.PlayMaker.Actions.GetProperty
+        - HutongGames.PlayMaker.Actions.NextFrameEvent
+        customNames:
+        - 
+        - 
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000500000007000000
+        actionHashCodes: 156562055ac8520488611604
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Quest Tracker Parent
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 1
+            name: QuestTrackerScript
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: QuestTracker
+            value: {fileID: 0}
+          TargetTypeName: QuestTracker
+          PropertyName: QuestTrackerParent
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 1
+            name: Quest Tracker Parent
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.GameObject
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: 
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 0
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - next
+        - next
+        byteData: 0000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1300000017000000170000001100000001000000240000000100000017000000
+        paramName:
+        - gameObject
+        - isNull
+        - isNotNull
+        - storeResult
+        - everyFrame
+        - targetProperty
+        - everyFrame
+        - sendEvent
+        paramDataPos: 0000000000000000010000000000000000000000000000000100000002000000
+        paramByteDataSize: 0000000000000000000000000000000001000000000000000100000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -1780,6 +2003,9 @@ MonoBehaviour:
       isSystemEvent: 0
       isGlobal: 0
     - name: finish
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: next
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions: []
@@ -1857,7 +2083,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 0100000002000000030000000400000005000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -5076,7 +5302,7 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Quest Filter
-    startState: Idle
+    startState: Get AlertMsg Obj
     states:
     - name: Error!!
       description: 
@@ -5084,7 +5310,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 680.3906
-        y: 354.6797
+        y: 402.6797
         width: 100
         height: 16
       isBreakpoint: 0
@@ -5147,7 +5373,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1826.6406
-        y: 484.10156
+        y: 532.10156
         width: 123
         height: 16
       isBreakpoint: 0
@@ -5232,7 +5458,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 2207.2266
-        y: 545.6172
+        y: 593.6172
         width: 100
         height: 32
       isBreakpoint: 0
@@ -5320,26 +5546,30 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 0000000000000000010000000200000000000000
         paramByteDataSize: 0000000000000000000000000000000001000000
-    - name: Idle
+    - name: Get AlertMsg Obj
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 386.70312
-        y: 112.78125
-        width: 100
+        x: 361.6172
+        y: 112.53906
+        width: 132
         height: 16
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions: []
       actionData:
-        actionNames: []
-        customNames: []
-        actionEnabled: 
-        actionIsOpen: 
-        actionStartIndex: 
-        actionHashCodes: 
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetProperty
+        - HutongGames.PlayMaker.Actions.GetProperty
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000002000000
+        actionHashCodes: 5ac852045ac85204
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -5347,7 +5577,271 @@ MonoBehaviour:
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
-        fsmPropertyParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 1
+            name: QuestTrackerScript
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: QuestTracker
+            value: {fileID: 0}
+          TargetTypeName: QuestTracker
+          PropertyName: AlertMsgFileContentWindow
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 1
+            name: alertFileContentWindow
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.GameObject
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: 
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 0
+        - TargetObject:
+            useVariable: 1
+            name: QuestTrackerScript
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: QuestTracker
+            value: {fileID: 0}
+          TargetTypeName: QuestTracker
+          PropertyName: AlertMsgFileManagerWindow
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 1
+            name: alertFileManagerWindow
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.GameObject
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: 
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 0
         layoutOptionParams: []
         fsmStringParams: []
         fsmObjectParams: []
@@ -5363,22 +5857,26 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 
-        paramName: []
-        paramDataPos: 
-        paramByteDataSize: 
+        paramDataType: 24000000010000002400000001000000
+        paramName:
+        - targetProperty
+        - everyFrame
+        - targetProperty
+        - everyFrame
+        paramDataPos: 00000000000000000100000001000000
+        paramByteDataSize: 00000000010000000000000001000000
     - name: Get Event Sent By
       description: 
       colorIndex: 8
       position:
         serializedVersion: 2
         x: 350.125
-        y: 279.16406
+        y: 327.16406
         width: 135
         height: 48
       isBreakpoint: 0
@@ -5617,7 +6115,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 942.8281
-        y: 353.77344
+        y: 401.77344
         width: 101
         height: 32
       isBreakpoint: 0
@@ -5753,7 +6251,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 309.14062
-        y: 484.82812
+        y: 532.8281
         width: 214
         height: 48
       isBreakpoint: 0
@@ -5850,7 +6348,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 940.75
-        y: 447.4375
+        y: 495.4375
         width: 100
         height: 48
       isBreakpoint: 0
@@ -5995,7 +6493,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 939.1094
-        y: 531.7578
+        y: 579.7578
         width: 100
         height: 48
       isBreakpoint: 0
@@ -6140,7 +6638,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1813.3984
-        y: 582.3672
+        y: 630.3672
         width: 187
         height: 32
       isBreakpoint: 0
@@ -6291,7 +6789,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 2032.1953
-        y: 583.7422
+        y: 631.7422
         width: 166
         height: 32
       isBreakpoint: 0
@@ -6397,7 +6895,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 324.14062
-        y: 214.23438
+        y: 262.23438
         width: 187
         height: 48
       isBreakpoint: 0
@@ -6548,7 +7046,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 635.77344
-        y: 231.35156
+        y: 279.35156
         width: 124
         height: 16
       isBreakpoint: 0
@@ -6633,7 +7131,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 2316
-        y: 594.15625
+        y: 642.15625
         width: 342
         height: 16
       isBreakpoint: 0
@@ -6768,7 +7266,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 272.79688
-        y: 582.52344
+        y: 630.52344
         width: 205
         height: 32
       isBreakpoint: 0
@@ -6895,7 +7393,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 272.95312
-        y: 668.83594
+        y: 716.83594
         width: 143
         height: 64
       isBreakpoint: 0
@@ -7033,7 +7531,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 501.0547
-        y: 691.0078
+        y: 739.0078
         width: 174
         height: 32
       isBreakpoint: 0
@@ -7111,7 +7609,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 611.0781
-        y: 1320.4609
+        y: 1368.4609
         width: 194
         height: 16
       isBreakpoint: 0
@@ -7213,7 +7711,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 371.01562
-        y: 1315.7656
+        y: 1363.7656
         width: 222
         height: 16
       isBreakpoint: 0
@@ -7315,7 +7813,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 126.015625
-        y: 799.1875
+        y: 847.1875
         width: 102
         height: 16
       isBreakpoint: 0
@@ -7432,7 +7930,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 113.50781
-        y: 825.9922
+        y: 873.9922
         width: 111
         height: 16
       isBreakpoint: 0
@@ -7549,7 +8047,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 101.203125
-        y: 888.77344
+        y: 936.77344
         width: 123
         height: 16
       isBreakpoint: 0
@@ -7666,7 +8164,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 123.90625
-        y: 915.2578
+        y: 963.2578
         width: 100
         height: 16
       isBreakpoint: 0
@@ -7783,7 +8281,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 75.33594
-        y: 312.27344
+        y: 360.27344
         width: 100
         height: 16
       isBreakpoint: 0
@@ -7846,7 +8344,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 94.59375
-        y: 971.3672
+        y: 1019.3672
         width: 118
         height: 16
       isBreakpoint: 0
@@ -7963,7 +8461,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 96.17969
-        y: 999.65625
+        y: 1047.6562
         width: 133
         height: 16
       isBreakpoint: 0
@@ -8080,7 +8578,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 93.84375
-        y: 1030.2969
+        y: 1078.2969
         width: 115
         height: 16
       isBreakpoint: 0
@@ -8197,7 +8695,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 311.10938
-        y: 337.4453
+        y: 385.4453
         width: 225
         height: 128
       isBreakpoint: 0
@@ -8393,7 +8891,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 50.039062
-        y: 516.77344
+        y: 564.77344
         width: 100
         height: 16
       isBreakpoint: 0
@@ -8456,7 +8954,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 945.1875
-        y: 609.8047
+        y: 657.8047
         width: 100
         height: 48
       isBreakpoint: 0
@@ -8592,7 +9090,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 945.3828
-        y: 677.3203
+        y: 725.3203
         width: 100
         height: 48
       isBreakpoint: 0
@@ -8728,7 +9226,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 165.22656
-        y: 1278.0391
+        y: 1326.0391
         width: 116.5
         height: 32
       isBreakpoint: 0
@@ -9022,7 +9520,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 143.17188
-        y: 1335.0312
+        y: 1383.0312
         width: 172
         height: 16
       isBreakpoint: 0
@@ -9124,7 +9622,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 109.75
-        y: 772.0078
+        y: 820.0078
         width: 116
         height: 16
       isBreakpoint: 0
@@ -9241,7 +9739,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 119.96875
-        y: 690.22656
+        y: 738.22656
         width: 100
         height: 16
       isBreakpoint: 0
@@ -9391,7 +9889,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 254.29688
-        y: 762.14844
+        y: 810.14844
         width: 163
         height: 80
       isBreakpoint: 0
@@ -9524,7 +10022,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 251.42188
-        y: 874.7656
+        y: 922.7656
         width: 169
         height: 64
       isBreakpoint: 0
@@ -9639,7 +10137,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 239.19531
-        y: 971.1094
+        y: 1019.1094
         width: 179
         height: 80
       isBreakpoint: 0
@@ -9772,7 +10270,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 244.10938
-        y: 1097.3516
+        y: 1145.3516
         width: 167
         height: 80
       isBreakpoint: 0
@@ -9921,7 +10419,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 104.10156
-        y: 1085.3594
+        y: 1133.3594
         width: 110
         height: 16
       isBreakpoint: 0
@@ -10038,7 +10536,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 97.92969
-        y: 1103.4922
+        y: 1151.4922
         width: 122
         height: 16
       isBreakpoint: 0
@@ -10155,7 +10653,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 113.96875
-        y: 1128.0781
+        y: 1176.0781
         width: 106
         height: 16
       isBreakpoint: 0
@@ -10272,7 +10770,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 112.53906
-        y: 1153.7969
+        y: 1201.7969
         width: 100
         height: 16
       isBreakpoint: 0
@@ -10389,7 +10887,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1080.1562
-        y: 463.14062
+        y: 511.14062
         width: 109
         height: 32
       isBreakpoint: 0
@@ -10500,7 +10998,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1313
-        y: 431.3125
+        y: 479.3125
         width: 121
         height: 48
       isBreakpoint: 0
@@ -10641,7 +11139,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1193.7891
-        y: 456.60156
+        y: 504.60156
         width: 100
         height: 48
       isBreakpoint: 0
@@ -10743,7 +11241,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1315.5625
-        y: 488.28906
+        y: 536.28906
         width: 122
         height: 48
       isBreakpoint: 0
@@ -10884,7 +11382,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1077.4531
-        y: 679.9297
+        y: 727.9297
         width: 159
         height: 32
       isBreakpoint: 0
@@ -11023,7 +11521,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1252.3203
-        y: 683.03125
+        y: 731.03125
         width: 136
         height: 48
       isBreakpoint: 0
@@ -11164,7 +11662,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1398.6094
-        y: 687.0781
+        y: 735.0781
         width: 100
         height: 32
       isBreakpoint: 0
@@ -11303,7 +11801,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1507.7109
-        y: 678.9531
+        y: 726.9531
         width: 147
         height: 48
       isBreakpoint: 0
@@ -11444,7 +11942,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1081.3516
-        y: 621.4375
+        y: 669.4375
         width: 169
         height: 32
       isBreakpoint: 0
@@ -11583,7 +12081,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1249.1797
-        y: 623.3828
+        y: 671.3828
         width: 137
         height: 48
       isBreakpoint: 0
@@ -11724,7 +12222,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1398.25
-        y: 629.64844
+        y: 677.64844
         width: 109
         height: 32
       isBreakpoint: 0
@@ -11863,7 +12361,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1511.6094
-        y: 620.46094
+        y: 668.46094
         width: 147
         height: 48
       isBreakpoint: 0
@@ -12004,7 +12502,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1459.6953
-        y: 554.0781
+        y: 602.0781
         width: 139
         height: 48
       isBreakpoint: 0
@@ -12472,7 +12970,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 000000000500000006000000090000000c0000000e0000000f000000100000001100000012000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -12525,15 +13023,15 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Initial
-    startState: Set Global Game Object
+    startState: State 1
     states:
-    - name: Close FSM
+    - name: State 1
       description: 
-      colorIndex: 12
+      colorIndex: 0
       position:
         serializedVersion: 2
-        x: 96.796875
-        y: 719.7031
+        x: 50
+        y: 100
         width: 100
         height: 16
       isBreakpoint: 0
@@ -12541,848 +13039,14 @@ MonoBehaviour:
       hideUnused: 0
       transitions: []
       actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.EnableFSM
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 87aa9700
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
         unityObjectParams: []
         fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Initial
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 14000000120000001100000011000000
-        paramName:
-        - gameObject
-        - fsmName
-        - enable
-        - resetOnExit
-        paramDataPos: 00000000000000000000000001000000
-        paramByteDataSize: 00000000000000000000000000000000
-    - name: Get Parent
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 97
-        y: 192
-        width: 100
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Get Child
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.GetParent
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: d97b7202
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Quest Tracker Parent
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams:
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1400000013000000
-        paramName:
-        - gameObject
-        - storeResult
-        paramDataPos: 0000000000000000
-        paramByteDataSize: 0000000000000000
-    - name: Send to Quest Valider
-      description: 
-      colorIndex: 1
-      position:
-        serializedVersion: 2
-        x: 84.49219
-        y: 460.5
-        width: 158
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Send to Quest Filter
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetFsmGameObject
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 5b66cf00
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Quest Tracker Parent
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams:
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Quest Valider
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Quest Tracker Parent
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1400000012000000120000001300000001000000
-        paramName:
-        - gameObject
-        - fsmName
-        - variableName
-        - setValue
-        - everyFrame
-        paramDataPos: 0000000000000000010000000000000000000000
-        paramByteDataSize: 0000000000000000000000000000000001000000
-    - name: Get Alert (FileManager)
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 56.773438
-        y: 310.0625
-        width: 168
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: finish
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Get Alert (FileContent)
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.GetFsmGameObject
-        - HutongGames.PlayMaker.Actions.GameObjectIsNull
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000005000000
-        actionHashCodes: 5b66cf0015656205
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: alertFileManagerWindow
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: alertFileManagerWindow
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Window/FileManagerWindow
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Reference Manager
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Alert Message
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - 
-        - finish
-        byteData: 0101
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 14000000120000001200000013000000010000001300000017000000170000001100000001000000
-        paramName:
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        - gameObject
-        - isNull
-        - isNotNull
-        - storeResult
-        - everyFrame
-        paramDataPos: 00000000000000000100000000000000000000000100000000000000010000000000000001000000
-        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000001000000
-    - name: Send to Quest Filter
-      description: 
-      colorIndex: 1
-      position:
-        serializedVersion: 2
-        x: 86.296875
-        y: 517.2031
-        width: 146
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Enable Quest Tracker/Filter
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetFsmGameObject
-        - HutongGames.PlayMaker.Actions.SetFsmGameObject
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000005000000
-        actionHashCodes: 5b66cf005b66cf00
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: alertFileContentWindow
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: alertFileManagerWindow
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams:
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Quest Filter
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: alertFileContentWindow
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Quest Filter
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: alertFileManagerWindow
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 0000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 14000000120000001200000013000000010000001400000012000000120000001300000001000000
-        paramName:
-        - gameObject
-        - fsmName
-        - variableName
-        - setValue
-        - everyFrame
-        - gameObject
-        - fsmName
-        - variableName
-        - setValue
-        - everyFrame
-        paramDataPos: 00000000000000000100000000000000000000000100000002000000030000000100000001000000
-        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000001000000
-    - name: Get Child
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 100
-        y: 247
-        width: 100
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Get Alert (FileManager)
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.GetChild
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 184b5704
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Stage Manager Parent
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: GameManger
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Stage Manager Parent
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: GameStage/StageManager
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 14000000120000001200000013000000
-        paramName:
-        - gameObject
-        - childName
-        - withTag
-        - storeResult
-        paramDataPos: 00000000000000000100000000000000
-        paramByteDataSize: 00000000000000000000000000000000
-    - name: Send to Quest Tracker
-      description: 
-      colorIndex: 1
-      position:
-        serializedVersion: 2
-        x: 87.796875
-        y: 403.20312
-        width: 162
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Send to Quest Valider
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetFsmGameObject
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 5b66cf00
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Stage Manager Parent
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams:
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Quest Tracker
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Stage Manager Parent
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1400000012000000120000001300000001000000
-        paramName:
-        - gameObject
-        - fsmName
-        - variableName
-        - setValue
-        - everyFrame
-        paramDataPos: 0000000000000000010000000000000000000000
-        paramByteDataSize: 0000000000000000000000000000000001000000
-    - name: Enable Quest Tracker/Filter
-      description: 
-      colorIndex: 12
-      position:
-        serializedVersion: 2
-        x: 94
-        y: 645.5
-        width: 191
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Close FSM
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.EnableFSM
-        - HutongGames.PlayMaker.Actions.EnableFSM
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000004000000
-        actionHashCodes: 87aa970087aa9700
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Quest Tracker
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Quest Filter
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1400000012000000110000001100000014000000120000001100000011000000
-        paramName:
-        - gameObject
-        - fsmName
-        - enable
-        - resetOnExit
-        - gameObject
-        - fsmName
-        - enable
-        - resetOnExit
-        paramDataPos: 0000000000000000000000000100000001000000010000000200000003000000
-        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000
-    - name: Set Global Game Object
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 69
-        y: 112
-        width: 169
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Get Parent
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetGameObject
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 4d51cf04
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Quest Tracker
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 1683010038177273089}
         fsmOwnerDefaultParams: []
         animationCurveParams: []
         functionCallParams: []
@@ -13404,145 +13068,27 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 00
+        byteData: 
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 130000001300000001000000
-        paramName:
-        - variable
-        - gameObject
-        - everyFrame
-        paramDataPos: 000000000100000000000000
-        paramByteDataSize: 000000000000000001000000
-    - name: Get Alert (FileContent)
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 255.17969
-        y: 312.91406
-        width: 163
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: finish
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Send to Quest Tracker
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.GetFsmGameObject
-        - HutongGames.PlayMaker.Actions.GameObjectIsNull
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000005000000
-        actionHashCodes: 5b66cf0015656205
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: alertFileContentWindow
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: alertFileContentWindow
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Window/FileContentWindow
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Reference Manager
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Alert Message
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - 
-        - finish
-        byteData: 0101
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 14000000120000001200000013000000010000001300000017000000170000001100000001000000
-        paramName:
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        - gameObject
-        - isNull
-        - isNotNull
-        - storeResult
-        - everyFrame
-        paramDataPos: 00000000000000000100000000000000000000000100000000000000010000000000000001000000
-        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000001000000
-    events:
-    - name: FINISHED
-      isSystemEvent: 1
-      isGlobal: 0
-    - name: finish
-      isSystemEvent: 0
-      isGlobal: 0
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
+    events: []
     globalTransitions: []
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       stringVariables: []
       vector2Variables: []
       vector3Variables: []
@@ -13551,31 +13097,31 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: Quest Tracker Parent
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: alertFileContentWindow
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: alertFileManagerWindow
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: GameDataManager
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Stage Manager Parent
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -13589,7 +13135,7 @@ MonoBehaviour:
       - 
       - Alert Message
       - Quest
-      variableCategoryIDs: 0000000001000000010000000000000000000000
+      variableCategoryIDs: 000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -13598,9 +13144,9 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 00000000010000000200000004000000
+    outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -13635,5 +13181,23 @@ MonoBehaviour:
     handleLegacyNetworking: 0
     handleAnimatorMove: 0
     handleAnimatorIK: 0
-  fsmTemplate: {fileID: 0}
+  fsmTemplate: {fileID: 11400000, guid: 817639ea6cc83764e93c741bb45028ae, type: 2}
   eventHandlerComponentsAdded: 1
+--- !u!114 &4518984069738142887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683010038177273089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c6355397c08cc49ac596bac832e5e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageManagerParent: {fileID: 0}
+  QuestTrackerParent: {fileID: 0}
+  GameManager: {fileID: 0}
+  AlertMsgFileContentWindow: {fileID: 0}
+  AlertMsgFileManagerWindow: {fileID: 0}
+  isFinishInitialize: 0
