@@ -11,14 +11,8 @@ public class CommandHistoryTooltip : MonoBehaviour, IPointerEnterHandler, IPoint
 
     private void Start()
     {
-        if(TooltipLight == null)
-        {
-            Debug.Log("Please reference TooltipLight!");
-        }
-        else
-        {
-            ToolTipControlFSM = MyPlayMakerScriptHelper.GetFsmByName(TooltipLight, "ToolTip Control");
-        }
+        TooltipLight = GameObject.Find("Tooltip Light");
+        ToolTipControlFSM = MyPlayMakerScriptHelper.GetFsmByName(TooltipLight, "ToolTip Control");
     }
 
     public void OnPointerEnter(PointerEventData eventData)

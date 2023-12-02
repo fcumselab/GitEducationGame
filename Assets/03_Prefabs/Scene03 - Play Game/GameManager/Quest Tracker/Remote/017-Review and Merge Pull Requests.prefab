@@ -10922,7 +10922,7 @@ MonoBehaviour:
       - GameData Manager
       - Quest Tracker
       - Reference
-      variableCategoryIDs: 03000000000000000100000002000000030000000000000000000000000000000000000000000000040000000000000000000000
+      variableCategoryIDs: 03000000000000000100000002000000030000000000000000000000000000000000000004000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -10986,15 +10986,15 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Initial
-    startState: Get Parent
+    startState: Set Global Game Object
     states:
     - name: Close FSM
       description: 
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 64.796875
-        y: 703.7031
+        x: 96.796875
+        y: 767.7031
         width: 100
         height: 16
       isBreakpoint: 0
@@ -11077,8 +11077,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 50
-        y: 105
+        x: 82
+        y: 169
         width: 100
         height: 32
       isBreakpoint: 0
@@ -11156,8 +11156,8 @@ MonoBehaviour:
       colorIndex: 1
       position:
         serializedVersion: 2
-        x: 52.492188
-        y: 444.5
+        x: 84.49219
+        y: 508.5
         width: 158
         height: 32
       isBreakpoint: 0
@@ -11250,8 +11250,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 51
-        y: 229
+        x: 83
+        y: 293
         width: 100
         height: 32
       isBreakpoint: 0
@@ -11375,8 +11375,8 @@ MonoBehaviour:
       colorIndex: 1
       position:
         serializedVersion: 2
-        x: 54.296875
-        y: 501.20312
+        x: 86.296875
+        y: 565.2031
         width: 146
         height: 32
       isBreakpoint: 0
@@ -11502,8 +11502,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 53
-        y: 160
+        x: 85
+        y: 224
         width: 100
         height: 32
       isBreakpoint: 0
@@ -11595,8 +11595,8 @@ MonoBehaviour:
       colorIndex: 1
       position:
         serializedVersion: 2
-        x: 55.796875
-        y: 387.20312
+        x: 87.796875
+        y: 451.20312
         width: 162
         height: 32
       isBreakpoint: 0
@@ -11689,8 +11689,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 62
-        y: 629.5
+        x: 94
+        y: 693.5
         width: 191
         height: 32
       isBreakpoint: 0
@@ -11809,6 +11809,84 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 0000000000000000000000000100000001000000010000000200000003000000
         paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000
+    - name: Set Global Game Object
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 53
+        y: 110.5
+        width: 169
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Get Parent
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetGameObject
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 4d51cf04
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Quest Tracker
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 7720347440443394518}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 130000001300000001000000
+        paramName:
+        - variable
+        - gameObject
+        - everyFrame
+        paramDataPos: 000000000100000000000000
+        paramByteDataSize: 000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -11875,7 +11953,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 00000000010000000200000004000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1

@@ -110,6 +110,12 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void LoadGameManualData(GameObject MaunalWindow, string fsmName)
     {
+        if (playerSaveData.stageData.Count == 0)
+        {
+            Debug.Log("using testingPlayerSaveData");
+            playerSaveData = testingPlayerSaveData;
+        }
+
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(MaunalWindow, fsmName);
 
         for (int i = 0; i < playerSaveData.gameManualData.Count; i++)
