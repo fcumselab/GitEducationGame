@@ -1578,10 +1578,10 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 335.625
+        x: 527.625
         y: 103.21875
         width: 102
-        height: 80
+        height: 96
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -1618,6 +1618,15 @@ MonoBehaviour:
           isSystemEvent: 0
           isGlobal: 0
         toState: 4
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: Num/0
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: 0
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -1677,6 +1686,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 4
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
@@ -1688,17 +1703,19 @@ MonoBehaviour:
         - Num/2
         - Num/3
         - Num/4
+        - Num/0
         byteData: 01
-        arrayParamSizes: 0400000004000000
+        arrayParamSizes: 0500000005000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmInt
         - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 100000000c000000100000001000000010000000100000000c0000001700000017000000170000001700000001000000
+        paramDataType: 100000000c00000010000000100000001000000010000000100000000c000000170000001700000017000000170000001700000001000000
         paramName:
         - intVariable
         - compareTo
+        - 
         - 
         - 
         - 
@@ -1708,15 +1725,16 @@ MonoBehaviour:
         - 
         - 
         - 
+        - 
         - everyFrame
-        paramDataPos: 000000000000000001000000020000000300000004000000010000000000000001000000020000000300000000000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 0000000000000000010000000200000003000000040000000500000001000000000000000100000002000000030000000400000000000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
     - name: 4
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 597.6953
+        x: 789.6953
         y: 254.91406
         width: 100
         height: 32
@@ -1903,7 +1921,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 413.1797
+        x: 605.1797
         y: 256.66406
         width: 100
         height: 32
@@ -2144,7 +2162,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 236.69531
+        x: 428.6953
         y: 257.70312
         width: 100
         height: 32
@@ -2385,7 +2403,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 57.1875
+        x: 249.1875
         y: 257.70312
         width: 100
         height: 32
@@ -2626,7 +2644,7 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 324.92188
+        x: 516.9219
         y: 444.45312
         width: 100
         height: 16
@@ -2710,7 +2728,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 323
+        x: 515
         y: 385
         width: 100
         height: 32
@@ -2783,6 +2801,247 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000100000000000000
         paramByteDataSize: 000000000000000001000000
+    - name: 0
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 59.101562
+        y: 261.21875
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Reset
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.ActivateSolo
+        - HutongGames.PlayMaker.Actions.UiGraphicSetColor
+        - HutongGames.PlayMaker.Actions.UiGraphicSetColor
+        - HutongGames.PlayMaker.Actions.UiGraphicSetColor
+        customNames:
+        - 
+        - 
+        - 
+        - 
+        actionEnabled: 01010101
+        actionIsOpen: 01010101
+        actionStartIndex: 00000000020000000a00000012000000
+        actionHashCodes: 15264c01c9f57904c9f57904c9f57904
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: secondStarBorder
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 3510402129850488688}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: firstStar
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 1905556673037276568}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: secondStar
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 7471052821517361312}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: thirdStar
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 7822030538401285647}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams:
+        - useVariable: 1
+          name: color/disable
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {r: 0.9490197, g: 0.96470594, b: 0.9803922, a: 1}
+        - useVariable: 1
+          name: color/disable
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {r: 0.9490197, g: 0.96470594, b: 0.9803922, a: 1}
+        - useVariable: 1
+          name: color/disable
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {r: 0.9490197, g: 0.96470594, b: 0.9803922, a: 1}
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 000000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001100000014000000190000000f0000000f0000000f0000000f000000110000000100000014000000190000000f0000000f0000000f0000000f000000110000000100000014000000190000000f0000000f0000000f0000000f0000001100000001000000
+        paramName:
+        - gameObject
+        - allowReactivate
+        - gameObject
+        - color
+        - red
+        - green
+        - blue
+        - alpha
+        - resetOnExit
+        - everyFrame
+        - gameObject
+        - color
+        - red
+        - green
+        - blue
+        - alpha
+        - resetOnExit
+        - everyFrame
+        - gameObject
+        - color
+        - red
+        - green
+        - blue
+        - alpha
+        - resetOnExit
+        - everyFrame
+        paramDataPos: 000000000000000001000000000000000000000001000000020000000300000001000000000000000200000001000000040000000500000006000000070000000200000001000000030000000200000008000000090000000a0000000b0000000300000002000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000
     events:
     - name: next
       isSystemEvent: 0
@@ -2801,6 +3060,9 @@ MonoBehaviour:
       isGlobal: 0
     - name: FINISHED
       isSystemEvent: 1
+      isGlobal: 0
+    - name: Num/0
+      isSystemEvent: 0
       isGlobal: 0
     globalTransitions: []
     variables:
@@ -2823,7 +3085,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 0
         networkSync: 0
-        value: 0
+        value: -1
       boolVariables: []
       stringVariables: []
       vector2Variables: []
@@ -2893,7 +3155,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1

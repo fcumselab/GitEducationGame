@@ -8,6 +8,8 @@ using UnityEngine.Networking;
 
 public class SaveManager : SerializedMonoBehaviour
 {
+    [SerializeField] PlayerSaveData testingPlayerSaveData;
+
     [Header("Current PlayerSaveData")]
     public string userName;
     [SerializeField] PlayerSaveData playerSaveData;
@@ -41,7 +43,15 @@ public class SaveManager : SerializedMonoBehaviour
 
     public List<StageData> GetStageDataListFromPlayerData()
     {
-        return playerSaveData.stageData;
+        if (playerSaveData.stageData.Count == 0)
+        {
+            Debug.Log("using testingPlayerSaveData");
+            return testingPlayerSaveData.stageData;
+        }
+        else
+        {
+            return playerSaveData.stageData;
+        }
     }
 
     //LoadStageData -> in "Stage Selection" scene -> Run function from "Stage Manager" GameObject
