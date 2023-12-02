@@ -2194,8 +2194,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 229.19531
-        y: 279.92188
+        x: 149.19531
+        y: 727.9219
         width: 269
         height: 16
       isBreakpoint: 0
@@ -2218,7 +2218,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 010101010101
-        actionIsOpen: 000000000001
+        actionIsOpen: 000000000101
         actionStartIndex: 00000000070000000e000000150000001c00000023000000
         actionHashCodes: ad7b8c04ad7b8c04ad7b8c04ad7b8c04ad7b8c04ad7b8c04
         unityObjectParams: []
@@ -2266,8 +2266,8 @@ MonoBehaviour:
             value: {fileID: 0}
         - ownerOption: 1
           gameObject:
-            useVariable: 0
-            name: 
+            useVariable: 1
+            name: GameManger
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -2507,11 +2507,11 @@ MonoBehaviour:
         paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000010000000000000000000000
     - name: Get New CommandHistory Obj
       description: Type "git status"
-      colorIndex: 0
+      colorIndex: 8
       position:
         serializedVersion: 2
-        x: 164.76562
-        y: 479.01562
+        x: 76.42969
+        y: 113.125
         width: 267
         height: 32
       isBreakpoint: 0
@@ -2679,11 +2679,11 @@ MonoBehaviour:
         paramByteDataSize: 00000000000000000100000000000000000000000000000000000000010000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
     - name: Create Object
       description: 
-      colorIndex: 0
+      colorIndex: 8
       position:
         serializedVersion: 2
-        x: 219.30469
-        y: 548.3281
+        x: 130.96875
+        y: 182.4375
         width: 112
         height: 32
       isBreakpoint: 0
@@ -2802,11 +2802,11 @@ MonoBehaviour:
         paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000
     - name: Set Staging List
       description: 
-      colorIndex: 0
+      colorIndex: 8
       position:
         serializedVersion: 2
-        x: 222.21875
-        y: 616.3672
+        x: 133.88281
+        y: 250.47656
         width: 124
         height: 32
       isBreakpoint: 0
@@ -3083,11 +3083,11 @@ MonoBehaviour:
         paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000010000000000000000000000
     - name: Get Event Sender
       description: 
-      colorIndex: 0
+      colorIndex: 1
       position:
         serializedVersion: 2
-        x: 143.11719
-        y: 782.7656
+        x: 54.78125
+        y: 416.875
         width: 267
         height: 32
       isBreakpoint: 0
@@ -3098,7 +3098,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Get Fsm Array
+        toState: Get StagingListHistoryItem
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -3299,14 +3299,14 @@ MonoBehaviour:
         - storeResult
         paramDataPos: 000000000000000000000000000000000000000000000000000000000100000001000000000000000000000000000000010000000000000002000000020000000200000000000000000000000300000003000000
         paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000
-    - name: Get Fsm Array
+    - name: Get StagingListHistoryItem
       description: 
-      colorIndex: 0
+      colorIndex: 1
       position:
         serializedVersion: 2
-        x: 424.0703
-        y: 780.7578
-        width: 115
+        x: 336.73438
+        y: 419.8672
+        width: 191
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -3316,7 +3316,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Set Text (current command ID & content)
+        toState: Send values to SaveFun Fsm 2(Load)
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -3327,18 +3327,28 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.GetFsmArray
         - HutongGames.PlayMaker.Actions.GetFsmArray
         - HutongGames.PlayMaker.Actions.GetFsmArray
+        - HutongGames.PlayMaker.Actions.GetFsmArray
         customNames:
         - 
         - 
         - 
         - 
-        actionEnabled: 01010101
-        actionIsOpen: 00000000
-        actionStartIndex: 00000000070000000e00000015000000
-        actionHashCodes: ad7b8c04ad7b8c04ad7b8c04ad7b8c04
+        - 
+        actionEnabled: 0101010101
+        actionIsOpen: 0000000101
+        actionStartIndex: 00000000070000000e000000150000001c000000
+        actionHashCodes: ad7b8c04ad7b8c04ad7b8c04ad7b8c04ad7b8c04
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: obj
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
         - ownerOption: 1
           gameObject:
             useVariable: 1
@@ -3426,6 +3436,18 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: ListFileName
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Staging List
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: ListFileChangedType
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams:
@@ -3481,6 +3503,19 @@ MonoBehaviour:
           stringValues: []
           vector4Values: []
           objectReferences: []
+        - useVariable: 1
+          name: getListFileChangedType
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          type: 14
+          objectTypeName: AGame.FileChangedType
+          floatValues: []
+          intValues: 
+          boolValues: 
+          stringValues: []
+          vector4Values: []
+          objectReferences: []
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
@@ -3499,12 +3534,14 @@ MonoBehaviour:
         - 
         - 
         - 
-        byteData: 01010101
+        - 
+        - 
+        byteData: 0101010101
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000120000001200000029000000010000001700000017000000140000001200000012000000290000000100000017000000170000001400000012000000120000002900000001000000170000001700000014000000120000001200000029000000010000001700000017000000
+        paramDataType: 1400000012000000120000002900000001000000170000001700000014000000120000001200000029000000010000001700000017000000140000001200000012000000290000000100000017000000170000001400000012000000120000002900000001000000170000001700000014000000120000001200000029000000010000001700000017000000
         paramName:
         - gameObject
         - fsmName
@@ -3534,15 +3571,22 @@ MonoBehaviour:
         - copyValues
         - fsmNotFound
         - variableNotFound
-        paramDataPos: 00000000000000000100000000000000000000000000000001000000010000000200000003000000010000000100000002000000030000000200000004000000050000000200000002000000040000000500000003000000060000000700000003000000030000000600000007000000
-        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000010000000000000000000000
+        - gameObject
+        - fsmName
+        - variableName
+        - storeValue
+        - copyValues
+        - fsmNotFound
+        - variableNotFound
+        paramDataPos: 0000000000000000010000000000000000000000000000000100000001000000020000000300000001000000010000000200000003000000020000000400000005000000020000000200000004000000050000000300000006000000070000000300000003000000060000000700000004000000080000000900000004000000040000000800000009000000
+        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000010000000000000000000000
     - name: Send values to SaveFun Fsm
       description: 
-      colorIndex: 0
+      colorIndex: 8
       position:
         serializedVersion: 2
-        x: 467.39062
-        y: 584.5625
+        x: 557.14844
+        y: 253.52344
         width: 197
         height: 32
       isBreakpoint: 0
@@ -3572,7 +3616,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 0101010101
-        actionIsOpen: 0000000001
+        actionIsOpen: 0101000001
         actionStartIndex: 00000000070000000e000000150000001c000000
         actionHashCodes: ad7b8c04ad7b8c04ad7b8c04ad7b8c04ad7b8c04
         unityObjectParams: []
@@ -3822,8 +3866,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 732.2578
-        y: 591.5078
+        x: 852.28125
+        y: 337.3047
         width: 271
         height: 32
       isBreakpoint: 0
@@ -3909,8 +3953,8 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 206.14062
-        y: 993.7031
+        x: 206.69531
+        y: 1102.8125
         width: 115
         height: 48
       isBreakpoint: 0
@@ -4008,8 +4052,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 478.85156
-        y: 996.84375
+        x: 479.40625
+        y: 1105.9531
         width: 151
         height: 48
       isBreakpoint: 0
@@ -4123,8 +4167,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 652.25
-        y: 1005.78906
+        x: 652.8047
+        y: 1114.8984
         width: 108
         height: 32
       isBreakpoint: 0
@@ -4207,8 +4251,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 253.91406
-        y: 1080.4766
+        x: 254.46875
+        y: 1189.5859
         width: 100
         height: 16
       isBreakpoint: 0
@@ -4259,8 +4303,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 129.1875
-        y: 920.28125
+        x: 129.74219
+        y: 1029.3906
         width: 276
         height: 32
       isBreakpoint: 0
@@ -4365,8 +4409,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 969.91406
-        y: 762.2344
+        x: 903.7969
+        y: 1224.125
         width: 330
         height: 32
       isBreakpoint: 0
@@ -4562,8 +4606,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1753.3984
-        y: 753.03906
+        x: 1673.3984
+        y: 1201.0391
         width: 100
         height: 32
       isBreakpoint: 0
@@ -4737,8 +4781,8 @@ MonoBehaviour:
       colorIndex: 1
       position:
         serializedVersion: 2
-        x: 2238.0078
-        y: 898.9844
+        x: 2158.0078
+        y: 1346.9844
         width: 110
         height: 32
       isBreakpoint: 0
@@ -4832,8 +4876,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 973.65625
-        y: 1310.2969
+        x: 893.65625
+        y: 1758.2969
         width: 361
         height: 32
       isBreakpoint: 0
@@ -5029,8 +5073,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1553.2734
-        y: 778.4531
+        x: 1473.2734
+        y: 1226.4531
         width: 150
         height: 64
       isBreakpoint: 0
@@ -5204,8 +5248,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 1757.8125
-        y: 798.4219
+        x: 1677.8125
+        y: 1246.4219
         width: 107
         height: 32
       isBreakpoint: 0
@@ -5284,8 +5328,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 60.898438
-        y: 327.76562
+        x: 232.75781
+        y: 859.1094
         width: 100
         height: 16
       isBreakpoint: 0
@@ -5336,8 +5380,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 1061.2578
-        y: 589.9219
+        x: 1139.6172
+        y: 349.60938
         width: 220
         height: 16
       isBreakpoint: 0
@@ -5420,8 +5464,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 995.02344
-        y: 892.75
+        x: 915.02344
+        y: 1340.75
         width: 347
         height: 32
       isBreakpoint: 0
@@ -5617,8 +5661,8 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 1382.8828
-        y: 889.9531
+        x: 1302.8828
+        y: 1337.9531
         width: 129
         height: 48
       isBreakpoint: 0
@@ -5760,8 +5804,8 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 1547.0234
-        y: 887.35156
+        x: 1467.0234
+        y: 1335.3516
         width: 201
         height: 48
       isBreakpoint: 0
@@ -5858,8 +5902,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1995.4219
-        y: 907.2344
+        x: 1915.4219
+        y: 1355.2344
         width: 106
         height: 32
       isBreakpoint: 0
@@ -6014,8 +6058,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1816.1875
-        y: 885.125
+        x: 1736.1875
+        y: 1333.125
         width: 150
         height: 64
       isBreakpoint: 0
@@ -6189,8 +6233,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 2388.2031
-        y: 904.2344
+        x: 2308.2031
+        y: 1352.2344
         width: 285
         height: 32
       isBreakpoint: 0
@@ -6436,8 +6480,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 2510.2578
-        y: 1501.9766
+        x: 2430.2578
+        y: 1949.9766
         width: 294
         height: 32
       isBreakpoint: 0
@@ -6683,8 +6727,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 983.6875
-        y: 1042.375
+        x: 903.6875
+        y: 1490.375
         width: 325
         height: 32
       isBreakpoint: 0
@@ -6880,8 +6924,8 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 1514.2031
-        y: 1027.9062
+        x: 1434.2031
+        y: 1475.9062
         width: 129
         height: 48
       isBreakpoint: 0
@@ -7023,8 +7067,8 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 1688.8906
-        y: 1025.1172
+        x: 1608.8906
+        y: 1473.1172
         width: 201
         height: 48
       isBreakpoint: 0
@@ -7121,8 +7165,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 2125.4297
-        y: 1030.6641
+        x: 2045.4297
+        y: 1478.6641
         width: 106
         height: 32
       isBreakpoint: 0
@@ -7277,8 +7321,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1935.9609
-        y: 1027.1797
+        x: 1855.9609
+        y: 1475.1797
         width: 150
         height: 64
       isBreakpoint: 0
@@ -7452,8 +7496,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1328.9844
-        y: 1040.3281
+        x: 1248.9844
+        y: 1488.3281
         width: 142
         height: 32
       isBreakpoint: 0
@@ -7562,8 +7606,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 604.10156
-        y: 198.59375
+        x: 524.10156
+        y: 646.59375
         width: 364
         height: 32
       isBreakpoint: 0
@@ -7641,8 +7685,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 700
-        y: 248
+        x: 620
+        y: 696
         width: 116
         height: 32
       isBreakpoint: 0
@@ -7761,8 +7805,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 678
-        y: 294
+        x: 598
+        y: 742
         width: 161
         height: 64
       isBreakpoint: 0
@@ -7881,8 +7925,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 578
-        y: 383
+        x: 498
+        y: 831
         width: 100
         height: 32
       isBreakpoint: 0
@@ -7961,8 +8005,8 @@ MonoBehaviour:
       colorIndex: 4
       position:
         serializedVersion: 2
-        x: 704.1406
-        y: 385.28125
+        x: 624.1406
+        y: 833.28125
         width: 100
         height: 32
       isBreakpoint: 0
@@ -8041,8 +8085,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 822.1406
-        y: 383.28125
+        x: 742.1406
+        y: 831.28125
         width: 100
         height: 32
       isBreakpoint: 0
@@ -8121,8 +8165,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 665
-        y: 438
+        x: 585
+        y: 886
         width: 173
         height: 16
       isBreakpoint: 0
@@ -8275,8 +8319,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1199.9844
-        y: 106.50781
+        x: 1023.3125
+        y: 644.5
         width: 400
         height: 32
       isBreakpoint: 0
@@ -8364,8 +8408,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1346.5
-        y: 176.125
+        x: 1169.8281
+        y: 714.1172
         width: 100
         height: 48
       isBreakpoint: 0
@@ -8493,8 +8537,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 1632.8516
-        y: 200.45312
+        x: 1456.1797
+        y: 738.4453
         width: 100
         height: 16
       isBreakpoint: 0
@@ -8556,8 +8600,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1346.3828
-        y: 255.32812
+        x: 1169.7109
+        y: 793.3203
         width: 100
         height: 32
       isBreakpoint: 0
@@ -8668,8 +8712,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 1265.6484
-        y: 336.90625
+        x: 1088.9766
+        y: 874.89844
         width: 315
         height: 16
       isBreakpoint: 0
@@ -8720,8 +8764,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1739.6797
-        y: 1281.2734
+        x: 1659.6797
+        y: 1729.2734
         width: 109
         height: 32
       isBreakpoint: 0
@@ -8895,8 +8939,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1549.2578
-        y: 1328.1641
+        x: 1469.2578
+        y: 1776.1641
         width: 150
         height: 64
       isBreakpoint: 0
@@ -9070,8 +9114,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 1737.6016
-        y: 1353.1875
+        x: 1657.6016
+        y: 1801.1875
         width: 117
         height: 32
       isBreakpoint: 0
@@ -9150,8 +9194,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1397.7656
-        y: 1321.3438
+        x: 1317.7656
+        y: 1769.3438
         width: 119
         height: 48
       isBreakpoint: 0
@@ -9279,8 +9323,8 @@ MonoBehaviour:
       colorIndex: 1
       position:
         serializedVersion: 2
-        x: 2344.1953
-        y: 1498.9688
+        x: 2264.1953
+        y: 1946.9688
         width: 132
         height: 32
       isBreakpoint: 0
@@ -9374,8 +9418,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 2421.2422
-        y: 948.3828
+        x: 2341.2422
+        y: 1396.3828
         width: 226
         height: 32
       isBreakpoint: 0
@@ -9465,8 +9509,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 2709.3672
-        y: 962.52344
+        x: 2629.3672
+        y: 1410.5234
         width: 172
         height: 16
       isBreakpoint: 0
@@ -9550,8 +9594,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1382.0547
-        y: 770.96094
+        x: 1302.0547
+        y: 1218.9609
         width: 129
         height: 48
       isBreakpoint: 0
@@ -9679,8 +9723,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 2527.5703
-        y: 1565.6719
+        x: 2447.5703
+        y: 2013.6719
         width: 236
         height: 32
       isBreakpoint: 0
@@ -9770,8 +9814,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 2815.6953
-        y: 1579.8125
+        x: 2735.6953
+        y: 2027.8125
         width: 181
         height: 16
       isBreakpoint: 0
@@ -9855,8 +9899,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 978.0078
-        y: 1484.5781
+        x: 898.0078
+        y: 1932.5781
         width: 378
         height: 32
       isBreakpoint: 0
@@ -10052,8 +10096,8 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 1365.8672
-        y: 1481.7812
+        x: 1285.8672
+        y: 1929.7812
         width: 129
         height: 48
       isBreakpoint: 0
@@ -10195,8 +10239,8 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 1530.0078
-        y: 1479.1797
+        x: 1450.0078
+        y: 1927.1797
         width: 201
         height: 48
       isBreakpoint: 0
@@ -10293,8 +10337,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1956.0078
-        y: 1497.7188
+        x: 1876.0078
+        y: 1945.7188
         width: 106
         height: 32
       isBreakpoint: 0
@@ -10449,8 +10493,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1782.6797
-        y: 1476.9531
+        x: 1702.6797
+        y: 1924.9531
         width: 150
         height: 64
       isBreakpoint: 0
@@ -10624,8 +10668,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 974.1328
-        y: 1636.5391
+        x: 894.1328
+        y: 2084.539
         width: 356
         height: 32
       isBreakpoint: 0
@@ -10821,8 +10865,8 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 1536.1875
-        y: 1627.5781
+        x: 1456.1875
+        y: 2075.5781
         width: 128
         height: 48
       isBreakpoint: 0
@@ -10964,8 +11008,8 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 1710.875
-        y: 1624.7891
+        x: 1630.875
+        y: 2072.789
         width: 200
         height: 48
       isBreakpoint: 0
@@ -11062,8 +11106,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 2134.3438
-        y: 1637.75
+        x: 2054.3438
+        y: 2085.75
         width: 105
         height: 32
       isBreakpoint: 0
@@ -11218,8 +11262,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1957.9453
-        y: 1626.8516
+        x: 1877.9453
+        y: 2074.8516
         width: 150
         height: 64
       isBreakpoint: 0
@@ -11393,8 +11437,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1350.9688
-        y: 1640
+        x: 1270.9688
+        y: 2088
         width: 142
         height: 32
       isBreakpoint: 0
@@ -11498,6 +11542,287 @@ MonoBehaviour:
         - sendEvent
         paramDataPos: 00000000010000000000000001000000000000000000000002000000030000000100000002000000
         paramByteDataSize: 00000000000000000000000000000000000000000100000000000000000000000100000000000000
+    - name: Send values to SaveFun Fsm 2(Load)
+      description: 
+      colorIndex: 1
+      position:
+        serializedVersion: 2
+        x: 555.9844
+        y: 423.14062
+        width: 246
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Set Text (current command ID & content)
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetFsmArray
+        - HutongGames.PlayMaker.Actions.SetFsmArray
+        - HutongGames.PlayMaker.Actions.SetFsmArray
+        - HutongGames.PlayMaker.Actions.SetFsmArray
+        - HutongGames.PlayMaker.Actions.SetFsmArray
+        customNames:
+        - 
+        - 
+        - 
+        - 
+        - 
+        actionEnabled: 0101010101
+        actionIsOpen: 0101010101
+        actionStartIndex: 00000000070000000e000000150000001c000000
+        actionHashCodes: ad7b8c04ad7b8c04ad7b8c04ad7b8c04ad7b8c04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Save Files Funcation
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: getListFileName
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Save Files Funcation
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: getListFileStatus
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Save Files Funcation
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: getListFileType
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Save Files Funcation
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: getListLocation
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Save Files Funcation
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: getListFileChangedType
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams:
+        - useVariable: 1
+          name: getListFileName
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          type: 4
+          objectTypeName: UnityEngine.Object
+          floatValues: []
+          intValues: 
+          boolValues: 
+          stringValues: []
+          vector4Values: []
+          objectReferences: []
+        - useVariable: 1
+          name: getListFileStatus
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          type: 14
+          objectTypeName: AGame.StatusType
+          floatValues: []
+          intValues: 
+          boolValues: 
+          stringValues: []
+          vector4Values: []
+          objectReferences: []
+        - useVariable: 1
+          name: getListFileType
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          type: 14
+          objectTypeName: AGame.FileType
+          floatValues: []
+          intValues: 
+          boolValues: 
+          stringValues: []
+          vector4Values: []
+          objectReferences: []
+        - useVariable: 1
+          name: getListFileName
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          type: 4
+          objectTypeName: UnityEngine.Object
+          floatValues: []
+          intValues: 
+          boolValues: 
+          stringValues: []
+          vector4Values: []
+          objectReferences: []
+        - useVariable: 1
+          name: getListFileChangedType
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          type: 14
+          objectTypeName: AGame.FileChangedType
+          floatValues: []
+          intValues: 
+          boolValues: 
+          stringValues: []
+          vector4Values: []
+          objectReferences: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - 
+        - 
+        - 
+        - 
+        - 
+        - 
+        - 
+        - 
+        - 
+        byteData: 0101010101
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000120000002900000001000000170000001700000014000000120000001200000029000000010000001700000017000000140000001200000012000000290000000100000017000000170000001400000012000000120000002900000001000000170000001700000014000000120000001200000029000000010000001700000017000000
+        paramName:
+        - gameObject
+        - fsmName
+        - variableName
+        - setValue
+        - copyValues
+        - fsmNotFound
+        - variableNotFound
+        - gameObject
+        - fsmName
+        - variableName
+        - setValue
+        - copyValues
+        - fsmNotFound
+        - variableNotFound
+        - gameObject
+        - fsmName
+        - variableName
+        - setValue
+        - copyValues
+        - fsmNotFound
+        - variableNotFound
+        - gameObject
+        - fsmName
+        - variableName
+        - setValue
+        - copyValues
+        - fsmNotFound
+        - variableNotFound
+        - gameObject
+        - fsmName
+        - variableName
+        - setValue
+        - copyValues
+        - fsmNotFound
+        - variableNotFound
+        paramDataPos: 0000000000000000010000000000000000000000000000000100000001000000020000000300000001000000010000000200000003000000020000000400000005000000020000000200000004000000050000000300000006000000070000000300000003000000060000000700000004000000080000000900000004000000040000000800000009000000
+        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000010000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -12012,6 +12337,19 @@ MonoBehaviour:
         stringValues: []
         vector4Values: []
         objectReferences: []
+      - useVariable: 1
+        name: getListFileChangedType
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 14
+        objectTypeName: AGame.FileChangedType
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
       enumVariables:
       - useVariable: 1
         name: fileType
@@ -12048,7 +12386,7 @@ MonoBehaviour:
       - Ready to Commit
       - Show on StagingAreaWindow
       - StagingListHistory
-      variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000020000000100000000000000000000000000000001000000050000000500000000000000010000000000000000000000030000000300000003000000030000000300000004000000040000000400000004000000000000000300000000000000000000000000000000000000
+      variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000002000000010000000000000000000000000000000100000005000000050000000000000001000000000000000000000003000000030000000300000003000000030000000400000004000000040000000400000000000000030000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0

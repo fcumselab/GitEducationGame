@@ -19633,7 +19633,7 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 529.2344
+        x: 545.2344
         y: 431.84375
         width: 206
         height: 48
@@ -19732,7 +19732,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 587.52344
+        x: 603.52344
         y: 370.78906
         width: 100
         height: 32
@@ -19825,7 +19825,7 @@ MonoBehaviour:
       colorIndex: 13
       position:
         serializedVersion: 2
-        x: 917.8906
+        x: 933.8906
         y: 536.4375
         width: 100
         height: 32
@@ -19929,7 +19929,7 @@ MonoBehaviour:
       colorIndex: 14
       position:
         serializedVersion: 2
-        x: 672.25
+        x: 688.25
         y: 113.07031
         width: 249.5
         height: 32
@@ -20163,7 +20163,7 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 862.8906
+        x: 878.8906
         y: 229.60938
         width: 146
         height: 48
@@ -20280,7 +20280,7 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 1213.8594
+        x: 1229.8594
         y: 350.40625
         width: 275
         height: 32
@@ -20491,8 +20491,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 267.9922
-        y: 162.3125
+        x: 360.1172
+        y: 95.25781
         width: 250
         height: 96
       isBreakpoint: 0
@@ -20530,7 +20530,7 @@ MonoBehaviour:
           name: FindCommandResult/Commit
           isSystemEvent: 0
           isGlobal: 0
-        toState: Show Commit Selection Event
+        toState: CommitMessagePopup
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -20539,7 +20539,7 @@ MonoBehaviour:
           name: FindCommandResult/Branch
           isSystemEvent: 0
           isGlobal: 0
-        toState: Show BranchNaming Selection Event
+        toState: BranchNamingPopup
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -20666,7 +20666,7 @@ MonoBehaviour:
       colorIndex: 13
       position:
         serializedVersion: 2
-        x: 828.1797
+        x: 844.1797
         y: 446.15625
         width: 188
         height: 48
@@ -20809,7 +20809,7 @@ MonoBehaviour:
       colorIndex: 13
       position:
         serializedVersion: 2
-        x: 1028.6953
+        x: 1044.6953
         y: 482.10156
         width: 100
         height: 32
@@ -20911,7 +20911,7 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 568.35156
+        x: 584.35156
         y: 514.02344
         width: 116
         height: 32
@@ -21106,7 +21106,7 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 1245.7188
+        x: 1261.7188
         y: 403.65625
         width: 117
         height: 16
@@ -21190,8 +21190,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 65.92969
-        y: 303.45312
+        x: 58.054688
+        y: 278.4453
         width: 204
         height: 32
       isBreakpoint: 0
@@ -21353,8 +21353,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 71.796875
-        y: 369.5625
+        x: 353.6953
+        y: 279.78125
         width: 244
         height: 32
       isBreakpoint: 0
@@ -21511,6 +21511,224 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 0000000000000000000000000000000000000000000000000000000001000000010000000200000003000000
         paramByteDataSize: 0000000000000000000000000100000000000000000000000000000000000000000000000000000000000000
+    - name: CommitMessagePopup
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 77.91406
+        y: 229.10156
+        width: 168
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: next
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Show Commit Selection Event
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GameObjectIsNull
+        - HutongGames.PlayMaker.Actions.FindGameObject
+        - HutongGames.PlayMaker.Actions.NextFrameEvent
+        customNames:
+        - 
+        - 
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000500000008000000
+        actionHashCodes: 15656205786b390288611604
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: CommitMessagePopup
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: CommitMessagePopup
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: CommitMessagePopup
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Untagged
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - next
+        - next
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 130000001700000017000000110000000100000012000000120000001300000017000000
+        paramName:
+        - gameObject
+        - isNull
+        - isNotNull
+        - storeResult
+        - everyFrame
+        - objectName
+        - withTag
+        - store
+        - sendEvent
+        paramDataPos: 000000000000000001000000000000000000000000000000010000000100000002000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
+    - name: BranchNamingPopup
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 391.98438
+        y: 230.42188
+        width: 154
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: next
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Show BranchNaming Selection Event
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GameObjectIsNull
+        - HutongGames.PlayMaker.Actions.FindGameObject
+        - HutongGames.PlayMaker.Actions.NextFrameEvent
+        customNames:
+        - 
+        - 
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000500000008000000
+        actionHashCodes: 15656205786b390288611604
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: BranchNamingPopup
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: BranchNamingPopup
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: BranchNamingPopup
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Untagged
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - next
+        - next
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 130000001700000017000000110000000100000012000000120000001300000017000000
+        paramName:
+        - gameObject
+        - isNull
+        - isNotNull
+        - storeResult
+        - everyFrame
+        - objectName
+        - withTag
+        - store
+        - sendEvent
+        paramDataPos: 000000000000000001000000000000000000000000000000010000000100000002000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
