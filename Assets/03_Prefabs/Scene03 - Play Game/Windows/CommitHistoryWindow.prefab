@@ -46946,8 +46946,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 61.046875
-        y: 98.22656
+        x: 60.046875
+        y: 103.22656
         width: 169
         height: 32
       isBreakpoint: 0
@@ -74193,7 +74193,7 @@ MonoBehaviour:
         x: 677.5078
         y: 101.28906
         width: 400
-        height: 64
+        height: 48
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -74207,15 +74207,6 @@ MonoBehaviour:
         linkConstraint: 0
         linkTarget: 0
         colorIndex: 1
-      - fsmEvent:
-          name: Num/2
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: 
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
       - fsmEvent:
           name: CommandType/clone
           isSystemEvent: 0
@@ -74283,12 +74274,6 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Random
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
           value: Clone
         fsmObjectParams: []
         fsmVarParams: []
@@ -74304,16 +74289,15 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - Num/1
-        - Num/2
         - CommandType/clone
         byteData: 0000
-        arrayParamSizes: 0300000003000000
+        arrayParamSizes: 0200000002000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmString
         - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 12000000120000000100000012000000120000000c0000001200000012000000120000000c00000017000000170000001700000001000000
+        paramDataType: 12000000120000000100000012000000120000000c00000012000000120000000c000000170000001700000001000000
         paramName:
         - stringVariable
         - stringValue
@@ -74323,14 +74307,12 @@ MonoBehaviour:
         - compareTo
         - 
         - 
-        - 
         - sendEvent
         - 
         - 
-        - 
         - everyFrame
-        paramDataPos: 0000000001000000000000000200000003000000000000000400000005000000060000000100000000000000010000000200000001000000
-        paramByteDataSize: 0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 000000000100000000000000020000000300000000000000040000000500000001000000000000000100000001000000
+        paramByteDataSize: 000000000000000001000000000000000000000000000000000000000000000000000000000000000000000001000000
     - name: Get LocalCommitHistoryData
       description: Local
       colorIndex: 18
@@ -79054,8 +79036,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 929.4375
-        y: 1264.2266
+        x: 934.0469
+        y: 1301.6484
         width: 100
         height: 32
       isBreakpoint: 0
@@ -79088,7 +79070,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: FirstRepoPagePanel
+            name: BrowserWindow/MainRepoPagePanel
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -79096,7 +79078,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: FirstRepoPagePanel
+            name: BrowserWindow/MainRepoPagePanel
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -79192,7 +79174,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Enable FSM
+        toState: Game Object Is Null 2
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -82492,7 +82474,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Update Page Content
+        toState: Game Object Is Null
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -83824,8 +83806,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 740.9922
-        y: 1022.21875
+        x: 741.9922
+        y: 1056.2188
         width: 169.5
         height: 32
       isBreakpoint: 0
@@ -83868,7 +83850,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: PRDetailedPagePanel
+            name: BrowserWindow/PRDetailedPagePanel
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -83884,7 +83866,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: PRDetailedPagePanel
+            name: BrowserWindow/PRDetailedPagePanel
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -83892,7 +83874,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: PRDetailedPagePanel
+            name: BrowserWindow/PRDetailedPagePanel
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -83900,7 +83882,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: PRDetailedPagePanel
+            name: BrowserWindow/PRDetailedPagePanel
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -84090,7 +84072,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: PRDetailedPagePanel
+            name: BrowserWindow/PRDetailedPagePanel
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -84146,6 +84128,242 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 00000000000000000000000001000000
         paramByteDataSize: 00000000000000000000000000000000
+    - name: Game Object Is Null
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 749.97656
+        y: 1004.4531
+        width: 144
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: next
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Update Page Content
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GameObjectIsNull
+        - HutongGames.PlayMaker.Actions.GetChild
+        - HutongGames.PlayMaker.Actions.NextFrameEvent
+        customNames:
+        - 
+        - 
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000500000009000000
+        actionHashCodes: 15656205184b570488611604
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: BrowserWindow/PRDetailedPagePanel
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: BrowserWindow/PRDetailedPagePanel
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Window/BrowserWindow
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: PRDetailedPagePanel
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Panel
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - next
+        - next
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 13000000170000001700000011000000010000001400000012000000120000001300000017000000
+        paramName:
+        - gameObject
+        - isNull
+        - isNotNull
+        - storeResult
+        - everyFrame
+        - gameObject
+        - childName
+        - withTag
+        - storeResult
+        - sendEvent
+        paramDataPos: 00000000000000000100000000000000000000000000000000000000010000000100000002000000
+        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000000000000
+    - name: Game Object Is Null 2
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 907.46875
+        y: 1258.1328
+        width: 154
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: next
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Enable FSM
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GameObjectIsNull
+        - HutongGames.PlayMaker.Actions.GetChild
+        - HutongGames.PlayMaker.Actions.NextFrameEvent
+        customNames:
+        - 
+        - 
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000500000009000000
+        actionHashCodes: 15656205184b570488611604
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: BrowserWindow/MainRepoPagePanel
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: BrowserWindow/MainRepoPagePanel
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Window/BrowserWindow
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: MainRepoPagePanel
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Panel
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - next
+        - next
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 13000000170000001700000011000000010000001400000012000000120000001300000017000000
+        paramName:
+        - gameObject
+        - isNull
+        - isNotNull
+        - storeResult
+        - everyFrame
+        - gameObject
+        - childName
+        - withTag
+        - storeResult
+        - sendEvent
+        paramDataPos: 00000000000000000100000000000000000000000000000000000000010000000100000002000000
+        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000000000000
     events:
     - name: commit
       isSystemEvent: 0
@@ -84190,6 +84408,9 @@ MonoBehaviour:
       isSystemEvent: 0
       isGlobal: 0
     - name: false
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: skip
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions: []
@@ -84265,9 +84486,27 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
+        name: Branches/Local
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
         name: Branches/Remote
         tooltip: 
         showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: BrowserWindow/MainRepoPagePanel
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: BrowserWindow/PRDetailedPagePanel
+        tooltip: 
+        showInInspector: 1
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
@@ -84301,6 +84540,12 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 5364009369924974429}
       - useVariable: 1
+        name: baseBranch
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
         name: newLocalCommitHistory
         tooltip: 
         showInInspector: 0
@@ -84318,30 +84563,6 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
-      - useVariable: 1
-        name: Branches/Local
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: FirstRepoPagePanel
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: baseBranch
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: PRDetailedPagePanel
-        tooltip: 
-        showInInspector: 1
-        networkSync: 0
-        value: {fileID: 0}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -84351,12 +84572,12 @@ MonoBehaviour:
       - 
       - Branch localB remoteB Command
       - BrowserWindow
-      - Local
+      - Browse
       - other obj will get this to run next
       - Push Pull Command
       - Sent from other obj
       - Update PRDetailedPage
-      variableCategoryIDs: 0000000000000000030000000600000000000000050000000000000004000000010000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000020000000000000007000000
+      variableCategoryIDs: 0000000000000000030000000600000000000000050000000000000004000000010000000000000000000000000000000200000007000000000000000000000003000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -84365,7 +84586,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 02000000030000000500000007000000080000000d00000010000000
+    outVariableIndices: 02000000030000000500000007000000080000001000000014000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []

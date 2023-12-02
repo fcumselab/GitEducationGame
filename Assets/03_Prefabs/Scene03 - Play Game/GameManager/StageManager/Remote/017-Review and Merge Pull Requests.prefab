@@ -117166,16 +117166,25 @@ MonoBehaviour:
       colorIndex: 11
       position:
         serializedVersion: 2
-        x: 610.60156
-        y: 915.4219
+        x: 629.71875
+        y: 909.0156
         width: 139
-        height: 32
+        height: 48
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
           name: next
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Set time
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 8
+      - fsmEvent:
+          name: loop
           isSystemEvent: 0
           isGlobal: 0
         toState: Array Get Next
@@ -117370,8 +117379,8 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - 
-        - next
-        - next
+        - loop
+        - loop
         - 
         - 
         - next
@@ -117586,6 +117595,142 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000100000000000000
         paramByteDataSize: 000000000000000001000000
+    - name: Set time
+      description: 
+      colorIndex: 8
+      position:
+        serializedVersion: 2
+        x: 830
+        y: 915
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Array Get Next
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 11
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetChild
+        - HutongGames.PlayMaker.Actions.GetSystemDateTime
+        - HutongGames.PlayMaker.Actions.UiTextSetText
+        customNames:
+        - 
+        - 
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000400000007000000
+        actionHashCodes: 184b5704c030f10309fbab04
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: TimeText
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: TargetObj
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: TimeText
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: TimeText
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Time
+        - useVariable: 1
+          name: time
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: yyyy/MM/dd HH:mm:ss
+        - useVariable: 1
+          name: time
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 0000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000120000001300000012000000120000000100000014000000120000001100000001000000
+        paramName:
+        - gameObject
+        - childName
+        - withTag
+        - storeResult
+        - storeString
+        - format
+        - everyFrame
+        - gameObject
+        - text
+        - resetOnExit
+        - everyFrame
+        paramDataPos: 0000000000000000010000000000000002000000030000000000000001000000040000000000000001000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000100000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -117662,6 +117807,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 
+      - useVariable: 1
+        name: time
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -117712,6 +117863,12 @@ MonoBehaviour:
         value: {fileID: 0}
       - useVariable: 1
         name: TargetObj
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: TimeText
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -117795,7 +117952,7 @@ MonoBehaviour:
       categories:
       - 
       - "ShowMsgByRefresh\uFF08\u7528\u65BCNPC\u56DE\u5FA9\u8A0A\u606F\uFF0C\u7576\u9EDE\u64CA\u91CD\u6574\u9375\uFF09"
-      variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000001000000
+      variableCategoryIDs: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000001000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -124239,6 +124396,11 @@ MonoBehaviour:
   - BrowserWindow
   RenderWindowLayer: {fileID: 0}
   GameScreen: {fileID: 0}
+  StageManagerParent: {fileID: 0}
+  QuestTrackerParent: {fileID: 0}
+  GameManager: {fileID: 0}
+  isFinishInitialize: 0
+  backgroundStoryText: 
 --- !u!1 &6644047605681800701
 GameObject:
   m_ObjectHideFlags: 0
