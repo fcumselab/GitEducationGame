@@ -21,14 +21,10 @@ public class QuestTracker : MonoBehaviour
     {
         isFinishInitialize = false;
 
-        QuestTrackerParent = transform.parent.gameObject;
-        GameManager = QuestTrackerParent.transform.parent.gameObject;
-        StageManagerParent = GameManager.transform.Find("Stage Manager Parent").gameObject;
-
-        AlertMsgFileContentWindow = GameObject.Find("AlertMsgFileContentWindow");
-        AlertMsgFileManagerWindow = GameObject.Find("AlertMsgFileManagerWindow");
+        InitializeQuestTracker();
 
         isFinishInitialize = true;
+
     }
     // Update is called once per frame
     void Update()
@@ -38,24 +34,22 @@ public class QuestTracker : MonoBehaviour
 
     public void InitializeQuestTracker()
     {
-        /*
-        GameObject targetWindow = FsmVariables.GlobalVariables.GetFsmGameObject("Window/FileManagerWindow").Value;
-        while (targetWindow == null)
-        {
-            targetWindow = FsmVariables.GlobalVariables.GetFsmGameObject("Window/FileManagerWindow").Value;
-        }
-        Transform alertMsg = targetWindow.transform.Find("Alert Message");
-        
-        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Initial");
-        fsm.FsmVariables.GetFsmGameObject("alertFileManagerWindow").Value = alertMsg.gameObject;
+        QuestTrackerParent = transform.parent.gameObject;
+        GameManager = QuestTrackerParent.transform.parent.gameObject;
+        StageManagerParent = GameManager.transform.Find("Stage Manager Parent").gameObject;
 
-        targetWindow = FsmVariables.GlobalVariables.GetFsmGameObject("Window/FileContentWindow").Value;
-        while (targetWindow == null)
-        {
-            targetWindow = FsmVariables.GlobalVariables.GetFsmGameObject("Window/FileContentWindow").Value;
-        }
+        AlertMsgFileContentWindow = GameObject.Find("AlertMsgFileContentWindow");
+        AlertMsgFileManagerWindow = GameObject.Find("AlertMsgFileManagerWindow");
 
-        alertMsg = targetWindow.transform.Find("Alert Message");
-        fsm.FsmVariables.GetFsmGameObject("alertFileContentWindow").Value = alertMsg.gameObject;*/
+
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Quest Valider");
+        fsm.FsmVariables.GetFsmGameObject("Quest Tracker Parent").Value = QuestTrackerParent;
+
+        fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Quest Filter");
+        fsm.FsmVariables.GetFsmGameObject("alertFileContentWindow").Value = AlertMsgFileContentWindow;
+        fsm.FsmVariables.GetFsmGameObject("alertFileManagerWindow").Value = AlertMsgFileManagerWindow;
+
+        fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Quest Tracker");
+        fsm.FsmVariables.GetFsmGameObject("Stage Manager Parent").Value = StageManagerParent;
     }
 }
