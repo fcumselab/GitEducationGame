@@ -54,6 +54,32 @@ public class SaveManager : SerializedMonoBehaviour
         }
     }
 
+    public List<GameManualData> GetGameManualDataListFromPlayerData()
+    {
+        if (playerSaveData.stageData.Count == 0)
+        {
+            Debug.Log("using testingPlayerSaveData");
+            return testingPlayerSaveData.gameManualData;
+        }
+        else
+        {
+            return playerSaveData.gameManualData;
+        }
+    }
+
+    public PlayerSaveData GetPlayerSaveData()
+    {
+        if (playerSaveData.stageData.Count == 0)
+        {
+            Debug.Log("using testingPlayerSaveData");
+            return testingPlayerSaveData;
+        }
+        else
+        {
+            return playerSaveData;
+        }
+    }
+
     //LoadStageData -> in "Stage Selection" scene -> Run function from "Stage Manager" GameObject
     public bool LoadStageData(GameObject stageObj)
     {
@@ -108,61 +134,7 @@ public class SaveManager : SerializedMonoBehaviour
         }
     }
 
-    public void LoadGameManualData(GameObject MaunalWindow, string fsmName)
-    {
-        if (playerSaveData.stageData.Count == 0)
-        {
-            Debug.Log("using testingPlayerSaveData");
-            playerSaveData = testingPlayerSaveData;
-        }
-
-        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(MaunalWindow, fsmName);
-
-        for (int i = 0; i < playerSaveData.gameManualData.Count; i++)
-        {
-            GameManualData manualData = playerSaveData.gameManualData[i];
-            string type = manualData.manualType;
-            //CommandNameList, RuleAndWindowNameList, VersionControlNameList...
-            FsmArray nameList = fsm.FsmVariables.FindFsmArray(type + "NameList");
-            FsmArray unlockProgressList = fsm.FsmVariables.FindFsmArray(type + "UnlockProgressList");
-
-            for (int t = 0; t < manualData.items.Count; t++)
-            {
-                GameManualItem item = manualData.items[t];
-                nameList.InsertItem(item.listName, t);
-                unlockProgressList.InsertItem(item.listUnlockProgress, t);
-            }
-        }
-    }
-
-    public void SaveGameManualData(string[] typeList, string[] nameList, int[] unlockProgressList)
-    {
-        GameManualData CommandManual = playerSaveData.gameManualData[0];
-        GameManualData RuleAndWindowManual = playerSaveData.gameManualData[1];
-        GameManualData VersionControlManual = playerSaveData.gameManualData[2];
-
-        for (int i = 0; i < typeList.Length; i++)
-        {
-            GameManualItem findItem;
-            switch (typeList[i])
-            {
-                case "C":
-                    findItem = CommandManual.items.Find((item) => item.listName == nameList[i]);
-                    break;
-                case "RAW":
-                    findItem = RuleAndWindowManual.items.Find((item) => item.listName == nameList[i]);
-                    break;
-                case "VC":
-                    findItem = VersionControlManual.items.Find((item) => item.listName == nameList[i]);
-                    break;
-                default:
-                    Debug.Log("SaveGameManualData Error!");
-                    return;
-            }
-
-            findItem.listUnlockProgress = unlockProgressList[i];
-        }
-    }
+    
     
     /*
     public void SendRequestToServer(string type, WWWForm form)
