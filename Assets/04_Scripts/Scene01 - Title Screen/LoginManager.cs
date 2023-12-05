@@ -12,7 +12,7 @@ public class LoginResultData
 {
     public string status;
 
-    public PlayerSaveData playerSaveData;
+    private PlayerSaveData playerSaveData;
 
     public PlayerSaveData GetPlayerSaveData()
     {
