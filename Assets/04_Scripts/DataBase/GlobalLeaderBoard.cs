@@ -39,6 +39,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                 case "GameProcess":
                     {
                         ReturnGlobalLeaderBoardData<GlobalTotalGameProcessData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<GlobalTotalGameProcessData>>(result);
+                        
                         int saveListSize = GameProcessItemList.Count;
                         GameObject Item;
 
@@ -239,8 +240,9 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
 [Serializable]
 public class ReturnGlobalLeaderBoardData<T>
 {
-    public string status;
+    public List<int> placeList;
     public List<T> returnLeaderBoardData;
+    public StageLeaderboardData playerLeaderBoardData;
 }
 
 //GlobalTotalGameProcessLeaderBoard - 遊戲總進度排行榜
@@ -279,7 +281,7 @@ public class GlobalTotalScoreData
     //遊戲總得分: int
     //達成時的遊戲時長: int
 
-    public string playerName;
+    public string playerName;   
     public int totalScore;
     public int playTime;
 }

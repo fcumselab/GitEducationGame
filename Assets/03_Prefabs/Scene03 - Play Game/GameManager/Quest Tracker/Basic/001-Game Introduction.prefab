@@ -4974,6 +4974,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 
+      - useVariable: 1
+        name: displayText
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -5016,7 +5022,7 @@ MonoBehaviour:
       - GameData Manager
       - Quest Tracker
       - Reference
-      variableCategoryIDs: 03000000010000000200000003000000000000000000000000000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 0300000001000000020000000300000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -5025,7 +5031,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 010000000300000006000000
+    outVariableIndices: 01000000030000000700000006000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -5088,7 +5094,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 680.3906
-        y: 338.6797
+        y: 386.6797
         width: 100
         height: 16
       isBreakpoint: 0
@@ -5151,7 +5157,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1826.6406
-        y: 468.10156
+        y: 516.10156
         width: 123
         height: 16
       isBreakpoint: 0
@@ -5236,7 +5242,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 2207.2266
-        y: 529.6172
+        y: 577.6172
         width: 100
         height: 32
       isBreakpoint: 0
@@ -5330,7 +5336,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 350.125
-        y: 263.16406
+        y: 311.16406
         width: 135
         height: 48
       isBreakpoint: 0
@@ -5569,7 +5575,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 942.8281
-        y: 337.77344
+        y: 385.77344
         width: 101
         height: 32
       isBreakpoint: 0
@@ -5705,7 +5711,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 309.14062
-        y: 468.82812
+        y: 516.8281
         width: 214
         height: 48
       isBreakpoint: 0
@@ -5802,7 +5808,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 940.75
-        y: 431.4375
+        y: 479.4375
         width: 100
         height: 48
       isBreakpoint: 0
@@ -5947,7 +5953,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 939.1094
-        y: 515.7578
+        y: 563.7578
         width: 100
         height: 48
       isBreakpoint: 0
@@ -6092,7 +6098,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1813.3984
-        y: 566.3672
+        y: 614.3672
         width: 187
         height: 32
       isBreakpoint: 0
@@ -6243,7 +6249,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 2032.1953
-        y: 567.7422
+        y: 615.7422
         width: 166
         height: 32
       isBreakpoint: 0
@@ -6349,7 +6355,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 324.14062
-        y: 198.23438
+        y: 246.23438
         width: 187
         height: 48
       isBreakpoint: 0
@@ -6500,7 +6506,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 635.77344
-        y: 215.35156
+        y: 263.35156
         width: 124
         height: 16
       isBreakpoint: 0
@@ -6585,7 +6591,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 2316
-        y: 578.15625
+        y: 626.15625
         width: 342
         height: 16
       isBreakpoint: 0
@@ -6720,7 +6726,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 272.79688
-        y: 566.52344
+        y: 614.52344
         width: 205
         height: 32
       isBreakpoint: 0
@@ -6847,9 +6853,9 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 272.95312
-        y: 652.83594
+        y: 700.83594
         width: 143
-        height: 64
+        height: 48
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -6859,15 +6865,6 @@ MonoBehaviour:
           isSystemEvent: 0
           isGlobal: 0
         toState: Init Fsm On
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 8
-      - fsmEvent:
-          name: git/version
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Set run message (git -v)
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -6884,16 +6881,14 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.StringSwitch
-        - HutongGames.PlayMaker.Actions.StringSwitch
         - HutongGames.PlayMaker.Actions.NextFrameEvent
         customNames:
         - 
-        - git command
         - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000060000000e000000
-        actionHashCodes: 76d0e60176d0e60188611604
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000006000000
+        actionHashCodes: 76d0e60188611604
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -6916,24 +6911,6 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: init
-        - useVariable: 1
-          name: commandType
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: --version
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: -v
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -6948,19 +6925,15 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - CommandType/init
-        - git/version
-        - git/version
         - next
-        byteData: 0000
-        arrayParamSizes: 01000000010000000200000002000000
+        byteData: 00
+        arrayParamSizes: 0100000001000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmString
         - HutongGames.PlayMaker.FsmEvent
-        - HutongGames.PlayMaker.FsmString
-        - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 120000000c000000120000000c0000001700000001000000120000000c00000012000000120000000c00000017000000170000000100000017000000
+        paramDataType: 120000000c000000120000000c000000170000000100000017000000
         paramName:
         - stringVariable
         - compareTo
@@ -6968,102 +6941,16 @@ MonoBehaviour:
         - sendEvent
         - 
         - everyFrame
-        - stringVariable
-        - compareTo
-        - 
-        - 
         - sendEvent
-        - 
-        - 
-        - everyFrame
-        - sendEvent
-        paramDataPos: 000000000000000001000000010000000000000000000000020000000200000003000000040000000300000001000000020000000100000003000000
-        paramByteDataSize: 000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000
-    - name: Set run message (git -v)
-      description: 
-      colorIndex: 8
-      position:
-        serializedVersion: 2
-        x: 501.0547
-        y: 675.0078
-        width: 174
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Continue Action (command)
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetStringValue
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: c030f103
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: commandRunResultMessage
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "\u7576\u524D\u7684 git \u7248\u672C\u70BA\u6700\u65B0\u7248\uFF01"
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 120000001200000001000000
-        paramName:
-        - stringVariable
-        - stringValue
-        - everyFrame
-        paramDataPos: 000000000100000000000000
-        paramByteDataSize: 000000000000000001000000
+        paramDataPos: 00000000000000000100000001000000000000000000000001000000
+        paramByteDataSize: 00000000000000000000000000000000000000000100000000000000
     - name: Continue Action (command)
       description: 
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 611.0781
-        y: 1304.4609
+        x: 608.96094
+        y: 1470.75
         width: 194
         height: 16
       isBreakpoint: 0
@@ -7164,8 +7051,8 @@ MonoBehaviour:
       colorIndex: 4
       position:
         serializedVersion: 2
-        x: 371.01562
-        y: 1299.7656
+        x: 368.89844
+        y: 1466.0547
         width: 222
         height: 16
       isBreakpoint: 0
@@ -7267,7 +7154,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 126.015625
-        y: 783.1875
+        y: 831.1875
         width: 102
         height: 16
       isBreakpoint: 0
@@ -7384,7 +7271,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 113.50781
-        y: 809.9922
+        y: 857.9922
         width: 111
         height: 16
       isBreakpoint: 0
@@ -7501,7 +7388,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 101.203125
-        y: 872.77344
+        y: 920.77344
         width: 123
         height: 16
       isBreakpoint: 0
@@ -7618,7 +7505,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 123.90625
-        y: 899.2578
+        y: 947.2578
         width: 100
         height: 16
       isBreakpoint: 0
@@ -7735,7 +7622,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 75.33594
-        y: 296.27344
+        y: 344.27344
         width: 100
         height: 16
       isBreakpoint: 0
@@ -7798,7 +7685,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 94.59375
-        y: 955.3672
+        y: 1003.3672
         width: 118
         height: 16
       isBreakpoint: 0
@@ -7915,7 +7802,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 96.17969
-        y: 983.65625
+        y: 1031.6562
         width: 133
         height: 16
       isBreakpoint: 0
@@ -8032,7 +7919,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 93.84375
-        y: 1014.2969
+        y: 1062.2969
         width: 115
         height: 16
       isBreakpoint: 0
@@ -8149,7 +8036,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 311.10938
-        y: 321.4453
+        y: 369.4453
         width: 225
         height: 128
       isBreakpoint: 0
@@ -8345,7 +8232,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 50.039062
-        y: 500.77344
+        y: 548.77344
         width: 100
         height: 16
       isBreakpoint: 0
@@ -8408,7 +8295,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 945.1875
-        y: 593.8047
+        y: 641.8047
         width: 100
         height: 48
       isBreakpoint: 0
@@ -8544,7 +8431,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 945.3828
-        y: 661.3203
+        y: 709.3203
         width: 100
         height: 48
       isBreakpoint: 0
@@ -8679,8 +8566,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 165.22656
-        y: 1262.0391
+        x: 163.10938
+        y: 1428.3281
         width: 116.5
         height: 32
       isBreakpoint: 0
@@ -8973,8 +8860,8 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 143.17188
-        y: 1319.0312
+        x: 141.05469
+        y: 1485.3203
         width: 172
         height: 16
       isBreakpoint: 0
@@ -9076,7 +8963,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 109.75
-        y: 756.0078
+        y: 804.0078
         width: 116
         height: 16
       isBreakpoint: 0
@@ -9193,7 +9080,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 119.96875
-        y: 674.22656
+        y: 722.22656
         width: 100
         height: 16
       isBreakpoint: 0
@@ -9343,7 +9230,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 254.29688
-        y: 746.14844
+        y: 794.14844
         width: 163
         height: 80
       isBreakpoint: 0
@@ -9476,7 +9363,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 251.42188
-        y: 858.7656
+        y: 906.7656
         width: 169
         height: 64
       isBreakpoint: 0
@@ -9591,7 +9478,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 239.19531
-        y: 955.1094
+        y: 1003.1094
         width: 179
         height: 80
       isBreakpoint: 0
@@ -9724,9 +9611,9 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 244.10938
-        y: 1081.3516
+        y: 1129.3516
         width: 167
-        height: 80
+        height: 96
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -9767,17 +9654,26 @@ MonoBehaviour:
         linkConstraint: 0
         linkTarget: 0
         colorIndex: 0
+      - fsmEvent:
+          name: CommandType/git
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Git Fsm On
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 8
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.StringSwitch
-        - HutongGames.PlayMaker.Actions.DebugLog
+        - HutongGames.PlayMaker.Actions.NextFrameEvent
         customNames:
         - 
         - 
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 000000000c000000
-        actionHashCodes: 76d0e6019c59e501
+        actionHashCodes: 76d0e60188611604
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -9818,12 +9714,6 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: pull
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Error! Quest Filter
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -9841,14 +9731,15 @@ MonoBehaviour:
         - CommandType/remote
         - CommandType/push
         - CommandType/pull
-        byteData: 000000000001
+        - CommandType/git
+        byteData: 00
         arrayParamSizes: 0400000004000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmString
         - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 120000000c000000120000001200000012000000120000000c0000001700000017000000170000001700000001000000070000001200000001000000
+        paramDataType: 120000000c000000120000001200000012000000120000000c000000170000001700000017000000170000000100000017000000
         paramName:
         - stringVariable
         - compareTo
@@ -9862,18 +9753,16 @@ MonoBehaviour:
         - 
         - 
         - everyFrame
-        - logLevel
-        - text
-        - sendToUnityLog
-        paramDataPos: 000000000000000001000000020000000300000004000000010000000000000001000000020000000300000000000000010000000500000005000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000040000000000000001000000
+        - sendEvent
+        paramDataPos: 00000000000000000100000002000000030000000400000001000000000000000100000002000000030000000000000004000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000
     - name: Clone Fsm On
       description: 
       colorIndex: 2
       position:
         serializedVersion: 2
         x: 104.10156
-        y: 1069.3594
+        y: 1117.3594
         width: 110
         height: 16
       isBreakpoint: 0
@@ -9990,7 +9879,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 97.92969
-        y: 1087.4922
+        y: 1135.4922
         width: 122
         height: 16
       isBreakpoint: 0
@@ -10107,7 +9996,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 113.96875
-        y: 1112.0781
+        y: 1160.0781
         width: 106
         height: 16
       isBreakpoint: 0
@@ -10224,7 +10113,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 112.53906
-        y: 1137.7969
+        y: 1185.7969
         width: 100
         height: 16
       isBreakpoint: 0
@@ -10341,7 +10230,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1080.1562
-        y: 447.14062
+        y: 495.14062
         width: 109
         height: 32
       isBreakpoint: 0
@@ -10452,7 +10341,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1313
-        y: 415.3125
+        y: 463.3125
         width: 121
         height: 48
       isBreakpoint: 0
@@ -10593,7 +10482,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1193.7891
-        y: 440.60156
+        y: 488.60156
         width: 100
         height: 48
       isBreakpoint: 0
@@ -10695,7 +10584,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1315.5625
-        y: 472.28906
+        y: 520.28906
         width: 122
         height: 48
       isBreakpoint: 0
@@ -10836,7 +10725,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1077.4531
-        y: 663.9297
+        y: 711.9297
         width: 159
         height: 32
       isBreakpoint: 0
@@ -10975,7 +10864,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1252.3203
-        y: 667.03125
+        y: 715.03125
         width: 136
         height: 48
       isBreakpoint: 0
@@ -11116,7 +11005,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1398.6094
-        y: 671.0781
+        y: 719.0781
         width: 100
         height: 32
       isBreakpoint: 0
@@ -11255,7 +11144,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1507.7109
-        y: 662.9531
+        y: 710.9531
         width: 147
         height: 48
       isBreakpoint: 0
@@ -11396,7 +11285,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1081.3516
-        y: 605.4375
+        y: 653.4375
         width: 169
         height: 32
       isBreakpoint: 0
@@ -11535,7 +11424,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1249.1797
-        y: 607.3828
+        y: 655.3828
         width: 137
         height: 48
       isBreakpoint: 0
@@ -11676,7 +11565,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1398.25
-        y: 613.64844
+        y: 661.64844
         width: 109
         height: 32
       isBreakpoint: 0
@@ -11815,7 +11704,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1511.6094
-        y: 604.46094
+        y: 652.46094
         width: 147
         height: 48
       isBreakpoint: 0
@@ -11956,7 +11845,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1459.6953
-        y: 538.0781
+        y: 586.0781
         width: 139
         height: 48
       isBreakpoint: 0
@@ -12130,7 +12019,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 337.625
-        y: 58.328125
+        y: 106.328125
         width: 100
         height: 16
       isBreakpoint: 0
@@ -12176,6 +12065,123 @@ MonoBehaviour:
         paramName: []
         paramDataPos: 
         paramByteDataSize: 
+    - name: Git Fsm On
+      description: 
+      colorIndex: 8
+      position:
+        serializedVersion: 2
+        x: 490.8047
+        y: 1209.5781
+        width: 100
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetFsmString
+        - HutongGames.PlayMaker.Actions.EnableFSM
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000005000000
+        actionHashCodes: 52221a0287aa9700
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: GitCommands
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: GitCommands
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Git Command
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: command
+        - useVariable: 1
+          name: command
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Git Command
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001200000012000000120000000100000014000000120000001100000011000000
+        paramName:
+        - gameObject
+        - fsmName
+        - variableName
+        - setValue
+        - everyFrame
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        paramDataPos: 000000000000000001000000020000000000000001000000030000000000000001000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -12307,6 +12313,9 @@ MonoBehaviour:
       isSystemEvent: 0
       isGlobal: 0
     - name: CommandType/pull
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: CommandType/git
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions:

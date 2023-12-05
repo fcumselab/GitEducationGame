@@ -5,20 +5,20 @@ using Sirenix.OdinInspector;
 
 public class GameDataManager : SerializedMonoBehaviour
 {
+    [Header("ResultWindow")]
     [SerializeField] List<string> completeQuestNameList;
-    [SerializeField] List<string> completeQuestTimeList;
+    [SerializeField] List<int> completeQuestTimeList;
     [SerializeField] List<int> completeQuestUsedTimeList;
     [SerializeField] List<string> completeQuestTypeList;
 
     //type: self, hint, answer, perfect
-    public void AddCompleteQuestData(string questName, string time, string type, string lastCompletedTime)
+    public void AddCompleteQuestData(string questName, float time, string type, int lastCompletedTime)
     {
-        int completedTime = MyTimer.Instance.ChangeTimeToSec(time);
-        int lastCompletedTimeNum = MyTimer.Instance.ChangeTimeToSec(lastCompletedTime);
+        int completedTime = (int)time;
 
         completeQuestNameList.Add(questName);
-        completeQuestTimeList.Add(time);
-        completeQuestUsedTimeList.Add(completedTime - lastCompletedTimeNum);
+        completeQuestTimeList.Add(completedTime);
+        completeQuestUsedTimeList.Add(completedTime - lastCompletedTime);
         completeQuestTypeList.Add(type);
     }
 
@@ -27,7 +27,7 @@ public class GameDataManager : SerializedMonoBehaviour
         return completeQuestNameList.ToArray();
     }
 
-    public string[] GetCompleteQuestTime()
+    public int[] GetCompleteQuestTime()
     {
         return completeQuestTimeList.ToArray();
     }

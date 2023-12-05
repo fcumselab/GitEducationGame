@@ -11432,7 +11432,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 345.23438
+        x: 457.23438
         y: 113.828125
         width: 157
         height: 32
@@ -11593,10 +11593,10 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 295.2578
+        x: 407.2578
         y: 300.9375
         width: 250
-        height: 64
+        height: 80
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -11628,6 +11628,15 @@ MonoBehaviour:
         linkConstraint: 0
         linkTarget: 0
         colorIndex: 8
+      - fsmEvent:
+          name: CommandType/git
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Open GameManual
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 18
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.StringSwitch
@@ -11637,7 +11646,7 @@ MonoBehaviour:
         - 
         actionEnabled: 0101
         actionIsOpen: 0101
-        actionStartIndex: 0000000008000000
+        actionStartIndex: 000000000c000000
         actionHashCodes: 76d0e60188611604
         unityObjectParams: []
         fsmGameObjectParams: []
@@ -11667,6 +11676,18 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: log
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: -h
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: --help
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -11682,34 +11703,40 @@ MonoBehaviour:
         stringParams:
         - CommandType/status
         - CommandType/log
+        - CommandType/git
+        - CommandType/git
         - false
         byteData: 00
-        arrayParamSizes: 0200000002000000
+        arrayParamSizes: 0400000004000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmString
         - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 120000000c00000012000000120000000c00000017000000170000000100000017000000
+        paramDataType: 120000000c000000120000001200000012000000120000000c000000170000001700000017000000170000000100000017000000
         paramName:
         - stringVariable
         - compareTo
         - 
         - 
+        - 
+        - 
         - sendEvent
+        - 
+        - 
         - 
         - 
         - everyFrame
         - sendEvent
-        paramDataPos: 000000000000000001000000020000000100000000000000010000000000000002000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000100000000000000
+        paramDataPos: 00000000000000000100000002000000030000000400000001000000000000000100000002000000030000000000000004000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000
     - name: Close this FSM
       description: 
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 385.16406
-        y: 716.66406
+        x: 459.5
+        y: 727.2344
         width: 117
         height: 16
       isBreakpoint: 0
@@ -11792,8 +11819,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 55.632812
-        y: 472.14844
+        x: 62.90625
+        y: 476.83594
         width: 262
         height: 32
       isBreakpoint: 0
@@ -11898,8 +11925,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 89.96094
-        y: 404.92188
+        x: 97.234375
+        y: 409.60938
         width: 213
         height: 32
       isBreakpoint: 0
@@ -12123,7 +12150,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 348.21875
+        x: 460.21875
         y: 230.60156
         width: 141
         height: 48
@@ -12288,7 +12315,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 362.7422
+        x: 474.7422
         y: 162.5625
         width: 119
         height: 48
@@ -12388,7 +12415,7 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 640.66406
+        x: 752.66406
         y: 541.4531
         width: 100
         height: 32
@@ -12494,8 +12521,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 124.21094
-        y: 577.9844
+        x: 131.48438
+        y: 582.6719
         width: 142
         height: 32
       isBreakpoint: 0
@@ -12600,7 +12627,7 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 569.1406
+        x: 681.1406
         y: 448.82812
         width: 272
         height: 32
@@ -12706,7 +12733,7 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 647.52344
+        x: 759.52344
         y: 392.78906
         width: 166
         height: 32
@@ -12895,7 +12922,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 668.72656
+        x: 780.72656
         y: 341.54688
         width: 133
         height: 32
@@ -12968,6 +12995,112 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000000000000000000
         paramByteDataSize: 000000000000000001000000
+    - name: Open GameManual
+      description: 
+      colorIndex: 10
+      position:
+        serializedVersion: 2
+        x: 457.89844
+        y: 464.9297
+        width: 140
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Close this FSM
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SendEvent
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 5e69bb04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams:
+        - target: 1
+          excludeSelf:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          gameObject:
+            ownerOption: 1
+            gameObject:
+              useVariable: 1
+              name: Window/GameManualWindow
+              tooltip: 
+              showInInspector: 0
+              networkSync: 0
+              value: {fileID: 0}
+          fsmName:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          sendToChildren:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          fsmComponent: {fileID: 0}
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - Common/Window/Show Window
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1f000000170000000f00000001000000
+        paramName:
+        - eventTarget
+        - sendEvent
+        - delay
+        - everyFrame
+        paramDataPos: 00000000000000000000000000000000
+        paramByteDataSize: 00000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -12997,6 +13130,12 @@ MonoBehaviour:
       isSystemEvent: 0
       isGlobal: 1
     - name: finish
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: commit
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: CommandType/git
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions: []
@@ -19601,7 +19740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -25325,7 +25464,7 @@ MonoBehaviour:
         x: 535.75
         y: 881.2656
         width: 163
-        height: 64
+        height: 80
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -25357,6 +25496,15 @@ MonoBehaviour:
         linkConstraint: 0
         linkTarget: 0
         colorIndex: 0
+      - fsmEvent:
+          name: Num/2
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Open GameManual
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.StringSwitch
@@ -25366,7 +25514,7 @@ MonoBehaviour:
         - 
         actionEnabled: 0101
         actionIsOpen: 0101
-        actionStartIndex: 0000000008000000
+        actionStartIndex: 000000000c000000
         actionHashCodes: 76d0e60188611604
         unityObjectParams: []
         fsmGameObjectParams: []
@@ -25396,6 +25544,18 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: log
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: --help
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: -h
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -25411,34 +25571,40 @@ MonoBehaviour:
         stringParams:
         - CommandType/status
         - CommandType/log
+        - Num/2
+        - Num/2
         - FINISHED
         byteData: 00
-        arrayParamSizes: 0200000002000000
+        arrayParamSizes: 0400000004000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmString
         - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 120000000c00000012000000120000000c00000017000000170000000100000017000000
+        paramDataType: 120000000c000000120000001200000012000000120000000c000000170000001700000017000000170000000100000017000000
         paramName:
         - stringVariable
         - compareTo
         - 
         - 
+        - 
+        - 
         - sendEvent
+        - 
+        - 
         - 
         - 
         - everyFrame
         - sendEvent
-        paramDataPos: 000000000000000001000000020000000100000000000000010000000000000002000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000100000000000000
+        paramDataPos: 00000000000000000100000002000000030000000400000001000000000000000100000002000000030000000000000004000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000
     - name: Save Files Event (Status)
       description: 
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 241.21094
-        y: 964.64844
+        x: 191.17969
+        y: 913.3047
         width: 177
         height: 32
       isBreakpoint: 0
@@ -25710,8 +25876,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 821.1094
-        y: 1001.9375
+        x: 872.3906
+        y: 974.27344
         width: 173
         height: 32
       isBreakpoint: 0
@@ -25899,8 +26065,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 846.3047
-        y: 932.8906
+        x: 901.53906
+        y: 928.91406
         width: 100
         height: 32
       isBreakpoint: 0
@@ -25972,6 +26138,112 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000000000000000000
         paramByteDataSize: 000000000000000001000000
+    - name: Open GameManual
+      description: 
+      colorIndex: 10
+      position:
+        serializedVersion: 2
+        x: 194.70312
+        y: 996.3125
+        width: 140
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Command Id Add
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SendEvent
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 5e69bb04
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams:
+        - target: 1
+          excludeSelf:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          gameObject:
+            ownerOption: 1
+            gameObject:
+              useVariable: 1
+              name: Window/GameManualWindow
+              tooltip: 
+              showInInspector: 0
+              networkSync: 0
+              value: {fileID: 0}
+          fsmName:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          sendToChildren:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          fsmComponent: {fileID: 0}
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - Common/Window/Show Window
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1f000000170000000f00000001000000
+        paramName:
+        - eventTarget
+        - sendEvent
+        - delay
+        - everyFrame
+        paramDataPos: 00000000000000000000000000000000
+        paramByteDataSize: 00000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -26030,6 +26302,12 @@ MonoBehaviour:
     - name: finish
       isSystemEvent: 0
       isGlobal: 0
+    - name: Num/2
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Common/Window/Show Window
+      isSystemEvent: 0
+      isGlobal: 1
     globalTransitions: []
     variables:
       floatVariables:

@@ -46,7 +46,6 @@ public class StageManager : SerializedMonoBehaviour
     {
         foreach (string windowName in renderWindowList)
         {
-            Debug.Log("want to render: " + windowName);
             GameObject cloneWindow = Instantiate(AllWindowDict[windowName], GameScreen.transform);
             cloneWindow.SetActive(true);
             cloneWindow.name = windowName;

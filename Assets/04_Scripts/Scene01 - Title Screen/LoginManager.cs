@@ -11,13 +11,7 @@ using Newtonsoft.Json;
 public class LoginResultData
 {
     public string status;
-
-    private PlayerSaveData playerSaveData;
-
-    public PlayerSaveData GetPlayerSaveData()
-    {
-        return playerSaveData;
-    }
+    public PlayerSaveData playerSaveData;
 }
 
 public class LoginManager : SerializedMonoBehaviour
@@ -78,7 +72,7 @@ public class LoginManager : SerializedMonoBehaviour
             if (result.Contains("successful"))
             {
                 LoginResultData loginResultData = JsonUtility.FromJson<LoginResultData>(result);
-                SaveManager.Instance.LoadPlayerSaveData(username, loginResultData.GetPlayerSaveData());
+                SaveManager.Instance.LoadPlayerSaveData(username, loginResultData.playerSaveData);
                 runResult = "successful";
             }
             else if (result.Contains("username not found"))
