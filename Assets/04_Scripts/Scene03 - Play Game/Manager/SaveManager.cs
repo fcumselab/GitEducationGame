@@ -43,7 +43,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     public List<StageData> GetStageDataListFromPlayerData()
     {
-        if (playerSaveData.stageData.Count == 0)
+        if (playerSaveData == null)
         {
             Debug.Log("using testingPlayerSaveData");
             return testingPlayerSaveData.stageData;
@@ -56,7 +56,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     public List<GameManualData> GetGameManualDataListFromPlayerData()
     {
-        if (playerSaveData.stageData.Count == 0)
+        if (playerSaveData == null)
         {
             Debug.Log("using testingPlayerSaveData");
             return testingPlayerSaveData.gameManualData;
@@ -69,7 +69,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     public PlayerSaveData GetPlayerSaveData()
     {
-        if (playerSaveData.stageData.Count == 0)
+        if (playerSaveData == null)
         {
             Debug.Log("using testingPlayerSaveData");
             return testingPlayerSaveData;
