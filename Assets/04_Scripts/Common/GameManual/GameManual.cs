@@ -23,8 +23,6 @@ public class GameManual : SerializedMonoBehaviour
     {
         for (int i = 0; i < playerGameManualData.Count; i++)
         {
-            Debug.Log("load times : " + i);
-
             GameManualData manualData = playerGameManualData[i];
             string type = manualData.manualType;
             //CommandNameList, RuleAndWindowNameList, VersionControlNameList...
@@ -33,8 +31,6 @@ public class GameManual : SerializedMonoBehaviour
 
             for (int t = 0; t < manualData.items.Count; t++)
             {
-                Debug.Log(manualData.items[t].listName);
-
                 GameManualItem item = manualData.items[t];
                 nameList.InsertItem(item.listName, t);
                 unlockProgressList.InsertItem(item.listUnlockProgress, t);
