@@ -1077,15 +1077,15 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Initial Button
-    startState: Build String
+    startState: Get StageItemsContent
     states:
     - name: Set MainTitleText
       description: 
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 163
-        y: 179.52344
+        x: 83
+        y: 227.52344
         width: 134
         height: 32
       isBreakpoint: 0
@@ -1211,8 +1211,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 175
-        y: 111
+        x: 95
+        y: 159
         width: 100
         height: 32
       isBreakpoint: 0
@@ -1337,8 +1337,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 178.51562
-        y: 253.34375
+        x: 98.515625
+        y: 301.34375
         width: 100
         height: 16
       isBreakpoint: 0
@@ -1416,6 +1416,136 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 00000000000000000000000001000000
         paramByteDataSize: 00000000000000000000000000000000
+    - name: Get StageItemsContent
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 58
+        y: 106
+        width: 169
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Build String
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetParent
+        - HutongGames.PlayMaker.Actions.GetParent
+        - HutongGames.PlayMaker.Actions.SetFsmGameObject
+        customNames:
+        - 
+        - 
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000200000004000000
+        actionHashCodes: d97b7202d97b72025b66cf00
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Parent
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: StageItemsContent
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: StageItemsContent
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Parent
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Button
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: StageItemsContent
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001300000014000000130000001400000012000000120000001300000001000000
+        paramName:
+        - gameObject
+        - storeResult
+        - gameObject
+        - storeResult
+        - gameObject
+        - fsmName
+        - variableName
+        - setValue
+        - everyFrame
+        paramDataPos: 000000000000000001000000010000000200000000000000010000000200000000000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -1431,13 +1561,13 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: 
+        value: "\u904A\u6232\u74B0\u5883\u4ECB\u7D39"
       - useVariable: 1
         name: Reference/MainStageTitleText (Key)
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: 
+        value: Game Introduction
       - useVariable: 1
         name: string
         tooltip: 
@@ -1456,6 +1586,18 @@ MonoBehaviour:
         showInInspector: 1
         networkSync: 0
         value: {fileID: 2586938266022571759}
+      - useVariable: 1
+        name: Parent
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: StageItemsContent
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -1463,7 +1605,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 00000000000000000000000000000000
+      variableCategoryIDs: 000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -1535,7 +1677,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 214
-        y: 300
+        y: 364
         width: 100
         height: 48
       isBreakpoint: 0
@@ -1619,7 +1761,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 56.5
-        y: 406.0625
+        y: 470.0625
         width: 142
         height: 32
       isBreakpoint: 0
@@ -1786,7 +1928,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 312.89844
-        y: 405.9375
+        y: 469.9375
         width: 130
         height: 32
       isBreakpoint: 0
@@ -1953,7 +2095,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 207
-        y: 489
+        y: 553
         width: 100
         height: 16
       isBreakpoint: 0
@@ -2037,7 +2179,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 519
-        y: 295
+        y: 359
         width: 240
         height: 16
       isBreakpoint: 0
@@ -2330,7 +2472,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 599.5
-        y: 336.5
+        y: 400.5
         width: 100
         height: 16
       isBreakpoint: 0
@@ -2465,7 +2607,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: 
+        value: "\u904A\u6232\u74B0\u5883\u4ECB\u7D39"
       - useVariable: 1
         name: string
         tooltip: 
@@ -2477,7 +2619,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: 
+        value: Game Introduction
       vector2Variables: []
       vector3Variables: []
       colorVariables:
@@ -2757,7 +2899,7 @@ MonoBehaviour:
           name: UI CLICK
           isSystemEvent: 1
           isGlobal: 0
-        toState: Find Game Object
+        toState: Center Button
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -2852,8 +2994,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 83
-        y: 173
+        x: 76.71094
+        y: 167.13281
         width: 134
         height: 32
       isBreakpoint: 0
@@ -2972,7 +3114,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 95
-        y: 249
+        y: 300
         width: 100
         height: 32
       isBreakpoint: 0
@@ -3119,6 +3261,132 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 0000000000000000010000000000000001000000010000000000000001000000000000000200000002000000020000000200000003000000
         paramByteDataSize: 0000000000000000000000000100000001000000000000000000000000000000000000000100000000000000000000000000000000000000
+    - name: Center Button
+      description: 
+      colorIndex: 12
+      position:
+        serializedVersion: 2
+        x: 78.5
+        y: 233
+        width: 112
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Find Game Object
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetFsmGameObject
+        - HutongGames.PlayMaker.Actions.EnableFSM
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000005000000
+        actionHashCodes: 5b66cf0087aa9700
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 2586938266684283599}
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: StageItemsContent
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: StageItemsContent
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Center Button
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: targetButton
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Center Button
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001200000012000000130000000100000014000000120000001100000011000000
+        paramName:
+        - gameObject
+        - fsmName
+        - variableName
+        - setValue
+        - everyFrame
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        paramDataPos: 000000000000000001000000000000000000000001000000020000000000000001000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
     events:
     - name: UI CLICK
       isSystemEvent: 1
@@ -3195,6 +3463,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
+      - useVariable: 1
+        name: StageItemsContent
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
       objectVariables:
       - useVariable: 1
         name: 
@@ -3216,7 +3490,8 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      - Get from initial
+      variableCategoryIDs: 000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -3225,7 +3500,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 
+    outVariableIndices: 0100000002000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
