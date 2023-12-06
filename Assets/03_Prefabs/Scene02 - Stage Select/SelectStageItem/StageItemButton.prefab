@@ -1084,8 +1084,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 83
-        y: 227.52344
+        x: 76
+        y: 226.52344
         width: 134
         height: 32
       isBreakpoint: 0
@@ -1096,7 +1096,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Enable FSM
+        toState: UI Image Set Sprite
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -1118,7 +1118,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Reference/MainStageText
+            name: Children/MainStageText
             tooltip: 
             showInInspector: 1
             networkSync: 0
@@ -1141,7 +1141,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 
+          value: "\u904A\u6232\u74B0\u5883\u4ECB\u7D39"
         - useVariable: 0
           name: 
           tooltip: 
@@ -1211,8 +1211,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 95
-        y: 159
+        x: 88
+        y: 158
         width: 100
         height: 32
       isBreakpoint: 0
@@ -1274,7 +1274,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 
+          value: Game Introduction
         - useVariable: 0
           name: 
           tooltip: 
@@ -1337,8 +1337,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 98.515625
-        y: 301.34375
+        x: 82.515625
+        y: 349.34375
         width: 100
         height: 16
       isBreakpoint: 0
@@ -1421,8 +1421,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 58
-        y: 106
+        x: 51
+        y: 105
         width: 169
         height: 32
       isBreakpoint: 0
@@ -1546,6 +1546,93 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000000000001000000010000000200000000000000010000000200000000000000
         paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000001000000
+    - name: UI Image Set Sprite
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 69
+        y: 292
+        width: 143
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Enable FSM
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.UiImageSetSprite
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: c4b05004
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Children/StageIcon
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 2586938266385381952}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams:
+        - useVariable: 1
+          name: StageIcon
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          typeName: UnityEngine.Sprite
+          value: {fileID: 0}
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001800000011000000
+        paramName:
+        - gameObject
+        - sprite
+        - resetOnExit
+        paramDataPos: 000000000000000000000000
+        paramByteDataSize: 000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -1581,11 +1668,17 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: Reference/MainStageText
+        name: Children/MainStageText
         tooltip: 
         showInInspector: 1
         networkSync: 0
         value: {fileID: 2586938266022571759}
+      - useVariable: 1
+        name: Children/StageIcon
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 2586938266385381952}
       - useVariable: 1
         name: Parent
         tooltip: 
@@ -1598,14 +1691,28 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
-      objectVariables: []
+      objectVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        typeName: 
+        value: {fileID: 0}
+      - useVariable: 1
+        name: StageIcon
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        typeName: UnityEngine.Sprite
+        value: {fileID: 0}
       materialVariables: []
       textureVariables: []
       arrayVariables: []
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -2572,11 +2679,11 @@ MonoBehaviour:
         networkSync: 0
         value: 0
       - useVariable: 1
-        name: isInitial
+        name: 
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: 1
+        value: 0
       stringVariables:
       - useVariable: 1
         name: stageName
@@ -2603,23 +2710,23 @@ MonoBehaviour:
         networkSync: 0
         value: 
       - useVariable: 1
-        name: Reference/MainStageTitleText
+        name: 
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: "\u904A\u6232\u74B0\u5883\u4ECB\u7D39"
+        value: 
       - useVariable: 1
-        name: string
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: Reference/MainStageTitleText (Key)
+        name: 
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: Game Introduction
+        value: 
       vector2Variables: []
       vector3Variables: []
       colorVariables:
@@ -2681,11 +2788,11 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 2586938266385381952}
       - useVariable: 1
-        name: Reference/MainStageText
+        name: 
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: {fileID: 2586938266022571759}
+        value: {fileID: 0}
       objectVariables:
       - useVariable: 1
         name: 
@@ -2816,7 +2923,7 @@ MonoBehaviour:
       - 
       - Get from StageSelectGameManager Script
       - Give to Popup
-      variableCategoryIDs: 01000000000000000100000002000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000001000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 01000000010000000200000002000000000000000000000000000000000000000000000000000000000000000100000001000000010000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -2825,7 +2932,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 000000000200000010000000110000001200000013000000
+    outVariableIndices: 00000000010000000b0000000c0000000d0000000e000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
