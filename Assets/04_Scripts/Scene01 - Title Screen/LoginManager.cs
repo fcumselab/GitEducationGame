@@ -37,7 +37,7 @@ public class LoginManager : SerializedMonoBehaviour
             else if (result.Contains("already sign up"))
             {
                 runResult = "failed";
-                warningMessage = "³o­Ó±b¸¹¤w¸g³Qµù¥U¹L¡I";
+                warningMessage = "ï¿½oï¿½Ó±bï¿½ï¿½ï¿½wï¿½gï¿½Qï¿½ï¿½ï¿½Uï¿½Lï¿½I";
             }
         }));
     }
@@ -78,11 +78,11 @@ public class LoginManager : SerializedMonoBehaviour
             else if (result.Contains("username not found"))
             {
                 runResult = "failed";
-                warningMessage = "§ä¤£¨ì³o­Ó±b¸¹¡I";
+                warningMessage = "ï¿½ä¤£ï¿½ï¿½oï¿½Ó±bï¿½ï¿½ï¿½I";
             }else if (result.Contains("password incorrect"))
             {
                 runResult = "failed";
-                warningMessage = "±K½X¿é¤J¿ù»~¡I";
+                warningMessage = "ï¿½Kï¿½Xï¿½ï¿½Jï¿½ï¿½ï¿½~ï¿½I";
             }
         }));
     }

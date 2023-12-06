@@ -23,6 +23,7 @@ public class GameRecordData
     [Header("Stage & Score")]
     public int totalStarCount;
     public int totalStageScore;
+    //totalStageProgress
     public int totalPlayTime;
     public int totalTimesStageClear;
 
@@ -31,6 +32,7 @@ public class GameRecordData
 
     [Header("Command")]
     public int totalRunCommandTimes;
+    //totalTimesCompleteQuest = Perfect + Good + Hint + Answer
     public int totalTimesQuestClearPerfect;
     public int totalTimesQuestClearGood;
     public int totalTimesQuestClearHint;

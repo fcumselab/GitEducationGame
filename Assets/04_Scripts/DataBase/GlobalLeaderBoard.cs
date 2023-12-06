@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -12,22 +12,22 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
     [Header("Prefab")]
     [SerializeField] GameObject ClearStageItem;
     [SerializeField] GameObject ScoreItem;
-    [SerializeField] GameObject GameProcessItem;
+    [SerializeField] GameObject GameProgressItem;
 
     [Header("PlayerPlace")]
     [SerializeField] GameObject PlayerClearStageItem;
     [SerializeField] GameObject PlayerScoreItem;
-    [SerializeField] GameObject PlayerGameProcessItem;
+    [SerializeField] GameObject PlayerGameProgressItem;
 
     [Header("generate location")]
     [SerializeField] Transform ClearStageItems;
     [SerializeField] Transform TotalScoreItems;
-    [SerializeField] Transform TotalGameProcessItems;
+    [SerializeField] Transform TotalGameProgressItems;
 
     [Header("Save")]
     [SerializeField] List<GameObject> ClearStageItemList;
     [SerializeField] List<GameObject> ScoreItemList;
-    [SerializeField] List<GameObject> GameProcessItemList;
+    [SerializeField] List<GameObject> GameProgressItemList;
 
     public void GetLeaderBoardData(string leaderBoardType, string stageName = "")
     {
@@ -36,14 +36,14 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
         {
             switch (leaderBoardType)
             {
-                case "GameProcess":
+                case "GameProgress":
                     {
-                        ReturnGlobalLeaderBoardData<GlobalTotalGameProcessData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<GlobalTotalGameProcessData>>(result);
+                        ReturnGlobalLeaderBoardData<GlobalTotalGameProgressData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<GlobalTotalGameProgressData>>(result);
                         
-                        int saveListSize = GameProcessItemList.Count;
+                        int saveListSize = GameProgressItemList.Count;
                         GameObject Item;
 
-                        foreach (GameObject item in GameProcessItemList)
+                        foreach (GameObject item in GameProgressItemList)
                         {
                             item.SetActive(false);
                         }
@@ -52,12 +52,12 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                         {
                             if (saveListSize < i + 1)
                             {
-                                Item = Instantiate(GameProcessItem, TotalGameProcessItems);
-                                GameProcessItemList.Add(Item);
+                                Item = Instantiate(GameProgressItem, TotalGameProgressItems);
+                                GameProgressItemList.Add(Item);
                             }
                             else
                             {
-                                Item = GameProcessItemList[i];
+                                Item = GameProgressItemList[i];
                             }
 
                             Item.SetActive(true);
@@ -66,25 +66,25 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                             text.text = $"{i + 1}";
                             text = Item.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                             text.text = returnData.returnLeaderBoardData[i].playerName;
-                            text = Item.transform.Find("PlayerDetailed/ProcessPanel/Process Text").GetComponent<Text>();
-                            text.text = $"{returnData.returnLeaderBoardData[i].gameProcess} %";
+                            text = Item.transform.Find("PlayerDetailed/ProgressPanel/Progress Text").GetComponent<Text>();
+                            text.text = $"{returnData.returnLeaderBoardData[i].gameProgress} %";
                             text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
                             text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playTime);
                         }
 
                         //Player own place item
                         int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
-                        GlobalTotalGameProcessData playerData = null;
+                        GlobalTotalGameProgressData playerData = null;
                         if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
                         bool isFoundPlayerData = (playerData != null);
 
-                        text = PlayerGameProcessItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
+                        text = PlayerGameProgressItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
                         text.text = isFoundPlayerData ? $"{foundPlayerDataIndex + 1}" : "notFound";
-                        text = PlayerGameProcessItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
+                        text = PlayerGameProgressItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                         text.text = SaveManager.Instance.userName;
-                        text = PlayerGameProcessItem.transform.Find("PlayerDetailed/ProcessPanel/Process Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{playerData.gameProcess} %" : "000 %";
-                        text = PlayerGameProcessItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
+                        text = PlayerGameProgressItem.transform.Find("PlayerDetailed/ProgressPanel/Progress Text").GetComponent<Text>();
+                        text.text = isFoundPlayerData ? $"{playerData.gameProgress} %" : "000 %";
+                        text = PlayerGameProgressItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
                         text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playTime) : "???" ;
                         break;
                     }
@@ -245,28 +245,28 @@ public class ReturnGlobalLeaderBoardData<T>
     public StageLeaderboardData playerLeaderBoardData;
 }
 
-//GlobalTotalGameProcessLeaderBoard - ¹CÀ¸Á`¶i«×±Æ¦æº]
+//GlobalTotalGameProgressLeaderBoard - ï¿½Cï¿½ï¿½ï¿½`ï¿½iï¿½×±Æ¦ï¿½]
 [Serializable]
-public class GlobalTotalGameProcessLeaderBoard
+public class GlobalTotalGameProgressLeaderBoard
 {
-    public string leaderBoardType = "GameProcess";
-    public List<GlobalTotalGameProcessData> globalGameProcessDataList;
+    public string leaderBoardType = "GameProgress";
+    public List<GlobalTotalGameProgressData> globalGameProgressDataList;
 }
 
 [Serializable]
-public class GlobalTotalGameProcessData
+public class GlobalTotalGameProgressData
 {
-    //¨Ï¥ÎªÌ¦WºÙ: string
-    //¹CÀ¸Á`¶i«×: int
-    //¹F¦¨®Éªº¹CÀ¸®Éªø: int
+    //ï¿½Ï¥ÎªÌ¦Wï¿½ï¿½: string
+    //ï¿½Cï¿½ï¿½ï¿½`ï¿½iï¿½ï¿½: int
+    //ï¿½Fï¿½ï¿½ï¿½Éªï¿½ï¿½Cï¿½ï¿½ï¿½Éªï¿½: int
 
     public string playerName;
-    public int gameProcess;
+    public int gameProgress;
     public int playTime;
 }
 
 
-//GlobalTotalScoreLeaderBoard - ¹CÀ¸Á`±o¤À±Æ¦æº]
+//GlobalTotalScoreLeaderBoard - ï¿½Cï¿½ï¿½ï¿½`ï¿½oï¿½ï¿½ï¿½Æ¦ï¿½]
 [Serializable]
 public class GlobalTotalScoreLeaderBoard
 {
@@ -277,9 +277,9 @@ public class GlobalTotalScoreLeaderBoard
 [Serializable]
 public class GlobalTotalScoreData
 {
-    //¨Ï¥ÎªÌ¦WºÙ: string
-    //¹CÀ¸Á`±o¤À: int
-    //¹F¦¨®Éªº¹CÀ¸®Éªø: int
+    //ï¿½Ï¥ÎªÌ¦Wï¿½ï¿½: string
+    //ï¿½Cï¿½ï¿½ï¿½`ï¿½oï¿½ï¿½: int
+    //ï¿½Fï¿½ï¿½ï¿½Éªï¿½ï¿½Cï¿½ï¿½ï¿½Éªï¿½: int
 
     public string playerName;   
     public int totalScore;
@@ -287,7 +287,7 @@ public class GlobalTotalScoreData
 }
 
 
-//GlobalClearStageBestRecord - ³q¹LÃö¥d³Ì¨Î°O¿ý±Æ¦æº]
+//GlobalClearStageBestRecord - ï¿½qï¿½Lï¿½ï¿½ï¿½dï¿½Ì¨Î°Oï¿½ï¿½ï¿½Æ¦ï¿½]
 [Serializable]
 public class GlobalClearStageBestRecord
 {

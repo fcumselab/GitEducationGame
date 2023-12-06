@@ -2,9 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using HutongGames.PlayMaker;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class SaveManager : SerializedMonoBehaviour
 {
@@ -134,36 +132,6 @@ public class SaveManager : SerializedMonoBehaviour
         }
     }
 
-    
-    
-    /*
-    public void SendRequestToServer(string type, WWWForm form)
-    {
-        if(type == "POST")
-        {
-            StartCoroutine(PostWebData(form));
-
-        }
-        else if (type == "GET"){
-            StartCoroutine(GetWebData());
-        }
-    }*/
-
-    
-    IEnumerator GetWebData()
-    {
-        UnityWebRequest www = UnityWebRequest.Get("localhost:5050/getData");
-        yield return www.SendWebRequest();
-
-        if (www.result != UnityWebRequest.Result.Success)
-        {
-            Debug.Log(www.error);
-        }
-        else
-        {
-            Debug.Log(www.downloadHandler.text);
-        }
-    }
     /*
     IEnumerator PostWebData(WWWForm form)
     {
