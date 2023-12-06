@@ -4870,9 +4870,9 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 353
-        y: 244.5
-        width: 113
+        x: 292.7422
+        y: 310.3672
+        width: 202
         height: 64
       isBreakpoint: 0
       isSequence: 0
@@ -4964,7 +4964,7 @@ MonoBehaviour:
         - Num/1
         - Num/2
         - Num/3
-        byteData: 00
+        byteData: 01
         arrayParamSizes: 0300000003000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmString
@@ -5532,7 +5532,19 @@ MonoBehaviour:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
-    globalTransitions: []
+    - name: Common/Button/Click Button
+      isSystemEvent: 0
+      isGlobal: 1
+    globalTransitions:
+    - fsmEvent:
+        name: Common/Button/Click Button
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: categoryType
+      linkStyle: 0
+      linkConstraint: 0
+      linkTarget: 0
+      colorIndex: 0
     variables:
       floatVariables:
       - useVariable: 1
@@ -5652,7 +5664,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 00000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
