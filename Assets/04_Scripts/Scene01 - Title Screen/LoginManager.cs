@@ -37,7 +37,6 @@ public class LoginManager : SerializedMonoBehaviour
             else if (result.Contains("already sign up"))
             {
                 runResult = "failed";
-                warningMessage = "�o�ӱb���w�g�Q���U�L�I";
             }
         }));
     }
@@ -78,11 +77,11 @@ public class LoginManager : SerializedMonoBehaviour
             else if (result.Contains("username not found"))
             {
                 runResult = "failed";
-                warningMessage = "�䤣��o�ӱb���I";
-            }else if (result.Contains("password incorrect"))
-            {
+                warningMessage = "username not found";
+            }
+            else if (result.Contains("password incorrect")){
                 runResult = "failed";
-                warningMessage = "�K�X��J���~�I";
+                warningMessage = "password incorrect";
             }
         }));
     }

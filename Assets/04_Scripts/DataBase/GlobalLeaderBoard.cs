@@ -63,7 +63,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                             Item.SetActive(true);
 
                             text = Item.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                            text.text = $"{i + 1}";
+                            text.text = $"{returnData.placeList[i]}";
                             text = Item.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                             text.text = returnData.returnLeaderBoardData[i].playerName;
                             text = Item.transform.Find("PlayerDetailed/ProgressPanel/Progress Text").GetComponent<Text>();
@@ -79,7 +79,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                         bool isFoundPlayerData = (playerData != null);
 
                         text = PlayerGameProgressItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{foundPlayerDataIndex + 1}" : "notFound";
+                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "notFound";
                         text = PlayerGameProgressItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                         text.text = SaveManager.Instance.userName;
                         text = PlayerGameProgressItem.transform.Find("PlayerDetailed/ProgressPanel/Progress Text").GetComponent<Text>();
@@ -116,7 +116,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                             Item.SetActive(true);
 
                             Text text = Item.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                            text.text = $"{i + 1}";
+                            text.text = $"{returnData.placeList[i]}";
                             text = Item.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                             text.text = returnData.returnLeaderBoardData[i].playerName;
 
@@ -138,7 +138,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                         bool isFoundPlayerData = (playerData != null);
 
                         text = PlayerClearStageItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{foundPlayerDataIndex + 1}" : "notFound";
+                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "notFound";
                         text = PlayerClearStageItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                         text.text = SaveManager.Instance.userName;
 
@@ -179,7 +179,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                             Item.SetActive(true);
 
                             Text text = Item.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                            text.text = $"{i + 1}";
+                            text.text = $"{returnData.placeList[i]}";
                             text = Item.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                             text.text = returnData.returnLeaderBoardData[i].playerName;
                             text = Item.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
@@ -195,7 +195,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                         bool isFoundPlayerData = (playerData != null);
 
                         text = PlayerScoreItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{foundPlayerDataIndex + 1}" : "notFound";
+                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "notFound";
                         text = PlayerScoreItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                         text.text = SaveManager.Instance.userName;
                         text = PlayerScoreItem.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
