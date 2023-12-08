@@ -18,7 +18,9 @@ public class TooltipByScript : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnPointerEnter(PointerEventData eventData)
     {
         string tooltipMessage = Content.FsmVariables.GetFsmString("tooltipMessage").ToString();
+        bool usingi18nKey = Content.FsmVariables.GetFsmBool("usingi18nKey").Value;
         ToolTipControlFSM.FsmVariables.GetFsmString("tooltipMessage").Value = tooltipMessage;
+        ToolTipControlFSM.FsmVariables.GetFsmBool("usingi18nKey").Value = usingi18nKey;
         ToolTipControlFSM.SendEvent("Tooltip/Show Tooltip by Script");
     }
 

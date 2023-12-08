@@ -162,6 +162,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -72}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &34547169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 242745241867483013, guid: 01a68301760b85f46b3a136fb149fe48,
+    type: 3}
+  m_PrefabInstance: {fileID: 1530937166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &61274792
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +255,7 @@ GameObject:
   - component: {fileID: 72991621}
   - component: {fileID: 72991622}
   m_Layer: 5
-  m_Name: MessagePopupParent
+  m_Name: ResultMessageParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,14 +268,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72991620}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1075438904}
-  m_Father: {fileID: 1567095066}
-  m_RootOrder: 2
+  m_Father: {fileID: 1535661456}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4283,8 +4289,9 @@ GameObject:
   - component: {fileID: 155971244}
   - component: {fileID: 155971246}
   - component: {fileID: 155971245}
+  - component: {fileID: 155971247}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LogOutWarningText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4352,6 +4359,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155971243}
   m_CullTransparentMesh: 0
+--- !u!114 &155971247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155971243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: LogOutPopup/LogOutWarningText
+  FallbackText: <Cannot found i18n Text>
 --- !u!1 &168967167
 GameObject:
   m_ObjectHideFlags: 0
@@ -11474,8 +11495,9 @@ GameObject:
   - component: {fileID: 500322072}
   - component: {fileID: 500322074}
   - component: {fileID: 500322073}
+  - component: {fileID: 500322075}
   m_Layer: 5
-  m_Name: Text
+  m_Name: YesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11534,7 +11556,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u78BA \u5B9A"
+  m_Text: "\u662F"
 --- !u!222 &500322074
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11543,6 +11565,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500322071}
   m_CullTransparentMesh: 0
+--- !u!114 &500322075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500322071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Common/Button/Yes
+  FallbackText: <Cannot found i18n Text>
 --- !u!1 &505996322
 GameObject:
   m_ObjectHideFlags: 0
@@ -11951,6 +11987,24 @@ MonoBehaviour:
     Text: This account doesn't exist.
   - Name: LogInPopup/LogInWarningText/Failed(password incorrect)
     Text: Your password is incorrect.
+  - Name: LogInPopup/LogInWarningText/Failed(need login)
+    Text: Login required.
+  - Name: LogOutPopup/LogOutTitle
+    Text: Warning
+  - Name: LogOutPopup/LogOutWarningText
+    Text: Are you sure you want to sign out?
+  - Name: Common/Button/Yes
+    Text: Yes
+  - Name: Common/Button/No
+    Text: No
+  - Name: ResultMessagePopup/ResultText/LogIn
+    Text: Login Successful!
+  - Name: ResultMessagePopup/ResultText/LogOut
+    Text: Logout Successful!
+  - Name: ResultMessagePopup/ResultText/SignUp
+    Text: Account Created Successfully!
+  - Name: TooltipMessage/SelectLanguage
+    Text: Language
 --- !u!1 &574760271
 GameObject:
   m_ObjectHideFlags: 0
@@ -12473,7 +12527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86.000015, y: -48}
+  m_AnchoredPosition: {x: 66, y: -63}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &593977302
@@ -20776,14 +20830,14 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.ActivateGameObject
-        - HutongGames.PlayMaker.Actions.UiTextSetText
+        - HutongGames.PlayMaker.Actions.SetProperty
         customNames:
         - 
         - 
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000005000000
-        actionHashCodes: b2cf100009fbab04
+        actionHashCodes: b2cf10005ac85204
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -20795,27 +20849,145 @@ MonoBehaviour:
             showInInspector: 1
             networkSync: 0
             value: {fileID: 1092306012}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: WarningMsg/Text
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 1112351771}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
-        fsmPropertyParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 1112351775}
+          TargetTypeName: Lean.Localization.LeanLocalizedText
+          PropertyName: TranslationName
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: LogInPopup/LogInWarningText/Failed(need login)
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.String
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: HutongGames.PlayMaker.None
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 1
         layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "\u9700\u8981\u767B\u5165\uFF01"
+        fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -20835,12 +21007,6 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -20852,19 +21018,17 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001100000011000000010000000100000014000000120000001100000001000000
+        paramDataType: 14000000110000001100000001000000010000002400000001000000
         paramName:
         - gameObject
         - activate
         - recursive
         - resetOnExit
         - everyFrame
-        - gameObject
-        - text
-        - resetOnExit
+        - targetProperty
         - everyFrame
-        paramDataPos: 000000000000000001000000000000000100000001000000000000000200000002000000
-        paramByteDataSize: 000000000000000000000000010000000100000000000000000000000000000001000000
+        paramDataPos: 00000000000000000100000000000000010000000000000002000000
+        paramByteDataSize: 00000000000000000000000001000000010000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -21845,8 +22009,6 @@ MonoBehaviour:
   Language: Chinese
   Cache: 0
   entries:
-  - Name: Opening/Hello
-    Text: "\u60A8\u597D\uFF01"
   - Name: LoginButton/Not Login/LoginButtonText
     Text: "\u767B\u5165"
   - Name: LoginButton/Not Login/SignUpButtonText
@@ -21877,6 +22039,24 @@ MonoBehaviour:
     Text: "\u627E\u4E0D\u5230\u9019\u500B\u5E33\u865F"
   - Name: LogInPopup/LogInWarningText/Failed(password incorrect)
     Text: "\u5BC6\u78BC\u8F38\u5165\u932F\u8AA4"
+  - Name: LogInPopup/LogInWarningText/Failed(need login)
+    Text: "\u9700\u8981\u767B\u5165"
+  - Name: LogOutPopup/LogOutTitle
+    Text: "\u8B66 \u544A"
+  - Name: LogOutPopup/LogOutWarningText
+    Text: "\u60A8\u78BA\u5B9A\u8981\u767B\u51FA\u55CE\uFF1F"
+  - Name: Common/Button/Yes
+    Text: "\u662F"
+  - Name: Common/Button/No
+    Text: "\u5426"
+  - Name: ResultMessagePopup/ResultText/LogIn
+    Text: "\u767B\u5165\u6210\u529F\uFF01"
+  - Name: ResultMessagePopup/ResultText/LogOut
+    Text: "\u767B\u51FA\u6210\u529F\uFF01"
+  - Name: ResultMessagePopup/ResultText/SignUp
+    Text: "\u8A3B\u518A\u6210\u529F\uFF01"
+  - Name: TooltipMessage/SelectLanguage
+    Text: "\u8A9E\u8A00"
 --- !u!1 &753329145
 GameObject:
   m_ObjectHideFlags: 0
@@ -26066,8 +26246,9 @@ GameObject:
   - component: {fileID: 917739373}
   - component: {fileID: 917739375}
   - component: {fileID: 917739374}
+  - component: {fileID: 917739376}
   m_Layer: 5
-  m_Name: Text
+  m_Name: NoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26126,7 +26307,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u53D6 \u6D88"
+  m_Text: "\u5426"
 --- !u!222 &917739375
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26135,6 +26316,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917739372}
   m_CullTransparentMesh: 0
+--- !u!114 &917739376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917739372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Common/Button/No
+  FallbackText: <Cannot found i18n Text>
 --- !u!1 &965372428
 GameObject:
   m_ObjectHideFlags: 0
@@ -27344,8 +27539,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: 0}
-  m_SizeDelta: {x: 900, y: 120}
+  m_AnchoredPosition: {x: 495, y: 0}
+  m_SizeDelta: {x: 990, y: 120}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1015498037
 MonoBehaviour:
@@ -28464,8 +28659,9 @@ GameObject:
   - component: {fileID: 1075438905}
   - component: {fileID: 1075438908}
   - component: {fileID: 1075438909}
+  - component: {fileID: 1075438910}
   m_Layer: 5
-  m_Name: MessagePopup
+  m_Name: ResultMessagePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28492,7 +28688,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -64}
-  m_SizeDelta: {x: 400, y: 96}
+  m_SizeDelta: {x: 361.99997, y: 126}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1075438905
 MonoBehaviour:
@@ -28507,8 +28703,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: -4
-    m_Right: 0
+    m_Left: 36
+    m_Right: 42
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
@@ -28581,7 +28777,7 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 278
+        x: 246
         y: 325
         width: 100
         height: 32
@@ -28831,7 +29027,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 282
+        x: 250
         y: 386
         width: 100
         height: 32
@@ -28904,7 +29100,7 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 278.89062
+        x: 246.89062
         y: 570.52344
         width: 100
         height: 16
@@ -28992,7 +29188,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 281.16406
+        x: 249.16406
         y: 106.15625
         width: 100
         height: 64
@@ -29004,7 +29200,7 @@ MonoBehaviour:
           name: Num/1
           isSystemEvent: 0
           isGlobal: 0
-        toState: UI Text Set Text 3
+        toState: SignUp 2
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -29013,7 +29209,7 @@ MonoBehaviour:
           name: Num/2
           isSystemEvent: 0
           isGlobal: 0
-        toState: UI Text Set Text
+        toState: LogIn
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -29022,7 +29218,7 @@ MonoBehaviour:
           name: Num/3
           isSystemEvent: 0
           isGlobal: 0
-        toState: UI Text Set Text 2
+        toState: LogOut
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -29107,101 +29303,14 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 00000000000000000100000002000000030000000100000000000000010000000200000000000000
         paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000001000000
-    - name: UI Text Set Text
-      description: 
-      colorIndex: 8
-      position:
-        serializedVersion: 2
-        x: 268.1172
-        y: 241.89062
-        width: 125
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Success
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.UiTextSetText
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 09fbab04
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Text
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 1437490062}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "\u767B\u5165\u6210\u529F\uFF01"
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 14000000120000001100000001000000
-        paramName:
-        - gameObject
-        - text
-        - resetOnExit
-        - everyFrame
-        paramDataPos: 00000000000000000000000000000000
-        paramByteDataSize: 00000000000000000000000001000000
-    - name: UI Text Set Text 2
+    - name: LogOut
       description: 
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 470.59375
-        y: 241.96875
-        width: 135
+        x: 439.625
+        y: 246.09375
+        width: 100
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -29218,50 +29327,162 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.UiTextSetText
+        - HutongGames.PlayMaker.Actions.SetProperty
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 09fbab04
+        actionHashCodes: 5ac85204
         unityObjectParams: []
         fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Text
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 1437490062}
+        fsmOwnerDefaultParams: []
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
-        fsmPropertyParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 1437490067}
+          TargetTypeName: Lean.Localization.LeanLocalizedText
+          PropertyName: TranslationName
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: ResultMessagePopup/ResultText/LogOut
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.String
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: HutongGames.PlayMaker.None
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 1
         layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "\u767B\u51FA\u6210\u529F\uFF01"
+        fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -29273,20 +29494,18 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000120000001100000001000000
+        paramDataType: 2400000001000000
         paramName:
-        - gameObject
-        - text
-        - resetOnExit
+        - targetProperty
         - everyFrame
-        paramDataPos: 00000000000000000000000000000000
-        paramByteDataSize: 00000000000000000000000001000000
+        paramDataPos: 0000000000000000
+        paramByteDataSize: 0000000001000000
     - name: UI Graphic Cross Fade Alpha
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 249
+        x: 217
         y: 452
         width: 198
         height: 32
@@ -29445,7 +29664,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 271.79688
+        x: 239.79688
         y: 510.01562
         width: 100
         height: 32
@@ -29518,14 +29737,14 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000100000000000000
         paramByteDataSize: 000000000000000001000000
-    - name: UI Text Set Text 3
+    - name: LogIn
       description: 
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 59.101562
-        y: 241.89062
-        width: 136
+        x: 244.20312
+        y: 241.50781
+        width: 100
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -29542,50 +29761,162 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.UiTextSetText
+        - HutongGames.PlayMaker.Actions.SetProperty
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 09fbab04
+        actionHashCodes: 5ac85204
         unityObjectParams: []
         fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Text
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 1437490062}
+        fsmOwnerDefaultParams: []
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
-        fsmPropertyParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 1437490067}
+          TargetTypeName: Lean.Localization.LeanLocalizedText
+          PropertyName: TranslationName
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: ResultMessagePopup/ResultText/LogIn
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.String
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: HutongGames.PlayMaker.None
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 1
         layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "\u8A3B\u518A\u6210\u529F\uFF01"
+        fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -29597,14 +29928,209 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000120000001100000001000000
+        paramDataType: 2400000001000000
         paramName:
-        - gameObject
-        - text
-        - resetOnExit
+        - targetProperty
         - everyFrame
-        paramDataPos: 00000000000000000000000000000000
-        paramByteDataSize: 00000000000000000000000001000000
+        paramDataPos: 0000000000000000
+        paramByteDataSize: 0000000001000000
+    - name: SignUp 2
+      description: 
+      colorIndex: 8
+      position:
+        serializedVersion: 2
+        x: 54.257812
+        y: 242.54688
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Success
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetProperty
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 5ac85204
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 1437490067}
+          TargetTypeName: Lean.Localization.LeanLocalizedText
+          PropertyName: TranslationName
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: ResultMessagePopup/ResultText/SignUp
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.String
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: HutongGames.PlayMaker.None
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 1
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 2400000001000000
+        paramName:
+        - targetProperty
+        - everyFrame
+        paramDataPos: 0000000000000000
+        paramByteDataSize: 0000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -29737,6 +30263,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1075438910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075438903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &1092306012
 GameObject:
   m_ObjectHideFlags: 0
@@ -30710,8 +31250,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 601, y: -42.5}
-  m_SizeDelta: {x: 334, y: 85}
+  m_AnchoredPosition: {x: 666.5, y: -42.5}
+  m_SizeDelta: {x: 351, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1275103320
 MonoBehaviour:
@@ -32027,14 +32567,20 @@ MonoBehaviour:
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: usingi18nKey
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 1
       stringVariables:
       - useVariable: 1
         name: tooltipMessage
         tooltip: 
         showInInspector: 0
         networkSync: 0
-        value: "\u8A9E\u8A00"
+        value: TooltipMessage/SelectLanguage
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -32054,7 +32600,8 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 0000000000000000
+      - Send to Tooltip
+      variableCategoryIDs: 010000000100000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -32063,7 +32610,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 00000000
+    outVariableIndices: 0100000000000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
@@ -32778,8 +33325,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 183, y: -42.5}
-  m_SizeDelta: {x: 334, y: 85}
+  m_AnchoredPosition: {x: 207.5, y: -42.5}
+  m_SizeDelta: {x: 351, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1402812852
 MonoBehaviour:
@@ -33535,8 +34082,9 @@ GameObject:
   - component: {fileID: 1437490063}
   - component: {fileID: 1437490066}
   - component: {fileID: 1437490065}
+  - component: {fileID: 1437490067}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ResultMessageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33595,7 +34143,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.9
-  m_Text: "\u767B\u5165\u6210\u529F\uFF01"
+  m_Text: "\u8A3B\u518A\u6210\u529F\uFF01"
 --- !u!222 &1437490066
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33604,6 +34152,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437490062}
   m_CullTransparentMesh: 0
+--- !u!114 &1437490067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437490062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: ResultMessagePopup/ResultText/SignUp
+  FallbackText: <Cannot found i18n Text>
 --- !u!1 &1461106477
 GameObject:
   m_ObjectHideFlags: 0
@@ -33787,7 +34349,7 @@ RectTransform:
   m_Children:
   - {fileID: 1530937167}
   m_Father: {fileID: 1567095066}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -33924,10 +34486,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 1137322981365616854, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137322981365616854, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137322981365616854, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137322981365616854, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1513370019346019796, guid: 01a68301760b85f46b3a136fb149fe48,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3443812162644139203, guid: 01a68301760b85f46b3a136fb149fe48,
         type: 3}
@@ -33969,6 +34551,26 @@ PrefabInstance:
         type: 3}
       propertyPath: fsm.preprocessed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982205670219784177, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: fsm.states.Array.data[2].position.x
+      value: 539.78906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982205670219784177, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: fsm.states.Array.data[2].position.y
+      value: 104.25781
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982205670219784177, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: fsm.states.Array.data[1].actionData.fsmOwnerDefaultParams.Array.data[0].gameObject.value
+      value: 
+      objectReference: {fileID: 34547169}
+    - target: {fileID: 4982205670219784177, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: fsm.states.Array.data[1].actionData.fsmOwnerDefaultParams.Array.data[0].gameObject.showInInspector
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4982205670219784190, guid: 01a68301760b85f46b3a136fb149fe48,
         type: 3}
@@ -34084,6 +34686,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297724592408897680, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297724592408897680, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297724592408897680, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297724592408897680, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297724592408897680, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297724592408897680, guid: 01a68301760b85f46b3a136fb149fe48,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9118313180902625569, guid: 01a68301760b85f46b3a136fb149fe48,
         type: 3}
@@ -35293,8 +35925,9 @@ RectTransform:
   - {fileID: 697845035}
   - {fileID: 1746622347}
   - {fileID: 601995120}
+  - {fileID: 72991621}
   m_Father: {fileID: 1567095066}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -35569,6 +36202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1563618880}
   - component: {fileID: 1563618881}
+  - component: {fileID: 1563618882}
   m_Layer: 5
   m_Name: TextBox
   m_TagString: Untagged
@@ -35594,7 +36228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -48}
+  m_AnchoredPosition: {x: 219.99998, y: -63}
   m_SizeDelta: {x: 199.99997, y: 65.99999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1563618881
@@ -35623,6 +36257,26 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1563618882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563618879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &1567095062
 GameObject:
   m_ObjectHideFlags: 0
@@ -35717,7 +36371,6 @@ RectTransform:
   m_Children:
   - {fileID: 737330885}
   - {fileID: 1575088158}
-  - {fileID: 72991621}
   - {fileID: 1535661456}
   - {fileID: 1490832967}
   m_Father: {fileID: 0}
@@ -36024,8 +36677,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -394.6}
-  m_SizeDelta: {x: 900, y: 549.2}
+  m_AnchoredPosition: {x: 495, y: -394.6}
+  m_SizeDelta: {x: 990, y: 549.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1613113862
 MonoBehaviour:
@@ -37821,7 +38474,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 900, y: 669.2}
+  m_SizeDelta: {x: 990, y: 669.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1746622348
 MonoBehaviour:
@@ -40516,7 +41169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -190}
+  m_AnchoredPosition: {x: 495, y: -190}
   m_SizeDelta: {x: 351.99997, y: 236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793737170
@@ -41609,8 +42262,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -414.5}
-  m_SizeDelta: {x: 784, y: 85}
+  m_AnchoredPosition: {x: 495, y: -414.5}
+  m_SizeDelta: {x: 874, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1881674341
 MonoBehaviour:
@@ -41625,12 +42278,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 16
-    m_Right: 16
+    m_Left: 32
+    m_Right: 32
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 7
-  m_Spacing: 84
+  m_Spacing: 108
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -41919,8 +42572,9 @@ GameObject:
   - component: {fileID: 1944407306}
   - component: {fileID: 1944407308}
   - component: {fileID: 1944407307}
+  - component: {fileID: 1944407309}
   m_Layer: 5
-  m_Name: Title
+  m_Name: LogOutTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41988,6 +42642,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944407305}
   m_CullTransparentMesh: 0
+--- !u!114 &1944407309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944407305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: LogOutPopup/LogOutTitle
+  FallbackText: <Cannot found i18n Text>
 --- !u!1 &1954972368
 GameObject:
   m_ObjectHideFlags: 0
