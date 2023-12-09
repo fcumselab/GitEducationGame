@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3788000058391039227}
   - component: {fileID: 3788000058391039205}
   - component: {fileID: 3788000058391039204}
+  - component: {fileID: 7365581476188428398}
   m_Layer: 5
-  m_Name: LeaderboardCategory
+  m_Name: LeaderboardCategoryText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +80,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u901A\u904E\u95DC\u5361\u6700\u4F73\u8A18\u9304"
+  m_Text: <Failed to Load i18n Text>
+--- !u!114 &7365581476188428398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788000058391039226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: 
+  FallbackText: <Failed to Load i18n Text>
 --- !u!1 &5218553340370038894
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +208,7 @@ GameObject:
   - component: {fileID: 5218553340881215540}
   - component: {fileID: 5218553340881215542}
   - component: {fileID: 5650707608851585249}
+  - component: {fileID: 6913295320484171763}
   m_Layer: 5
   m_Name: LeaderboardCategoryButton
   m_TagString: Button
@@ -306,12 +322,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 32
-    m_Right: 32
+    m_Left: 36
+    m_Right: 36
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 16
+  m_Spacing: 18
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -379,7 +395,7 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Button
-    startState: Get Parent
+    startState: Get Parent & Set i18n
     states:
     - name: UI Button On Click Event
       description: 
@@ -387,7 +403,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 56
-        y: 183
+        y: 167
         width: 171
         height: 32
       isBreakpoint: 0
@@ -488,14 +504,14 @@ MonoBehaviour:
         - sendEvent
         paramDataPos: 000000000000000000000000
         paramByteDataSize: 000000000000000000000000
-    - name: Get Parent
+    - name: Get Parent & Set i18n
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 92
-        y: 113
-        width: 100
+        x: 69
+        y: 98
+        width: 154
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -514,15 +530,17 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.GameObjectIsNull
         - HutongGames.PlayMaker.Actions.GetFsmGameObject
+        - HutongGames.PlayMaker.Actions.SetProperty
         - HutongGames.PlayMaker.Actions.GameObjectIsNull
         customNames:
         - 
         - 
         - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000050000000a000000
-        actionHashCodes: 156562055b66cf0015656205
+        - 
+        actionEnabled: 01010101
+        actionIsOpen: 01010101
+        actionStartIndex: 00000000050000000a0000000c000000
+        actionHashCodes: 156562055b66cf005ac8520415656205
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -556,7 +574,139 @@ MonoBehaviour:
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
-        fsmPropertyParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 7365581476188428398}
+          TargetTypeName: Lean.Localization.LeanLocalizedText
+          PropertyName: TranslationName
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 1
+            name: LeaderboardCategoryText/i18nKey
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: 
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.String
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: 
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 1
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 0
@@ -600,12 +750,12 @@ MonoBehaviour:
         - next
         - 
         - next
-        byteData: 000101
+        byteData: 00010001
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 130000001700000017000000110000000100000014000000120000001200000013000000010000001300000017000000170000001100000001000000
+        paramDataType: 1300000017000000170000001100000001000000140000001200000012000000130000000100000024000000010000001300000017000000170000001100000001000000
         paramName:
         - gameObject
         - isNull
@@ -617,20 +767,22 @@ MonoBehaviour:
         - variableName
         - storeValue
         - everyFrame
+        - targetProperty
+        - everyFrame
         - gameObject
         - isNull
         - isNotNull
         - storeResult
         - everyFrame
-        paramDataPos: 000000000000000001000000000000000000000000000000000000000100000001000000010000000200000002000000030000000100000002000000
-        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000010000000000000000000000000000000000000001000000
+        paramDataPos: 0000000000000000010000000000000000000000000000000000000001000000010000000100000000000000020000000200000002000000030000000100000003000000
+        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000100000000000000010000000000000000000000000000000000000001000000
     - name: Click Button
       description: 
       colorIndex: 12
       position:
         serializedVersion: 2
         x: 93
-        y: 272
+        y: 256
         width: 101
         height: 32
       isBreakpoint: 0
@@ -789,7 +941,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 95
-        y: 337
+        y: 321
         width: 100
         height: 32
       isBreakpoint: 0
@@ -850,7 +1002,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 338
-        y: 218
+        y: 202
         width: 100
         height: 16
       isBreakpoint: 0
@@ -938,6 +1090,12 @@ MonoBehaviour:
         showInInspector: 1
         networkSync: 0
         value: 
+      - useVariable: 1
+        name: LeaderboardCategoryText/i18nKey
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 
       vector2Variables: []
       vector3Variables: []
       colorVariables:
@@ -974,7 +1132,20 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
-      objectVariables: []
+      - useVariable: 1
+        name: LeaderboardCategoryText
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 3788000058391039226}
+      objectVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        typeName: 
+        value: {fileID: 0}
       materialVariables: []
       textureVariables: []
       arrayVariables: []
@@ -982,7 +1153,7 @@ MonoBehaviour:
       categories:
       - 
       - For Global Leaderboard Popup
-      variableCategoryIDs: 010000000000000000000000000000000000000000000000
+      variableCategoryIDs: 010000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -1030,6 +1201,20 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 1
+--- !u!114 &6913295320484171763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5218553340881215554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &6265465651158932186
 GameObject:
   m_ObjectHideFlags: 0

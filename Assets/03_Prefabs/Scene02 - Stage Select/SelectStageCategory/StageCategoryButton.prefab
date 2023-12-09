@@ -1336,6 +1336,7 @@ GameObject:
   - component: {fileID: 1634567178167719283}
   - component: {fileID: 1634567178167719281}
   - component: {fileID: 1634567178167719280}
+  - component: {fileID: 5884841837343931361}
   m_Layer: 5
   m_Name: CategoryText
   m_TagString: Untagged
@@ -1404,7 +1405,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4E3B\u984C\u95DC\u5361\uFF1Axxxx"
+  m_Text: <Failed to Load i18n Text>
+--- !u!114 &5884841837343931361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634567178167719282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: 
+  FallbackText: <Failed to Load i18n Text>
 --- !u!1 &1634567178748514940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,8 +1713,9 @@ GameObject:
   - component: {fileID: 1634567179409641948}
   - component: {fileID: 1634567179409641922}
   - component: {fileID: 1634567179409641949}
+  - component: {fileID: 8349347702843271748}
   m_Layer: 5
-  m_Name: Text
+  m_Name: StageCompletionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1766,7 +1782,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u901A\u95DC\u5B8C\u6210\u5EA6\uFF1A"
+  m_Text: <Failed to Load i18n Text>
+--- !u!114 &8349347702843271748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634567179409641951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: 
+  FallbackText: <Failed to Load i18n Text>
 --- !u!1 &1634567179450090418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,8 +2043,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 556.8672
-        y: 110.171875
+        x: 556.83594
+        y: 113.83594
         width: 211
         height: 32
       isBreakpoint: 0
@@ -2116,8 +2146,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 604.8672
-        y: 161.17188
+        x: 603.5703
+        y: 164.83594
         width: 104
         height: 32
       isBreakpoint: 0
@@ -2128,7 +2158,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Get progress
+        toState: Set StageCompletionText
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -2251,7 +2281,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 600.8672
-        y: 214.17188
+        y: 262.17188
         width: 108
         height: 32
       isBreakpoint: 0
@@ -2415,7 +2445,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 592.3594
-        y: 261.0547
+        y: 309.0547
         width: 134
         height: 32
       isBreakpoint: 0
@@ -2542,7 +2572,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 575.71875
-        y: 934.58594
+        y: 982.58594
         width: 100
         height: 16
       isBreakpoint: 0
@@ -2626,7 +2656,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 563.4375
-        y: 868.0547
+        y: 916.0547
         width: 151
         height: 32
       isBreakpoint: 0
@@ -2723,7 +2753,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 597.89844
-        y: 320.14062
+        y: 368.14062
         width: 113
         height: 64
       isBreakpoint: 0
@@ -2734,7 +2764,7 @@ MonoBehaviour:
           name: Num/1
           isSystemEvent: 0
           isGlobal: 0
-        toState: Set Text
+        toState: Set CategoryText
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -2743,7 +2773,7 @@ MonoBehaviour:
           name: Num/2
           isSystemEvent: 0
           isGlobal: 0
-        toState: Set Text 2
+        toState: Set CategoryText 2
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -2752,7 +2782,7 @@ MonoBehaviour:
           name: Num/3
           isSystemEvent: 0
           isGlobal: 0
-        toState: Set Text 3
+        toState: Set CategoryText 3
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -2803,13 +2833,13 @@ MonoBehaviour:
           tooltip: Basic/Branch/Remote
           showInInspector: 1
           networkSync: 0
-          value: 
+          value: Basic
         - useVariable: 1
           name: categoryType
           tooltip: Basic/Branch/Remote
           showInInspector: 1
           networkSync: 0
-          value: 
+          value: Basic
         - useVariable: 0
           name: 
           tooltip: 
@@ -2876,7 +2906,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 55.1875
-        y: 627.89844
+        y: 675.89844
         width: 142
         height: 32
       isBreakpoint: 0
@@ -2926,7 +2956,7 @@ MonoBehaviour:
           showInInspector: 1
           networkSync: 0
           typeName: UnityEngine.Sprite
-          value: {fileID: 21300000, guid: efcab8c0ea1f67448a89345d876b32fa, type: 3}
+          value: {fileID: 21300000, guid: ff3f4f021057a10489992b6bf3ad0e73, type: 3}
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
@@ -2963,7 +2993,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 464.125
-        y: 631.6406
+        y: 679.6406
         width: 149
         height: 32
       isBreakpoint: 0
@@ -3044,14 +3074,14 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 000000000000000000000000
         paramByteDataSize: 000000000000000000000000
-    - name: Set Text
-      description: 
+    - name: Set CategoryText
+      description: i18n
       colorIndex: 0
       position:
         serializedVersion: 2
         x: 197
-        y: 477
-        width: 100
+        y: 525
+        width: 135
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -3068,50 +3098,162 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.UiTextSetText
+        - HutongGames.PlayMaker.Actions.SetProperty
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 09fbab04
+        actionHashCodes: 5ac85204
         unityObjectParams: []
         fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: CategoryText
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 1634567178167719282}
+        fsmOwnerDefaultParams: []
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
-        fsmPropertyParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 5884841837343931361}
+          TargetTypeName: Lean.Localization.LeanLocalizedText
+          PropertyName: TranslationName
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: StageCategoryButton/Basic/CategoryText
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.String
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: HutongGames.PlayMaker.None
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 1
         layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "\u4E3B\u984C\u95DC\u5361\uFF1AGit \u7684\u57FA\u790E"
+        fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -3123,22 +3265,20 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000120000001100000001000000
+        paramDataType: 2400000001000000
         paramName:
-        - gameObject
-        - text
-        - resetOnExit
+        - targetProperty
         - everyFrame
-        paramDataPos: 00000000000000000000000000000000
-        paramByteDataSize: 00000000000000000000000001000000
-    - name: Set Text 2
-      description: 
+        paramDataPos: 0000000000000000
+        paramByteDataSize: 0000000001000000
+    - name: Set CategoryText 2
+      description: i18n
       colorIndex: 8
       position:
         serializedVersion: 2
         x: 607.6875
-        y: 471.78906
-        width: 100
+        y: 519.78906
+        width: 145
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -3155,50 +3295,162 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.UiTextSetText
+        - HutongGames.PlayMaker.Actions.SetProperty
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 09fbab04
+        actionHashCodes: 5ac85204
         unityObjectParams: []
         fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: CategoryText
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 1634567178167719282}
+        fsmOwnerDefaultParams: []
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
-        fsmPropertyParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 5884841837343931361}
+          TargetTypeName: Lean.Localization.LeanLocalizedText
+          PropertyName: TranslationName
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: StageCategoryButton/Branch/CategoryText
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.String
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: HutongGames.PlayMaker.None
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 1
         layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "\u4E3B\u984C\u95DC\u5361\uFF1A\u5206\u652F\u7BA1\u7406"
+        fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -3210,22 +3462,20 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000120000001100000001000000
+        paramDataType: 2400000001000000
         paramName:
-        - gameObject
-        - text
-        - resetOnExit
+        - targetProperty
         - everyFrame
-        paramDataPos: 00000000000000000000000000000000
-        paramByteDataSize: 00000000000000000000000001000000
-    - name: Set Text 3
-      description: 
+        paramDataPos: 0000000000000000
+        paramByteDataSize: 0000000001000000
+    - name: Set CategoryText 3
+      description: i18n
       colorIndex: 1
       position:
         serializedVersion: 2
         x: 1046.7812
-        y: 466.78125
-        width: 100
+        y: 514.78125
+        width: 146
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -3242,50 +3492,162 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.UiTextSetText
+        - HutongGames.PlayMaker.Actions.SetProperty
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 09fbab04
+        actionHashCodes: 5ac85204
         unityObjectParams: []
         fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: CategoryText
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 1634567178167719282}
+        fsmOwnerDefaultParams: []
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
-        fsmPropertyParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 5884841837343931361}
+          TargetTypeName: Lean.Localization.LeanLocalizedText
+          PropertyName: TranslationName
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: StageCategoryButton/Remote/CategoryText
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.String
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: HutongGames.PlayMaker.None
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 1
         layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: "\u4E3B\u984C\u95DC\u5361\uFF1A\u9060\u7AEF\u7BA1\u7406"
+        fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -3297,21 +3659,19 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000120000001100000001000000
+        paramDataType: 2400000001000000
         paramName:
-        - gameObject
-        - text
-        - resetOnExit
+        - targetProperty
         - everyFrame
-        paramDataPos: 00000000000000000000000000000000
-        paramByteDataSize: 00000000000000000000000001000000
+        paramDataPos: 0000000000000000
+        paramByteDataSize: 0000000001000000
     - name: is Unlock
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
         x: 195
-        y: 538
+        y: 586
         width: 100
         height: 48
       isBreakpoint: 0
@@ -3395,7 +3755,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 272.0625
-        y: 630.9375
+        y: 678.9375
         width: 130
         height: 32
       isBreakpoint: 0
@@ -3445,7 +3805,7 @@ MonoBehaviour:
           showInInspector: 1
           networkSync: 0
           typeName: UnityEngine.Sprite
-          value: {fileID: 21300000, guid: efcab8c0ea1f67448a89345d876b32fa, type: 3}
+          value: {fileID: 21300000, guid: ff3f4f021057a10489992b6bf3ad0e73, type: 3}
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
@@ -3482,7 +3842,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 605.9922
-        y: 534.3672
+        y: 582.3672
         width: 100
         height: 48
       isBreakpoint: 0
@@ -3566,7 +3926,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1050.1875
-        y: 538.89844
+        y: 586.89844
         width: 100
         height: 48
       isBreakpoint: 0
@@ -3650,7 +4010,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 653.0156
-        y: 632.1172
+        y: 680.1172
         width: 137
         height: 32
       isBreakpoint: 0
@@ -3737,7 +4097,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 887.1328
-        y: 640.6172
+        y: 688.6172
         width: 150
         height: 32
       isBreakpoint: 0
@@ -3824,7 +4184,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1139.1797
-        y: 643.1094
+        y: 691.1094
         width: 147
         height: 32
       isBreakpoint: 0
@@ -3911,7 +4271,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 659.6406
-        y: 770.90625
+        y: 818.90625
         width: 100
         height: 32
       isBreakpoint: 0
@@ -4078,7 +4438,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 453.33594
-        y: 769.66406
+        y: 817.66406
         width: 159
         height: 32
       isBreakpoint: 0
@@ -4239,6 +4599,289 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 00000000000000000100000000000000010000000100000000000000000000000100000002000000030000000200000002000000020000000300000004000000
         paramByteDataSize: 00000000000000000000000001000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000
+    - name: Set StageCompletionText
+      description: i18n
+      colorIndex: 1
+      position:
+        serializedVersion: 2
+        x: 586.625
+        y: 211.79688
+        width: 182
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Get progress
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetProperty
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 5ac85204
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams:
+        - TargetObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: UnityEngine.Object
+            value: {fileID: 8349347702843271748}
+          TargetTypeName: Lean.Localization.LeanLocalizedText
+          PropertyName: TranslationName
+          BoolParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          FloatParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          IntParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          GameObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+          StringParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: StageCategoryButton/Common/StageCompletionText
+          Vector2Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0}
+          Vector3Parameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0}
+          RectParamater:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value:
+              serializedVersion: 2
+              x: 0
+              y: 0
+              width: 0
+              height: 0
+          QuaternionParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {x: 0, y: 0, z: 0, w: 0}
+          ObjectParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: System.String
+            value: {fileID: 0}
+          MaterialParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          TextureParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            typeName: 
+            value: {fileID: 0}
+          ColorParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {r: 0, g: 0, b: 0, a: 1}
+          EnumParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            enumName: HutongGames.PlayMaker.None
+            intValue: 0
+          ArrayParameter:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+          setProperty: 1
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 2400000001000000
+        paramName:
+        - targetProperty
+        - everyFrame
+        paramDataPos: 0000000000000000
+        paramByteDataSize: 0000000001000000
+    - name: Set Game Object
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 69.53906
+        y: 320.17188
+        width: 129
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetGameObject
+        - HutongGames.PlayMaker.Actions.SetGameObject
+        customNames:
+        - 
+        - 
+        actionEnabled: 0000
+        actionIsOpen: 0101
+        actionStartIndex: 0000000003000000
+        actionHashCodes: 4d51cf044d51cf04
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: CategoryText
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 1634567178167719282}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: StageCompletionText
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 0000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 130000001300000001000000130000001300000001000000
+        paramName:
+        - variable
+        - gameObject
+        - everyFrame
+        - variable
+        - gameObject
+        - everyFrame
+        paramDataPos: 000000000100000000000000020000000300000001000000
+        paramByteDataSize: 000000000000000001000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -4390,6 +5033,12 @@ MonoBehaviour:
         showInInspector: 1
         networkSync: 0
         value: {fileID: 650471733140763618}
+      - useVariable: 1
+        name: StageCompletionText
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 1634567179409641951}
       objectVariables:
       - useVariable: 1
         name: Icon/Basic
@@ -4422,7 +5071,7 @@ MonoBehaviour:
       - Element
       - Get from StageSelectGameManager Script
       - Icon
-      variableCategoryIDs: 0000000000000000000000000300000003000000030000000000000000000000030000000000000000000000010000000200000002000000040000000400000002000000000000000400000004000000040000000400000004000000
+      variableCategoryIDs: 000000000000000000000000030000000300000003000000000000000000000003000000000000000000000001000000020000000200000004000000040000000200000000000000020000000400000004000000040000000400000004000000
     description: 
     docUrl: 
     showStateLabel: 0
