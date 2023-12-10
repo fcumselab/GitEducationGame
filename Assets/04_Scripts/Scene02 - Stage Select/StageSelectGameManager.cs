@@ -64,6 +64,8 @@ public class StageSelectGameManager : MonoBehaviour
                 fsm = MyPlayMakerScriptHelper.GetFsmByName(targetStage.gameObject, "Update Content");
                 fsm.FsmVariables.FindFsmString("stageName").Value = stage.stageName;
                 fsm.FsmVariables.FindFsmBool("isStageUnlock").Value = stage.isStageUnlock;
+                fsm.FsmVariables.FindFsmInt("stageClearTimes").Value = stage.stageClearTimes;
+
                 if (stage.isStageUnlock)
                 {
                     for (int i = 0; i < stage.stageLeaderboardData.Count; i++)

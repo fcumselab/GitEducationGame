@@ -79,13 +79,13 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                         bool isFoundPlayerData = (playerData != null);
 
                         text = PlayerGameProgressItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "notFound";
+                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
                         text = PlayerGameProgressItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                         text.text = SaveManager.Instance.userName;
                         text = PlayerGameProgressItem.transform.Find("PlayerDetailed/ProgressPanel/Progress Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{playerData.gameProgress} %" : "000 %";
+                        text.text = isFoundPlayerData ? $"{playerData.gameProgress} %" : "0 %";
                         text = PlayerGameProgressItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playTime) : "???" ;
+                        text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playTime) : "00:00" ;
                         break;
                     }
                 case "ClearStageBestRecord":
@@ -138,7 +138,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                         bool isFoundPlayerData = (playerData != null);
 
                         text = PlayerClearStageItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "notFound";
+                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
                         text = PlayerClearStageItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                         text.text = SaveManager.Instance.userName;
 
@@ -148,9 +148,9 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                         fsm.enabled = true;
 
                         text = PlayerClearStageItem.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{playerData.playerScore}" : "-10000";
+                        text.text = isFoundPlayerData ? $"{playerData.playerScore}" : "0";
                         text = PlayerClearStageItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playerClearTime) : "???";
+                        text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playerClearTime) : "00:00";
                         break;
                     }
                 case "TotalScore":
@@ -195,13 +195,13 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                         bool isFoundPlayerData = (playerData != null);
 
                         text = PlayerScoreItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "notFound";
+                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
                         text = PlayerScoreItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
                         text.text = SaveManager.Instance.userName;
                         text = PlayerScoreItem.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{playerData.totalScore}" : "-88888";
+                        text.text = isFoundPlayerData ? $"{playerData.totalScore}" : "0";
                         text = PlayerScoreItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playTime) : "???";
+                        text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playTime) : "00:00";
 
                         break;
                     }
@@ -245,7 +245,7 @@ public class ReturnGlobalLeaderBoardData<T>
     public StageLeaderboardData playerLeaderBoardData;
 }
 
-//GlobalTotalGameProgressLeaderBoard - �C���`�i�ױƦ�]
+//GlobalTotalGameProgressLeaderBoard
 [Serializable]
 public class GlobalTotalGameProgressLeaderBoard
 {
@@ -266,7 +266,7 @@ public class GlobalTotalGameProgressData
 }
 
 
-//GlobalTotalScoreLeaderBoard - �C���`�o���Ʀ�]
+//GlobalTotalScoreLeaderBoard
 [Serializable]
 public class GlobalTotalScoreLeaderBoard
 {
@@ -277,17 +277,13 @@ public class GlobalTotalScoreLeaderBoard
 [Serializable]
 public class GlobalTotalScoreData
 {
-    //�ϥΪ̦W��: string
-    //�C���`�o��: int
-    //�F���ɪ��C���ɪ�: int
-
     public string playerName;   
     public int totalScore;
     public int playTime;
 }
 
 
-//GlobalClearStageBestRecord - �q�L���d�̨ΰO���Ʀ�]
+//GlobalClearStageBestRecord
 [Serializable]
 public class GlobalClearStageBestRecord
 {
