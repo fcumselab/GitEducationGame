@@ -31,9 +31,11 @@ public class GameDataManager : SerializedMonoBehaviour
         selectedStageData = allStageDataList.Find((item) => item.stageName == stageName);
     }
     
-    public void GetSelfLeaderBoardData(GameObject SelfLeaderBoardGroup)
+    public void GetSelfLeaderBoardData(GameObject ClearTimesContent, GameObject SelfLeaderBoardGroup)
     {
         List<StageLeaderboardData> stageLeaderboardData = selectedStageData.stageLeaderboardData;
+        ClearTimesContent.GetComponent<Text>().text = selectedStageData.stageClearTimes.ToString();
+
         int index = 0;
         foreach(StageLeaderboardData item in stageLeaderboardData)
         {
@@ -42,8 +44,23 @@ public class GameDataManager : SerializedMonoBehaviour
 
             Text text = selfLeaderBoardItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
             text.text = $"{index + 1}";
-            text = selfLeaderBoardItem.transform.Find("TextPanel/Name Text").GetComponent<Text>();
-            text.text = hasRecord  ? item.playerName : "µL" ;
+
+            if (hasRecord)
+            {
+                text = selfLeaderBoardItem.transform.Find("TextPanel/Name Text").GetComponent<Text>();
+                text.gameObject.SetActive(true);
+                text.text = item.playerName;
+                text = selfLeaderBoardItem.transform.Find("TextPanel/Name Text (None)").GetComponent<Text>();
+                text.gameObject.SetActive(false);
+            }
+            else
+            {
+                text = selfLeaderBoardItem.transform.Find("TextPanel/Name Text").GetComponent<Text>();
+                text.gameObject.SetActive(false);
+                text = selfLeaderBoardItem.transform.Find("TextPanel/Name Text (None)").GetComponent<Text>();
+                text.gameObject.SetActive(true);
+            }
+            
 
             Transform Stars = selfLeaderBoardItem.transform.Find("Stars");
             PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(Stars.gameObject, "Update Star");

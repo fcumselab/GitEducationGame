@@ -1276,10 +1276,10 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 269
-        y: 314
+        x: 266.625
+        y: 299.8672
         width: 109
-        height: 48
+        height: 64
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -1302,6 +1302,15 @@ MonoBehaviour:
         linkConstraint: 0
         linkTarget: 0
         colorIndex: 18
+      - fsmEvent:
+          name: Num/3
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Load Play Game CSV
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 4
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.StringSwitch
@@ -1339,6 +1348,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: Stage Select
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Play Game
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -1354,25 +1369,28 @@ MonoBehaviour:
         stringParams:
         - Num/1
         - Num/2
+        - Num/3
         byteData: 00
-        arrayParamSizes: 0200000002000000
+        arrayParamSizes: 0300000003000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmString
         - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 120000000c00000012000000120000000c000000170000001700000001000000
+        paramDataType: 120000000c0000001200000012000000120000000c00000017000000170000001700000001000000
         paramName:
         - stringVariable
         - compareTo
         - 
         - 
+        - 
         - sendEvent
         - 
         - 
+        - 
         - everyFrame
-        paramDataPos: 0000000000000000010000000200000001000000000000000100000000000000
-        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 00000000000000000100000002000000030000000100000000000000010000000200000000000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000001000000
     - name: Close
       description: 
       colorIndex: 12
@@ -1555,8 +1573,8 @@ MonoBehaviour:
       colorIndex: 18
       position:
         serializedVersion: 2
-        x: 411.5
-        y: 405
+        x: 292.6172
+        y: 397.89062
         width: 166
         height: 32
       isBreakpoint: 0
@@ -1920,8 +1938,8 @@ MonoBehaviour:
       colorIndex: 18
       position:
         serializedVersion: 2
-        x: 410.46094
-        y: 452.97656
+        x: 295.125
+        y: 449.41406
         width: 167
         height: 32
       isBreakpoint: 0
@@ -2071,8 +2089,8 @@ MonoBehaviour:
       colorIndex: 18
       position:
         serializedVersion: 2
-        x: 413.70312
-        y: 504.89062
+        x: 298.3672
+        y: 501.32812
         width: 207
         height: 32
       isBreakpoint: 0
@@ -2222,8 +2240,8 @@ MonoBehaviour:
       colorIndex: 18
       position:
         serializedVersion: 2
-        x: 418.6797
-        y: 551.46875
+        x: 303.34375
+        y: 547.90625
         width: 213
         height: 32
       isBreakpoint: 0
@@ -2368,6 +2386,610 @@ MonoBehaviour:
         - storeObject
         paramDataPos: 000000000100000002000000000000000100000003000000040000000500000006000000020000000300000007000000
         paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    - name: Load GameManual CSV 2
+      description: 
+      colorIndex: 4
+      position:
+        serializedVersion: 2
+        x: 592.84375
+        y: 452.04688
+        width: 177
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Load Global Leaderboard CSV 2
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.CreateObject
+        - HutongGames.PlayMaker.Actions.CreateObject
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000006000000
+        actionHashCodes: 6053230160532301
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Global/GameManual/ChineseCSV
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 1082406660114899339, guid: 9931fc5102bd0e345822ca3ca326950a,
+            type: 3}
+        - useVariable: 1
+          name: CSV
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: Global/GameManual/EnglishCSV
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 9113280762983740884, guid: bcd7ec0359ef2344ea747f83ac19b3bf,
+            type: 3}
+        - useVariable: 1
+          name: CSV
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1300000013000000130000001c0000001c000000130000001300000013000000130000001c0000001c00000013000000
+        paramName:
+        - gameObject
+        - parent
+        - spawnPoint
+        - position
+        - rotation
+        - storeObject
+        - gameObject
+        - parent
+        - spawnPoint
+        - position
+        - rotation
+        - storeObject
+        paramDataPos: 000000000100000002000000000000000100000003000000040000000500000006000000020000000300000007000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    - name: Load Global Leaderboard CSV 2
+      description: 
+      colorIndex: 4
+      position:
+        serializedVersion: 2
+        x: 596.08594
+        y: 503.96094
+        width: 217
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Load StageDetailedPopup CSV 2
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.CreateObject
+        - HutongGames.PlayMaker.Actions.CreateObject
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000006000000
+        actionHashCodes: 6053230160532301
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Global/Global Leaderboard/ChineseCSV
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 1082406660114899339, guid: a0c96f46c19fb0943b41f74cf878f5e5,
+            type: 3}
+        - useVariable: 1
+          name: CSV
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: Global/Global Leaderboard/EnglishCSV
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 9113280762983740884, guid: 0b371fc6595ffc74892262818d2e9a83,
+            type: 3}
+        - useVariable: 1
+          name: CSV
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1300000013000000130000001c0000001c000000130000001300000013000000130000001c0000001c00000013000000
+        paramName:
+        - gameObject
+        - parent
+        - spawnPoint
+        - position
+        - rotation
+        - storeObject
+        - gameObject
+        - parent
+        - spawnPoint
+        - position
+        - rotation
+        - storeObject
+        paramDataPos: 000000000100000002000000000000000100000003000000040000000500000006000000020000000300000007000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    - name: Load StageDetailedPopup CSV 2
+      description: 
+      colorIndex: 4
+      position:
+        serializedVersion: 2
+        x: 601.0625
+        y: 550.53906
+        width: 223
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Close
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.CreateObject
+        - HutongGames.PlayMaker.Actions.CreateObject
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000006000000
+        actionHashCodes: 6053230160532301
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Global/StageDetailedPopup/Chinese
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 1082406660114899339, guid: 3968b9b8ece4f354e86f93db90cb4607,
+            type: 3}
+        - useVariable: 1
+          name: CSV
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: Global/StageDetailedPopup/English
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 9113280762983740884, guid: 5732a36f6c165b44cbe02826ca3b9c7d,
+            type: 3}
+        - useVariable: 1
+          name: CSV
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1300000013000000130000001c0000001c000000130000001300000013000000130000001c0000001c00000013000000
+        paramName:
+        - gameObject
+        - parent
+        - spawnPoint
+        - position
+        - rotation
+        - storeObject
+        - gameObject
+        - parent
+        - spawnPoint
+        - position
+        - rotation
+        - storeObject
+        paramDataPos: 000000000100000002000000000000000100000003000000040000000500000006000000020000000300000007000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    - name: Load Play Game CSV
+      description: 
+      colorIndex: 4
+      position:
+        serializedVersion: 2
+        x: 593.4297
+        y: 400.52344
+        width: 153
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Load GameManual CSV 2
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.CreateObject
+        - HutongGames.PlayMaker.Actions.CreateObject
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000006000000
+        actionHashCodes: 6053230160532301
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: Play Game/ChineseCSV
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 1082406660114899339, guid: 5ce370c04dbaab840b6bdae3b1c8302c,
+            type: 3}
+        - useVariable: 1
+          name: CSV
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: Play Game/EnglishCSV
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {fileID: 9113280762983740884, guid: 43f523ebfccf71344ad0dfb4c6ed2d86,
+            type: 3}
+        - useVariable: 1
+          name: CSV
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {x: 0, y: 0, z: 0}
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1300000013000000130000001c0000001c000000130000001300000013000000130000001c0000001c00000013000000
+        paramName:
+        - gameObject
+        - parent
+        - spawnPoint
+        - position
+        - rotation
+        - storeObject
+        - gameObject
+        - parent
+        - spawnPoint
+        - position
+        - rotation
+        - storeObject
+        paramDataPos: 000000000100000002000000000000000100000003000000040000000500000006000000020000000300000007000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -2384,9 +3006,18 @@ MonoBehaviour:
     - name: next
       isSystemEvent: 0
       isGlobal: 0
+    - name: Num/3
+      isSystemEvent: 0
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       - useVariable: 1
         name: 
         tooltip: 
@@ -2490,6 +3121,20 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 9113280762983740884, guid: bfc0c3ba2b3ddb448b788235835c8c5e,
           type: 3}
+      - useVariable: 1
+        name: Play Game/EnglishCSV
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 9113280762983740884, guid: 43f523ebfccf71344ad0dfb4c6ed2d86,
+          type: 3}
+      - useVariable: 1
+        name: Play Game/ChineseCSV
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 1082406660114899339, guid: 5ce370c04dbaab840b6bdae3b1c8302c,
+          type: 3}
       objectVariables:
       - useVariable: 1
         name: 
@@ -2511,7 +3156,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
