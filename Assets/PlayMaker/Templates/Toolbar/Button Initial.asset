@@ -24,8 +24,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 182
-        y: 179
+        x: 324
+        y: 155
         width: 202
         height: 32
       isBreakpoint: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
           name: next
           isSystemEvent: 0
           isGlobal: 0
-        toState: Get Cur stage
+        toState: runType
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -115,8 +115,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 206
-        y: 236
+        x: 202
+        y: 316
         width: 112
         height: 32
       isBreakpoint: 0
@@ -254,8 +254,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 201
-        y: 295
+        x: 197
+        y: 375
         width: 118
         height: 48
       isBreakpoint: 0
@@ -385,8 +385,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 352.84375
-        y: 392.97656
+        x: 348.84375
+        y: 472.97656
         width: 100
         height: 32
       isBreakpoint: 0
@@ -404,17 +404,27 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.SetBoolValue
         - HutongGames.PlayMaker.Actions.EnableFSM
-        - HutongGames.PlayMaker.Actions.EnableFSM
+        - HutongGames.PlayMaker.Actions.UiSetIsInteractable
+        - HutongGames.PlayMaker.ActionsInternal.Header
+        - HutongGames.PlayMaker.Actions.UiImageSetSprite
+        - HutongGames.PlayMaker.Actions.UiGraphicSetColor
+        - HutongGames.PlayMaker.Actions.RectTransformSetSizeDelta
+        - HutongGames.PlayMaker.ActionsInternal.Header
+        - HutongGames.PlayMaker.Actions.BuildString
         customNames:
         - 
         - 
+        - Icon
         - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 000000000300000007000000
-        actionHashCodes: 27fbe10387aa970087aa9700
+        - 
+        - 
+        - tooltip
+        - 
+        actionEnabled: 0101010101010101
+        actionIsOpen: 0101000101010101
+        actionStartIndex: 000000000400000007000000090000000c000000140000001a0000001c000000
+        actionHashCodes: 87aa9700a8a7c802da209704c4b05004c9f57904d674cf03da2097047370ae05
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -434,6 +444,30 @@ MonoBehaviour:
             showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Chlidren/Icon
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Chlidren/Icon
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Chlidren/Icon
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
@@ -446,89 +480,195 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: UnlockButton
+          value: Button
+        - useVariable: 1
+          name: Basei18nKey
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: 
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: LockButton
-        fsmObjectParams: []
+          value: Unlock
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: /
+        - useVariable: 1
+          name: tooltipMessage
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: 
+        fsmObjectParams:
+        - useVariable: 1
+          name: Unlock/Sprite
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          typeName: UnityEngine.Sprite
+          value: {fileID: 21300000, guid: 961b2f9f10d3e4448bb1ae32513e7de1, type: 3}
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams: []
+        fsmFloatParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmIntParams: []
         fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params:
         - useVariable: 1
-          name: unlockByLockList
+          name: Unlock/IconSize
           tooltip: 
-          showInInspector: 0
+          showInInspector: 1
           networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
+          value: {x: 0, y: 0}
         fsmVector3Params: []
-        fsmColorParams: []
+        fsmColorParams:
+        - useVariable: 1
+          name: Unlock/IconColor
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {r: 0, g: 0, b: 0, a: 1}
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
+        stringParams:
+        - Double-click to edit comment.
+        - Double-click to edit comment.
+        byteData: 000000000000000000000000000000
+        arrayParamSizes: 02000000
+        arrayParamTypes:
+        - HutongGames.PlayMaker.FsmString
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1100000011000000010000001400000012000000110000001100000014000000120000001100000011000000
+        paramDataType: 14000000120000001100000011000000140000001100000011000000030000000000000014000000180000001100000014000000190000000f0000000f0000000f0000000f000000110000000100000014000000250000000f0000000f000000010000000700000003000000000000000c000000120000001200000012000000110000001200000001000000
         paramName:
-        - boolVariable
-        - boolValue
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        - gameObject
+        - isInteractable
+        - resetOnExit
+        - comment
+        - colorId
+        - gameObject
+        - sprite
+        - resetOnExit
+        - gameObject
+        - color
+        - red
+        - green
+        - blue
+        - alpha
+        - resetOnExit
         - everyFrame
         - gameObject
-        - fsmName
-        - enable
-        - resetOnExit
-        - gameObject
-        - fsmName
-        - enable
-        - resetOnExit
-        paramDataPos: 0000000001000000000000000000000000000000020000000300000001000000010000000400000005000000
-        paramByteDataSize: 0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000
+        - sizeDelta
+        - x
+        - y
+        - everyFrame
+        - updateType
+        - comment
+        - colorId
+        - stringParts
+        - 
+        - 
+        - separator
+        - addToEnd
+        - storeResult
+        - everyFrame
+        paramDataPos: 0000000000000000000000000100000001000000020000000300000000000000000000000200000000000000040000000300000000000000000000000100000002000000030000000500000004000000040000000000000004000000050000000500000006000000010000000a0000000000000001000000020000000300000006000000040000000e000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000100000004000000000000000400000000000000000000000000000000000000000000000000000001000000
     - name: Enable Button FSM
       description: 
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 52.695312
-        y: 387.03906
+        x: 52.890625
+        y: 474.4375
         width: 140
         height: 32
       isBreakpoint: 0
@@ -546,17 +686,27 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.SetBoolValue
         - HutongGames.PlayMaker.Actions.EnableFSM
-        - HutongGames.PlayMaker.Actions.EnableFSM
+        - HutongGames.PlayMaker.Actions.UiSetIsInteractable
+        - HutongGames.PlayMaker.ActionsInternal.Header
+        - HutongGames.PlayMaker.Actions.RectTransformSetSizeDelta
+        - HutongGames.PlayMaker.Actions.UiImageSetSprite
+        - HutongGames.PlayMaker.Actions.UiGraphicSetColor
+        - HutongGames.PlayMaker.ActionsInternal.Header
+        - HutongGames.PlayMaker.Actions.BuildString
         customNames:
         - 
         - 
+        - Icon
         - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 000000000300000007000000
-        actionHashCodes: 27fbe10387aa970087aa9700
+        - 
+        - 
+        - tooltip
+        - 
+        actionEnabled: 0101010101010101
+        actionIsOpen: 0101000101010101
+        actionStartIndex: 000000000400000007000000090000000f000000120000001a0000001c000000
+        actionHashCodes: 87aa9700a8a7c802da209704d674cf03c4b05004c9f57904da2097047370ae05
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -576,6 +726,30 @@ MonoBehaviour:
             showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Chlidren/Icon
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Chlidren/Icon
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Chlidren/Icon
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
@@ -588,89 +762,195 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: UnlockButton
+          value: Button
+        - useVariable: 1
+          name: Basei18nKey
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: 
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: LockButton
-        fsmObjectParams: []
+          value: Lock
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: /
+        - useVariable: 1
+          name: tooltipMessage
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: 
+        fsmObjectParams:
+        - useVariable: 1
+          name: Lock/Sprite
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          typeName: UnityEngine.Sprite
+          value: {fileID: 21300000, guid: 6a94065f697e14733b42ab9665ef90e1, type: 3}
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams: []
+        fsmFloatParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmIntParams: []
         fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params:
         - useVariable: 1
-          name: unlockByLockList
+          name: Lock/lockSize
           tooltip: 
-          showInInspector: 0
+          showInInspector: 1
           networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
+          value: {x: 100, y: 100}
         fsmVector3Params: []
-        fsmColorParams: []
+        fsmColorParams:
+        - useVariable: 1
+          name: Lock/lockColor
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: {r: 0.23921569, g: 0.3019608, b: 0.39607844, a: 1}
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
+        stringParams:
+        - Double-click to edit comment.
+        - Double-click to edit comment.
+        byteData: 000000000000000000000000000000
+        arrayParamSizes: 02000000
+        arrayParamTypes:
+        - HutongGames.PlayMaker.FsmString
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1100000011000000010000001400000012000000110000001100000014000000120000001100000011000000
+        paramDataType: 14000000120000001100000011000000140000001100000011000000030000000000000014000000250000000f0000000f000000010000000700000014000000180000001100000014000000190000000f0000000f0000000f0000000f000000110000000100000003000000000000000c000000120000001200000012000000110000001200000001000000
         paramName:
-        - boolVariable
-        - boolValue
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        - gameObject
+        - isInteractable
+        - resetOnExit
+        - comment
+        - colorId
+        - gameObject
+        - sizeDelta
+        - x
+        - y
         - everyFrame
+        - updateType
         - gameObject
-        - fsmName
-        - enable
+        - sprite
         - resetOnExit
         - gameObject
-        - fsmName
-        - enable
+        - color
+        - red
+        - green
+        - blue
+        - alpha
         - resetOnExit
-        paramDataPos: 0000000001000000000000000000000000000000020000000300000001000000010000000400000005000000
-        paramByteDataSize: 0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000
+        - everyFrame
+        - comment
+        - colorId
+        - stringParts
+        - 
+        - 
+        - separator
+        - addToEnd
+        - storeResult
+        - everyFrame
+        paramDataPos: 0000000000000000000000000100000001000000020000000300000000000000000000000200000000000000000000000100000004000000050000000300000000000000040000000400000000000000020000000300000004000000050000000500000009000000010000000a0000000000000001000000020000000300000006000000040000000e000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000001000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000400000000000000000000000000000000000000000000000000000001000000
     - name: Close this FSM
       description: 
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 181.375
-        y: 475.9453
+        x: 177.375
+        y: 555.9453
         width: 117
         height: 16
       isBreakpoint: 0
@@ -753,8 +1033,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 222.625
-        y: 106.328125
+        x: 374.625
+        y: 107.328125
         width: 100
         height: 32
       isBreakpoint: 0
@@ -762,8 +1042,8 @@ MonoBehaviour:
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
+          name: next
+          isSystemEvent: 0
           isGlobal: 0
         toState: Loading StageManager finish
         linkStyle: 0
@@ -772,15 +1052,25 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
+        - HutongGames.PlayMaker.Actions.GameObjectIsNull
         - HutongGames.PlayMaker.Actions.FindGameObject
+        - HutongGames.PlayMaker.Actions.NextFrameEvent
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 786b3902
+        - 
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000500000008000000
+        actionHashCodes: 15656205786b390288611604
         unityObjectParams: []
         fsmGameObjectParams:
+        - useVariable: 1
+          name: Stage Manager Parent
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
         - useVariable: 1
           name: Stage Manager Parent
           tooltip: 
@@ -813,25 +1103,142 @@ MonoBehaviour:
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - next
+        - next
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 130000001700000017000000110000000100000012000000120000001300000017000000
+        paramName:
+        - gameObject
+        - isNull
+        - isNotNull
+        - storeResult
+        - everyFrame
+        - objectName
+        - withTag
+        - store
+        - sendEvent
+        paramDataPos: 000000000000000001000000000000000000000000000000010000000100000002000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
+    - name: runType
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 374
+        y: 211
+        width: 100
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: Num/1
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Get Cur stage
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: Num/2
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: 
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.StringSwitch
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 76d0e601
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: runType
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: initial
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: unlock-by-command
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
+        stringParams:
+        - Num/1
+        - Num/2
+        byteData: 00
+        arrayParamSizes: 0200000002000000
+        arrayParamTypes:
+        - HutongGames.PlayMaker.FsmString
+        - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 120000001200000013000000
+        paramDataType: 120000000c00000012000000120000000c000000170000001700000001000000
         paramName:
-        - objectName
-        - withTag
-        - store
-        paramDataPos: 000000000100000000000000
-        paramByteDataSize: 000000000000000000000000
+        - stringVariable
+        - compareTo
+        - 
+        - 
+        - sendEvent
+        - 
+        - 
+        - everyFrame
+        paramDataPos: 0000000000000000010000000200000001000000000000000100000000000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000001000000
     events:
     - name: next
       isSystemEvent: 0
@@ -845,17 +1252,23 @@ MonoBehaviour:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
+    - name: Num/2
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Num/1
+      isSystemEvent: 0
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables: []
       intVariables: []
       boolVariables:
       - useVariable: 1
-        name: unlockByLockList
+        name: usingi18nKey
         tooltip: 
-        showInInspector: 0
+        showInInspector: 1
         networkSync: 0
-        value: 0
+        value: 1
       stringVariables:
       - useVariable: 1
         name: CurrentStageName
@@ -863,19 +1276,81 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 
-      vector2Variables: []
+      - useVariable: 1
+        name: runType
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: initial
+      - useVariable: 1
+        name: tooltipMessage
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 
+      - useVariable: 1
+        name: Basei18nKey
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 
+      vector2Variables:
+      - useVariable: 1
+        name: Lock/lockSize
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {x: 100, y: 100}
+      - useVariable: 1
+        name: Unlock/IconSize
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {x: 0, y: 0}
       vector3Variables: []
-      colorVariables: []
+      colorVariables:
+      - useVariable: 1
+        name: Lock/lockColor
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {r: 0.23921569, g: 0.3019608, b: 0.39607844, a: 1}
+      - useVariable: 1
+        name: Unlock/IconColor
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {r: 0, g: 0, b: 0, a: 1}
       rectVariables: []
       quaternionVariables: []
       gameObjectVariables:
+      - useVariable: 1
+        name: Chlidren/Icon
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 0}
       - useVariable: 1
         name: Stage Manager Parent
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
-      objectVariables: []
+      objectVariables:
+      - useVariable: 1
+        name: Lock/Sprite
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        typeName: UnityEngine.Sprite
+        value: {fileID: 21300000, guid: 6a94065f697e14733b42ab9665ef90e1, type: 3}
+      - useVariable: 1
+        name: Unlock/Sprite
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        typeName: UnityEngine.Sprite
+        value: {fileID: 21300000, guid: 961b2f9f10d3e4448bb1ae32513e7de1, type: 3}
       materialVariables: []
       textureVariables: []
       arrayVariables:
@@ -897,7 +1372,10 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 00000000000000000000000000000000
+      - Lock
+      - Tooltip
+      - Unlock
+      variableCategoryIDs: 0200000000000000000000000200000002000000010000000300000000000000000000000100000003000000010000000300000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -906,7 +1384,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 00000000
+    outVariableIndices: 02000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
