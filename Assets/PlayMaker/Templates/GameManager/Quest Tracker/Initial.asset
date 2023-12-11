@@ -17,7 +17,7 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 11400000}
     name: Initial
-    startState: Wait for script finish
+    startState: i18n Translator
     states:
     - name: Close FSM
       description: 
@@ -25,7 +25,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 95.796875
-        y: 283.70312
+        y: 347.70312
         width: 100
         height: 16
       isBreakpoint: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 60.992188
-        y: 205.21875
+        y: 269.21875
         width: 191
         height: 32
       isBreakpoint: 0
@@ -233,8 +233,8 @@ MonoBehaviour:
       colorIndex: 14
       position:
         serializedVersion: 2
-        x: 80.296875
-        y: 113.703125
+        x: 74.296875
+        y: 162.70312
         width: 150
         height: 32
       isBreakpoint: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
           name: next
           isSystemEvent: 0
           isGlobal: 0
-        toState: Enable Quest Tracker/Filter
+        toState: Is i18n Translator Finish
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -439,6 +439,190 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000000000000000000000000000100000001000000
         paramByteDataSize: 000000000100000000000000000000000000000001000000
+    - name: i18n Translator
+      description: 
+      colorIndex: 12
+      position:
+        serializedVersion: 2
+        x: 96
+        y: 105
+        width: 118
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Wait for script finish
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.EnableFSM
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 87aa9700
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: i18n Translator
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 14000000120000001100000011000000
+        paramName:
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        paramDataPos: 00000000000000000000000001000000
+        paramByteDataSize: 00000000000000000000000000000000
+    - name: Is i18n Translator Finish
+      description: 
+      colorIndex: 12
+      position:
+        serializedVersion: 2
+        x: 70
+        y: 208
+        width: 168
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: finish
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Enable Quest Tracker/Filter
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.IsFsmEnabled
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 68943404
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: i18n Translator
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - finish
+        byteData: 01
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001200000011000000170000001700000001000000
+        paramName:
+        - gameObject
+        - fsmName
+        - isEnabled
+        - isEnabledEvent
+        - isDisabledEvent
+        - everyFrame
+        paramDataPos: 000000000000000000000000000000000100000000000000
+        paramByteDataSize: 000000000000000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
