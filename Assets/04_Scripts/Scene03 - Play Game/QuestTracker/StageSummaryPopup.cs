@@ -11,6 +11,8 @@ public class StageSummaryPopup : MonoBehaviour
     [Header("Children")]
     //stage quest history list
     [SerializeField] GameObject StageQuestHistoryPanel;
+    //action detailed panel
+    [SerializeField] GameObject ActionDetailGroup;
     //self leaderboard clear times
     [SerializeField] GameObject ClearTimesContent;
     //three histroy
@@ -20,16 +22,25 @@ public class StageSummaryPopup : MonoBehaviour
 
     [Header("Reference")]
     [SerializeField] GameObject StageManagerParent;
+    [SerializeField] GameObject gameDataManager;
+    [SerializeField] GameDataManager gameDataManagerScript;
+
 
     // Start is called before the first frame update
     private void Start()
     {
         StageManagerParent = GameObject.Find("Stage Manager Parent");
+        gameDataManager = GameObject.Find("Game Data Manager");
+        gameDataManagerScript = gameDataManager.GetComponent<GameDataManager>();
     }
 
     public void RunSummaryFunc(string stageName, float time, int playerScore)
     {
+        //Stage Quests Review Panel
         CreateQuestHistoryTextBoxes();
+
+        UpdateActionDetailsPanel(time);
+        //Get Player Place
         int playerPlace = CompareLeaderBoard(time, playerScore);
         int playerStar = GetPlayerStar(playerScore);
 
@@ -44,9 +55,10 @@ public class StageSummaryPopup : MonoBehaviour
             playerClearTime = (int)time
         };
 
+        //Update StageData
         SaveManager.Instance.ClearTheStage(stageName, playerPlace, newData);
 
-        //update three leaderboard
+        //update Three Leaderboard UI
         GameDataManager.Instance.UpdateSelfLeaderBoardContent(ClearTimesContent, SelfLeaderBoardGroup, playerPlace);
     }
 
@@ -88,10 +100,10 @@ public class StageSummaryPopup : MonoBehaviour
 
     void CreateQuestHistoryTextBoxes()
     {
-        List<string> completeQuestNameList = GameDataManager.Instance.GetCompleteQuestName();
-        List<int> completeQuestTimeList = GameDataManager.Instance.GetCompleteQuestTime();
-        List<int> completeQuestUsedTimeList = GameDataManager.Instance.GetCompleteQuestUsedTime();
-        List<string> completeQuestTypeList = GameDataManager.Instance.GetCompleteQuestType();
+        List<string> completeQuestNameList = gameDataManagerScript.GetCompleteQuestName();
+        List<int> completeQuestTimeList = gameDataManagerScript.GetCompleteQuestTime();
+        List<int> completeQuestUsedTimeList = gameDataManagerScript.GetCompleteQuestUsedTime();
+        List<string> completeQuestTypeList = gameDataManagerScript.GetCompleteQuestType();
 
         //create historyTextBox and give values.
         for (int i = 0; i < completeQuestNameList.Count; i++)
@@ -132,5 +144,62 @@ public class StageSummaryPopup : MonoBehaviour
         fsm = MyPlayMakerScriptHelper.GetFsmByName(playerTextBox, "Highlight TextBox");
         fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
         fsm.enabled = true;
+    }
+
+    public void UpdateActionDetailsPanel(float time)
+    {
+        PlayMakerFSM fsm;
+        int count;
+        for (int i=0; i< ActionDetailGroup.transform.childCount; i++)
+        {
+            Transform ResultColumn = ActionDetailGroup.transform.GetChild(i);
+            Transform ContentText = ResultColumn.Find("ContentPanel/first/Content Text");
+            Transform ScoreText = ResultColumn.Find("ContentPanel/second/Score Text");
+            
+            switch (i)
+            {
+                case 0: //TotalStageTime
+                    ContentText.GetComponent<Text>().text = $"{MyTimer.Instance.StopWatch(time)}";
+                    ScoreText.gameObject.SetActive(false);
+                    break;
+                case 1: //MissTimes
+                    fsm = MyPlayMakerScriptHelper.GetFsmByName(gameDataManager, "GameData");
+                    ContentText.GetComponent<Text>().text = $"{fsm.FsmVariables.GetFsmInt("missNum").Value}";
+                    ScoreText.gameObject.SetActive(false);
+                    break;
+                case 2: //CommandExecutedTimes
+                    ContentText.GetComponent<Text>().text = $"{gameDataManagerScript.GetCommandExecuteTime()}";
+                    ScoreText.gameObject.SetActive(false);
+                    break;
+                case 3: //GameManualUsedTimes
+                    ContentText.GetComponent<Text>().text = $"{gameDataManagerScript.GetGameManualUsedTimes()}";
+                    ScoreText.gameObject.SetActive(false);
+                    break;
+                case 4:
+                    count = gameDataManagerScript.GetQuestCountPerfect();
+                    ContentText.GetComponent<Text>().text = $"{count}";
+                    ScoreText.GetComponent<Text>().text = $"+{count * 1000}";
+                    ScoreText.gameObject.SetActive(true);
+                    break;
+                case 5:
+                    count = gameDataManagerScript.GetQuestCountGood();
+                    ContentText.GetComponent<Text>().text = $"{count}";
+                    ScoreText.GetComponent<Text>().text = $"+{count * 750}";
+                    ScoreText.gameObject.SetActive(true);
+                    break;
+                case 6:
+                    count = gameDataManagerScript.GetQuestCountHint();
+                    ContentText.GetComponent<Text>().text = $"{count}";
+                    ScoreText.GetComponent<Text>().text = $"+{count * 500}";
+                    ScoreText.gameObject.SetActive(true);
+                    break;
+                case 7:
+                    count = gameDataManagerScript.GetQuestCountAnswer();
+                    ContentText.GetComponent<Text>().text = $"{count}";
+                    ScoreText.GetComponent<Text>().text = $"+{0}";
+                    ScoreText.gameObject.SetActive(true);
+                    break;
+            }
+        }
     }
 }

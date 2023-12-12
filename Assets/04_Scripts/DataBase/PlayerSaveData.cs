@@ -31,7 +31,7 @@ public class GameRecordData
     public int totalTimesUsedGameManual;
 
     [Header("Command")]
-    public int totalRunCommandTimes;
+    public int totalCommandExecuteTimes;
     //totalTimesCompleteQuest = Perfect + Good + Hint + Answer
     public int totalTimesQuestClearPerfect;
     public int totalTimesQuestClearGood;

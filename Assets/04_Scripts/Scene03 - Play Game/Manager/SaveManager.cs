@@ -65,86 +65,43 @@ public class SaveManager : SerializedMonoBehaviour
 
     public PlayerSaveData GetPlayerSaveData()
     {
-        if (playerSaveData.stageData.Count == 0)
-        {
-            Debug.Log("using testingPlayerSaveData");
-            return testingPlayerSaveData;
-        }
-        else
-        {
-            return playerSaveData;
-        }
+        while (!isInitialFinish) { }
+        return playerSaveData;
     }
 
-    //LoadStageData -> in "Stage Selection" scene -> Run function from "Stage Manager" GameObject
-    public bool LoadStageData(GameObject stageObj)
-    {
-        List<StageData> stageData = playerSaveData.stageData;
-        StageData findStage = stageData.Find((stage) => stage.stageName == stageObj.name);
-
-        if (findStage == null)
-        {
-            Debug.Log("Cannot find Stage : " + stageObj.name);
-            return true;
-        }
-
-        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(stageObj, "Button Initial");
-        fsm.FsmVariables.FindFsmInt("stageClearTimes").Value = findStage.stageClearTimes;
-        fsm.FsmVariables.FindFsmBool("isStageUnlock").Value = findStage.isStageUnlock;
-        if (findStage.isStageUnlock)
-        {
-            for (int i = 0; i < findStage.stageLeaderboardData.Count; i++)
-            {
-                fsm.FsmVariables.FindFsmArray("playerNameList").Set(i, findStage.stageLeaderboardData[i].playerName);
-                fsm.FsmVariables.FindFsmArray("playerScoreList").Set(i, findStage.stageLeaderboardData[i].playerScore);
-                fsm.FsmVariables.FindFsmArray("playerStarList").Set(i, findStage.stageLeaderboardData[i].playerStar);
-                fsm.FsmVariables.FindFsmArray("playerClearTimeList").Set(i, findStage.stageLeaderboardData[i].playerClearTime);
-            }
-        }
-        return true;
-    }
-
-    //
     public void ClearTheStage(string stageName, int playerPlace = 0, StageLeaderboardData newLeaderBoardData = null)
     {
-        //clear times + 1
         StageData targetStageData = playerSaveData.stageData.Find((item) => item.stageName == stageName);
+        //unlock new stage if clear times = 0
+        if (targetStageData.stageClearTimes == 0)
+        {
+            foreach (var unlockStageName in targetStageData.nextUnlockStageNameList)
+            {
+                StageData unlockStageData = playerSaveData.stageData.Find((item) => item.stageName == unlockStageName);
+                unlockStageData.isStageUnlock = true;
+            }
+        }
+        //clear times + 1
         targetStageData.stageClearTimes++;
 
-        //unlock new stage
-        foreach (var unlockStageName in targetStageData.nextUnlockStageNameList)
-        {
-            StageData unlockStageData = playerSaveData.stageData.Find((item) => item.stageName == unlockStageName);
-            unlockStageData.isStageUnlock = true;
-        }
-
-        //send POST request to local (save player data)
+        
         if (playerPlace != 4)
         {
-            targetStageData.stageLeaderboardData.Insert(playerPlace-1, newLeaderBoardData);
+            //Insert newPlayerData
+            targetStageData.stageLeaderboardData.Insert(playerPlace - 1, newLeaderBoardData);
             targetStageData.stageLeaderboardData.RemoveAt(3);
+
+            //send POST request to global (if player get new record)
+            //Count Game Progress and send POST request
+            //send POST request to update clear stage LB
+            //Count Total Game Score and send POST request
+
+
+            //send POST request to local (save player data)
+
         }
 
-        //send POST request to global (if player get new record)
-    }
 
-    //
-    public void SaveStageLeaderBoardData(string stageName, int playerPlace, StageLeaderboardData newLeaderBoardData = null)
-    {
-        
-    }
-
-    public void UnlockNextStages(string stageName)
-    {
-        StageData targetStage = playerSaveData.stageData.Find((stage) => stage.stageName == stageName);
-        targetStage.stageClearTimes++;
-        for (int i = 0; i < targetStage.nextUnlockStageNameList.Count; i++)
-        {
-            StageData unlockStage = playerSaveData.stageData.Find((stage) => stage.stageName == targetStage.nextUnlockStageNameList[i]);
-            unlockStage.isStageUnlock = true;
-
-            if (unlockStage == null) Debug.Log("Cannot find Stage : " + stageName);
-        }
     }
 
     /*

@@ -9,10 +9,12 @@ public class GameDataManager : SerializedMonoBehaviour
     [Header("GameData")]
     [SerializeField] string stageName;
     [SerializeField] int lastQuestCompletedTime;
-    [SerializeField] int QuestCountPerfect;
+    [SerializeField] int QuestCountPerfect { get; set; }
     [SerializeField] int QuestCountGood;
     [SerializeField] int QuestCountHint;
     [SerializeField] int QuestCountAnswer;
+    [SerializeField] int GameManualUsedTimes;
+    [SerializeField] int CommandExecuteTime;
 
     [Header("StageSummaryWindow")]
     [SerializeField] List<string> completeQuestNameList;
@@ -159,4 +161,36 @@ public class GameDataManager : SerializedMonoBehaviour
     {
         return completeQuestTypeList;
     }
+
+    public int GetQuestCountPerfect()
+    {
+        return QuestCountPerfect;
+    }
+
+    public int GetQuestCountGood()
+    {
+        return QuestCountGood;
+    }
+
+    public int GetQuestCountHint()
+    {
+        return QuestCountHint;
+    }
+
+    public int GetQuestCountAnswer()
+    {
+        return QuestCountAnswer;
+    }
+
+    public int GetCommandExecuteTime()
+    {
+        return CommandExecuteTime;
+    }
+
+    public int GetGameManualUsedTimes()
+    {
+        return GameManualUsedTimes;
+    }
+    
 }
+
