@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class SaveManager : SerializedMonoBehaviour
 {
-    [SerializeField] PlayerSaveData testingPlayerSaveData;
+    [SerializeField] bool isDebugMode = true;
+    [SerializeField] bool isInitialFinish = false;
 
+    [SerializeField] PlayerSaveData testingPlayerSaveData;
     [Header("Current PlayerSaveData")]
     public string userName;
     [SerializeField] PlayerSaveData playerSaveData;
@@ -25,6 +27,16 @@ public class SaveManager : SerializedMonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        isInitialFinish = false;
+        if (isDebugMode)
+        {
+            Debug.Log("using testingPlayerSaveData");
+            playerSaveData = testingPlayerSaveData;
+        }
+        isInitialFinish = true;
+    }
     /* ready to delete this.
     public void SavePlayerData()
     {
@@ -41,28 +53,14 @@ public class SaveManager : SerializedMonoBehaviour
 
     public List<StageData> GetStageDataListFromPlayerData()
     {
-        if (playerSaveData.stageData.Count == 0)
-        {
-            Debug.Log("using testingPlayerSaveData");
-            return testingPlayerSaveData.stageData;
-        }
-        else
-        {
-            return playerSaveData.stageData;
-        }
+        while (!isInitialFinish) { }
+        return playerSaveData.stageData;
     }
 
     public List<GameManualData> GetGameManualDataListFromPlayerData()
     {
-        if (playerSaveData.stageData.Count == 0)
-        {
-            Debug.Log("using testingPlayerSaveData");
-            return testingPlayerSaveData.gameManualData;
-        }
-        else
-        {
-            return playerSaveData.gameManualData;
-        }
+        while (!isInitialFinish) { }
+        return playerSaveData.gameManualData;
     }
 
     public PlayerSaveData GetPlayerSaveData()
@@ -106,17 +104,34 @@ public class SaveManager : SerializedMonoBehaviour
         return true;
     }
 
-    public void SaveStageLeaderBoardData(string stageName, string[] nameList, int[] scoreList, int[] starList, int[] timeList)
+    //
+    public void ClearTheStage(string stageName, int playerPlace = 0, StageLeaderboardData newLeaderBoardData = null)
     {
-        StageData findStage = playerSaveData.stageData.Find((stage) => stage.stageName == stageName);
+        //clear times + 1
+        StageData targetStageData = playerSaveData.stageData.Find((item) => item.stageName == stageName);
+        targetStageData.stageClearTimes++;
 
-        for (int i = 0; i < nameList.Length; i++)
+        //unlock new stage
+        foreach (var unlockStageName in targetStageData.nextUnlockStageNameList)
         {
-            findStage.stageLeaderboardData[i].playerName = nameList[i];
-            findStage.stageLeaderboardData[i].playerScore = scoreList[i];
-            findStage.stageLeaderboardData[i].playerStar = starList[i];
-            findStage.stageLeaderboardData[i].playerClearTime = timeList[i];
+            StageData unlockStageData = playerSaveData.stageData.Find((item) => item.stageName == unlockStageName);
+            unlockStageData.isStageUnlock = true;
         }
+
+        //send POST request to local (save player data)
+        if (playerPlace != 4)
+        {
+            targetStageData.stageLeaderboardData.Insert(playerPlace-1, newLeaderBoardData);
+            targetStageData.stageLeaderboardData.RemoveAt(3);
+        }
+
+        //send POST request to global (if player get new record)
+    }
+
+    //
+    public void SaveStageLeaderBoardData(string stageName, int playerPlace, StageLeaderboardData newLeaderBoardData = null)
+    {
+        
     }
 
     public void UnlockNextStages(string stageName)

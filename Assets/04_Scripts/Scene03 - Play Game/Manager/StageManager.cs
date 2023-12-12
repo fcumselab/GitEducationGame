@@ -23,8 +23,10 @@ public class StageManager : SerializedMonoBehaviour
     [Header("MessageForPlayMaker")]
     public bool isFinishInitialize;
 
-    [Header("BackgroundStory")]
-    public string backgroundStoryText = "";
+    [Header("Stage Summary")]
+    // 4 -> 2 star score line
+    public List<int> getStarScoreLine = new(3);
+
 
     private void Start()
     {
@@ -38,8 +40,6 @@ public class StageManager : SerializedMonoBehaviour
         GameScreen = GameObject.Find("GameScreen");
 
         RenderTargetWindow();
-
-
     }
 
     public void RenderTargetWindow()
