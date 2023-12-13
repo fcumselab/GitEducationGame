@@ -1,9 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageSelectGameManager : MonoBehaviour
 {
+    [Header("PlayerGameRecordsWindow")]
+    [SerializeField] GameObject MainRecords;
+    [SerializeField] GameObject OtherRecords;
+    [SerializeField] Text PlayerNameText;
+
+    [Header("Reference")]
+    [SerializeField] SaveManager saveManager;
+
+    private void Start()
+    {
+        saveManager = GameObject.Find("Save Manager (Main)").GetComponent<SaveManager>();
+    }
+
     public void InitializeStageCategoryAndStageItem(GameObject SelectStageCategory, GameObject StageItemsContent)
     {
         SelectStageCategory.gameObject.SetActive(true);
@@ -96,5 +110,61 @@ public class StageSelectGameManager : MonoBehaviour
             
         SelectStageCategory.gameObject.SetActive(false);
 
+    }
+
+    public void InitializeGameProgressData()
+    {
+        PlayerSaveData playerSaveData = saveManager.GetPlayerSaveData();
+        PlayerNameText.text = saveManager.userName;
+        for(int i=0; i< MainRecords.transform.childCount; i++)
+        {
+            Transform recordPanel = MainRecords.transform.GetChild(i);
+            Text text = recordPanel.Find("Content").GetComponent<Text>();
+            switch (i)
+            {
+                case 0:
+                    text.text = $"{playerSaveData.gameRecordData.totalGameProgress} %";
+                    break;
+                case 1:
+                    text.text = $"{playerSaveData.gameRecordData.totalStageScore}";
+                    break;
+                case 2:
+                    text.text = MyTimer.Instance.StopWatch(playerSaveData.gameRecordData.totalPlayTime);
+                    break;
+                case 3:
+                    text.text = $"{playerSaveData.gameRecordData.totalStarCount}";
+                    break;
+            }
+        }
+
+        for (int i = 0; i < OtherRecords.transform.childCount; i++)
+        {
+            Transform recordPanel = OtherRecords.transform.GetChild(i);
+            Text text = recordPanel.Find("Content").GetComponent<Text>();
+            switch (i)
+            {
+                case 0:
+                    text.text = $"{playerSaveData.gameRecordData.totalTimesStageClear}";
+                    break;
+                case 1:
+                    text.text = $"{playerSaveData.gameRecordData.totalTimesUsedGameManual}";
+                    break;
+                case 2:
+                    text.text = $"{playerSaveData.gameRecordData.totalCommandExecuteTimes}";
+                    break;
+                case 3:
+                    text.text = $"{playerSaveData.gameRecordData.totalTimesQuestClearPerfect}";
+                    break;
+                case 4:
+                    text.text = $"{playerSaveData.gameRecordData.totalTimesQuestClearGood}";
+                    break;
+                case 5:
+                    text.text = $"{playerSaveData.gameRecordData.totalTimesQuestClearHint}";
+                    break;
+                case 6:
+                    text.text = $"{playerSaveData.gameRecordData.totalTimesQuestClearAnswer}";
+                    break;
+            }
+        }
     }
 }
