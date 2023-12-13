@@ -35,16 +35,11 @@ public class SaveManager : SerializedMonoBehaviour
         {
             Debug.Log("using testingPlayerSaveData");
             playerSaveData = testingPlayerSaveData;
+            userName = "test player";
         }
         isInitialFinish = true;
     }
-    /* ready to delete this.
-    public void SavePlayerData()
-    {
-        saveJson = JsonUtility.ToJson(playerSaveData, true);
-        Debug.Log(saveJson);
-    }*/
-
+  
     //LoadPlayerData - from LoginManager.cs
     public void LoadPlayerSaveData(string username, PlayerSaveData playerSaveData)
     {
@@ -85,17 +80,19 @@ public class SaveManager : SerializedMonoBehaviour
         //clear times + 1
         targetStageData.stageClearTimes++;
 
-        
+        WWWForm form;
         if (playerPlace != 4)
         {
-            //Insert newPlayerData
             targetStageData.stageLeaderboardData.Insert(playerPlace - 1, newLeaderBoardData);
             targetStageData.stageLeaderboardData.RemoveAt(3);
 
             UpdateGameRecordData(playTime);
 
+            form = BuildGlobalLeaderBoardForm("PlayerSaveData");
+            StartCoroutine(UploadPlayerSaveData(form));
+
             Debug.Log("Start POST GameProgress");
-            WWWForm form = BuildGlobalLeaderBoardForm("GameProgress");
+            form = BuildGlobalLeaderBoardForm("GameProgress");
             StartCoroutine(UpdateGlobalLeaderBoard(form));
 
             Debug.Log("Start POST ClearStageBestRecord");
@@ -105,18 +102,13 @@ public class SaveManager : SerializedMonoBehaviour
             Debug.Log("Start POST TotalScore");
             form = BuildGlobalLeaderBoardForm("TotalScore");
             StartCoroutine(UpdateGlobalLeaderBoard(form));
+        }
+        else
+        {
+            UpdateGameRecordData(playTime);
 
             form = BuildGlobalLeaderBoardForm("PlayerSaveData");
             StartCoroutine(UploadPlayerSaveData(form));
-
-            //send POST request to global (if player get new record)
-            //Count Game Progress and send POST request
-            //send POST request to update clear stage LB
-            //Count Total Game Score and send POST request
-
-
-            //send POST request to local (save player data)
-
         }
     }
 
@@ -125,6 +117,14 @@ public class SaveManager : SerializedMonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("localhost:5050/UpdatePlayerData", form);
         yield return www.SendWebRequest();
 
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Debug.Log(www.downloadHandler.text);
+        }
     }
 
     IEnumerator UpdateGlobalLeaderBoard(WWWForm form)
@@ -169,8 +169,6 @@ public class SaveManager : SerializedMonoBehaviour
                 form.AddField("userName", userName);
                 string saveJson = JsonUtility.ToJson(playerSaveData, true);
                 form.AddField("saveData", saveJson);
-                Debug.Log("SaveJson:");
-                Debug.Log(saveJson);
                 break;
         }
         return form;
@@ -194,9 +192,7 @@ public class SaveManager : SerializedMonoBehaviour
                 clearStageCount++;
             }
         }
-        Debug.Log("Total count: " + clearStageCount + " || " + playerSaveData.stageData.Count);
         float progress = (clearStageCount * 100 / playerSaveData.stageData.Count);
-        Debug.Log("Progress (float): " + progress);
 
         playerSaveData.gameRecordData.totalGameProgress = (int)progress;
         playerSaveData.gameRecordData.totalPlayTime += (int)playTime;
@@ -207,9 +203,6 @@ public class SaveManager : SerializedMonoBehaviour
         playerSaveData.gameRecordData.totalTimesQuestClearHint += gameDataManagerScript.GetQuestCountHint();
         playerSaveData.gameRecordData.totalTimesQuestClearAnswer += gameDataManagerScript.GetQuestCountAnswer();
         playerSaveData.gameRecordData.totalTimesStageClear++;
-        Debug.Log("Progress: " + playerSaveData.gameRecordData.totalGameProgress);
-
-        
     }
 }
 

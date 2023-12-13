@@ -20,10 +20,19 @@ public class BasicInputField : MonoBehaviour
           @"[^a-zA-Z0-9`!@#$%^&*()_+|\-=\\{}\[\]:"";'<>?,./ ]", "");
     }
 
-    public void ValidTextOnlyLettersAndNumbers()
+    public void ValidTextOnlyLettersAndNumbers(bool allowSpace)
     {
-        inputField.text = Regex.Replace(inputField.text,
+        if (allowSpace)
+        {
+            inputField.text = Regex.Replace(inputField.text,
+          @"[^a-zA-Z0-9 ]", "");
+        }
+        else
+        {
+            inputField.text = Regex.Replace(inputField.text,
           @"[^a-zA-Z0-9]", "");
+        }
+        
     }
 
     public void DeselectAllText()
