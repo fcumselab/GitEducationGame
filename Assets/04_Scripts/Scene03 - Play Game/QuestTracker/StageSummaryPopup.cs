@@ -8,20 +8,23 @@ public class StageSummaryPopup : MonoBehaviour
     [Header("Prefab")]
     [SerializeField] GameObject PrefabQuestHistoryTextBox;
 
-    [Header("Children")]
-    //stage quest history list
-    [SerializeField] GameObject StageQuestHistoryPanel;
-    //action detailed panel
+    [Header("Children/Left")]
+    //LeftTop
+    [SerializeField] GameObject StarsAndScorePanel;
+    //LeftBottom
     [SerializeField] GameObject ActionDetailGroup;
-    //self leaderboard clear times
+
+    [Header("Children/Right")]
+    //RightBottom
+    [SerializeField] GameObject StageQuestHistoryPanel;
+    //RightTop
     [SerializeField] GameObject ClearTimesContent;
-    //three histroy
+    //RightTop
     [SerializeField] GameObject SelfLeaderBoardGroup;
-    //four history
+    //RightTop
     [SerializeField] GameObject playerCurrentScoreTextBox;
 
     [Header("Reference")]
-    [SerializeField] GameObject StageManagerParent;
     [SerializeField] GameObject gameDataManager;
     [SerializeField] GameDataManager gameDataManagerScript;
 
@@ -29,23 +32,26 @@ public class StageSummaryPopup : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        StageManagerParent = GameObject.Find("Stage Manager Parent");
         gameDataManager = GameObject.Find("Game Data Manager");
         gameDataManagerScript = gameDataManager.GetComponent<GameDataManager>();
     }
 
     public void RunSummaryFunc(string stageName, float time, int playerScore)
     {
-        //Stage Quests Review Panel
-        CreateQuestHistoryTextBoxes();
-
-        UpdateActionDetailsPanel(time);
-        //Get Player Place
+        //Get Player Place & Star
         int playerPlace = CompareLeaderBoard(time, playerScore);
         int playerStar = GetPlayerStar(playerScore);
 
-        //update fourth leaderboard
-        UpdatePlayerCurrentScoreTextBox(time, playerScore, playerPlace, playerStar, playerCurrentScoreTextBox);
+        //Update Left Bottom Panel
+        UpdateStarsAndScorePanel(playerStar, playerScore, playerPlace);
+
+        //Update Left Bottom Panel
+        UpdateActionDetailsPanel(time);
+
+        //Update Right Bottom Panel
+        CreateQuestHistoryTextBoxes();
+
+
 
         StageLeaderboardData newData = new StageLeaderboardData
         {
@@ -58,8 +64,23 @@ public class StageSummaryPopup : MonoBehaviour
         //Update StageData
         SaveManager.Instance.ClearTheStage(stageName, playerPlace, newData);
 
-        //update Three Leaderboard UI
+        //update Three Leaderboard UI & Player Current Panel (Fourth)
+        UpdatePlayerCurrentScoreTextBox(time, playerScore, playerPlace, playerStar, playerCurrentScoreTextBox);
         GameDataManager.Instance.UpdateSelfLeaderBoardContent(ClearTimesContent, SelfLeaderBoardGroup, playerPlace);
+    }
+
+    void UpdateStarsAndScorePanel(int playerStar, int playerScore, int playerPlace)
+    {
+        Transform Stars = StarsAndScorePanel.transform.Find("Stars");
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(Stars.gameObject, "Update Star");
+        fsm.FsmVariables.GetFsmInt("getStarNum").Value = playerStar;
+        fsm.enabled = true;
+
+        Transform Text = StarsAndScorePanel.transform.Find("Score/TotalScoreText");
+        Text.GetComponent<Text>().text = $"{playerScore}";
+
+        Transform NewRecordBox = StarsAndScorePanel.transform.Find("Score/NewRecordBox");
+        NewRecordBox.gameObject.SetActive((playerPlace != 4));
     }
 
     int CompareLeaderBoard(float time, int playerScore)
