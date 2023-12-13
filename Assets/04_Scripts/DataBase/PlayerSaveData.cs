@@ -23,7 +23,7 @@ public class GameRecordData
     [Header("Stage & Score")]
     public int totalStarCount;
     public int totalStageScore;
-    //totalStageProgress
+    public int totalGameProgress;
     public int totalPlayTime;
     public int totalTimesStageClear;
 

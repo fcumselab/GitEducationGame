@@ -62,7 +62,7 @@ public class StageSummaryPopup : MonoBehaviour
         };
 
         //Update StageData
-        SaveManager.Instance.ClearTheStage(stageName, playerPlace, newData);
+        SaveManager.Instance.ClearTheStage(time, stageName, playerPlace, newData);
 
         //update Three Leaderboard UI & Player Current Panel (Fourth)
         UpdatePlayerCurrentScoreTextBox(time, playerScore, playerPlace, playerStar, playerCurrentScoreTextBox);
