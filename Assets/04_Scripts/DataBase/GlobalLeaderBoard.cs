@@ -32,6 +32,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
     public void GetLeaderBoardData(string leaderBoardType, string stageName = "")
     {
         Text text;
+        PlayMakerFSM fsm;
         StartCoroutine(GetWebData(leaderBoardType, stageName, (result) =>
         {
             switch (leaderBoardType)
@@ -43,6 +44,13 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                         int saveListSize = GameProgressItemList.Count;
                         GameObject Item;
 
+                        //Count Player own place index
+                        int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
+                        GlobalTotalGameProgressData playerData = null;
+                        if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
+                        bool isFoundPlayerData = (playerData != null);
+
+                        //Deactivate all gameObject.
                         foreach (GameObject item in GameProgressItemList)
                         {
                             item.SetActive(false);
@@ -70,14 +78,16 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                             text.text = $"{returnData.returnLeaderBoardData[i].gameProgress} %";
                             text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
                             text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playTime);
+
+                            if (foundPlayerDataIndex == i)
+                            {
+                                fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
+                                fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
+                                fsm.enabled = true;
+                            }
                         }
 
-                        //Player own place item
-                        int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
-                        GlobalTotalGameProgressData playerData = null;
-                        if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
-                        bool isFoundPlayerData = (playerData != null);
-
+                        //Update player own place textBox
                         text = PlayerGameProgressItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
                         text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
                         text = PlayerGameProgressItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
@@ -91,10 +101,16 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                 case "ClearStageBestRecord":
                     {
                         Transform Stars;
-                        PlayMakerFSM fsm;
+                        
                         ReturnGlobalLeaderBoardData<StageLeaderboardData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<StageLeaderboardData>>(result);
                         int saveListSize = ClearStageItemList.Count;
                         GameObject Item;
+
+                        //Count Player own place index
+                        int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
+                        StageLeaderboardData playerData = null;
+                        if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
+                        bool isFoundPlayerData = (playerData != null);
 
                         foreach (GameObject item in ClearStageItemList)
                         {
@@ -129,13 +145,14 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                             text.text = $"{returnData.returnLeaderBoardData[i].playerScore}";
                             text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
                             text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playerClearTime);
-                        }
 
-                        //Player own place item
-                        int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
-                        StageLeaderboardData playerData = null;
-                        if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
-                        bool isFoundPlayerData = (playerData != null);
+                            if (foundPlayerDataIndex == i)
+                            {
+                                fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
+                                fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
+                                fsm.enabled = true;
+                            }
+                        }
 
                         text = PlayerClearStageItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
                         text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
@@ -158,6 +175,12 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                         ReturnGlobalLeaderBoardData<GlobalTotalScoreData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<GlobalTotalScoreData>>(result);
                         int saveListSize = ScoreItemList.Count;
                         GameObject Item;
+
+                        //Player own place item
+                        int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
+                        GlobalTotalScoreData playerData = null;
+                        if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
+                        bool isFoundPlayerData = (playerData != null);
 
                         foreach (GameObject item in ScoreItemList)
                         {
@@ -186,13 +209,14 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                             text.text = $"{returnData.returnLeaderBoardData[i].totalScore}";
                             text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
                             text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playTime);
-                        }
 
-                        //Player own place item
-                        int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
-                        GlobalTotalScoreData playerData = null;
-                        if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
-                        bool isFoundPlayerData = (playerData != null);
+                            if (foundPlayerDataIndex == i)
+                            {
+                                fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
+                                fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
+                                fsm.enabled = true;
+                            }
+                        }
 
                         text = PlayerScoreItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
                         text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
