@@ -2093,7 +2093,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0
-  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
@@ -11137,7 +11137,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 168.08594
-        y: 699.0703
+        y: 692.7422
         width: 327
         height: 32
       isBreakpoint: 0
@@ -11962,7 +11962,9 @@ MonoBehaviour:
           floatValues: []
           intValues: 
           boolValues: 
-          stringValues: []
+          stringValues:
+          - CommandLineWindow/CommandHistoryDetailed/Title/ExecutingCommand
+          - CommandLineWindow/CommandHistoryDetailed/Content/ExecutingCommand
           vector4Values: []
           objectReferences: []
         fsmEnumParams: []
@@ -12075,7 +12077,9 @@ MonoBehaviour:
           floatValues: []
           intValues: 
           boolValues: 
-          stringValues: []
+          stringValues:
+          - CommandLineWindow/CommandHistoryDetailed/Title/ExecutingCommand
+          - CommandLineWindow/CommandHistoryDetailed/Content/ExecutingCommand
           vector4Values: []
           objectReferences: []
         fsmEnumParams: []
@@ -12588,7 +12592,13 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 0
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: isWindowCommand
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       stringVariables:
       - useVariable: 1
         name: contentText
@@ -12713,10 +12723,11 @@ MonoBehaviour:
       - 
       - Children
       - ContentText
+      - Get from InputField
       - i18nKeyList
       - Reference
       - TitleMessage
-      variableCategoryIDs: 000000000000000002000000000000000000000005000000000000000000000001000000000000000200000000000000050000000400000003000000030000000000000000000000
+      variableCategoryIDs: 00000000000000000300000002000000000000000000000006000000000000000000000001000000000000000200000000000000060000000500000004000000040000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -12725,7 +12736,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 0300000004000000
+    outVariableIndices: 040000000500000002000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
@@ -25268,8 +25279,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 850.7422
-        y: 1187.0547
+        x: 845.2031
+        y: 1197.9531
         width: 157
         height: 32
       isBreakpoint: 0
@@ -25355,8 +25366,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 851.75
-        y: 1138.9844
+        x: 846.2422
+        y: 1158.1328
         width: 156
         height: 32
       isBreakpoint: 0
@@ -25769,8 +25780,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 824.1875
-        y: 1360.5938
+        x: 824.1719
+        y: 1394.6406
         width: 219
         height: 32
       isBreakpoint: 0
@@ -26708,8 +26719,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 798.0469
-        y: 1416.625
+        x: 796.64844
+        y: 1431.6641
         width: 273
         height: 32
       isBreakpoint: 0
@@ -26823,8 +26834,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 867.0625
-        y: 1090.8047
+        x: 861.5547
+        y: 1109.9531
         width: 132
         height: 32
       isBreakpoint: 0
@@ -26961,7 +26972,7 @@ MonoBehaviour:
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
-        colorIndex: 5
+        colorIndex: 18
       - fsmEvent:
           name: CommandType/status
           isSystemEvent: 0
@@ -26984,7 +26995,7 @@ MonoBehaviour:
           name: Num/2
           isSystemEvent: 0
           isGlobal: 0
-        toState: Open GameManual
+        toState: Command Id Add
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -27360,8 +27371,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 1176.3906
-        y: 974.27344
+        x: 1314.7109
+        y: 979.71875
         width: 173
         height: 32
       isBreakpoint: 0
@@ -27372,7 +27383,7 @@ MonoBehaviour:
           name: finish
           isSystemEvent: 0
           isGlobal: 0
-        toState: Command Id Add
+        toState: 
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -27549,8 +27560,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 1205.5391
-        y: 928.91406
+        x: 1343.8594
+        y: 934.3594
         width: 100
         height: 32
       isBreakpoint: 0
@@ -27622,112 +27633,6 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000000000000000000
         paramByteDataSize: 000000000000000001000000
-    - name: Open GameManual
-      description: 
-      colorIndex: 10
-      position:
-        serializedVersion: 2
-        x: 498.70312
-        y: 996.3125
-        width: 140
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Command Id Add
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SendEvent
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 5e69bb04
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 1
-            gameObject:
-              useVariable: 1
-              name: Window/GameManualWindow
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - Common/Window/Show Window
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1f000000170000000f00000001000000
-        paramName:
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        paramDataPos: 00000000000000000000000000000000
-        paramByteDataSize: 00000000000000000000000001000000
     - name: Translate i18n Key 4
       description: Git Commands/git/Exceed
       colorIndex: 12
@@ -28304,7 +28209,13 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 1
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: isWindowCommand
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       stringVariables:
       - useVariable: 1
         name: command
@@ -28473,7 +28384,7 @@ MonoBehaviour:
       - Quest Tracker
       - QuestTracker
       - i18n Text
-      variableCategoryIDs: 0000000000000000000000000000000000000000000000000100000007000000000000000000000000000000000000000000000000000000000000000200000004000000040000000400000000000000040000000000000000000000000000000800000000000000
+      variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000100000007000000000000000000000000000000000000000000000000000000000000000200000004000000040000000400000000000000040000000000000000000000000000000800000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -28482,7 +28393,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 0200000004000000070000000b000000
+    outVariableIndices: 0200000005000000080000000c000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
@@ -45898,7 +45809,6 @@ GameObject:
   - component: {fileID: 8001620912718354394}
   - component: {fileID: 8001620912718354397}
   - component: {fileID: 8001620912718354398}
-  - component: {fileID: 8095501299963786526}
   m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
@@ -45955,8 +45865,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 4dd70ec2220ae427b9b92a2d02dca9f0, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -45998,32 +45908,6 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &8095501299963786526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8001620912718354399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!1 &8001620912749673073
 GameObject:
   m_ObjectHideFlags: 0
@@ -48490,10 +48374,10 @@ RectTransform:
   m_Father: {fileID: 8001620912718354396}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1210, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8001620912964780970
 MonoBehaviour:
@@ -49955,9 +49839,9 @@ RectTransform:
   m_Father: {fileID: 8001620912964780972}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8001620913182371544
