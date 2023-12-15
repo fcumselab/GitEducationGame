@@ -2202,7 +2202,7 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.StringSplit
+        - HutongGames.PlayMaker.Actions.CallMethod
         - HutongGames.PlayMaker.Actions.ArrayLength
         - HutongGames.PlayMaker.Actions.IntSwitch
         customNames:
@@ -2211,8 +2211,8 @@ MonoBehaviour:
         - 
         actionEnabled: 010101
         actionIsOpen: 010101
-        actionStartIndex: 000000000500000008000000
-        actionHashCodes: d9b55202fb258801092dca00
+        actionStartIndex: 00000000080000000b000000
+        actionHashCodes: ca51e900fb258801092dca00
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -2223,40 +2223,94 @@ MonoBehaviour:
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams:
-        - useVariable: 1
-          name: mainFileName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: v
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams:
+          value: SplitStringIntoArray
+        fsmObjectParams:
         - useVariable: 1
-          name: TrimArr
+          name: Tool
           tooltip: 
           showInInspector: 0
           networkSync: 0
+          typeName: Tool
+          value: {fileID: 0}
+        fsmVarParams:
+        - variableName: mainFileName
+          objectType: UnityEngine.Object
+          useVariable: 1
           type: 4
-          objectTypeName: UnityEngine.Object
-          floatValues: []
-          intValues: 
-          boolValues: 
-          stringValues: []
-          vector4Values: []
-          objectReferences: []
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        - variableName: 
+          objectType: UnityEngine.Object
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: _v
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        - variableName: TrimArr
+          objectType: UnityEngine.Object
+          useVariable: 1
+          type: 13
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 1
+            name: TrimArr
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: 4
+            objectTypeName: UnityEngine.Object
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        fsmArrayParams:
         - useVariable: 1
           name: TrimArr
           tooltip: 
@@ -2297,13 +2351,7 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 2
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -2312,20 +2360,24 @@ MonoBehaviour:
         stringParams:
         - false
         - true
-        byteData: 0000
-        arrayParamSizes: 0200000002000000
+        byteData: 00000000
+        arrayParamSizes: 020000000200000002000000
         arrayParamTypes:
+        - HutongGames.PlayMaker.FsmVar
         - HutongGames.PlayMaker.FsmInt
         - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1200000012000000110000001200000029000000290000001000000001000000100000000c00000010000000100000000c000000170000001700000001000000
+        paramDataType: 18000000120000000c0000002700000027000000270000000100000001000000290000001000000001000000100000000c00000010000000100000000c000000170000001700000001000000
         paramName:
-        - stringToSplit
-        - separators
-        - trimStrings
-        - trimChars
-        - stringArray
+        - behaviour
+        - methodName
+        - parameters
+        - 
+        - 
+        - storeResult
+        - everyFrame
+        - manualUI
         - array
         - length
         - everyFrame
@@ -2337,8 +2389,8 @@ MonoBehaviour:
         - 
         - 
         - everyFrame
-        paramDataPos: 00000000010000000000000002000000000000000100000000000000000000000100000000000000020000000300000001000000000000000100000001000000
-        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 00000000000000000000000000000000010000000200000000000000010000000000000000000000020000000100000001000000020000000300000002000000000000000100000003000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000001000000010000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000
     - name: String Append
       description: 
       colorIndex: 9
@@ -2391,7 +2443,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: v1
+          value: _v1
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -2924,7 +2976,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 0101
-        actionIsOpen: 0000
+        actionIsOpen: 0101
         actionStartIndex: 0000000007000000
         actionHashCodes: 7370ae05788f1c03
         unityObjectParams: []
@@ -2942,7 +2994,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: v
+          value: _v
         - useVariable: 1
           name: versionNumStr
           tooltip: 
@@ -3056,7 +3108,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 0101
-        actionIsOpen: 0000
+        actionIsOpen: 0101
         actionStartIndex: 0000000004000000
         actionHashCodes: 404de8047370ae05
         unityObjectParams: []
@@ -3092,7 +3144,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: v
+          value: _v
         - useVariable: 1
           name: versionNumStr
           tooltip: 
