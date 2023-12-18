@@ -10,10 +10,6 @@ public class QuestTracker : MonoBehaviour
     public GameObject QuestTrackerParent;
     public GameObject GameManager;
 
-    [Header("Reference/PrefabGameObject")]
-    public GameObject AlertMsgFileContentWindow;
-    public GameObject AlertMsgFileManagerWindow;
-
     [Header("MessageForPlayMaker")]
     public bool isFinishInitialize;
 
@@ -26,11 +22,6 @@ public class QuestTracker : MonoBehaviour
         isFinishInitialize = true;
 
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void InitializeQuestTracker()
     {
@@ -38,16 +29,8 @@ public class QuestTracker : MonoBehaviour
         GameManager = QuestTrackerParent.transform.parent.gameObject;
         StageManagerParent = GameManager.transform.Find("Stage Manager Parent").gameObject;
 
-        AlertMsgFileContentWindow = GameObject.Find("AlertMsgFileContentWindow");
-        AlertMsgFileManagerWindow = GameObject.Find("AlertMsgFileManagerWindow");
-
-
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Quest Valider");
         fsm.FsmVariables.GetFsmGameObject("Quest Tracker Parent").Value = QuestTrackerParent;
-
-        fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Quest Filter");
-        fsm.FsmVariables.GetFsmGameObject("alertFileContentWindow").Value = AlertMsgFileContentWindow;
-        fsm.FsmVariables.GetFsmGameObject("alertFileManagerWindow").Value = AlertMsgFileManagerWindow;
 
         fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Quest Tracker");
         fsm.FsmVariables.GetFsmGameObject("Stage Manager Parent").Value = StageManagerParent;
