@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class QuestFilter : SerializedMonoBehaviour
+public class QuestFilterManager : SerializedMonoBehaviour
 {
     [SerializeField] Dictionary<string, GameObject> ValidObjDict; 
     // Start is called before the first frame update
