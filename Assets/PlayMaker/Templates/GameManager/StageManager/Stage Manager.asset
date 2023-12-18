@@ -24,7 +24,7 @@ MonoBehaviour:
       colorIndex: 16
       position:
         serializedVersion: 2
-        x: 684.0078
+        x: 908.0078
         y: 537.03125
         width: 173
         height: 32
@@ -194,7 +194,7 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 691
+        x: 915
         y: 632.3125
         width: 157
         height: 32
@@ -525,7 +525,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 71.96875
+        x: 295.96875
         y: 113.546875
         width: 223
         height: 32
@@ -661,7 +661,7 @@ MonoBehaviour:
       colorIndex: 16
       position:
         serializedVersion: 2
-        x: 415.03125
+        x: 639.03125
         y: 307.96094
         width: 125
         height: 32
@@ -831,7 +831,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 653.8281
+        x: 877.8281
         y: 704.96875
         width: 209
         height: 16
@@ -892,7 +892,7 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 688.7422
+        x: 912.7422
         y: 592.2969
         width: 144
         height: 32
@@ -1007,7 +1007,7 @@ MonoBehaviour:
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 1016.8594
+        x: 1240.8594
         y: 172.6875
         width: 148
         height: 32
@@ -1122,7 +1122,7 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 419.51562
+        x: 643.5156
         y: 370.59375
         width: 111
         height: 16
@@ -1206,7 +1206,7 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 384.58594
+        x: 608.58594
         y: 256.33594
         width: 174
         height: 32
@@ -1299,7 +1299,7 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 1017.6406
+        x: 1241.6406
         y: 257.34375
         width: 167
         height: 32
@@ -1630,7 +1630,7 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 1266.9844
+        x: 1490.9844
         y: 186.40625
         width: 218
         height: 16
@@ -1727,7 +1727,7 @@ MonoBehaviour:
       colorIndex: 16
       position:
         serializedVersion: 2
-        x: 1022.8672
+        x: 1246.8672
         y: 334.60156
         width: 170
         height: 32
@@ -1897,7 +1897,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 338.91406
+        x: 562.91406
         y: 522.4453
         width: 225
         height: 32
@@ -2050,7 +2050,7 @@ MonoBehaviour:
       colorIndex: 4
       position:
         serializedVersion: 2
-        x: 716.25
+        x: 940.25
         y: 153.45312
         width: 100
         height: 48
@@ -2179,7 +2179,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 418.84375
+        x: 642.84375
         y: 129.0625
         width: 100
         height: 48
@@ -2281,7 +2281,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 372.3125
+        x: 596.3125
         y: 208.92969
         width: 204
         height: 32
@@ -2434,7 +2434,7 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 655.21094
+        x: 879.21094
         y: 234.90625
         width: 217
         height: 32
@@ -2601,7 +2601,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 659.8047
+        x: 883.8047
         y: 321.29688
         width: 187
         height: 48
@@ -2694,8 +2694,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 77.55469
-        y: 447.72656
+        x: 250.3125
+        y: 425.7578
         width: 117
         height: 32
       isBreakpoint: 0
@@ -3116,27 +3116,51 @@ MonoBehaviour:
         paramDataPos: 00000000000000000000000001000000020000000100000002000000010000000300000000000000030000000000000000000000040000000100000005000000
         paramByteDataSize: 00000000000000000100000000000000000000000100000001000000000000000000000000000000010000000000000000000000010000000000000001000000
     - name: Get selectStageName
-      description: 
+      description: '1.(Tutorial)
+
+        2.(Practice)'
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 65.61719
-        y: 542.8828
+        x: 223.74219
+        y: 508.71875
         width: 159
-        height: 16
+        height: 48
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
-      transitions: []
+      transitions:
+      - fsmEvent:
+          name: Num/1
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: String Replace
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: Num/2
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: State
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.GetFsmString
+        - HutongGames.PlayMaker.Actions.StringContains
+        - HutongGames.PlayMaker.Actions.StringContains
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 52221a02
+        - 
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 00000000050000000b000000
+        actionHashCodes: 52221a020c0e55020c0e5502
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -3173,6 +3197,150 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 
+        - useVariable: 1
+          name: selectStageName
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: (Tutorial)
+        - useVariable: 1
+          name: selectStageName
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: (Practice)
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - Num/1
+        - 
+        - Num/2
+        - 
+        byteData: 000000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000120000001200000001000000120000001200000017000000170000001100000001000000120000001200000017000000170000001100000001000000
+        paramName:
+        - gameObject
+        - fsmName
+        - variableName
+        - storeValue
+        - everyFrame
+        - stringVariable
+        - containsString
+        - trueEvent
+        - falseEvent
+        - storeResult
+        - everyFrame
+        - stringVariable
+        - containsString
+        - trueEvent
+        - falseEvent
+        - storeResult
+        - everyFrame
+        paramDataPos: 0000000000000000010000000200000000000000030000000400000000000000010000000000000001000000050000000600000002000000030000000100000002000000
+        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
+    - name: String Replace
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 64.96094
+        y: 619.6094
+        width: 116
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: State 1
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.StringReplace
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 788f1c03
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: selectStageName
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: ' (Tutorial)'
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: /Tutorial
+        - useVariable: 1
+          name: selectStageName
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -3191,15 +3359,159 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000012000000120000001200000001000000
+        paramDataType: 1200000012000000120000001200000001000000
         paramName:
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
+        - stringVariable
+        - replace
+        - with
+        - storeResult
         - everyFrame
-        paramDataPos: 0000000000000000010000000200000000000000
+        paramDataPos: 0000000001000000020000000300000000000000
         paramByteDataSize: 0000000000000000000000000000000001000000
+    - name: State
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 373.125
+        y: 613.8281
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: State 1
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.StringReplace
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 788f1c03
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: selectStageName
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: ' (Practice)'
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: /Practice
+        - useVariable: 1
+          name: selectStageName
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1200000012000000120000001200000001000000
+        paramName:
+        - stringVariable
+        - replace
+        - with
+        - storeResult
+        - everyFrame
+        paramDataPos: 0000000001000000020000000300000000000000
+        paramByteDataSize: 0000000000000000000000000000000001000000
+    - name: State 1
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 252.14844
+        y: 690.0703
+        width: 100
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -3283,6 +3595,9 @@ MonoBehaviour:
       isSystemEvent: 0
       isGlobal: 1
     - name: skip
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: Num/1
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions:

@@ -8,6 +8,7 @@ using UnityEngine.Networking;
 public class SaveManager : SerializedMonoBehaviour
 {
     [SerializeField] bool isDebugMode = true;
+    [SerializeField] bool updateTestingData = false;
     [SerializeField] bool isInitialFinish = false;
 
     [SerializeField] PlayerSaveData testingPlayerSaveData;
@@ -33,9 +34,16 @@ public class SaveManager : SerializedMonoBehaviour
         isInitialFinish = false;
         if (isDebugMode)
         {
-            Debug.Log("using testingPlayerSaveData");
-            playerSaveData = testingPlayerSaveData;
-            userName = "test player";
+            if (updateTestingData)
+            {
+                Debug.Log("please use register to get new account.");
+            }
+            else
+            {
+                Debug.Log("using testingPlayerSaveData");
+                playerSaveData = testingPlayerSaveData;
+                userName = "test player";
+            }
         }
         isInitialFinish = true;
     }
