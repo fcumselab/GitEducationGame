@@ -37,6 +37,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Create Local Repository (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_003_CreateLocalRepository_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Basic Staging Area (Tutorial)":
+                runResult = QuestTracker.GetComponent<QuestFilter_004_BasicStagingArea_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             default:
                 Debug.Log("Cannot found target Quest Tracker Object !\n" + selectStageName);
                 break;
