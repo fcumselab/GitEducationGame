@@ -5,9 +5,7 @@ using Sirenix.OdinInspector;
 
 public class QuestFilter_001_GameIntroduction_Tutorial : SerializedMonoBehaviour
 {
-    [SerializeField] QuestFilterManager questFilterManager;
-    [SerializeField] List<string> i18nTranslateList;
-
+    [Header("Need Give Values")]
     [SerializeField]
     Dictionary<string, List<int>> actionTagDict = new()
     {
@@ -18,10 +16,14 @@ public class QuestFilter_001_GameIntroduction_Tutorial : SerializedMonoBehaviour
         { "FileContentWindow/DeleteButtonSelection", new List<int>() },
     };
 
-    [Header("Get from Sender")]
-    public GameObject Sender;
-    public string SenderFSMName;
-    public int currentQuestNum;
+    [SerializeField]
+    Dictionary<string, List<int>> commandActionDict = new();
+
+    [Header("i18n Text -> Get from Filter FSM")]
+    [SerializeField] List<string> i18nTranslateList;
+
+    [Header("Reference")]
+    [SerializeField] QuestFilterManager questFilterManager;
 
     void Initializei18nList()
     {
@@ -36,20 +38,21 @@ public class QuestFilter_001_GameIntroduction_Tutorial : SerializedMonoBehaviour
         }
     }
 
-    public string StartQuestFilter()
+    public string StartQuestFilter(GameObject Sender, string SenderFSMName, int currentQuestNum)
     {
         Initializei18nList();
 
         string runResult = "";
-        List<int> actionTagList = actionTagDict[Sender.tag];
         //Run Git Command
+
         if (Sender.CompareTag("Window/CommandLineWindow/InputField"))
         {
 
         }
         else //Other action in File Manager/Content Window
         {
-            if (actionTagList.Count == 0 || (actionTagList.Find((num) => num == currentQuestNum) == -1))
+            List<int> actionTagList = actionTagDict[Sender.tag];
+            if (actionTagList.Count == 0 || (actionTagList.FindIndex((num) => num == currentQuestNum) == -1))
             {
                 return $"{Sender.tag}/Wrong Quest";
             }
@@ -62,7 +65,7 @@ public class QuestFilter_001_GameIntroduction_Tutorial : SerializedMonoBehaviour
                     case 2:
                         if (Sender.CompareTag("File/FileFunctionSelection"))
                         {
-                            return questFilterManager.DetectAction_CopyFile(Sender, SenderFSMName, "v1");
+                            return questFilterManager.DetectAction_CopyFile("v1");
                         }
                         else
                         {
@@ -80,7 +83,7 @@ public class QuestFilter_001_GameIntroduction_Tutorial : SerializedMonoBehaviour
                     case 4:
                         if (Sender.CompareTag("FileContentWindow/DeleteButtonSelection"))
                         {
-                            return questFilterManager.DetectAction_DeleteFile(Sender, SenderFSMName, i18nTranslateList[1], i18nTranslateList[3]);
+                            return questFilterManager.DetectAction_DeleteFile(i18nTranslateList[1], i18nTranslateList[3]);
                         }
                         else
                         {
@@ -90,7 +93,7 @@ public class QuestFilter_001_GameIntroduction_Tutorial : SerializedMonoBehaviour
                         if (Sender.CompareTag("File/FileFunctionSelection"))
                         {
 
-                            return questFilterManager.DetectAction_CopyFile(Sender, SenderFSMName, "v2");
+                            return questFilterManager.DetectAction_CopyFile("v2");
                         }
                         else
                         {
@@ -108,7 +111,7 @@ public class QuestFilter_001_GameIntroduction_Tutorial : SerializedMonoBehaviour
                     case 7:
                         if (Sender.CompareTag("FileContentWindow/ModifyButtonSelection"))
                         {
-                            return questFilterManager.DetectAction_ModifyFile(Sender, SenderFSMName, i18nTranslateList[2], i18nTranslateList[4]);
+                            return questFilterManager.DetectAction_ModifyFile(i18nTranslateList[2], i18nTranslateList[4]);
                         }
                         else
                         {
