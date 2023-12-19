@@ -40,6 +40,33 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Basic Staging Area (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_004_BasicStagingArea_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Advanced Staging Area (Tutorial)":
+                runResult = QuestTracker.GetComponent<QuestFilter_005_AdvancedStagingArea_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Creating First Version (Tutorial)":
+                runResult = QuestTracker.GetComponent<QuestFilter_006_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Switching Project Versions (Tutorial)":
+                //runResult = QuestTracker.GetComponent<QuestFilter_007_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Git Branching Basics (Tutorial)":
+                //runResult = QuestTracker.GetComponent<QuestFilter_008_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Fast-Forward Merging (Tutorial)":
+                //runResult = QuestTracker.GetComponent<QuestFilter_009_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Auto Merging (Tutorial)":
+                //runResult = QuestTracker.GetComponent<QuestFilter_010_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Merge Conflicts (Tutorial)":
+                //runResult = QuestTracker.GetComponent<QuestFilter_011_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Create Remote Repository (Tutorial)":
+                //runResult = QuestTracker.GetComponent<QuestFilter_012_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Push to Remote Branches (Tutorial)":
+                //runResult = QuestTracker.GetComponent<QuestFilter_013_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             default:
                 Debug.Log("Cannot found target Quest Tracker Object !\n" + selectStageName);
                 break;
@@ -131,6 +158,19 @@ public class QuestFilterManager : SerializedMonoBehaviour
         {
             return "FileContentWindow/DeleteButtonSelection/Wrong FileName";
         }
+    }
+
+    public string DetectAction_AddContentFile(string wantedFileName)
+    {
+        if (!FileContentWindow) { FileContentWindow = GameObject.Find("FileContentWindow"); }
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(FileContentWindow, "File Content Window");
+        string currentFileName = fsm.FsmVariables.GetFsmString("fileName").Value;
+
+        fsm = MyPlayMakerScriptHelper.GetFsmByName(Sender, SenderFSMName);
+        string fileContent = fsm.FsmVariables.GetFsmString("text").Value;
+        Debug.Log("add actionType: " + "\nFileName: " + wantedFileName + "\ncurrentFileName: " + currentFileName + "\nfileContent: " + fileContent);
+
+        return (currentFileName == wantedFileName) ? "Continue" : "FileContentWindow/AddButtonSelection/Wrong FileName";
     }
 
     public string DetectAction_GitInit(string wantedFolderLocation)
