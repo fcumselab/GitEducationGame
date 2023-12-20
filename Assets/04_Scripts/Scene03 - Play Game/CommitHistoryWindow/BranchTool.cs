@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class BranchTool : SerializedMonoBehaviour
 {
-    [SerializeField] List<string> CommitList = new();
+    public List<string> CommitList = new();
 
     public List<string> GetCommitList()
     {

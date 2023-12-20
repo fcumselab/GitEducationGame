@@ -103,14 +103,14 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 00000000000000000000000001000000
         paramByteDataSize: 00000000000000000000000000000000
-    - name: Commit data init
+    - name: Activate gameobject
       description: 
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 83.11719
-        y: 179.8125
-        width: 127
+        x: 61.109375
+        y: 194.07031
+        width: 153
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
           name: next
           isSystemEvent: 0
           isGlobal: 0
-        toState: BranchName data init
+        toState: Wait for script finish
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -129,19 +129,15 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.GetChild
         - HutongGames.PlayMaker.Actions.ActivateGameObject
-        - HutongGames.PlayMaker.Actions.IsFsmEnabled
-        - HutongGames.PlayMaker.Actions.EnableFSM
         - HutongGames.PlayMaker.Actions.NextFrameEvent
         customNames:
         - 
         - 
         - 
-        - 
-        - 
-        actionEnabled: 0101010101
-        actionIsOpen: 0101010101
-        actionStartIndex: 0000000004000000090000000f00000013000000
-        actionHashCodes: 184b5704b2cf10006894340487aa970088611604
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000400000009000000
+        actionHashCodes: 184b5704b2cf100088611604
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -155,22 +151,6 @@ MonoBehaviour:
           gameObject:
             useVariable: 0
             name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: DefaultData
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: DefaultData
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -202,18 +182,6 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: Untagged
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Commit data
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Commit data
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -233,24 +201,6 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -258,14 +208,12 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - next
-        - 
-        - next
-        byteData: 000000
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000012000000120000001300000014000000110000001100000001000000010000001400000012000000110000001700000017000000010000001400000012000000110000001100000017000000
+        paramDataType: 14000000120000001200000013000000140000001100000011000000010000000100000017000000
         paramName:
         - gameObject
         - childName
@@ -276,146 +224,9 @@ MonoBehaviour:
         - recursive
         - resetOnExit
         - everyFrame
-        - gameObject
-        - fsmName
-        - isEnabled
-        - isEnabledEvent
-        - isDisabledEvent
-        - everyFrame
-        - gameObject
-        - fsmName
-        - enable
-        - resetOnExit
         - sendEvent
-        paramDataPos: 0000000000000000010000000000000001000000000000000100000000000000010000000200000002000000020000000000000001000000020000000300000003000000030000000400000002000000
-        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000001000000010000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000
-    - name: BranchName data init
-      description: 
-      colorIndex: 12
-      position:
-        serializedVersion: 2
-        x: 71.35156
-        y: 237.07812
-        width: 156
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: next
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Wait for script finish
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.IsFsmEnabled
-        - HutongGames.PlayMaker.Actions.EnableFSM
-        - HutongGames.PlayMaker.Actions.NextFrameEvent
-        customNames:
-        - 
-        - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000060000000a000000
-        actionHashCodes: 6894340487aa970088611604
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: DefaultData
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: DefaultData
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: BranchName data
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: BranchName data
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - next
-        - 
-        - next
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1400000012000000110000001700000017000000010000001400000012000000110000001100000017000000
-        paramName:
-        - gameObject
-        - fsmName
-        - isEnabled
-        - isEnabledEvent
-        - isDisabledEvent
-        - everyFrame
-        - gameObject
-        - fsmName
-        - enable
-        - resetOnExit
-        - sendEvent
-        paramDataPos: 0000000000000000000000000000000001000000000000000100000001000000010000000200000002000000
-        paramByteDataSize: 0000000000000000000000000000000000000000010000000000000000000000000000000000000000000000
+        paramDataPos: 00000000000000000100000000000000010000000000000001000000000000000100000000000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000010000000100000000000000
     - name: Open StageManager
       description: 
       colorIndex: 12
@@ -737,7 +548,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Commit data init
+        toState: Activate gameobject
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
