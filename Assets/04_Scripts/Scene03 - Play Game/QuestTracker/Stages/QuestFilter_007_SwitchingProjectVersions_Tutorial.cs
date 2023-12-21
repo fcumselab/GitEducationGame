@@ -20,7 +20,7 @@ public class QuestFilter_007_SwitchingProjectVersions_Tutorial : SerializedMonoB
     //These action need to be restrict. (ex: git status don't need to, but git init need.)
     Dictionary<string, List<int>> commandActionDict = new()
     {
-        { "checkout", new() { 4,7,8 } }
+        { "checkout", new() { 4, 7, 8 } }
     };
 
     [Header("i18n Text -> Get from Filter FSM")]
@@ -57,7 +57,7 @@ public class QuestFilter_007_SwitchingProjectVersions_Tutorial : SerializedMonoB
         {
             string allCommand = CommandEnterFunction.FsmVariables.GetFsmString("command").Value;
             string commandType = CommandEnterFunction.FsmVariables.GetFsmString("commandType").Value;
-            if(commandActionDict.ContainsKey(commandType))
+            if (commandActionDict.ContainsKey(commandType))
             {
                 List<int> commandTypeNumList = commandActionDict[commandType];
                 //only checkout -> 478 can use
@@ -84,29 +84,7 @@ public class QuestFilter_007_SwitchingProjectVersions_Tutorial : SerializedMonoB
             }
             else
             {
-                switch (currentQuestNum)
-                {
-                    case 6:
-                        if (Sender.CompareTag("FileContentWindow/ModifyButtonSelection"))
-                        {
-                            return questFilterManager.DetectAction_ModifyFile(i18nTranslateList[0], i18nTranslateList[1]);
-                        }
-                        else
-                        {
-                            return $"{Sender.tag}/Wrong Quest";
-                        }
-                    case 12:
-                        if (Sender.CompareTag("FileContentWindow/AddButtonSelection"))
-                        {
-                            return questFilterManager.DetectAction_AddContentFile(i18nTranslateList[1]);
-                        }
-                        else
-                        {
-                            return $"{Sender.tag}/Wrong Quest";
-                        }
-                    default:
-                        return $"{Sender.tag}/Wrong Quest";
-                }
+                return $"{Sender.tag}/Wrong Quest";
             }
         }
     }

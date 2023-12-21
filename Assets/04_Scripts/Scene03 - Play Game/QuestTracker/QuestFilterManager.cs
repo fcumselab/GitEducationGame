@@ -8,8 +8,13 @@ public class QuestFilterManager : SerializedMonoBehaviour
     [SerializeField] string selectStageName;
     [SerializeField] GameObject QuestTracker;
 
+    [Header("Return Value -> for apply token to Quest Filter Checker FSM")]
+    public string token = "";
+
     [Header("Reference")]
     [SerializeField] GameObject FileContentWindow;
+    [SerializeField] GameObject CommitHistoryWindow;
+    [SerializeField] GameObject LocalBranches;
     public GameObject CommandInputField;
     public GameObject CurrentFolderPanel;
 
@@ -50,7 +55,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 runResult = QuestTracker.GetComponent<QuestFilter_007_SwitchingProjectVersions_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Git Branching Basics (Tutorial)":
-                //runResult = QuestTracker.GetComponent<QuestFilter_008_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                runResult = QuestTracker.GetComponent<QuestFilter_008_GitBranchingBasics_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Fast-Forward Merging (Tutorial)":
                 //runResult = QuestTracker.GetComponent<QuestFilter_009_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
@@ -160,10 +165,27 @@ public class QuestFilterManager : SerializedMonoBehaviour
         }
     }
 
-    public string DetectAction_AddContentFile(string wantedFileName)
+    public string DetectAction_AddContentFile(string wantedFileName, string wantedBranchName = "")
     {
+        PlayMakerFSM fsm;
+        //If need to detect branchName
+        if (wantedBranchName != "")
+        {
+            if (!CommitHistoryWindow) { CommitHistoryWindow = GameObject.Find("CommitHistoryWindow"); }
+            fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
+            string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
+            if (currentBranchName != wantedBranchName)
+            {
+                return "FileContentWindow/AddButtonSelection/Wrong Branch";
+            }
+            else if (currentBranchName.Contains("HEAD"))
+            {
+                return "FileContentWindow/AddButtonSelection/Detached HEAD";
+            }
+        }
+
         if (!FileContentWindow) { FileContentWindow = GameObject.Find("FileContentWindow"); }
-        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(FileContentWindow, "File Content Window");
+        fsm = MyPlayMakerScriptHelper.GetFsmByName(FileContentWindow, "File Content Window");
         string currentFileName = fsm.FsmVariables.GetFsmString("fileName").Value;
 
         fsm = MyPlayMakerScriptHelper.GetFsmByName(Sender, SenderFSMName);
@@ -183,6 +205,62 @@ public class QuestFilterManager : SerializedMonoBehaviour
         Debug.Log("currentFolderLocation: " + currentFolderLocation + "\nwantedFolderLocation: " + wantedFolderLocation);
 
         return (currentFolderLocation == wantedFolderLocation) ? "Continue" : "Git Commands/git init/Wrong Location(Failed)";
+    }
+
+    public string DetectAction_GitDeleteLocalBranch(string playerWantedDeleteBranchName, string wantedBranchName)
+    {
+        token = "";
+
+        if (!CommitHistoryWindow) { CommitHistoryWindow = GameObject.Find("CommitHistoryWindow"); }
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
+        string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
+        if (!LocalBranches) { LocalBranches = fsm.FsmVariables.GetFsmGameObject("Local/Branches").Value; }
+
+        //Debug.Log("Delet Local B: " + playerWantedDeleteBranchName + "\nwantedBranchName: " + wantedBranchName + "\ncurrentBranchName" + currentBranchName);
+        //If player input can't not find in local branches.
+        if (LocalBranches.transform.Find(playerWantedDeleteBranchName) == null)
+        {
+            return "Continue";
+        }
+        else
+        {
+            //input branchName = current branchName (let Branch Command Fsm do action)
+            if (playerWantedDeleteBranchName == currentBranchName)
+            {
+                return "Continue";
+            }
+            else
+            {
+                if (playerWantedDeleteBranchName == wantedBranchName)
+                {
+                    return "Continue";
+                }
+                else
+                {
+                    token = playerWantedDeleteBranchName;
+                    return "Git Commands/git branch/DoNotDeleteBranch(Failed)";
+                }
+            }
+        }
+    }
+
+    public string DetectAction_GitCheckout_InModifyContentQuest(int HEADCreateNum)
+    {
+        if (!CommitHistoryWindow) { CommitHistoryWindow = GameObject.Find("CommitHistoryWindow"); }
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
+        GameObject HEAD = fsm.FsmVariables.GetFsmGameObject("Local/HEAD").Value;
+        
+        fsm = MyPlayMakerScriptHelper.GetFsmByName(HEAD, "Content");
+        int createdCommitNum = fsm.FsmVariables.GetFsmInt("createdCommitNum").Value;
+        if (createdCommitNum == HEADCreateNum)
+        {
+            return "Git Commands/git checkout/afterCreateCommit(Warning)";
+        }
+        else
+        {
+            return "Git Commands/git checkout/afterChangeFiles(Warning)";
+        }
+
 
     }
 }
