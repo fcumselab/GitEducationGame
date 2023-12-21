@@ -60,13 +60,14 @@ public class QuestFilter_007_SwitchingProjectVersions_Tutorial : SerializedMonoB
             if(commandActionDict.ContainsKey(commandType))
             {
                 List<int> commandTypeNumList = commandActionDict[commandType];
+                //only checkout -> 478 can use
                 if (commandTypeNumList.FindIndex((num) => num == currentQuestNum) != -1)
                 {
                     return "Continue";
                 }
                 else
                 {
-                    return $"Git Commands/git {commandType}/Wrong Quest";
+                    return "Git Commands/common/FollowQuest(Warning)";
                 }
             }
             else

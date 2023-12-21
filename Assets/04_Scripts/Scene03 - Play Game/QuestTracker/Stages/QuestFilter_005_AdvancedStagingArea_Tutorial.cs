@@ -58,15 +58,7 @@ public class QuestFilter_005_AdvancedStagingArea_Tutorial : SerializedMonoBehavi
             string commandType = CommandEnterFunction.FsmVariables.GetFsmString("commandType").Value;
             if(commandActionDict.ContainsKey(commandType))
             {
-                List<int> commandTypeNumList = commandActionDict[commandType];
-                if (commandTypeNumList.FindIndex((num) => num == currentQuestNum) != -1)
-                {
-                    return "Continue";
-                }
-                else
-                {
-                    return $"Git Commands/git {commandType}/Wrong Quest";
-                }
+                return "Continue";
             }
             else
             {

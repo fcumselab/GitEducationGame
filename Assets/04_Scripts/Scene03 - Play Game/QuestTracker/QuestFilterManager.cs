@@ -182,7 +182,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
         string currentFolderLocation = CurrentFolderPanel.transform.parent.name;
         Debug.Log("currentFolderLocation: " + currentFolderLocation + "\nwantedFolderLocation: " + wantedFolderLocation);
 
-        return (currentFolderLocation == wantedFolderLocation) ? "Continue" : "Git Commands/git init/Wrong Location";
+        return (currentFolderLocation == wantedFolderLocation) ? "Continue" : "Git Commands/git init/Wrong Location(Failed)";
 
     }
 }

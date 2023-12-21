@@ -61,7 +61,7 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 01010101
+        actionEnabled: 00000101
         actionIsOpen: 01010101
         actionStartIndex: 00000000010000000500000008000000
         actionHashCodes: 132271005e69bb04c6c2140543e24103
@@ -264,7 +264,7 @@ MonoBehaviour:
         customNames:
         - 
         - 
-        actionEnabled: 0101
+        actionEnabled: 0001
         actionIsOpen: 0101
         actionStartIndex: 0000000004000000
         actionHashCodes: 5e69bb04c6c21405
@@ -413,15 +413,17 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetStringValue
         - HutongGames.PlayMaker.Actions.SetStringValue
+        - HutongGames.PlayMaker.Actions.SetBoolValue
         - HutongGames.PlayMaker.Actions.UiOnPointerEnterEvent
         customNames:
         - 
         - 
         - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 000000000300000006000000
-        actionHashCodes: c030f103c030f103c6c21405
+        - 
+        actionEnabled: 01010101
+        actionIsOpen: 01010101
+        actionStartIndex: 00000000030000000600000009000000
+        actionHashCodes: c030f103c030f10327fbe103c6c21405
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -489,20 +491,32 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: "\u9EDE\u64CA\u89C0\u770B\u63D0\u4EA4\u5167\u5BB9"
+          value: CommitHistoryWindow/TooltipMessage/Commit
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: "\u9EDE\u64CA\u89C0\u770B\u63D0\u4EA4\u5167\u5BB9"
+          value: CommitHistoryWindow/TooltipMessage/Commit
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: usingi18nKey
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: 1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -510,12 +524,12 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - InField
-        byteData: 0000
+        byteData: 000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 12000000120000000100000012000000120000000100000017000000140000001f000000
+        paramDataType: 12000000120000000100000012000000120000000100000011000000110000000100000017000000140000001f000000
         paramName:
         - stringVariable
         - stringValue
@@ -523,11 +537,14 @@ MonoBehaviour:
         - stringVariable
         - stringValue
         - everyFrame
+        - boolVariable
+        - boolValue
+        - everyFrame
         - onPointerEnterEvent
         - gameObject
         - eventTarget
-        paramDataPos: 000000000100000000000000020000000300000001000000000000000000000000000000
-        paramByteDataSize: 000000000000000001000000000000000000000001000000000000000000000000000000
+        paramDataPos: 000000000100000000000000020000000300000001000000000000000100000002000000000000000000000000000000
+        paramByteDataSize: 000000000000000001000000000000000000000001000000000000000000000001000000000000000000000000000000
     - name: Send Show tooltip Event
       description: 
       colorIndex: 10
@@ -929,7 +946,13 @@ MonoBehaviour:
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: usingi18nKey
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 1
       stringVariables:
       - useVariable: 1
         name: FSMName
@@ -942,7 +965,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: "\u9EDE\u64CA\u89C0\u770B\u63D0\u4EA4\u5167\u5BB9"
+        value: CommitHistoryWindow/TooltipMessage/Commit
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -980,9 +1003,9 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
+      - For TooltipByScript
       - Reference
-      - Tooltip
-      variableCategoryIDs: 000000000200000001000000000000000000000000000000
+      variableCategoryIDs: 01000000000000000100000002000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -991,7 +1014,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 02000000
+    outVariableIndices: 03000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []

@@ -20,10 +20,18 @@ public class CommitTool : SerializedMonoBehaviour
     public void GenerateNewCommitIDList()
     {
         newCommitIdList = GenerateNewRandomId();
+        UpdateCommitIDListCommitHistoryData();
         UpdateCommitIDListBranch();
         UpdateCommitIDListCommit();
         UpdateCommitIDListLines();
         generateCommitIdList = newCommitIdList;
+    }
+    
+    void UpdateCommitIDListCommitHistoryData()
+    {
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Content");
+        string HEADCommitID = fsm.FsmVariables.GetFsmString("HEAD").Value;
+        fsm.FsmVariables.GetFsmString("HEAD").Value = newCommitIdList[generateCommitIdList.FindIndex((item) => item == HEADCommitID)];
     }
 
     void UpdateCommitIDListBranch()
