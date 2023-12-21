@@ -174,13 +174,14 @@ public class QuestFilterManager : SerializedMonoBehaviour
             if (!CommitHistoryWindow) { CommitHistoryWindow = GameObject.Find("CommitHistoryWindow"); }
             fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
             string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
-            if (currentBranchName != wantedBranchName)
-            {
-                return "FileContentWindow/AddButtonSelection/Wrong Branch";
-            }
-            else if (currentBranchName.Contains("HEAD"))
+            
+            if (currentBranchName.Contains("HEAD"))
             {
                 return "FileContentWindow/AddButtonSelection/Detached HEAD";
+            }
+            else if (currentBranchName != wantedBranchName)
+            {
+                return "FileContentWindow/AddButtonSelection/Wrong Branch";
             }
         }
 
