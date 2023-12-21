@@ -67,6 +67,12 @@ public class SaveManager : SerializedMonoBehaviour
         return playerSaveData.gameManualData;
     }
 
+    public List<GameManualItem> GetCommandDataListInGameManual()
+    {
+        while (!isInitialFinish) { }
+        return playerSaveData.gameManualData[0].items;
+    }
+
     public PlayerSaveData GetPlayerSaveData()
     {
         while (!isInitialFinish) { }

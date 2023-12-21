@@ -79,4 +79,9 @@ public class StageManager : SerializedMonoBehaviour
         }
         return 0;
     }
+
+    public Dictionary<string, int> GetUsedCommandDict()
+    {
+        return UsedCommandDict;
+    }
 }
