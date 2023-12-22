@@ -131,11 +131,11 @@ public class QuestFilter_010_AutoMerging_Tutorial : SerializedMonoBehaviour
                             {
                                 case 6:
                                     //Fast Forward
-                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2], "new-design", false);
+                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2],"master", "new-design", false);
                                     break;
                                 case 7:
                                     //Auto Merge
-                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2], "new-article", false);
+                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2], "master", "new-article", false);
                                     break;
                             }
 
@@ -173,7 +173,7 @@ public class QuestFilter_010_AutoMerging_Tutorial : SerializedMonoBehaviour
             {
                 switch (currentQuestNum)
                 {
-                    case 2:
+                    case 3:
                         if (Sender.CompareTag("FileContentWindow/AddButtonSelection"))
                         {
                             return questFilterManager.DetectAction_AddContentFile(i18nTranslateList[0], "new-article");

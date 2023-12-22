@@ -175,7 +175,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
             if (!CommitHistoryWindow) { CommitHistoryWindow = GameObject.Find("CommitHistoryWindow"); }
             fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
             string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
-            
+
             if (currentBranchName.Contains("HEAD"))
             {
                 return "FileContentWindow/AddButtonSelection/Detached HEAD";
@@ -247,10 +247,11 @@ public class QuestFilterManager : SerializedMonoBehaviour
 
     public string DetectAction_GitCheckout_InModifyContentQuest(int HEADCreateNum, bool isMergeConflict = false)
     {
-        if (!isMergeConflict) { 
+        if (!isMergeConflict)
+        {
             PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
             GameObject HEAD = fsm.FsmVariables.GetFsmGameObject("Local/HEAD").Value;
-        
+
             fsm = MyPlayMakerScriptHelper.GetFsmByName(HEAD, "Content");
             int createdCommitNum = fsm.FsmVariables.GetFsmInt("createdCommitNum").Value;
             if (createdCommitNum == HEADCreateNum)
@@ -268,49 +269,51 @@ public class QuestFilterManager : SerializedMonoBehaviour
         }
     }
 
-    public string DetectAction_GitMerge(string playerTargetBranchName, string wantedBranchName, bool setMergeConflict)
+    public string DetectAction_GitMerge(string enterBranchName, string mergeLocation, string wantedBranchName, bool setMergeConflict)
     {
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
         string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
         if (!LocalBranches) { LocalBranches = fsm.FsmVariables.GetFsmGameObject("Local/Branches").Value; }
 
+        //TODO, has issues.
+
         //player input "HEAD"
-        if (playerTargetBranchName == "HEAD")
+        if (enterBranchName == "HEAD")
         {
             return "Git Commands/git merge/HEADMerge(Warning)";
         }
 
-        if (playerTargetBranchName == currentBranchName)
+        //If player enter branch = current branch 
+        if (enterBranchName == currentBranchName)
         {
+            Debug.Log("enterBranchName == currentBranchName ");
+
             return "Continue";
         }
 
-        //If player in HEAD branch
-        if (currentBranchName.Contains("HEAD"))
+        //if player target branch can find
+        if (LocalBranches.transform.Find(enterBranchName))
         {
-            return "Git Commands/git merge/HEADIsCurrentBranch(Failed)";
-        }
-        else
-        {
-            //if player target branch can find
-            if (LocalBranches.transform.Find(playerTargetBranchName))
+            if (currentBranchName.Contains("HEAD"))
             {
-                if(playerTargetBranchName == wantedBranchName)
-                {
-                    //Success, run Merge FSM. (IF want to start mergeConflict mode, set setMergeConflict true)
-                    return (setMergeConflict) ? "Continue(Merge Conflict)" : "Continue";
-                }
-                else
-                {
-                    //Error
-                    return "Git Commands/git merge/MergeError(Failed)";
-                }
+                //If player in HEAD branch
+                return "Git Commands/git merge/HEADIsCurrentBranch(Failed)";
+            }
+            else if ((enterBranchName == wantedBranchName) && (currentBranchName == mergeLocation))
+            {
+                //Success, run Merge FSM. (IF want to start mergeConflict mode, set setMergeConflict true)
+                return (setMergeConflict) ? "Continue(Merge Conflict)" : "Continue";
             }
             else
             {
-                //Failed, let Merge FSM do its things.
-                return "Continue";
+                //Error
+                return "Git Commands/git merge/MergeError(Failed)";
             }
+        }
+        else
+        {
+            //Failed, let Merge FSM do its things.
+            return "Continue";
         }
     }
 
@@ -323,7 +326,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
         string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
         if (!LocalBranches) { LocalBranches = fsm.FsmVariables.GetFsmGameObject("Local/Branches").Value; }
 
-        Debug.Log("currentBranchName :" + currentBranchName +  "\nCreate local branch action: " + playerTargetBranchName + "\n wanted create loc : " + wantedCreateLocation + "\n wanted CreateBranchName : " + wantedCreateBranchName);
+        Debug.Log("currentBranchName :" + currentBranchName + "\nCreate local branch action: " + playerTargetBranchName + "\n wanted create loc : " + wantedCreateLocation + "\n wanted CreateBranchName : " + wantedCreateBranchName);
 
         //Can find in current branch list. Or player enter the name not same as wanted branch name.
         if (LocalBranches.transform.Find(playerTargetBranchName) || (playerTargetBranchName != wantedCreateBranchName))
@@ -332,7 +335,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
         }
 
         //Create location != wanted location.
-        if((currentBranchName != wantedCreateLocation) && (playerTargetBranchName == wantedCreateBranchName))
+        if ((currentBranchName != wantedCreateLocation) && (playerTargetBranchName == wantedCreateBranchName))
         {
             token = playerTargetBranchName;
             return "Git Commands/git branch/WrongLocation(Create)(Failed)";

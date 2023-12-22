@@ -104,7 +104,7 @@ public class QuestFilter_009_FastForwardMerging_Tutorial : SerializedMonoBehavio
                         if (foundIndex != -1 && currentQuestNum == 5) //Give warning (use 'git log' first).
                         {
                             //Fast Forward
-                            string resultText = questFilterManager.DetectAction_GitMerge(splitList[2], "new-feature", false);
+                            string resultText = questFilterManager.DetectAction_GitMerge(splitList[2],"master" ,"new-feature", false);
                             if (resultText.Contains("(Merge Conflict)"))
                             {
                                 isMergeConflict = true;
