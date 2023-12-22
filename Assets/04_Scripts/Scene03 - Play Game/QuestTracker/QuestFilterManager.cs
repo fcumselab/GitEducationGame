@@ -62,7 +62,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 runResult = QuestTracker.GetComponent<QuestFilter_009_FastForwardMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Auto Merging (Tutorial)":
-                //runResult = QuestTracker.GetComponent<QuestFilter_010_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                runResult = QuestTracker.GetComponent<QuestFilter_010_AutoMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Merge Conflicts (Tutorial)":
                 //runResult = QuestTracker.GetComponent<QuestFilter_011_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
@@ -314,5 +314,32 @@ public class QuestFilterManager : SerializedMonoBehaviour
         }
     }
 
+    public string DetectAction_GitCreateLocalBranch(string playerTargetBranchName, string wantedCreateLocation, string wantedCreateBranchName)
+    {
 
+        token = "";
+
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
+        string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
+        if (!LocalBranches) { LocalBranches = fsm.FsmVariables.GetFsmGameObject("Local/Branches").Value; }
+
+        Debug.Log("currentBranchName :" + currentBranchName +  "\nCreate local branch action: " + playerTargetBranchName + "\n wanted create loc : " + wantedCreateLocation + "\n wanted CreateBranchName : " + wantedCreateBranchName);
+
+        //Can find in current branch list. Or player enter the name not same as wanted branch name.
+        if (LocalBranches.transform.Find(playerTargetBranchName) || (playerTargetBranchName != wantedCreateBranchName))
+        {
+            return "Continue";
+        }
+
+        //Create location != wanted location.
+        if((currentBranchName != wantedCreateLocation) && (playerTargetBranchName == wantedCreateBranchName))
+        {
+            token = playerTargetBranchName;
+            return "Git Commands/git branch/WrongLocation(Create)(Failed)";
+        }
+        else
+        {
+            return "Continue";
+        }
+    }
 }
