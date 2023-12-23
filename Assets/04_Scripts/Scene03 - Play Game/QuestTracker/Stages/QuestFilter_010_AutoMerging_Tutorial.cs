@@ -125,17 +125,17 @@ public class QuestFilter_010_AutoMerging_Tutorial : SerializedMonoBehaviour
                         }
                     case "merge":
                         //Todo
-                        if (foundIndex != -1 && (currentQuestNum == 6 || currentQuestNum == 7)) //Give warning (use 'git log' first).
+                        if (splitList.Length == 3 && foundIndex != -1 && (currentQuestNum == 6 || currentQuestNum == 7)) //Give warning (use 'git log' first).
                         {
                             switch (currentQuestNum)
                             {
                                 case 6:
                                     //Fast Forward
-                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2],"master", "new-design", false);
+                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2],"master", "new-design", false, isMergeConflict);
                                     break;
                                 case 7:
                                     //Auto Merge
-                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2], "master", "new-article", false);
+                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2], "master", "new-article", false, isMergeConflict);
                                     break;
                             }
 
@@ -151,7 +151,7 @@ public class QuestFilter_010_AutoMerging_Tutorial : SerializedMonoBehaviour
                         }
                         else
                         {
-                            return "Git Commands/common/FollowQuest(Warning)";
+                            return (currentQuestNum == 6 || currentQuestNum == 7) ? "Continue" : "Git Commands/common/FollowQuest(Warning)";
                         }
                     default:
                         return "Continue";

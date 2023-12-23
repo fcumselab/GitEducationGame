@@ -56,7 +56,7 @@ public class QuestFilter_009_FastForwardMerging_Tutorial : SerializedMonoBehavio
     public string StartQuestFilter(GameObject Sender, string SenderFSMName, int currentQuestNum)
     {
         Initializei18nList();
-        
+
         //Run Git Command
         if (Sender.CompareTag("Window/CommandLineWindow/InputField"))
         {
@@ -101,10 +101,10 @@ public class QuestFilter_009_FastForwardMerging_Tutorial : SerializedMonoBehavio
                         }
                     case "merge":
                         //Todo
-                        if (foundIndex != -1 && currentQuestNum == 5) //Give warning (use 'git log' first).
+                        if (splitList.Length == 3 && foundIndex != -1 && currentQuestNum == 5) //Give warning (use 'git log' first).
                         {
                             //Fast Forward
-                            string resultText = questFilterManager.DetectAction_GitMerge(splitList[2],"master" ,"new-feature", false);
+                            string resultText = questFilterManager.DetectAction_GitMerge(splitList[2], "master", "new-feature", false, isMergeConflict);
                             if (resultText.Contains("(Merge Conflict)"))
                             {
                                 isMergeConflict = true;
@@ -117,7 +117,7 @@ public class QuestFilter_009_FastForwardMerging_Tutorial : SerializedMonoBehavio
                         }
                         else
                         {
-                            return "Git Commands/common/FollowQuest(Warning)";
+                            return (currentQuestNum == 5) ? "Continue" : "Git Commands/common/FollowQuest(Warning)";
                         }
                     default:
                         return "Continue";

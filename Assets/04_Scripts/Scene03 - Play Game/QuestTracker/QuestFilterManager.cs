@@ -13,6 +13,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
 
     [Header("Reference")]
     [SerializeField] GameObject FileContentWindow;
+    [SerializeField] GameObject StagingAreaWindow;
     [SerializeField] GameObject CommitHistoryWindow;
     [SerializeField] GameObject LocalBranches;
     public GameObject CommandInputField;
@@ -28,6 +29,8 @@ public class QuestFilterManager : SerializedMonoBehaviour
         string runResult = "";
         if (!QuestTracker)
         {
+            FileContentWindow = GameObject.Find("FileContentWindow");
+            StagingAreaWindow = GameObject.Find("StagingAreaWindow");
             CommitHistoryWindow = GameObject.Find("CommitHistoryWindow");
             CommandInputField = GameObject.Find("CommandInputField");
             QuestTracker = transform.Find("Quest Tracker").gameObject;
@@ -65,7 +68,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 runResult = QuestTracker.GetComponent<QuestFilter_010_AutoMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Merge Conflicts (Tutorial)":
-                //runResult = QuestTracker.GetComponent<QuestFilter_011_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                runResult = QuestTracker.GetComponent<QuestFilter_011_MergeConflicts_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Create Remote Repository (Tutorial)":
                 //runResult = QuestTracker.GetComponent<QuestFilter_012_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
@@ -139,18 +142,15 @@ public class QuestFilterManager : SerializedMonoBehaviour
 
     public string DetectAction_DeleteFile(string actionType, string wantedFileName)
     {
-
-        if (!FileContentWindow) { FileContentWindow = GameObject.Find("FileContentWindow"); }
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(FileContentWindow, "File Content Window");
         string currentFileName = fsm.FsmVariables.GetFsmString("fileName").Value;
-
-        fsm = MyPlayMakerScriptHelper.GetFsmByName(Sender, SenderFSMName);
-        string fileContent = fsm.FsmVariables.GetFsmString("text").Value;
-        Debug.Log("Modify actionType: " + actionType + "\nFileName: " + wantedFileName + "\ncurrentFileName: " + currentFileName + "\nfileContent: " + fileContent);
-
-
+        
         if (currentFileName == wantedFileName)
         {
+            fsm = MyPlayMakerScriptHelper.GetFsmByName(Sender, SenderFSMName);
+            string fileContent = fsm.FsmVariables.GetFsmString("text").Value;
+            Debug.Log("Modify actionType: " + actionType + "\nFileName: " + wantedFileName + "\ncurrentFileName: " + currentFileName + "\nfileContent: " + fileContent);
+
             if (fileContent.Contains(actionType))
             {
                 return "Continue";
@@ -165,7 +165,31 @@ public class QuestFilterManager : SerializedMonoBehaviour
             return "FileContentWindow/DeleteButtonSelection/Wrong FileName";
         }
     }
+    
+    public string DetectAction_DeleteFile_ResolveMergeConflict(string wantedFileName)
+    {
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(FileContentWindow, "File Content Window");
+        string currentFileName = fsm.FsmVariables.GetFsmString("fileName").Value;
 
+        if (currentFileName == wantedFileName)
+        {
+            fsm = MyPlayMakerScriptHelper.GetFsmByName(Sender, SenderFSMName);
+            string fileContent = fsm.FsmVariables.GetFsmString("text").Value;
+
+            if (fileContent.Contains("<") || fileContent.Contains("=") || fileContent.Contains(">"))
+            {
+                return "Continue";
+            }
+            else
+            {
+                return "FileContentWindow/DeleteButtonSelection/Wrong Content";
+            }
+        }
+        else
+        {
+            return "FileContentWindow/DeleteButtonSelection/Wrong FileName";
+        }
+    }
     public string DetectAction_AddContentFile(string wantedFileName, string wantedBranchName = "")
     {
         PlayMakerFSM fsm;
@@ -269,53 +293,60 @@ public class QuestFilterManager : SerializedMonoBehaviour
         }
     }
 
-    public string DetectAction_GitMerge(string enterBranchName, string mergeLocation, string wantedBranchName, bool setMergeConflict)
+    public string DetectAction_GitMerge(string enterBranchName, string mergeLocation, string wantedBranchName, bool setMergeConflict, bool isMergeConflict)
     {
-        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
-        string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
-        if (!LocalBranches) { LocalBranches = fsm.FsmVariables.GetFsmGameObject("Local/Branches").Value; }
-
-        //TODO, has issues.
-
-        //player input "HEAD"
-        if (enterBranchName == "HEAD")
+        if (!isMergeConflict)
         {
-            return "Git Commands/git merge/HEADMerge(Warning)";
-        }
+            PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
+            string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
+            if (!LocalBranches) { LocalBranches = fsm.FsmVariables.GetFsmGameObject("Local/Branches").Value; }
 
-        //If player enter branch = current branch 
-        if (enterBranchName == currentBranchName)
-        {
-            Debug.Log("enterBranchName == currentBranchName ");
+            //TODO, has issues.
 
-            return "Continue";
-        }
-
-        //if player target branch can find
-        if (LocalBranches.transform.Find(enterBranchName))
-        {
-            if (currentBranchName.Contains("HEAD"))
+            //player input "HEAD"
+            if (enterBranchName == "HEAD")
             {
-                //If player in HEAD branch
-                return "Git Commands/git merge/HEADIsCurrentBranch(Failed)";
+                return "Git Commands/git merge/HEADMerge(Warning)";
             }
-            else if ((enterBranchName == wantedBranchName) && (currentBranchName == mergeLocation))
+
+            //If player enter branch = current branch 
+            if (enterBranchName == currentBranchName)
             {
-                //Success, run Merge FSM. (IF want to start mergeConflict mode, set setMergeConflict true)
-                return (setMergeConflict) ? "Continue(Merge Conflict)" : "Continue";
+                Debug.Log("enterBranchName == currentBranchName ");
+
+                return "Continue";
+            }
+            //if player target branch can find
+            if (LocalBranches.transform.Find(enterBranchName))
+            {
+                if (currentBranchName.Contains("HEAD"))
+                {
+                    //If player in HEAD branch
+                    return "Git Commands/git merge/HEADIsCurrentBranch(Failed)";
+                }
+                else if ((enterBranchName == wantedBranchName) && (currentBranchName == mergeLocation))
+                {
+                    //Success, run Merge FSM. (IF want to start mergeConflict mode, set setMergeConflict true)
+                    return (setMergeConflict) ? "Continue(Merge Conflict)" : "Continue";
+                }
+                else
+                {
+                    //Error
+                    return "Git Commands/git merge/MergeError(Failed)";
+                }
             }
             else
             {
-                //Error
-                return "Git Commands/git merge/MergeError(Failed)";
+                //Failed, let Merge FSM do its things.
+                return "Continue";
             }
         }
         else
         {
-            //Failed, let Merge FSM do its things.
-            return "Continue";
+            return "Git Commands/git merge/MergeConflict(During)(Warning)";
         }
     }
+    
 
     public string DetectAction_GitCreateLocalBranch(string playerTargetBranchName, string wantedCreateLocation, string wantedCreateBranchName)
     {
@@ -345,4 +376,31 @@ public class QuestFilterManager : SerializedMonoBehaviour
             return "Continue";
         }
     }
+
+    public string DetectAction_GitCommit(List<string> wantedFileLocationList = null)
+    {
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(StagingAreaWindow, "Staging Area");
+        object[] a = fsm.FsmVariables.GetFsmArray("ListLocation").Values;
+        object[] b = fsm.FsmVariables.GetFsmArray("ListFileStatus").Values;
+        List<string> ListLocation =new();
+        List<string> ListFileStatus = new();
+        for (int i=0; i< a.Length; i++)
+        {
+            ListLocation.Add(a[i].ToString());
+            ListFileStatus.Add(b[i].ToString());
+        }
+
+        foreach(string targetLocation in wantedFileLocationList)
+        {
+            int foundIndex = ListLocation.FindIndex((loc) => loc == targetLocation);
+            if(ListFileStatus[foundIndex] != "staged")
+            {
+                return "Git Commands/git merge/MergeConflict(CommitFinalCheck)(Warning)";
+            }
+        }
+
+
+        return "Continue(Resolved)";
+    }
+
 }
