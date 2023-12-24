@@ -140,6 +140,10 @@ public class QuestFilter_015_PreparationForMerging_Tutorial : SerializedMonoBeha
                         {
                             return (isMergeConflict) ? questFilterManager.DetectAction_GitCheckout_InModifyContentQuest(0, isMergeConflict) : "Continue";
                         }
+                        else if (foundIndex != -1 && currentQuestNum == 7)
+                        {
+                            return "Git Commands/common/FollowQuest(Warning)";
+                        }
                         else if (foundIndex != -1)
                         {
                             // num 4 is when Quest 6, after resolve merge conflict.

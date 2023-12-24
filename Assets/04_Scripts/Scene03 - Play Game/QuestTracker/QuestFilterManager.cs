@@ -412,7 +412,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
             }
 
             if (ListFileStatus[foundIndex] != "staged")
-            {
+            {   
                 return "Git Commands/git merge/MergeConflict(CommitFinalCheck)(Warning)";
             }
         }
