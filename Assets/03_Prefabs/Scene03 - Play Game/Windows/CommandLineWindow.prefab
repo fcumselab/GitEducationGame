@@ -2479,8 +2479,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 325.67188
-        y: 366.17188
+        x: 310.77344
+        y: 437.8203
         width: 134
         height: 48
       isBreakpoint: 0
@@ -2578,7 +2578,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 104
-        y: 508
+        y: 652
         width: 100
         height: 32
       isBreakpoint: 0
@@ -2734,7 +2734,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 318.8125
-        y: 701.9922
+        y: 845.9922
         width: 100
         height: 16
       isBreakpoint: 0
@@ -2817,10 +2817,10 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 338.6172
-        y: 279.10156
+        x: 330.08594
+        y: 281.59375
         width: 100
-        height: 48
+        height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -2829,25 +2829,16 @@ MonoBehaviour:
           name: skip
           isSystemEvent: 0
           isGlobal: 0
-        toState: Set String Value (Branch) 2
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 12
-      - fsmEvent:
-          name: next
-          isSystemEvent: 0
-          isGlobal: 0
         toState: String has HEAD?
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
-        colorIndex: 8
+        colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.BoolTest
+        - HutongGames.PlayMaker.Actions.GetFsmString
+        - HutongGames.PlayMaker.Actions.StringCompare
         - HutongGames.PlayMaker.Actions.SetStringValue
-        - HutongGames.PlayMaker.Actions.SetBoolValue
         - HutongGames.PlayMaker.Actions.NextFrameEvent
         customNames:
         - 
@@ -2856,11 +2847,19 @@ MonoBehaviour:
         - 
         actionEnabled: 01010101
         actionIsOpen: 01010101
-        actionStartIndex: 0000000004000000070000000a000000
-        actionHashCodes: a4c8bf00c030f10327fbe10388611604
+        actionStartIndex: 00000000050000000b0000000e000000
+        actionHashCodes: 52221a020c0e5502c030f10388611604
         unityObjectParams: []
         fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Window/CommitHistoryWindow
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
@@ -2868,6 +2867,24 @@ MonoBehaviour:
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Commit History
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Local/currentBranch
+        - useVariable: 1
+          name: currentBranch
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
         - useVariable: 1
           name: currentBranch
           tooltip: 
@@ -2879,7 +2896,19 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: master
+          value: 
+        - useVariable: 1
+          name: currentBranch
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -2888,59 +2917,51 @@ MonoBehaviour:
         fsmIntParams: []
         fsmBoolParams:
         - useVariable: 1
-          name: initial
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: initial
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 1
+          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
-        - next
         - 
+        - skip
         - skip
         byteData: 000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1100000017000000170000000100000012000000120000000100000011000000110000000100000017000000
+        paramDataType: 140000001200000012000000120000000100000012000000120000001700000017000000110000000100000012000000120000000100000017000000
         paramName:
-        - boolVariable
-        - isTrue
-        - isFalse
+        - gameObject
+        - fsmName
+        - variableName
+        - storeValue
+        - everyFrame
+        - stringVariable
+        - compareTo
+        - equalEvent
+        - notEqualEvent
+        - storeResult
         - everyFrame
         - stringVariable
         - stringValue
         - everyFrame
-        - boolVariable
-        - boolValue
-        - everyFrame
         - sendEvent
-        paramDataPos: 0000000000000000010000000000000000000000010000000100000001000000020000000200000002000000
-        paramByteDataSize: 0000000000000000000000000100000000000000000000000100000000000000000000000100000000000000
+        paramDataPos: 000000000000000001000000020000000000000003000000040000000000000001000000000000000100000005000000060000000200000002000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000000000000100000000000000000000000100000000000000
     - name: is Save Manager Null
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 322.39062
-        y: 102.52344
+        x: 305.35938
+        y: 106.08594
         width: 152
         height: 32
       isBreakpoint: 0
@@ -3021,8 +3042,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 307.39062
-        y: 162.52344
+        x: 290.35938
+        y: 166.08594
         width: 176.5
         height: 32
       isBreakpoint: 0
@@ -3170,7 +3191,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 847.3906
-        y: 266.02344
+        y: 410.02344
         width: 114
         height: 16
       isBreakpoint: 0
@@ -3203,7 +3224,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: CommandLineWindow/TooltipMessage/CurrentLocation
+          value: 
         - useVariable: 0
           name: 
           tooltip: 
@@ -3256,7 +3277,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 63
-        y: 449
+        y: 593
         width: 195
         height: 32
       isBreakpoint: 0
@@ -3296,7 +3317,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: CommandLineWindow/TooltipMessage/CurrentLocation
+          value: 
         - useVariable: 0
           name: 
           tooltip: 
@@ -3334,7 +3355,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 471.89062
-        y: 450.02344
+        y: 594.02344
         width: 189
         height: 32
       isBreakpoint: 0
@@ -3412,7 +3433,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 503
-        y: 579
+        y: 723
         width: 105
         height: 32
       isBreakpoint: 0
@@ -3609,7 +3630,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 94.890625
-        y: 575.02344
+        y: 719.02344
         width: 115
         height: 32
       isBreakpoint: 0

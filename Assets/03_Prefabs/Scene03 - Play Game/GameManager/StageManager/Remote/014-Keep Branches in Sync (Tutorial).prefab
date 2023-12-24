@@ -1,5 +1,64 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3271420862125588393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5292954232608648995}
+  - component: {fileID: 5885682280885872690}
+  m_Layer: 5
+  m_Name: Canva
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5292954232608648995
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271420862125588393}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8780924961159620496}
+  m_Father: {fileID: 6678684561424049587}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!223 &5885682280885872690
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271420862125588393}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &6678684560606522860
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +156,7 @@ GameObject:
   - component: {fileID: 6678684560626052903}
   - component: {fileID: 6678684560626052904}
   - component: {fileID: 6678684560626052905}
+  - component: {fileID: 5247128768280817684}
   m_Layer: 5
   m_Name: CommitSample
   m_TagString: Commit
@@ -1085,7 +1145,13 @@ MonoBehaviour:
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: usingi18nKey
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 1
       stringVariables:
       - useVariable: 1
         name: FSMName
@@ -1108,7 +1174,7 @@ MonoBehaviour:
       - useVariable: 1
         name: CommitsHistoryTooltip
         tooltip: 
-        showInInspector: 1
+        showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
@@ -1126,7 +1192,7 @@ MonoBehaviour:
       - 
       - Reference
       - Tooltip
-      variableCategoryIDs: 00000000020000000100000000000000
+      variableCategoryIDs: 0000000000000000020000000100000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -1135,7 +1201,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 
+    outVariableIndices: 03000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -3833,6 +3899,20 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
+--- !u!114 &5247128768280817684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678684560626052907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3a8214f44494c479a7c411f2bbb47f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipLight: {fileID: 0}
+  Content: {fileID: 6678684560626052896}
 --- !u!1 &6678684560691937431
 GameObject:
   m_ObjectHideFlags: 0
@@ -4348,6 +4428,7 @@ MonoBehaviour:
   - giir71
   - bm5vn6
   currentBranchColumnCount: 2
+  newCommitIdList: []
 --- !u!114 &6678684560755783685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6491,6 +6572,7 @@ GameObject:
   - component: {fileID: 6678684560968596411}
   - component: {fileID: 6678684560968596412}
   - component: {fileID: 6678684560968596399}
+  - component: {fileID: 4522115768537987990}
   m_Layer: 5
   m_Name: update-readmeC2
   m_TagString: Commit
@@ -7234,7 +7316,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 0
         networkSync: 0
-        value: "\u65B0\u589E README \u5167\u5BB9\uFF1A\u64CD\u4F5C\u8AAA\u660E"
+        value: NPCCommitData/CommitMessage/Player1
       - useVariable: 1
         name: commitTime
         tooltip: 
@@ -7246,7 +7328,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 0
         networkSync: 0
-        value: "\u60A8"
+        value: Common/Player
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -7282,7 +7364,7 @@ MonoBehaviour:
         boolValues: 
         stringValues:
         - 
-        - "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848\\n\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0\\n\u7DB2\u9801\u64CD\u4F5C\u8AAA\u660E"
+        - NPCCommitData/Player1/ListContent/1
         - 
         vector4Values: []
         objectReferences: []
@@ -7297,9 +7379,9 @@ MonoBehaviour:
         intValues: 
         boolValues: 
         stringValues:
-        - shopping-website
-        - shopping-website\README.md
-        - shopping-website\.git
+        - CommitHistoryData/File data/ListLocation/0
+        - CommitHistoryData/File data/ListLocation/1
+        - CommitHistoryData/File data/ListLocation/2
         vector4Values: []
         objectReferences: []
       - useVariable: 1
@@ -7313,9 +7395,9 @@ MonoBehaviour:
         intValues: 
         boolValues: 
         stringValues:
-        - shopping-website
-        - README.md
-        - x
+        - CommitHistoryData/File data/ListFileName/0
+        - CommitHistoryData/File data/ListFileName/1
+        - 
         vector4Values: []
         objectReferences: []
       - useVariable: 1
@@ -7997,7 +8079,7 @@ MonoBehaviour:
             useVariable: 1
             name: CommitsHistoryTooltip
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         - ownerOption: 1
@@ -8005,7 +8087,7 @@ MonoBehaviour:
             useVariable: 1
             name: CommitsHistoryTooltip
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         animationCurveParams: []
@@ -8026,7 +8108,7 @@ MonoBehaviour:
               useVariable: 1
               name: CommitsHistoryTooltip
               tooltip: 
-              showInInspector: 1
+              showInInspector: 0
               networkSync: 0
               value: {fileID: 0}
           fsmName:
@@ -8231,7 +8313,13 @@ MonoBehaviour:
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: usingi18nKey
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 1
       stringVariables:
       - useVariable: 1
         name: FSMName
@@ -8254,7 +8342,7 @@ MonoBehaviour:
       - useVariable: 1
         name: CommitsHistoryTooltip
         tooltip: 
-        showInInspector: 1
+        showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
@@ -8272,7 +8360,7 @@ MonoBehaviour:
       - 
       - Reference
       - Tooltip
-      variableCategoryIDs: 0000000002000000010000000000000000000000
+      variableCategoryIDs: 000000000000000002000000010000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -8281,7 +8369,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 
+    outVariableIndices: 03000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -17355,6 +17443,20 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 1
+--- !u!114 &4522115768537987990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678684560968596414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3a8214f44494c479a7c411f2bbb47f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipLight: {fileID: 0}
+  Content: {fileID: 6678684560968596402}
 --- !u!1 &6678684560970699780
 GameObject:
   m_ObjectHideFlags: 0
@@ -17613,6 +17715,7 @@ GameObject:
   - component: {fileID: 6678684561163046844}
   - component: {fileID: 6678684561163046845}
   - component: {fileID: 6678684561163046846}
+  - component: {fileID: 5261214539875278198}
   m_Layer: 5
   m_Name: giir71
   m_TagString: Commit
@@ -18357,7 +18460,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 0
         networkSync: 0
-        value: "\u589E\u52A0 README \u6A94\u6848"
+        value: CommitHistoryData/CommitMessage/1
       - useVariable: 1
         name: commitTime
         tooltip: 
@@ -18369,7 +18472,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 0
         networkSync: 0
-        value: "\u60A8"
+        value: Common/Player
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -18405,7 +18508,7 @@ MonoBehaviour:
         boolValues: 
         stringValues:
         - 
-        - "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848"
+        - CommitHistoryData/File data/ListContent/1/v1
         - 
         vector4Values: []
         objectReferences: []
@@ -18420,9 +18523,9 @@ MonoBehaviour:
         intValues: 
         boolValues: 
         stringValues:
-        - shopping-website
-        - shopping-website\README.md
-        - shopping-website\.git
+        - CommitHistoryData/File data/ListLocation/0
+        - CommitHistoryData/File data/ListLocation/1
+        - CommitHistoryData/File data/ListLocation/2
         vector4Values: []
         objectReferences: []
       - useVariable: 1
@@ -18436,9 +18539,9 @@ MonoBehaviour:
         intValues: 
         boolValues: 
         stringValues:
-        - shopping-website
-        - README.md
-        - x
+        - CommitHistoryData/File data/ListFileName/0
+        - CommitHistoryData/File data/ListFileName/1
+        - 
         vector4Values: []
         objectReferences: []
       - useVariable: 1
@@ -18511,7 +18614,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 0000000001000000020000000300000004000000060000000700000008000000090000000a0000000b0000000c0000000d00000005000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -19108,9 +19211,9 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: {fileID: 0}
+          value: {fileID: 6678684561163046848}
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -19274,13 +19377,13 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Commits
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -19297,7 +19400,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Commits
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -19476,7 +19579,13 @@ MonoBehaviour:
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: usingi18nKey
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 1
       stringVariables:
       - useVariable: 1
         name: FSMName
@@ -19509,13 +19618,13 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 6678684561163046848}
       - useVariable: 1
-        name: Commits
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: CommitHistory
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -19529,7 +19638,7 @@ MonoBehaviour:
       - 
       - Reference
       - Tooltip
-      variableCategoryIDs: 000000000200000001000000000000000000000000000000
+      variableCategoryIDs: 00000000000000000200000001000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -19538,7 +19647,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 02000000
+    outVariableIndices: 03000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -19631,7 +19740,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: HitObj
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -19702,7 +19811,7 @@ MonoBehaviour:
           value: 5
         fsmBoolParams:
         - useVariable: 1
-          name: didHit
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -19846,7 +19955,7 @@ MonoBehaviour:
         fsmIntParams: []
         fsmBoolParams:
         - useVariable: 1
-          name: didHit
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20058,7 +20167,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: HitObj
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20067,7 +20176,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: TargetCommit
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -20075,7 +20184,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: TargetCommit
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -20096,7 +20205,7 @@ MonoBehaviour:
             ownerOption: 1
             gameObject:
               useVariable: 1
-              name: TargetCommit
+              name: 
               tooltip: 
               showInInspector: 0
               networkSync: 0
@@ -20156,7 +20265,7 @@ MonoBehaviour:
           value: 0
         fsmIntParams:
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20236,13 +20345,13 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Branch
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: TargetCommit
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20251,7 +20360,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: HitObj
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -20267,7 +20376,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Branch
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -20300,7 +20409,7 @@ MonoBehaviour:
           networkSync: 0
           value: branchList
         - useVariable: 1
-          name: branchName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20324,13 +20433,13 @@ MonoBehaviour:
           networkSync: 0
           value: LatestCommit
         - useVariable: 1
-          name: LatestCommitName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 
         - useVariable: 1
-          name: LatestCommitName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20356,9 +20465,9 @@ MonoBehaviour:
           typeName: CommitTool
           value: {fileID: 0}
         fsmVarParams:
-        - variableName: branchName
+        - variableName: 
           objectType: UnityEngine.Object
-          useVariable: 1
+          useVariable: 0
           type: 4
           floatValue: 0
           intValue: 0
@@ -20380,10 +20489,10 @@ MonoBehaviour:
             stringValues: []
             vector4Values: []
             objectReferences: []
-        - variableName: branchName
-          objectType: UnityEngine.Object
-          useVariable: 1
-          type: 4
+        - variableName: 
+          objectType: 
+          useVariable: 0
+          type: -1
           floatValue: 0
           intValue: 0
           boolValue: 0
@@ -20404,9 +20513,9 @@ MonoBehaviour:
             stringValues: []
             vector4Values: []
             objectReferences: []
-        - variableName: foundIndex
+        - variableName: 
           objectType: UnityEngine.Object
-          useVariable: 1
+          useVariable: 0
           type: 1
           floatValue: 0
           intValue: 0
@@ -20591,7 +20700,7 @@ MonoBehaviour:
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: HitObjPosY
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20603,13 +20712,13 @@ MonoBehaviour:
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: HitObjPosY
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20634,7 +20743,7 @@ MonoBehaviour:
           value: 0
         fsmIntParams:
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20646,7 +20755,7 @@ MonoBehaviour:
           networkSync: 0
           value: -150
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20660,7 +20769,7 @@ MonoBehaviour:
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: HitObjVector2
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20672,7 +20781,7 @@ MonoBehaviour:
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: HitObjVector2
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20782,9 +20891,9 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams:
-        - variableName: commitParentID
+        - variableName: 
           objectType: UnityEngine.Object
-          useVariable: 1
+          useVariable: 0
           type: 4
           floatValue: 0
           intValue: 0
@@ -20836,7 +20945,7 @@ MonoBehaviour:
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: index
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -20920,7 +21029,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: HitObj
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -21059,7 +21168,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: HitObj
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -21068,7 +21177,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: commitParent
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -21076,7 +21185,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: commitParent
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -21097,7 +21206,7 @@ MonoBehaviour:
             ownerOption: 1
             gameObject:
               useVariable: 1
-              name: commitParent
+              name: 
               tooltip: 
               showInInspector: 0
               networkSync: 0
@@ -21157,7 +21266,7 @@ MonoBehaviour:
           value: 0
         fsmIntParams:
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -21236,7 +21345,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: HitObj
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -21327,7 +21436,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: commitParent
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -21349,7 +21458,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: commitParentID
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -21524,7 +21633,7 @@ MonoBehaviour:
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -21555,7 +21664,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: CommitHistory
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -21669,7 +21778,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -21683,13 +21792,13 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: commitHistroyName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 
         - useVariable: 1
-          name: commitHistroyName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -21993,59 +22102,59 @@ MonoBehaviour:
     variables:
       floatVariables:
       - useVariable: 1
-        name: HitObjPosY
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       intVariables:
       - useVariable: 1
-        name: foundIndex
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       - useVariable: 1
-        name: index
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       boolVariables:
       - useVariable: 1
-        name: didHit
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       stringVariables:
       - useVariable: 1
-        name: branchName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: LatestCommitName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: commitParentID
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: commitHistroyName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       vector2Variables:
       - useVariable: 1
-        name: HitObjVector2
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -22056,7 +22165,7 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: HitObj
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -22068,13 +22177,13 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Branch
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: TargetCommit
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -22086,13 +22195,13 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: commitParent
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: CommitHistory
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -22140,7 +22249,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 0a0000000d0000001000000011000000
+    outVariableIndices: 00000000010000000200000003000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -22354,9 +22463,9 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams:
-        - variableName: targetCommitID
+        - variableName: 
           objectType: UnityEngine.Object
-          useVariable: 1
+          useVariable: 0
           type: 4
           floatValue: 0
           intValue: 0
@@ -22483,7 +22592,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: {fileID: 0}
+          value: {fileID: 6678684561163046848}
         fsmOwnerDefaultParams: []
         animationCurveParams: []
         functionCallParams: []
@@ -22493,7 +22602,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: selfCommitID
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -22627,13 +22736,13 @@ MonoBehaviour:
         fsmBoolParams: []
         fsmVector2Params:
         - useVariable: 1
-          name: targetCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: selfCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -22734,9 +22843,9 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: {fileID: 0}
+          value: {fileID: 6678684561163046848}
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -22745,7 +22854,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -22867,7 +22976,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -22875,7 +22984,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -22985,7 +23094,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -22998,7 +23107,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -23068,7 +23177,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -23076,7 +23185,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -23084,7 +23193,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -23141,19 +23250,19 @@ MonoBehaviour:
         fsmBoolParams: []
         fsmVector2Params:
         - useVariable: 1
-          name: selfLocalPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: selfCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: targetCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -23247,7 +23356,7 @@ MonoBehaviour:
           networkSync: 0
           value: '-'
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -23331,7 +23440,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Commits
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -23344,7 +23453,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: targetCommitID
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -23512,7 +23621,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -23524,13 +23633,13 @@ MonoBehaviour:
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -23552,7 +23661,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -23646,7 +23755,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -23654,7 +23763,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -23662,7 +23771,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -23719,19 +23828,19 @@ MonoBehaviour:
         fsmBoolParams: []
         fsmVector2Params:
         - useVariable: 1
-          name: selfLocalPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: selfCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: targetCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -23802,7 +23911,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -23934,7 +24043,7 @@ MonoBehaviour:
         fsmBoolParams: []
         fsmVector2Params:
         - useVariable: 1
-          name: selfLocalPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -24018,13 +24127,13 @@ MonoBehaviour:
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: Commits
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -24053,7 +24162,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Commits
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -24061,7 +24170,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: CommitHistory
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -24308,7 +24417,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -24330,7 +24439,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -24404,7 +24513,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -24494,7 +24603,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -24516,7 +24625,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -24590,7 +24699,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -24690,19 +24799,19 @@ MonoBehaviour:
       boolVariables: []
       stringVariables:
       - useVariable: 1
-        name: LineName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: selfCommitID
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: targetCommitID
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -24715,19 +24824,19 @@ MonoBehaviour:
         value: 
       vector2Variables:
       - useVariable: 1
-        name: selfCommitPos
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {x: 0, y: 0}
       - useVariable: 1
-        name: selfLocalPos
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {x: 0, y: 0}
       - useVariable: 1
-        name: targetCommitPos
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -24738,7 +24847,7 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: Commits
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -24768,13 +24877,13 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Line
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: CommitHistory
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -24801,7 +24910,7 @@ MonoBehaviour:
       - 
       - Get from Content FSM
       - Get from Sender
-      variableCategoryIDs: 0000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
+      variableCategoryIDs: 0000000000000000020000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -24810,7 +24919,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 01000000050000000b0000000c0000000d00000010000000
+    outVariableIndices: 010000000200000004000000050000000600000007000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -25245,7 +25354,7 @@ MonoBehaviour:
         fsmFloatParams: []
         fsmIntParams:
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -25404,7 +25513,7 @@ MonoBehaviour:
         fsmFloatParams: []
         fsmIntParams:
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -25490,7 +25599,7 @@ MonoBehaviour:
         fsmFloatParams: []
         fsmIntParams:
         - useVariable: 1
-          name: branchLen
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -25571,7 +25680,7 @@ MonoBehaviour:
         fsmFloatParams: []
         fsmIntParams:
         - useVariable: 1
-          name: branchLen
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -25882,9 +25991,9 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams:
-        - variableName: commitParentID
+        - variableName: 
           objectType: UnityEngine.Object
-          useVariable: 1
+          useVariable: 0
           type: 4
           floatValue: 0
           intValue: 0
@@ -26013,7 +26122,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: {fileID: 0}
+          value: {fileID: 6678684561163046848}
         fsmOwnerDefaultParams:
         - ownerOption: 0
           gameObject:
@@ -26043,7 +26152,7 @@ MonoBehaviour:
           networkSync: 0
           value: commitParentList
         - useVariable: 1
-          name: selfName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -26161,7 +26270,7 @@ MonoBehaviour:
           networkSync: 0
           value: 
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -26237,7 +26346,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -26246,7 +26355,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Lines
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -26259,7 +26368,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -26330,7 +26439,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -26584,25 +26693,25 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Lines
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: Commits
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: Lines
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -26619,7 +26728,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Commits
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -26627,7 +26736,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: CommitHistory
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -26726,13 +26835,13 @@ MonoBehaviour:
       floatVariables: []
       intVariables:
       - useVariable: 1
-        name: foundIndex
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       - useVariable: 1
-        name: branchLen
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -26752,19 +26861,19 @@ MonoBehaviour:
         networkSync: 0
         value: 
       - useVariable: 1
-        name: selfName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: commitParentID
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: LineName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -26782,25 +26891,25 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 6678684561163046848}
       - useVariable: 1
-        name: Lines
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Line
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Commits
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: CommitHistory
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -26840,7 +26949,7 @@ MonoBehaviour:
       - 
       - Get from BranchSample
       - Return to BranchSample
-      variableCategoryIDs: 0000000000000000020000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 0200000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -26849,7 +26958,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 02000000030000000c0000000d000000
+    outVariableIndices: 00000000010000000300000004000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -28936,6 +29045,20 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &5261214539875278198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678684561163046848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3a8214f44494c479a7c411f2bbb47f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipLight: {fileID: 0}
+  Content: {fileID: 6678684561163046835}
 --- !u!1 &6678684561214095572
 GameObject:
   m_ObjectHideFlags: 0
@@ -42837,6 +42960,7 @@ GameObject:
   - component: {fileID: 6678684561423751905}
   - component: {fileID: 6678684561423751906}
   - component: {fileID: 6678684561423751907}
+  - component: {fileID: 8982797386969652720}
   m_Layer: 5
   m_Name: bm5vn6
   m_TagString: Commit
@@ -43581,7 +43705,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 0
         networkSync: 0
-        value: "\u65B0\u589E README \u5167\u5BB9\uFF1A\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0"
+        value: CommitHistoryData/CommitMessage/2
       - useVariable: 1
         name: commitTime
         tooltip: 
@@ -43593,7 +43717,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 0
         networkSync: 0
-        value: "\u60A8"
+        value: Common/Player
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -43629,7 +43753,7 @@ MonoBehaviour:
         boolValues: 
         stringValues:
         - 
-        - "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848\\n\u5EFA\u7ACB\u7DB2\u7AD9\u539F\u56E0"
+        - CommitHistoryData/File data/ListContent/1/v2
         - 
         vector4Values: []
         objectReferences: []
@@ -43644,9 +43768,9 @@ MonoBehaviour:
         intValues: 
         boolValues: 
         stringValues:
-        - shopping-website
-        - shopping-website\README.md
-        - shopping-website\.git
+        - CommitHistoryData/File data/ListLocation/0
+        - CommitHistoryData/File data/ListLocation/1
+        - CommitHistoryData/File data/ListLocation/2
         vector4Values: []
         objectReferences: []
       - useVariable: 1
@@ -43660,9 +43784,9 @@ MonoBehaviour:
         intValues: 
         boolValues: 
         stringValues:
-        - shopping-website
-        - README.md
-        - x
+        - CommitHistoryData/File data/ListFileName/0
+        - CommitHistoryData/File data/ListFileName/1
+        - 
         vector4Values: []
         objectReferences: []
       - useVariable: 1
@@ -43735,7 +43859,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 0000000001000000020000000300000004000000060000000700000008000000090000000a0000000b0000000c0000000d00000005000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -44332,9 +44456,9 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: {fileID: 0}
+          value: {fileID: 6678684561423751909}
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -44498,13 +44622,13 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Commits
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -44521,7 +44645,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Commits
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -44700,7 +44824,13 @@ MonoBehaviour:
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: usingi18nKey
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 1
       stringVariables:
       - useVariable: 1
         name: FSMName
@@ -44733,13 +44863,13 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 6678684561423751909}
       - useVariable: 1
-        name: Commits
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: CommitHistory
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -44753,7 +44883,7 @@ MonoBehaviour:
       - 
       - Reference
       - Tooltip
-      variableCategoryIDs: 000000000200000001000000000000000000000000000000
+      variableCategoryIDs: 00000000000000000200000001000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -44762,7 +44892,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 02000000
+    outVariableIndices: 03000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -44855,7 +44985,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: HitObj
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -44926,7 +45056,7 @@ MonoBehaviour:
           value: 5
         fsmBoolParams:
         - useVariable: 1
-          name: didHit
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45070,7 +45200,7 @@ MonoBehaviour:
         fsmIntParams: []
         fsmBoolParams:
         - useVariable: 1
-          name: didHit
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45282,7 +45412,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: HitObj
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45291,7 +45421,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: TargetCommit
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -45299,7 +45429,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: TargetCommit
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -45320,7 +45450,7 @@ MonoBehaviour:
             ownerOption: 1
             gameObject:
               useVariable: 1
-              name: TargetCommit
+              name: 
               tooltip: 
               showInInspector: 0
               networkSync: 0
@@ -45380,7 +45510,7 @@ MonoBehaviour:
           value: 0
         fsmIntParams:
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45460,13 +45590,13 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Branch
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: TargetCommit
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45475,7 +45605,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: HitObj
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -45491,7 +45621,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Branch
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -45524,7 +45654,7 @@ MonoBehaviour:
           networkSync: 0
           value: branchList
         - useVariable: 1
-          name: branchName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45548,13 +45678,13 @@ MonoBehaviour:
           networkSync: 0
           value: LatestCommit
         - useVariable: 1
-          name: LatestCommitName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 
         - useVariable: 1
-          name: LatestCommitName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45580,9 +45710,9 @@ MonoBehaviour:
           typeName: CommitTool
           value: {fileID: 0}
         fsmVarParams:
-        - variableName: branchName
+        - variableName: 
           objectType: UnityEngine.Object
-          useVariable: 1
+          useVariable: 0
           type: 4
           floatValue: 0
           intValue: 0
@@ -45604,10 +45734,10 @@ MonoBehaviour:
             stringValues: []
             vector4Values: []
             objectReferences: []
-        - variableName: branchName
-          objectType: UnityEngine.Object
-          useVariable: 1
-          type: 4
+        - variableName: 
+          objectType: 
+          useVariable: 0
+          type: -1
           floatValue: 0
           intValue: 0
           boolValue: 0
@@ -45628,9 +45758,9 @@ MonoBehaviour:
             stringValues: []
             vector4Values: []
             objectReferences: []
-        - variableName: foundIndex
+        - variableName: 
           objectType: UnityEngine.Object
-          useVariable: 1
+          useVariable: 0
           type: 1
           floatValue: 0
           intValue: 0
@@ -45815,7 +45945,7 @@ MonoBehaviour:
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: HitObjPosY
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45827,13 +45957,13 @@ MonoBehaviour:
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: HitObjPosY
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45858,7 +45988,7 @@ MonoBehaviour:
           value: 0
         fsmIntParams:
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45870,7 +46000,7 @@ MonoBehaviour:
           networkSync: 0
           value: -150
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45884,7 +46014,7 @@ MonoBehaviour:
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: HitObjVector2
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -45896,7 +46026,7 @@ MonoBehaviour:
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: HitObjVector2
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -46006,9 +46136,9 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams:
-        - variableName: commitParentID
+        - variableName: 
           objectType: UnityEngine.Object
-          useVariable: 1
+          useVariable: 0
           type: 4
           floatValue: 0
           intValue: 0
@@ -46060,7 +46190,7 @@ MonoBehaviour:
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: index
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -46144,7 +46274,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: HitObj
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -46283,7 +46413,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: HitObj
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -46292,7 +46422,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: commitParent
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -46300,7 +46430,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: commitParent
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -46321,7 +46451,7 @@ MonoBehaviour:
             ownerOption: 1
             gameObject:
               useVariable: 1
-              name: commitParent
+              name: 
               tooltip: 
               showInInspector: 0
               networkSync: 0
@@ -46381,7 +46511,7 @@ MonoBehaviour:
           value: 0
         fsmIntParams:
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -46460,7 +46590,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: HitObj
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -46551,7 +46681,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: commitParent
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -46573,7 +46703,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: commitParentID
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -46748,7 +46878,7 @@ MonoBehaviour:
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -46779,7 +46909,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: CommitHistory
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -46893,7 +47023,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -46907,13 +47037,13 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: commitHistroyName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 
         - useVariable: 1
-          name: commitHistroyName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -47217,59 +47347,59 @@ MonoBehaviour:
     variables:
       floatVariables:
       - useVariable: 1
-        name: HitObjPosY
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       intVariables:
       - useVariable: 1
-        name: foundIndex
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       - useVariable: 1
-        name: index
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       boolVariables:
       - useVariable: 1
-        name: didHit
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       stringVariables:
       - useVariable: 1
-        name: branchName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: LatestCommitName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: commitParentID
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: commitHistroyName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       vector2Variables:
       - useVariable: 1
-        name: HitObjVector2
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -47280,7 +47410,7 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: HitObj
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -47292,13 +47422,13 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Branch
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: TargetCommit
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -47310,13 +47440,13 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: commitParent
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: CommitHistory
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -47364,7 +47494,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 0a0000000d0000001000000011000000
+    outVariableIndices: 00000000010000000200000003000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -47578,9 +47708,9 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams:
-        - variableName: targetCommitID
+        - variableName: 
           objectType: UnityEngine.Object
-          useVariable: 1
+          useVariable: 0
           type: 4
           floatValue: 0
           intValue: 0
@@ -47707,7 +47837,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: {fileID: 0}
+          value: {fileID: 6678684561423751909}
         fsmOwnerDefaultParams: []
         animationCurveParams: []
         functionCallParams: []
@@ -47717,7 +47847,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: selfCommitID
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -47851,13 +47981,13 @@ MonoBehaviour:
         fsmBoolParams: []
         fsmVector2Params:
         - useVariable: 1
-          name: targetCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: selfCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -47958,9 +48088,9 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: {fileID: 0}
+          value: {fileID: 6678684561423751909}
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -47969,7 +48099,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48091,7 +48221,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48099,7 +48229,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48209,7 +48339,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48222,7 +48352,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -48292,7 +48422,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48300,7 +48430,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48308,7 +48438,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48365,19 +48495,19 @@ MonoBehaviour:
         fsmBoolParams: []
         fsmVector2Params:
         - useVariable: 1
-          name: selfLocalPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: selfCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: targetCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -48471,7 +48601,7 @@ MonoBehaviour:
           networkSync: 0
           value: '-'
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -48555,7 +48685,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Commits
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48568,7 +48698,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: targetCommitID
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -48736,7 +48866,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -48748,13 +48878,13 @@ MonoBehaviour:
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -48776,7 +48906,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -48870,7 +49000,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48878,7 +49008,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48886,7 +49016,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -48943,19 +49073,19 @@ MonoBehaviour:
         fsmBoolParams: []
         fsmVector2Params:
         - useVariable: 1
-          name: selfLocalPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: selfCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {x: 0, y: 0}
         - useVariable: 1
-          name: targetCommitPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -49026,7 +49156,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -49158,7 +49288,7 @@ MonoBehaviour:
         fsmBoolParams: []
         fsmVector2Params:
         - useVariable: 1
-          name: selfLocalPos
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -49242,13 +49372,13 @@ MonoBehaviour:
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: Commits
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -49277,7 +49407,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Commits
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -49285,7 +49415,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: CommitHistory
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -49532,7 +49662,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -49554,7 +49684,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -49628,7 +49758,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -49718,7 +49848,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -49740,7 +49870,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -49814,7 +49944,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Line
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -49914,19 +50044,19 @@ MonoBehaviour:
       boolVariables: []
       stringVariables:
       - useVariable: 1
-        name: LineName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: selfCommitID
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: targetCommitID
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -49939,19 +50069,19 @@ MonoBehaviour:
         value: 
       vector2Variables:
       - useVariable: 1
-        name: selfCommitPos
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {x: 0, y: 0}
       - useVariable: 1
-        name: selfLocalPos
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {x: 0, y: 0}
       - useVariable: 1
-        name: targetCommitPos
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -49962,7 +50092,7 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: Commits
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -49992,13 +50122,13 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Line
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: CommitHistory
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -50025,7 +50155,7 @@ MonoBehaviour:
       - 
       - Get from Content FSM
       - Get from Sender
-      variableCategoryIDs: 0000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
+      variableCategoryIDs: 0000000000000000020000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -50034,7 +50164,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 01000000050000000b0000000c0000000d00000010000000
+    outVariableIndices: 010000000200000004000000050000000600000007000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -50469,7 +50599,7 @@ MonoBehaviour:
         fsmFloatParams: []
         fsmIntParams:
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -50628,7 +50758,7 @@ MonoBehaviour:
         fsmFloatParams: []
         fsmIntParams:
         - useVariable: 1
-          name: foundIndex
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -50714,7 +50844,7 @@ MonoBehaviour:
         fsmFloatParams: []
         fsmIntParams:
         - useVariable: 1
-          name: branchLen
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -50795,7 +50925,7 @@ MonoBehaviour:
         fsmFloatParams: []
         fsmIntParams:
         - useVariable: 1
-          name: branchLen
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -51106,9 +51236,9 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams:
-        - variableName: commitParentID
+        - variableName: 
           objectType: UnityEngine.Object
-          useVariable: 1
+          useVariable: 0
           type: 4
           floatValue: 0
           intValue: 0
@@ -51237,7 +51367,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: {fileID: 0}
+          value: {fileID: 6678684561423751909}
         fsmOwnerDefaultParams:
         - ownerOption: 0
           gameObject:
@@ -51267,7 +51397,7 @@ MonoBehaviour:
           networkSync: 0
           value: commitParentList
         - useVariable: 1
-          name: selfName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -51385,7 +51515,7 @@ MonoBehaviour:
           networkSync: 0
           value: 
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -51461,7 +51591,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -51470,7 +51600,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Lines
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -51483,7 +51613,7 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams:
         - useVariable: 1
-          name: LineName
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -51554,7 +51684,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Line
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -51808,25 +51938,25 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: Lines
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: Commits
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: CommitHistory
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: Lines
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -51843,7 +51973,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: Commits
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -51851,7 +51981,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: CommitHistory
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -51950,13 +52080,13 @@ MonoBehaviour:
       floatVariables: []
       intVariables:
       - useVariable: 1
-        name: foundIndex
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       - useVariable: 1
-        name: branchLen
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -51976,19 +52106,19 @@ MonoBehaviour:
         networkSync: 0
         value: 
       - useVariable: 1
-        name: selfName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: commitParentID
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 
       - useVariable: 1
-        name: LineName
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -52006,25 +52136,25 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 6678684561423751909}
       - useVariable: 1
-        name: Lines
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Line
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: Commits
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: CommitHistory
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -52064,7 +52194,7 @@ MonoBehaviour:
       - 
       - Get from BranchSample
       - Return to BranchSample
-      variableCategoryIDs: 0000000000000000020000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 0200000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -52073,7 +52203,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 02000000030000000c0000000d000000
+    outVariableIndices: 00000000010000000300000004000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -54160,6 +54290,20 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &8982797386969652720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678684561423751909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3a8214f44494c479a7c411f2bbb47f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipLight: {fileID: 0}
+  Content: {fileID: 6678684561423751896}
 --- !u!1 &6678684561424049588
 GameObject:
   m_ObjectHideFlags: 0
@@ -54172,6 +54316,7 @@ GameObject:
   - component: {fileID: 6678684561424049584}
   - component: {fileID: 6678684561424049586}
   - component: {fileID: 4361556943936979323}
+  - component: {fileID: -7185032054722505599}
   m_Layer: 0
   m_Name: 014-Keep Branches in Sync (Tutorial)
   m_TagString: GameStage/StageManager
@@ -54192,6 +54337,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6678684560760398110}
+  - {fileID: 5292954232608648995}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54326,6 +54472,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 
+      - useVariable: 1
+        name: selectStageName
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -54370,7 +54522,7 @@ MonoBehaviour:
       - QuestTracker
       - StageTitle
       - When don't have dialog, add quest or start random
-      variableCategoryIDs: 020000000400000000000000030000000300000002000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 02000000040000000000000000000000030000000300000002000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -54379,7 +54531,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 02000000030000000400000001000000
+    outVariableIndices: 0200000004000000050000000100000003000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []
@@ -54673,7 +54825,7 @@ MonoBehaviour:
   QuestTrackerParent: {fileID: 0}
   GameManager: {fileID: 0}
   isFinishInitialize: 0
-  backgroundStoryText: 
+  getStarScoreLine: 
 --- !u!114 &4361556943936979323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54776,11 +54928,11 @@ MonoBehaviour:
         networkSync: 0
         value: 
       - useVariable: 1
-        name: stageName
+        name: 
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: "\u4FDD\u6301\u5206\u652F\u540C\u6B65"
+        value: 
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -54880,6 +55032,388 @@ MonoBehaviour:
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 11400000, guid: 16d8d336085de7f48b5b827fba822afc, type: 2}
+  eventHandlerComponentsAdded: 1
+--- !u!114 &-7185032054722505599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678684561424049588}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1384774831, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fsm:
+    dataVersion: 2
+    usedInTemplate: {fileID: 0}
+    name: i18n Translator
+    startState: State 1
+    states:
+    - name: State 1
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 50
+        y: 100
+        width: 100
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
+    events: []
+    globalTransitions: []
+    variables:
+      floatVariables: []
+      intVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
+      boolVariables:
+      - useVariable: 1
+        name: i18n Trigger/DefaultData
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 1
+      stringVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 
+      vector2Variables: []
+      vector3Variables: []
+      colorVariables: []
+      rectVariables: []
+      quaternionVariables: []
+      gameObjectVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: Children/i18nTextTranslator
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: Children/DefaultData
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      objectVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        typeName: 
+        value: {fileID: 0}
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        typeName: 
+        value: {fileID: 0}
+      materialVariables: []
+      textureVariables: []
+      arrayVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: DefaultData/Commit data/commitMessageList
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: DefaultData/Commit data/commitMessageReasonList
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: DefaultData/File data/ListContent
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: DefaultData/File data/ListFileName
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: DefaultData/File data/ListLocation
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: Commit/ListFileContent
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: Commit/ListFileLocation
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: Commit/ListFileName
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 4
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: DefaultData/BranchName data/branchNameList
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 0
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      - useVariable: 1
+        name: DefaultData/BranchName data/branchNameReasonList
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        type: 0
+        objectTypeName: UnityEngine.Object
+        floatValues: []
+        intValues: 
+        boolValues: 
+        stringValues: []
+        vector4Values: []
+        objectReferences: []
+      enumVariables: []
+      categories:
+      - 
+      - i18n Trigger
+      variableCategoryIDs: 01000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    description: 
+    docUrl: 
+    showStateLabel: 0
+    maxLoopCount: 0
+    watermark: 
+    password: 
+    locked: 0
+    manualUpdate: 0
+    outVariableIndices: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+    keepDelayedEventsOnStateExit: 0
+    preprocessed: 1
+    ExposedEvents: []
+    OutputEvents: []
+    RestartOnEnable: 1
+    ResetVariablesOnEnable: 0
+    EnableDebugFlow: 0
+    EnableBreakpoints: 1
+    editorFlags: 225
+    activeStateName: 
+    mouseEvents: 0
+    handleLevelLoaded: 0
+    handleTriggerEnter2D: 0
+    handleTriggerExit2D: 0
+    handleTriggerStay2D: 0
+    handleCollisionEnter2D: 0
+    handleCollisionExit2D: 0
+    handleCollisionStay2D: 0
+    handleTriggerEnter: 0
+    handleTriggerExit: 0
+    handleTriggerStay: 0
+    handleCollisionEnter: 0
+    handleCollisionExit: 0
+    handleCollisionStay: 0
+    handleParticleCollision: 0
+    handleControllerColliderHit: 0
+    handleJointBreak: 0
+    handleJointBreak2D: 0
+    handleOnGUI: 0
+    handleFixedUpdate: 0
+    handleLateUpdate: 0
+    handleApplicationEvents: 0
+    handleUiEvents: 0
+    handleLegacyNetworking: 0
+    handleAnimatorMove: 0
+    handleAnimatorIK: 0
+  fsmTemplate: {fileID: 11400000, guid: a6a3efe4fae8c8e4baef19843624086c, type: 2}
   eventHandlerComponentsAdded: 1
 --- !u!1 &6678684561458468432
 GameObject:
@@ -56580,6 +57114,7 @@ GameObject:
   - component: {fileID: 6678684562045294545}
   - component: {fileID: 6678684562045294546}
   - component: {fileID: 6678684562045294533}
+  - component: {fileID: 2777774762447497169}
   m_Layer: 5
   m_Name: member-branchC2
   m_TagString: Commit
@@ -57323,7 +57858,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 0
         networkSync: 0
-        value: "\u65B0\u589E README \u5167\u5BB9\uFF1A\u7DB2\u9801\u7CFB\u7D71\u67B6\u69CB\u548C\u622A\u5716"
+        value: NPCCommitData/CommitMessage/NPC1
       - useVariable: 1
         name: commitTime
         tooltip: 
@@ -57335,7 +57870,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 0
         networkSync: 0
-        value: "\u5718\u968A\u6210\u54E1 A"
+        value: NPCCommitData/NPC1
       vector2Variables: []
       vector3Variables: []
       colorVariables: []
@@ -57371,7 +57906,7 @@ MonoBehaviour:
         boolValues: 
         stringValues:
         - 
-        - "# \u8CFC\u7269\u7DB2\u7AD9\u5C08\u6848\\n\u7DB2\u9801\u7CFB\u7D71\u67B6\u69CB\\n\u7DB2\u9801\u622A\u5716"
+        - NPCCommitData/NPC1/ListContent/1
         - 
         vector4Values: []
         objectReferences: []
@@ -57386,9 +57921,9 @@ MonoBehaviour:
         intValues: 
         boolValues: 
         stringValues:
-        - shopping-website
-        - shopping-website\README.md
-        - shopping-website\.git
+        - CommitHistoryData/File data/ListLocation/0
+        - CommitHistoryData/File data/ListLocation/1
+        - CommitHistoryData/File data/ListLocation/2
         vector4Values: []
         objectReferences: []
       - useVariable: 1
@@ -57402,9 +57937,9 @@ MonoBehaviour:
         intValues: 
         boolValues: 
         stringValues:
-        - shopping-website
-        - README.md
-        - x
+        - CommitHistoryData/File data/ListFileName/0
+        - CommitHistoryData/File data/ListFileName/1
+        - 
         vector4Values: []
         objectReferences: []
       - useVariable: 1
@@ -58086,7 +58621,7 @@ MonoBehaviour:
             useVariable: 1
             name: CommitsHistoryTooltip
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         - ownerOption: 1
@@ -58094,7 +58629,7 @@ MonoBehaviour:
             useVariable: 1
             name: CommitsHistoryTooltip
             tooltip: 
-            showInInspector: 1
+            showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
         animationCurveParams: []
@@ -58115,7 +58650,7 @@ MonoBehaviour:
               useVariable: 1
               name: CommitsHistoryTooltip
               tooltip: 
-              showInInspector: 1
+              showInInspector: 0
               networkSync: 0
               value: {fileID: 0}
           fsmName:
@@ -58320,7 +58855,13 @@ MonoBehaviour:
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: usingi18nKey
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 1
       stringVariables:
       - useVariable: 1
         name: FSMName
@@ -58343,7 +58884,7 @@ MonoBehaviour:
       - useVariable: 1
         name: CommitsHistoryTooltip
         tooltip: 
-        showInInspector: 1
+        showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
@@ -58361,7 +58902,7 @@ MonoBehaviour:
       - 
       - Reference
       - Tooltip
-      variableCategoryIDs: 0000000002000000010000000000000000000000
+      variableCategoryIDs: 000000000000000002000000010000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -58370,7 +58911,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 
+    outVariableIndices: 03000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 1
     ExposedEvents: []
@@ -67444,6 +67985,20 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 1
+--- !u!114 &2777774762447497169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678684562045294548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3a8214f44494c479a7c411f2bbb47f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TooltipLight: {fileID: 0}
+  Content: {fileID: 6678684562045294536}
 --- !u!1 &6678684562051671391
 GameObject:
   m_ObjectHideFlags: 0
@@ -77929,3 +78484,143 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 1
+--- !u!1001 &2262352040914828301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5292954232608648995}
+    m_Modifications:
+    - target: {fileID: 1034569856074199032, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_Name
+      value: i18nTextTranslator
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f6e6f1a8e296464196c29dbd124c676, type: 3}
+--- !u!224 &8780924961159620496 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7402054713511517085, guid: 9f6e6f1a8e296464196c29dbd124c676,
+    type: 3}
+  m_PrefabInstance: {fileID: 2262352040914828301}
+  m_PrefabAsset: {fileID: 0}

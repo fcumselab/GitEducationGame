@@ -76,6 +76,18 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Push to Remote Branches (Tutorial)":
                runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Keep Branches in Sync (Tutorial)":
+                runResult = QuestTracker.GetComponent<QuestFilter_014_KeepBranchesInSync_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Preparation for Merging (Tutorial)":
+                //runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Creating a Pull Request (Tutorial)":
+                //runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Review and Merge Pull Requests (Tutorial)":
+                //runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             default:
                 Debug.Log("Cannot found target Quest Tracker Object !\n" + selectStageName);
                 break;
@@ -404,4 +416,12 @@ public class QuestFilterManager : SerializedMonoBehaviour
         return "Continue(Resolved)";
     }
 
+    public string DetectAction_GitPull(string wantedBranchName)
+    {
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
+        string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
+        if (!LocalBranches) { LocalBranches = fsm.FsmVariables.GetFsmGameObject("Local/Branches").Value; }
+
+        return (currentBranchName != wantedBranchName) ? "Git Commands/git pull/WrongTargetBranch(Warning)" : "Continue";
+    }
 }
