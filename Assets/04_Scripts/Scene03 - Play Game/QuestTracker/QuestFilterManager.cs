@@ -74,7 +74,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 runResult = QuestTracker.GetComponent<QuestFilter_012_CreateRemoteRepository_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Push to Remote Branches (Tutorial)":
-                //runResult = QuestTracker.GetComponent<QuestFilter_013_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+               runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             default:
                 Debug.Log("Cannot found target Quest Tracker Object !\n" + selectStageName);
@@ -199,6 +199,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
             if (!CommitHistoryWindow) { CommitHistoryWindow = GameObject.Find("CommitHistoryWindow"); }
             fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
             string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
+            Debug.Log("add actionType: " + "\nwantedBranchName: " + wantedBranchName + "\ncurrentBranchName: " + currentBranchName);
 
             if (currentBranchName.Contains("HEAD"))
             {
@@ -233,7 +234,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
         return (currentFolderLocation == wantedFolderLocation) ? "Continue" : "Git Commands/git init/Wrong Location(Failed)";
     }
 
-    public string DetectAction_GitDeleteLocalBranch(string playerWantedDeleteBranchName, string wantedBranchName)
+    public string DetectAction_GitDeleteLocalBranch(string playerWantedDeleteBranchName, string wantedBranchName = "None")
     {
         token = "";
 
