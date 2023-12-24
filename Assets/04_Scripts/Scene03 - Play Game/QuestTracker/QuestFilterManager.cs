@@ -80,7 +80,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 runResult = QuestTracker.GetComponent<QuestFilter_014_KeepBranchesInSync_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Preparation for Merging (Tutorial)":
-                //runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                runResult = QuestTracker.GetComponent<QuestFilter_015_PreparationForMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Creating a Pull Request (Tutorial)":
                 //runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
@@ -406,22 +406,27 @@ public class QuestFilterManager : SerializedMonoBehaviour
         foreach(string targetLocation in wantedFileLocationList)
         {
             int foundIndex = ListLocation.FindIndex((loc) => loc == targetLocation);
-            if(ListFileStatus[foundIndex] != "staged")
+            if(foundIndex == -1)
+            {
+                return "Git Commands/git merge/MergeConflict(CommitFinalCheck)(Warning)";
+            }
+
+            if (ListFileStatus[foundIndex] != "staged")
             {
                 return "Git Commands/git merge/MergeConflict(CommitFinalCheck)(Warning)";
             }
         }
 
-
+        Debug.Log("Resolved Conflict!");
         return "Continue(Resolved)";
     }
 
-    public string DetectAction_GitPull(string wantedBranchName)
+    public string DetectAction_GitPull(string playerTargetBranchName, string wantedBranchName)
     {
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
         string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
         if (!LocalBranches) { LocalBranches = fsm.FsmVariables.GetFsmGameObject("Local/Branches").Value; }
 
-        return (currentBranchName != wantedBranchName) ? "Git Commands/git pull/WrongTargetBranch(Warning)" : "Continue";
+        return (currentBranchName != wantedBranchName && playerTargetBranchName == currentBranchName) ? "Git Commands/git pull/WrongTargetBranch(Warning)" : "Continue";
     }
 }

@@ -85,7 +85,18 @@ public class QuestFilter_014_KeepBranchesInSync_Tutorial : SerializedMonoBehavio
                         return "Continue";
                     case "pull":
                         //Quest 2
-                        return (foundIndex != -1) ? questFilterManager.DetectAction_GitPull("update-readme") : "Git Commands/common/FollowQuest(Warning)";
+                        switch (currentQuestNum)
+                        {
+                            case 2:
+                                if (splitList.Length == 4 && splitList[2] == "origin")
+                                {
+                                    questFilterManager.DetectAction_GitPull(splitList[3], "update-readme");
+                                }
+                                break;
+                            default:
+                                return "Git Commands/common/FollowQuest(Warning)";
+                        }
+                        return "Continue";
                     case "checkout":
                         Debug.Log("checkout foundIndex: " + foundIndex + "\ncurrentQuestNum: " + currentQuestNum);
                         if (foundIndex != -1) //Not 4 
