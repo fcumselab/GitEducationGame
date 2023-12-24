@@ -1,3 +1,5 @@
+GitCommandValider/Common/InGitLocation,"You are not in the 'working directory'. 
+Please go to the project folder containing '.git' to execute commands."
 GitCommandValider/LockedCommand/git/0,"Locked Command Type:
 'git'"
 GitCommandValider/LockedCommand/git init/0,"Locked Command Type:
@@ -6,6 +8,10 @@ GitCommandValider/LockedCommand/git status/0,"Locked Command Type:
 'git status'"
 GitCommandValider/LockedCommand/git log/0,"Locked Command Type:
 'git log'"
+GitCommandValider/LockedCommand/git clone/0,"Locked Command Type:
+'git clone'"
+GitCommandValider/LockedCommand/git remote/0,"Locked Command Type:
+'git remote'"
 GitCommandValider/LockedCommand/git add/0,"Locked Command Type:
 'git add'"
 GitCommandValider/LockedCommand/git add/1,"Locked Command:
@@ -52,6 +58,10 @@ GitCommandValider/CannotUsedCommandInStage/git status/0,"Command Type Cannot use
 'git status'"
 GitCommandValider/CannotUsedCommandInStage/git log/0,"Command Type Cannot use in this stage:
 'git log'"
+GitCommandValider/CannotUsedCommandInStage/git clone/0,"Command Type Cannot use in this stage:
+'git clone'"
+GitCommandValider/CannotUsedCommandInStage/git remote/0,"Command Type Cannot use in this stage:
+'git remote'"
 GitCommandValider/CannotUsedCommandInStage/git add/0,"Command Type Cannot use in this stage:
 'git add'"
 GitCommandValider/CannotUsedCommandInStage/git add/1,"Command Cannot use in this stage:
@@ -94,21 +104,17 @@ CommandLineWindow/NotFoundCommand,"Command not found:
 '{playerInputCommand}'"
 CommandLineWindow/NotSupport,"This game does not support the command: 
 '{playerInputCommand}'"
-CommandLineWindow/LockedCommand,"Command not unlocked yet:
-'{GitCommandType}'"
-CommandLineWindow/CannotUsedCommandInStage,"The command '{GitCommandType}' 
-cannot be used in this stage."
 Git Commands/common/FollowQuest,"Please follow the current objective first!"
 Git Commands/git/Welcome,"Welcome to Git system!
 Please enter additional commands to perform specific actions."
 Git Commands/git/Exceed,"'git' related commands:
 maximum of 2 command fields in this game.
-Please refer to the game manual for available commands."
+Please refer to the game manual for usable commands."
 Git Commands/git/Help,"Click to open the 'Game Manual' window."
 Git Commands/git/Version,"The current Git version is up to date!"
 Git Commands/git init/Exceed,"'git init' related commands:
 maximum of 2 command fields in this game.
-Please refer to the game manual for available commands."
+Please refer to the game manual for usable commands."
 Git Commands/git init/Success,"A new Git repository has been successfully created!"
 Git Commands/git init/Already Created,"A local repository has already been created in the current path."
 Git Commands/git init/Wrong Quest,"If the current objective is not 'Create Git Repository',
@@ -117,11 +123,11 @@ Git Commands/git init/Wrong Location,"According to the current objective,
 please create a Git repository in the correct file path."
 Git Commands/git status/Exceed,"'git status' related commands:
 maximum of 2 command fields in this game.
-Please refer to the game manual for available commands."
+Please refer to the game manual for usable commands."
 Git Commands/git status/Success,"Click to open the 'Staging Area' window."
 Git Commands/git add/Exceed,"'git add' related commands:
 maximum of 3 command fields in this game.
-Please refer to the game manual for available commands."
+Please refer to the game manual for usable commands."
 Git Commands/git add/CommandField3,"Please enter the target file to be added to the staging area in the 3rd command field!"
 Git Commands/git add/NotFound,"The specified file '{fileName}' could not be found."
 Git Commands/git add/Success(All),"All files in the current path have been added to the staging area!"
@@ -132,7 +138,7 @@ Git Commands/git add/Upload(File),"The file '{fileName}' has no changes!
 This file is already the latest version in the current commit."
 Git Commands/git reset/Exceed,"'git reset' related commands:
 maximum of 3 command fields in this game.
-Please refer to the game manual for available commands."
+Please refer to the game manual for usable commands."
 Git Commands/git reset/CommandField3,"Please enter the target file to be removed from the staging area in the 3rd command field!"
 Git Commands/git reset/NotFound,"The specified file '{fileName}' could not be found."
 Git Commands/git reset/Success(All),"All files in the current path have been removed from the staging area!"
@@ -143,7 +149,7 @@ Git Commands/git reset/Upload(File),"The file '{fileName}' has no changes!
 This file is already the latest version in the current commit."
 Git Commands/git commit/Exceed,"'git commit' related commands:
 maximum of 4 command fields in this game.
-Please refer to the game manual for available commands."
+Please refer to the game manual for usable commands."
 Git Commands/git commit/CommandField2,"Incorrect command format.
 Please refer to the game manual for correct command format."
 Git Commands/git commit/CommandField3(-m),"Please use -m in the 3rd command field for using 'git commit'."
@@ -154,11 +160,11 @@ Git Commands/git commit/SearchFeature,"Please use the search feature to fill in 
 Git Commands/git commit/Success,"Successfully moved the staged changes to the commit history!"
 Git Commands/git log/Exceed,"'git log' related commands:
 maximum of 2 command fields in this game.
-Please refer to the game manual for available commands."
+Please refer to the game manual for usable commands."
 Git Commands/git log/Success,"Click to open the 'Commit History' window."
 Git Commands/git checkout/Exceed,"'git checkout' related commands:
 maximum of 3 command fields in this game.
-Please refer to the game manual for available commands."
+Please refer to the game manual for usable commands."
 Git Commands/git checkout/CommandField3,"Please enter the target branch/commit ID in the 3rd command field."
 Git Commands/git checkout/NotFound,"Cannot find the specified branch/commit ID: '{keyword}'"
 Git Commands/git checkout/Already(Commit),"Already in the specified commit '{commitID}'."
@@ -167,7 +173,7 @@ Git Commands/git checkout/Success(Commit),"Switched to the specified commit succ
 Git Commands/git checkout/Success(Branch),"Switched to the specified branch successfully! (branch: '{branchName}')"
 Git Commands/git branch/Exceed,"'git branch' related commands:
 maximum of 4 command fields in this game.
-Please refer to the game manual for available commands."
+Please refer to the game manual for usable commands."
 Git Commands/git branch/SearchFeature,"Please use the search feature to name the branch."
 Git Commands/git branch/CommandField4,"Please enter the branch name to be deleted in the 4th command field."
 Git Commands/git branch/ExistBranch(Create),"Branch '{branchName}' already exists."
@@ -183,3 +189,29 @@ it's recommended to name the local branch the same as the specified remote branc
 Please use '{branchName}' to name the local branch!"
 Git Commands/git branch/Success(Remote),"Created local branch '{LocalBranchName}' successfully.
 And connected to remote branch '{RemoteBranchName}' successfully."
+Git Commands/git merge/Exceed,"'git merge' related commands:
+maximum of 3 command fields in the game.
+Please refer to the game manual for usable commands."
+Git Commands/git merge/CommandField3,"Please enter the branch to merge in 3rd command field."
+Git Commands/git merge/NotFoundBranch,"The target branch '{branchName}' cannot be found."
+Git Commands/git merge/EnterEqualBranch,"You're Attempting to merge a branch with itself."
+Git Commands/git merge/UpToDate,"Branch '{currentBranchName}' does not require merging with '{targetBranchName}'.
+It is already up to date."
+Git Commands/git merge/FastForward,"Fast-forward merge successful.
+Branch '{branchName}' has been updated!"
+Git Commands/git merge/AutoMerge,"Automatic merge successful. 
+Branch '{targetBranchName}' has been merged into '{currentBranchName}'!"
+Git Commands/git clone/Exceed,"'git clone' related commands:
+maximum of 3 command fields in this game.
+Please refer to the game manual for usable commands."
+Git Commands/git clone/CommandField3,"Please enter the remote repository URL in 3rd command field."
+Git Commands/git clone/NotFoundURL,"The entered remote repository URL could not be found!"
+Git Commands/git clone/HasFolder,"A folder with the same name already exists at the current path and it contains files."
+Git Commands/git remote/Exceed,"'git remote' related commands:
+maximum of 3 command fields in this game.
+Please refer to the game manual for usable commands."
+Git Commands/git remote/ShowConnection,"Connected remote repository alias and URL:
+{RemoteRepoURL}"
+Git Commands/git remote/NotConnection,"The current project is not connected to any remote repositories."
+Git Commands/git remote/CommandField3,"A parameter needs to be added in the 3rd command field to view detailed information"
+Git Commands/git remote/NotFoundCommand,"The parameter '{command}' is not supported or found."

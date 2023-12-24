@@ -71,7 +71,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 runResult = QuestTracker.GetComponent<QuestFilter_011_MergeConflicts_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Create Remote Repository (Tutorial)":
-                //runResult = QuestTracker.GetComponent<QuestFilter_012_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                runResult = QuestTracker.GetComponent<QuestFilter_012_CreateRemoteRepository_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Push to Remote Branches (Tutorial)":
                 //runResult = QuestTracker.GetComponent<QuestFilter_013_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
