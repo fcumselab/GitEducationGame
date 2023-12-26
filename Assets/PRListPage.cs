@@ -48,8 +48,8 @@ public class PRListPage : SerializedMonoBehaviour
 	// This function is called when the object becomes enabled and active.
 	protected void OnEnable()
 	{
-		CloseAllList();
-		Debug.Log("This is PRListPage start :" + isInitial);
+
+		//Debug.Log("This is PRListPage start :" + isInitial);
 		if(isInitial){
 			//Get All values	
 			QuestTracker = GameObject.Find("Quest Tracker").transform;
@@ -66,16 +66,9 @@ public class PRListPage : SerializedMonoBehaviour
 			UpdatePRList();
 		}
 	}
-	
-	void CloseAllList(){
-		OpenedPRList.SetActive(false);
-		OpenedPRListNone.SetActive(false);
-		ClosedPRList.SetActive(false);
-		ClosedPRListNone.SetActive(false);
-	}
-	
+
 	public void UpdatePRList(){
-		Debug.Log("UpdatePRList");
+		//Debug.Log("UpdatePRList");
 		for(int i=0;i< RepoQuestFsm.FsmVariables.GetFsmArray("existPRAuthorList").Length; i++){
 			PRList curPRList = new();
 
@@ -83,12 +76,12 @@ public class PRListPage : SerializedMonoBehaviour
 				curPRList.obj = Instantiate(PrefabPullRequestListItem);
 				curPRList.obj.name = "OpenedPRItem";
 				curPRList.obj.transform.SetParent(OpenedPRList.transform);
+				curPRList.obj.transform.localScale = new(1, 1, 1);
 				curPRList.Author = (string)RepoQuestFsm.FsmVariables.GetFsmArray("existPRAuthorList").Get(i);
 				curPRList.canEnter = (bool)RepoQuestFsm.FsmVariables.GetFsmArray("existPREnteredList").Get(i);
 				curPRList.PRID = (int)RepoQuestFsm.FsmVariables.GetFsmArray("existPRNumList").Get(i);
 				curPRList.PRTitle = (string)RepoQuestFsm.FsmVariables.GetFsmArray("existPRTitleList").Get(i);
 				
-				Debug.Log("curPRList: " +curPRList.PRTitle );
 				OpenPRList.Add(curPRList);
 			}else{
 				curPRList = OpenPRList[i];
@@ -105,12 +98,6 @@ public class PRListPage : SerializedMonoBehaviour
 			targetText.GetComponent<Text>().text = translatedText; 
 		}
 		
-		if(OpenPRList.Count != 0){
-			OpenedPRList.SetActive(true);
-		}else{
-			OpenedPRListNone.SetActive(true);
-		}
-		
 		UpdatePRListCountText();
 		needUpdate = false;
 	}
@@ -123,4 +110,17 @@ public class PRListPage : SerializedMonoBehaviour
 	public void ChangeNeedUpdateValue(bool needUpdate){
 		this.needUpdate	= needUpdate;
 	}
+
+	public int GetPRListCount(string type)
+    {
+		if(type == "closed")
+        {
+			return ClosePRList.Count;
+		}
+		else if(type == "opened")
+        {
+			return OpenPRList.Count;
+        }
+		return -1;
+    }
 }
