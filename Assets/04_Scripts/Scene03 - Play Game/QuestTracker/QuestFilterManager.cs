@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -15,7 +15,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
     [SerializeField] GameObject FileContentWindow;
     [SerializeField] GameObject StagingAreaWindow;
     [SerializeField] GameObject CommitHistoryWindow;
-    [SerializeField] GameObject LocalBranches;
+	[SerializeField] GameObject LocalBranches;
+	[SerializeField] GameObject RemoteBranches;
+	
     public GameObject CommandInputField;
     public GameObject CurrentFolderPanel;
 
@@ -83,7 +85,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 runResult = QuestTracker.GetComponent<QuestFilter_015_PreparationForMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Creating a Pull Request (Tutorial)":
-                //runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+	            runResult = QuestTracker.GetComponent<QuestFilter_016_CreatingAPullRequest_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Review and Merge Pull Requests (Tutorial)":
                 //runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
@@ -421,6 +423,55 @@ public class QuestFilterManager : SerializedMonoBehaviour
         return "Continue(Resolved)";
     }
 
+	//runType => add/delete
+	public string DetectAction_GitPush(string[] splitList, string runType, string wantedBranchName = "")
+	{
+		PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History Manager");
+		if (!RemoteBranches) { RemoteBranches = fsm.FsmVariables.GetFsmGameObject("Remote/Branches").Value; }
+		
+		if(RemoteBranches){
+			switch(splitList.Length){
+				case 4:
+					if(runType == "delete"){
+						return "Git Commands/common/FollowQuest(Warning)";
+					}
+					else if(splitList[2] == "origin"){
+						if(wantedBranchName != splitList[3]){
+							if(RemoteBranches.transform.Find(splitList[3])){
+								return "Git Commands/git push/WrongTargetBranch(Add)(Failed)";
+							}else{
+								return "Continue";
+							}
+						}else{
+							return "Continue";
+						}
+					}
+					break;
+				case 5:
+					if(runType == "add"){
+						return "Git Commands/common/FollowQuest(Warning)";
+					}
+					else if(splitList[2] == "origin" && (splitList[3] == "-d" || splitList[3] == "--delete")){
+						if(wantedBranchName != splitList[4]){
+							if(RemoteBranches.transform.Find(splitList[4])){
+								return "Git Commands/git push/WrongTargetBranch(Delete)(Failed)";
+							}else{
+								return "Continue";
+							}
+						}else{
+							return "Continue";
+						}
+					}
+					break;
+				default:
+					return "Continue";
+			}
+		}else{
+			return "Continue";
+		}
+		return "Continue";
+	}
+	
     public string DetectAction_GitPull(string playerTargetBranchName, string wantedBranchName)
     {
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");

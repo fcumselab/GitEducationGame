@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -92,8 +92,15 @@ public class QuestFilter_016_CreatingAPullRequest_Tutorial : SerializedMonoBehav
                         }
                         return "Continue";
                     case "push":
-                        return (foundIndex != -1) ? "Continue" : "Git Commands/common/FollowQuest(Warning)";
-                    case "pull":
+	                    switch(currentQuestNum){
+		                    case 8:
+			                    return questFilterManager.DetectAction_GitPush(splitList, "add", "update-readme");
+		                    case 11:
+			                    return questFilterManager.DetectAction_GitPush(splitList, "remove", "update-readme");
+		                    default:
+			                    return "Git Commands/common/FollowQuest(Warning)";
+	                    }
+	                     case "pull":
                         //Quest 10
                         switch (currentQuestNum)
                         {

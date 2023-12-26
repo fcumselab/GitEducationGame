@@ -1,44 +1,61 @@
-﻿StageTitle,"合併前的確認"
-Story Background/Content/Story,"故事 15"
+﻿StageTitle,"創建 Pull Request"
+Story Background/Content/Story,"故事 16"
 Stage Quest/1,"開啟 '提交記錄' 視窗"
-Stage Quest/2,"同步遠端 'master' 分支的內容
+Stage Quest/2,"開啟 '瀏覽器' 視窗"
+Stage Quest/3,"新建 Pull Request 請求"
+Stage Quest/4,"新增審核人員"
+Stage Quest/5,"回覆審核人員的訊息"
+Stage Quest/6,"根據建議修改檔案內容"
+Stage Quest/7,"創建新的提交，並更新 '提交記錄' 視窗"
+Stage Quest/8,"將 'update-readme' 分支上傳到遠端儲存庫中
 並更新 '提交記錄' 視窗"
-Stage Quest/3,"同步遠端 'update-readme' 分支的內容
+Stage Quest/9,"標記修改建議為完成"
+Stage Quest/10,"同步遠端 'master' 分支的內容
 並更新 '提交記錄' 視窗"
-Stage Quest/4,"將 'master' 分支合併到 'update-readme' 分支"
-Stage Quest/5,"解決 'README.md' 文件衝突"
-Stage Quest/6,"創建解決衝突後的提交
+Stage Quest/11,"刪除本地、遠端的 'update-readme' 分支
 並更新 '提交記錄' 視窗"
-Stage Quest/7,"確認合併後的專案運作正常"
-Stage Quest/8,"將 'update-readme' 分支上傳到遠端儲存庫
-並更新 '提交記錄' 視窗"
-DefaultData/Commit data/commitMessageList/0,"解決 'update-readme' 分支與 'master' 分支的合併衝突"
-DefaultData/Commit data/commitMessageList/1,"解決合併衝突"
-DefaultData/Commit data/commitMessageList/2,"修改 README 檔案內容"
+DefaultData/Commit data/commitMessageList/0,"新增 README 內容：專案運行步驟"
+DefaultData/Commit data/commitMessageList/1,"補充 README 檔案的內容"
+DefaultData/Commit data/commitMessageList/2,"新增檔案內容"
 DefaultData/Commit data/commitMessageReasonList/0,"提交訊息分析：
-這個提交消息明確指出解決了哪兩個分支的合併衝突
-讓其他團隊成員了解這次提交的目的"
+這個提交消息明確地告訴團隊成員本次新增的內容
+同時讓人知道這次提交的目的是為了解決 Pull Request 的修改建議"
 DefaultData/Commit data/commitMessageReasonList/1,"提交訊息分析：
-這個提交消息雖然提到了解決衝突
-但是相對來說比較模糊，並不是最合適的提交訊息"
+這個提交消息雖然提到了補充檔案內容
+是相對來說比較模糊，並沒有具體提到修改的內容"
 DefaultData/Commit data/commitMessageReasonList/2,"提交訊息分析：
-本次在解決合併衝突時修改了 'README.md' 檔案的內容
-但是並沒有提到與文件衝突有關的訊息
-這會導致其他開發者認為本次合併沒有發生文件衝突"
+這個提交消息相對模糊，並未提及新增的內容是什麼"
 CommitHistoryData/File data/ListContent/1/v1,"# 購物網站專案"
 CommitHistoryData/File data/ListContent/1/v2,"# 購物網站專案\n建立網站原因"
 CommitHistoryData/File data/ListContent/1/v3,"# 購物網站專案\n建立網站原因\n網頁操作說明"
+CommitHistoryData/File data/ListContent/1/v4,"# 購物網站專案\n網頁系統架構\n網頁截圖"
+CommitHistoryData/File data/ListContent/1/v5,"# 購物網站專案\n建立網站原因\n網頁操作說明\n網頁系統架構\a專案運行步驟\n網頁截圖"
+NPCCommitData/NPC1,"團隊成員 A"
 CommitHistoryData/File data/ListLocation/0,"shopping-website"
 CommitHistoryData/File data/ListLocation/1,"shopping-website\README.md"
 CommitHistoryData/File data/ListLocation/2,"shopping-website\.git"
 CommitHistoryData/File data/ListFileName/0,"shopping-website"
 CommitHistoryData/File data/ListFileName/1,"README.md"
-AutoMergeData/Quest 4/ListContent/1,"# 購物網站專案\n<<<<<<< HEAD\n建立網站原因\n網頁操作說明\n=======\n網頁系統架構\n網頁截圖\n>>>>>>> master"
-NPCCommitData/NPC1,"團隊成員 A"
-NPCCommitData/CommitMessage/NPC1,"新增 README 內容：網頁系統架構和截圖"
-NPCCommitData/NPC1/ListContent/1,"# 購物網站專案\n網頁系統架構\n網頁截圖"
 CommitHistoryData/CommitMessage/1,"增加 README 檔案"
 CommitHistoryData/CommitMessage/2,"新增 README 內容：建立網站原因"
 CommitHistoryData/CommitMessage/3,"新增 README 內容：操作說明"
-Quest Filter/Valider/Target File Name/0,"README.md"
-Quest Filter/Valider/Target File Name/1,"shopping-website\README.md"
+CommitHistoryData/CommitMessage/4,"新增 README 內容：網頁系統架構和截圖"
+CommitHistoryData/CommitMessage/5,"分支 'master' 已合併至分支 'update-readme' 中"
+RepoQuestData/Repo Quest/RPTitle,"新增 README 內容: 網站原因和操作說明"
+RepoQuestData/Repo Quest/RPDes,"這個 PR 包含了我在 "update-readme" 分支上所做的變更，
+主要是為了更新 README 檔案，新增了網站建立的原因和使用說明。"
+BrowserWindow/PRDetailed/Msg_FileChanged_Refresh_5/MainContent,"您好，我注意到 README 中缺少了安裝網頁的相關流程。
+為了確保老師和其他專案成員能夠順利運行專案，
+建議您將其內容添加到 README 文件中，謝謝。"
+BrowserWindow/PRDetailed/Msg_FileChanged_Refresh_5/FileName,"README.md"
+BrowserWindow/PRDetailed/FileContent1,"# 購物網站專案"
+BrowserWindow/PRDetailed/FileContent2,"建立網站原因"
+BrowserWindow/PRDetailed/FileContent3,"網頁操作說明"
+BrowserWindow/PRDetailed/FileContent4,"網頁系統架構"
+BrowserWindow/PRDetailed/FileContent5,"專案運行步驟"
+BrowserWindow/PRDetailed/FileContent6,"網頁截圖"
+BrowserWindow/PRDetailed/Msg_FileChanged_Refresh_5/ReplyMessage1,"請您在網頁系統架構的下面一行新增安裝流程。"
+BrowserWindow/PRDetailed/Msg_FileChanged_Refresh_5/ReplyMessage2,"謝謝您的建議，我會檢查並進行對應的修改。"
+BrowserWindow/PRDetailed/Msg_FileChanged_Refresh_5/ReplyMessage3,"我已經將安裝網頁的相關流程添加到 README 文件中。
+請您再次查閱，如果還有其他需要改進的地方。
+請隨時提出，謝謝。"

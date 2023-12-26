@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -113,7 +113,12 @@ public class QuestFilter_015_PreparationForMerging_Tutorial : SerializedMonoBeha
                             return "Continue";
                         }
                     case "push":
-                        return (foundIndex != -1) ? "Continue" : "Git Commands/common/FollowQuest(Warning)";
+	                    switch(currentQuestNum){
+	                    case 8:
+		                    return questFilterManager.DetectAction_GitPush(splitList, "add", "update-readme");
+	                    default:
+		                    return "Git Commands/common/FollowQuest(Warning)";
+	                    }
                     case "pull":
                         //Quest 2 3 
                         switch (currentQuestNum)
