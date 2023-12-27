@@ -95,9 +95,11 @@ public class PRListPage : SerializedMonoBehaviour
 			Transform targetText = curPRList.obj.transform.Find("TextWithIcon/PRTitleText");
 			targetText.GetComponent<Text>().text = curPRList.PRTitle;
 			targetText = targetText.Find("PRDetailedText");
-			targetText.GetComponent<Text>().text = translatedText; 
+			targetText.GetComponent<Text>().text = translatedText;
+			PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(curPRList.obj, "Tooltip");
+			fsm.FsmVariables.GetFsmBool("canEnter").Value = curPRList.canEnter;
 		}
-		
+
 		UpdatePRListCountText();
 		needUpdate = false;
 	}

@@ -18,19 +18,19 @@ class PRMainTitle{
 	public Text PRAuthorText;
 	public Text CompareBranchText;
 	public Text BaseBranchText;
-
 }
-	
+
+
+
 public class PullRequestDetailedPage : SerializedMonoBehaviour
 {
 	[SerializeField] bool isInitial = true;
 	[Header("Children")]
-	[SerializeField] GameObject TextMessageGroup;
+	[SerializeField] GameObject TextMessageGroup_Commits;
+	
 
 	[Header("Msg")]
 	[SerializeField] List<PullRequestMsg_FileChanged> ExistFileChangedMsgList;
-
-
 
 	[Header("Panel")]
 	[SerializeField] GameObject WebsiteLoadingPanel;
@@ -40,13 +40,15 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 	[Header("Page Content")]
 	[SerializeField] PullRequestDetailedPage_CommitsField commitsField;
 
+	[Header("Review List")]
+	[SerializeField] GameObject ReviewerListPanel_Obj;
+	ReviewerListPanel reviewerListPanel_Script;
 
 	[Header("Create PR")]
 	[SerializeField] CreatePRMsg createPRMsg;
 	[SerializeField] PRMainTitle pRMainTitle;
 
 	[Header("Reference")]
-
 	Transform QuestTracker;
 	Transform StageManager;
 	Transform RepoQuestData;
@@ -56,7 +58,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 
     private void Start()
     {
-		
+		reviewerListPanel_Script = ReviewerListPanel_Obj.GetComponent<ReviewerListPanel>();
 		commitsField = GetComponent<PullRequestDetailedPage_CommitsField>();
 	}
 
@@ -101,7 +103,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		createPRMsg.CreatePRMsgDetailedText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPR2Des").Value;
 		createPRMsg.CreatePRMsgTime.text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
 
-
+		
 		if (createdByPlayer){
 			SaveNewPRItemToFsm();	
 			PRListPage.GetComponent<PRListPage>().ChangeNeedUpdateValue(true);
@@ -113,6 +115,10 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		AddNewMsg(actionType, currentQuestNum);
 		UpdateFileChangedMsg(actionType, currentQuestNum);
 		commitsField.UpdateCommitsField();
+
+		//UpdateReviewerList
+		reviewerListPanel_Script.UpdateReviewerList(RepoQuestFsm);
+
 	}
 
 	public void SaveNewPRItemToFsm(){
@@ -153,7 +159,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 						return;
 				}
 
-				Msg.SetParent(TextMessageGroup.transform);
+				Msg.SetParent(TextMessageGroup_Commits.transform);
 				Msg.gameObject.SetActive(true);
 			}
 			else{
