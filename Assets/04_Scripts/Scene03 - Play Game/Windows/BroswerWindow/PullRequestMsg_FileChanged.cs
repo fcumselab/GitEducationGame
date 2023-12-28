@@ -15,8 +15,8 @@ public class PullRequestReplyMsg
     public bool isRender;
 
     [Header("Content")]
-    [SerializeField] string author;
-    [SerializeField] string replyMsg;
+    public string author;
+    public string replyMsg;
 
     public void InitializeReplyMsg(GameObject ReplyMsgPrefab, GameObject ReplyMsgLocation)
     {
@@ -69,28 +69,33 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     [FoldoutGroup("Reply Msg")]
     [SerializeField] List<PullRequestReplyMsg> ReplyMsgList = new();
 
-
     [FoldoutGroup("Children")]
     [SerializeField] Button ResolvedButton;
     PlayMakerFSM ResolvedButtonTooltipFsm;
     [FoldoutGroup("Children")]
     [SerializeField] Button FoldButton;
-    [FoldoutGroup("Children")]
-    [SerializeField] GameObject ReplyInputField;
-    [FoldoutGroup("Children")]
-    [SerializeField] GameObject ReplyButton;
-
 
     [Header("Reference")]
     GameObject QuestTracker;
     PlayMakerFSM QuestTrackerFsm;
+    PlayMakerFSM QuestValiderFsm;
 
-    private void Start()
-    {
+
+    private void Awake()
+{
         FoldButton.gameObject.SetActive(false);
         ResolvedButtonTooltipFsm = MyPlayMakerScriptHelper.GetFsmByName(ResolvedButton.gameObject, "Tooltip");
+        InitialReplyButton();
+
+        if (!QuestTracker)
+        {
+            QuestTracker = GameObject.Find("Quest Tracker");
+            QuestTrackerFsm = MyPlayMakerScriptHelper.GetFsmByName(QuestTracker, "Quest Tracker");
+            QuestValiderFsm = MyPlayMakerScriptHelper.GetFsmByName(QuestTracker, "Quest Valider");
+        }
     }
 
+    #region MainUpdate Function (Other scripts will call it)
     //When PullRequestDetailedPage Script trigger AddNewMsg function, do this once.
     public void InitializeMsg(string actionType, int currentQuestNum)
     {
@@ -100,6 +105,14 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
         UpdateReplyMsg(actionType, currentQuestNum);
     }
 
+    public void InitializeMainMsg()
+    {
+        AuthorText.GetComponent<LeanLocalizedText>().TranslationName = authorName;
+        CommitMsgText.GetComponent<LeanLocalizedText>().TranslationName = commitMsg;
+        TimeText.text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
+    }
+
+    //If update function activate, update replyMsg field (including: replyBtn/replyInputField/replyMsg)
     public void UpdateReplyMsg(string actionType, int currentQuestNum)
     {
         List<PullRequestReplyMsg> foundList = ReplyMsgList.FindAll((Msg) =>
@@ -110,50 +123,126 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
         {
             Msg.InitializeReplyMsg(ReplyMsgPrefab, ReplyMsgLocation);
         }
+
+        //Update ReplyInputField/Button function
+        UpdateReplyButtonStatus(currentQuestNum);
     }
+
+    public bool ValidNeedRenderThisMsg(string actionType, int currentQuestNum)
+    {
+        return (actionType == renderActionType && renderQuestNum == currentQuestNum) ? true : false;
+
+    }
+    #endregion 
 
     public void ResolveConversationAction()
     {
-        if (!QuestTracker)
-        {
-            QuestTracker = GameObject.Find("Quest Tracker");
-            QuestTrackerFsm = MyPlayMakerScriptHelper.GetFsmByName(QuestTracker, "Quest Tracker");
-        }
         int currentQuestNum = QuestTrackerFsm.FsmVariables.GetFsmInt("CurrentQuestNum").Value;
         int allRenderMsgCount = ReplyMsgList.FindAll((Msg) =>(Msg.isRender == true)).Count;
         if (currentQuestNum != ReplyMsgList[ReplyMsgList.Count-1].renderQuestNum)
         {
             //Error Please follow current quest.
+            Debug.Log("FollowQuest.");
+
             ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(FollowQuest)";
             ResolvedButtonTooltipFsm.enabled = true;
         }
         else if (allRenderMsgCount == ReplyMsgList.Count)
         {
             //Error Please Reply first.
+            Debug.Log(" Reply first.");
+
             ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(ReplyFirst)";
             ResolvedButtonTooltipFsm.enabled = true;
         }
         else
         {
-            //Success
+            //Success -> fold Msg
             isSolved = true;
             FoldButton.gameObject.SetActive(true);
             MyPlayMakerScriptHelper.GetFsmByName(FoldButton.gameObject, "Button").enabled = true;
         }
     }
 
-    public bool ValidNeedRenderThisMsg(string actionType, int currentQuestNum)
+    #region ReplyButton/InputField Function
+
+    [FoldoutGroup("Children")]
+    [SerializeField] GameObject ReplyInputField;
+    GameObject ReplyInputFieldPlaceHolder;
+    GameObject ReplyInputFieldReplyText;
+
+    [FoldoutGroup("Children")]
+    [SerializeField] GameObject ReplyButton;
+    PlayMakerFSM ReplyInputFieldFsm;
+    PlayMakerFSM ReplyButtonContentFsm;
+    PlayMakerFSM ReplyButtonTooltipFsm;
+
+    void InitialReplyButton()
     {
-        return (actionType == renderActionType && renderQuestNum == currentQuestNum) ? true : false;
+        ReplyInputFieldReplyText = ReplyInputField.transform.Find("Panel/ReplyText").gameObject;
+        ReplyInputFieldPlaceHolder = ReplyInputField.transform.Find("Panel/placeHolder").gameObject;
+        ReplyInputFieldFsm = MyPlayMakerScriptHelper.GetFsmByName(ReplyInputField, "Update Content");
+        ReplyButtonContentFsm = MyPlayMakerScriptHelper.GetFsmByName(ReplyButton, "Update Content");
+        ReplyButtonTooltipFsm = MyPlayMakerScriptHelper.GetFsmByName(ReplyButton, "Tooltip");
     }
 
-
-    public void InitializeMainMsg()
+    public void FillInReplyInputField()
     {
-        AuthorText.GetComponent<LeanLocalizedText>().TranslationName = authorName;
-        CommitMsgText.GetComponent<LeanLocalizedText>().TranslationName = commitMsg;
-        TimeText.text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
+        int currentQuestNum = QuestTrackerFsm.FsmVariables.GetFsmInt("CurrentQuestNum").Value;
+        int foundIndex = ReplyMsgList.FindIndex((Msg) => (Msg.renderQuestNum == currentQuestNum && Msg.isRender == false && Msg.author == "Common/Player"));
+        
+        Debug.Log("Fill Result: " + foundIndex);
+
+        if (foundIndex != -1)
+        {
+            ReplyInputFieldReplyText.GetComponent<LeanLocalizedText>().TranslationName = ReplyMsgList[foundIndex].replyMsg;
+            ReplyInputFieldReplyText.SetActive(true);
+            ReplyInputFieldPlaceHolder.SetActive(false);
+        }
     }
+
+    void UpdateReplyButtonStatus(int currentQuestNum)
+    {
+        //Initialize
+        bool canClick = (ReplyMsgList.FindIndex((Msg) => (Msg.renderQuestNum == currentQuestNum && Msg.isRender == false && Msg.author == "Common/Player")) != -1);
+        ReplyInputFieldFsm.FsmVariables.GetFsmBool("canClick").Value = canClick;
+        ReplyButtonContentFsm.FsmVariables.GetFsmBool("canClick").Value = canClick;
+        ReplyInputFieldFsm.enabled = true;
+        ReplyButtonContentFsm.enabled = true;
+    }
+
+    public void ClickReplyButton()
+    {
+        ReplyButtonContentFsm.FsmVariables.GetFsmBool("canClick").Value = false;
+        ReplyButtonContentFsm.enabled = true;
+
+        //Valid
+        if (ReplyInputFieldPlaceHolder.activeSelf)
+        {
+            Debug.Log("reply first:");
+            //Warning
+            ReplyButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(ReplyFirst)";
+            ReplyButtonTooltipFsm.enabled = true;
+        }
+        else
+        {
+            Debug.Log("Run Reply!");
+
+            //Do Reply
+            int currentQuestNum = QuestTrackerFsm.FsmVariables.GetFsmInt("CurrentQuestNum").Value;
+            UpdateReplyMsg("Reply", currentQuestNum);
+
+            ReplyInputFieldReplyText.SetActive(false);
+            ReplyInputFieldPlaceHolder.SetActive(true);
+
+            //Quest Valider Enable
+            MyPlayMakerScriptHelper.GetFsmByName(ReplyInputField, "Update Content");
+            QuestValiderFsm.FsmVariables.GetFsmGameObject("Sender").Value = ReplyButton;
+            QuestValiderFsm.FsmVariables.GetFsmString("senderName").Value = "Button";
+            QuestValiderFsm.enabled = true;
+        }
+    }
+    #endregion
 }
 
 
