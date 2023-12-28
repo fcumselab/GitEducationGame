@@ -5,84 +5,81 @@ using Lean.Localization;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 
-class MainMsg
-{
-	public Text AuthorText;
-	public Text CommitMsgText;
-	public Text TimeText;
-	public string authorName;
-	public string commitMsg;
-
-	public void InitializeMsg(Myi18nTranslateTool i18nTextTranslatorTool)
-    {
-		AuthorText.text = i18nTextTranslatorTool.TranslateText(authorName);
-		CommitMsgText.text = i18nTextTranslatorTool.TranslateText(commitMsg);
-		TimeText.text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
-	}
-}
-
-class ReplyMsg{
+[System.Serializable]
+public class PullRequestReplyMsg{
 	public GameObject gameObject;
 	
 	[Header("Render Timing")]
 	public int renderQuestNum;
-	//Initial = show, newQuest, Refresh
+	//Initial = Show, NewQuest, Refresh
 	public string renderActionType;
-	
+
 	[Header("Content")]
 	[SerializeField] string author;
 	[SerializeField] string replyMsg;
-}
 
-class FileContent
-{
-	public string fileName;
-	public List<string> fileContentList;
+	public void InitializeMsg()
+    {
 
-	public void InitializeMsg(Myi18nTranslateTool i18nTextTranslatorTool)
-	{
-		//Fix all Msg Script -> How to render it...
-	}
+    }
 }
 
 public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
 {
-	[Header("This Msg Render Timing")]
+	[FoldoutGroup("Render Whold Msg")]
 	[SerializeField] int renderQuestNum;
+	[FoldoutGroup("Render Whold Msg")]
 	[SerializeField] string renderActionType;
 
-	[Header("Message Data" )]
-	[SerializeField] MainMsg mainMsg;
-	[SerializeField] FileContent fileContent;
-	[SerializeField] List<ReplyMsg> ReplyMsgList = new();
-	
-	[Header("Reference")]
-	Transform i18nTextTranslator;
-	Myi18nTranslateTool i18nTextTranslatorTool;
-	
-    // Start is called before the first frame update
-    void Start()
-    {
-    	i18nTextTranslator = transform.Find("i18nTextTranslator");
-    	i18nTextTranslatorTool = i18nTextTranslator.GetComponent<Myi18nTranslateTool>();
-    }
-	
-	public void UpdateMsg(string actionType, int currentQuestNum){
-		List<ReplyMsg> foundList = ReplyMsgList.FindAll((Msg) => (Msg.renderQuestNum == currentQuestNum && Msg.renderActionType == actionType));
-		foreach(ReplyMsg Msg in foundList){
-			Msg.gameObject.SetActive(true);	
+	[FoldoutGroup("MainMsg")]
+	public Text AuthorText;
+	[FoldoutGroup("MainMsg")]
+	public Text CommitMsgText;
+	[FoldoutGroup("MainMsg")]
+	public Text TimeText;
+	[FoldoutGroup("MainMsg")]
+	public string authorName;
+	[FoldoutGroup("MainMsg")]
+	public string commitMsg;
+
+	[FoldoutGroup("File Changed TextBox")]
+	[SerializeField] GameObject FileChangedTitleText;
+	[FoldoutGroup("File Changed TextBox")]
+	[SerializeField] GameObject FileChangedLocation;
+	[FoldoutGroup("File Changed TextBox")]
+	[SerializeField] PullRequestDetailed_FileChangedTextBox fileChangedTextBox = new();
+
+	[FoldoutGroup("Reply Msg")]
+	[SerializeField] List<PullRequestReplyMsg> ReplyMsgList = new();
+
+    public void UpdateReplyMsg(string actionType, int currentQuestNum){
+		List<PullRequestReplyMsg> foundList = ReplyMsgList.FindAll((Msg) => (Msg.renderQuestNum == currentQuestNum && Msg.renderActionType == actionType));
+		foreach(PullRequestReplyMsg Msg in foundList){
+			Msg.InitializeMsg();
+			Msg.gameObject.SetActive(true);
 		}
 	}
-	
-	public void InitializeMsg()
-    {
-		mainMsg.InitializeMsg(i18nTextTranslatorTool);
 
+	//When PullRequestDetailedPage Script trigger AddNewMsg function, do this once.
+	public void InitializeMsg(string actionType, int currentQuestNum)
+	{
+		Debug.Log("InitializeMsg FileChange Msg");
+		InitializeMainMsg();
+		fileChangedTextBox.InitializeMsg("CoversationField", FileChangedTitleText, FileChangedLocation);
+		UpdateReplyMsg(actionType, currentQuestNum);
 	}
 
 	public bool ValidNeedRenderThisMsg(string actionType, int currentQuestNum)
     {
 		return (actionType == renderActionType && renderQuestNum == currentQuestNum) ? true : false;
+	}
+
+
+	public void InitializeMainMsg()
+	{
+		AuthorText.GetComponent<LeanLocalizedText>().TranslationName = authorName;
+		CommitMsgText.GetComponent<LeanLocalizedText>().TranslationName = commitMsg;
+		TimeText.text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
 	}
 }
 

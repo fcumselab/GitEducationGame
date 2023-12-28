@@ -1,176 +1,179 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Localization;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
+using System;
 
+//Will be use in PullRequestDetailed Panel -> FileChangedField & FileChangedMsg in CoversationField
+[Serializable]
+public class PullRequestDetailed_FileChangedTextBox
+{
+	[Header("Prefab")]
+	public GameObject FileContentTextBox_Head;
+	public GameObject FileContentTextBox_Content;
 
-class CreatePRMsg{
-	public GameObject createPRMsg;
-	public Text CreatePRMsgAuthorText;
-	public Text CreatePRMsgDetailedText;
-	public Text CreatePRMsgTime;
+	[Header("Please Fill in these value (i18n key) so TextBox can be generated.")]
+	//These string texts are all i18n key
+	public string fileName;
+	public List<PullRequestDetailed_FileChanged> fileChanged;
+
+	//generateType -> CoversationField/FileChangedField
+	public void InitializeMsg(string generateType, GameObject TitleText, GameObject CloneLocation )
+	{
+		Debug.Log("PullRequestDetailed_FileChangedTextBox InitializeMsg...");
+		bool openScript = false;
+		switch (generateType)
+		{
+			case "CoversationField":
+				openScript = false;
+				break;
+			case "FileChangedField":
+				openScript = true;
+				break;
+		}
+
+		TitleText.GetComponent<LeanLocalizedText>().TranslationName = fileName;
+
+		//Head
+		GameObject CloneObj = UnityEngine.Object.Instantiate(FileContentTextBox_Head);
+		CloneObj.transform.SetParent(CloneLocation.transform);
+		CloneObj.transform.localScale = new(1, 1, 1);
+		CloneObj.name = "FileChangedTextBox (Head)";
+
+		//Content
+		foreach (PullRequestDetailed_FileChanged fileContent in fileChanged)
+        {
+			CloneObj = UnityEngine.Object.Instantiate(FileContentTextBox_Content);
+			CloneObj.transform.SetParent(CloneLocation.transform);
+			CloneObj.transform.localScale = new(1, 1, 1);
+			CloneObj.name = "FileChangedTextBox (Content)";
+
+			if (fileContent.type == "A")
+            {
+				CloneObj.transform.Find("TextBox/AddPanel/NumText").GetComponent<Text>().text = $"{fileContent.addLineNum}";
+				CloneObj.transform.Find("TextBox/Content/MarkText").GetComponent<Text>().text = "+";
+			}
+			else if (fileContent.type == "D")
+			{
+				CloneObj.transform.Find("TextBox/RemovePanel/NumText").GetComponent<Text>().text = $"{fileContent.deleteLineNum}";
+				CloneObj.transform.Find("TextBox/Content/MarkText").GetComponent<Text>().text = $" -";
+			}
+			else if (fileContent.type == "N") { 
+				CloneObj.transform.Find("TextBox/AddPanel/Content/MarkText").GetComponent<Text>().text = $"{fileContent.addLineNum}";
+				CloneObj.transform.Find("TextBox/RemovePanel/NumText").GetComponent<Text>().text = $"{fileContent.deleteLineNum}";
+				CloneObj.transform.Find("TextBox/Content/MarkText").GetComponent<Text>().text = "  ";
+			}
+			else
+            {
+				Debug.LogError("Warning: Set Wrong values. Please Give add/remove/noChange.");
+            }
+
+			CloneObj.transform.Find("TextBox/Content/ContentText").GetComponent<LeanLocalizedText>().TranslationName = fileContent.content;
+
+			PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CloneObj, "Update Color");
+			fsm.enabled = true;
+
+			fsm = MyPlayMakerScriptHelper.GetFsmByName(CloneObj, "Tooltip");
+			fsm.enabled = openScript;
+		}
+	}
 }
 
-class PRMainTitle{
-	public Text PRMainTitleText;
-	public Text PRIDText;
-	public Text PRAuthorText;
-	public Text CompareBranchText;
-	public Text BaseBranchText;
+[Serializable]
+public class PullRequestDetailed_FileChanged
+{
+	//A -> add/D -> delete /N -> noChange
+	public string type;
+	public string content;
+	public int addLineNum;
+	public int deleteLineNum;
+	public bool canClick;
 }
-
-
 
 public class PullRequestDetailedPage : SerializedMonoBehaviour
 {
 	[SerializeField] bool isInitial = true;
-	[Header("Children")]
-	[SerializeField] GameObject TextMessageGroup_Commits;
-	
+	[SerializeField] bool isLoading = false;
 
-	[Header("Msg")]
-	[SerializeField] List<PullRequestMsg_FileChanged> ExistFileChangedMsgList;
+	DateTime startTime;
+
+	[Header("Panel")]
+	[SerializeField] Button RefreshPageButton;
+
 
 	[Header("Panel")]
 	[SerializeField] GameObject WebsiteLoadingPanel;
 	[SerializeField] GameObject PRDetailedPage;
 	[SerializeField] GameObject PRListPage;
 
-	[Header("Page Content")]
+	[Header("Page Content Script")]
 	[SerializeField] PullRequestDetailedPage_CommitsField commitsField;
+	[SerializeField] PullRequestMsg_ConversationField conversationField;
 
-	[Header("Review List")]
-	[SerializeField] GameObject ReviewerListPanel_Obj;
-	ReviewerListPanel reviewerListPanel_Script;
-
-	[Header("Create PR")]
-	[SerializeField] CreatePRMsg createPRMsg;
-	[SerializeField] PRMainTitle pRMainTitle;
-
-	[Header("Reference")]
-	Transform QuestTracker;
-	Transform StageManager;
-	Transform RepoQuestData;
-	PlayMakerFSM RepoQuestFsm;
-	Transform RepoQuest_ConversationField;
-	Transform RepoQuest_FilesChangedField;
-
+	
     private void Start()
     {
-		reviewerListPanel_Script = ReviewerListPanel_Obj.GetComponent<ReviewerListPanel>();
 		commitsField = GetComponent<PullRequestDetailedPage_CommitsField>();
+		conversationField = GetComponent<PullRequestMsg_ConversationField>();
 	}
 
     public void GetActionByButton(string actionType, int currentQuestNum, bool createByPlayer = false){
-		WebsiteLoadingPanel.SetActive(true);
-		PRDetailedPage.SetActive(true);
 		
-		if(isInitial){
-			InitializePullRequestPage(createByPlayer);
+		StartCoroutine(WaitForFinish());
+
+		if (isInitial)
+		{
+			PRDetailedPage.SetActive(true);
+			string[] branchList = conversationField.InitializePullRequestPage(createByPlayer);
+			commitsField.SetPRTargetBranches(branchList);
+
+			if (createByPlayer)
+			{
+				PRListPage.GetComponent<PRListPage>().ChangeNeedUpdateValue(true);
+			}
+
+			isInitial = false;
 			UpdatePullRequestPage("", -1);
 		}
 		else
 		{
 			UpdatePullRequestPage(actionType, currentQuestNum);
 		}
-		
-		WebsiteLoadingPanel.SetActive(false);
 	}
-	
-	public void InitializePullRequestPage(bool createdByPlayer){
 
-		//Get All values	
-		QuestTracker = GameObject.Find("Quest Tracker").transform;
-		StageManager = GameObject.Find("Stage Manager").transform;
-		RepoQuestData = StageManager.Find("DefaultData/RepoQuestData");
-		RepoQuestFsm = MyPlayMakerScriptHelper.GetFsmByName(RepoQuestData.gameObject, "Repo Quest");
-		RepoQuest_ConversationField = RepoQuestData.Find("ConversationField");
-		RepoQuest_FilesChangedField = RepoQuest_ConversationField.Find("FilesChangedField");
+	IEnumerator WaitForFinish()
+    {
+		isLoading = true;
+		startTime = DateTime.Now;
+		WebsiteLoadingPanel.SetActive(true);
+		RefreshPageButton.interactable = false;
 
-
-		//Get Value from Fsm
-		pRMainTitle.PRMainTitleText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPR1Title").Value;
-		pRMainTitle.PRAuthorText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
-		pRMainTitle.PRIDText.text = $"#{RepoQuestFsm.FsmVariables.GetFsmInt("createPRNum").Value}";
-
-		string[] branchList = RepoQuestFsm.FsmVariables.GetFsmString("correctBranchName").Value.Split("/");
-		pRMainTitle.BaseBranchText.text = branchList[0];
-		pRMainTitle.CompareBranchText.text = branchList[1];
-		commitsField.SetPRTargetBranches(branchList[0], branchList[1]);
-
-		createPRMsg.CreatePRMsgAuthorText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
-		createPRMsg.CreatePRMsgDetailedText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPR2Des").Value;
-		createPRMsg.CreatePRMsgTime.text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
-
-		
-		if (createdByPlayer){
-			SaveNewPRItemToFsm();	
-			PRListPage.GetComponent<PRListPage>().ChangeNeedUpdateValue(true);
+		while (isLoading)
+        {
+			yield return null;
 		}
+
+		float elapsed = (float)(DateTime.Now - startTime).TotalSeconds;
+		if (elapsed < 1)
+		{
+			Debug.Log($"Loading Finish Time: {1 - elapsed}");
+			yield return new WaitForSeconds(1 - elapsed);
+		}
+
+		WebsiteLoadingPanel.SetActive(false);
+		RefreshPageButton.interactable = true;
 	}
 
 	public void UpdatePullRequestPage(string actionType, int currentQuestNum)
 	{
-		AddNewMsg(actionType, currentQuestNum);
-		UpdateFileChangedMsg(actionType, currentQuestNum);
+
+		conversationField.AddNewMsg(actionType, currentQuestNum);
+		conversationField.UpdateFileChangedMsg(actionType, currentQuestNum);
+		
 		commitsField.UpdateCommitsField();
 
-		//UpdateReviewerList
-		reviewerListPanel_Script.UpdateReviewerList(RepoQuestFsm);
-
-	}
-
-	public void SaveNewPRItemToFsm(){
-		int listLen = RepoQuestFsm.FsmVariables.GetFsmArray("existPRAuthorList").Length;
-		string value = RepoQuestFsm.FsmVariables.GetFsmString("createPR1Title").Value;
-		RepoQuestFsm.FsmVariables.GetFsmArray("existPRTitleList").InsertItem(value, listLen);
-		value = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
-		RepoQuestFsm.FsmVariables.GetFsmArray("existPRAuthorList").InsertItem(value, listLen);
-		int intValue = RepoQuestFsm.FsmVariables.GetFsmInt("createPRNum").Value;
-		RepoQuestFsm.FsmVariables.GetFsmArray("existPRNumList").InsertItem(intValue, listLen);
-		RepoQuestFsm.FsmVariables.GetFsmArray("existPREnteredList").InsertItem(true, listLen);
-	}
-	
-	void AddNewMsg(string actionType, int currentQuestNum)
-	{
-		Debug.Log("addNewMsg");
-		while(true){
-			Transform Msg = RepoQuest_ConversationField.GetChild(0);
-			if(Msg){
-				switch(Msg.tag){
-					case "PRDetailedMsg/Approve":
-
-						return;
-					case "PRDetailedMsg/FileChanged":
-						PullRequestMsg_FileChanged fileChangedMsg = Msg.GetComponent<PullRequestMsg_FileChanged>();
-						if (fileChangedMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
-                        {
-							fileChangedMsg.InitializeMsg();
-							ExistFileChangedMsgList.Add(fileChangedMsg);
-							break;
-						}
-                        else
-                        {
-							return;
-						}
-					case "PRDetailedMsg/ShortMsg":
-
-						return;
-				}
-
-				Msg.SetParent(TextMessageGroup_Commits.transform);
-				Msg.gameObject.SetActive(true);
-			}
-			else{
-				break;
-			}
-		}
-	}
-
-	void UpdateFileChangedMsg(string actionType, int currentQuestNum){
-		foreach(var script in ExistFileChangedMsgList){
-			script.UpdateMsg(actionType, currentQuestNum);
-		}
+		isLoading = false;
 	}
 }
