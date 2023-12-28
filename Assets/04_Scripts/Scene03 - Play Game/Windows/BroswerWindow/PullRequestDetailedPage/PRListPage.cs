@@ -50,46 +50,54 @@ public class PRListPage : SerializedMonoBehaviour
 			//Get All values	
 			QuestTracker = GameObject.Find("Quest Tracker").transform;
 			StageManager = GameObject.Find("Stage Manager").transform;
+
+			//Only Stage like Create/Review PR will use them.
 			RepoQuestData = StageManager.Find("DefaultData/RepoQuestData");
-			RepoQuestFsm = MyPlayMakerScriptHelper.GetFsmByName(RepoQuestData.gameObject, "Repo Quest");
+            if (RepoQuestData)
+            {
+				RepoQuestFsm = MyPlayMakerScriptHelper.GetFsmByName(RepoQuestData.gameObject, "Repo Quest");
+			}
 
 			UpdatePRList();
 			isInitial = false;	 
 		}else if(needUpdate){
+
 			UpdatePRList();
 		}
 	}
 
 	public void UpdatePRList(){
-		//Debug.Log("UpdatePRList");
-		for(int i=0;i< RepoQuestFsm.FsmVariables.GetFsmArray("existPRAuthorList").Length; i++){
-			PRList curPRList = new();
+        //Debug.Log("UpdatePRList");
+        if (RepoQuestFsm) { 
+			for(int i=0;i< RepoQuestFsm.FsmVariables.GetFsmArray("existPRAuthorList").Length; i++){
+				PRList curPRList = new();
 
-			if(OpenPRList.Count - 1 < i){
-				curPRList.obj = Instantiate(PrefabPullRequestListItem);
-				curPRList.obj.name = "OpenedPRItem";
-				curPRList.obj.transform.SetParent(OpenedPRList.transform);
-				curPRList.obj.transform.localScale = new(1, 1, 1);
-				curPRList.Author = (string)RepoQuestFsm.FsmVariables.GetFsmArray("existPRAuthorList").Get(i);
-				curPRList.canEnter = (bool)RepoQuestFsm.FsmVariables.GetFsmArray("existPREnteredList").Get(i);
-				curPRList.PRID = (int)RepoQuestFsm.FsmVariables.GetFsmArray("existPRNumList").Get(i);
-				curPRList.PRTitle = (string)RepoQuestFsm.FsmVariables.GetFsmArray("existPRTitleList").Get(i);
+				if(OpenPRList.Count - 1 < i){
+					curPRList.obj = Instantiate(PrefabPullRequestListItem);
+					curPRList.obj.name = "OpenedPRItem";
+					curPRList.obj.transform.SetParent(OpenedPRList.transform);
+					curPRList.obj.transform.localScale = new(1, 1, 1);
+					curPRList.Author = (string)RepoQuestFsm.FsmVariables.GetFsmArray("existPRAuthorList").Get(i);
+					curPRList.canEnter = (bool)RepoQuestFsm.FsmVariables.GetFsmArray("existPREnteredList").Get(i);
+					curPRList.PRID = (int)RepoQuestFsm.FsmVariables.GetFsmArray("existPRNumList").Get(i);
+					curPRList.PRTitle = (string)RepoQuestFsm.FsmVariables.GetFsmArray("existPRTitleList").Get(i);
 				
-				OpenPRList.Add(curPRList);
-			}else{
-				curPRList = OpenPRList[i];
+					OpenPRList.Add(curPRList);
+				}else{
+					curPRList = OpenPRList[i];
+				}
+
+				//# {PRNum} created by {Author}
+				LeanLocalToken token = curPRList.obj.transform.Find("TextWithIcon/TitleText/DetailedText/PRNUM").GetComponent<LeanLocalToken>();
+				token.SetValue(curPRList.PRID);
+				token = curPRList.obj.transform.Find("TextWithIcon/TitleText/DetailedText/AUTHOR").GetComponent<LeanLocalToken>();
+				token.SetValue(curPRList.Author);
+
+				Transform targetText = curPRList.obj.transform.Find("TextWithIcon/TitleText");
+				targetText.GetComponent<Text>().text = curPRList.PRTitle;
+				PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(curPRList.obj, "Tooltip");
+				fsm.FsmVariables.GetFsmBool("canEnter").Value = curPRList.canEnter;
 			}
-
-			//# {PRNum} created by {Author}
-			LeanLocalToken token = curPRList.obj.transform.Find("TextWithIcon/TitleText/DetailedText/PRNUM").GetComponent<LeanLocalToken>();
-			token.SetValue(curPRList.PRID);
-			token = curPRList.obj.transform.Find("TextWithIcon/TitleText/DetailedText/AUTHOR").GetComponent<LeanLocalToken>();
-			token.SetValue(curPRList.Author);
-
-			Transform targetText = curPRList.obj.transform.Find("TextWithIcon/TitleText");
-			targetText.GetComponent<Text>().text = curPRList.PRTitle;
-			PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(curPRList.obj, "Tooltip");
-			fsm.FsmVariables.GetFsmBool("canEnter").Value = curPRList.canEnter;
 		}
 
 		UpdatePRListCountText();
