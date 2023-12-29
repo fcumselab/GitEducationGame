@@ -146,7 +146,7 @@ public class QuestFilter_016_CreatingAPullRequest_Tutorial : SerializedMonoBehav
             {
                 switch (currentQuestNum)
                 {
-                    case 3:
+                    case 6:
                         if (Sender.CompareTag("FileContentWindow/AddButtonSelection"))
                         {
                             return questFilterManager.DetectAction_AddContentFile(i18nTranslateList[0], "update-readme");

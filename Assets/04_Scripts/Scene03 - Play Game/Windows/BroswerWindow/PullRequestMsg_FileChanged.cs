@@ -139,6 +139,9 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     {
         int currentQuestNum = QuestTrackerFsm.FsmVariables.GetFsmInt("CurrentQuestNum").Value;
         int allRenderMsgCount = ReplyMsgList.FindAll((Msg) =>(Msg.isRender == true)).Count;
+
+        Debug.Log("Count : " + allRenderMsgCount + " = " + ReplyMsgList.Count);
+
         if (currentQuestNum != ReplyMsgList[ReplyMsgList.Count-1].renderQuestNum)
         {
             //Error Please follow current quest.
@@ -147,7 +150,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
             ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(FollowQuest)";
             ResolvedButtonTooltipFsm.enabled = true;
         }
-        else if (allRenderMsgCount == ReplyMsgList.Count)
+        else if (allRenderMsgCount < ReplyMsgList.Count)
         {
             //Error Please Reply first.
             Debug.Log(" Reply first.");
@@ -155,7 +158,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
             ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(ReplyFirst)";
             ResolvedButtonTooltipFsm.enabled = true;
         }
-        else
+        else if (allRenderMsgCount == ReplyMsgList.Count)
         {
             //Success -> fold Msg
             isSolved = true;

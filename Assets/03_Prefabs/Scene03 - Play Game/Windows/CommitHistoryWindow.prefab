@@ -80095,8 +80095,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 934.8281
-        y: 1198.2969
+        x: 931.2969
+        y: 1199.4688
         width: 100
         height: 32
       isBreakpoint: 0
@@ -81437,8 +81437,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 776.1797
-        y: 681.1172
+        x: 776.1719
+        y: 674.53125
         width: 122
         height: 48
       isBreakpoint: 0
@@ -83395,8 +83395,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 771.75
-        y: 884.96094
+        x: 773.75
+        y: 906.96094
         width: 102
         height: 32
       isBreakpoint: 0
@@ -84734,14 +84734,14 @@ MonoBehaviour:
         - manualUI
         paramDataPos: 0000000000000000000000000000000001000000020000000000000001000000
         paramByteDataSize: 0000000000000000000000000000000000000000000000000100000001000000
-    - name: Update Page Content
+    - name: Update Msg (push)
       description: 'if has already initialize PR '
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 741.9922
-        y: 1056.2188
-        width: 169.5
+        x: 744.1719
+        y: 1086.1016
+        width: 163.5
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -84758,10 +84758,7 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.GetFsmBool
-        - HutongGames.PlayMaker.Actions.BoolTest
-        - HutongGames.PlayMaker.Actions.GetFsmString
-        - HutongGames.PlayMaker.Actions.SetFsmString
+        - HutongGames.PlayMaker.Actions.SetFsmGameObject
         - HutongGames.PlayMaker.Actions.SetFsmString
         - HutongGames.PlayMaker.Actions.EnableFSM
         - HutongGames.PlayMaker.Actions.NextFrameEvent
@@ -84770,32 +84767,19 @@ MonoBehaviour:
         - 
         - 
         - 
-        - 
-        - 
-        - 
-        actionEnabled: 01010101010101
-        actionIsOpen: 01010101010101
-        actionStartIndex: 0000000005000000090000000e00000013000000180000001c000000
-        actionHashCodes: 68fece05a4c8bf0052221a0252221a0252221a0287aa970088611604
+        actionEnabled: 01010101
+        actionIsOpen: 01010101
+        actionStartIndex: 00000000050000000a0000000e000000
+        actionHashCodes: 5b66cf0052221a0287aa970088611604
         unityObjectParams: []
-        fsmGameObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 5364009370855757101}
         fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: BrowserWindow/PRDetailedPagePanel
-            tooltip: 
-            showInInspector: 1
-            networkSync: 0
-            value: {fileID: 0}
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: targetBranch/Remote
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
         - ownerOption: 1
           gameObject:
             useVariable: 1
@@ -84832,55 +84816,19 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Initial Page Content
+          value: Event Getter
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: hasRunThisFSM
+          value: SendGameObject
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Branch
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: LatestCommit
-        - useVariable: 1
-          name: latestCommitID
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Update Page Content
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: newCommitID
-        - useVariable: 1
-          name: latestCommitID
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Update Page Content
+          value: Event Getter
         - useVariable: 0
           name: 
           tooltip: 
@@ -84898,7 +84846,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Update Page Content
+          value: Event Getter
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -84906,18 +84854,6 @@ MonoBehaviour:
         fsmFloatParams: []
         fsmIntParams: []
         fsmBoolParams:
-        - useVariable: 1
-          name: hasInitialPR
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: hasInitialPR
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
         - useVariable: 0
           name: 
           tooltip: 
@@ -84936,30 +84872,14 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
-        - 
         - next
-        - next
-        byteData: 0000000000
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000012000000120000001100000001000000110000001700000017000000010000001400000012000000120000001200000001000000140000001200000012000000120000000100000014000000120000001200000012000000010000001400000012000000110000001100000017000000
+        paramDataType: 140000001200000012000000130000000100000014000000120000001200000012000000010000001400000012000000110000001100000017000000
         paramName:
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        - boolVariable
-        - isTrue
-        - isFalse
-        - everyFrame
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
         - gameObject
         - fsmName
         - variableName
@@ -84975,8 +84895,8 @@ MonoBehaviour:
         - enable
         - resetOnExit
         - sendEvent
-        paramDataPos: 000000000000000001000000000000000000000001000000000000000100000001000000010000000200000003000000040000000200000002000000050000000600000007000000030000000300000008000000090000000a00000004000000040000000b000000020000000300000002000000
-        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000000000000010000000000000000000000000000000000000000000000
+        paramDataPos: 000000000000000001000000000000000000000001000000020000000300000004000000010000000200000005000000000000000100000000000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000010000000000000000000000000000000000000000000000
     - name: State 1
       description: 
       colorIndex: 0
@@ -85078,7 +84998,7 @@ MonoBehaviour:
           name: next
           isSystemEvent: 0
           isGlobal: 0
-        toState: Update Page Content
+        toState: Update Msg (push)
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0

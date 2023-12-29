@@ -104,9 +104,8 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 
 	DateTime startTime;
 
-	[Header("Panel")]
+	[Header("Action Eventer")]
 	[SerializeField] Button RefreshPageButton;
-
 
 	[Header("Panel")]
 	[SerializeField] GameObject WebsiteLoadingPanel;
@@ -118,7 +117,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 	[SerializeField] PullRequestDetailedPage_ConversationField conversationField;
 
 	
-    private void Start()
+    private void Awake()
     {
 		commitsField = GetComponent<PullRequestDetailedPage_CommitsField>();
 		conversationField = GetComponent<PullRequestDetailedPage_ConversationField>();
@@ -148,6 +147,22 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		}
 	}
 
+	public void UpdatePullRequestPage(string actionType, int currentQuestNum)
+	{
+		conversationField.AddNewMsg(actionType, currentQuestNum);
+		conversationField.UpdateFileChangedMsg(actionType, currentQuestNum);
+
+		commitsField.UpdateCommitsField();
+
+		isLoading = false;
+	}
+
+	public void UpdateFileChangedMsg(string actionType, int currentQuestNum)
+    {
+		conversationField.UpdateFileChangedMsg(actionType, currentQuestNum);
+	}
+
+	#region Waiting Animation
 	IEnumerator WaitForFinish()
     {
 		isLoading = true;
@@ -170,15 +185,5 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		WebsiteLoadingPanel.SetActive(false);
 		RefreshPageButton.interactable = true;
 	}
-
-	public void UpdatePullRequestPage(string actionType, int currentQuestNum)
-	{
-
-		conversationField.AddNewMsg(actionType, currentQuestNum);
-		conversationField.UpdateFileChangedMsg(actionType, currentQuestNum);
-		
-		commitsField.UpdateCommitsField();
-
-		isLoading = false;
-	}
+	#endregion
 }
