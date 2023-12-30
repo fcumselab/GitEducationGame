@@ -7,6 +7,7 @@ using Sirenix.OdinInspector;
 public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
 {
     [Header("Data")]
+    
     [SerializeField] List<PullRequestMsg_FileChanged> ExistFileChangedMsgList;
 
     [Header("Children")]
@@ -17,11 +18,10 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
     [SerializeField] GameObject ReviewerListPanel_Obj;
     ReviewerListPanel reviewerListPanel_Script;
 
-    [Header("Create PR")]
-    [SerializeField] CreatePRMsg createPRMsg = new();
-    [SerializeField] PRMainTitle pRMainTitle = new();
-
     [Header("Reference")]
+    [SerializeField] Transform BrowserWindowContentPanel;
+    [SerializeField] Transform BrowserWindowScrollView;
+
     Transform StageManager;
     Transform RepoQuestData;
     PlayMakerFSM RepoQuestFsm;
@@ -33,37 +33,29 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
         reviewerListPanel_Script = ReviewerListPanel_Obj.GetComponent<ReviewerListPanel>();
     }
 
-    public string[] InitializePullRequestPage(bool createdByPlayer)
+    #region PRProgressField
+
+    [FoldoutGroup("PRProgressField")]
+    [SerializeField] PullRequestProgressField PRProgressFieldScript;
+    public void UpdatePRProgressField()
     {
-        //Get All values	
-        StageManager = GameObject.Find("Stage Manager").transform;
-        RepoQuestData = StageManager.Find("DefaultData/RepoQuestData");
-        RepoQuestFsm = MyPlayMakerScriptHelper.GetFsmByName(RepoQuestData.gameObject, "Repo Quest");
-        RepoQuest_ConversationField = RepoQuestData.Find("ConversationField");
-        RepoQuest_FilesChangedField = RepoQuest_ConversationField.Find("FilesChangedField");
+        PRProgressFieldScript.UpdatePRProgress();
+    }
 
-        //Get Value from Fsm
-        pRMainTitle.PRMainTitleText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPR1Title").Value;
-        pRMainTitle.PRAuthorText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
-        pRMainTitle.PRIDText.text = $"#{RepoQuestFsm.FsmVariables.GetFsmInt("createPRNum").Value}";
+    #endregion
 
-        string[] branchList = RepoQuestFsm.FsmVariables.GetFsmString("correctBranchName").Value.Split("/");
-        pRMainTitle.BaseBranchText.text = branchList[0];
-        pRMainTitle.CompareBranchText.text = branchList[1];
+    public void MoveToTargetFileChangedMsg(PullRequestMsg_FileChanged targetMsg)
+    {
+        Debug.Log("Action : MoveToTargetFileChangedMsg");
+        RectTransform targetRect = targetMsg.GetComponent<RectTransform>();
+        ScrollRect scrollRect = BrowserWindowScrollView.GetComponent<ScrollRect>();
+        RectTransform contentPanelRect = BrowserWindowContentPanel.GetComponent<RectTransform>();
 
-        createPRMsg.CreatePRMsgAuthorText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
-        createPRMsg.CreatePRMsgDetailedText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPR2Des").Value;
-        createPRMsg.CreatePRMsgTime.text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
+        Canvas.ForceUpdateCanvases();
+        contentPanelRect.anchoredPosition =
+                (Vector2)scrollRect.transform.InverseTransformPoint(contentPanelRect.position)
+                - (Vector2)scrollRect.transform.InverseTransformPoint(targetRect.position);
 
-        //reviewerListPanel
-        reviewerListPanel_Script.UpdateReviewerList(RepoQuestFsm);
-
-        if (createdByPlayer)
-        {
-            SaveNewPRItemToFsm();
-        }
-
-        return branchList;
     }
 
     public void AddNewMsg(string actionType, int currentQuestNum)
@@ -72,7 +64,7 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
         {
             Debug.Log("addNewMsg data: " + actionType + " num: " + currentQuestNum);
             Transform Msg = RepoQuest_ConversationField.GetChild(0);
-
+            
             if (Msg)
             {
                 switch (Msg.tag)
@@ -85,7 +77,7 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
                         if (fileChangedMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
                         {
                             Debug.Log("A new FileChange Msg");
-                            ExistFileChangedMsgList.Add(fileChangedMsg);
+                            PRProgressFieldScript.CreateChangeRequestItem(fileChangedMsg);
                             Msg.SetParent(TextMessageGroup_Conversation.transform);
                             Msg.transform.localScale = new(1, 1, 1);
                             Msg.gameObject.SetActive(true);
@@ -136,6 +128,32 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
         FieldSelectionNumText.text = $"{TextMessageGroup_Conversation.transform.childCount}";
     }
 
+    #region InitializeMsg (Main/CreatePR)
+
+    public string[] InitializePullRequestPage(bool createdByPlayer)
+    {
+        //Get All values	
+        StageManager = GameObject.Find("Stage Manager").transform;
+        RepoQuestData = StageManager.Find("DefaultData/RepoQuestData");
+        RepoQuestFsm = MyPlayMakerScriptHelper.GetFsmByName(RepoQuestData.gameObject, "Repo Quest");
+        RepoQuest_ConversationField = RepoQuestData.Find("ConversationField");
+        RepoQuest_FilesChangedField = RepoQuest_ConversationField.Find("FilesChangedField");
+
+        string[] branchList = InitializeMainMsg();
+        InitializeCreatePRMsg();
+
+        //reviewerListPanel
+        reviewerListPanel_Script.UpdateReviewerList(RepoQuestFsm);
+
+        if (createdByPlayer)
+        {
+            SaveNewPRItemToFsm();
+        }
+
+        return branchList;
+    }
+
+    //Only Created By Player
     public void SaveNewPRItemToFsm()
     {
         int listLen = RepoQuestFsm.FsmVariables.GetFsmArray("existPRAuthorList").Length;
@@ -147,23 +165,56 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
         RepoQuestFsm.FsmVariables.GetFsmArray("existPRNumList").InsertItem(intValue, listLen);
         RepoQuestFsm.FsmVariables.GetFsmArray("existPREnteredList").InsertItem(true, listLen);
     }
+
+    #region Initialize MainMsg
+
+    class PRMainTitle
+    {
+        public Text PRMainTitleText;
+        public Text PRIDText;
+        public Text PRAuthorText;
+        public Text CompareBranchText;
+        public Text BaseBranchText;
+    }
+
+    [SerializeField] PRMainTitle pRMainTitle = new();
+
+    string[] InitializeMainMsg()
+    {
+        //Get Value from Fsm
+        pRMainTitle.PRMainTitleText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPR1Title").Value;
+        pRMainTitle.PRAuthorText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
+        pRMainTitle.PRIDText.text = $"#{RepoQuestFsm.FsmVariables.GetFsmInt("createPRNum").Value}";
+
+        string[] branchList = RepoQuestFsm.FsmVariables.GetFsmString("correctBranchName").Value.Split("/");
+        pRMainTitle.BaseBranchText.text = branchList[0];
+        pRMainTitle.CompareBranchText.text = branchList[1];
+        return branchList;
+    }
+    #endregion
+
+    #region Initialize CreatePRMsg 
+
+    class CreatePRMsg
+    {
+        public GameObject createPRMsg;
+        public Text CreatePRMsgAuthorText;
+        public Text CreatePRMsgDetailedText;
+        public Text CreatePRMsgTime;
+    }
+
+    [SerializeField] CreatePRMsg createPRMsg = new();
+
+    void InitializeCreatePRMsg()
+    {
+        createPRMsg.CreatePRMsgAuthorText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
+        createPRMsg.CreatePRMsgDetailedText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPR2Des").Value;
+        createPRMsg.CreatePRMsgTime.text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
+    }
+    #endregion
+    #endregion
 }
 
 
 
-class CreatePRMsg
-{
-    public GameObject createPRMsg;
-    public Text CreatePRMsgAuthorText;
-    public Text CreatePRMsgDetailedText;
-    public Text CreatePRMsgTime;
-}
 
-class PRMainTitle
-{
-    public Text PRMainTitleText;
-    public Text PRIDText;
-    public Text PRAuthorText;
-    public Text CompareBranchText;
-    public Text BaseBranchText;
-}

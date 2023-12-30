@@ -80,6 +80,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     PlayMakerFSM QuestTrackerFsm;
     PlayMakerFSM QuestValiderFsm;
 
+    PullRequestProgressField pullRequestProgressField;
 
     private void Awake()
 {
@@ -131,7 +132,6 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     public bool ValidNeedRenderThisMsg(string actionType, int currentQuestNum)
     {
         return (actionType == renderActionType && renderQuestNum == currentQuestNum) ? true : false;
-
     }
     #endregion 
 

@@ -151,6 +151,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 	{
 		conversationField.AddNewMsg(actionType, currentQuestNum);
 		conversationField.UpdateFileChangedMsg(actionType, currentQuestNum);
+		conversationField.UpdatePRProgressField();
 
 		commitsField.UpdateCommitsField();
 
