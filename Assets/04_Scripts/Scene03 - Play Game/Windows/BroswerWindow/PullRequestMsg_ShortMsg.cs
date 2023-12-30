@@ -8,9 +8,6 @@ using PixelCrushers.DialogueSystem;
 
 public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
 {
-    //For action
-    bool isLoading = false;
-
     [FoldoutGroup("Render Whole Msg")]
     GameObject CommitHistoryWindow;
     PlayMakerFSM CommitHisotryWindowNPCActionFsm;
@@ -38,8 +35,6 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
     [SerializeField] Text ActionText;
     [FoldoutGroup("Children")]
     [SerializeField] Text TimeText;
-    [FoldoutGroup("Children")]
-    [SerializeField] LeanLocalToken CommitIDToken;
 
     public bool ValidNeedRenderThisMsg(string actionType, int currentQuestNum)
     {

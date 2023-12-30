@@ -11,7 +11,7 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
     #region Basic TextBox
     [FoldoutGroup("Color")]
-    [SerializeField] Color blockColor = new(255,40,55,255);
+    [SerializeField] Color blockColor = new(255, 40, 55, 255);
     [FoldoutGroup("Color")]
     [SerializeField] Color blockTextColor = new(174, 22, 33, 255);
     [FoldoutGroup("Color")]
@@ -72,7 +72,7 @@ public class PullRequestProgressField : SerializedMonoBehaviour
     [SerializeField] GameObject ApproveRequest;
     [SerializeField] Transform ApproveRequestItemLocation;
     [SerializeField] GameObject ApproveRequestItemPrefab;
-
+    [SerializeField] List<PullRequestMsg_Approve> ApproveList = new();
 
     [FoldoutGroup("Reference")]
     PullRequestDetailedPage_ConversationField pullRequestDetailedPage;
@@ -80,7 +80,7 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
     public void CreateChangeRequestItem(PullRequestMsg_FileChanged newFileChangedMsg)
     {
-        Debug.Log("New Button created");
+        Debug.Log("New ChangeRequest created");
         GameObject newItem = Instantiate(ChangeRequestItemPrefab);
         newItem.name = "ChangeRequestItem";
         newItem.transform.SetParent(ChangeRequestItemLocation);
@@ -88,10 +88,45 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
         //Add Connection between button and fileChange Msg
         ConnectedButtonDict.Add(newItem, newFileChangedMsg);
+        pullRequestDetailedPage.ExistFileChangedMsgList.Add(newFileChangedMsg);
 
         //Apply Msg value to newItem
         newItem.transform.Find("Left/TextBox/AuthorText").GetComponent<LeanLocalizedText>().TranslationName = newFileChangedMsg.authorName;
         newItem.transform.Find("Right/ActionButton").GetComponent<Button>().onClick.AddListener(() => ButtonClickActionMoveToTargetMsg(newItem));
+    }
+
+    public void RemoveChangeRequestItem(GameObject resolvedFileChangedMsg)
+    {
+        PullRequestMsg_FileChanged targetMsg = resolvedFileChangedMsg.GetComponent<PullRequestMsg_FileChanged>();
+        GameObject targetButton = null;
+        foreach (var dict in ConnectedButtonDict)
+        {
+            if(dict.Value == targetMsg)
+            {
+                targetButton = dict.Key;
+                break;
+            }
+        }
+        ConnectedButtonDict.Remove(targetButton);
+        pullRequestDetailedPage.ExistFileChangedMsgList.Remove(targetMsg);
+    }
+
+    public void CreateApproveItem(GameObject newApproveMsg)
+    {
+        Debug.Log("New CreateApproveItem created");
+
+        PullRequestMsg_Approve script = newApproveMsg.GetComponent<PullRequestMsg_Approve>();
+
+        GameObject newItem = Instantiate(ApproveRequestItemPrefab);
+        newItem.name = "ApproveRequestItem";
+        newItem.transform.SetParent(ApproveRequestItemLocation);
+        newItem.transform.localScale = new(1, 1, 1);
+
+        //Add completed fileChange Msg
+        ApproveList.Add(script);
+
+        //Apply Msg value to newItem
+        newItem.transform.Find("Left/TextBox/AuthorText").GetComponent<LeanLocalizedText>().TranslationName = script.authorName;
     }
 
     public void ButtonClickActionMoveToTargetMsg(GameObject ClickButton)
@@ -112,47 +147,26 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
         DisableAllIcon();
 
-
-        List<PullRequestMsg_FileChanged> existMsgList = null;
-        int totalSolveCount = 0;
-
-        ChangeRequest.SetActive(true);
-        ApproveRequest.SetActive(true);
-
-        if (existMsgList == null)
+        if (ConnectedButtonDict.Count == 0 && ApproveList.Count == 0)
         {
             ApplyNeedReviewProgressStyle();
         }
-        else
+        else if (ConnectedButtonDict.Count > 0)
         {
-            //Get Values.
-            List<PullRequestMsg_FileChanged> foundList = existMsgList.FindAll((Msg) => (Msg.isSolved == true));
-
-            int showIndex = 0;
-            foreach (var Msg in existMsgList)
-            {
-                if (Msg.isSolved)
-                {
-                    totalSolveCount++;
-                }
-                else
-                {
-                    
-                }
-            }
-
-            if (existMsgList.Count == totalSolveCount)
-            {
-                ApplyApproveProgressStyle();
-            }
-            else
-            {
-                ApplyFileChangeProgressStyle();
-            }
+            ApplyFileChangeProgressStyle();
         }
+        else if (ConnectedButtonDict.Count == 0 && ApproveList.Count > 0)
+        {
+            ApplyApproveProgressStyle();
+        }
+
+        bool enable = (ConnectedButtonDict.Count != 0);
+        ChangeRequest.SetActive(enable);
+        enable = (ApproveList.Count != 0);
+        ApproveRequest.SetActive(enable);
     }
 
-
+    #region Progress Style
     void ApplyNeedReviewProgressStyle()
     {
         ReviewerDetailedLenIcon.SetActive(true);
@@ -176,7 +190,7 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
     void ApplyApproveProgressStyle()
     {
-       
+
         ReviewerDetailedCheckmarkIcon.SetActive(true);
         ReviewerDetailedIconPanel.GetComponent<Image>().color = readyColor;
         ReviewerDetailedTitleText.GetComponent<Text>().color = readyTextColor;
@@ -227,5 +241,6 @@ public class PullRequestProgressField : SerializedMonoBehaviour
         ResultCheckmarkIcon.SetActive(false);
         ResultErrorIcon.SetActive(false);
     }
+    #endregion
     #endregion
 }

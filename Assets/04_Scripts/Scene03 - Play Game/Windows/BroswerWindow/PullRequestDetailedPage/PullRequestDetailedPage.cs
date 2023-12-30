@@ -1,101 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Lean.Localization;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using System;
-
-//Will be use in PullRequestDetailed Panel -> FileChangedField & FileChangedMsg in CoversationField
-[Serializable]
-public class PullRequestDetailed_FileChangedTextBox
-{
-	[Header("Prefab")]
-	public GameObject FileContentTextBox_Head;
-	public GameObject FileContentTextBox_Content;
-
-	[Header("Please Fill in these value (i18n key) so TextBox can be generated.")]
-	//These string texts are all i18n key
-	public string fileName;
-	public List<PullRequestDetailed_FileChanged> fileChanged;
-
-	//generateType -> CoversationField/FileChangedField
-	public void InitializeMsg(string generateType, GameObject TitleText, GameObject CloneLocation)
-	{
-		Debug.Log("PullRequestDetailed_FileChangedTextBox InitializeMsg...");
-		bool openScript = false;
-		switch (generateType)
-		{
-			case "CoversationField":
-				openScript = false;
-				break;
-			case "FileChangedField":
-				openScript = true;
-				break;
-		}
-
-		TitleText.GetComponent<LeanLocalizedText>().TranslationName = fileName;
-
-		//Head
-		GameObject CloneObj = UnityEngine.Object.Instantiate(FileContentTextBox_Head);
-		CloneObj.transform.SetParent(CloneLocation.transform);
-		CloneObj.transform.localScale = new(1, 1, 1);
-		CloneObj.name = "FileChangedTextBox (Head)";
-
-		//Content
-		foreach (PullRequestDetailed_FileChanged fileContent in fileChanged)
-        {
-			CloneObj = UnityEngine.Object.Instantiate(FileContentTextBox_Content);
-			CloneObj.transform.SetParent(CloneLocation.transform);
-			CloneObj.transform.localScale = new(1, 1, 1);
-			CloneObj.name = "FileChangedTextBox (Content)";
-
-			if (fileContent.type == "A")
-            {
-				CloneObj.transform.Find("TextBox/AddPanel/NumText").GetComponent<Text>().text = $"{fileContent.addLineNum}";
-				CloneObj.transform.Find("TextBox/RemovePanel/NumText").GetComponent<Text>().text = "";
-				CloneObj.transform.Find("TextBox/Content/MarkText").GetComponent<Text>().text = "+";
-			}
-			else if (fileContent.type == "D")
-			{
-				CloneObj.transform.Find("TextBox/AddPanel/NumText").GetComponent<Text>().text = "";
-				CloneObj.transform.Find("TextBox/RemovePanel/NumText").GetComponent<Text>().text = $"{fileContent.deleteLineNum}";
-				CloneObj.transform.Find("TextBox/Content/MarkText").GetComponent<Text>().text = $" -";
-			}
-			else if (fileContent.type == "N") {
-				CloneObj.transform.Find("TextBox/AddPanel/NumText").GetComponent<Text>().text = $"{fileContent.addLineNum}";
-				CloneObj.transform.Find("TextBox/RemovePanel/NumText").GetComponent<Text>().text = $"{fileContent.deleteLineNum}";
-				CloneObj.transform.Find("TextBox/Content/MarkText").GetComponent<Text>().text = "  ";
-			}
-			else
-            {
-				Debug.LogError("Warning: Set Wrong values. Please Give add/remove/noChange.");
-            }
-
-			CloneObj.transform.Find("TextBox/Content/ContentText").GetComponent<LeanLocalizedText>().TranslationName = fileContent.content;
-			
-			PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(CloneObj, "Update Color");
-			fsm.enabled = true;
-
-			//Do Action by openScript is on or off.
-			Transform selectedBorder = CloneObj.transform.Find("SelectedBorder");
-			selectedBorder.gameObject.SetActive(openScript);
-			fsm = MyPlayMakerScriptHelper.GetFsmByName(CloneObj, "Tooltip");
-			fsm.enabled = openScript;
-		}
-	}
-}
-
-[Serializable]
-public class PullRequestDetailed_FileChanged
-{
-	//A -> add/D -> delete /N -> noChange
-	public string type;
-	public string content;
-	public int addLineNum;
-	public int deleteLineNum;
-	public bool canClick;
-}
 
 public class PullRequestDetailedPage : SerializedMonoBehaviour
 {
@@ -115,12 +23,14 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 	[Header("Page Content Script")]
 	[SerializeField] PullRequestDetailedPage_CommitsField commitsField;
 	[SerializeField] PullRequestDetailedPage_ConversationField conversationField;
+	[SerializeField] PullRequestDetailedPage_FileChangedField fileChangedField;
 
-	
-    private void Awake()
+
+	private void Awake()
     {
 		commitsField = GetComponent<PullRequestDetailedPage_CommitsField>();
 		conversationField = GetComponent<PullRequestDetailedPage_ConversationField>();
+		fileChangedField = GetComponent<PullRequestDetailedPage_FileChangedField>();
 	}
 
     public void GetActionByButton(string actionType, int currentQuestNum, bool createByPlayer = false){
@@ -131,6 +41,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		{
 			PRDetailedPage.SetActive(true);
 			string[] branchList = conversationField.InitializePullRequestPage(createByPlayer);
+			fileChangedField.InitializeField();
 			commitsField.SetPRTargetBranches(branchList);
 
 			if (createByPlayer)
@@ -154,6 +65,8 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		conversationField.UpdatePRProgressField();
 
 		commitsField.UpdateCommitsField();
+		
+		//fileChangedField.UpdateFileChangedField(actionType, currentQuestNum);
 
 		isLoading = false;
 	}

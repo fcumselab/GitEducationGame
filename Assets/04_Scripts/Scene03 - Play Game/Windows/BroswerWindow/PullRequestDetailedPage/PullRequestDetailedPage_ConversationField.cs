@@ -7,8 +7,7 @@ using Sirenix.OdinInspector;
 public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
 {
     [Header("Data")]
-    
-    [SerializeField] List<PullRequestMsg_FileChanged> ExistFileChangedMsgList;
+    public List<PullRequestMsg_FileChanged> ExistFileChangedMsgList;
 
     [Header("Children")]
     [SerializeField] GameObject TextMessageGroup_Conversation;
@@ -26,7 +25,6 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
     Transform RepoQuestData;
     PlayMakerFSM RepoQuestFsm;
     Transform RepoQuest_ConversationField;
-    Transform RepoQuest_FilesChangedField;
 
     void Start()
     {
@@ -63,15 +61,28 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
         while (true)
         {
             Debug.Log("addNewMsg data: " + actionType + " num: " + currentQuestNum);
-            Transform Msg = RepoQuest_ConversationField.GetChild(0);
-            
-            if (Msg)
+            if (RepoQuest_ConversationField.childCount > 0)
             {
+                Transform Msg = RepoQuest_ConversationField.GetChild(0);
                 switch (Msg.tag)
                 {
                     case "PRDetailedMsg/Approve":
                         Debug.Log("Found Approve but not the right one");
-                        return;
+                        PullRequestMsg_Approve approveMsg = Msg.GetComponent<PullRequestMsg_Approve>();
+                        if (approveMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
+                        {
+                            Debug.Log("A new Approve Msg");
+                            Msg.SetParent(TextMessageGroup_Conversation.transform);
+                            Msg.transform.localScale = new(1, 1, 1);
+                            Msg.gameObject.SetActive(true);
+                            approveMsg.InitializeMsg(actionType, currentQuestNum);
+                            break;
+                        }
+                        else
+                        {
+                            Debug.Log("Found Approve but not the right one");
+                            return;
+                        }
                     case "PRDetailedMsg/FileChanged":
                         PullRequestMsg_FileChanged fileChangedMsg = Msg.GetComponent<PullRequestMsg_FileChanged>();
                         if (fileChangedMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
@@ -109,7 +120,7 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
             }
             else
             {
-                Debug.Log("Not Found new Msg");
+                Debug.Log("All finish!");
                 return;
             }
         }
@@ -137,7 +148,6 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
         RepoQuestData = StageManager.Find("DefaultData/RepoQuestData");
         RepoQuestFsm = MyPlayMakerScriptHelper.GetFsmByName(RepoQuestData.gameObject, "Repo Quest");
         RepoQuest_ConversationField = RepoQuestData.Find("ConversationField");
-        RepoQuest_FilesChangedField = RepoQuest_ConversationField.Find("FilesChangedField");
 
         string[] branchList = InitializeMainMsg();
         InitializeCreatePRMsg();
