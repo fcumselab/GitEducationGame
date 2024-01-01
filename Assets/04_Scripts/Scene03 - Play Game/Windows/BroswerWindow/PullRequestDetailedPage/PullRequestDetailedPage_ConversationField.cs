@@ -219,7 +219,7 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
     {
         createPRMsg.CreatePRMsgAuthorText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
         createPRMsg.CreatePRMsgDetailedText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPR2Des").Value;
-        createPRMsg.CreatePRMsgTime.text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
+        createPRMsg.CreatePRMsgTime.text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
     }
     #endregion
     #endregion

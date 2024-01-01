@@ -78,7 +78,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     {
         AuthorText.GetComponent<LeanLocalizedText>().TranslationName = authorName;
         CommitMsgText.GetComponent<LeanLocalizedText>().TranslationName = commitMsg;
-        TimeText.text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
+        TimeText.text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
     }
 
     //If update function activate, update replyMsg field (including: replyBtn/replyInputField/replyMsg)

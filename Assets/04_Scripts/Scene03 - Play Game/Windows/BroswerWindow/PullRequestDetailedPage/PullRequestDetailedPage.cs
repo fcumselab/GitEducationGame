@@ -50,7 +50,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 			}
 
 			isInitial = false;
-			UpdatePullRequestPage("", -1);
+			UpdatePullRequestPage("Initial", currentQuestNum);
 		}
 		else
 		{
@@ -66,7 +66,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 
 		commitsField.UpdateCommitsField();
 		
-		//fileChangedField.UpdateFileChangedField(actionType, currentQuestNum);
+		fileChangedField.UpdateFileChangedField(actionType, currentQuestNum);
 
 		isLoading = false;
 	}

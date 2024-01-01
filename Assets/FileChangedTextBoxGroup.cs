@@ -30,6 +30,7 @@ public class FileChangedTextBoxGroup : SerializedMonoBehaviour
     //ValidNeedRender is true, render once.
     public void InitializeContent()
     {
+		Debug.Log("Initialize TextBox Content...");
         foreach(var TextBox in fileChangedTextBoxList)
         {
             GameObject newTextBox = Instantiate(fileChangedTextBoxPrefab);
@@ -42,6 +43,7 @@ public class FileChangedTextBoxGroup : SerializedMonoBehaviour
             TextBox.InitializeMsg("FileChangedField", TitleText, CreateLocation);
         }
     }
+
 }
 
 
@@ -62,9 +64,11 @@ public class PullRequestDetailed_FileChangedTextBox
 	public List<PullRequestDetailed_FileChanged> fileChanged;
 	public List<FileContentTextBox_Reply> ReplyMsgList;
 
+	GameObject TextBoxLocation;
 	//generateType -> CoversationField/FileChangedField
 	public void InitializeMsg(string generateType, GameObject TitleText, GameObject CloneLocation)
 	{
+		TextBoxLocation = CloneLocation;
 		Debug.Log("PullRequestDetailed_FileChangedTextBox InitializeMsg...");
 		bool openScript = false;
 		switch (generateType)
@@ -126,6 +130,62 @@ public class PullRequestDetailed_FileChangedTextBox
 			selectedBorder.gameObject.SetActive(openScript);
 			fsm = MyPlayMakerScriptHelper.GetFsmByName(CloneObj, "Tooltip");
 			fsm.enabled = openScript;
+
+			//Button function
+			Button button = CloneObj.GetComponent<Button>();
+			button.interactable = openScript;
+			GameObject currentObj= button.gameObject;
+			if (openScript)
+            {
+				button.onClick.AddListener(() => ClickFileChangedTextBoxItem(currentObj));
+            }
+		}
+
+		
+		if (generateType == "FileChangedField")
+        {
+			ReplyMsgList[0].InitializeReplyPendingMsg(PrefabReply, CloneLocation);
+		}
+	}
+
+	public void ClickFileChangedTextBoxItem(GameObject ClickedItem)
+	{
+		Debug.Log("Click Button");
+		PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(ClickedItem, "Tooltip");
+
+		int clickIndex = ClickedItem.transform.GetSiblingIndex();
+		//Click the last one
+		if (clickIndex == TextBoxLocation.transform.childCount - 1)
+        {
+			fsm.FsmVariables.GetFsmString("runType").Value = "NoChange";
+		}
+		else
+        {
+			Transform nextItem = TextBoxLocation.transform.GetChild(clickIndex + 1);
+			if (nextItem.CompareTag("PRDetailedMsg/FileChanged"))
+			{
+				//Pending? Show? Warning?
+				if (nextItem.gameObject.activeSelf)
+				{
+					if (nextItem.Find("Pending").gameObject.activeSelf)
+					{
+						fsm.FsmVariables.GetFsmString("runType").Value = "Created";
+					}
+					else
+					{
+						fsm.FsmVariables.GetFsmString("runType").Value = "NoChange";
+					}
+				}
+				else
+				{
+					fsm.FsmVariables.GetFsmString("runType").Value = "Success";
+					nextItem.gameObject.SetActive(true);
+				}
+            }
+            else
+            {
+				fsm.FsmVariables.GetFsmString("runType").Value = "NoChange";
+			}
 		}
 	}
 
@@ -157,8 +217,9 @@ public class PullRequestDetailed_FileChanged
 public class FileContentTextBox_Reply
 {
 	[Header("Render Timing")]
+	//Reply -> renderQuest / ReplyPending -> insert Children Index
 	public int renderQuestNum;
-	//Initial = Show, NewQuest, Refresh
+	//Reply -> Show, NewQuest, Refresh, Reply / ReplyPending -> Done / Warning / Click(Show) / Click(Hide) 
 	public string renderActionType;
 	public bool isRender;
 
@@ -175,10 +236,44 @@ public class FileContentTextBox_Reply
 		CloneObj.SetActive(true);
 
 		CloneObj.transform.Find("Title/TextPanel/AuthorText").GetComponent<LeanLocalizedText>().TranslationName = author;
-		CloneObj.transform.Find("Title/TextPanel/TimeText").GetComponent<Text>().text = System.DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
+		CloneObj.transform.Find("Title/TextPanel/TimeText").GetComponent<Text>().text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 		CloneObj.transform.Find("Content/Text").GetComponent<LeanLocalizedText>().TranslationName = replyMsg;
 
 		isRender = true;
+	}
+
+	public void InitializeReplyPendingMsg(GameObject prefab, GameObject ReplyMsgLocation)
+    {
+		Debug.Log("InitializeReplyPendingMsg...");
+		GameObject CloneObj = UnityEngine.Object.Instantiate(prefab);
+		CloneObj.transform.SetParent(ReplyMsgLocation.transform);
+		CloneObj.transform.localScale = new(1, 1, 1);
+		CloneObj.name = $"{renderQuestNum}_{renderActionType}_ReplyMsg";
+
+		Transform Panel;
+		switch (renderActionType)
+        {
+			case "Click(Show)":
+			case "Click(Hide)":
+				Panel = CloneObj.transform.Find("Pending");
+				Panel.Find("TextBox/Title/TextPanel/AuthorText").GetComponent<LeanLocalizedText>().TranslationName = author;
+				Panel.Find("TextBox/Content/Text").GetComponent<LeanLocalizedText>().TranslationName = replyMsg;
+				Panel.gameObject.SetActive(renderActionType.Contains("Show"));
+				break;
+			case "Done":
+				Panel = CloneObj.transform.Find("Done");
+				Panel.gameObject.SetActive(true);
+				break;
+			case "Warning":
+				Panel = CloneObj.transform.Find("Warning");
+				Panel.gameObject.SetActive(true);
+				break;
+			default:
+				Debug.LogError("Please Add the correct keyword in FileChangedTextBox (ReplyPending)!");
+				break;
+        }
+
+		CloneObj.transform.SetSiblingIndex(renderQuestNum);
 	}
 }
 
