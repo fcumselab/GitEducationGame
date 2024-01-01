@@ -49,12 +49,14 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     Transform pRDetailedPagePanel;
     Transform pullRequestProgressField;
 
-    private void Awake()
+    #region MainUpdate Function (Other scripts will call it)
+    //When PullRequestDetailedPage Script trigger AddNewMsg function, do this once.
+    public void InitializeMsg(string actionType, int currentQuestNum)
     {
         FoldButton.gameObject.SetActive(false);
+
         ResolvedButtonTooltipFsm = MyPlayMakerScriptHelper.GetFsmByName(ResolvedButton.gameObject, "Tooltip");
         InitialReplyButton();
-
 
         if (!QuestTracker)
         {
@@ -62,12 +64,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
             QuestTrackerFsm = MyPlayMakerScriptHelper.GetFsmByName(QuestTracker, "Quest Tracker");
             QuestValiderFsm = MyPlayMakerScriptHelper.GetFsmByName(QuestTracker, "Quest Valider");
         }
-    }
 
-    #region MainUpdate Function (Other scripts will call it)
-    //When PullRequestDetailedPage Script trigger AddNewMsg function, do this once.
-    public void InitializeMsg(string actionType, int currentQuestNum)
-    {
         Debug.Log("InitializeMsg FileChange Msg");
         InitializeMainMsg();
         fileChangedTextBox.InitializeMsg("CoversationField", FileChangedTitleText, FileChangedLocation);
@@ -94,7 +91,14 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     {
         return (actionType == renderActionType && renderQuestNum == currentQuestNum) ? true : false;
     }
+
+    public bool ValidAllowPlayerReviewThisMsg(string actionType, string authorName)
+    {
+        return (actionType == renderActionType && authorName == this.authorName) ? true : false;
+    }
+
     #endregion 
+
 
     public void ResolveConversationAction()
     {
@@ -137,7 +141,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
             RunQuestTracker(ResolvedButton.gameObject, "Button");
 
             //Loading for updating PR Progress (Show loading animation)
-            pRDetailedPagePanel.GetComponent<PullRequestDetailedPage>().GetActionByButton("", 0 , false);
+            pRDetailedPagePanel.GetComponent<PullRequestDetailedPage>().GetActionByButton("Resolve", currentQuestNum, false);
         }
     }
 

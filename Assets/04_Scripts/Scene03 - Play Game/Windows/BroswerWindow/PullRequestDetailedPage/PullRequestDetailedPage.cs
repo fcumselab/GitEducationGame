@@ -21,8 +21,8 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 	[SerializeField] GameObject PRListPage;
 
 	[Header("Page Content Script")]
-	[SerializeField] PullRequestDetailedPage_CommitsField commitsField;
 	[SerializeField] PullRequestDetailedPage_ConversationField conversationField;
+	[SerializeField] PullRequestDetailedPage_CommitsField commitsField;
 	[SerializeField] PullRequestDetailedPage_FileChangedField fileChangedField;
 
 
@@ -67,6 +67,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		commitsField.UpdateCommitsField();
 		
 		fileChangedField.UpdateFileChangedField(actionType, currentQuestNum);
+		fileChangedField.UpdateReviewChangePopup();
 
 		isLoading = false;
 	}

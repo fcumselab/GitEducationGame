@@ -67,7 +67,7 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
                 switch (Msg.tag)
                 {
                     case "PRDetailedMsg/Approve":
-                        Debug.Log("Found Approve but not the right one");
+                        //Debug.Log("Found Approve but not the right one");
                         PullRequestMsg_Approve approveMsg = Msg.GetComponent<PullRequestMsg_Approve>();
                         if (approveMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
                         {
@@ -80,14 +80,14 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("Found Approve but not the right one");
+                           Debug.Log("Found Approve but not the right one");
                             return;
                         }
                     case "PRDetailedMsg/FileChanged":
                         PullRequestMsg_FileChanged fileChangedMsg = Msg.GetComponent<PullRequestMsg_FileChanged>();
                         if (fileChangedMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
                         {
-                            Debug.Log("A new FileChange Msg");
+                            //Debug.Log("A new FileChange Msg");
                             PRProgressFieldScript.CreateChangeRequestItem(fileChangedMsg);
                             Msg.SetParent(TextMessageGroup_Conversation.transform);
                             Msg.transform.localScale = new(1, 1, 1);
@@ -97,14 +97,14 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("Found FileChange but not the right one");
+                           Debug.Log("Found FileChange but not the right one");
                             return;
                         }
                     case "PRDetailedMsg/ShortMsg":
                         PullRequestMsg_ShortMsg shortMsg = Msg.GetComponent<PullRequestMsg_ShortMsg>();
                         if (shortMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
                         {
-                            Debug.Log("A new FileChange Msg");
+                            //Debug.Log("A new FileChange Msg");
                             Msg.SetParent(TextMessageGroup_Conversation.transform);
                             Msg.transform.localScale = new(1, 1, 1);
                             Msg.gameObject.SetActive(true);
@@ -120,7 +120,7 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
             }
             else
             {
-                Debug.Log("All finish!");
+               // Debug.Log("All finish!");
                 return;
             }
         }

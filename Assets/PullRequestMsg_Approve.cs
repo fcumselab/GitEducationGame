@@ -57,4 +57,9 @@ public class PullRequestMsg_Approve : SerializedMonoBehaviour
     {
         return (actionType == renderActionType && renderQuestNum == currentQuestNum) ? true : false;
     }
+
+    public bool ValidAllowPlayerReviewThisMsg(string actionType, string authorName)
+    {
+        return (actionType == renderActionType && authorName == this.authorName) ? true : false;
+    }
 }

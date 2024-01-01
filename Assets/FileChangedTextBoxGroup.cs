@@ -44,6 +44,10 @@ public class FileChangedTextBoxGroup : SerializedMonoBehaviour
         }
     }
 
+	public int GetTextBoxCount()
+    {
+		return fileChangedTextBoxList.Count;
+	}
 }
 
 
@@ -142,7 +146,7 @@ public class PullRequestDetailed_FileChangedTextBox
 		}
 
 		
-		if (generateType == "FileChangedField")
+		if (generateType == "FileChangedField" && ReplyMsgList.Count != 0)
         {
 			ReplyMsgList[0].InitializeReplyPendingMsg(PrefabReply, CloneLocation);
 		}
