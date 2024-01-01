@@ -18,12 +18,9 @@ public class PRListPage : SerializedMonoBehaviour
 {
 	[Header("Prefab")]
 	[SerializeField] GameObject PrefabPullRequestListItem;
-	
+
 	[SerializeField] bool isInitial = true;
 	[SerializeField] bool needUpdate = true;
-	
-	[SerializeField] string createByKey = "BrowserWindow/PRList/CreateBy";
-	
 	
 	[Header("Panel")]
 	[SerializeField] Text OpenedPRCountText;
@@ -42,26 +39,29 @@ public class PRListPage : SerializedMonoBehaviour
 	Transform StageManager;
 	Transform RepoQuestData;
 	PlayMakerFSM RepoQuestFsm;
+	PlayMakerFSM RepoQuestRemovePRListFsm;
 
-	// This function is called when the object becomes enabled and active.
-	protected void OnEnable()
-	{
-		if(isInitial){
+	public void EnablePage()
+    {
+		if (isInitial)
+		{
 			//Get All values	
 			QuestTracker = GameObject.Find("Quest Tracker").transform;
 			StageManager = GameObject.Find("Stage Manager").transform;
 
 			//Only Stage like Create/Review PR will use them.
 			RepoQuestData = StageManager.Find("DefaultData/RepoQuestData");
-            if (RepoQuestData)
-            {
+			if (RepoQuestData)
+			{
 				RepoQuestFsm = MyPlayMakerScriptHelper.GetFsmByName(RepoQuestData.gameObject, "Repo Quest");
+				RepoQuestRemovePRListFsm = MyPlayMakerScriptHelper.GetFsmByName(RepoQuestData.gameObject, "RemoveExistPRList");
 			}
 
 			UpdatePRList();
-			isInitial = false;	 
-		}else if(needUpdate){
-
+			isInitial = false;
+		}
+		else if (needUpdate)
+		{
 			UpdatePRList();
 		}
 	}
@@ -87,14 +87,16 @@ public class PRListPage : SerializedMonoBehaviour
 					curPRList = OpenPRList[i];
 				}
 
-				//# {PRNum} created by {Author}
-				LeanLocalToken token = curPRList.obj.transform.Find("TextWithIcon/TitleText/DetailedText/PRNUM").GetComponent<LeanLocalToken>();
+				//#{PRNUM} Pull Request creator:
+				LeanLocalToken token = curPRList.obj.transform.Find("TextWithIcon/Content/TextPanel/DetailedText/PRNUM").GetComponent<LeanLocalToken>();
 				token.SetValue(curPRList.PRID);
-				token = curPRList.obj.transform.Find("TextWithIcon/TitleText/DetailedText/AUTHOR").GetComponent<LeanLocalToken>();
-				token.SetValue(curPRList.Author);
 
-				Transform targetText = curPRList.obj.transform.Find("TextWithIcon/TitleText");
-				targetText.GetComponent<Text>().text = curPRList.PRTitle;
+				Transform targetText = curPRList.obj.transform.Find("TextWithIcon/Content/Title/Text");
+				targetText.GetComponent<LeanLocalizedText>().TranslationName = curPRList.PRTitle;
+
+				targetText = curPRList.obj.transform.Find("TextWithIcon/Content/TextPanel/Author");
+				targetText.GetComponent<LeanLocalizedText>().TranslationName = curPRList.Author;
+
 				PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(curPRList.obj, "Tooltip");
 				fsm.FsmVariables.GetFsmBool("canEnter").Value = curPRList.canEnter;
 			}
@@ -125,4 +127,15 @@ public class PRListPage : SerializedMonoBehaviour
         }
 		return -1;
     }
+
+	public void MoveOpenPRListToClose()
+    {
+		PRList foundItem = OpenPRList.Find((item) => item.canEnter == true);
+		foundItem.obj.transform.SetParent(ClosedPRList.transform);
+		RepoQuestRemovePRListFsm.enabled = true;
+		foundItem.obj.name = "ClosedPRItem";
+		ClosePRList.Add(foundItem);
+		OpenPRList.Remove(foundItem);
+		UpdatePRListCountText();
+	}
 }

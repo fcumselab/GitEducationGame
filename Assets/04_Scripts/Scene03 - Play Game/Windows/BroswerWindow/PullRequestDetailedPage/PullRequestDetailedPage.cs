@@ -7,6 +7,9 @@ using System;
 
 public class PullRequestDetailedPage : SerializedMonoBehaviour
 {
+	[Header("Get value from click PRList item")]
+	[SerializeField] bool isMerge = false;
+
 	[SerializeField] bool isInitial = true;
 	[SerializeField] bool isLoading = false;
 
@@ -16,9 +19,11 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 	[SerializeField] Button RefreshPageButton;
 
 	[Header("Panel")]
+	[SerializeField] PlayMakerFSM BrowserURLFsm;
 	[SerializeField] GameObject WebsiteLoadingPanel;
 	[SerializeField] GameObject PRDetailedPage;
-	[SerializeField] GameObject PRListPage;
+	[SerializeField] GameObject PRListPageObj;
+	[SerializeField] PRListPage PRListPageScript;
 
 	[Header("Page Content Script")]
 	[SerializeField] PullRequestDetailedPage_ConversationField conversationField;
@@ -33,29 +38,50 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		fileChangedField = GetComponent<PullRequestDetailedPage_FileChangedField>();
 	}
 
+	public void SetIsMerge(bool isMerge)
+    {
+		this.isMerge = isMerge;
+	}
+
     public void GetActionByButton(string actionType, int currentQuestNum, bool createByPlayer = false){
 		
 		StartCoroutine(WaitForFinish());
 
-		if (isInitial)
-		{
-			PRDetailedPage.SetActive(true);
-			string[] branchList = conversationField.InitializePullRequestPage(createByPlayer);
-			fileChangedField.InitializeField();
-			commitsField.SetPRTargetBranches(branchList);
-
-			if (createByPlayer)
+        if (isMerge)
+        {
+			UpdateMergedPullRequestPage();
+		}
+        else
+        {
+			if (isInitial)
 			{
-				PRListPage.GetComponent<PRListPage>().ChangeNeedUpdateValue(true);
-			}
+				PRDetailedPage.SetActive(true);
 
-			isInitial = false;
-			UpdatePullRequestPage("Initial", currentQuestNum);
+				string[] branchList = conversationField.InitializePullRequestPage(createByPlayer);
+
+				conversationField.InitializePRProgressField();
+				commitsField.SetPRTargetBranches(branchList);
+				fileChangedField.InitializeField();
+
+				if (createByPlayer)
+				{
+					PRListPageScript.UpdatePRList();
+				}
+
+				isInitial = false;
+				UpdatePullRequestPage("Initial", currentQuestNum);
+			}
+			else
+			{
+				UpdatePullRequestPage(actionType, currentQuestNum);
+			}
 		}
-		else
-		{
-			UpdatePullRequestPage(actionType, currentQuestNum);
-		}
+	}
+
+	public void UpdateMergedPullRequestPage()
+    {
+		conversationField.UpdateMergedPRContent();
+		isLoading = false;
 	}
 
 	public void UpdatePullRequestPage(string actionType, int currentQuestNum)
@@ -99,6 +125,34 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 
 		WebsiteLoadingPanel.SetActive(false);
 		RefreshPageButton.interactable = true;
+	}
+
+	public IEnumerator WaitForMergePullRequestFinish(PlayMakerFSM CommitHisotryWindowNPCActionFsm)
+	{
+		isLoading = true;
+		startTime = DateTime.Now;
+		WebsiteLoadingPanel.SetActive(true);
+		RefreshPageButton.interactable = false;
+
+		while (CommitHisotryWindowNPCActionFsm.enabled)
+		{
+			yield return null;
+		}
+
+		float elapsed = (float)(DateTime.Now - startTime).TotalSeconds;
+		if (elapsed < 1)
+		{
+			Debug.Log($"Loading Finish Time: {1 - elapsed}");
+			yield return new WaitForSeconds(1 - elapsed);
+		}
+
+		PRListPageScript.MoveOpenPRListToClose();
+
+		PRDetailedPage.SetActive(false);
+		PRListPageObj.SetActive(true);
+		WebsiteLoadingPanel.SetActive(false);
+		BrowserURLFsm.FsmVariables.GetFsmGameObject("OpenPage").Value = PRListPageObj;
+		BrowserURLFsm.enabled = true;
 	}
 	#endregion
 }

@@ -22,8 +22,8 @@ public class PullRequestDetailedPage_CommitsField : SerializedMonoBehaviour
     GameObject CommitHistoryWindow;
     GameObject RemoteBranches;
     GameObject RemoteCommits;
-    [SerializeField] GameObject BaseBranch;
-    [SerializeField] GameObject CompareBranch;
+    GameObject BaseBranch;
+    GameObject CompareBranch;
 
     string baseBranchName;
     string compareBranchName;

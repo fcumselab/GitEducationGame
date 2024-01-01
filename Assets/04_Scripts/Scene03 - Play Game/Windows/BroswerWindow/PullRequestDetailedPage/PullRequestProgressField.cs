@@ -8,6 +8,7 @@ using Lean.Localization;
 public class PullRequestProgressField : SerializedMonoBehaviour
 {
     #region Variables
+    [SerializeField] GameObject PRProgressField;
 
     #region Basic TextBox
     [FoldoutGroup("Color")]
@@ -62,21 +63,152 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
     #endregion
 
+    #region Reference
 
+    [FoldoutGroup("Reference")]
+    PullRequestDetailedPage pullRequestDetailedPage;
+    PullRequestDetailedPage_ConversationField pullRequestDetailedPage_ConversationField;
+    [Header("NPC Action")]
+    GameObject CommitHistoryWindow;
+    PlayMakerFSM CommitHisotryWindowNPCActionFsm;
+
+    #endregion
+
+    #region Merge Pull Request Related Panel
+
+    bool initial = false;
+    [FoldoutGroup("PRProgressTextBox")]
+    [SerializeField] GameObject PRProgressTextBox;
+    [FoldoutGroup("PRProgressTextBox/Content")]
+    [SerializeField] GameObject MergePRButton;
+    [FoldoutGroup("PRProgressTextBox/Content")]
+    PlayMakerFSM MergePRButtonFsm;
+
+    [FoldoutGroup("MergePRInputField")]
+    [SerializeField] GameObject MergePRInputField;
+    [FoldoutGroup("MergePRInputField/Content")]
+    [SerializeField] GameObject PRTitleText;
+    [FoldoutGroup("MergePRInputField/Content")]
+    [SerializeField] GameObject PRTitleTextToken;
+    [FoldoutGroup("MergePRInputField/Content")]
+    [SerializeField] GameObject PRContentText;
+    [FoldoutGroup("MergePRInputField/Content")]
+    [SerializeField] GameObject MergePRActionButton;
+
+    [FoldoutGroup("SaveValue")]
+    [SerializeField] Text playerText;
+    #endregion
+
+    #endregion
+
+    public void InitializePRProgressField(PlayMakerFSM RepoQuestFsm)
+    {
+        PRContentText.GetComponent<LeanLocalizedText>().TranslationName = RepoQuestFsm.FsmVariables.GetFsmString("createPR1Title").Value;
+        PRTitleTextToken.GetComponent<LeanLocalToken>().Value = RepoQuestFsm.FsmVariables.GetFsmInt("createPRNum").Value.ToString();
+
+        pullRequestDetailedPage = transform.parent.GetComponent<PullRequestDetailedPage>();
+        pullRequestDetailedPage_ConversationField = pullRequestDetailedPage.GetComponent<PullRequestDetailedPage_ConversationField>();
+        MergePRButtonFsm = MyPlayMakerScriptHelper.GetFsmByName(MergePRButton, "Button Controller");
+        MergePRButton.GetComponent<Button>().onClick.AddListener(() => SwitchToMergeInputField());
+        MergePRActionButton.GetComponent<Button>().onClick.AddListener(() => ButtonClickActionMergePullRequest(playerText.text));
+        CommitHistoryWindow = GameObject.Find("CommitHistoryWindow");
+        CommitHisotryWindowNPCActionFsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "NPC Action");
+        initial = true;
+    } 
+    
+    public void UpdatePRProgress()
+    {
+        SwitchToPRProgressTextBox();
+        DisableAllIcon();
+
+        if (ConnectedButtonDict.Count == 0 && ApproveList.Count == 0)
+        {
+            ApplyNeedReviewProgressStyle();
+            MergePRButtonFsm.FsmVariables.GetFsmBool("enableButton").Value = false;
+            MergePRButtonFsm.enabled = true;
+        }
+        else if (ConnectedButtonDict.Count > 0)
+        {
+            ApplyFileChangeProgressStyle();
+            MergePRButtonFsm.FsmVariables.GetFsmBool("enableButton").Value = false;
+            MergePRButtonFsm.enabled = true;
+        }
+        else if (ConnectedButtonDict.Count == 0 && ApproveList.Count > 0)
+        {
+            ApplyApproveProgressStyle();
+        }
+
+        bool enable = (ConnectedButtonDict.Count != 0);
+        ChangeRequest.SetActive(enable);
+        enable = (ApproveList.Count != 0);
+        ApproveRequest.SetActive(enable);
+    }
+
+    public void ClosePanel()
+    {
+        PRProgressField.SetActive(false);
+    }
+
+    #region Button Action
+
+    public void ButtonClickActionMoveToTargetMsg(GameObject ClickButton)
+    {
+        Debug.Log("Click Action Move");
+        PullRequestMsg_FileChanged connectedMsg = ConnectedButtonDict[ClickButton];
+        pullRequestDetailedPage_ConversationField.MoveToTargetFileChangedMsg(connectedMsg);
+    }
+
+    public void SwitchToPRProgressTextBox()
+    {
+        PRProgressTextBox.SetActive(true);
+        MergePRInputField.SetActive(false);
+    }
+
+    public void SwitchToMergeInputField()
+    {
+        Debug.Log("Switch Merge...");
+
+        PRProgressTextBox.SetActive(false);
+        MergePRInputField.SetActive(true);
+    }
+
+    public void ButtonClickActionMergePullRequest(string authorName)
+    {
+        Debug.Log("Start Merge...");
+        string titleText = PRTitleText.GetComponent<Text>().text;
+        string desText = PRContentText.GetComponent<Text>().text;
+        string commitMsg = (titleText + "\n" + desText);
+        CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("commitMessage").Value = commitMsg;
+        CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("commitAuthor").Value = authorName;
+
+        CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("runType").Value = "PRMerge";
+        CommitHisotryWindowNPCActionFsm.enabled = true;
+
+        StartCoroutine(pullRequestDetailedPage.WaitForMergePullRequestFinish(CommitHisotryWindowNPCActionFsm));
+
+    }
+
+    #endregion
+
+    #region Progress Update
+
+    #region Request Panel
     [FoldoutGroup("ChangeRequest")]
     [SerializeField] GameObject ChangeRequest;
+    [FoldoutGroup("ChangeRequest")]
     [SerializeField] Transform ChangeRequestItemLocation;
+    [FoldoutGroup("ChangeRequest")]
     [SerializeField] GameObject ChangeRequestItemPrefab;
+    [FoldoutGroup("ChangeRequest")]
     [SerializeField] Dictionary<GameObject, PullRequestMsg_FileChanged> ConnectedButtonDict = new();
     [FoldoutGroup("ApproveRequest")]
     [SerializeField] GameObject ApproveRequest;
+    [FoldoutGroup("ApproveRequest")]
     [SerializeField] Transform ApproveRequestItemLocation;
+    [FoldoutGroup("ApproveRequest")]
     [SerializeField] GameObject ApproveRequestItemPrefab;
+    [FoldoutGroup("ApproveRequest")]
     [SerializeField] List<PullRequestMsg_Approve> ApproveList = new();
-
-    [FoldoutGroup("Reference")]
-    PullRequestDetailedPage_ConversationField pullRequestDetailedPage;
-    #endregion
 
     public void CreateChangeRequestItem(PullRequestMsg_FileChanged newFileChangedMsg)
     {
@@ -88,7 +220,7 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
         //Add Connection between button and fileChange Msg
         ConnectedButtonDict.Add(newItem, newFileChangedMsg);
-        pullRequestDetailedPage.ExistFileChangedMsgList.Add(newFileChangedMsg);
+        pullRequestDetailedPage_ConversationField.ExistFileChangedMsgList.Add(newFileChangedMsg);
 
         //Apply Msg value to newItem
         newItem.transform.Find("Left/TextBox/AuthorText").GetComponent<LeanLocalizedText>().TranslationName = newFileChangedMsg.authorName;
@@ -101,14 +233,14 @@ public class PullRequestProgressField : SerializedMonoBehaviour
         GameObject targetButton = null;
         foreach (var dict in ConnectedButtonDict)
         {
-            if(dict.Value == targetMsg)
+            if (dict.Value == targetMsg)
             {
                 targetButton = dict.Key;
                 break;
             }
         }
         ConnectedButtonDict.Remove(targetButton);
-        pullRequestDetailedPage.ExistFileChangedMsgList.Remove(targetMsg);
+        pullRequestDetailedPage_ConversationField.ExistFileChangedMsgList.Remove(targetMsg);
     }
 
     public void CreateApproveItem(GameObject newApproveMsg)
@@ -128,45 +260,10 @@ public class PullRequestProgressField : SerializedMonoBehaviour
         //Apply Msg value to newItem
         newItem.transform.Find("Left/TextBox/AuthorText").GetComponent<LeanLocalizedText>().TranslationName = script.authorName;
     }
+    #endregion
 
-    public void ButtonClickActionMoveToTargetMsg(GameObject ClickButton)
-    {
-        Debug.Log("Click Action Move");
-        PullRequestMsg_FileChanged connectedMsg = ConnectedButtonDict[ClickButton];
-        pullRequestDetailedPage.MoveToTargetFileChangedMsg(connectedMsg);
-    }
-    #region Progress Update
+    #region Progress Content
 
-
-    public void UpdatePRProgress()
-    {
-        if (!pullRequestDetailedPage)
-        {
-            pullRequestDetailedPage = transform.parent.GetComponent<PullRequestDetailedPage_ConversationField>();
-        }
-
-        DisableAllIcon();
-
-        if (ConnectedButtonDict.Count == 0 && ApproveList.Count == 0)
-        {
-            ApplyNeedReviewProgressStyle();
-        }
-        else if (ConnectedButtonDict.Count > 0)
-        {
-            ApplyFileChangeProgressStyle();
-        }
-        else if (ConnectedButtonDict.Count == 0 && ApproveList.Count > 0)
-        {
-            ApplyApproveProgressStyle();
-        }
-
-        bool enable = (ConnectedButtonDict.Count != 0);
-        ChangeRequest.SetActive(enable);
-        enable = (ApproveList.Count != 0);
-        ApproveRequest.SetActive(enable);
-    }
-
-    #region Progress Style
     void ApplyNeedReviewProgressStyle()
     {
         ReviewerDetailedLenIcon.SetActive(true);
@@ -186,11 +283,13 @@ public class PullRequestProgressField : SerializedMonoBehaviour
         ResultTitleText.GetComponent<Text>().color = blockTextColor;
         ResultTitleText.GetComponent<LeanLocalizedText>().TranslationName = "BrowserWindow/PRDetailed/PRProgressTextBox/Result/Title(Block)";
         ResultContentText.GetComponent<LeanLocalizedText>().TranslationName = "BrowserWindow/PRDetailed/PRProgressTextBox/Result/Content(Block)";
+
+        MergePRButtonFsm.FsmVariables.GetFsmBool("enableButton").Value = false;
+        MergePRButtonFsm.enabled = true;
     }
 
     void ApplyApproveProgressStyle()
     {
-
         ReviewerDetailedCheckmarkIcon.SetActive(true);
         ReviewerDetailedIconPanel.GetComponent<Image>().color = readyColor;
         ReviewerDetailedTitleText.GetComponent<Text>().color = readyTextColor;
@@ -208,6 +307,9 @@ public class PullRequestProgressField : SerializedMonoBehaviour
         ResultTitleText.GetComponent<Text>().color = readyTextColor;
         ResultTitleText.GetComponent<LeanLocalizedText>().TranslationName = "BrowserWindow/PRDetailed/PRProgressTextBox/Result/Title(Ready)";
         ResultContentText.GetComponent<LeanLocalizedText>().TranslationName = "BrowserWindow/PRDetailed/PRProgressTextBox/Result/Content(Ready)";
+
+        MergePRButtonFsm.FsmVariables.GetFsmBool("enableButton").Value = true;
+        MergePRButtonFsm.enabled = true;
     }
 
     void ApplyFileChangeProgressStyle()
@@ -229,6 +331,9 @@ public class PullRequestProgressField : SerializedMonoBehaviour
         ResultTitleText.GetComponent<Text>().color = blockTextColor;
         ResultTitleText.GetComponent<LeanLocalizedText>().TranslationName = "BrowserWindow/PRDetailed/PRProgressTextBox/Result/Title(Block)";
         ResultContentText.GetComponent<LeanLocalizedText>().TranslationName = "BrowserWindow/PRDetailed/PRProgressTextBox/Result/Content(Block)";
+
+        MergePRButtonFsm.FsmVariables.GetFsmBool("enableButton").Value = false;
+        MergePRButtonFsm.enabled = true;
     }
 
     void DisableAllIcon()
@@ -242,5 +347,6 @@ public class PullRequestProgressField : SerializedMonoBehaviour
         ResultErrorIcon.SetActive(false);
     }
     #endregion
+
     #endregion
 }

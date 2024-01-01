@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Lean.Localization;
 using Sirenix.OdinInspector;
 
 public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
 {
     [Header("Data")]
     public List<PullRequestMsg_FileChanged> ExistFileChangedMsgList;
+
+    [FoldoutGroup("PR Status Icon")]
+    [SerializeField] GameObject OpenButton;
+    [FoldoutGroup("PR Status Icon")]
+    [SerializeField] GameObject MergedButton;
 
     [Header("Children")]
     [SerializeField] GameObject TextMessageGroup_Conversation;
@@ -35,9 +41,22 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
 
     [FoldoutGroup("PRProgressField")]
     [SerializeField] PullRequestProgressField PRProgressFieldScript;
+    public void InitializePRProgressField()
+    {
+        PRProgressFieldScript.InitializePRProgressField(RepoQuestFsm);
+    }
+
     public void UpdatePRProgressField()
     {
         PRProgressFieldScript.UpdatePRProgress();
+    }
+
+    //If this pull request has been merge.
+    public void UpdateMergedPRContent()
+    {
+        PRProgressFieldScript.ClosePanel();
+        OpenButton.SetActive(false);
+        MergedButton.SetActive(true);
     }
 
     #endregion
@@ -192,8 +211,8 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
     string[] InitializeMainMsg()
     {
         //Get Value from Fsm
-        pRMainTitle.PRMainTitleText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPR1Title").Value;
-        pRMainTitle.PRAuthorText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
+        pRMainTitle.PRMainTitleText.GetComponent<LeanLocalizedText>().TranslationName = RepoQuestFsm.FsmVariables.GetFsmString("createPR1Title").Value;
+        pRMainTitle.PRAuthorText.GetComponent<LeanLocalizedText>().TranslationName = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
         pRMainTitle.PRIDText.text = $"#{RepoQuestFsm.FsmVariables.GetFsmInt("createPRNum").Value}";
 
         string[] branchList = RepoQuestFsm.FsmVariables.GetFsmString("correctBranchName").Value.Split("/");
@@ -217,8 +236,8 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
 
     void InitializeCreatePRMsg()
     {
-        createPRMsg.CreatePRMsgAuthorText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
-        createPRMsg.CreatePRMsgDetailedText.text = RepoQuestFsm.FsmVariables.GetFsmString("createPR2Des").Value;
+        createPRMsg.CreatePRMsgAuthorText.GetComponent<LeanLocalizedText>().TranslationName = RepoQuestFsm.FsmVariables.GetFsmString("createPRAuthor").Value;
+        createPRMsg.CreatePRMsgDetailedText.GetComponent<LeanLocalizedText>().TranslationName = RepoQuestFsm.FsmVariables.GetFsmString("createPR2Des").Value;
         createPRMsg.CreatePRMsgTime.text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
     }
     #endregion

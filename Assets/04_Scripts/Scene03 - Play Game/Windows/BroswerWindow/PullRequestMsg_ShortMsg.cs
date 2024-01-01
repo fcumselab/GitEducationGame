@@ -8,11 +8,8 @@ using PixelCrushers.DialogueSystem;
 
 public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
 {
-    [FoldoutGroup("Render Whole Msg")]
-    GameObject CommitHistoryWindow;
-    PlayMakerFSM CommitHisotryWindowNPCActionFsm;
-
-    #region Main Msg
+    #region Variables
+    
     [FoldoutGroup("Render Whole Msg")]
     [SerializeField] int renderQuestNum;
     [FoldoutGroup("Render Whole Msg")]
@@ -36,6 +33,15 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
     [FoldoutGroup("Children")]
     [SerializeField] Text TimeText;
 
+    [Header("Reference")]
+    GameObject CommitHistoryWindow;
+    PlayMakerFSM CommitHisotryWindowNPCActionFsm;
+    GameObject BrowserWindow;
+    Transform PRProgressFieldObj;
+
+    #endregion
+
+    #region function
     public bool ValidNeedRenderThisMsg(string actionType, int currentQuestNum)
     {
         return (actionType == renderActionType && renderQuestNum == currentQuestNum) ? true : false;
@@ -44,6 +50,8 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
     public void InitializeMsg(string actionType, int currentQuestNum)
     {
         Debug.Log("InitializeMsg Short Msg");
+        GetReferenceValues();
+
         //Initial Main Text
         AuthorText.GetComponent<LeanLocalizedText>().TranslationName = authorName;
         switch (actionType) {
@@ -56,19 +64,22 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
         }
         TimeText.text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-
         //Action after generated.
         DoActionByActionTypeForNPC();
+    }
+
+    void GetReferenceValues()
+    {
+        CommitHistoryWindow = GameObject.Find("CommitHistoryWindow");
+        CommitHisotryWindowNPCActionFsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "NPC Action");
+        BrowserWindow = GameObject.Find("BrowserWindow");
+        PRProgressFieldObj = BrowserWindow.transform.Find("ControllerGroup/PRDetailedPagePanel/PRProgressField");
     }
 
     void DoActionByActionTypeForNPC()
     {
         Debug.Log("Do action in shortMsg");
-        if (!CommitHistoryWindow)
-        {
-            CommitHistoryWindow = GameObject.Find("CommitHistoryWindow");
-            CommitHisotryWindowNPCActionFsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "NPC Action");
-        }
+        
 
         switch (actionTypeForNPC)
         {
@@ -76,6 +87,10 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
                 DialogueLua.SetVariable("NPCCommitBranch", addCommitBranch);
                 CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("runType").Value = "NPC-Commit";
                 CommitHisotryWindowNPCActionFsm.enabled = true;
+                break;
+            case "MergePullRequest":
+                Debug.LogWarning("did merge action!!!");
+                PRProgressFieldObj.GetComponent<PullRequestProgressField>().ButtonClickActionMergePullRequest(AuthorText.text);
                 break;
             default:
                 //Skip the action

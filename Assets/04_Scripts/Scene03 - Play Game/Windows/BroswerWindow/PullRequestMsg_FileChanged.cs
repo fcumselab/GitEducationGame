@@ -7,6 +7,8 @@ using Sirenix.OdinInspector;
 
 public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
 {
+    #region Variables
+
     [Header("Data")]
     public bool isSolved = false;
 
@@ -36,11 +38,8 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     [SerializeField] GameObject ReplyMsgLocation;
 
     [FoldoutGroup("Children")]
-    [SerializeField] Button ResolvedButton;
-    PlayMakerFSM ResolvedButtonTooltipFsm;
-    [FoldoutGroup("Children")]
     [SerializeField] Button FoldButton;
-    
+
     [Header("Reference")]
     GameObject QuestTracker;
     PlayMakerFSM QuestTrackerFsm;
@@ -49,7 +48,9 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     Transform pRDetailedPagePanel;
     Transform pullRequestProgressField;
 
-    #region MainUpdate Function (Other scripts will call it)
+    #endregion
+
+    #region Main Update Function (Other scripts will call it)
     //When PullRequestDetailedPage Script trigger AddNewMsg function, do this once.
     public void InitializeMsg(string actionType, int currentQuestNum)
     {
@@ -99,51 +100,65 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
 
     #endregion 
 
+    #region Resolve Conversation Button/Function
+
+    [FoldoutGroup("Children")]
+    [SerializeField] Button ResolvedButton;
+    PlayMakerFSM ResolvedButtonTooltipFsm;
 
     public void ResolveConversationAction()
     {
-        int currentQuestNum = QuestTrackerFsm.FsmVariables.GetFsmInt("CurrentQuestNum").Value;
-        int replyMsgListCount = fileChangedTextBox.ReplyMsgList.Count;
-        int allRenderMsgCount = fileChangedTextBox.ReplyMsgList.FindAll((Msg) =>(Msg.isRender == true)).Count;
-
-        //Debug.Log("Count : " + allRenderMsgCount + " = " + ReplyMsgList.Count);
-
-        if (currentQuestNum != fileChangedTextBox.ReplyMsgList[replyMsgListCount - 1].renderQuestNum)
+        if (!isSolved)
         {
-            //Debug.Log("Error Please follow current quest.");
-            ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(FollowQuest)";
-            ResolvedButtonTooltipFsm.enabled = true;
-        }
-        else if (allRenderMsgCount < replyMsgListCount)
-        {
-            //Debug.Log("Error Please Reply first.");
-            ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(ReplyFirst)";
-            ResolvedButtonTooltipFsm.enabled = true;
-        }
-        else if (allRenderMsgCount == replyMsgListCount)
-        {
-            //Debug.Log("Resolve this Conversation");
-            //Success -> fold Msg
-            isSolved = true;
-            FoldButton.gameObject.SetActive(true);
-            MyPlayMakerScriptHelper.GetFsmByName(FoldButton.gameObject, "Button").enabled = true;
+            int currentQuestNum = QuestTrackerFsm.FsmVariables.GetFsmInt("CurrentQuestNum").Value;
+            int replyMsgListCount = fileChangedTextBox.ReplyMsgList.Count;
+            int allRenderMsgCount = fileChangedTextBox.ReplyMsgList.FindAll((Msg) => (Msg.isRender == true)).Count;
 
-            if (!BrowserWindow)
+            if (currentQuestNum != fileChangedTextBox.ReplyMsgList[replyMsgListCount - 1].renderQuestNum)
             {
-                BrowserWindow = GameObject.Find("BrowserWindow");
-                pRDetailedPagePanel = BrowserWindow.transform.Find("ControllerGroup/PRDetailedPagePanel");
-                pullRequestProgressField = pRDetailedPagePanel.transform.Find("PRProgressField");
+                //Debug.Log("Error Please follow current quest.");
+                ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(FollowQuest)";
+                ResolvedButtonTooltipFsm.enabled = true;
             }
+            else if (allRenderMsgCount < replyMsgListCount)
+            {
+                //Debug.Log("Error Please Reply first.");
+                ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(ReplyFirst)";
+                ResolvedButtonTooltipFsm.enabled = true;
+            }
+            else if (allRenderMsgCount == replyMsgListCount)
+            {
+                //Debug.Log("Resolve this Conversation");
+                //Success -> fold Msg
+                isSolved = true;
+                FoldButton.gameObject.SetActive(true);
+                MyPlayMakerScriptHelper.GetFsmByName(FoldButton.gameObject, "Button").enabled = true;
 
-            pullRequestProgressField.GetComponent<PullRequestProgressField>().RemoveChangeRequestItem(gameObject);
+                if (!BrowserWindow)
+                {
+                    BrowserWindow = GameObject.Find("BrowserWindow");
+                    pRDetailedPagePanel = BrowserWindow.transform.Find("ControllerGroup/PRDetailedPagePanel");
+                    pullRequestProgressField = pRDetailedPagePanel.transform.Find("PRProgressField");
+                }
 
-            //Quest Valider Enable
-            RunQuestTracker(ResolvedButton.gameObject, "Button");
+                pullRequestProgressField.GetComponent<PullRequestProgressField>().RemoveChangeRequestItem(gameObject);
 
-            //Loading for updating PR Progress (Show loading animation)
-            pRDetailedPagePanel.GetComponent<PullRequestDetailedPage>().GetActionByButton("Resolve", currentQuestNum, false);
+                ResolvedButton.transform.Find("TextBox/Text").GetComponent<LeanLocalizedText>().TranslationName = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(Unsolve)";
+                //Quest Valider Enable
+                RunQuestTracker(ResolvedButton.gameObject, "Button");
+
+                //Loading for updating PR Progress (Show loading animation)
+                pRDetailedPagePanel.GetComponent<PullRequestDetailedPage>().GetActionByButton("Resolve", currentQuestNum, false);
+            }
+        }
+        else
+        {
+            ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(SolveMsg)";
+            ResolvedButtonTooltipFsm.enabled = true;
         }
     }
+
+    #endregion
 
     #region ReplyButton/InputField Function
 
@@ -171,7 +186,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     {
         int currentQuestNum = QuestTrackerFsm.FsmVariables.GetFsmInt("CurrentQuestNum").Value;
         int foundIndex = fileChangedTextBox.ReplyMsgList.FindIndex((Msg) => (Msg.renderQuestNum == currentQuestNum && Msg.isRender == false && Msg.author == "Common/Player"));
-        
+
         Debug.Log("Fill Result: " + foundIndex);
 
         if (foundIndex != -1)

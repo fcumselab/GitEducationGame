@@ -67,13 +67,13 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
     #region ReviewChangePopup
     [FoldoutGroup("Review Change Popup")]
     [SerializeField] GameObject ReviewChangeInputField;
-    [SerializeField] PlayMakerFSM ReviewChangeInputFieldFsm;
+    PlayMakerFSM ReviewChangeInputFieldFsm;
     [FoldoutGroup("Review Change Popup")]
     [SerializeField] GameObject ReviewChangeButton;
-    [SerializeField] PlayMakerFSM ReviewChangeButtonFsm;
+    PlayMakerFSM ReviewChangeButtonFsm;
     [FoldoutGroup("Review Change Popup")]
     [SerializeField] GameObject SelectionReviewTypeGroup;
-    [SerializeField] PlayMakerFSM SelectionReviewTypeGroupFsm;
+    PlayMakerFSM SelectionReviewTypeGroupFsm;
 
     void InitializeReviewChangePopup()
     {
