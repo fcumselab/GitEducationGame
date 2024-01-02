@@ -175,6 +175,7 @@ public class PullRequestProgressField : SerializedMonoBehaviour
     public void ButtonClickActionMergePullRequest(string authorName)
     {
         Debug.Log("Start Merge...");
+        SwitchToMergeInputField();
         string titleText = PRTitleText.GetComponent<Text>().text;
         string desText = PRContentText.GetComponent<Text>().text;
         string commitMsg = (titleText + "\n" + desText);
@@ -193,21 +194,21 @@ public class PullRequestProgressField : SerializedMonoBehaviour
     #region Progress Update
 
     #region Request Panel
-    [FoldoutGroup("ChangeRequest")]
+    [FoldoutGroup("Request Panel")]
     [SerializeField] GameObject ChangeRequest;
-    [FoldoutGroup("ChangeRequest")]
+    [FoldoutGroup("Request Panel/ChangeRequest")]
     [SerializeField] Transform ChangeRequestItemLocation;
-    [FoldoutGroup("ChangeRequest")]
+    [FoldoutGroup("Request Panel/ChangeRequest")]
     [SerializeField] GameObject ChangeRequestItemPrefab;
-    [FoldoutGroup("ChangeRequest")]
+    [FoldoutGroup("Request Panel/ChangeRequest")]
     [SerializeField] Dictionary<GameObject, PullRequestMsg_FileChanged> ConnectedButtonDict = new();
-    [FoldoutGroup("ApproveRequest")]
+    [FoldoutGroup("Request Panel")]
     [SerializeField] GameObject ApproveRequest;
-    [FoldoutGroup("ApproveRequest")]
+    [FoldoutGroup("Request Panel/ApproveRequest")]
     [SerializeField] Transform ApproveRequestItemLocation;
-    [FoldoutGroup("ApproveRequest")]
+    [FoldoutGroup("Request Panel/ApproveRequest")]
     [SerializeField] GameObject ApproveRequestItemPrefab;
-    [FoldoutGroup("ApproveRequest")]
+    [FoldoutGroup("Request Panel/ApproveRequest")]
     [SerializeField] List<PullRequestMsg_Approve> ApproveList = new();
 
     public void CreateChangeRequestItem(PullRequestMsg_FileChanged newFileChangedMsg)

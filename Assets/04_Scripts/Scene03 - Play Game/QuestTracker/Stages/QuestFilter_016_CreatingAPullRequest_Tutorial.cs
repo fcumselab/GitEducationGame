@@ -23,8 +23,7 @@ public class QuestFilter_016_CreatingAPullRequest_Tutorial : SerializedMonoBehav
         { "branch", new() { 11 } }, //11 delete
         { "push", new() { 8, 11 } }, //8 update 11 delete
         { "pull", new() { 10 } },
-        { "checkout", new() { 7 } },
-        { "commit", new() { 6 } }
+        { "checkout", new() { 7 } }
     };
 
     [Header("status")]
@@ -82,7 +81,7 @@ public class QuestFilter_016_CreatingAPullRequest_Tutorial : SerializedMonoBehav
                                 {
                                     switch (currentQuestNum)
                                     {
-                                        case 10:
+                                        case 11:
                                             return questFilterManager.DetectAction_GitDeleteLocalBranch(splitList[3], "update-readme");
                                         default:
                                             return "Git Commands/common/FollowQuest(Warning)";
@@ -113,8 +112,6 @@ public class QuestFilter_016_CreatingAPullRequest_Tutorial : SerializedMonoBehav
                             default:
                                 return "Git Commands/common/FollowQuest(Warning)";
                         }
-                        return "Continue";
-                    case "commit":
                         return "Continue";
                     case "checkout":
                         Debug.Log("checkout foundIndex: " + foundIndex + "\ncurrentQuestNum: " + currentQuestNum);
