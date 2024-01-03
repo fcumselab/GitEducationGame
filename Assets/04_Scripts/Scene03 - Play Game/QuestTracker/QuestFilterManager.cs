@@ -7,6 +7,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
 {
     [SerializeField] string selectStageName;
     [SerializeField] GameObject QuestTracker;
+    [SerializeField] PlayMakerFSM QuestTrackerFsm;
 
     [Header("Return Value -> for apply token to Quest Filter Checker FSM")]
     public string token = "";
@@ -26,20 +27,38 @@ public class QuestFilterManager : SerializedMonoBehaviour
     public string SenderFSMName;
     public int currentQuestNum;
 
+    //Singleton instantation
+    private static QuestFilterManager instance;
+    public static QuestFilterManager Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<QuestFilterManager>();
+            return instance;
+        }
+    }
+
+    public int GetCurrentQuestNum()
+    {
+        return QuestTrackerFsm.FsmVariables.GetFsmInt("CurrentQuestNum").Value;
+    }
+
+    public void InitializeReference()
+    {
+        FileContentWindow = GameObject.Find("FileContentWindow");
+        StagingAreaWindow = GameObject.Find("StagingAreaWindow");
+        CommitHistoryWindow = GameObject.Find("CommitHistoryWindow");
+        CommandInputField = GameObject.Find("CommandInputField");
+        QuestTracker = transform.Find("Quest Tracker").gameObject;
+        QuestTrackerFsm = MyPlayMakerScriptHelper.GetFsmByName(QuestTracker, "Quest Tracker");
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Loading Quest Tracker");
+        selectStageName = fsm.FsmVariables.GetFsmString("selectStageName").Value;
+    }
+
     public string StartQuestFilter()
     {
         string runResult = "";
-        if (!QuestTracker)
-        {
-            FileContentWindow = GameObject.Find("FileContentWindow");
-            StagingAreaWindow = GameObject.Find("StagingAreaWindow");
-            CommitHistoryWindow = GameObject.Find("CommitHistoryWindow");
-            CommandInputField = GameObject.Find("CommandInputField");
-            QuestTracker = transform.Find("Quest Tracker").gameObject;
-            PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Loading Quest Tracker");
-            selectStageName = fsm.FsmVariables.GetFsmString("selectStageName").Value;
-        }
-
+      
         switch (selectStageName)
         {
             case "Game Introduction (Tutorial)":
@@ -88,7 +107,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
 	            runResult = QuestTracker.GetComponent<QuestFilter_016_CreatingAPullRequest_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Review and Merge Pull Requests (Tutorial)":
-                //runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                runResult = QuestTracker.GetComponent<QuestFilter_017_ReviewAndMergePullRequests_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             default:
                 Debug.Log("Cannot found target Quest Tracker Object !\n" + selectStageName);
@@ -97,6 +116,8 @@ public class QuestFilterManager : SerializedMonoBehaviour
         Debug.Log("Result : " + runResult);
         return runResult;
     }
+
+    #region File Action Filter
 
     public void DetectAction_Files(GameObject Sender)
     {
@@ -204,6 +225,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
             return "FileContentWindow/DeleteButtonSelection/Wrong FileName";
         }
     }
+
     public string DetectAction_AddContentFile(string wantedFileName, string wantedBranchName = "")
     {
         PlayMakerFSM fsm;
@@ -235,6 +257,10 @@ public class QuestFilterManager : SerializedMonoBehaviour
 
         return (currentFileName == wantedFileName) ? "Continue" : "FileContentWindow/AddButtonSelection/Wrong FileName";
     }
+
+    #endregion
+
+    #region Git Commands Filter
 
     public string DetectAction_GitInit(string wantedFolderLocation)
     {
@@ -362,7 +388,6 @@ public class QuestFilterManager : SerializedMonoBehaviour
         }
     }
     
-
     public string DetectAction_GitCreateLocalBranch(string playerTargetBranchName, string wantedCreateLocation, string wantedCreateBranchName)
     {
 
@@ -480,4 +505,6 @@ public class QuestFilterManager : SerializedMonoBehaviour
 
         return (currentBranchName != wantedBranchName && playerTargetBranchName == currentBranchName) ? "Git Commands/git pull/WrongTargetBranch(Warning)" : "Continue";
     }
+
+    #endregion
 }

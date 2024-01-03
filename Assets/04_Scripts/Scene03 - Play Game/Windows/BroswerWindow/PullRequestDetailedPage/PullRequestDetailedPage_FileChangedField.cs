@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Localization;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
 
@@ -15,13 +16,16 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
     Transform RepoQuestData;
     Transform RepoQuest_FilesChangedField;
     Transform RepoQuest_ConversationField;
+    [SerializeField] PullRequestDetailedPage PullRequestDetailedPageScript;
 
     public void InitializeField()
     {
+        Debug.Log("InitializeField: PullRequestDetailedPage_FileChangedField");
         StageManager = GameObject.Find("Stage Manager").transform;
         RepoQuestData = StageManager.Find("DefaultData/RepoQuestData");
         RepoQuest_FilesChangedField = RepoQuestData.Find("FilesChangedField");
         RepoQuest_ConversationField = RepoQuestData.Find("ConversationField");
+        PullRequestDetailedPageScript = GetComponent<PullRequestDetailedPage>();
         InitializeReviewChangePopup();
     }
 
@@ -67,12 +71,21 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
     #region ReviewChangePopup
     [FoldoutGroup("Review Change Popup")]
     [SerializeField] GameObject ReviewChangeInputField;
+    LeanLocalizedText ReviewChangeInputFieldText;
     PlayMakerFSM ReviewChangeInputFieldFsm;
+
     [FoldoutGroup("Review Change Popup")]
     [SerializeField] GameObject ReviewChangeButton;
+    MouseTooltipTrigger ReviewChangeButtonTooltip;
+    [FoldoutGroup("Review Change Popup")]
+    [SerializeField] Button ReviewChangeAutoFillButton;
+    [FoldoutGroup("Review Change Popup")]
+    [SerializeField] string autoFillText;
     PlayMakerFSM ReviewChangeButtonFsm;
     [FoldoutGroup("Review Change Popup")]
     [SerializeField] GameObject SelectionReviewTypeGroup;
+    [FoldoutGroup("Review Change Popup")]
+    [SerializeField] List<GameObject> SelectionReviewTypeButtonList = new();
     PlayMakerFSM SelectionReviewTypeGroupFsm;
 
     void InitializeReviewChangePopup()
@@ -80,7 +93,67 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
         ReviewChangeInputFieldFsm = MyPlayMakerScriptHelper.GetFsmByName(ReviewChangeInputField, "Update Content");
         ReviewChangeButtonFsm = MyPlayMakerScriptHelper.GetFsmByName(ReviewChangeButton, "Button Controller");
         SelectionReviewTypeGroupFsm = MyPlayMakerScriptHelper.GetFsmByName(SelectionReviewTypeGroup, "Update Button");
+        ReviewChangeAutoFillButton.onClick.AddListener(() => ButtonClickActionAutoFillText());
+        ReviewChangeButton.GetComponent<Button>().onClick.AddListener(() => ButtonClickActionSubmitReview());
+        ReviewChangeInputFieldText = ReviewChangeInputField.transform.Find("Panel/CommentText").GetComponent<LeanLocalizedText>();
     }
+
+    #region Button Action
+    void ButtonClickActionAutoFillText()
+    {
+        Debug.Log("Click auto fill text...");
+        ReviewChangeInputFieldText.TranslationName = autoFillText;
+    }
+
+    void ButtonClickActionSubmitReview()
+    {
+        if (!ReviewChangeButtonTooltip) { ReviewChangeButtonTooltip = ReviewChangeButton.GetComponent<MouseTooltipTrigger>(); }
+        Debug.Log("Submit review: ");
+        //check text
+        if(ReviewChangeInputFieldText.GetComponent<Text>().text == "")
+        {
+            ReviewChangeButtonTooltip.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ReviewChangePopup/Warning(Review)", true);
+            return;
+        }
+
+        //check type
+        GameObject SelectBtn = SelectionReviewTypeButtonList.Find((Btn) => Btn.activeSelf == true);
+        //Comment, Approve, RequestChanges
+        string buttonType = SelectBtn.name.Split('_')[1];
+        Transform firstMsg = RepoQuest_ConversationField.GetChild(0);
+        int currentQuestNum = QuestFilterManager.Instance.GetCurrentQuestNum();
+        
+        switch (firstMsg.tag)
+        {
+            case "PRDetailedMsg/Approve":
+                if(buttonType == "Approve")
+                {
+                    PullRequestDetailedPageScript.GetActionByButton("ReviewChange(Approve)", currentQuestNum);
+                }
+                else
+                {
+                    ReviewChangeButtonTooltip.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ReviewChangePopup/Warning(Type)", true);
+                    return;
+                }
+                break;
+            case "PRDetailedMsg/FileChanged":
+                if (buttonType == "RequestChanges")
+                {
+                    PullRequestDetailedPageScript.GetActionByButton("ReviewChange(FileChange)", currentQuestNum);
+                }
+                else
+                {
+                    ReviewChangeButtonTooltip.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ReviewChangePopup/Warning(Type)", true);
+                    return;
+                }
+                break;
+            default:
+                ReviewChangeButtonTooltip.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ReviewChangePopup/Warning(Type)", true);
+                return;
+        }
+    }
+
+    #endregion
 
     public void UpdateReviewChangePopup()
     {
@@ -97,7 +170,9 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
                     if(approveMsg.ValidAllowPlayerReviewThisMsg("ReviewChange(Approve)", "Common/Player"))
                     {
                         Debug.Log("ApproveMsg Ok");
+                        autoFillText = approveMsg.reviewText;
                         canClick = true;
+                        
                     }
                     break;
                 case "PRDetailedMsg/FileChanged":
@@ -105,6 +180,7 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
                     if (fileChangedMsg.ValidAllowPlayerReviewThisMsg("ReviewChange(FileChange)", "Common/Player"))
                     {
                         Debug.Log("fileChangedMsg Ok");
+                        autoFillText = fileChangedMsg.commitMsg;
                         canClick = true;
                     }
                     break;
@@ -115,6 +191,7 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
         }
         if (!canClick)
         {
+            autoFillText = "";
             Debug.Log("Disable Review Button");
         }
         ReviewChangeInputFieldFsm.FsmVariables.GetFsmBool("canClick").Value = canClick;
