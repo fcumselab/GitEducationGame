@@ -33,7 +33,6 @@ public class PullRequestMsg_Approve : SerializedMonoBehaviour
 
     public void InitializeMsg(string actionType, int currentQuestNum)
     {
-        Debug.Log("InitializeMsg Approve Msg");
         //Initial Main Text
         AuthorText.GetComponent<LeanLocalizedText>().TranslationName = authorName;
         ReviewText.GetComponent<LeanLocalizedText>().TranslationName = reviewText;
@@ -44,7 +43,6 @@ public class PullRequestMsg_Approve : SerializedMonoBehaviour
 
     void AddApproveItemInPRProgressField()
     {
-        Debug.Log("Add ApproveItem In PRProgressField");
         if (!BrowserWindow)
         {
             BrowserWindow = GameObject.Find("BrowserWindow");

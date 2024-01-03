@@ -27,7 +27,7 @@ public class PullRequestDetailedPage_CommitsField : SerializedMonoBehaviour
 
     string baseBranchName;
     string compareBranchName;
-    
+
 
     public void SetPRTargetBranches(string[] branchList)
     {
@@ -50,9 +50,8 @@ public class PullRequestDetailedPage_CommitsField : SerializedMonoBehaviour
     {
         string[] resultList = BaseBranch.GetComponent<BranchTool>().CompareTwoCommitList(BaseBranch, CompareBranch);
 
-        Debug.Log("UpdateCommitsField");
-
-        if (resultList.Length != ExistCommitsList.Count) {
+        if (resultList.Length != ExistCommitsList.Count)
+        {
             for (int i = 0; i < resultList.Length; i++)
             {
                 if (ExistCommitsList.Count - 1 < i)
@@ -74,7 +73,6 @@ public class PullRequestDetailedPage_CommitsField : SerializedMonoBehaviour
                     text.text = Fsm.FsmVariables.GetFsmString("commitTime").Value;
 
                     ExistCommitsList.Add(cloneObj);
-                    Debug.Log("Add new Commit");
                 }
                 else
                 {

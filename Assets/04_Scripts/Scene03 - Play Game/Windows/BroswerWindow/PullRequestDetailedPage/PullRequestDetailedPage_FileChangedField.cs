@@ -17,10 +17,10 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
     Transform RepoQuest_FilesChangedField;
     Transform RepoQuest_ConversationField;
     [SerializeField] PullRequestDetailedPage PullRequestDetailedPageScript;
+    FileChangedTextBoxGroup CurrentTextBoxGroup;
 
     public void InitializeField()
     {
-        Debug.Log("InitializeField: PullRequestDetailedPage_FileChangedField");
         StageManager = GameObject.Find("Stage Manager").transform;
         RepoQuestData = StageManager.Find("DefaultData/RepoQuestData");
         RepoQuest_FilesChangedField = RepoQuestData.Find("FilesChangedField");
@@ -29,39 +29,37 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
         InitializeReviewChangePopup();
     }
 
-    public void UpdateFileChangedField(string actionType, int currentQuestNum) {
-        
-        Debug.Log("File Changed data: " + actionType + " num: " + currentQuestNum);
+    public void UpdateFileChangedField(string actionType, int currentQuestNum)
+    {
+
         if (RepoQuest_FilesChangedField.childCount > 0)
         {
             FileChangedTextBoxGroup TextBox = RepoQuest_FilesChangedField.GetChild(0).GetComponent<FileChangedTextBoxGroup>();
             if (TextBox.ValidNeedRender(actionType, currentQuestNum))
             {
-                if(FileChangedTextBoxLocation.childCount != 0)
+                if (FileChangedTextBoxLocation.childCount != 0)
                 {
-                    Debug.Log("Delete Old TextBox");
                     Transform LastTextBox = FileChangedTextBoxLocation.transform.GetChild(0);
                     Destroy(LastTextBox.gameObject);
                 }
-                //Debug.Log("A new TextBox");
-                    
+
                 TextBox.transform.SetParent(FileChangedTextBoxLocation.transform);
                 TextBox.transform.localScale = new(1, 1, 1);
                 TextBox.gameObject.SetActive(true);
                 TextBox.InitializeContent();
-
+                CurrentTextBoxGroup = TextBox;
                 //Commits Field Button Switcher NumText
                 FieldSelectionNumText.text = $"{TextBox.GetTextBoxCount()}";
             }
             else
             {
-                //Debug.Log("Found TextBox but not the right one");
+                //Found TextBox but not the right one
                 return;
             }
         }
         else
         {
-            //Debug.Log("All finish!");
+            //All finish!
             return;
         }
 
@@ -101,16 +99,19 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
     #region Button Action
     void ButtonClickActionAutoFillText()
     {
-        Debug.Log("Click auto fill text...");
         ReviewChangeInputFieldText.TranslationName = autoFillText;
     }
 
     void ButtonClickActionSubmitReview()
     {
         if (!ReviewChangeButtonTooltip) { ReviewChangeButtonTooltip = ReviewChangeButton.GetComponent<MouseTooltipTrigger>(); }
-        Debug.Log("Submit review: ");
-        //check text
-        if(ReviewChangeInputFieldText.GetComponent<Text>().text == "")
+
+        if (!CurrentTextBoxGroup.CheckAllPendingReplyMsgActive()) //check file change
+        {
+            ReviewChangeButtonTooltip.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ReviewChangePopup/Warning(Msg)", true);
+            return;
+        }
+        else if (ReviewChangeInputFieldText.GetComponent<Text>().text == "") //check text
         {
             ReviewChangeButtonTooltip.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ReviewChangePopup/Warning(Review)", true);
             return;
@@ -122,11 +123,11 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
         string buttonType = SelectBtn.name.Split('_')[1];
         Transform firstMsg = RepoQuest_ConversationField.GetChild(0);
         int currentQuestNum = QuestFilterManager.Instance.GetCurrentQuestNum();
-        
+
         switch (firstMsg.tag)
         {
             case "PRDetailedMsg/Approve":
-                if(buttonType == "Approve")
+                if (buttonType == "Approve")
                 {
                     PullRequestDetailedPageScript.GetActionByButton("ReviewChange(Approve)", currentQuestNum);
                 }
@@ -151,35 +152,34 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
                 ReviewChangeButtonTooltip.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ReviewChangePopup/Warning(Type)", true);
                 return;
         }
+
+        //Success will do this
+        ReviewChangeInputFieldText.TranslationName = "";
+        QuestFilterManager.Instance.RunQuestValider(ReviewChangeButton, "Button");
     }
 
     #endregion
 
     public void UpdateReviewChangePopup()
     {
-        Debug.Log("UpdateReviewChangePopup...");
-
         bool canClick = false;
-        if(RepoQuest_ConversationField.transform.childCount != 0)
+        if (RepoQuest_ConversationField.transform.childCount != 0)
         {
             Transform firstMsg = RepoQuest_ConversationField.GetChild(0);
             switch (firstMsg.tag)
             {
                 case "PRDetailedMsg/Approve":
                     PullRequestMsg_Approve approveMsg = firstMsg.GetComponent<PullRequestMsg_Approve>();
-                    if(approveMsg.ValidAllowPlayerReviewThisMsg("ReviewChange(Approve)", "Common/Player"))
+                    if (approveMsg.ValidAllowPlayerReviewThisMsg("ReviewChange(Approve)", "Common/Player"))
                     {
-                        Debug.Log("ApproveMsg Ok");
                         autoFillText = approveMsg.reviewText;
                         canClick = true;
-                        
                     }
                     break;
                 case "PRDetailedMsg/FileChanged":
                     PullRequestMsg_FileChanged fileChangedMsg = firstMsg.GetComponent<PullRequestMsg_FileChanged>();
                     if (fileChangedMsg.ValidAllowPlayerReviewThisMsg("ReviewChange(FileChange)", "Common/Player"))
                     {
-                        Debug.Log("fileChangedMsg Ok");
                         autoFillText = fileChangedMsg.commitMsg;
                         canClick = true;
                     }
@@ -192,7 +192,7 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
         if (!canClick)
         {
             autoFillText = "";
-            Debug.Log("Disable Review Button");
+            //Disable Review Button"
         }
         ReviewChangeInputFieldFsm.FsmVariables.GetFsmBool("canClick").Value = canClick;
         ReviewChangeInputFieldFsm.enabled = true;

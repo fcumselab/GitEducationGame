@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
+using Lean.Localization;
 
 
 public class ReviewerListPanel : SerializedMonoBehaviour
@@ -44,9 +45,6 @@ public class ReviewerListPanel : SerializedMonoBehaviour
 	//Every time click the reviewer button
 	public void UpdateSelectionPopupList()
     {
-		Debug.Log("UpdateSelectionPopupList");
-
-
 		for (int i = 0; i < SelectReviewerGroup.transform.childCount; i++)
 		{
 			SelectReviewerGroup.transform.GetChild(i).gameObject.SetActive(false);
@@ -57,8 +55,8 @@ public class ReviewerListPanel : SerializedMonoBehaviour
 			Transform ReviewerItem = SelectReviewerGroup.transform.GetChild(i);
 			ReviewerItem.gameObject.SetActive(true);
 
-			Text text = ReviewerItem.Find("NameText").GetComponent<Text>();
-			text.text = RepoQuestFsm.FsmVariables.GetFsmArray("ReviewerNameList").Get(i).ToString();
+			LeanLocalizedText text = ReviewerItem.Find("NameText").GetComponent<LeanLocalizedText>();
+			text.TranslationName = RepoQuestFsm.FsmVariables.GetFsmArray("ReviewerNameList").Get(i).ToString();
 			GameObject Icon = ReviewerItem.Find("IconPanel").gameObject;
 			bool setActive = (RepoQuestFsm.FsmVariables.GetFsmArray("ReviewerShowList").Get(i).ToString() == "True");
 			
@@ -93,8 +91,8 @@ public class ReviewerListPanel : SerializedMonoBehaviour
 				if (this.RepoQuestFsm.FsmVariables.GetFsmArray("ReviewerShowList").Get(i).ToString() == "True")
 				{
 					Transform Msg = ExistReviewerGroup.transform.GetChild(reviewIndex);
-					Text text = Msg.Find("ReviewerNameText").GetComponent<Text>();
-					text.text = this.RepoQuestFsm.FsmVariables.GetFsmArray("ReviewerNameList").Get(i).ToString();
+					LeanLocalizedText text = Msg.Find("ReviewerNameText").GetComponent<LeanLocalizedText>();
+					text.TranslationName = this.RepoQuestFsm.FsmVariables.GetFsmArray("ReviewerNameList").Get(i).ToString();
 					Msg.gameObject.SetActive(true);
 					reviewIndex++;
 				}

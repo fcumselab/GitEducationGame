@@ -10,8 +10,6 @@ public class MouseTooltipManager : SerializedMonoBehaviour
 {
     
     [SerializeField] RectTransform GameScreenRectTransform;
-    
-
 
     [SerializeField] float alphaTime = 0.15f;
     [SerializeField] bool isActivate = false;

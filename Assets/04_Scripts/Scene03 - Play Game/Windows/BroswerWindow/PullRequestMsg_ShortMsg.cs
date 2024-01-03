@@ -49,7 +49,6 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
 
     public void InitializeMsg(string actionType, int currentQuestNum)
     {
-        Debug.Log("InitializeMsg Short Msg");
         GetReferenceValues();
 
         //Initial Main Text
@@ -78,18 +77,17 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
 
     void DoActionByActionTypeForNPC()
     {
-        Debug.Log("Do action in shortMsg");
-        
-
         switch (actionTypeForNPC)
         {
             case "Push":
                 DialogueLua.SetVariable("NPCCommitBranch", addCommitBranch);
                 CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("runType").Value = "NPC-Commit";
                 CommitHisotryWindowNPCActionFsm.enabled = true;
+                int msgIndex = transform.GetSiblingIndex();
+                PullRequestMsg_FileChanged LastFileChangedMsg = transform.parent.GetChild(msgIndex - 1).GetComponent<PullRequestMsg_FileChanged>();
+                LastFileChangedMsg.ResolveConversationAction(); 
                 break;
             case "MergePullRequest":
-                Debug.LogWarning("did merge action!!!");
                 PRProgressFieldObj.GetComponent<PullRequestProgressField>().ButtonClickActionMergePullRequest(AuthorText.text);
                 break;
             default:

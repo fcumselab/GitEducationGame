@@ -86,8 +86,9 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 
 	public void UpdatePullRequestPage(string actionType, int currentQuestNum)
 	{
-		conversationField.AddNewMsg(actionType, currentQuestNum);
 		conversationField.UpdateFileChangedMsg(actionType, currentQuestNum);
+
+		conversationField.AddNewMsg(actionType, currentQuestNum);
 		conversationField.UpdatePRProgressField();
 
 		commitsField.UpdateCommitsField();
@@ -127,7 +128,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		RefreshPageButton.interactable = true;
 	}
 
-	public IEnumerator WaitForMergePullRequestFinish(PlayMakerFSM CommitHisotryWindowNPCActionFsm)
+	public IEnumerator WaitForMergePullRequestFinish(GameObject MergePRActionButton, PlayMakerFSM CommitHisotryWindowNPCActionFsm)
 	{
 		isLoading = true;
 		startTime = DateTime.Now;
@@ -153,6 +154,8 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		WebsiteLoadingPanel.SetActive(false);
 		BrowserURLFsm.FsmVariables.GetFsmGameObject("OpenPage").Value = PRListPageObj;
 		BrowserURLFsm.enabled = true;
+
+		QuestFilterManager.Instance.RunQuestValider(MergePRActionButton, "Button");
 	}
 	#endregion
 }

@@ -15,18 +15,16 @@ public class MouseTooltipTrigger : SerializedMonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Enter");
-
+        //Debug.Log("Enter");
         if (triggerMode == TriggerMode.Hover || triggerMode == TriggerMode.HoverWithClick)
         {
-            // 显示Tooltip
             MouseTooltipManager.Instance.ShowTooltip(tooltipText, isI18nKey);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Leave");
+        //Debug.Log("Leave");
         MouseTooltipManager.Instance.HideTooltip();
     }
 

@@ -20,9 +20,12 @@ public class FileChangedTextBoxGroup : SerializedMonoBehaviour
     [FoldoutGroup("File Changed TextBox")]
     [SerializeField] List<PullRequestDetailed_FileChangedTextBox> fileChangedTextBoxList = new();
 
-    #endregion
+	[FoldoutGroup("Output")]
+	List<GameObject> PendingReplyMsgList = new();
 
-    public bool ValidNeedRender(string actionType, int currentQuestNum)
+	#endregion
+
+	public bool ValidNeedRender(string actionType, int currentQuestNum)
     {
         return (renderQuestNum == currentQuestNum && actionType == renderActionType);
     }
@@ -30,7 +33,6 @@ public class FileChangedTextBoxGroup : SerializedMonoBehaviour
     //ValidNeedRender is true, render once.
     public void InitializeContent()
     {
-		Debug.Log("Initialize TextBox Content...");
         foreach(var TextBox in fileChangedTextBoxList)
         {
             GameObject newTextBox = Instantiate(fileChangedTextBoxPrefab);
@@ -40,13 +42,21 @@ public class FileChangedTextBoxGroup : SerializedMonoBehaviour
 
             GameObject TitleText = newTextBox.transform.Find("NamePanel/Text").gameObject;
             GameObject CreateLocation = newTextBox.transform.Find("TextBox").gameObject;
-            TextBox.InitializeMsg("FileChangedField", TitleText, CreateLocation);
+			GameObject PendingReplyMsg = TextBox.InitializeMsg("FileChangedField", TitleText, CreateLocation);
+			PendingReplyMsgList.Add(PendingReplyMsg);
         }
     }
 
 	public int GetTextBoxCount()
     {
 		return fileChangedTextBoxList.Count;
+	}
+
+	public bool CheckAllPendingReplyMsgActive()
+    {
+		int foundIndex = PendingReplyMsgList.FindIndex((item) => item.activeSelf == false);
+		//Not found = true
+		return (foundIndex == -1);
 	}
 }
 
@@ -70,10 +80,9 @@ public class PullRequestDetailed_FileChangedTextBox
 
 	GameObject TextBoxLocation;
 	//generateType -> CoversationField/FileChangedField
-	public void InitializeMsg(string generateType, GameObject TitleText, GameObject CloneLocation)
+	public GameObject InitializeMsg(string generateType, GameObject TitleText, GameObject CloneLocation)
 	{
 		TextBoxLocation = CloneLocation;
-		Debug.Log("PullRequestDetailed_FileChangedTextBox InitializeMsg...");
 		bool openScript = false;
 		switch (generateType)
 		{
@@ -142,19 +151,22 @@ public class PullRequestDetailed_FileChangedTextBox
 			if (openScript)
             {
 				button.onClick.AddListener(() => ClickFileChangedTextBoxItem(currentObj));
-            }
+			}
 		}
 
 		
 		if (generateType == "FileChangedField" && ReplyMsgList.Count != 0)
         {
-			ReplyMsgList[0].InitializeReplyPendingMsg(PrefabReply, CloneLocation);
-		}
+			return ReplyMsgList[0].InitializeReplyPendingMsg(PrefabReply, CloneLocation);
+        }
+		else //If type is CoversationField
+		{
+			return null;
+        }
 	}
 
 	public void ClickFileChangedTextBoxItem(GameObject ClickedItem)
 	{
-		Debug.Log("Click Button");
 		PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(ClickedItem, "Tooltip");
 
 		int clickIndex = ClickedItem.transform.GetSiblingIndex();
@@ -246,9 +258,8 @@ public class FileContentTextBox_Reply
 		isRender = true;
 	}
 
-	public void InitializeReplyPendingMsg(GameObject prefab, GameObject ReplyMsgLocation)
+	public GameObject InitializeReplyPendingMsg(GameObject prefab, GameObject ReplyMsgLocation)
     {
-		Debug.Log("InitializeReplyPendingMsg...");
 		GameObject CloneObj = UnityEngine.Object.Instantiate(prefab);
 		CloneObj.transform.SetParent(ReplyMsgLocation.transform);
 		CloneObj.transform.localScale = new(1, 1, 1);
@@ -279,6 +290,7 @@ public class FileContentTextBox_Reply
         }
 
 		CloneObj.transform.SetSiblingIndex(renderQuestNum);
+		return CloneObj;
 	}
 }
 

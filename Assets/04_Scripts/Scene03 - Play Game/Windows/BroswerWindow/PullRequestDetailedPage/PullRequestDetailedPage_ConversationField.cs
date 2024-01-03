@@ -63,7 +63,6 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
 
     public void MoveToTargetFileChangedMsg(PullRequestMsg_FileChanged targetMsg)
     {
-        Debug.Log("Action : MoveToTargetFileChangedMsg");
         RectTransform targetRect = targetMsg.GetComponent<RectTransform>();
         ScrollRect scrollRect = BrowserWindowScrollView.GetComponent<ScrollRect>();
         RectTransform contentPanelRect = BrowserWindowContentPanel.GetComponent<RectTransform>();
@@ -72,25 +71,21 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
         contentPanelRect.anchoredPosition =
                 (Vector2)scrollRect.transform.InverseTransformPoint(contentPanelRect.position)
                 - (Vector2)scrollRect.transform.InverseTransformPoint(targetRect.position);
-
     }
 
     public void AddNewMsg(string actionType, int currentQuestNum)
     {
         while (true)
         {
-            Debug.Log("addNewMsg data: " + actionType + " num: " + currentQuestNum);
             if (RepoQuest_ConversationField.childCount > 0)
             {
                 Transform Msg = RepoQuest_ConversationField.GetChild(0);
                 switch (Msg.tag)
                 {
                     case "PRDetailedMsg/Approve":
-                        //Debug.Log("Found Approve but not the right one");
                         PullRequestMsg_Approve approveMsg = Msg.GetComponent<PullRequestMsg_Approve>();
                         if (approveMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
                         {
-                            Debug.Log("A new Approve Msg");
                             Msg.SetParent(TextMessageGroup_Conversation.transform);
                             Msg.transform.localScale = new(1, 1, 1);
                             Msg.gameObject.SetActive(true);
@@ -99,14 +94,12 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
                         }
                         else
                         {
-                           Debug.Log("Found Approve but not the right one");
                             return;
                         }
                     case "PRDetailedMsg/FileChanged":
                         PullRequestMsg_FileChanged fileChangedMsg = Msg.GetComponent<PullRequestMsg_FileChanged>();
                         if (fileChangedMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
                         {
-                            //Debug.Log("A new FileChange Msg");
                             PRProgressFieldScript.CreateChangeRequestItem(fileChangedMsg);
                             Msg.SetParent(TextMessageGroup_Conversation.transform);
                             Msg.transform.localScale = new(1, 1, 1);
@@ -116,14 +109,12 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
                         }
                         else
                         {
-                           Debug.Log("Found FileChange but not the right one");
                             return;
                         }
                     case "PRDetailedMsg/ShortMsg":
                         PullRequestMsg_ShortMsg shortMsg = Msg.GetComponent<PullRequestMsg_ShortMsg>();
                         if (shortMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
                         {
-                            //Debug.Log("A new FileChange Msg");
                             Msg.SetParent(TextMessageGroup_Conversation.transform);
                             Msg.transform.localScale = new(1, 1, 1);
                             Msg.gameObject.SetActive(true);
@@ -132,14 +123,12 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("Found ShortMsg but not the right one");
                             return;
                         }
                 }
             }
             else
             {
-               // Debug.Log("All finish!");
                 return;
             }
         }
@@ -147,10 +136,8 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
 
     public void UpdateFileChangedMsg(string actionType, int currentQuestNum)
     {
-        Debug.Log("UpdateFileChangedMsg");
         foreach (var script in ExistFileChangedMsgList)
         {
-            Debug.Log("Found One Exist Msg");
             script.UpdateReplyMsg(actionType, currentQuestNum);
         }
 

@@ -8,6 +8,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
     [SerializeField] string selectStageName;
     [SerializeField] GameObject QuestTracker;
     [SerializeField] PlayMakerFSM QuestTrackerFsm;
+    [SerializeField] PlayMakerFSM QuestValiderFsm;
 
     [Header("Return Value -> for apply token to Quest Filter Checker FSM")]
     public string token = "";
@@ -51,6 +52,8 @@ public class QuestFilterManager : SerializedMonoBehaviour
         CommandInputField = GameObject.Find("CommandInputField");
         QuestTracker = transform.Find("Quest Tracker").gameObject;
         QuestTrackerFsm = MyPlayMakerScriptHelper.GetFsmByName(QuestTracker, "Quest Tracker");
+        QuestValiderFsm = MyPlayMakerScriptHelper.GetFsmByName(QuestTracker, "Quest Valider");
+
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Loading Quest Tracker");
         selectStageName = fsm.FsmVariables.GetFsmString("selectStageName").Value;
     }
@@ -115,6 +118,14 @@ public class QuestFilterManager : SerializedMonoBehaviour
         }
         Debug.Log("Result : " + runResult);
         return runResult;
+    }
+
+    public void RunQuestValider(GameObject Sender, string senderFsmName)
+    {
+        Debug.Log("Run Valider...");
+        QuestValiderFsm.FsmVariables.GetFsmGameObject("Sender").Value = Sender;
+        QuestValiderFsm.FsmVariables.GetFsmString("senderName").Value = senderFsmName;
+        QuestValiderFsm.enabled = true;
     }
 
     #region File Action Filter

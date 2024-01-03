@@ -153,7 +153,6 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
     public void ButtonClickActionMoveToTargetMsg(GameObject ClickButton)
     {
-        Debug.Log("Click Action Move");
         PullRequestMsg_FileChanged connectedMsg = ConnectedButtonDict[ClickButton];
         pullRequestDetailedPage_ConversationField.MoveToTargetFileChangedMsg(connectedMsg);
     }
@@ -166,15 +165,12 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
     public void SwitchToMergeInputField()
     {
-        Debug.Log("Switch Merge...");
-
         PRProgressTextBox.SetActive(false);
         MergePRInputField.SetActive(true);
     }
 
     public void ButtonClickActionMergePullRequest(string authorName)
     {
-        Debug.Log("Start Merge...");
         SwitchToMergeInputField();
         string titleText = PRTitleText.GetComponent<Text>().text;
         string desText = PRContentText.GetComponent<Text>().text;
@@ -185,8 +181,7 @@ public class PullRequestProgressField : SerializedMonoBehaviour
         CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("runType").Value = "PRMerge";
         CommitHisotryWindowNPCActionFsm.enabled = true;
 
-        StartCoroutine(pullRequestDetailedPage.WaitForMergePullRequestFinish(CommitHisotryWindowNPCActionFsm));
-
+        StartCoroutine(pullRequestDetailedPage.WaitForMergePullRequestFinish(MergePRActionButton, CommitHisotryWindowNPCActionFsm));
     }
 
     #endregion
@@ -213,7 +208,6 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
     public void CreateChangeRequestItem(PullRequestMsg_FileChanged newFileChangedMsg)
     {
-        Debug.Log("New ChangeRequest created");
         GameObject newItem = Instantiate(ChangeRequestItemPrefab);
         newItem.name = "ChangeRequestItem";
         newItem.transform.SetParent(ChangeRequestItemLocation);
@@ -246,8 +240,6 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
     public void CreateApproveItem(GameObject newApproveMsg)
     {
-        Debug.Log("New CreateApproveItem created");
-
         PullRequestMsg_Approve script = newApproveMsg.GetComponent<PullRequestMsg_Approve>();
 
         GameObject newItem = Instantiate(ApproveRequestItemPrefab);
