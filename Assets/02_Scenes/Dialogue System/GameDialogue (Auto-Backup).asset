@@ -91,7 +91,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Description
       value: 
       type: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
     - title: Initial Value
       value: none
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Description
       value: Record player decision
       type: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Description
       value: Show image according to the key.
       type: 0
@@ -133,9 +133,23 @@ MonoBehaviour:
     - title: Initial Value
       value: none
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Description
       value: Function which triggers Toolbar
+      type: 0
+      typeString: 
+  - id: 7
+    fields:
+    - title: Name
+      value: playerDecision
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: none
+      type: 0
+      typeString: 
+    - title: Description
+      value: Three button to add content (get)
       type: 0
       typeString: 
   - id: 8
@@ -145,7 +159,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: False
+      value: FALSE
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -161,7 +175,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Description
       value: use to identify different path
       type: 0
@@ -173,7 +187,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: False
+      value: FALSE
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -189,7 +203,7 @@ MonoBehaviour:
     - title: Initial Value
       value: (category ) / (list name) / (unlockProgress)
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Description
       value: Unlock GameManualWindow List
       type: 0
@@ -201,7 +215,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: True
+      value: TRUE
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -245,7 +259,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Description
       value: Control highlight panel spot
       type: 0
@@ -259,25 +273,11 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Description
       value: Will update by last dialog
       type: 0
       typeString: 
-  - id: 17
-    fields:
-    - title: Name
-      value: CurrentQuestNum
-      type: 0
-      typeString: CustomFieldType_Text
-    - title: Initial Value
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Description
-      value: 
-      type: 0
-      typeString: CustomFieldType_Text
   conversations:
   - id: 12
     fields:
@@ -382,18 +382,17 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 353.5677
-        y: 63.11505
+        y: 64.43085
         width: 160
         height: 30
     - id: 1
@@ -458,14 +457,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: Testing(444, "555")
+      userScript: ShowImage("group")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 349.4795
-        y: 138.54811
+        x: 348.25998
+        y: 141.22191
         width: 160
         height: 30
     - id: 2
@@ -528,14 +527,17 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Variable["UnlockKey"] = "C/git init/1"
+
+        FSMEvent("GameManualWindow/Unlock
+        List", "GameManualWindow", "UnlockMessage");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 349.4795
-        y: 195.9471
+        y: 194.72758
         width: 160
         height: 30
     - id: 3
@@ -602,7 +604,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("happyFace")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2103,7 +2105,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 598.4159
-        y: 584.3506
+        y: 583.0348
         width: 160
         height: 30
     - id: 25
@@ -2167,6 +2169,12 @@ MonoBehaviour:
         destinationDialogueID: 26
         isConnector: 0
         priority: 2
+      - originConversationID: 12
+        originDialogueID: 25
+        destinationConversationID: 12
+        destinationDialogueID: 26
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -2178,9 +2186,70 @@ MonoBehaviour:
         y: 633.0348
         width: 160
         height: 30
+    - id: 26
+      fields:
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Menu Text
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: Continue()
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: en
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: zh
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: ResetAllTutorialObj()
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 598.3696
+        y: 726.9372
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.76000017
+    canvasScrollPosition: {x: 35.518494, y: 71.38181}
+    canvasZoom: 0.7300002
   - id: 13
     fields:
     - title: Title
@@ -2262,11 +2331,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Great!
+
+          You have completed the first objective in the game.
+
+          And
+          you earned game points.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5F88\u597D\uFF01\r\n\u60A8\u5DF2\u6210\u529F\u5B8C\u6210\u904A\u6232\u4E2D\u7684\u7B2C\u4E00\u500B\u76EE\u6A19\r\n\u4E26\u7372\u5F97\u4E86\u904A\u6232\u5206\u6578"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -2284,11 +2358,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2333,11 +2406,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'You can see your game score at the top of the screen.
+
+          Below
+          the score shows the total time you spent while playing this stage.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u60A8\u53EF\u4EE5\u5728\u756B\u9762\u4E0A\u65B9\u770B\u5230\u60A8\u7684\u904A\u6232\u5206\u6578\r\n\u5728\u5206\u6578\u7684\u4E0B\u65B9\u986F\u793A\u4E86\u904A\u73A9\u9019\u500B\u95DC\u5361\u7E3D\u82B1\u8CBB\u7684\u6642\u9593"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -2400,11 +2476,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'When you achieve the objective without taking any incorrect actions.
+
+          You
+          will get 1000 points.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u7576\u60A8\u9054\u6210\u76EE\u6A19\u4E14\u6C92\u6709\u57F7\u884C\u932F\u8AA4\u7684\u64CD\u4F5C\u6642\r\n\u60A8\u5C07\u7372\u5F97
+          1000 \u9EDE\u5206\u6578"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -2429,7 +2509,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1239.59
-        y: 203.91306
+        y: 205.5524
         width: 160
         height: 30
     - id: 33
@@ -2468,11 +2548,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'If you did the incorrect actions while completing one objective.
+
+          You
+          will receive 750 points.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5982\u679C\u5728\u9054\u6210\u76EE\u6A19\u7684\u904E\u7A0B\u4E2D\u57F7\u884C\u904E\u932F\u8AA4\u7684\u64CD\u4F5C\r\n\u60A8\u5C07\u7372\u5F97
+          750 \u9EDE\u5206\u6578"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -2536,11 +2620,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "At the end of the stage,\r\nyou will receive a rating based on your
+          score.\r\nEach level can receive a rating of 1 to 4 stars\u3002"
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u95DC\u5361\u7D50\u675F\u5F8C\r\n\u60A8\u5C07\u6839\u64DA\u60A8\u7684\u5206\u6578\u7372\u5F97\u4E0D\u540C\u7684\u8A55\u50F9\r\n\u6BCF\u4E00\u500B\u95DC\u5361\u80FD\u5920\u7372\u5F97
+          1 \u5230 4 \u9846\u661F\u7684\u8A55\u50F9"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -2604,11 +2690,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'This rating can help you confirm whether learn knowledge in the stages.
+
+          You
+          can also see your progress through a personal leaderboard.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u9019\u500B\u8A55\u50F9\u53EF\u4EE5\u5E6B\u52A9\u60A8\u8A55\u4F30\u81EA\u5DF1\u5C0D\u8A72\u95DC\u5361\u7684\u719F\u7DF4\u7A0B\u5EA6\r\n\u60A8\u4E5F\u53EF\u4EE5\u901A\u904E\u500B\u4EBA\u6392\u884C\u699C\u4F86\u67E5\u770B\u81EA\u5DF1\u662F\u5426\u6709\u9032\u6B65"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -2671,11 +2760,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: Additionally, your performance in the game will be recorded on the
+          global leaderboard.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u53E6\u5916\uFF0C\u60A8\u5728\u904A\u6232\u4E2D\u7684\u8868\u73FE\u6703\u88AB\u8A18\u9304\u5728\u5168\u7403\u6392\u884C\u699C\u4E2D"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -2739,11 +2829,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Try to earn a score as high as possible. \r\nAnd become one of the
+          top 10 players!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u6240\u4EE5\uFF0C\u8ACB\u60A8\u76E1\u53EF\u80FD\u5730\u7372\u5F97\u9AD8\u5206\r\n\u4EE5\u6210\u70BA\u5168\u7403\u524D
+          10 \u540D\u7684\u73A9\u5BB6\u5427\uFF01"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -2807,11 +2899,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Next, in order to let you review the knowledge in the game.
+
+          The
+          ''Game Manual'' feature has been unlocked.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u70BA\u4E86\u8B93\u60A8\u80FD\u5920\u8907\u7FD2\u904A\u6232\u4E2D\u5B78\u5230\u7684\u77E5\u8B58\r\n'\u904A\u6232\u624B\u518A'
+          \u529F\u80FD\u88AB\u89E3\u9396\u4E86"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -2875,11 +2971,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Features and knowledge you met during the game
+
+          will be
+          included in this manual.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u904A\u6232\u904E\u7A0B\u4E2D\u9047\u5230\u7684\u529F\u80FD\u548C\u77E5\u8B58\r\n\u90FD\u6703\u88AB\u6536\u9304\u5230\u672C\u624B\u518A\u4E2D"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -2942,11 +3041,19 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'If you need to understand the operation or rules of the game.
+
+          Or
+          want to learn the content related to version control and Git commands.
+
+          Please
+          click here to open the ''game manual'' window.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5982\u679C\u60A8\u9700\u8981\u4E86\u89E3\u904A\u6232\u7684\u64CD\u4F5C\u65B9\u6CD5\u548C\u898F\u5247\r\n\u6216\u662F\u6709\u95DC\u7248\u672C\u63A7\u5236\u548C
+          Git \u6307\u4EE4\u7684\u5167\u5BB9\r\n\u8ACB\u9EDE\u64CA\u6B64\u8655\u4F86\u958B\u555F
+          '\u904A\u6232\u624B\u518A' \u8996\u7A97"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -3010,11 +3117,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Back to the game,
+
+          you have successfully opened the ''File
+          Manager'' window.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u56DE\u5230\u904A\u6232\u4E2D\r\n\u60A8\u5DF2\u7D93\u6210\u529F\u958B\u555F
+          '\u6A94\u6848\u7BA1\u7406' \u8996\u7A97"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -3078,11 +3189,17 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'After Checking the contents in the window,
+
+          you will find
+          a presentation file on the computer.
+
+          This is the target file
+          mentioned in the simulation stage.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u67E5\u770B\u8996\u7A97\u5167\u5BB9\u5F8C\r\n\u60A8\u6703\u767C\u73FE\u96FB\u8166\u4E2D\u6709\u4E00\u4EFD\u7C21\u5831\u6A94\u6848\r\n\u9019\u5C31\u662F\u672C\u6B21\u6A21\u64EC\u80CC\u666F\u63D0\u5230\u7684\u76EE\u6A19\u6A94\u6848"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -3145,11 +3262,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Before starting to simplify the content,
+
+          we need to back
+          up this file
+
+          to ensure that the deleted content can be restored.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u4E0D\u904E\uFF0C\u5728\u958B\u59CB\u7C21\u5316\u5167\u5BB9\u4E4B\u524D\r\n\u6211\u5011\u9700\u8981\u5148\u5099\u4EFD\u9019\u500B\u6A94\u6848\r\n\u4EE5\u78BA\u4FDD\u88AB\u522A\u9664\u7684\u5167\u5BB9\u9084\u53EF\u4EE5\u88AB\u5FA9\u539F"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -3213,11 +3335,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'In the ''File Manager'' window,
+
+          you can right-click on
+          the target file icon to open the function menu.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728 '\u6A94\u6848\u7BA1\u7406' \u8996\u7A97\u4E2D\r\n\u5C0D\u8457\u6307\u5B9A\u7684\u6A94\u6848\u5716\u6A19\uFF0C\u9EDE\u64CA\u6ED1\u9F20\u53F3\u9375\u4F86\u958B\u555F\u529F\u80FD\u9078\u55AE"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -3280,11 +3405,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'From the function menu, find the ''Copy File'' option.
+
+          Then
+          click with the left mouse button to back up the file.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5F9E\u529F\u80FD\u9078\u55AE\u4E2D\uFF0C\u627E\u5230 '\u8907\u88FD\u6A94\u6848'
+          \u7684\u9078\u9805\r\n\u63A5\u8457\u9EDE\u64CA\u6ED1\u9F20\u5DE6\u9375\u4F86\u5099\u4EFD\u6A94\u6848\u5427"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 13
@@ -3308,20 +3437,12 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1242.2933
+        x: 1240.654
         y: 938.5313
         width: 160
         height: 30
     - id: 46
       fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
       - title: Actor
         value: 2
         type: 5
@@ -3330,26 +3451,30 @@ MonoBehaviour:
         value: 2
         type: 5
         typeString: CustomFieldType_Actor
-      - title: Menu Text
+      - title: Title
         value: 
         type: 0
-        typeString: CustomFieldType_Text
+        typeString: 
+      - title: Menu Text
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
+        type: 0
+        typeString: 
       - title: Dialogue Text
         value: 
         type: 0
-        typeString: CustomFieldType_Text
+        typeString: 
       - title: Sequence
+        value: Continue()
+        type: 0
+        typeString: 
+      - title: Description
         value: 
         type: 0
-        typeString: CustomFieldType_Text
-      - title: canvasRect
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
+        typeString: 
       - title: Response Menu Sequence
         value: 
         type: 0
-        typeString: CustomFieldType_Text
+        typeString: 
       - title: en
         value: 
         type: 4
@@ -3367,19 +3492,19 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: ResetAllTutorialObj()
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1509.5063
-        y: 157.38397
+        x: 1528.585
+        y: 159.2215
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 477.64346, y: 29.508179}
-    canvasZoom: 0.6100002
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   - id: 14
     fields:
     - title: Title
@@ -3483,11 +3608,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3532,11 +3656,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Well done!
+
+          After successfully backing up the file,
+
+          let''s
+          move to the next step, continue to simplify the presentation content.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u505A\u5F97\u597D\uFF01\r\n\u5728\u6210\u529F\u5099\u4EFD\u6A94\u6848\u4E4B\u5F8C\r\n\u8B93\u6211\u5011\u7E7C\u7E8C\u63A5\u8457\u6545\u4E8B\u80CC\u666F\u4F86\u7CBE\u7C21\u7C21\u5831\u5167\u5BB9"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 14
@@ -3599,11 +3728,17 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'However, before we start, there''s one more important thing need
+          to complete:
+
+          We should rename the copied file.
+
+          It
+          can identify file differences more easily.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u7136\u800C\uFF0C\u5728\u958B\u59CB\u4E4B\u524D\u9700\u8981\u5148\u5B8C\u6210\u4E00\u4EF6\u91CD\u8981\u7684\u4E8B\u60C5\uFF1A\r\n\u6211\u5011\u61C9\u8A72\u5148\u91CD\u65B0\u547D\u540D\u8907\u88FD\u5F8C\u6A94\u6848\r\n\u4F86\u66F4\u65B9\u4FBF\u5730\u5340\u5206\u6A94\u6848\u7684\u5DEE\u7570"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 14
@@ -3666,11 +3801,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: Therefore, please name the copied file.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u56E0\u6B64\uFF0C\u8ACB\u60A8\u70BA\u8907\u88FD\u5F8C\u7684\u6A94\u6848\u547D\u540D\u5427"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 14
@@ -3735,11 +3870,17 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'In this simulated computer,
+
+          if you need to name files,
+
+          you
+          need to do it in the ''File Content'' window.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u9019\u500B\u6A21\u64EC\u96FB\u8166\u4E2D\r\n\u5982\u679C\u60A8\u9700\u8981\u70BA\u6A94\u6848\u547D\u540D\r\n\u60A8\u9700\u8981\u5728
+          '\u6A94\u6848\u5167\u5BB9' \u8996\u7A97\u4E2D\u9032\u884C\u64CD\u4F5C"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 14
@@ -3803,11 +3944,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Please click on the target file \r\nwith the left mouse button to
+          open the 'File Content' window."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u8ACB\u60A8\u5C0D\u8457\u76EE\u6A19\u6A94\u6848\u9EDE\u64CA\u6ED1\u9F20\u5DE6\u9375\u4F86\u6253\u958B
+          '\u6A94\u6848\u5167\u5BB9' \u8996\u7A97"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 14
@@ -3871,6 +4014,75 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
+        value: "For how to do action in the 'File Editing' window.\r\nThis time we
+          encourage you to try exploring by yourself or \r\nuse the game manual for
+          more information."
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: zh
+        value: "\u95DC\u65BC\u5982\u4F55\u64CD\u4F5C '\u6A94\u6848\u5167\u5BB9' \u8996\u7A97\u7684\u5167\u5BB9\r\n\u9019\u6B21\u9F13\u52F5\u60A8\u5617\u8A66\u81EA\u5DF1\u63A2\u7D22\u6216\u8005\u67E5\u95B1\u904A\u6232\u624B\u518A\u4EE5\u7372\u53D6\u66F4\u591A\u4FE1\u606F"
+        type: 4
+        typeString: CustomFieldType_Localization
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 92
+        destinationConversationID: 14
+        destinationDialogueID: 93
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1004.995
+        y: 554.5471
+        width: 160
+        height: 30
+    - id: 93
+      fields:
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Menu Text
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: Continue()
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: en
         value: 
         type: 4
         typeString: CustomFieldType_Localization
@@ -3887,19 +4099,19 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: ResetAllTutorialObj()
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 1004.995
-        y: 554.5471
+        y: 604.5471
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 432.9897, y: 120.61855}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   - id: 15
     fields:
     - title: Title
@@ -4003,11 +4215,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -4052,11 +4263,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Good!
+
+          You have renamed the backup file.
+
+          We
+          can identify the differences between the files more easily.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5F88\u597D\uFF01\r\n\u60A8\u91CD\u65B0\u547D\u540D\u4E86\u5099\u4EFD\u5F8C\u7684\u6587\u4EF6\r\n\u9019\u6A23\u80FD\u66F4\u5BB9\u6613\u5730\u5340\u5206\u6A94\u6848\u4E4B\u9593\u7684\u95DC\u4FC2\u4E86"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 15
@@ -4119,11 +4335,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'After finishing the action of backup files.
+
+          Let''s start
+          simplifying the content of the presentation.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u5B8C\u6210\u5099\u4EFD\u6A94\u6848\u7684\u64CD\u4F5C\u5F8C\r\n\u8B93\u6211\u5011\u958B\u59CB\u7CBE\u7C21\u7C21\u5831\u4E2D\u7684\u5167\u5BB9\u5427"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 15
@@ -4188,11 +4407,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Similarly, you can use the ''File Content'' window
+
+          to
+          add, modify, and delete content.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u540C\u6A23\uFF0C\u60A8\u53EF\u4EE5\u901A\u904E '\u6A94\u6848\u7DE8\u8F2F'
+          \u8996\u7A97\r\n\u4F86\u9032\u884C\u5167\u5BB9\u7684\u65B0\u589E\u3001\u4FEE\u6539\u548C\u522A\u9664"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 15
@@ -4256,11 +4479,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Please note that the current objective is to delete content
+
+          from
+          ''<color=#CF001C>MidtermReport_v2.ppt</color>''.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u8ACB\u6CE8\u610F\uFF0C\u672C\u6B21\u76EE\u6A19\u662F\u9700\u8981\u522A\u9664\r\n'<color=#CF001C>\u671F\u4E2D\u5831\u544A_v2.ppt</color>'
+          \u4E2D\u7684\u5167\u5BB9"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 15
@@ -4325,6 +4552,80 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
+        value: 'So before you delete the file content,
+
+          please ensure that
+          the file in the ''File Content'' window is the target one.
+
+          to
+          avoid deleting the content in an old file version.'
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: zh
+        value: "\u6240\u4EE5\u5728\u522A\u9664\u6A94\u6848\u5167\u5BB9\u4E4B\u524D\r\n\u8ACB\u78BA\u4FDD\u76EE\u524D
+          '\u6A94\u6848\u7DE8\u8F2F' \u8996\u7A97\u7684\u6A94\u6848\u662F\u76EE\u6A19\u6A94\u6848\r\n\u4EE5\u907F\u514D\u5728\u820A\u7684\u6A94\u6848\u7248\u672C\u4E2D\u522A\u9664\u5167\u5BB9"
+        type: 4
+        typeString: CustomFieldType_Localization
+      conversationID: 15
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 15
+        originDialogueID: 95
+        destinationConversationID: 15
+        destinationDialogueID: 96
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 778.1406
+        y: 462.9971
+        width: 160
+        height: 30
+    - id: 96
+      fields:
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Menu Text
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: Continue()
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: en
         value: 
         type: 4
         typeString: CustomFieldType_Localization
@@ -4341,19 +4642,19 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: ResetAllTutorialObj()
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 778.1406
-        y: 462.9971
+        y: 512.9971
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 48.780518, y: 6.0975647}
-    canvasZoom: 0.8200002
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   - id: 16
     fields:
     - title: Title
@@ -4457,11 +4758,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -4506,11 +4806,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Great!\r\nYou have successfully simplified the content \r\nin the
+          'MidtermReport_v2.ppt' file."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5F88\u597D\uFF01\r\n\u60A8\u5DF2\u6210\u529F\u7CBE\u7C21 '\u671F\u4E2D\u5831\u544A_v2.ppt'
+          \u6A94\u6848\u4E2D\u7684\u5167\u5BB9"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 16
@@ -4573,11 +4875,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'After simplifying the report contents,
+
+          you reviewed the
+          report content again.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u7CBE\u7C21\u5831\u544A\u4E4B\u5F8C\r\n\u60A8\u518D\u6B21\u700F\u89BD\u4E86\u5831\u544A\u5167\u5BB9"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 16
@@ -4640,11 +4945,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "As a result, you found that one page of the presentation \r\nneeds
+          to change to make the content smoother."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u7D50\u679C\u60A8\u767C\u73FE\u5728\u7C21\u5831\u7684\u4E00\u9801\u9700\u8981\u9032\u884C\u8ABF\u6574\r\n\u624D\u80FD\u4F7F\u5167\u5BB9\u66F4\u52A0\u6D41\u66A2"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 16
@@ -4708,11 +5014,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Let''s go through the ''Backup File'' process once again
+
+          to
+          complete the midterm report.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u8B93\u6211\u5011\u518D\u57F7\u884C\u4E00\u6B21 '\u5099\u4EFD\u6A94\u6848'
+          \u7684\u6D41\u7A0B\r\n\u4F86\u5B8C\u6210\u671F\u4E2D\u5831\u544A\u5427"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 16
@@ -4776,11 +5086,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'This time, you need to complete the stage objectives by yourself.
+
+          After
+          completing one objective, I won''t tell you what to do next.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u9019\u6B21\uFF0C\u60A8\u9700\u8981\u81EA\u884C\u5B8C\u6210\u904A\u6232\u76EE\u6A19\r\n\u5728\u5B8C\u6210\u4E00\u500B\u76EE\u6A19\u5F8C\uFF0C\u6211\u4E0D\u6703\u63D0\u9192\u60A8\u4E0B\u4E00\u6B65\u8A72\u505A\u4EC0\u9EBC\u4E8B\u60C5"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 16
@@ -4843,11 +5156,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Please try to complete the objective \r\nwith the knowledge you have
+          just learned."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u8ACB\u8A66\u8457\u4F7F\u7528\u525B\u624D\u5B78\u5230\u7684\u77E5\u8B58\u4F86\u89E3\u6C7A\u7576\u524D\u76EE\u6A19\u5427"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 16
@@ -4912,6 +5226,81 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
+        value: 'If you encounter problems during the game,
+
+          please use
+          the ''Game Manual'' or click ''Help Feature'' for assistance.
+
+          Let''s
+          do it!'
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: zh
+        value: "\u5982\u679C\u5728\u904A\u6232\u904E\u7A0B\u4E2D\u9047\u5230\u554F\u984C\r\n\u8ACB\u67E5\u95B1
+          '\u904A\u6232\u624B\u518A' \u6216\u8005\u9EDE\u64CA '\u5354\u52A9\u529F\u80FD'
+          \u4F86\u7372\u5F97\u5E6B\u52A9\r\n\u8ACB\u52A0\u6CB9\uFF01"
+        type: 4
+        typeString: CustomFieldType_Localization
+      conversationID: 16
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 16
+        originDialogueID: 38
+        destinationConversationID: 16
+        destinationDialogueID: 39
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 247.2805
+        y: 474.672
+        width: 160
+        height: 30
+    - id: 39
+      fields:
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Menu Text
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: Continue()
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: en
         value: 
         type: 4
         typeString: CustomFieldType_Localization
@@ -4928,14 +5317,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: ResetAllTutorialObj()
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 247.2805
-        y: 474.672
+        y: 524.672
         width: 160
         height: 30
     entryGroups: []
@@ -5591,15 +5980,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Variable["canReplay"] == true
+      conditionsString: 
       userScript: Variable["SelectionType"] = "Current"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 4.396583
-        y: 490.8605
+        x: 3.396583
+        y: 491.8605
         width: 160
         height: 30
     - id: 27
@@ -5891,11 +6280,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -5940,11 +6328,17 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Wonderful!
+
+          You have successfully modified the third version
+          of the midterm report,
+
+          making the report even more perfect.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u592A\u68D2\u4E86\uFF01\r\n\u60A8\u5DF2\u6210\u529F\u4FEE\u6539\u7B2C
+          3 \u7248\u672C\u7684\u671F\u4E2D\u5831\u544A\r\n\u9019\u500B\u52D5\u4F5C\u8B93\u5831\u544A\u8B8A\u5F97\u66F4\u52A0\u5B8C\u5584\u4E86"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6007,11 +6401,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'With two modifications,
+
+          you have now prepared the midterm
+          report
+
+          and achieved the main objective of this simulated stage.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u901A\u904E\u5169\u6B21\u7684\u4FEE\u6539\r\n\u60A8\u5DF2\u7D93\u6E96\u5099\u597D\u4E86\u671F\u4E2D\u5831\u544A\r\n\u4E5F\u9054\u6210\u4E86\u672C\u6B21\u6A21\u64EC\u80CC\u666F\u7684\u4E3B\u8981\u76EE\u6A19"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6074,11 +6473,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "After completing the first stage,\r\nI believe you have a clearer
+          understanding of \r\nthe game's walkthrough and gameplay."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u901A\u904E\u7B2C\u4E00\u95DC\u5F8C\r\n\u76F8\u4FE1\u60A8\u5C0D\u904A\u6232\u7684\u95DC\u5361\u6D41\u7A0B\u548C\u73A9\u6CD5\r\n\u5DF2\u7D93\u6709\u4E86\u66F4\u6E05\u6670\u7684\u7406\u89E3"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6141,11 +6541,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: Next, let's review what we learned in this stage.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u8B93\u6211\u5011\u4F86\u56DE\u9867\u672C\u6B21\u95DC\u5361\u4E2D\u5B78\u5230\u7684\u5167\u5BB9"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6208,11 +6608,17 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'First, we introduced the game''s goals and features,
+
+          and
+          various features in the game,
+
+          such as scoring, objectives, and
+          simulated background stories.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u9996\u5148\uFF0C\u6211\u5011\u4ECB\u7D39\u4E86\u672C\u904A\u6232\u7684\u76EE\u6A19\u548C\u7279\u8272\r\n\u4EE5\u53CA\u904A\u6232\u4E2D\u7684\u5404\u7A2E\u529F\u80FD\r\n\u4F8B\u5982\u5F97\u5206\u3001\u76EE\u6A19\u548C\u6A21\u64EC\u80CC\u666F\u6545\u4E8B"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6275,11 +6681,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: Then, we unlocked several features in the game.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u63A5\u8457\uFF0C\u6211\u5011\u89E3\u9396\u4E86\u591A\u500B\u904A\u6232\u4E2D\u7684\u529F\u80FD"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6342,11 +6748,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'The ''Dialogue feature'' not only allows you to review previous conversations
+
+          but
+          also provides ''Hint'' and ''Answer'' features.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5C0D\u8A71\u529F\u80FD' \u4E0D\u50C5\u5141\u8A31\u60A8\u56DE\u9867\u5148\u524D\u7684\u5C0D\u8A71\r\n\u9084\u63D0\u4F9B
+          '\u63D0\u793A' \u548C '\u89E3\u7B54' \u7684\u529F\u80FD"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6409,11 +6819,17 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'The ''Game Manual'' is a tool to help you learn.
+
+          As the
+          game progresses, you will unlock more knowledge.
+
+          Please use
+          it whenever needed.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u904A\u6232\u624B\u518A' \u662F\u4E00\u500B\u5E6B\u52A9\u60A8\u5B78\u7FD2\u7684\u5DE5\u5177\r\n\u96A8\u8457\u904A\u6232\u9032\u5C55\uFF0C\u60A8\u5C07\u89E3\u9396\u66F4\u591A\u77E5\u8B58\r\n\u5982\u679C\u9700\u8981\u7684\u8A71\uFF0C\u8ACB\u96A8\u6642\u67E5\u95B1\u5B83"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6476,11 +6892,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "The 'File Manager' window allows you to\r\nbrowse the contents of
+          the computer \r\nin the simulated background environment."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u6A94\u6848\u7BA1\u7406' \u8996\u7A97\u53EF\u4EE5\u8B93\u60A8\r\n\u700F\u89BD\u6A21\u64EC\u80CC\u666F\u74B0\u5883\u4E2D\u7684\u96FB\u8166\u5167\u5BB9"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6543,11 +6960,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'And you can do actions on files:
+
+          add, modify, delete file
+          contents,
+
+          as well as copy and name files.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u4E26\u4E14\u53EF\u4EE5\u5C0D\u6587\u4EF6\u57F7\u884C\u4EE5\u4E0B\u64CD\u4F5C\uFF1A\r\n\u65B0\u589E\u3001\u4FEE\u6539\u3001\u522A\u9664\u6587\u4EF6\u5167\u5BB9\r\n\u4EE5\u53CA\u8907\u88FD\u548C\u547D\u540D\u6587\u4EF6"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6610,11 +7032,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'In this stage, we used the actions of backing up files
+
+          to
+          help you get familiar with the game environment.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u672C\u6B21\u95DC\u5361\u88E1\uFF0C\u6211\u5011\u901A\u904E\u5099\u4EFD\u6A94\u6848\u7684\u65B9\u5F0F\r\n\u4F86\u5354\u52A9\u60A8\u719F\u6089\u904A\u6232\u74B0\u5883"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6678,11 +7103,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "In the next stage, \r\nwe will start learning about version control
+          and Git."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u4E0B\u4E00\u95DC\u5361\uFF0C\u6211\u5011\u5C07\u6B63\u5F0F\u958B\u59CB\u5B78\u7FD2\u7248\u672C\u63A7\u5236\u548C
+          Git"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6746,11 +7173,18 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'We will understand their definitions, advantages, and features.
+
+          At
+          the same time, we will compare
+
+          the differences between using
+          ''file backup'' and ''version control''.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u6211\u5011\u6703\u4E86\u89E3\u5B83\u5011\u7684\u5B9A\u7FA9\u3001\u512A\u9EDE\u548C\u7279\u8272\r\n\u540C\u6642\uFF0C\u6211\u5011\u5C07\u6703\u6BD4\u8F03\r\n\u4F7F\u7528\u5099\u4EFD\u6A94\u6848\u548C\u7248\u672C\u63A7\u5236\u3001Git
+          \u7684\u4E0D\u540C\u4E4B\u8655"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6813,11 +7247,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Finally, congratulations on completing the stage.
+
+          You
+          did a great job!'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u6700\u5F8C\uFF0C\u606D\u559C\u60A8\u901A\u904E\u4E86\u672C\u6B21\u7684\u95DC\u5361\r\n\u60A8\u505A\u5F97\u5F88\u68D2\uFF01"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 19
@@ -6841,7 +7278,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.67000026
+    canvasZoom: 1
   - id: 22
     fields:
     - title: Title
@@ -7108,7 +7545,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 764.6393
-        y: 193.37088
+        y: 194.5904
         width: 160
         height: 30
     - id: 73
@@ -8300,8 +8737,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 474.3902, y: 0}
-    canvasZoom: 0.8200002
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   - id: 23
     fields:
     - title: Title
@@ -35037,8 +35474,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 1051.8782, y: 45.79853}
+    canvasZoom: 1.03
   - id: 40
     fields:
     - title: Title

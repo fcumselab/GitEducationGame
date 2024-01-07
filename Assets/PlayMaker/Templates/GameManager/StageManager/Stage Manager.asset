@@ -19,514 +19,13 @@ MonoBehaviour:
     name: Stage Manager
     startState: Get QuestData
     states:
-    - name: Start Game Conversaion
-      description: 
-      colorIndex: 16
-      position:
-        serializedVersion: 2
-        x: 908.0078
-        y: 537.03125
-        width: 173
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: next
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Set canReplay True
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - PixelCrushers.DialogueSystem.PlayMaker.StartConversation
-        - PixelCrushers.DialogueSystem.PlayMaker.IsConversationActive
-        customNames:
-        - 
-        - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000040000000a000000
-        actionHashCodes: 5e69bb04b1d51c015114b801
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Stage Manager
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 1
-            gameObject:
-              useVariable: 1
-              name: Stage Manager Parent
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmIntParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: -1
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - Common/Controller/Disable Control
-        - 
-        - next
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1f000000170000000f0000000100000012000000100000001300000013000000110000001100000011000000110000001700000017000000
-        paramName:
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - conversation
-        - startingEntryID
-        - actor
-        - conversant
-        - exclusive
-        - replace
-        - everyFrame
-        - storeResult
-        - activeEvent
-        - inactiveEvent
-        paramDataPos: 0000000000000000000000000000000000000000000000000000000001000000000000000100000002000000030000000100000002000000
-        paramByteDataSize: 0000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    - name: Clean All Dialog Event
-      description: 
-      colorIndex: 8
-      position:
-        serializedVersion: 2
-        x: 915
-        y: 632.3125
-        width: 157
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Get Last Conversation Started
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.SendEvent
-        customNames:
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        actionEnabled: 010101010101
-        actionIsOpen: 000101010101
-        actionStartIndex: 0000000004000000080000000c0000001000000014000000
-        actionHashCodes: 5e69bb045e69bb045e69bb045e69bb045e69bb045e69bb04
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 4
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        - target: 4
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        - target: 4
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 1
-            gameObject:
-              useVariable: 1
-              name: Stage Manager Parent
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        - target: 4
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        - target: 4
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - Tutorial Arrow/Close Arrow
-        - Highlight Panel/Turn Off Highlight
-        - Tutorial Popup/Close Tutorial Panel
-        - Common/Controller/Enable Control
-        - Hint/Tutorial Highlight/close highlight
-        - Hint/Particle/Close Particle
-        byteData: 000000000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1f000000170000000f000000010000001f000000170000000f000000010000001f000000170000000f000000010000001f000000170000000f000000010000001f000000170000000f000000010000001f000000170000000f00000001000000
-        paramName:
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        paramDataPos: 000000000000000000000000000000000100000001000000010000000100000002000000020000000200000002000000030000000300000003000000030000000400000004000000040000000400000005000000050000000500000005000000
-        paramByteDataSize: 000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000
     - name: Get CurrentQuestNum
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 295.96875
-        y: 113.546875
+        x: 65.140625
+        y: 116.44531
         width: 223
         height: 32
       isBreakpoint: 0
@@ -656,558 +155,13 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 0000000001000000000000000000000000000000010000000200000001000000030000000400000000000000010000000200000002000000
         paramByteDataSize: 0000000000000000010000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
-    - name: Start End Dialog
-      description: 
-      colorIndex: 16
-      position:
-        serializedVersion: 2
-        x: 639.03125
-        y: 307.96094
-        width: 125
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: next
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Open Window
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - PixelCrushers.DialogueSystem.PlayMaker.StartConversation
-        - PixelCrushers.DialogueSystem.PlayMaker.IsConversationActive
-        customNames:
-        - 
-        - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000040000000a000000
-        actionHashCodes: 5e69bb04b1d51c015114b801
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Stage Manager
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 1
-            gameObject:
-              useVariable: 1
-              name: Stage Manager Parent
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmIntParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: -1
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - Common/Controller/Disable Control
-        - 
-        - next
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1f000000170000000f0000000100000012000000100000001300000013000000110000001100000011000000110000001700000017000000
-        paramName:
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - conversation
-        - startingEntryID
-        - actor
-        - conversant
-        - exclusive
-        - replace
-        - everyFrame
-        - storeResult
-        - activeEvent
-        - inactiveEvent
-        paramDataPos: 0000000000000000000000000000000000000000000000000000000001000000000000000100000002000000030000000100000002000000
-        paramByteDataSize: 0000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    - name: Get Last Conversation Started
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 877.8281
-        y: 704.96875
-        width: 209
-        height: 16
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions: []
-      actionData:
-        actionNames:
-        - PixelCrushers.DialogueSystem.PlayMaker.GetLastConversationStarted
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 13227100
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: LastConversationTitle
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 12000000
-        paramName:
-        - conversationTitle
-        paramDataPos: 00000000
-        paramByteDataSize: 00000000
-    - name: Set canReplay True
-      description: 
-      colorIndex: 8
-      position:
-        serializedVersion: 2
-        x: 912.7422
-        y: 592.2969
-        width: 144
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Clean All Dialog Event
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetBoolValue
-        - PixelCrushers.DialogueSystem.PlayMaker.SetVariable
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000003000000
-        actionHashCodes: 27fbe103f6980e00
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: canReplay
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmIntParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmBoolParams:
-        - useVariable: 1
-          name: canReplay
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 1
-          name: canReplay
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 11000000110000000100000012000000120000000f0000001000000011000000
-        paramName:
-        - boolVariable
-        - boolValue
-        - everyFrame
-        - variableName
-        - stringValue
-        - floatValue
-        - intValue
-        - boolValue
-        paramDataPos: 0000000001000000000000000000000001000000000000000000000002000000
-        paramByteDataSize: 0000000000000000010000000000000000000000000000000000000000000000
-    - name: Set canReplay False
-      description: 
-      colorIndex: 9
-      position:
-        serializedVersion: 2
-        x: 1240.8594
-        y: 172.6875
-        width: 148
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Send activate Quest Bar Event 2
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetBoolValue
-        - PixelCrushers.DialogueSystem.PlayMaker.SetVariable
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000003000000
-        actionHashCodes: 27fbe103f6980e00
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: canReplay
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmIntParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmBoolParams:
-        - useVariable: 1
-          name: canReplay
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: canReplay
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 11000000110000000100000012000000120000000f0000001000000011000000
-        paramName:
-        - boolVariable
-        - boolValue
-        - everyFrame
-        - variableName
-        - stringValue
-        - floatValue
-        - intValue
-        - boolValue
-        paramDataPos: 0000000001000000000000000000000001000000000000000000000002000000
-        paramByteDataSize: 0000000000000000010000000000000000000000000000000000000000000000
-    - name: Open Window
-      description: 
-      colorIndex: 12
-      position:
-        serializedVersion: 2
-        x: 643.5156
-        y: 370.59375
-        width: 111
-        height: 16
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions: []
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.EnableFSM
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 87aa9700
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Window/StageSummaryPopup
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Window
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 14000000120000001100000011000000
-        paramName:
-        - gameObject
-        - fsmName
-        - enable
-        - resetOnExit
-        paramDataPos: 00000000000000000000000001000000
-        paramByteDataSize: 00000000000000000000000000000000
     - name: Send Count Result Event
       description: 
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 608.58594
-        y: 256.33594
+        x: 78.71875
+        y: 313.33594
         width: 174
         height: 32
       isBreakpoint: 0
@@ -1218,7 +172,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Start End Dialog
+        toState: Enable Quest 2
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -1294,344 +248,13 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 00000000000000000000000001000000
         paramByteDataSize: 00000000000000000000000000000000
-    - name: Clean All Dialog Event 2
-      description: 
-      colorIndex: 8
-      position:
-        serializedVersion: 2
-        x: 1241.6406
-        y: 257.34375
-        width: 167
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Set canReplay False
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - HutongGames.PlayMaker.Actions.SendEvent
-        customNames:
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        actionEnabled: 010101010101
-        actionIsOpen: 000101010101
-        actionStartIndex: 0000000004000000080000000c0000001000000014000000
-        actionHashCodes: 5e69bb045e69bb045e69bb045e69bb045e69bb045e69bb04
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 4
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        - target: 4
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        - target: 4
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 1
-            gameObject:
-              useVariable: 1
-              name: Stage Manager Parent
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        - target: 4
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        - target: 4
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 0
-            gameObject:
-              useVariable: 0
-              name: 
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - Tutorial Arrow/Close Arrow
-        - Highlight Panel/Turn Off Highlight
-        - Tutorial Popup/Close Tutorial Panel
-        - Common/Controller/Enable Control
-        - Hint/Tutorial Highlight/close highlight
-        - Hint/Particle/Close Particle
-        byteData: 000000000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1f000000170000000f000000010000001f000000170000000f000000010000001f000000170000000f000000010000001f000000170000000f000000010000001f000000170000000f000000010000001f000000170000000f00000001000000
-        paramName:
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        paramDataPos: 000000000000000000000000000000000100000001000000010000000100000002000000020000000200000002000000030000000300000003000000030000000400000004000000040000000400000005000000050000000500000005000000
-        paramByteDataSize: 000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000
     - name: Send activate Quest Bar Event 2
       description: 
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 1490.9844
-        y: 186.40625
+        x: 734.35156
+        y: 225.15625
         width: 218
         height: 16
       isBreakpoint: 0
@@ -1722,336 +345,13 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 00000000000000000000000000000000
         paramByteDataSize: 00000000000000000000000001000000
-    - name: Start Last Conversation
-      description: 
-      colorIndex: 16
-      position:
-        serializedVersion: 2
-        x: 1246.8672
-        y: 334.60156
-        width: 170
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: next
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Clean All Dialog Event 2
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 4
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SendEvent
-        - PixelCrushers.DialogueSystem.PlayMaker.StartConversation
-        - PixelCrushers.DialogueSystem.PlayMaker.IsConversationActive
-        customNames:
-        - 
-        - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000040000000a000000
-        actionHashCodes: 5e69bb04b1d51c015114b801
-        unityObjectParams: []
-        fsmGameObjectParams:
-        - useVariable: 1
-          name: Stage Manager
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams:
-        - target: 1
-          excludeSelf:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          gameObject:
-            ownerOption: 1
-            gameObject:
-              useVariable: 1
-              name: Stage Manager Parent
-              tooltip: 
-              showInInspector: 0
-              networkSync: 0
-              value: {fileID: 0}
-          fsmName:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 
-          sendToChildren:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: 0
-          fsmComponent: {fileID: 0}
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmIntParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: -1
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 1
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - Common/Controller/Disable Control
-        - 
-        - next
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1f000000170000000f0000000100000012000000100000001300000013000000110000001100000011000000110000001700000017000000
-        paramName:
-        - eventTarget
-        - sendEvent
-        - delay
-        - everyFrame
-        - conversation
-        - startingEntryID
-        - actor
-        - conversant
-        - exclusive
-        - replace
-        - everyFrame
-        - storeResult
-        - activeEvent
-        - inactiveEvent
-        paramDataPos: 0000000000000000000000000000000000000000000000000000000001000000000000000100000002000000030000000100000002000000
-        paramByteDataSize: 0000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    - name: Build Conversation Title
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 562.91406
-        y: 522.4453
-        width: 225
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: finish
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Start Game Conversaion
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetStringValue
-        - HutongGames.PlayMaker.Actions.BuildString
-        - HutongGames.PlayMaker.Actions.StringCompare
-        customNames:
-        - 
-        - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000030000000b000000
-        actionHashCodes: c030f1037370ae050c0e5502
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: selectStageName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: /
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Start game
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - 
-        - finish
-        byteData: 000001
-        arrayParamSizes: 03000000
-        arrayParamTypes:
-        - HutongGames.PlayMaker.FsmString
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1200000012000000010000000c00000012000000120000001200000012000000110000001200000001000000120000001200000017000000170000001100000001000000
-        paramName:
-        - stringVariable
-        - stringValue
-        - everyFrame
-        - stringParts
-        - 
-        - 
-        - 
-        - separator
-        - addToEnd
-        - storeResult
-        - everyFrame
-        - stringVariable
-        - compareTo
-        - equalEvent
-        - notEqualEvent
-        - storeResult
-        - everyFrame
-        paramDataPos: 0000000001000000000000000000000002000000030000000400000005000000000000000600000001000000070000000800000000000000010000000100000002000000
-        paramByteDataSize: 0000000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
     - name: Has Dialog
       description: 
       colorIndex: 4
       position:
         serializedVersion: 2
-        x: 940.25
-        y: 153.45312
+        x: 483.10938
+        y: 209.5
         width: 100
         height: 48
       isBreakpoint: 0
@@ -2062,7 +362,7 @@ MonoBehaviour:
           name: false
           isSystemEvent: 0
           isGlobal: 0
-        toState: Set canReplay False
+        toState: Send activate Quest Bar Event 2
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -2071,11 +371,11 @@ MonoBehaviour:
           name: true
           isSystemEvent: 0
           isGlobal: 0
-        toState: Build Conversation Title (Quest)
+        toState: Enable Quest
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
-        colorIndex: 8
+        colorIndex: 14
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.ArrayContains
@@ -2179,8 +479,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 642.84375
-        y: 129.0625
+        x: 113.15625
+        y: 193.32812
         width: 100
         height: 48
       isBreakpoint: 0
@@ -2200,7 +500,7 @@ MonoBehaviour:
           name: finish
           isSystemEvent: 0
           isGlobal: 0
-        toState: Build Conversation Title (End)
+        toState: Send Count Result Event
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -2276,441 +576,19 @@ MonoBehaviour:
         - sendEvent
         paramDataPos: 000000000000000001000000010000000000000000000000010000000100000002000000
         paramByteDataSize: 000000000000000000000000000000000000000001000000000000000400000000000000
-    - name: Build Conversation Title (End)
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 596.3125
-        y: 208.92969
-        width: 204
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: finish
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Send Count Result Event
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetStringValue
-        - HutongGames.PlayMaker.Actions.BuildString
-        - HutongGames.PlayMaker.Actions.StringCompare
-        customNames:
-        - 
-        - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000030000000b000000
-        actionHashCodes: c030f1037370ae050c0e5502
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: selectStageName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: /
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: End
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - 
-        - finish
-        byteData: 000001
-        arrayParamSizes: 03000000
-        arrayParamTypes:
-        - HutongGames.PlayMaker.FsmString
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1200000012000000010000000c00000012000000120000001200000012000000110000001200000001000000120000001200000017000000170000001100000001000000
-        paramName:
-        - stringVariable
-        - stringValue
-        - everyFrame
-        - stringParts
-        - 
-        - 
-        - 
-        - separator
-        - addToEnd
-        - storeResult
-        - everyFrame
-        - stringVariable
-        - compareTo
-        - equalEvent
-        - notEqualEvent
-        - storeResult
-        - everyFrame
-        paramDataPos: 0000000001000000000000000000000002000000030000000400000005000000000000000600000001000000070000000800000000000000010000000100000002000000
-        paramByteDataSize: 0000000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
-    - name: Build Conversation Title (Quest)
-      description: 
-      colorIndex: 8
-      position:
-        serializedVersion: 2
-        x: 879.21094
-        y: 234.90625
-        width: 217
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: finish
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: See if it was last Quest
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.SetStringValue
-        - HutongGames.PlayMaker.Actions.BuildString
-        - HutongGames.PlayMaker.Actions.StringCompare
-        customNames:
-        - 
-        - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000030000000d000000
-        actionHashCodes: c030f1037370ae050c0e5502
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: selectStageName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: /
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Quest
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: ' '
-        - useVariable: 1
-          name: CurrentQuestNum
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: ConversationName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - 
-        - finish
-        byteData: 000001
-        arrayParamSizes: 05000000
-        arrayParamTypes:
-        - HutongGames.PlayMaker.FsmString
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1200000012000000010000000c000000120000001200000012000000120000001200000012000000110000001200000001000000120000001200000017000000170000001100000001000000
-        paramName:
-        - stringVariable
-        - stringValue
-        - everyFrame
-        - stringParts
-        - 
-        - 
-        - 
-        - 
-        - 
-        - separator
-        - addToEnd
-        - storeResult
-        - everyFrame
-        - stringVariable
-        - compareTo
-        - equalEvent
-        - notEqualEvent
-        - storeResult
-        - everyFrame
-        paramDataPos: 00000000010000000000000000000000020000000300000004000000050000000600000007000000000000000800000001000000090000000a00000000000000010000000100000002000000
-        paramByteDataSize: 00000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
-    - name: See if it was last Quest
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 883.8047
-        y: 321.29688
-        width: 187
-        height: 48
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: Random Data/Call Random
-          isSystemEvent: 0
-          isGlobal: 1
-        toState: Start Last Conversation
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 4
-      - fsmEvent:
-          name: skip
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Start Game Conversaion
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 16
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.IntCompare
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 09faa102
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams:
-        - useVariable: 1
-          name: CurrentQuestNum
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: -1
-        - useVariable: 1
-          name: lastDialogNum
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - Random Data/Call Random
-        - skip
-        - 
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 100000001000000017000000170000001700000001000000
-        paramName:
-        - integer1
-        - integer2
-        - equal
-        - lessThan
-        - greaterThan
-        - everyFrame
-        paramDataPos: 000000000100000000000000010000000200000000000000
-        paramByteDataSize: 000000000000000000000000000000000000000001000000
     - name: Get QuestData
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 250.3125
-        y: 425.7578
+        x: 418.27344
+        y: 106.734375
         width: 117
-        height: 32
+        height: 16
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Get selectStageName
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
+      transitions: []
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.ArrayLength
@@ -3115,371 +993,28 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 00000000000000000000000001000000020000000100000002000000010000000300000000000000030000000000000000000000040000000100000005000000
         paramByteDataSize: 00000000000000000100000000000000000000000100000001000000000000000000000000000000010000000000000000000000010000000000000001000000
-    - name: Get selectStageName
-      description: '1.(Tutorial)
-
-        2.(Practice)'
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 223.74219
-        y: 508.71875
-        width: 159
-        height: 48
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: Num/1
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: String Replace
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      - fsmEvent:
-          name: Num/2
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: State
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.GetFsmString
-        - HutongGames.PlayMaker.Actions.StringContains
-        - HutongGames.PlayMaker.Actions.StringContains
-        customNames:
-        - 
-        - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000050000000b000000
-        actionHashCodes: 52221a020c0e55020c0e5502
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Stage Manager Parent
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: Loading StageManager
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: selectStageName
-        - useVariable: 1
-          name: selectStageName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 1
-          name: selectStageName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: (Tutorial)
-        - useVariable: 1
-          name: selectStageName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: (Practice)
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - Num/1
-        - 
-        - Num/2
-        - 
-        byteData: 000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1400000012000000120000001200000001000000120000001200000017000000170000001100000001000000120000001200000017000000170000001100000001000000
-        paramName:
-        - gameObject
-        - fsmName
-        - variableName
-        - storeValue
-        - everyFrame
-        - stringVariable
-        - containsString
-        - trueEvent
-        - falseEvent
-        - storeResult
-        - everyFrame
-        - stringVariable
-        - containsString
-        - trueEvent
-        - falseEvent
-        - storeResult
-        - everyFrame
-        paramDataPos: 0000000000000000010000000200000000000000030000000400000000000000010000000000000001000000050000000600000002000000030000000100000002000000
-        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
-    - name: String Replace
+    - name: Enable Quest
       description: 
-      colorIndex: 0
+      colorIndex: 14
       position:
         serializedVersion: 2
-        x: 64.96094
-        y: 619.6094
-        width: 116
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: State 1
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.StringReplace
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 788f1c03
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: selectStageName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: ' (Tutorial)'
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: /Tutorial
-        - useVariable: 1
-          name: selectStageName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1200000012000000120000001200000001000000
-        paramName:
-        - stringVariable
-        - replace
-        - with
-        - storeResult
-        - everyFrame
-        paramDataPos: 0000000001000000020000000300000000000000
-        paramByteDataSize: 0000000000000000000000000000000001000000
-    - name: State
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 373.125
-        y: 613.8281
-        width: 100
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: State 1
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.StringReplace
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 788f1c03
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: selectStageName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: ' (Practice)'
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: /Practice
-        - useVariable: 1
-          name: selectStageName
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params: []
-        fsmVector3Params: []
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams: []
-        byteData: 00
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 1200000012000000120000001200000001000000
-        paramName:
-        - stringVariable
-        - replace
-        - with
-        - storeResult
-        - everyFrame
-        paramDataPos: 0000000001000000020000000300000000000000
-        paramByteDataSize: 0000000000000000000000000000000001000000
-    - name: State 1
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 252.14844
-        y: 690.0703
-        width: 100
+        x: 485.5
+        y: 336.64844
+        width: 107
         height: 16
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions: []
       actionData:
-        actionNames: []
-        customNames: []
-        actionEnabled: 
-        actionIsOpen: 
-        actionStartIndex: 
-        actionHashCodes: 
+        actionNames:
+        - HutongGames.PlayMaker.Actions.CallMethod
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: ca51e900
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -3489,9 +1024,70 @@ MonoBehaviour:
         fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: EnableDialog
+        fsmObjectParams:
+        - useVariable: 1
+          name: DialogSystemManagerScript
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          typeName: DialogueSystemManager
+          value: {fileID: 0}
+        fsmVarParams:
+        - variableName: 
+          objectType: UnityEngine.Object
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: Quest
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        - variableName: 
+          objectType: 
+          useVariable: 0
+          type: -1
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
@@ -3503,15 +1099,146 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
+        byteData: 0000
+        arrayParamSizes: 01000000
+        arrayParamTypes:
+        - HutongGames.PlayMaker.FsmVar
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 
-        paramName: []
-        paramDataPos: 
-        paramByteDataSize: 
+        paramDataType: 18000000120000000c00000027000000270000000100000001000000
+        paramName:
+        - behaviour
+        - methodName
+        - parameters
+        - 
+        - storeResult
+        - everyFrame
+        - manualUI
+        paramDataPos: 00000000000000000000000000000000010000000000000001000000
+        paramByteDataSize: 00000000000000000000000000000000000000000100000001000000
+    - name: Enable Quest 2
+      description: 
+      colorIndex: 14
+      position:
+        serializedVersion: 2
+        x: 97.77344
+        y: 436.73438
+        width: 117
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.CallMethod
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: ca51e900
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: EnableDialog
+        fsmObjectParams:
+        - useVariable: 1
+          name: DialogSystemManagerScript
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          typeName: DialogueSystemManager
+          value: {fileID: 0}
+        fsmVarParams:
+        - variableName: 
+          objectType: UnityEngine.Object
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: End
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        - variableName: 
+          objectType: 
+          useVariable: 0
+          type: -1
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 0000
+        arrayParamSizes: 01000000
+        arrayParamTypes:
+        - HutongGames.PlayMaker.FsmVar
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 18000000120000000c00000027000000270000000100000001000000
+        paramName:
+        - behaviour
+        - methodName
+        - parameters
+        - 
+        - storeResult
+        - everyFrame
+        - manualUI
+        paramDataPos: 00000000000000000000000000000000010000000000000001000000
+        paramByteDataSize: 00000000000000000000000000000000000000000100000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -3610,15 +1337,6 @@ MonoBehaviour:
       linkConstraint: 0
       linkTarget: 0
       colorIndex: 0
-    - fsmEvent:
-        name: Stage Manager/Start First Dialog
-        isSystemEvent: 0
-        isGlobal: 1
-      toState: Build Conversation Title
-      linkStyle: 0
-      linkConstraint: 0
-      linkTarget: 0
-      colorIndex: 0
     variables:
       floatVariables: []
       intVariables:
@@ -3652,22 +1370,10 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: -1
-      boolVariables:
-      - useVariable: 1
-        name: canReplay
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: 0
+      boolVariables: []
       stringVariables:
       - useVariable: 1
         name: ConversationName
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: 
-      - useVariable: 1
-        name: LastConversationTitle
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -3722,7 +1428,7 @@ MonoBehaviour:
       - QuestTracker
       - StageTitle
       - When don't have dialog, add quest or start random
-      variableCategoryIDs: 000000000000000000000000020000000400000000000000000000000000000000000000030000000300000002000000
+      variableCategoryIDs: 00000000000000000000000002000000040000000000000000000000030000000300000002000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -3731,7 +1437,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 040000000500000008000000090000000a000000
+    outVariableIndices: 04000000060000000700000008000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []

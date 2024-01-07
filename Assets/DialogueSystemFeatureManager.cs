@@ -10,6 +10,8 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
     [SerializeField] Dictionary<string, PlayMakerFSM> hintDict = new();
     [SerializeField] List<PlayMakerFSM> enableHintList = new();
 
+    [SerializeField] GameObject GameManualWindow;
+
     public void RegisterFunction()
     {
         Lua.RegisterFunction("HintController", this, SymbolExtensions.GetMethodInfo(() => HintController(string.Empty, false)));
@@ -56,10 +58,11 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
 
     public void ResetAllTutorialObj()
     {
-        Debug.Log("Reset all");
         tutorialPopup.CloseImageWindow();
         tutorialPopup.ResetWindowLayer();
         tutorialPopup.BlackPanelControl(false);
+        tutorialPopup.ResetHighLightObj();
+        PlayMakerFSM.BroadcastEvent("Hint/Particle/Close Particle");
         ResetHintStatus();
     }
 }

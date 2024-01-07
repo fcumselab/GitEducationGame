@@ -140,7 +140,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
 
     public string DetectAction_RenameFile(string copyText)
     {
-        Debug.Log("Rename");
+        //Debug.Log("Rename");
 
         if (!FileContentWindow) { FileContentWindow = GameObject.Find("FileContentWindow"); }
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(FileContentWindow, "File Content Window");
@@ -151,7 +151,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
 
     public string DetectAction_CopyFile(string wantedVersion)
     {
-        Debug.Log("Copy");
+        //Debug.Log("Copy");
 
         PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(Sender, SenderFSMName);
         string fileName = fsm.FsmVariables.GetFsmGameObject("ClickedFile").Value.name;
@@ -167,7 +167,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
 
         fsm = MyPlayMakerScriptHelper.GetFsmByName(Sender, SenderFSMName);
         string fileContent = fsm.FsmVariables.GetFsmString("text").Value;
-        Debug.Log("modify actionType: " + actionType + "\nFileName: " + wantedFileName + "\ncurrentFileName: " + currentFileName + "\nfileContent: " + fileContent);
+        //Debug.Log("modify actionType: " + actionType + "\nFileName: " + wantedFileName + "\ncurrentFileName: " + currentFileName + "\nfileContent: " + fileContent);
 
         if (currentFileName == wantedFileName)
         {
@@ -195,7 +195,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
         {
             fsm = MyPlayMakerScriptHelper.GetFsmByName(Sender, SenderFSMName);
             string fileContent = fsm.FsmVariables.GetFsmString("text").Value;
-            Debug.Log("Modify actionType: " + actionType + "\nFileName: " + wantedFileName + "\ncurrentFileName: " + currentFileName + "\nfileContent: " + fileContent);
+            //Debug.Log("Modify actionType: " + actionType + "\nFileName: " + wantedFileName + "\ncurrentFileName: " + currentFileName + "\nfileContent: " + fileContent);
 
             if (fileContent.Contains(actionType))
             {

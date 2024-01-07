@@ -11,6 +11,8 @@ public class TutorialPopup : SerializedMonoBehaviour
     [SerializeField] Dictionary<string, GameObject> WindowDict = new();
     [SerializeField] Transform WindowLayer;
 
+    [SerializeField] Dictionary<Transform, Transform> highlightObjDict = new();
+
     [SerializeField] PlayMakerFSM tutorialPopupAnimationFsm;
 
 
@@ -24,12 +26,20 @@ public class TutorialPopup : SerializedMonoBehaviour
     [SerializeField] GameObject BlackPanel;
     [SerializeField] PlayMakerFSM BlackPanelFsm;
 
+    Transform TutorialLayer;
+
+    private void Start()
+    {
+        TutorialLayer = transform.parent;
+    }
+
     public void RegisterFunction()
     {
         Lua.RegisterFunction("HighlightWindow", this, SymbolExtensions.GetMethodInfo(() => HighLightWindow(string.Empty, string.Empty)));
         Lua.RegisterFunction("ShowImage", this, SymbolExtensions.GetMethodInfo(() => ShowImage(string.Empty)));
         Lua.RegisterFunction("CloseImageWindow", this, SymbolExtensions.GetMethodInfo(() => CloseImageWindow()));
         Lua.RegisterFunction("BlackPanelControl", this, SymbolExtensions.GetMethodInfo(() => BlackPanelControl(false)));
+        Lua.RegisterFunction("HighLightObj", this, SymbolExtensions.GetMethodInfo(() => HighLightObj(string.Empty)));
     }
 
     public void ShowImage(string imageKey)
@@ -46,7 +56,6 @@ public class TutorialPopup : SerializedMonoBehaviour
 
     public void CloseImageWindow()
     {
-        Debug.Log("Close Image");
         ImageWindowAnimationFsm.FsmVariables.GetFsmString("runType").Value = "close";
         ImageWindowAnimationFsm.enabled = true;
     }
@@ -73,10 +82,13 @@ public class TutorialPopup : SerializedMonoBehaviour
         GameObject TargetWindow;
         if (WindowDict.ContainsKey(windowName1))
         {
+            Debug.Log("found");
+
             TargetWindow = WindowDict[windowName1];
         }
         else
         {
+            Debug.Log("Not found");
             TargetWindow = GameObject.Find(windowName1);
             WindowDict.Add(windowName1, TargetWindow);
         }
@@ -107,6 +119,30 @@ public class TutorialPopup : SerializedMonoBehaviour
         }
     }
 
+    public void HighLightObj(string objName)
+    {
+        Transform obj = GameObject.Find(objName).transform;
+        if (highlightObjDict.ContainsKey(obj))
+        {
+            obj.transform.SetParent(highlightObjDict[obj]);
+            highlightObjDict.Remove(obj);
+        }
+        else
+        {
+            highlightObjDict.Add(obj, obj.transform.parent);
+            obj.transform.SetParent(TutorialLayer);
+        }
+    }
+
+    public void ResetHighLightObj()
+    {
+        foreach(var item in highlightObjDict)
+        {
+            item.Key.SetParent(item.Value); 
+        }
+        highlightObjDict.Clear();
+    }
+
     public void ResetWindowLayer()
     {
         if (HighlightPos1.transform.childCount != 0)
@@ -119,6 +155,4 @@ public class TutorialPopup : SerializedMonoBehaviour
             HighlightPos2.transform.GetChild(0).SetParent(WindowLayer);
         }
     }
-
-    
 }

@@ -21,16 +21,16 @@ Number,Text,Text,Text,Text
 2,SelectionType,none,Record player decision,Text
 3,ImageKey,,Show image according to the key.,Text
 6,UnlockButtonKey,none,Function which triggers Toolbar,Text
-8,isReplay,False,If use replay function it will be true,Boolean
+7,playerDecision,none,Three button to add content (get),Text
+8,isReplay,FALSE,If use replay function it will be true,Boolean
 9,tag,,use to identify different path,Text
-10,canReplay,False,Can click Replay Current Scenario,Boolean
+10,canReplay,FALSE,Can click Replay Current Scenario,Boolean
 11,UnlockKey,(category ) / (list name) / (unlockProgress),Unlock GameManualWindow List,Text
-12,TestingDialog,True,For dialog system,Boolean
+12,TestingDialog,TRUE,For dialog system,Boolean
 13,ReadChapter,0,Save Read Chapter,Number
 14,Counter,0,,Number
 15,Switch,,Control highlight panel spot,Text
 16,LastConversationKey,,Will update by last dialog,Text
-17,CurrentQuestNum,0,,Number
 Conversations
 ID,Title,Description,Actor,Conversant,Overrides
 Number,Text,Text,Actor,Actor,JSON
@@ -183,70 +183,75 @@ Number,Text,Text,Actor,Actor,JSON
 DialogueEntries
 entrytag,ConvID,ID,Actor,Conversant,Title,MenuText,DialogueText,IsGroup,FalseConditionAction,ConditionPriority,Conditions,Script,Sequence,Description,Response Menu Sequence,en,zh,canvasRect
 Text,Number,Number,Number,Number,Text,Text,Text,Boolean,Special,Special,Text,Text,Text,Text,Text,Localization,Localization,Text
-NPC_12_0,12,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,英文,中文,353.5677;63.11505
-NPC_12_1,12,1,2,2,,您好！\r\n歡迎來到 Git Education Game 教學遊戲！,您好！\r\n歡迎來到 Git Education Game 教學遊戲！,False,Block,Normal,,"Testing(444, ""555"");\nShowImage(""group"")",,,,Hello!\nWelcome to the Git Education Game!,您好！\r\n歡迎來到 Git Education Game 教學遊戲！,349.4795;137.4117
-NPC_12_2,12,2,2,2,,,在遊戲開始之前\r\n讓我們先來了解本遊戲的特色與目標,False,Block,Normal,,"BlackPanelControl(""open"")",,,,"Before the game starts,\nLet me introduce the features and goals of this game.",在遊戲開始之前\r\n請讓我介紹一下本遊戲的特色與目標,350.6159;193.6744
-NPC_12_3,12,3,2,2,,,首先，在這個遊戲中\r\n您將會學習到什麼是版本控制\r\n並且在遊戲過程中會使用 Git 指令來進行操作,False,Block,Normal,,,,,,"In this game,\nyou will learn what version control is.\nAnd you will use Git commands to operate action during the game.",在這個遊戲中\r\n您將會學習到什麼是版本控制\r\n並且在遊戲過程中會使用 Git 指令來進行操作,349.4795;246.8645
-NPC_12_4,12,4,2,2,,,就算是沒有寫程式的經驗\r\n或者是從未使用過 Git 版本控制工具的人\r\n都可以透過本遊戲來學習這些知識,False,Block,Normal,,,,,,"Even those without programming experience,\nor those who have never used Git version control tools.\nThey can learn these skills through this game.",就算是沒有寫程式的經驗\r\n或者是從未使用過 Git 版本控制工具的人\r\n都可以透過本遊戲來學習這些知識,349.4795;297.9283
-NPC_12_5,12,5,2,2,,,本遊戲的主要目標是讓您學會：\r\n1. 版本控制的基本概念以及如何有效地應用它\r\n2. 每個 Git 指令的使用方法和用途\r\n3. 透過這些知識來實際管理專案,False,Block,Normal,,,,,,"The main goals of this game will teach you:\n1. Basic concepts of version control and how to apply it effectively.\n2. The purpose of using each Git command, and how to use them.\n3. How to manage projects practically with these skills.",本遊戲的主要目標是讓您學會：\r\n1. 版本控制的基本概念以及如何有效地應用它\r\n2. 每個 Git 指令的使用方法和用途\r\n3. 透過這些知識來實際管理專案,350.699;346.8645
-NPC_12_6,12,6,2,2,,,為了達成上述目標\r\n本遊戲模擬了實際開發專案時\r\n經常會遇到的情境和問題,False,Block,Normal,,,,,,"To achieve these goals above,\r\nsituations and problems will be simulated in this game, \r\nwhich is often encountered in actual project development.",為了達成上述目標\r\n本遊戲模擬了實際開發專案時\r\n經常會遇到的情境和問題,352.671;437.29
-NPC_12_7,12,7,2,2,,,根據每個情境的難易度和主題的不同\r\n本遊戲設計了多個遊戲關卡,False,Block,Normal,,,,,,"Based on the difficulty and theme of each situation,\nthe game has designed multiple stages.",根據每個情境的難易度和主題的不同\r\n本遊戲設計了多個遊戲關卡,350.5433;485.1624
-NPC_12_8,12,8,2,2,,,這種方式不僅能幫助您\r\n更有效地學習每個關卡中所要傳達的知識,False,Block,Normal,,,,,,This approach not only helps you\nlearn the knowledge at each level more effectively.,這種方式不僅能幫助您\r\n更有效地學習每個關卡中所要傳達的知識,350.5433;536.3387
-NPC_12_9,12,9,2,2,,,還能讓您在完成遊戲後\r\n將這些知識實際應用於專案開發中,False,Block,Normal,,,,,,But also allows you to use this knowledge\nin actual project development after completing the game.,還能讓您在完成遊戲後\r\n將這些知識實際應用於專案開發中,350.5433;585.1625
-NPC_12_10,12,10,2,2,,,在介紹完遊戲目標和特色後\r\n讓我們先來熟悉一下遊戲環境吧,False,Block,Normal,,,,,,"After introducing the game's goals and features,\nlet's get familiar with the game environment.",在介紹完遊戲目標和特色後\r\n讓我們先來熟悉一下遊戲環境吧,350.5433;635.1625
-NPC_12_11,12,11,2,2,,(建構開始\r),首先，我們將模擬遊戲中的第一個場景,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Close Tutorial Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");",,,,"First, let's simulate the first game scene.",首先，我們將模擬遊戲中的第一個場景,350.5433;729.8433
-NPC_12_12,12,12,2,2,,,"在建立完模擬場景後\r\n您可以在 ""當前模擬背景"" 區域中\r\n看到模擬場景的背景故事",False,Block,Normal,,,,,,"After establishing the simulated scene,\r\nyou can see the background story in \r\nthe 'Current Simulation Background' area.","在建立完模擬場景後\r\n您可以在 ""當前模擬背景"" 區域中\r\n看到模擬場景的背景故事",350.5433;779.8433
-NPC_12_13,12,13,2,2,,,在遊戲中\r\n我們需要扮演模擬背景中的角色\r\n操作遊戲畫面以實現故事中的主要目標,False,Block,Normal,,,,,,"In the game,\nwe need to play the role of the characters in the simulated scene.\nWe have to do action on the game screen to achieve the main goals of the story.",在遊戲中\r\n我們需要扮演模擬背景中的角色\r\n操作遊戲畫面以實現故事中的主要目標,350.5433;829.8433
-NPC_12_14,12,14,2,2,,,當您達成目標後\r\n您就完成了遊戲關卡,False,Block,Normal,,,,,,"Once you reach the main goal in the simulated scene, \r\nyou clear the stage.",當您達成模擬背景的主要目標後\r\n您就完成了遊戲關卡,350.5433;879.8433
-NPC_12_15,12,15,2,2,,,另外，為了確保您在遊戲進行的過程中\r\n能夠更清楚地了解每一個步驟應該做的事情,False,Block,Normal,,,,,,"Additionally, to ensure you clearly understand \r\neach step you should take during the game.",另外，為了確保您在遊戲進行的過程中\r\n能夠更清楚地了解每一個步驟應該做的事情,350.5433;929.8433
-NPC_12_16,12,16,2,2,,,本遊戲將模擬背景的主要目標分成了多個小目標\r\n您能夠通過畫面左上角的區域得知當前的遊戲目標,False,Block,Normal,,,,,,The main goal will be divided into multiple smaller objectives.\nYou can confirm the current game objective at the top left of the game screen.,本遊戲將模擬背景的主要目標分成了多個小目標\r\n您能夠通過畫面左上角的區域得知當前的遊戲目標,597.3521;144.7369
-NPC_12_17,12,17,2,2,,,在開始解決第一個目標前\r\n讓我們一起來確認本次的故事背景吧,False,Block,Normal,,,,,,"Before we start complete the first objective,\nlet's confirm the story background together.",在開始解決第一個目標前\r\n讓我們一起來確認本次的故事背景吧,597.3521;194.7369
-NPC_12_18,12,18,2,2,,,根據當前的模擬背景\r\n您已在這台電腦上新增了一份期中簡報,False,Block,Normal,,,,,,"According to the current simulated scene,\nyou have added a mid-term presentation to this computer.",根據當前的模擬背景\r\n您已在這台電腦上新增了一份期中簡報,597.3521;244.7369
-NPC_12_19,12,19,2,2,,(新增任務),根據故事情節\r\n如果需要修改檔案\r\n您必須先開啟 '檔案管理' 視窗才能繼續進行,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,"To finish the min-term presentation,\nWe need to open the 'File Manager' window to change files.",為了要完成期中報告\r\n我們需要先開啟 '檔案管理' 視窗來修改檔案內容,597.3521;294.7369
-NPC_12_20,12,20,2,2,,,遊戲新增了第一個目標\r\n現在，讓我們專注地完成當前的目標吧,False,Block,Normal,,,,,,"The game has added the first objective.\nNow, let's focus on completing the current goal.",遊戲新增了第一個目標\r\n現在，讓我們專注地完成當前的目標吧,597.3521;349.615
-NPC_12_21,12,21,2,2,,,為了打開 '檔案管理' 視窗\r\n我們需要從 '工具欄' 區域中找到相應的按鈕並按下,False,Block,Normal,,,,,,"To open the 'File Manager' window,\nwe need to find the corresponding button in the 'Toolbar' area and click on it.",為了打開 '檔案管理' 視窗\r\n我們需要從 '工具欄' 區域中找到相應的按鈕並按下,598.4159;433.0348
+NPC_12_0,12,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,英文,中文,353.5677;64.43085
+NPC_12_1,12,1,2,2,,圖片happyFace,您好！\r\n歡迎來到 Git Education Game 教學遊戲！,False,Block,Normal,,"ShowImage(""happyFace"")",,,,Hello!\r\nWelcome to the Git Education Game!,您好！\r\n歡迎來到 Git Education Game 教學遊戲！,349.4795;143.8113
+NPC_12_2,12,2,2,2,,圖片flag,在遊戲開始之前\r\n請讓我介紹一下本遊戲的特色與目標,False,Block,Normal,,"ShowImage(""flag"")",,,,"Before the game starts,\r\nLet me introduce the features and goals of this game.",在遊戲開始之前\r\n請讓我介紹一下本遊戲的特色與目標,349.4795;195.9471
+NPC_12_3,12,3,2,2,,圖片gitIcon,在這個遊戲中\r\n您將會學習到什麼是版本控制\r\n並且在遊戲過程中會使用 Git 指令來進行操作,False,Block,Normal,,"ShowImage(""gitIcon"")",,,,"In this game,\r\nyou will learn what version control is.\r\nAnd you will use Git commands to operate action during the game.",在這個遊戲中\r\n您將會學習到什麼是版本控制\r\n並且在遊戲過程中會使用 Git 指令來進行操作,349.4795;246.8645
+NPC_12_4,12,4,2,2,,圖片flyShoes,就算是沒有寫程式的經驗\r\n或者是從未使用過 Git 版本控制工具的人\r\n都可以透過本遊戲來學習這些知識,False,Block,Normal,,"ShowImage(""flyShoes"")",,,,"Even those without programming experience,\r\nor those who have never used Git version control tools.\r\nThey can learn these skills through this game.",就算是沒有寫程式的經驗\r\n或者是從未使用過 Git 版本控制工具的人\r\n都可以透過本遊戲來學習這些知識,349.4795;297.9283
+NPC_12_5,12,5,2,2,,圖片Listx3,本遊戲的主要目標是讓您學會：\r\n1. 版本控制的基本概念以及如何有效地應用它\r\n2. 每個 Git 指令的使用方法和用途\r\n3. 透過這些知識來實際管理專案,False,Block,Normal,,"ShowImage(""Listx3"")",,,,"The main goals of this game will teach you:\r\n1. Basic concepts of version control and how to apply it effectively.\r\n2. The purpose of using each Git command, and how to use them.\r\n3. How to manage projects practically with these skills.",本遊戲的主要目標是讓您學會：\r\n1. 版本控制的基本概念以及如何有效地應用它\r\n2. 每個 Git 指令的使用方法和用途\r\n3. 透過這些知識來實際管理專案,350.699;346.8645
+NPC_12_6,12,6,2,2,,圖片windowOutline,為了達成上述目標\r\n本遊戲模擬了實際開發專案時\r\n經常會遇到的情境和問題,False,Block,Normal,,"ShowImage(""windowOutline"")",,,,"To achieve these goals above,\r\nsituations and problems will be simulated in this game, \r\nwhich is often encountered in actual project development.",為了達成上述目標\r\n本遊戲模擬了實際開發專案時\r\n經常會遇到的情境和問題,352.671;437.29
+NPC_12_7,12,7,2,2,,,根據每個情境的難易度和主題的不同\r\n本遊戲設計了多個遊戲關卡,False,Block,Normal,,,,,,"Based on the difficulty and theme of each situation,\r\nthe game has designed multiple stages.",根據每個情境的難易度和主題的不同\r\n本遊戲設計了多個遊戲關卡,350.5433;485.1624
+NPC_12_8,12,8,2,2,,圖片flyShoes,這種方式不僅能幫助您\r\n更有效地學習每個關卡中所要傳達的知識,False,Block,Normal,,"ShowImage(""flyShoes"")",,,,This approach not only helps you\r\nlearn the knowledge at each level more effectively.,這種方式不僅能幫助您\r\n更有效地學習每個關卡中所要傳達的知識,350.5433;536.3387
+NPC_12_9,12,9,2,2,,圖片hammer,還能讓您在完成遊戲後\r\n將這些知識實際應用於專案開發中,False,Block,Normal,,"ShowImage(""hammer"")",,,,But also allows you to use this knowledge\r\nin actual project development after completing the game.,還能讓您在完成遊戲後\r\n將這些知識實際應用於專案開發中,350.5433;585.1625
+NPC_12_10,12,10,2,2,,,在介紹完遊戲目標和特色後\r\n讓我們先來熟悉一下遊戲環境吧,False,Block,Normal,,,,,,"After introducing the game's goals and features,\r\nlet's get familiar with the game environment.",在介紹完遊戲目標和特色後\r\n讓我們先來熟悉一下遊戲環境吧,350.5433;635.1625
+NPC_12_11,12,11,2,2,,(建構開始\r),首先，我們將模擬遊戲中的第一個場景,False,Block,Normal,,"CloseImageWindow();\nBlackPanelControl(false);\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");",,,,"First, let's simulate the first game scene.",首先，我們將模擬遊戲中的第一個場景,350.5433;729.8433
+NPC_12_12,12,12,2,2,,顯示Hint_StoryBackground,"在建立完模擬場景後\r\n您可以在 ""當前模擬背景"" 區域中\r\n看到模擬場景的背景故事",False,Block,Normal,,"HintController(""StoryBackground"",true )",,,,"After establishing the simulated scene,\r\nyou can see the background story in \r\nthe 'Current Simulation Background' area.","在建立完模擬場景後\r\n您可以在 ""當前模擬背景"" 區域中\r\n看到模擬場景的背景故事",350.5433;779.8433
+NPC_12_13,12,13,2,2,,圖片bookOpen,在遊戲中\r\n我們需要扮演模擬背景中的角色\r\n操作遊戲畫面以實現故事中的主要目標,False,Block,Normal,,"ShowImage(""bookOpen"")",,,,"In the game,\r\nwe need to play the role of the characters in the simulated scene.\r\nWe have to do action on the game screen to achieve the main goals of the story.",在遊戲中\r\n我們需要扮演模擬背景中的角色\r\n操作遊戲畫面以實現故事中的主要目標,350.5433;829.8433
+NPC_12_14,12,14,2,2,,圖片star,當您達成模擬背景的主要目標後\r\n您就完成了遊戲關卡,False,Block,Normal,,"ShowImage(""star"")",,,,"Once you reach the main goal in the simulated scene, \r\nyou clear the stage.",當您達成模擬背景的主要目標後\r\n您就完成了遊戲關卡,350.5433;879.8433
+NPC_12_15,12,15,2,2,,圖片lightBulb&不顯示Hint_StoryBackground,另外，為了確保您在遊戲進行的過程中\r\n能夠更清楚地了解每一個步驟應該做的事情,False,Block,Normal,,"ShowImage(""lightBulb"")\nHintController(""StoryBackground"",false )",,,,"Additionally, to ensure you clearly understand \r\neach step you should take during the game.",另外，為了確保您在遊戲進行的過程中\r\n能夠更清楚地了解每一個步驟應該做的事情,350.5433;929.8433
+NPC_12_16,12,16,2,2,,顯示Hint_StageTrackerPopup,本遊戲將模擬背景的主要目標分成了多個小目標\r\n您能夠通過畫面左上角的區域得知當前的遊戲目標,False,Block,Normal,,"HintController(""StageTrackerPopup"",true )",,,,The main goal will be divided into multiple smaller objectives.\r\nYou can confirm the current game objective at the top left of the game screen.,本遊戲將模擬背景的主要目標分成了多個小目標\r\n您能夠通過畫面左上角的區域得知當前的遊戲目標,597.3521;144.7369
+NPC_12_17,12,17,2,2,,圖片bookOpen,在開始解決第一個目標前\r\n讓我們一起來確認本次的故事背景吧,False,Block,Normal,,"ShowImage(""bookOpen"")",,,,"Before we start complete the first objective,\r\nlet's confirm the story background together.",在開始解決第一個目標前\r\n讓我們一起來確認本次的故事背景吧,597.3521;194.7369
+NPC_12_18,12,18,2,2,,圖片file,根據當前的模擬背景\r\n您已在這台電腦上新增了一份期中簡報,False,Block,Normal,,"ShowImage(""file"")",,,,"According to the current simulated scene,\r\nyou have added a mid-term presentation to this computer.",根據當前的模擬背景\r\n您已在這台電腦上新增了一份期中簡報,597.3521;244.7369
+NPC_12_19,12,19,2,2,,(新增任務),為了要完成期中報告\r\n我們需要先開啟 '檔案管理' 視窗來修改檔案內容,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,"To finish the min-term presentation,\r\nWe need to open the 'File Manager' window to change files.",為了要完成期中報告\r\n我們需要先開啟 '檔案管理' 視窗來修改檔案內容,597.3521;294.7369
+NPC_12_20,12,20,2,2,,,遊戲新增了第一個目標\r\n現在，讓我們專注地完成當前的目標吧,False,Block,Normal,,,,,,"The game has added the first objective.\r\nNow, let's focus on completing the current goal.",遊戲新增了第一個目標\r\n現在，讓我們專注地完成當前的目標吧,597.3521;349.615
+NPC_12_21,12,21,2,2,,不顯示Hint_StageTrackerPopup & 顯示Hint_WindowToolbar,為了打開 '檔案管理' 視窗\r\n我們需要從 '工具欄' 區域中找到相應的按鈕並按下,False,Block,Normal,,"HintController(""WindowToolbar"",true )\nHintController(""StageTrackerPopup"",false )",,,,"To open the 'File Manager' window,\r\nwe need to find the corresponding button in the 'Toolbar' area and click on it.",為了打開 '檔案管理' 視窗\r\n我們需要從 '工具欄' 區域中找到相應的按鈕並按下,598.4159;433.0348
 NPC_12_22,12,22,2,2,,,在本遊戲中\r\n'工具欄' 包含著多個不同功能的視窗\r\n這些視窗都與版本控制相關,False,Block,Normal,,,,,,"In this game, \r\nthe 'Toolbar' contains multiple windows.\r\nThey are all related to version control.",在本遊戲中\r\n'工具欄' 包含著多個不同功能的視窗\r\n這些視窗都與版本控制相關,598.4159;483.0348
-NPC_12_23,12,23,2,2,,,隨著遊戲的進行\r\n您將會解鎖並操作新的視窗,False,Block,Normal,,,,,,"As the game progresses,\nyou will unlock and operate new windows.",隨著遊戲的進行\r\n您將會解鎖並操作新的視窗,598.4159;533.0348
-NPC_12_24,12,24,2,2,,(新增任務)/(解鎖按鈕 - 檔案管理),現在，'檔案管理' 按鈕已被解鎖\r\n在完成本次對話後，請您使用滑鼠左鍵點擊對應的按鈕來打開視窗吧,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");\nVariable[""UnlockButtonKey""] = ""FileManager""\nFSMEvent(""Dialogue System/WindowToolbar/Unlock Button"", ""WindowToolbar"", ""Panel"");",,,,"Now, the 'File Manager' button has been unlocked.\r\nAfter finishing this dialogue, \r\nplease click the corresponding button with the left mouse button to open the window.",現在，'檔案管理' 按鈕已被解鎖\r\n在完成本次對話後，請您使用滑鼠左鍵點擊對應的按鈕來打開視窗吧,598.4159;584.3506
-NPC_12_25,12,25,2,2,,,最後，如果在遊戲過程中遇到任何問題\r\n請隨時點擊這裡來尋求幫助\r\n請加油！,False,Block,Normal,,,,,,"Finally, if you encounter any problems during the game,\nplease feel free to click here for help.\nYou can do it!",最後，如果在遊戲過程中遇到任何問題\r\n請隨時點擊這裡來尋求幫助\r\n請加油！,597.15;633.0348
-NPC_13_0,13,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,1241.408;80.86655
-NPC_13_31,13,31,2,2,,,很好！\r\n您已成功完成了遊戲中的第一個目標\r\n並獲得了遊戲分數,False,Block,Normal,,,,,,,,1239.59;155.5524
-NPC_13_32,13,32,2,2,,,您可以在畫面上方看到您的遊戲分數\r\n分數下面顯示了當前遊玩關卡的總時間,False,Block,Normal,,,,,,,,1239.59;203.9131
-NPC_13_33,13,33,2,2,,,當您達成目標且沒有執行錯誤的操作時\r\n您將獲得 1000 點分數,False,Block,Normal,,,,,,,,1239.59;255.5524
-NPC_13_34,13,34,2,2,,,如果在達成目標的過程中，執行了錯誤的操作\r\n您將獲得 750 點分數,False,Block,Normal,,,,,,,,1239.59;306.6161
-NPC_13_35,13,35,2,2,,,在關卡結束後\r\n您將根據您的分數獲得不同的評價\r\n每一個關卡都可以獲得 1 到 3 顆星的評價,False,Block,Normal,,,,,,,,1239.59;355.5524
-NPC_13_36,13,36,2,2,,,這些星星評價\r\n可以幫助您評估自己對該關卡的熟練程度,False,Block,Normal,,,,,,,,1242.781;445.9778
-NPC_13_37,13,37,2,2,,,如果您在通過關卡時，只獲得了 1 顆星的評價\r\n請不要灰心,False,Block,Normal,,,,,,,,1240.654;493.8503
-NPC_13_38,13,38,2,2,,,只要多加複習並實際練習\r\n相信您可以成功地讓所有的關卡都獲得 3 顆星的評價！,False,Block,Normal,,,,,,,,1240.654;545.0267
-NPC_13_39,13,39,2,2,,,"接下來，為了讓您能夠複習所學的知識\r\n我們解鎖了 ""遊戲手冊"" 功能",False,Block,Normal,,,,,,,,1240.654;593.8503
-NPC_13_40,13,40,2,2,,,在遊戲過程中，您會遇到不同的功能和知識\r\n這些內容都會被收錄到手冊中,False,Block,Normal,,,,,,,,1240.654;643.8503
-NPC_13_41,13,41,2,2,,,如果您需要了解遊戲的操作方法和規則\r\n或者有關版本控制和 Git 指令的相關內容\r\n請點擊此處來開啟遊戲手冊,False,Block,Normal,,,,,,,,1240.654;738.5313
-NPC_13_42,13,42,2,2,,,"回到遊戲中\r\n我們已成功開啟了 ""檔案管理"" 視窗",False,Block,Normal,,,,,,,,1240.654;788.5313
-NPC_13_43,13,43,2,2,,(新增任務),您會注意到電腦中已經存在一份簡報檔案\r\n在我們開始簡化內容之前，我們需要先備份這個檔案,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,1240.654;838.5313
-NPC_13_44,13,44,2,2,,,"在 ""檔案管理"" 視窗中\r\n對著檔案圖標，使用滑鼠右鍵來開啟功能選單",False,Block,Normal,,,,,,,,1240.654;888.5313
-NPC_13_45,13,45,2,2,,,在選單中，尋找複製檔案的選項\r\n然後使用滑鼠左鍵執行此操作吧,False,Block,Normal,,,,,,,,1242.293;938.5313
-NPC_13_46,13,46,2,2,,,,False,Block,Normal,,,,,,,,1509.506;157.384
-NPC_14_0,14,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,1001.308;203.4646
-NPC_14_87,14,87,2,2,,,做得好！\r\n在成功備份檔案之後\r\n現在讓我們按照故事背景的下一步來精簡簡報內容吧,False,Block,Normal,,,,,,,,1001.804;264.1216
-NPC_14_88,14,88,2,2,,,然而，有一件重要的事情需要注意：\r\n我們應該先修改複製檔案的名稱\r\n這樣可以更方便地區分新檔案和原檔案,False,Block,Normal,,,,,,,,1001.804;314.1216
-NPC_14_89,14,89,2,2,,(新增任務),因此，讓我們為複製後的檔案命名吧,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,1001.804;364.1216
-NPC_14_90,14,90,2,2,,,"在這個模擬電腦中\r\n如果您需要為檔案命名\r\n您需要在 ""檔案編輯"" 視窗中進行操作",False,Block,Normal,,,,,,,,1001.804;415.1854
-NPC_14_91,14,91,2,2,,,"您可以通過點擊滑鼠左鍵來打開 ""檔案編輯"" 視窗",False,Block,Normal,,,,,,,,1001.804;464.1216
-NPC_14_92,14,92,2,2,,,"有關如何操作 ""檔案編輯"" 視窗的具體步驟\r\n這次我們鼓勵您嘗試自己探索\r\n或者查閱遊戲手冊以獲取更多信息",False,Block,Normal,,,,,,,,1004.995;554.5471
-NPC_15_0,15,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,783.321;178.8616
-NPC_15_91,15,91,2,2,,,很好！\r\n我們重新命名了備份後的文件\r\n這樣可以更容易區分新文件和原文件,False,Block,Normal,,,,,,,,778.1406;262.9972
-NPC_15_92,15,92,2,2,,(新增任務),現在，我們可以開始精簡簡報中的內容了,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,778.1406;312.9972
-NPC_15_93,15,93,2,2,,,"同樣，您可以通過 ""檔案編輯"" 視窗\r\n來進行內容的新增、修改和刪除",False,Block,Normal,,,,,,,,778.1406;362.9972
-NPC_15_94,15,94,2,2,,,"請注意，本次目標是需要刪除\r\n""<color=#CF001C>期中報告v2</color>"" 中的內容",False,Block,Normal,,,,,,,,778.1406;414.061
-NPC_15_95,15,95,2,2,,,"在刪除之前\r\n請確保 ""檔案編輯"" 視窗的文件名稱為 ""期中報告v2"" \r\n避免刪除到錯誤的檔案",False,Block,Normal,,,,,,,,778.1406;462.9971
-NPC_16_0,16,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,251.6205;66.77161
-NPC_16_32,16,32,2,2,,,非常好！\r\n我們成功地精簡了期中報告,False,Block,Normal,,,,,,,,246.2167;136.3742
-NPC_16_33,16,33,2,2,,,"在完成了 ""期中報告v2"" 的內容後\r\n您重新查看了報告一遍",False,Block,Normal,,,,,,,,246.2167;186.3742
-NPC_16_34,16,34,2,2,,,但是，您發現在簡報的一頁需要進行調整\r\n才能使內容更加流暢,False,Block,Normal,,,,,,,,246.2167;236.3742
-NPC_16_35,16,35,2,2,,(新增任務),"讓我們再執行一次 ""備份檔案"" 流程\r\n來完成期中報告吧",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,246.2167;287.4379
-NPC_16_36,16,36,2,2,,,而這次，您需要自行嘗試完成遊戲目標\r\n過程中將不會出現對話來引導您下一步該做什麼事情,False,Block,Normal,,,,,,,,246.2167;336.3741
-NPC_16_37,16,37,2,2,,,試著通過剛才學到的知識\r\n跟隨當前目標解決任務吧,False,Block,Normal,,,,,,,,249.4082;426.7996
-NPC_16_38,16,38,2,2,,,"如果在遊戲過程中遇到問題\r\n請查閱 ""遊戲手冊"" 或者點擊 ""協助功能"" 來獲得幫助\r\n請加油！",False,Block,Normal,,,,,,,,247.2805;474.672
+NPC_12_23,12,23,2,2,,,隨著遊戲的進行\r\n您將會解鎖並操作新的視窗,False,Block,Normal,,,,,,"As the game progresses,\r\nyou will unlock and operate new windows.",隨著遊戲的進行\r\n您將會解鎖並操作新的視窗,598.4159;533.0348
+NPC_12_24,12,24,2,2,,(新增任務)/(解鎖按鈕 - 檔案管理) & 不顯示Hint_WindowToolbar,現在，'檔案管理' 按鈕已被解鎖\r\n在完成本次對話後，請您使用滑鼠左鍵點擊對應的按鈕來打開視窗吧,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");\nVariable[""UnlockButtonKey""] = ""FileManager""\nFSMEvent(""Dialogue System/WindowToolbar/Unlock Button"", ""WindowToolbar"", ""Panel"");\nHintController(""StageTrackerPopup"",false )",,,,"Now, the 'File Manager' button has been unlocked.\r\nAfter finishing this dialogue, \r\nplease click the corresponding button with the left mouse button to open the window.",現在，'檔案管理' 按鈕已被解鎖\r\n在完成本次對話後，請您使用滑鼠左鍵點擊對應的按鈕來打開視窗吧,598.4159;583.0348
+NPC_12_25,12,25,2,2,,高亮粒子 幫助,最後，如果在遊戲過程中遇到任何問題\r\n請隨時點擊這裡來尋求幫助\r\n請加油！,False,Block,Normal,,"FSMEvent(""Hint/Particle/Show Particle"", ""DialogueButton"", ""Highlight Particle"");",,,,"Finally, if you encounter any problems during the game,\r\nplease feel free to click here for help.\r\nYou can do it!",最後，如果在遊戲過程中遇到任何問題\r\n請隨時點擊這裡來尋求幫助\r\n請加油！,597.15;633.0348
+NPC_12_26,12,26,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,598.3696;726.9372
+NPC_13_0,13,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,Great!\r\nYou have completed the first objective in the game.\r\nAnd you earned game points.,很好！\r\n您已成功完成遊戲中的第一個目標\r\n並獲得了遊戲分數,1241.408;80.86655
+NPC_13_31,13,31,2,2,,圖片happyFace,很好！\r\n您已成功完成了遊戲中的第一個目標\r\n並獲得了遊戲分數,False,Block,Normal,,"ShowImage(""happyFace"")",,,,You can see your game score at the top of the screen.\r\nBelow the score shows the total time you spent while playing this stage.,您可以在畫面上方看到您的遊戲分數\r\n在分數的下方顯示了遊玩這個關卡總花費的時間,1239.59;155.5524
+NPC_13_32,13,32,2,2,,顯示Hint_Star,您可以在畫面上方看到您的遊戲分數\r\n分數下面顯示了當前遊玩關卡的總時間,False,Block,Normal,,"HintController(""Hint_Star"",true )",,,,When you achieve the objective without taking any incorrect actions.\r\nYou will get 1000 points.,當您達成目標且沒有執行錯誤的操作時\r\n您將獲得 1000 點分數,1239.59;205.5524
+NPC_13_33,13,33,2,2,,,當您達成目標且沒有執行錯誤的操作時\r\n您將獲得 1000 點分數,False,Block,Normal,,,,,,If you did the incorrect actions while completing one objective.\r\nYou will receive 750 points.,如果在達成目標的過程中執行過錯誤的操作\r\n您將獲得 750 點分數,1239.59;255.5524
+NPC_13_34,13,34,2,2,,,如果在達成目標的過程中，執行了錯誤的操作\r\n您將獲得 750 點分數,False,Block,Normal,,,,,,"At the end of the stage,\r\nyou will receive a rating based on your score.\r\nEach level can receive a rating of 1 to 4 stars。",在關卡結束後\r\n您將根據您的分數獲得不同的評價\r\n每一個關卡能夠獲得 1 到 4 顆星的評價,1239.59;306.6161
+NPC_13_35,13,35,2,2,,,在關卡結束後\r\n您將根據您的分數獲得不同的評價\r\n每一個關卡都可以獲得 1 到 3 顆星的評價,False,Block,Normal,,,,,,This rating can help you confirm whether learn knowledge in the stages.\r\nYou can also see your progress through a personal leaderboard.,這個評價可以幫助您評估自己對該關卡的熟練程度\r\n您也可以通過個人排行榜來查看自己是否有進步,1239.59;355.5524
+NPC_13_36,13,36,2,2,,,這些星星評價\r\n可以幫助您評估自己對該關卡的熟練程度,False,Block,Normal,,,,,,"Additionally, your performance in the game will be recorded on the global leaderboard.",另外，您在遊戲中的表現會被記錄在全球排行榜中,1242.781;445.9778
+NPC_13_37,13,37,2,2,,,如果您在通過關卡時，只獲得了 1 顆星的評價\r\n請不要灰心,False,Block,Normal,,,,,,Try to earn a score as high as possible. \r\nAnd become one of the top 10 players!,所以，請您盡可能地獲得高分\r\n以成為全球前 10 名的玩家吧！,1240.654;493.8503
+NPC_13_38,13,38,2,2,,,只要多加複習並實際練習\r\n相信您可以成功地讓所有的關卡都獲得 3 顆星的評價！,False,Block,Normal,,,,,,"Next, in order to let you review the knowledge in the game.\r\nThe 'Game Manual' feature has been unlocked.",接下來，為了讓您能夠複習遊戲中學到的知識\r\n'遊戲手冊' 功能被解鎖了,1240.654;545.0267
+NPC_13_39,13,39,2,2,,,"接下來，為了讓您能夠複習所學的知識\r\n我們解鎖了 ""遊戲手冊"" 功能",False,Block,Normal,,,,,,Features and knowledge you met during the game\r\nwill be included in this manual.,在遊戲過程中遇到的功能和知識\r\n都會被收錄到本手冊中,1240.654;593.8503
+NPC_13_40,13,40,2,2,,,在遊戲過程中，您會遇到不同的功能和知識\r\n這些內容都會被收錄到手冊中,False,Block,Normal,,,,,,If you need to understand the operation or rules of the game.\r\nOr want to learn the content related to version control and Git commands.\r\nPlease click here to open the 'game manual' window.,如果您需要了解遊戲的操作方法和規則\r\n或是有關版本控制和 Git 指令的內容\r\n請點擊此處來開啟 '遊戲手冊' 視窗,1240.654;643.8503
+NPC_13_41,13,41,2,2,,,如果您需要了解遊戲的操作方法和規則\r\n或者有關版本控制和 Git 指令的相關內容\r\n請點擊此處來開啟遊戲手冊,False,Block,Normal,,,,,,"Back to the game,\r\nyou have successfully opened the 'File Manager' window.",回到遊戲中\r\n您已經成功開啟 '檔案管理' 視窗,1240.654;738.5313
+NPC_13_42,13,42,2,2,,,"回到遊戲中\r\n我們已成功開啟了 ""檔案管理"" 視窗",False,Block,Normal,,,,,,"After Checking the contents in the window,\r\nyou will find a presentation file on the computer.\r\nThis is the target file mentioned in the simulation stage.",查看視窗內容後\r\n您會發現電腦中有一份簡報檔案\r\n這就是本次模擬背景提到的目標檔案,1240.654;788.5313
+NPC_13_43,13,43,2,2,,(新增任務),您會注意到電腦中已經存在一份簡報檔案\r\n在我們開始簡化內容之前，我們需要先備份這個檔案,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,"Before starting to simplify the content,\r\nwe need to back up this file\r\nto ensure that the deleted content can be restored.",不過，在開始簡化內容之前\r\n我們需要先備份這個檔案\r\n以確保被刪除的內容還可以被復原,1240.654;838.5313
+NPC_13_44,13,44,2,2,,,"在 ""檔案管理"" 視窗中\r\n對著檔案圖標，使用滑鼠右鍵來開啟功能選單",False,Block,Normal,,,,,,"In the 'File Manager' window,\r\nyou can right-click on the target file icon to open the function menu.",在 '檔案管理' 視窗中\r\n對著指定的檔案圖標，點擊滑鼠右鍵來開啟功能選單,1240.654;888.5313
+NPC_13_45,13,45,2,2,,,在選單中，尋找複製檔案的選項\r\n然後使用滑鼠左鍵執行此操作吧,False,Block,Normal,,,,,,"From the function menu, find the 'Copy File' option.\r\nThen click with the left mouse button to back up the file.",從功能選單中，找到 '複製檔案' 的選項\r\n接著點擊滑鼠左鍵來備份檔案吧,1240.654;938.5313
+NPC_13_46,13,46,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,1528.585;159.2215
+NPC_13_47,13,47,2,2,,,,False,Block,Normal,,,,,,,,1525.953;211.8531
+NPC_14_0,14,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,1001.308;203.4646
+NPC_14_87,14,87,2,2,,,做得好！\r\n在成功備份檔案之後\r\n現在讓我們按照故事背景的下一步來精簡簡報內容吧,False,Block,Normal,,,,,,"Well done!\r\nAfter successfully backing up the file,\r\nlet's move to the next step, continue to simplify the presentation content.",做得好！\r\n在成功備份檔案之後\r\n讓我們繼續接著故事背景來精簡簡報內容,1001.804;264.1216
+NPC_14_88,14,88,2,2,,,然而，有一件重要的事情需要注意：\r\n我們應該先修改複製檔案的名稱\r\n這樣可以更方便地區分新檔案和原檔案,False,Block,Normal,,,,,,"However, before we start, there's one more important thing need to complete:\r\nWe should rename the copied file.\r\nIt can identify file differences more easily.",然而，在開始之前需要先完成一件重要的事情：\r\n我們應該先重新命名複製後檔案\r\n來更方便地區分檔案的差異,1001.804;314.1216
+NPC_14_89,14,89,2,2,,(新增任務),因此，讓我們為複製後的檔案命名吧,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,"Therefore, please name the copied file.",因此，請您為複製後的檔案命名吧,1001.804;364.1216
+NPC_14_90,14,90,2,2,,,"在這個模擬電腦中\r\n如果您需要為檔案命名\r\n您需要在 ""檔案編輯"" 視窗中進行操作",False,Block,Normal,,,,,,"In this simulated computer,\r\nif you need to name files,\r\nyou need to do it in the 'File Content' window.",在這個模擬電腦中\r\n如果您需要為檔案命名\r\n您需要在 '檔案內容' 視窗中進行操作,1001.804;415.1854
+NPC_14_91,14,91,2,2,,,"您可以通過點擊滑鼠左鍵來打開 ""檔案編輯"" 視窗",False,Block,Normal,,,,,,Please click on the target file \r\nwith the left mouse button to open the 'File Content' window.,請您對著目標檔案點擊滑鼠左鍵來打開 '檔案內容' 視窗,1001.804;464.1216
+NPC_14_92,14,92,2,2,,,"有關如何操作 ""檔案編輯"" 視窗的具體步驟\r\n這次我們鼓勵您嘗試自己探索\r\n或者查閱遊戲手冊以獲取更多信息",False,Block,Normal,,,,,,For how to do action in the 'File Editing' window.\r\nThis time we encourage you to try exploring by yourself or \r\nuse the game manual for more information.,關於如何操作 '檔案內容' 視窗的內容\r\n這次鼓勵您嘗試自己探索或者查閱遊戲手冊以獲取更多信息,1004.995;554.5471
+NPC_14_93,14,93,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,1004.995;604.5471
+NPC_15_0,15,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,783.321;178.8616
+NPC_15_91,15,91,2,2,,,很好！\r\n我們重新命名了備份後的文件\r\n這樣可以更容易區分新文件和原文件,False,Block,Normal,,,,,,Good!\r\nYou have renamed the backup file.\r\nWe can identify the differences between the files more easily.,很好！\r\n您重新命名了備份後的文件\r\n這樣能更容易地區分檔案之間的關係了,778.1406;262.9972
+NPC_15_92,15,92,2,2,,(新增任務),現在，我們可以開始精簡簡報中的內容了,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,After finishing the action of backup files.\r\nLet's start simplifying the content of the presentation.,在完成備份檔案的操作後\r\n讓我們開始精簡簡報中的內容吧,778.1406;312.9972
+NPC_15_93,15,93,2,2,,,"同樣，您可以通過 ""檔案編輯"" 視窗\r\n來進行內容的新增、修改和刪除",False,Block,Normal,,,,,,"Similarly, you can use the 'File Content' window\r\nto add, modify, and delete content.",同樣，您可以通過 '檔案編輯' 視窗\r\n來進行內容的新增、修改和刪除,778.1406;362.9972
+NPC_15_94,15,94,2,2,,,"請注意，本次目標是需要刪除\r\n""<color=#CF001C>期中報告v2</color>"" 中的內容",False,Block,Normal,,,,,,Please note that the current objective is to delete content\r\nfrom '<color=#CF001C>MidtermReport_v2.ppt</color>'.,請注意，本次目標是需要刪除\r\n'<color=#CF001C>期中報告_v2.ppt</color>' 中的內容,778.1406;414.061
+NPC_15_95,15,95,2,2,,,"在刪除之前\r\n請確保 ""檔案編輯"" 視窗的文件名稱為 ""期中報告v2"" \r\n避免刪除到錯誤的檔案",False,Block,Normal,,,,,,"So before you delete the file content,\r\nplease ensure that the file in the 'File Content' window is the target one.\r\nto avoid deleting the content in an old file version.",所以在刪除檔案內容之前\r\n請確保目前 '檔案編輯' 視窗的檔案是目標檔案\r\n以避免在舊的檔案版本中刪除內容,778.1406;462.9971
+NPC_15_96,15,96,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,778.1406;512.9971
+NPC_16_0,16,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,251.6205;66.77161
+NPC_16_32,16,32,2,2,,,非常好！\r\n我們成功地精簡了期中報告,False,Block,Normal,,,,,,Great!\r\nYou have successfully simplified the content \r\nin the 'MidtermReport_v2.ppt' file.,很好！\r\n您已成功精簡 '期中報告_v2.ppt' 檔案中的內容,246.2167;136.3742
+NPC_16_33,16,33,2,2,,,"在完成了 ""期中報告v2"" 的內容後\r\n您重新查看了報告一遍",False,Block,Normal,,,,,,"After simplifying the report contents,\r\nyou reviewed the report content again.",在精簡報告之後\r\n您再次瀏覽了報告內容,246.2167;186.3742
+NPC_16_34,16,34,2,2,,,但是，您發現在簡報的一頁需要進行調整\r\n才能使內容更加流暢,False,Block,Normal,,,,,,"As a result, you found that one page of the presentation \r\nneeds to change to make the content smoother.",結果您發現在簡報的一頁需要進行調整\r\n才能使內容更加流暢,246.2167;236.3742
+NPC_16_35,16,35,2,2,,(新增任務),"讓我們再執行一次 ""備份檔案"" 流程\r\n來完成期中報告吧",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,Let's go through the 'Backup File' process once again\r\nto complete the midterm report.,讓我們再執行一次 '備份檔案' 的流程\r\n來完成期中報告吧,246.2167;287.4379
+NPC_16_36,16,36,2,2,,,而這次，您需要自行嘗試完成遊戲目標\r\n過程中將不會出現對話來引導您下一步該做什麼事情,False,Block,Normal,,,,,,"This time, you need to complete the stage objectives by yourself.\r\nAfter completing one objective, I won't tell you what to do next.",這次，您需要自行完成遊戲目標\r\n在完成一個目標後，我不會提醒您下一步該做什麼事情,246.2167;336.3741
+NPC_16_37,16,37,2,2,,,試著通過剛才學到的知識\r\n跟隨當前目標解決任務吧,False,Block,Normal,,,,,,Please try to complete the objective \r\nwith the knowledge you have just learned.,請試著使用剛才學到的知識來解決當前目標吧,249.4082;426.7996
+NPC_16_38,16,38,2,2,,,"如果在遊戲過程中遇到問題\r\n請查閱 ""遊戲手冊"" 或者點擊 ""協助功能"" 來獲得幫助\r\n請加油！",False,Block,Normal,,,,,,"If you encounter problems during the game,\r\nplease use the 'Game Manual' or click 'Help Feature' for assistance.\r\nLet's do it!",如果在遊戲過程中遇到問題\r\n請查閱 '遊戲手冊' 或者點擊 '協助功能' 來獲得幫助\r\n請加油！,247.2805;474.672
+NPC_16_39,16,39,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,247.2805;524.672
 Player_18_0,18,0,1,2,START,,,False,Block,Normal,,,None(),,,,,348.7317;35.48781
 NPC_18_18,18,18,2,1,,,您好，請問您目前遇到了什麼問題呢？,False,Block,Normal,,,,,,,,353.0605;101.5806
 Player_18_19,18,19,1,2,,回顧歷史對話,,False,Block,Normal,,"Variable[""SelectionType""] = ""Replay""",,,,,回顧先前的歷史對話,58.51908;191.5691
@@ -255,28 +260,28 @@ Player_18_21,18,21,1,2,,卡關了,,False,Block,Normal,,"Variable[""SelectionType
 Player_18_22,18,22,1,2,,沒有問題,,False,Block,Normal,,"Variable[""SelectionType""] = ""Bye""",,,,,沒有問題,671.746;196.949
 NPC_18_23,18,23,2,1,,,想要回顧哪一個部分呢？,False,Block,Normal,,,,,,,,56.37453;263.639
 Player_18_24,18,24,1,2,,到目前為止的劇情概要,,False,Block,Normal,,"Variable[""SelectionType""] = ""Summary""",,,,,到目前為止的劇情概要,198.381;491.9323
-Player_18_26,18,26,1,2,,當前目標的對話劇情,,False,Block,Normal,"Variable[""canReplay""] == true","Variable[""SelectionType""] = ""Current""",,,,,當前目標的對話劇情,4.396583;490.8605
+Player_18_26,18,26,1,2,,當前目標的對話劇情,,False,Block,Normal,,"Variable[""SelectionType""] = ""Current""",,,,,當前目標的對話劇情,3.396583;491.8605
 Player_18_27,18,27,1,2,,取消,,False,Block,Normal,,"Variable[""SelectionType""] = ""Bye""",,,,,取消,386.4832;492.5199
 NPC_18_29,18,29,2,1,,,您確定要開啟協助解答功能嗎？,False,Block,Normal,,,,,,,,463.3596;267.7534
 NPC_18_33,18,33,2,1,,,您確定要開啟提示功能嗎？,False,Block,Normal,,,,,,,,255.8458;264.1351
-NPC_19_0,19,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,656.0058;118.9344
-NPC_19_31,19,31,2,2,,,太棒了！\r\n您成功地修改了第三版本的期中報告\r\n讓報告更加完善了,False,Block,Normal,,,,,,,,656.9852;191.2185
-NPC_19_32,19,32,2,2,,,通過這兩次的修改\r\n我們已經成功準備好了課堂簡報\r\n也達成了本次模擬背景的主要目標,False,Block,Normal,,,,,,,,656.9852;241.2185
-NPC_19_33,19,33,2,2,,,通過第一關後\r\n相信您對遊戲的關卡流程和玩法\r\n已經有了更清晰的理解,False,Block,Normal,,,,,,,,656.9852;291.2185
-NPC_19_34,19,34,2,2,,,接下來，讓我們回顧一下本次關卡中學到的內容,False,Block,Normal,,,,,,,,656.9852;342.2823
-NPC_19_35,19,35,2,2,,,首先，我們了解了遊戲的目標和特色\r\n以及遊戲中的各種機制\r\n例如得分、目標和模擬背景故事,False,Block,Normal,,,,,,,,656.9852;391.2185
-NPC_19_36,19,36,2,2,,,接著，我們解鎖了多個功能,False,Block,Normal,,,,,,,,660.1766;481.644
-NPC_19_37,19,37,2,2,,,"""協助功能"" 不僅允許您回顧先前的對話\r\n還提供提示和解答的功能",False,Block,Normal,,,,,,,,658.049;529.5164
-NPC_19_38,19,38,2,2,,,"""遊戲手冊"" 是一個幫助您學習的工具\r\n隨著遊戲進展，您將解鎖更多知識\r\n如果需要的話，請隨時查閱它",False,Block,Normal,,,,,,,,658.049;580.6927
-NPC_19_39,19,39,2,2,,,"""檔案管理"" 視窗可以讓您\r\n瀏覽模擬環境中的電腦內容",False,Block,Normal,,,,,,,,658.049;629.5164
-NPC_19_40,19,40,2,2,,,並且可以對文件執行以下操作：\r\n新增、修改、刪除文件內容\r\n以及複製和命名文件,False,Block,Normal,,,,,,,,658.049;679.5164
-NPC_19_41,19,41,2,2,,,本次關卡，我們通過備份檔案的方式\r\n來幫助您熟悉遊戲環境,False,Block,Normal,,,,,,,,658.049;774.1973
-NPC_19_42,19,42,2,2,,,下一關卡，我們會正式開始學習版本控制和 Git,False,Block,Normal,,,,,,,,658.049;824.1973
-NPC_19_43,19,43,2,2,,,我們將深入了解它們的定義、優點以及特色\r\n同時，我們將會比較\r\n使用備份檔案和版本控制、Git 的不同之處,False,Block,Normal,,,,,,,,658.049;874.1973
-NPC_19_44,19,44,2,2,,,最後，恭喜您通過了本次的關卡\r\n您做得很棒！,False,Block,Normal,,,,,,,,656.2308;924.1973
+NPC_19_0,19,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,656.0058;118.9344
+NPC_19_31,19,31,2,2,,,太棒了！\r\n您成功地修改了第三版本的期中報告\r\n讓報告更加完善了,False,Block,Normal,,,,,,"Wonderful!\r\nYou have successfully modified the third version of the midterm report,\r\nmaking the report even more perfect.",太棒了！\r\n您已成功修改第 3 版本的期中報告\r\n這個動作讓報告變得更加完善了,656.9852;191.2185
+NPC_19_32,19,32,2,2,,,通過這兩次的修改\r\n我們已經成功準備好了課堂簡報\r\n也達成了本次模擬背景的主要目標,False,Block,Normal,,,,,,"With two modifications,\r\nyou have now prepared the midterm report\r\nand achieved the main objective of this simulated stage.",通過兩次的修改\r\n您已經準備好了期中報告\r\n也達成了本次模擬背景的主要目標,656.9852;241.2185
+NPC_19_33,19,33,2,2,,,通過第一關後\r\n相信您對遊戲的關卡流程和玩法\r\n已經有了更清晰的理解,False,Block,Normal,,,,,,"After completing the first stage,\r\nI believe you have a clearer understanding of \r\nthe game's walkthrough and gameplay.",通過第一關後\r\n相信您對遊戲的關卡流程和玩法\r\n已經有了更清晰的理解,656.9852;291.2185
+NPC_19_34,19,34,2,2,,,接下來，讓我們回顧一下本次關卡中學到的內容,False,Block,Normal,,,,,,"Next, let's review what we learned in this stage.",接下來，讓我們來回顧本次關卡中學到的內容,656.9852;342.2823
+NPC_19_35,19,35,2,2,,,首先，我們了解了遊戲的目標和特色\r\n以及遊戲中的各種機制\r\n例如得分、目標和模擬背景故事,False,Block,Normal,,,,,,"First, we introduced the game's goals and features,\r\nand various features in the game,\r\nsuch as scoring, objectives, and simulated background stories.",首先，我們介紹了本遊戲的目標和特色\r\n以及遊戲中的各種功能\r\n例如得分、目標和模擬背景故事,656.9852;391.2185
+NPC_19_36,19,36,2,2,,,接著，我們解鎖了多個功能,False,Block,Normal,,,,,,"Then, we unlocked several features in the game.",接著，我們解鎖了多個遊戲中的功能,660.1766;481.644
+NPC_19_37,19,37,2,2,,,"""協助功能"" 不僅允許您回顧先前的對話\r\n還提供提示和解答的功能",False,Block,Normal,,,,,,The 'Dialogue feature' not only allows you to review previous conversations\r\nbut also provides 'Hint' and 'Answer' features.,對話功能' 不僅允許您回顧先前的對話\r\n還提供 '提示' 和 '解答' 的功能,658.049;529.5164
+NPC_19_38,19,38,2,2,,,"""遊戲手冊"" 是一個幫助您學習的工具\r\n隨著遊戲進展，您將解鎖更多知識\r\n如果需要的話，請隨時查閱它",False,Block,Normal,,,,,,"The 'Game Manual' is a tool to help you learn.\r\nAs the game progresses, you will unlock more knowledge.\r\nPlease use it whenever needed.",遊戲手冊' 是一個幫助您學習的工具\r\n隨著遊戲進展，您將解鎖更多知識\r\n如果需要的話，請隨時查閱它,658.049;580.6927
+NPC_19_39,19,39,2,2,,,"""檔案管理"" 視窗可以讓您\r\n瀏覽模擬環境中的電腦內容",False,Block,Normal,,,,,,The 'File Manager' window allows you to\r\nbrowse the contents of the computer \r\nin the simulated background environment.,檔案管理' 視窗可以讓您\r\n瀏覽模擬背景環境中的電腦內容,658.049;629.5164
+NPC_19_40,19,40,2,2,,,並且可以對文件執行以下操作：\r\n新增、修改、刪除文件內容\r\n以及複製和命名文件,False,Block,Normal,,,,,,"And you can do actions on files:\r\nadd, modify, delete file contents,\r\nas well as copy and name files.",並且可以對文件執行以下操作：\r\n新增、修改、刪除文件內容\r\n以及複製和命名文件,658.049;679.5164
+NPC_19_41,19,41,2,2,,,本次關卡，我們通過備份檔案的方式\r\n來幫助您熟悉遊戲環境,False,Block,Normal,,,,,,"In this stage, we used the actions of backing up files\r\nto help you get familiar with the game environment.",在本次關卡裡，我們通過備份檔案的方式\r\n來協助您熟悉遊戲環境,658.049;774.1973
+NPC_19_42,19,42,2,2,,,下一關卡，我們會正式開始學習版本控制和 Git,False,Block,Normal,,,,,,"In the next stage, \r\nwe will start learning about version control and Git.",下一關卡，我們將正式開始學習版本控制和 Git,658.049;824.1973
+NPC_19_43,19,43,2,2,,,我們將深入了解它們的定義、優點以及特色\r\n同時，我們將會比較\r\n使用備份檔案和版本控制、Git 的不同之處,False,Block,Normal,,,,,,"We will understand their definitions, advantages, and features.\r\nAt the same time, we will compare\r\nthe differences between using 'file backup' and 'version control'.",我們會了解它們的定義、優點和特色\r\n同時，我們將會比較\r\n使用備份檔案和版本控制、Git 的不同之處,658.049;874.1973
+NPC_19_44,19,44,2,2,,,最後，恭喜您通過了本次的關卡\r\n您做得很棒！,False,Block,Normal,,,,,,"Finally, congratulations on completing the stage.\r\nYou did a great job!",最後，恭喜您通過了本次的關卡\r\n您做得很棒！,656.2308;924.1973
 NPC_22_0,22,0,2,2,START,,,False,Block,Normal,,,None(),,,,,1168.449;38.03548
 NPC_22_31,22,31,2,1,,,我們在下一個關卡裡面再來實際的操作系統吧！,False,Block,Normal,,,,,,,,1476.625;2614.207
-NPC_22_72,22,72,2,1,,1,"我們可以藉由上方的目標知道\r\n我們需要開啟 ""檔案管理"" 視窗",False,Block,Normal,"CurrentQuestState(""Game Introduction/1"") == ""active""","\nFSMEvent(""Hint/Tutorial Highlight/show highlight"", ""Quest & Title Hint"", ""Hint"");",,,,,,764.6393;193.3709
+NPC_22_72,22,72,2,1,,1,"我們可以藉由上方的目標知道\r\n我們需要開啟 ""檔案管理"" 視窗",False,Block,Normal,"CurrentQuestState(""Game Introduction/1"") == ""active""","\nFSMEvent(""Hint/Tutorial Highlight/show highlight"", ""Quest & Title Hint"", ""Hint"");",,,,,,764.6393;194.5904
 NPC_22_73,22,73,2,1,,,"為了打開 ""檔案管理"" 視窗\n我們可以在 ""工具欄"" 中尋找到對應的按鈕",False,Block,Normal,,"FSMEvent(""Hint/Tutorial Highlight/close highlight"", ""Quest & Title Hint"", ""Hint"");\nFSMEvent(""Hint/Tutorial Highlight/show highlight"", ""Toolbar Panel Hint"", ""Hint"");",,,,,,762.4555;264.6253
 NPC_22_74,22,74,2,1,,,將滑鼠移動到按鈕上方\r\n可以看到按鈕能夠開啟什麼視窗,False,Block,Normal,,,,,,,,772.8029;330.9378
 NPC_22_75,22,75,2,1,,,"如果看到 ""檔案管理"" 視窗的話\n就透過滑鼠左鍵點擊它吧！",False,Block,Normal,,,,,,,,774.1995;396.3202
@@ -2195,6 +2200,7 @@ Number,Number,Number,Number,Special
 12,23,12,24,Normal
 12,24,12,25,Normal
 12,25,12,26,Normal
+12,25,12,26,Normal
 13,0,13,31,Normal
 13,31,13,32,Normal
 13,32,13,33,Normal
@@ -2211,17 +2217,20 @@ Number,Number,Number,Number,Special
 13,43,13,44,Normal
 13,44,13,45,Normal
 13,45,13,46,Normal
+13,46,13,47,Normal
 14,0,14,87,Normal
 14,87,14,88,Normal
 14,88,14,89,Normal
 14,89,14,90,Normal
 14,90,14,91,Normal
 14,91,14,92,Normal
+14,92,14,93,Normal
 15,0,15,91,Normal
 15,91,15,92,Normal
 15,92,15,93,Normal
 15,93,15,94,Normal
 15,94,15,95,Normal
+15,95,15,96,Normal
 16,0,16,32,Normal
 16,32,16,33,Normal
 16,33,16,34,Normal
@@ -2229,6 +2238,7 @@ Number,Number,Number,Number,Special
 16,35,16,36,Normal
 16,36,16,37,Normal
 16,37,16,38,Normal
+16,38,16,39,Normal
 18,0,18,18,Normal
 18,18,18,19,Normal
 18,18,18,20,Normal
