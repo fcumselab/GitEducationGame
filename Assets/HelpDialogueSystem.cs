@@ -87,6 +87,23 @@ public class HelpDialogueSystem : SerializedMonoBehaviour
 
     }
 
+    public void SetLastConversationKey(int currentQuestNum)
+    {
+        if (currentQuestNum == 1)
+        {
+            lastDialogKey = (selectStageKey + "Start game");
+        }
+        else
+        {
+            lastDialogKey = (selectStageKey + currentQuestNum);
+        }
+        Debug.Log("Set last: " + lastDialogKey);
+
+        DialogueLua.SetVariable("LastConversationKey", lastDialogKey);
+
+
+    }
+
     string BuildDialogKey()
     {
         Debug.Log("Build  Key");

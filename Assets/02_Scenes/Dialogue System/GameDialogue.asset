@@ -91,7 +91,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
     - title: Initial Value
       value: none
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Record player decision
       type: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Show image according to the key.
       type: 0
@@ -133,23 +133,9 @@ MonoBehaviour:
     - title: Initial Value
       value: none
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Function which triggers Toolbar
-      type: 0
-      typeString: 
-  - id: 7
-    fields:
-    - title: Name
-      value: playerDecision
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: none
-      type: 0
-      typeString: 
-    - title: Description
-      value: Three button to add content (get)
       type: 0
       typeString: 
   - id: 8
@@ -159,7 +145,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: FALSE
+      value: False
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -175,7 +161,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: use to identify different path
       type: 0
@@ -187,7 +173,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: FALSE
+      value: False
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -203,7 +189,7 @@ MonoBehaviour:
     - title: Initial Value
       value: (category ) / (list name) / (unlockProgress)
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Unlock GameManualWindow List
       type: 0
@@ -215,7 +201,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: TRUE
+      value: True
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -259,7 +245,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Control highlight panel spot
       type: 0
@@ -273,11 +259,25 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Will update by last dialog
       type: 0
       typeString: 
+  - id: 17
+    fields:
+    - title: Name
+      value: CurrentQuestNum
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
   conversations:
   - id: 12
     fields:
@@ -382,18 +382,17 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 353.5677
-        y: 64.43085
+        y: 61.978683
         width: 160
         height: 30
     - id: 1
@@ -458,14 +457,16 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: '
+
+        ShowImage("group")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 349.4795
-        y: 143.8113
+        y: 138.54808
         width: 160
         height: 30
     - id: 2
@@ -528,14 +529,16 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("FileManagerWindow", true);
+
+        ShowImage("happyFace")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 349.4795
-        y: 195.9471
+        x: 349.58496
+        y: 197.79808
         width: 160
         height: 30
     - id: 3
@@ -602,14 +605,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HighlightWindow("FileManagerWindow", "")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 349.4795
-        y: 246.8645
+        y: 248.08401
         width: 160
         height: 30
     - id: 4
@@ -677,7 +680,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: '
+
+        ShowImage("happyFace")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -727,14 +732,14 @@ MonoBehaviour:
       - title: en
         value: 'The main goals of this game will teach you:
 
-          1. Basic
-          concepts of version control and how to apply it effectively.
+          1. Basic concepts
+          of version control and how to apply it effectively.
 
-          2.
-          The purpose of using each Git command, and how to use them.
+          2. The purpose
+          of using each Git command, and how to use them.
 
-          3.
-          How to manage projects practically with these skills.'
+          3. How to manage
+          projects practically with these skills.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
@@ -766,51 +771,53 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 350.699
-        y: 346.8645
+        y: 344.5086
         width: 160
         height: 30
     - id: 6
       fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 2
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u70BA\u4E86\u9054\u6210\u4E0A\u8FF0\u76EE\u6A19\r\n\u672C\u904A\u6232\u6A21\u64EC\u4E86\u5BE6\u969B\u958B\u767C\u5C08\u6848\u6642\r\n\u7D93\u5E38\u6703\u9047\u5230\u7684\u60C5\u5883\u548C\u554F\u984C"
+        value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
+        value: Continue()
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
         value: 
         type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Response Menu Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: en
-        value: "To achieve these goals above,\r\nsituations and problems will be
-          simulated in this game, \r\nwhich is often encountered in actual project
-          development."
+        value: 
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: "\u70BA\u4E86\u9054\u6210\u4E0A\u8FF0\u76EE\u6A19\r\n\u672C\u904A\u6232\u6A21\u64EC\u4E86\u5BE6\u969B\u958B\u767C\u5C08\u6848\u6642\r\n\u7D93\u5E38\u6703\u9047\u5230\u7684\u60C5\u5883\u548C\u554F\u984C"
+        value: 
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 12
@@ -820,1367 +827,21 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 6
-        destinationConversationID: 12
-        destinationDialogueID: 7
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: ResetAllTutorialObj()
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 352.671
-        y: 437.29
-        width: 160
-        height: 30
-    - id: 7
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u6839\u64DA\u6BCF\u500B\u60C5\u5883\u7684\u96E3\u6613\u5EA6\u548C\u4E3B\u984C\u7684\u4E0D\u540C\r\n\u672C\u904A\u6232\u8A2D\u8A08\u4E86\u591A\u500B\u904A\u6232\u95DC\u5361"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'Based on the difficulty and theme of each situation,
-
-          the
-          game has designed multiple stages.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u6839\u64DA\u6BCF\u500B\u60C5\u5883\u7684\u96E3\u6613\u5EA6\u548C\u4E3B\u984C\u7684\u4E0D\u540C\r\n\u672C\u904A\u6232\u8A2D\u8A08\u4E86\u591A\u500B\u904A\u6232\u95DC\u5361"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 7
-        destinationConversationID: 12
-        destinationDialogueID: 8
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 350.5433
-        y: 485.1624
-        width: 160
-        height: 30
-    - id: 8
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u9019\u7A2E\u65B9\u5F0F\u4E0D\u50C5\u80FD\u5E6B\u52A9\u60A8\r\n\u66F4\u6709\u6548\u5730\u5B78\u7FD2\u6BCF\u500B\u95DC\u5361\u4E2D\u6240\u8981\u50B3\u9054\u7684\u77E5\u8B58"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'This approach not only helps you
-
-          learn the knowledge
-          at each level more effectively.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u9019\u7A2E\u65B9\u5F0F\u4E0D\u50C5\u80FD\u5E6B\u52A9\u60A8\r\n\u66F4\u6709\u6548\u5730\u5B78\u7FD2\u6BCF\u500B\u95DC\u5361\u4E2D\u6240\u8981\u50B3\u9054\u7684\u77E5\u8B58"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 8
-        destinationConversationID: 12
-        destinationDialogueID: 9
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 350.5433
-        y: 536.3387
-        width: 160
-        height: 30
-    - id: 9
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u9084\u80FD\u8B93\u60A8\u5728\u5B8C\u6210\u904A\u6232\u5F8C\r\n\u5C07\u9019\u4E9B\u77E5\u8B58\u5BE6\u969B\u61C9\u7528\u65BC\u5C08\u6848\u958B\u767C\u4E2D"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'But also allows you to use this knowledge
-
-          in actual project
-          development after completing the game.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u9084\u80FD\u8B93\u60A8\u5728\u5B8C\u6210\u904A\u6232\u5F8C\r\n\u5C07\u9019\u4E9B\u77E5\u8B58\u5BE6\u969B\u61C9\u7528\u65BC\u5C08\u6848\u958B\u767C\u4E2D"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 9
-        destinationConversationID: 12
-        destinationDialogueID: 10
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 350.5433
-        y: 585.1625
-        width: 160
-        height: 30
-    - id: 10
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5728\u4ECB\u7D39\u5B8C\u904A\u6232\u76EE\u6A19\u548C\u7279\u8272\u5F8C\r\n\u8B93\u6211\u5011\u5148\u4F86\u719F\u6089\u4E00\u4E0B\u904A\u6232\u74B0\u5883\u5427"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'After introducing the game''s goals and features,
-
-          let''s
-          get familiar with the game environment.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u5728\u4ECB\u7D39\u5B8C\u904A\u6232\u76EE\u6A19\u548C\u7279\u8272\u5F8C\r\n\u8B93\u6211\u5011\u5148\u4F86\u719F\u6089\u4E00\u4E0B\u904A\u6232\u74B0\u5883\u5427"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 10
-        destinationConversationID: 12
-        destinationDialogueID: 11
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 350.5433
-        y: 635.1625
-        width: 160
-        height: 30
-    - id: 11
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: "(\u5EFA\u69CB\u958B\u59CB\r)"
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u9996\u5148\uFF0C\u6211\u5011\u5C07\u6A21\u64EC\u904A\u6232\u4E2D\u7684\u7B2C\u4E00\u500B\u5834\u666F"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: First, let's simulate the first game scene.
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u9996\u5148\uFF0C\u6211\u5011\u5C07\u6A21\u64EC\u904A\u6232\u4E2D\u7684\u7B2C\u4E00\u500B\u5834\u666F"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 11
-        destinationConversationID: 12
-        destinationDialogueID: 12
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial Popup
-        Parent", "Tutorial Popup");
-
-        FSMEvent("Stage Manager/Load Default
-        Background Story", "Stage Manager Parent", "Background Controller");'
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 350.5433
-        y: 729.8433
-        width: 160
-        height: 30
-    - id: 12
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5728\u5EFA\u7ACB\u5B8C\u6A21\u64EC\u5834\u666F\u5F8C\r\n\u60A8\u53EF\u4EE5\u5728
-          \"\u7576\u524D\u6A21\u64EC\u80CC\u666F\" \u5340\u57DF\u4E2D\r\n\u770B\u5230\u6A21\u64EC\u5834\u666F\u7684\u80CC\u666F\u6545\u4E8B"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: "After establishing the simulated scene,\r\nyou can see the background
-          story in \r\nthe 'Current Simulation Background' area."
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u5728\u5EFA\u7ACB\u5B8C\u6A21\u64EC\u5834\u666F\u5F8C\r\n\u60A8\u53EF\u4EE5\u5728
-          \"\u7576\u524D\u6A21\u64EC\u80CC\u666F\" \u5340\u57DF\u4E2D\r\n\u770B\u5230\u6A21\u64EC\u5834\u666F\u7684\u80CC\u666F\u6545\u4E8B"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 12
-        destinationConversationID: 12
-        destinationDialogueID: 13
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 350.5433
-        y: 779.8433
-        width: 160
-        height: 30
-    - id: 13
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5728\u904A\u6232\u4E2D\r\n\u6211\u5011\u9700\u8981\u626E\u6F14\u6A21\u64EC\u80CC\u666F\u4E2D\u7684\u89D2\u8272\r\n\u64CD\u4F5C\u904A\u6232\u756B\u9762\u4EE5\u5BE6\u73FE\u6545\u4E8B\u4E2D\u7684\u4E3B\u8981\u76EE\u6A19"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'In the game,
-
-          we need to play the role of the characters
-          in the simulated scene.
-
-          We have to do action on the game screen
-          to achieve the main goals of the story.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u5728\u904A\u6232\u4E2D\r\n\u6211\u5011\u9700\u8981\u626E\u6F14\u6A21\u64EC\u80CC\u666F\u4E2D\u7684\u89D2\u8272\r\n\u64CD\u4F5C\u904A\u6232\u756B\u9762\u4EE5\u5BE6\u73FE\u6545\u4E8B\u4E2D\u7684\u4E3B\u8981\u76EE\u6A19"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 13
-        destinationConversationID: 12
-        destinationDialogueID: 14
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 350.5433
-        y: 829.8433
-        width: 160
-        height: 30
-    - id: 14
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u7576\u60A8\u9054\u6210\u76EE\u6A19\u5F8C\r\n\u60A8\u5C31\u5B8C\u6210\u4E86\u904A\u6232\u95DC\u5361"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: "Once you reach the main goal in the simulated scene, \r\nyou clear
-          the stage."
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u7576\u60A8\u9054\u6210\u6A21\u64EC\u80CC\u666F\u7684\u4E3B\u8981\u76EE\u6A19\u5F8C\r\n\u60A8\u5C31\u5B8C\u6210\u4E86\u904A\u6232\u95DC\u5361"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 14
-        destinationConversationID: 12
-        destinationDialogueID: 15
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 350.5433
-        y: 879.8433
-        width: 160
-        height: 30
-    - id: 15
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u53E6\u5916\uFF0C\u70BA\u4E86\u78BA\u4FDD\u60A8\u5728\u904A\u6232\u9032\u884C\u7684\u904E\u7A0B\u4E2D\r\n\u80FD\u5920\u66F4\u6E05\u695A\u5730\u4E86\u89E3\u6BCF\u4E00\u500B\u6B65\u9A5F\u61C9\u8A72\u505A\u7684\u4E8B\u60C5"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: "Additionally, to ensure you clearly understand \r\neach step you
-          should take during the game."
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u53E6\u5916\uFF0C\u70BA\u4E86\u78BA\u4FDD\u60A8\u5728\u904A\u6232\u9032\u884C\u7684\u904E\u7A0B\u4E2D\r\n\u80FD\u5920\u66F4\u6E05\u695A\u5730\u4E86\u89E3\u6BCF\u4E00\u500B\u6B65\u9A5F\u61C9\u8A72\u505A\u7684\u4E8B\u60C5"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 15
-        destinationConversationID: 12
-        destinationDialogueID: 16
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 350.5433
-        y: 929.8433
-        width: 160
-        height: 30
-    - id: 16
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u672C\u904A\u6232\u5C07\u6A21\u64EC\u80CC\u666F\u7684\u4E3B\u8981\u76EE\u6A19\u5206\u6210\u4E86\u591A\u500B\u5C0F\u76EE\u6A19\r\n\u60A8\u80FD\u5920\u901A\u904E\u756B\u9762\u5DE6\u4E0A\u89D2\u7684\u5340\u57DF\u5F97\u77E5\u7576\u524D\u7684\u904A\u6232\u76EE\u6A19"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'The main goal will be divided into multiple smaller objectives.
-
-          You
-          can confirm the current game objective at the top left of the game screen.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u672C\u904A\u6232\u5C07\u6A21\u64EC\u80CC\u666F\u7684\u4E3B\u8981\u76EE\u6A19\u5206\u6210\u4E86\u591A\u500B\u5C0F\u76EE\u6A19\r\n\u60A8\u80FD\u5920\u901A\u904E\u756B\u9762\u5DE6\u4E0A\u89D2\u7684\u5340\u57DF\u5F97\u77E5\u7576\u524D\u7684\u904A\u6232\u76EE\u6A19"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 16
-        destinationConversationID: 12
-        destinationDialogueID: 17
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 597.3521
-        y: 144.7369
-        width: 160
-        height: 30
-    - id: 17
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5728\u958B\u59CB\u89E3\u6C7A\u7B2C\u4E00\u500B\u76EE\u6A19\u524D\r\n\u8B93\u6211\u5011\u4E00\u8D77\u4F86\u78BA\u8A8D\u672C\u6B21\u7684\u6545\u4E8B\u80CC\u666F\u5427"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'Before we start complete the first objective,
-
-          let''s
-          confirm the story background together.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u5728\u958B\u59CB\u89E3\u6C7A\u7B2C\u4E00\u500B\u76EE\u6A19\u524D\r\n\u8B93\u6211\u5011\u4E00\u8D77\u4F86\u78BA\u8A8D\u672C\u6B21\u7684\u6545\u4E8B\u80CC\u666F\u5427"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 17
-        destinationConversationID: 12
-        destinationDialogueID: 18
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 597.3521
-        y: 194.7369
-        width: 160
-        height: 30
-    - id: 18
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u6839\u64DA\u7576\u524D\u7684\u6A21\u64EC\u80CC\u666F\r\n\u60A8\u5DF2\u5728\u9019\u53F0\u96FB\u8166\u4E0A\u65B0\u589E\u4E86\u4E00\u4EFD\u671F\u4E2D\u7C21\u5831"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'According to the current simulated scene,
-
-          you have added
-          a mid-term presentation to this computer.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u6839\u64DA\u7576\u524D\u7684\u6A21\u64EC\u80CC\u666F\r\n\u60A8\u5DF2\u5728\u9019\u53F0\u96FB\u8166\u4E0A\u65B0\u589E\u4E86\u4E00\u4EFD\u671F\u4E2D\u7C21\u5831"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 18
-        destinationConversationID: 12
-        destinationDialogueID: 19
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 597.3521
-        y: 244.7369
-        width: 160
-        height: 30
-    - id: 19
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: "(\u65B0\u589E\u4EFB\u52D9)"
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u6839\u64DA\u6545\u4E8B\u60C5\u7BC0\r\n\u5982\u679C\u9700\u8981\u4FEE\u6539\u6A94\u6848\r\n\u60A8\u5FC5\u9808\u5148\u958B\u555F
-          '\u6A94\u6848\u7BA1\u7406' \u8996\u7A97\u624D\u80FD\u7E7C\u7E8C\u9032\u884C"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'To finish the min-term presentation,
-
-          We need to open
-          the ''File Manager'' window to change files.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u70BA\u4E86\u8981\u5B8C\u6210\u671F\u4E2D\u5831\u544A\r\n\u6211\u5011\u9700\u8981\u5148\u958B\u555F
-          '\u6A94\u6848\u7BA1\u7406' \u8996\u7A97\u4F86\u4FEE\u6539\u6A94\u6848\u5167\u5BB9"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 19
-        destinationConversationID: 12
-        destinationDialogueID: 20
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
-        "Quest Tracker");
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 597.3521
-        y: 294.7369
-        width: 160
-        height: 30
-    - id: 20
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u904A\u6232\u65B0\u589E\u4E86\u7B2C\u4E00\u500B\u76EE\u6A19\r\n\u73FE\u5728\uFF0C\u8B93\u6211\u5011\u5C08\u6CE8\u5730\u5B8C\u6210\u7576\u524D\u7684\u76EE\u6A19\u5427"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'The game has added the first objective.
-
-          Now, let''s focus
-          on completing the current goal.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u904A\u6232\u65B0\u589E\u4E86\u7B2C\u4E00\u500B\u76EE\u6A19\r\n\u73FE\u5728\uFF0C\u8B93\u6211\u5011\u5C08\u6CE8\u5730\u5B8C\u6210\u7576\u524D\u7684\u76EE\u6A19\u5427"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 20
-        destinationConversationID: 12
-        destinationDialogueID: 21
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 597.3521
-        y: 349.615
-        width: 160
-        height: 30
-    - id: 21
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u70BA\u4E86\u6253\u958B '\u6A94\u6848\u7BA1\u7406' \u8996\u7A97\r\n\u6211\u5011\u9700\u8981\u5F9E
-          '\u5DE5\u5177\u6B04' \u5340\u57DF\u4E2D\u627E\u5230\u76F8\u61C9\u7684\u6309\u9215\u4E26\u6309\u4E0B"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'To open the ''File Manager'' window,
-
-          we need to find
-          the corresponding button in the ''Toolbar'' area and click on it.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u70BA\u4E86\u6253\u958B '\u6A94\u6848\u7BA1\u7406' \u8996\u7A97\r\n\u6211\u5011\u9700\u8981\u5F9E
-          '\u5DE5\u5177\u6B04' \u5340\u57DF\u4E2D\u627E\u5230\u76F8\u61C9\u7684\u6309\u9215\u4E26\u6309\u4E0B"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 21
-        destinationConversationID: 12
-        destinationDialogueID: 22
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 598.4159
-        y: 433.0348
-        width: 160
-        height: 30
-    - id: 22
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5728\u672C\u904A\u6232\u4E2D\r\n'\u5DE5\u5177\u6B04' \u5305\u542B\u8457\u591A\u500B\u4E0D\u540C\u529F\u80FD\u7684\u8996\u7A97\r\n\u9019\u4E9B\u8996\u7A97\u90FD\u8207\u7248\u672C\u63A7\u5236\u76F8\u95DC"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: "In this game, \r\nthe 'Toolbar' contains multiple windows.\r\nThey
-          are all related to version control."
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u5728\u672C\u904A\u6232\u4E2D\r\n'\u5DE5\u5177\u6B04' \u5305\u542B\u8457\u591A\u500B\u4E0D\u540C\u529F\u80FD\u7684\u8996\u7A97\r\n\u9019\u4E9B\u8996\u7A97\u90FD\u8207\u7248\u672C\u63A7\u5236\u76F8\u95DC"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 22
-        destinationConversationID: 12
-        destinationDialogueID: 23
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 598.4159
-        y: 483.0348
-        width: 160
-        height: 30
-    - id: 23
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u96A8\u8457\u904A\u6232\u7684\u9032\u884C\r\n\u60A8\u5C07\u6703\u89E3\u9396\u4E26\u64CD\u4F5C\u65B0\u7684\u8996\u7A97"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'As the game progresses,
-
-          you will unlock and operate new
-          windows.'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u96A8\u8457\u904A\u6232\u7684\u9032\u884C\r\n\u60A8\u5C07\u6703\u89E3\u9396\u4E26\u64CD\u4F5C\u65B0\u7684\u8996\u7A97"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 23
-        destinationConversationID: 12
-        destinationDialogueID: 24
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 598.4159
-        y: 533.0348
-        width: 160
-        height: 30
-    - id: 24
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: "(\u65B0\u589E\u4EFB\u52D9)/(\u89E3\u9396\u6309\u9215 - \u6A94\u6848\u7BA1\u7406)"
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u73FE\u5728\uFF0C'\u6A94\u6848\u7BA1\u7406' \u6309\u9215\u5DF2\u88AB\u89E3\u9396\r\n\u5728\u5B8C\u6210\u672C\u6B21\u5C0D\u8A71\u5F8C\uFF0C\u8ACB\u60A8\u4F7F\u7528\u6ED1\u9F20\u5DE6\u9375\u9EDE\u64CA\u5C0D\u61C9\u7684\u6309\u9215\u4F86\u6253\u958B\u8996\u7A97\u5427"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: "Now, the 'File Manager' button has been unlocked.\r\nAfter finishing
-          this dialogue, \r\nplease click the corresponding button with the left
-          mouse button to open the window."
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u73FE\u5728\uFF0C'\u6A94\u6848\u7BA1\u7406' \u6309\u9215\u5DF2\u88AB\u89E3\u9396\r\n\u5728\u5B8C\u6210\u672C\u6B21\u5C0D\u8A71\u5F8C\uFF0C\u8ACB\u60A8\u4F7F\u7528\u6ED1\u9F20\u5DE6\u9375\u9EDE\u64CA\u5C0D\u61C9\u7684\u6309\u9215\u4F86\u6253\u958B\u8996\u7A97\u5427"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 24
-        destinationConversationID: 12
-        destinationDialogueID: 25
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
-        "Quest Tracker");
-
-        Variable["UnlockButtonKey"] = "FileManager"
-
-        FSMEvent("Dialogue
-        System/WindowToolbar/Unlock Button", "WindowToolbar", "Panel");'
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 598.4159
-        y: 583.0348
-        width: 160
-        height: 30
-    - id: 25
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u6700\u5F8C\uFF0C\u5982\u679C\u5728\u904A\u6232\u904E\u7A0B\u4E2D\u9047\u5230\u4EFB\u4F55\u554F\u984C\r\n\u8ACB\u96A8\u6642\u9EDE\u64CA\u9019\u88E1\u4F86\u5C0B\u6C42\u5E6B\u52A9\r\n\u8ACB\u52A0\u6CB9\uFF01"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 'Finally, if you encounter any problems during the game,
-
-          please
-          feel free to click here for help.
-
-          You can do it!'
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: "\u6700\u5F8C\uFF0C\u5982\u679C\u5728\u904A\u6232\u904E\u7A0B\u4E2D\u9047\u5230\u4EFB\u4F55\u554F\u984C\r\n\u8ACB\u96A8\u6642\u9EDE\u64CA\u9019\u88E1\u4F86\u5C0B\u6C42\u5E6B\u52A9\r\n\u8ACB\u52A0\u6CB9\uFF01"
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 25
-        destinationConversationID: 12
-        destinationDialogueID: 26
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: Variable["LastConversationKey"] = "Game Introduction/Tutorial/End"
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 597.15
-        y: 633.0348
+        x: 351.83536
+        y: 457.09174
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.82000005
   - id: 13
     fields:
     - title: Title
@@ -2429,7 +1090,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1239.59
-        y: 205.5524
+        y: 203.91306
         width: 160
         height: 30
     - id: 33
@@ -3294,6 +1955,77 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 13
+        originDialogueID: 45
+        destinationConversationID: 13
+        destinationDialogueID: 46
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1242.2933
+        y: 938.5313
+        width: 160
+        height: 30
+    - id: 46
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: canvasRect
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: en
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: zh
+        value: 
+        type: 4
+        typeString: CustomFieldType_Localization
+      conversationID: 13
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
       userScript: 
@@ -3302,13 +2034,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1240.654
-        y: 938.5313
+        x: 1509.5063
+        y: 157.38397
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 477.64346, y: 29.508179}
+    canvasZoom: 0.6100002
   - id: 14
     fields:
     - title: Title
@@ -3827,8 +2559,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 432.9897, y: 120.61855}
+    canvasZoom: 0.97
   - id: 15
     fields:
     - title: Title
@@ -4281,8 +3013,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 48.780518, y: 6.0975647}
+    canvasZoom: 0.8200002
   - id: 16
     fields:
     - title: Title
@@ -6770,7 +5502,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.67000026
   - id: 22
     fields:
     - title: Title
@@ -7037,7 +5769,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 764.6393
-        y: 194.5904
+        y: 193.37088
         width: 160
         height: 30
     - id: 73
@@ -8229,8 +6961,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 474.3902, y: 0}
+    canvasZoom: 0.8200002
   - id: 23
     fields:
     - title: Title
