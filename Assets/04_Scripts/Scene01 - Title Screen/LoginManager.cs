@@ -54,6 +54,7 @@ public class LoginManager : SerializedMonoBehaviour
         {
             callback(www.downloadHandler.text);
         }
+        www.Dispose();
     }
 
     public void LoginFunction(string username, string password)
@@ -99,6 +100,7 @@ public class LoginManager : SerializedMonoBehaviour
         {
             callback(www.downloadHandler.text);
         }
+        www.Dispose();
     }
 }
 

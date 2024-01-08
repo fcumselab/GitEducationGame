@@ -51,7 +51,6 @@ public class GameManual : SerializedMonoBehaviour
 
     public void SaveGameManualData(string[] typeList, string[] nameList, int[] unlockProgressList)
     {
-        Debug.Log("Ready for update manual");
         if (!gitCommandValider)
         {
             gitCommandValider = GameObject.Find("GitCommandValider").GetComponent<GitCommandValider>();
@@ -88,7 +87,6 @@ public class GameManual : SerializedMonoBehaviour
 
     public void UpdateButtonStatus()
     {
-        Debug.Log("Update manual Button status");
         GameManualData RuleAndWindowItemList = playerGameManualData[1];
         GameManualItem introduceManualItem = RuleAndWindowItemList.items.Find((item) => item.listName == "Introduce GameManualWindow");
 

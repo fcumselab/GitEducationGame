@@ -134,12 +134,14 @@ public class SaveManager : SerializedMonoBehaviour
 
         if (www.result != UnityWebRequest.Result.Success)
         {
+            Debug.Log("Request Error");
             Debug.Log(www.error);
         }
         else
         {
             Debug.Log(www.downloadHandler.text);
         }
+        www.Dispose();
     }
 
     IEnumerator UpdateGlobalLeaderBoard(WWWForm form)
@@ -148,15 +150,17 @@ public class SaveManager : SerializedMonoBehaviour
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
-        {
+        { 
+            Debug.Log("Request Error");
             Debug.Log(www.error);
         }
         else
         {
             Debug.Log(www.downloadHandler.text);
         }
+        www.Dispose();
     }
-    
+
     WWWForm BuildGlobalLeaderBoardForm(string type, string stageName = "", StageLeaderboardData newLeaderBoardData = null)
     {
         WWWForm form = new();
