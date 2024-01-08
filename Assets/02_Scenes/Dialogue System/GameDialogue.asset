@@ -91,7 +91,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
     - title: Initial Value
       value: none
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Record player decision
       type: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Show image according to the key.
       type: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
     - title: Initial Value
       value: none
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Function which triggers Toolbar
       type: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
     - title: Initial Value
       value: none
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Three button to add content (get)
       type: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: FALSE
+      value: False
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -175,7 +175,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: use to identify different path
       type: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: FALSE
+      value: False
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -203,7 +203,7 @@ MonoBehaviour:
     - title: Initial Value
       value: (category ) / (list name) / (unlockProgress)
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Unlock GameManualWindow List
       type: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: TRUE
+      value: True
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -259,7 +259,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Control highlight panel spot
       type: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: Will update by last dialog
       type: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 349.4795
+        x: 350.699
         y: 143.8113
         width: 160
         height: 30
@@ -531,8 +531,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 349.4795
-        y: 195.9471
+        x: 350.699
+        y: 197.16661
         width: 160
         height: 30
     - id: 3
@@ -550,7 +550,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "\u5716\u7247gitIcon"
+        value: 
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -579,8 +579,7 @@ MonoBehaviour:
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: "\u5728\u9019\u500B\u904A\u6232\u4E2D\r\n\u60A8\u5C07\u6703\u5B78\u7FD2\u5230\u4EC0\u9EBC\u662F\u7248\u672C\u63A7\u5236\r\n\u4E26\u4E14\u5728\u904A\u6232\u904E\u7A0B\u4E2D\u6703\u4F7F\u7528
-          Git \u6307\u4EE4\u4F86\u9032\u884C\u64CD\u4F5C"
+        value: "\u89E3\u9396"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 12
@@ -598,14 +597,17 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: ShowImage("gitIcon")
+      userScript: 'Variable["UnlockKey"] = "C/git init/1"
+
+        FSMEvent("GameManualWindow/Unlock
+        List", "GameManualWindow", "UnlockMessage");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 349.4795
-        y: 246.8645
+        y: 248.08401
         width: 160
         height: 30
     - id: 4
@@ -751,7 +753,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: ShowImage("Listx3")
+      userScript: 'Variable["UnlockKey"] = "RAW/Introduce GameManualWindow/1"
+
+        FSMEvent("GameManualWindow/Unlock
+        List", "GameManualWindow", "UnlockMessage");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -1180,7 +1185,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 350.5433
-        y: 729.8433
+        y: 731.0628
         width: 160
         height: 30
     - id: 12
@@ -2258,8 +2263,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 17.073181, y: 65.85362}
+    canvasZoom: 0.8200002
   - id: 13
     fields:
     - title: Title
@@ -3172,7 +3177,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "\u95DC\u9589\u7C92\u5B50 \u624B\u518A"
+        value: "\u95DC\u9589\u7C92\u5B50 \u624B\u518A&\u9AD8\u4EAEFileManager\u8996\u7A97&\u986F\u793AHint_FileManagerWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -3218,8 +3223,13 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: FSMEvent("Hint/Particle/Close Particle", "GameManualBtn", "Highlight
-        Particle");
+      userScript: 'HighlightWindow("FileManagerWindow","");
+
+        FSMEvent("Hint/Particle/Close
+        Particle", "GameManualBtn", "Highlight Particle");
+
+        HintController("FileManagerWindow",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3244,7 +3254,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "(\u65B0\u589E\u4EFB\u52D9)&\u9AD8\u4EAEFileManager\u8996\u7A97&\u986F\u793AHint_FileManagerWindow"
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -3292,13 +3302,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'HighlightWindow("FileManagerWindow","");
-
-        FSMEvent("Quest
-        Tracker/Add New Quest", "Quest Tracker Parent", "Quest Tracker");
-
-        HintController("FileManagerWindow",true
-        );'
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3861,7 +3866,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "(\u65B0\u589E\u4EFB\u52D9)"
+        value: "(\u65B0\u589E\u4EFB\u52D9)&\u5716\u7247pencil"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -3903,8 +3908,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
-        "Quest Tracker");
+      userScript: 'ShowImage("pencil");
+
+        FSMEvent("Quest Tracker/Add New
+        Quest", "Quest Tracker Parent", "Quest Tracker");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -5145,7 +5152,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "\u5716\u7247hammer"
+        value: "\u5716\u7247weights"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -5190,7 +5197,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: ShowImage("hammer")
+      userScript: ShowImage("weights")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6391,7 +6398,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "\u5716\u7247happyFace"
+        value: "\u5716\u7247starFace"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -6439,7 +6446,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: ShowImage("happyFace")
+      userScript: ShowImage("starFace")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6811,7 +6818,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "\u5716\u7247speechSquare"
+        value: "\u5716\u7247speechSquare&\u9AD8\u4EAE\u7C92\u5B50 \u5E6B\u52A9"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -6857,7 +6864,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: ShowImage("speechSquare")
+      userScript: 'ShowImage("speechSquare");
+
+        FSMEvent("Hint/Particle/Show
+        Particle", "DialogueButton", "Highlight Particle");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6882,7 +6892,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "\u5716\u7247book"
+        value: "\u9AD8\u4EAE\u7C92\u5B50 \u624B\u518A&\u5716\u7247book&\u95DC\u9589\u7C92\u5B50
+          \u5E6B\u52A9"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -6930,7 +6941,13 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: ShowImage("book")
+      userScript: 'ShowImage("book")
+
+        FSMEvent("Hint/Particle/Show Particle",
+        "GameManualBtn", "Highlight Particle");
+
+        FSMEvent("Hint/Particle/Close
+        Particle", "DialogueButton", "Highlight Particle");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -7098,7 +7115,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "\u5716\u7247file"
+        value: "\u5716\u7247file&\u4E0D\u986F\u793AHint_FileManagerWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -7143,7 +7160,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: ShowImage("file")
+      userScript: 'ShowImage("file");
+
+        HintController("FileManagerWindow",false
+        )'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -8821,8 +8841,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 391.5918, y: 0}
+    canvasZoom: 0.7600002
   - id: 23
     fields:
     - title: Title
@@ -33667,7 +33687,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1804.745
+        x: 1803.6461
         y: 134.9291
         width: 160
         height: 30
@@ -34480,8 +34500,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1805.715
-        y: 184.3944
+        x: 1806.814
+        y: 185.4933
         width: 160
         height: 30
     - id: 109
@@ -35558,8 +35578,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 1319.78, y: 0}
+    canvasZoom: 0.9100001
   - id: 40
     fields:
     - title: Title

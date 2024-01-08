@@ -24,7 +24,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
         StageManagerParent = GameManager.Find("Stage Manager Parent");
         StageManagerParentFsm = MyPlayMakerScriptHelper.GetFsmByName(StageManagerParent.gameObject, "Loading StageManager");
         selectStageKey = StageManagerParentFsm.FsmVariables.GetFsmString("selectStageName").Value;
-        Debug.Log("origin key: " + selectStageKey);
+        //Debug.Log("origin key: " + selectStageKey);
 
         selectStageKey = BuildDialogKey();
     }
@@ -87,6 +87,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                 break;
             case "Current":
                 lastDialogKey = DialogueLua.GetVariable("LastConversationKey").asString;
+                DialogueLua.SetVariable("isReplay", true);
                 DialogueManager.StopConversation();
                 DialogueManager.StartConversation(lastDialogKey);
                 break;

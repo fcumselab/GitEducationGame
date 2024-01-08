@@ -63,6 +63,7 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
         tutorialPopup.BlackPanelControl(false);
         tutorialPopup.ResetHighLightObj();
         PlayMakerFSM.BroadcastEvent("Hint/Particle/Close Particle");
+        DialogueLua.SetVariable("isReplay", false);
         ResetHintStatus();
     }
 }
