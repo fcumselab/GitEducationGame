@@ -6452,6 +6452,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  switchSceneFsm: {fileID: 720704719290052402}
   isDebugMode: 1
   updateTestingData: 0
   isInitialFinish: 0
@@ -7371,8 +7372,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 320.96875
-        y: 111.5
+        x: 318.33594
+        y: 107.55469
         width: 161
         height: 32
       isBreakpoint: 0
@@ -7461,7 +7462,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 328
-        y: 275
+        y: 261
         width: 146
         height: 32
       isBreakpoint: 0
@@ -7592,8 +7593,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 344
-        y: 588
+        x: 340
+        y: 654
         width: 100
         height: 16
       isBreakpoint: 0
@@ -7676,8 +7677,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 342.5
-        y: 510.5
+        x: 338.5
+        y: 576.5
         width: 100
         height: 32
       isBreakpoint: 0
@@ -7754,8 +7755,8 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 271.1875
-        y: 458.35156
+        x: 268.1875
+        y: 433.35156
         width: 277
         height: 32
       isBreakpoint: 0
@@ -7766,7 +7767,7 @@ MonoBehaviour:
           name: finish
           isSystemEvent: 0
           isGlobal: 0
-        toState: Reset
+        toState: Initial GameManager
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -7877,8 +7878,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 311
-        y: 340
+        x: 308
+        y: 320
         width: 182
         height: 32
       isBreakpoint: 0
@@ -8125,8 +8126,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 322.9375
-        y: 399.60156
+        x: 323.9375
+        y: 374.60156
         width: 154
         height: 32
       isBreakpoint: 0
@@ -8213,6 +8214,163 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 00000000000000000000000001000000
         paramByteDataSize: 00000000000000000000000000000000
+    - name: Initial GameManager
+      description: 
+      colorIndex: 14
+      position:
+        serializedVersion: 2
+        x: 318.10938
+        y: 508.67188
+        width: 150
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Reset
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.CallMethod
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: ca51e900
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: InitializeGameManagerInScene
+        fsmObjectParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          typeName: SaveManager
+          value: {fileID: 6896389235251553940}
+        fsmVarParams:
+        - variableName: targetSceneName
+          objectType: UnityEngine.Object
+          useVariable: 1
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: ???
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        - variableName: lastSceneName
+          objectType: UnityEngine.Object
+          useVariable: 1
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: Debug
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        - variableName: 
+          objectType: 
+          useVariable: 0
+          type: -1
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 0000
+        arrayParamSizes: 02000000
+        arrayParamTypes:
+        - HutongGames.PlayMaker.FsmVar
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 18000000120000000c0000002700000027000000270000000100000001000000
+        paramName:
+        - behaviour
+        - methodName
+        - parameters
+        - 
+        - 
+        - storeResult
+        - everyFrame
+        - manualUI
+        paramDataPos: 0000000000000000000000000000000001000000020000000000000001000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000100000001000000
     events:
     - name: finish
       isSystemEvent: 0

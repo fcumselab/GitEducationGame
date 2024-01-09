@@ -28,6 +28,9 @@ public class StageSummaryPopup : MonoBehaviour
     [SerializeField] GameObject gameDataManager;
     [SerializeField] GameDataManager gameDataManagerScript;
 
+    [Header("SelfLeaderboard")]
+    [SerializeField] SelfLeaderboard selfLeaderboard;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -66,7 +69,7 @@ public class StageSummaryPopup : MonoBehaviour
 
         //update Three Leaderboard UI & Player Current Panel (Fourth)
         UpdatePlayerCurrentScoreTextBox(time, playerScore, playerPlace, playerStar, playerCurrentScoreTextBox);
-        GameDataManager.Instance.UpdateSelfLeaderBoardContent(ClearTimesContent, SelfLeaderBoardGroup, playerPlace);
+        selfLeaderboard.UpdateSelfLeaderBoardContent(playerPlace);
     }
 
     void UpdateStarsAndScorePanel(int playerStar, int playerScore, int playerPlace)

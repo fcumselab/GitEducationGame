@@ -5,9 +5,14 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : SerializedMonoBehaviour
 {
+
+    [FoldoutGroup("SaveManagerFsm")]
+    [SerializeField] PlayMakerFSM switchSceneFsm;
+
     [SerializeField] bool isDebugMode = true;
     [SerializeField] bool updateTestingData = false;
     [SerializeField] bool isInitialFinish = false;
@@ -17,8 +22,7 @@ public class SaveManager : SerializedMonoBehaviour
     public string userName;
     [SerializeField] PlayerSaveData playerSaveData;
 
-    //[SerializeField] string saveJson;
-
+    #region instance
     //Singleton instantation
     private static SaveManager instance;
     public static SaveManager Instance
@@ -29,6 +33,7 @@ public class SaveManager : SerializedMonoBehaviour
             return instance;
         }
     }
+    #endregion
 
     private void Start()
     {
@@ -48,7 +53,7 @@ public class SaveManager : SerializedMonoBehaviour
         }
         isInitialFinish = true;
     }
-  
+
     //LoadPlayerData - from LoginManager.cs
     public void LoadPlayerSaveData(string username, PlayerSaveData playerSaveData)
     {
@@ -150,7 +155,7 @@ public class SaveManager : SerializedMonoBehaviour
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
-        { 
+        {
             Debug.Log("Request Error");
             Debug.Log(www.error);
         }
@@ -205,9 +210,9 @@ public class SaveManager : SerializedMonoBehaviour
         {
             playerSaveData.gameRecordData.totalStageScore += stageData.stageLeaderboardData[0].playerScore;
             playerSaveData.gameRecordData.totalStarCount += stageData.stageLeaderboardData[0].playerStar;
-            if(stageData.stageClearTimes > 0)
+            if (stageData.stageClearTimes > 0)
             {
-                
+
                 clearStageCount++;
             }
         }
@@ -222,6 +227,35 @@ public class SaveManager : SerializedMonoBehaviour
         playerSaveData.gameRecordData.totalTimesQuestClearHint += gameDataManagerScript.GetQuestCountHint();
         playerSaveData.gameRecordData.totalTimesQuestClearAnswer += gameDataManagerScript.GetQuestCountAnswer();
         playerSaveData.gameRecordData.totalTimesStageClear++;
+    }
+
+    public void InitializeGameManagerInScene(string currentSceneName, string lastSceneName)
+    {
+        Debug.Log("Changing... cur: " + currentSceneName + "last:" + lastSceneName);
+        switch (currentSceneName)
+        {
+            case "Stage Select":
+                GameObject.Find("Game Manager").GetComponent<GameManagerStageSelect>().InitializeScene(lastSceneName);
+                break;
+            case "Play Game":
+                GameObject.Find("Game Manager").GetComponent<GameManagerPlayGame>().InitializeScene(lastSceneName);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void GoToPlayGameScene(string stageKey)
+    {
+        switchSceneFsm.FsmVariables.GetFsmString("targetSceneName").Value = "Play Game";
+        switchSceneFsm.FsmVariables.GetFsmString("selectedStageName").Value = stageKey;
+        switchSceneFsm.enabled = true;
+    }
+
+    public StageData GetPlayingStageData()
+    {
+        string selectedStageName = switchSceneFsm.FsmVariables.GetFsmString("selectedStageName").Value;
+        return playerSaveData.stageData.Find((stageDataItem) => stageDataItem.stageName == selectedStageName);
     }
 }
 
