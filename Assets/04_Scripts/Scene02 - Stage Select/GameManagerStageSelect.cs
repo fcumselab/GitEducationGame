@@ -18,6 +18,12 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
     [FoldoutGroup("PlayerGameRecordsWindow")]
     [SerializeField] PlayerGameRecordsWindow playerGameRecordsWindow;
 
+    [FoldoutGroup("GameManualWindow")]
+    [SerializeField] GameManual gameManualWindow;
+
+    [FoldoutGroup("Prefabs")]
+    [SerializeField] GameObject gameManualWindowPrefab;
+
     [Header("Reference")]
     [SerializeField] SaveManager saveManager;
 
@@ -26,6 +32,9 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
         saveManager = GameObject.Find("Save Manager (Main)").GetComponent<SaveManager>();
         playerGameRecordsWindow.InitializeGameProgressData(saveManager);
         InitializeStageCategoryAndStageItem();
+
+        gameManualWindow = Instantiate(gameManualWindowPrefab).GetComponent<GameManual>();
+
         switch (lastSceneName)
         {
             case "Play Game":
@@ -55,7 +64,7 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
         int buttonItemIndex = 0;
         foreach (StageData stageItem in foundTypeData)
         {
-            Debug.Log("it is turn for: " + stageItem.stageName);
+            //Debug.Log("it is turn for: " + stageItem.stageName);
             if (stageItem.stageName.Contains("(Tutorial)"))
             {
                 Transform stageItemButton = targetStageItems.GetChild(buttonItemIndex);

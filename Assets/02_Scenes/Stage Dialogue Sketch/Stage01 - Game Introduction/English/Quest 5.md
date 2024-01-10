@@ -18,5 +18,5 @@ Please try to complete the objective
 with the knowledge you have just learned.
 
 If you encounter problems during the game,
-please use the 'Game Manual' or click 'Help Feature' for assistance.
+please use the 'Game Manual' or click 'Assistant feature' for assistance.
 Let's do it!

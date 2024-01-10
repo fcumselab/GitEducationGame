@@ -7,48 +7,190 @@ using Sirenix.OdinInspector;
 
 public class GameManual : SerializedMonoBehaviour
 {
+    #region Variables
     [FoldoutGroup("Data")]
     [SerializeField] List<GameManualData> playerGameManualData;
-    PlayMakerFSM FSMInitialManual;
+    [FoldoutGroup("Data")]
+    PlayMakerFSM WindowFsm;
 
     [FoldoutGroup("Game Manual Items")]
     [SerializeField] GameObject gameManualButton;
     PlayMakerFSM gameManualButtonFsm;
+    [FoldoutGroup("Game Manual Items")]
+    [SerializeField] Button CommandCategoryButton;
+    [FoldoutGroup("Game Manual Items")]
+    [SerializeField] GameObject DefaultContent;
 
     [FoldoutGroup("Reference")]
     GitCommandValider gitCommandValider;
 
-    // Start is called before the first frame update
+    #region Generate Location
+    [FoldoutGroup("Generate Location")]
+    [SerializeField] GameObject CommandCategoryList;
+    [FoldoutGroup("Generate Location")]
+    [SerializeField] GameObject RuleAndWindowCategoryList;
+    [FoldoutGroup("Generate Location")]
+    [SerializeField] GameObject VersionControlCategoryList;
+    [FoldoutGroup("Generate Location")]
+    [SerializeField] GameObject ItemContentLocation;
+    #endregion
+
+    #region Prefabs
+    [FoldoutGroup("Prefabs")]
+    [SerializeField] GameObject LockGameManualItem;
+    [FoldoutGroup("Prefabs")]
+    [SerializeField] GameObject UnlockGameManualItem;
+    [FoldoutGroup("Prefabs")]
+    [SerializeField] Dictionary<string, GameObject> GameManualContentDict = new();
+    #endregion
+
+    [SerializeField] Dictionary<Button, GameObject> UnlockGameManualItemDict = new();
+
+    Button SelectedButton;
+    Button SelectedCategoryButton;
+    #endregion
+
+    #region Initialize
     void Start()
     {
-        playerGameManualData = SaveManager.Instance.GetGameManualDataListFromPlayerData();
+        //Set Name & Location
+        GameObject gameManualPanel = GameObject.Find("GameManualPanel");
+        transform.SetParent(gameManualPanel.transform);
+        transform.localScale = new(1, 1, 1);
+        name = "GameManualWindow";
+
+        WindowFsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Window");
+
         gameManualButton = GameObject.Find("GameManualBtn");
         gameManualButtonFsm = MyPlayMakerScriptHelper.GetFsmByName(gameManualButton, "Update Button");
-        FSMInitialManual = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Initial Manual");
-        FSMInitialManual.enabled = true;
+        //FSMInitialManual = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Initial Manual");
+        //FSMInitialManual.enabled = true;
+
+        InitializeGameManualData();
     }
 
-    public void LoadGameManualData()
+    public void InitializeGameManualData()
     {
-        for (int i = 0; i < playerGameManualData.Count; i++)
-        {
-            GameManualData manualData = playerGameManualData[i];
-            string type = manualData.manualType;
-            Debug.Log("manual type: " + type);
-            //CommandNameList, RuleAndWindowNameList, VersionControlNameList...
-            FsmArray nameList = FSMInitialManual.FsmVariables.FindFsmArray(type + "NameList");
-            FsmArray unlockProgressList = FSMInitialManual.FsmVariables.FindFsmArray(type + "UnlockProgressList");
+        playerGameManualData = SaveManager.Instance.GetGameManualDataListFromPlayerData();
 
-            for (int t = 0; t < manualData.items.Count; t++)
-            {
-                GameManualItem item = manualData.items[t];
-                nameList.InsertItem(item.listName, t);
-                unlockProgressList.InsertItem(item.listUnlockProgress, t);
-            }
-        }
+        InitializeCategoryItem("Command", CommandCategoryList);
+        InitializeCategoryItem("RuleAndWindow", RuleAndWindowCategoryList);
+        InitializeCategoryItem("VersionControl", VersionControlCategoryList);
         UpdateButtonStatus();
     }
 
+    void InitializeCategoryItem(string categoryKey, GameObject createLocation)
+    {
+        GameManualData manualData = playerGameManualData.Find((category) => category.manualType == categoryKey);
+        foreach (GameManualItem item in manualData.items)
+        {
+            GameObject newItem;
+            if (item.listUnlockProgress > 0)
+            {
+                //Add new ItemContent
+                if (!GameManualContentDict.ContainsKey(item.listName)) //Debug
+                {
+                    Debug.Log("Please add new prefab:" + item.listName);
+                    newItem = Instantiate(LockGameManualItem);
+                }
+                else
+                {
+                    GameObject ItemContent = Instantiate(GameManualContentDict[item.listName]);
+                    ItemContent.name = item.listName;
+                    ItemContent.transform.SetParent(ItemContentLocation.transform);
+                    ItemContent.transform.localScale = new(1, 1, 1);
+                    ItemContent.SetActive(false);
+                    //Add new ListItem
+                    newItem = Instantiate(UnlockGameManualItem);
+                    Button button = newItem.GetComponent<GameManualItemButton>().InitializeButton(GetComponent<GameManual>(), item.listName, categoryKey);
+
+                    UnlockGameManualItemDict.Add(button, ItemContent);
+                }
+            }
+            else
+            {
+                newItem = Instantiate(LockGameManualItem);
+            }
+            newItem.name = item.listName;
+            newItem.transform.SetParent(createLocation.transform);
+            newItem.transform.localScale = new(1, 1, 1);
+        }
+
+    }
+    #endregion
+
+    #region Button Action
+    public void SwitchGameManualCategory(Button clickCategoryButton)
+    {
+        if (SelectedButton)
+        {
+            SelectedButton.interactable = true;
+            UnlockGameManualItemDict[SelectedButton].SetActive(false);
+            SelectedButton = null;
+        }
+
+        if (SelectedCategoryButton)
+        {
+            SelectedCategoryButton.interactable = true;
+            SelectedCategoryButton.GetComponent<GameManualCategoryButton>().ActivateCategoryList(false);
+        }
+
+        if (!DefaultContent.activeSelf)
+        {
+            DefaultContent.SetActive(true);
+        }
+        clickCategoryButton.interactable = false;
+        SelectedCategoryButton = clickCategoryButton;
+        clickCategoryButton.GetComponent<GameManualCategoryButton>().ApplyColor();
+        SelectedCategoryButton.GetComponent<GameManualCategoryButton>().ActivateCategoryList(true);
+    }
+
+    public void SwitchGameManualItem(Button clickButton)
+    {
+        if (DefaultContent.activeSelf)
+        {
+            DefaultContent.SetActive(false);
+        }
+
+        if (SelectedButton)
+        {
+            SelectedButton.interactable = true;
+            UnlockGameManualItemDict[SelectedButton].SetActive(false);
+        }
+        clickButton.interactable = false;
+        UnlockGameManualItemDict[clickButton].SetActive(true);
+        SelectedButton = clickButton;
+    }
+
+    void OpenWindow()
+    {
+        WindowFsm.SendEvent("Common/Window/Show Window");
+        SwitchGameManualCategory(CommandCategoryButton);
+    }
+
+    public void UpdateButtonStatus()
+    {
+        if (gameManualButtonFsm.FsmVariables.GetFsmString("runType").Value != "open")
+        {
+            GameManualData RuleAndWindowItemList = playerGameManualData[1];
+            GameManualItem introduceManualItem = RuleAndWindowItemList.items.Find((item) => item.listName == "Introduce GameManualWindow");
+
+            if (introduceManualItem.listUnlockProgress > 0)
+            {
+                gameManualButtonFsm.FsmVariables.GetFsmString("runType").Value = "open";
+                gameManualButton.GetComponent<Button>().onClick.AddListener(() => OpenWindow());
+            }
+            else
+            {
+                gameManualButtonFsm.FsmVariables.GetFsmString("runType").Value = "close";
+            }
+            gameManualButtonFsm.enabled = true;
+        }
+    }
+
+    #endregion
+
+    #region Unlock new Game Manual Item
     public void SaveGameManualData(string[] typeList, string[] nameList, int[] unlockProgressList)
     {
         if (!gitCommandValider)
@@ -84,20 +226,5 @@ public class GameManual : SerializedMonoBehaviour
         gitCommandValider.UpdatePlayerUnlockDict();
         UpdateButtonStatus();
     }
-
-    public void UpdateButtonStatus()
-    {
-        GameManualData RuleAndWindowItemList = playerGameManualData[1];
-        GameManualItem introduceManualItem = RuleAndWindowItemList.items.Find((item) => item.listName == "Introduce GameManualWindow");
-
-        if (introduceManualItem.listUnlockProgress > 0)
-        {
-            gameManualButtonFsm.FsmVariables.GetFsmString("runType").Value = "open";
-        }
-        else
-        {
-            gameManualButtonFsm.FsmVariables.GetFsmString("runType").Value = "close";
-        }
-        gameManualButtonFsm.enabled = true;
-    }
+    #endregion
 }
