@@ -33,8 +33,8 @@ public class GameManualCategoryButton : SerializedMonoBehaviour
         switch (categoryType) {
             case CategoryType.Command:
                 CategoryListTitlei18n.TranslationName = "GameManualWindow/ListTitle/Command";
-                ListPanelTopBar.color = new Color32(255, 230, 198, 255);
-                ContentPanelTopBar.color = new Color32(255, 230, 198, 255);
+                ListPanelTopBar.color = new Color32(255, 186, 148, 255);
+                ContentPanelTopBar.color = new Color32(255, 186, 148, 255);
                 break;
             case CategoryType.RuleAndWindow:
                 CategoryListTitlei18n.TranslationName = "GameManualWindow/ListTitle/RuleAndWindow";

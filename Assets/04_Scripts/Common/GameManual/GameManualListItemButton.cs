@@ -65,30 +65,32 @@ public class GameManualListItemButton : SerializedMonoBehaviour
         switch (categoryType)
         {
             case "Command":
-                border.color = new(255, 148, 109);
-                buttonColor.normalColor = new(255,230,198);
-                buttonColor.selectedColor = new(255, 230, 198);
-                buttonColor.highlightedColor = new(255,193,119);
-                buttonColor.pressedColor = new(255, 183, 96);
-                buttonColor.disabledColor = new(255, 183, 96);
+                border.color = new Color32(255, 148, 109, 255);
+                buttonColor.normalColor = new Color32(255,230,198, 255);
+                buttonColor.selectedColor = new Color32(255, 230, 198, 255);
+                buttonColor.highlightedColor = new Color32(255,193,119, 255);
+                buttonColor.pressedColor = new Color32(255, 183, 96, 255);
+                buttonColor.disabledColor = new Color32(255, 183, 96, 255);
+                
                 break;
             case "RuleAndWindow":
-                border.color = new(108, 159, 79);
-                buttonColor.normalColor = new(194, 236, 170);
-                buttonColor.selectedColor = new(194, 236, 170);
-                buttonColor.highlightedColor = new(178, 227, 151);
-                buttonColor.pressedColor = new(164, 224, 130);
-                buttonColor.disabledColor = new(164, 224, 130);
+                border.color = new Color32(108, 159, 79, 255);
+                buttonColor.normalColor = new Color32(194, 236, 170, 255);
+                buttonColor.selectedColor = new Color32(194, 236, 170, 255);
+                buttonColor.highlightedColor = new Color32(178, 227, 151, 255);
+                buttonColor.pressedColor = new Color32(164, 224, 130, 255);
+                buttonColor.disabledColor = new Color32(164, 224, 130, 255);
                 break;
             case "VersionControl":
-                border.color = new(61, 84, 108);
-                buttonColor.normalColor = new(167, 195, 255);
-                buttonColor.selectedColor = new(167, 195, 255);
-                buttonColor.highlightedColor = new(153, 186, 255);
-                buttonColor.pressedColor = new(132, 170, 255);
-                buttonColor.disabledColor = new(132, 170, 255);
+                border.color = new Color32(61, 84, 108, 255);
+                buttonColor.normalColor = new Color32(167, 195, 255, 255);
+                buttonColor.selectedColor = new Color32(167, 195, 255, 255);
+                buttonColor.highlightedColor = new Color32(153, 186, 255, 255);
+                buttonColor.pressedColor = new Color32(132, 170, 255, 255);
+                buttonColor.disabledColor = new Color32(132, 170, 255, 255);
                 break;
         }
+        button.colors = buttonColor;
     }
-    
+
 }

@@ -71,7 +71,6 @@ public class TutorialPopup : SerializedMonoBehaviour
 
     public void BlackPanelControl(bool open)
     {
-        Debug.Log("Test");
         if (open)
         {
             BlackPanelFsm.FsmVariables.GetFsmString("runType").Value = "open";
