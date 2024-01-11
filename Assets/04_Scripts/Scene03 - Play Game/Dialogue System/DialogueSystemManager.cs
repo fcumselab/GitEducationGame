@@ -18,14 +18,13 @@ public class DialogueSystemManager : SerializedMonoBehaviour
     [SerializeField] DialogueSystemFeatureManager dialogueSystemFeatureManager;
     [SerializeField] PlayMakerFSM ScoreFsm;
     PlayMakerFSM StageManagerParentFsm;
-    public void InitializeReference()
+
+    public void InitializeReference(string selectedStageName)
     {
         GameManager = transform.parent;
         StageManagerParent = GameManager.Find("Stage Manager Parent");
         StageManagerParentFsm = MyPlayMakerScriptHelper.GetFsmByName(StageManagerParent.gameObject, "Loading StageManager");
-        selectStageKey = StageManagerParentFsm.FsmVariables.GetFsmString("selectStageName").Value;
-        //Debug.Log("origin key: " + selectStageKey);
-
+        selectStageKey = selectedStageName;
         selectStageKey = BuildDialogKey();
     }
 
@@ -40,10 +39,10 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                 break;
             case "First":
                 DialogueManager.StartConversation(selectStageKey + "Start game");
-                SetLastConversationKey(QuestFilterManager.Instance.GetCurrentQuestNum());
+                SetLastConversationKey(QuestTrackerManager.Instance.GetCurrentQuestNum());
                 break;
             case "Quest":
-                int currentQuestNum = QuestFilterManager.Instance.GetCurrentQuestNum();
+                int currentQuestNum = QuestTrackerManager.Instance.GetCurrentQuestNum();
                 DialogueManager.StartConversation(selectStageKey + "Quest " + currentQuestNum);
                 SetLastConversationKey(currentQuestNum);
                 break;

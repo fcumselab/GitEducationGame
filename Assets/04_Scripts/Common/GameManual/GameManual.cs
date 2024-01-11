@@ -10,6 +10,7 @@ public class GameManual : SerializedMonoBehaviour
     #region Variables
     [FoldoutGroup("Data")]
     [SerializeField] List<GameManualData> playerGameManualData;
+    string currentSceneName = "";
     [FoldoutGroup("Data")]
     PlayMakerFSM WindowFsm;
 
@@ -51,7 +52,7 @@ public class GameManual : SerializedMonoBehaviour
     #endregion
 
     #region Initialize
-    void Start()
+    public void InitializeGameManualData()
     {
         //Set Name & Location
         GameObject gameManualPanel = GameObject.Find("GameManualPanel");
@@ -63,14 +64,7 @@ public class GameManual : SerializedMonoBehaviour
 
         gameManualButton = GameObject.Find("GameManualBtn");
         gameManualButtonFsm = MyPlayMakerScriptHelper.GetFsmByName(gameManualButton, "Update Button");
-        //FSMInitialManual = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Initial Manual");
-        //FSMInitialManual.enabled = true;
 
-        InitializeGameManualData();
-    }
-
-    public void InitializeGameManualData()
-    {
         playerGameManualData = SaveManager.Instance.GetGameManualDataListFromPlayerData();
 
         InitializeCategoryItem("Command", CommandCategoryList);
@@ -90,7 +84,7 @@ public class GameManual : SerializedMonoBehaviour
                 //Add new ItemContent
                 if (!GameManualContentDict.ContainsKey(item.listName)) //Debug
                 {
-                    Debug.Log("Please add new prefab:" + item.listName);
+                    //Debug.Log("Please add new prefab:" + item.listName);
                     newItem = Instantiate(LockGameManualItem);
                 }
                 else
@@ -102,7 +96,7 @@ public class GameManual : SerializedMonoBehaviour
                     ItemContent.SetActive(false);
                     //Add new ListItem
                     newItem = Instantiate(UnlockGameManualItem);
-                    Button button = newItem.GetComponent<GameManualItemButton>().InitializeButton(GetComponent<GameManual>(), item.listName, categoryKey);
+                    Button button = newItem.GetComponent<GameManualListItemButton>().InitializeButton(GetComponent<GameManual>(), item.listName, categoryKey);
 
                     UnlockGameManualItemDict.Add(button, ItemContent);
                 }

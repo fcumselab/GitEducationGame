@@ -14,11 +14,19 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
 
     public void RegisterFunction()
     {
+        Debug.Log("RegisterFunction");
         Lua.RegisterFunction("HintController", this, SymbolExtensions.GetMethodInfo(() => HintController(string.Empty, false)));
         Lua.RegisterFunction("ResetAllTutorialObj", this, SymbolExtensions.GetMethodInfo(() => ResetAllTutorialObj()));
-
-        tutorialPopup.RegisterFunction();
         
+        tutorialPopup.RegisterFunction();
+    }
+
+    public void UnregisterFunction()
+    {
+        Lua.UnregisterFunction("HintController");
+        Lua.UnregisterFunction("ResetAllTutorialObj");
+
+        tutorialPopup.UnregisterFunction();
     }
 
     //Hint_xxxxx  key = xxxxx

@@ -99,7 +99,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
         //solveByNPC -> run resolve directly.
         if (!isSolved)
         {
-            int currentQuestNum = QuestFilterManager.Instance.GetCurrentQuestNum();
+            int currentQuestNum = QuestTrackerManager.Instance.GetCurrentQuestNum();
             int replyMsgListCount = fileChangedTextBox.ReplyMsgList.Count;
             int allRenderMsgCount = fileChangedTextBox.ReplyMsgList.FindAll((Msg) => (Msg.isRender == true)).Count;
 
@@ -131,7 +131,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
 
                 ResolvedButton.transform.Find("TextBox/Text").GetComponent<LeanLocalizedText>().TranslationName = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(Unsolve)";
                 //Quest Valider Enable
-                QuestFilterManager.Instance.RunQuestValider(ResolvedButton.gameObject, "Button");
+                QuestTrackerManager.Instance.RunQuestValider(ResolvedButton.gameObject, "Button");
 
                 //Loading for updating PR Progress (Show loading animation)
                 pRDetailedPagePanel.GetComponent<PullRequestDetailedPage>().GetActionByButton("Resolve", currentQuestNum, false);
@@ -170,7 +170,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
 
     public void FillInReplyInputField()
     {
-        int currentQuestNum = QuestFilterManager.Instance.GetCurrentQuestNum();
+        int currentQuestNum = QuestTrackerManager.Instance.GetCurrentQuestNum();
         int foundIndex = fileChangedTextBox.ReplyMsgList.FindIndex((Msg) => (Msg.renderQuestNum == currentQuestNum && Msg.isRender == false && Msg.author == "Common/Player"));
 
         if (foundIndex != -1)
@@ -206,14 +206,14 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
         else
         {
             //Do Reply
-            int currentQuestNum = QuestFilterManager.Instance.GetCurrentQuestNum();
+            int currentQuestNum = QuestTrackerManager.Instance.GetCurrentQuestNum();
             UpdateReplyMsg("Reply", currentQuestNum);
 
             ReplyInputFieldReplyText.SetActive(false);
             ReplyInputFieldPlaceHolder.SetActive(true);
 
             //Quest Valider Enable
-            QuestFilterManager.Instance.RunQuestValider(ReplyButton, "Button");
+            QuestTrackerManager.Instance.RunQuestValider(ReplyButton, "Button");
         }
     }
     #endregion

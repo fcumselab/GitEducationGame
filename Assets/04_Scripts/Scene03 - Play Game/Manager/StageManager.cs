@@ -27,6 +27,20 @@ public class StageManager : SerializedMonoBehaviour
     // 4 -> 2 star score line
     public List<int> getStarScoreLine = new(3);
 
+    #region instance
+    //Singleton instantation
+    private static StageManager instance;
+    public static StageManager Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<StageManager>();
+            return instance;
+        }
+    }
+    #endregion
+
+
 
     private void Start()
     {
@@ -83,5 +97,21 @@ public class StageManager : SerializedMonoBehaviour
     public Dictionary<string, int> GetUsedCommandDict()
     {
         return UsedCommandDict;
+    }
+
+    public bool CheckGameManualListItemUseInStage(string key, string categoryType)
+    {
+        switch (categoryType)
+        {
+            case "Command":
+                return UsedCommandDict.ContainsKey(key);
+            case "RuleAndWindow":
+                return UsedRuleAndWindowDict.ContainsKey(key);
+            case "VersionControl":
+                return UsedVersionControlDict.ContainsKey(key);
+            default:
+                Debug.LogError("Please use correct categoryType!");
+                return false;
+        }
     }
 }

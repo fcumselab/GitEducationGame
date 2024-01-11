@@ -5,10 +5,12 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
+
 
 public class SaveManager : SerializedMonoBehaviour
 {
+    [FoldoutGroup("Play Game")]
+    [SerializeField] string selectedStageName;
 
     [FoldoutGroup("SaveManagerFsm")]
     [SerializeField] PlayMakerFSM switchSceneFsm;
@@ -229,6 +231,7 @@ public class SaveManager : SerializedMonoBehaviour
         playerSaveData.gameRecordData.totalTimesStageClear++;
     }
 
+    //Switch Scene Fsm
     public void InitializeGameManagerInScene(string currentSceneName, string lastSceneName)
     {
         Debug.Log("Changing... cur: " + currentSceneName + "last:" + lastSceneName);
@@ -245,17 +248,33 @@ public class SaveManager : SerializedMonoBehaviour
         }
     }
 
+    public void GoToStageSelectScene()
+    {
+
+        switchSceneFsm.FsmVariables.GetFsmString("targetSceneName").Value = "Stage Select";
+        switchSceneFsm.enabled = true;
+    }
+
     public void GoToPlayGameScene(string stageKey)
     {
+        //stageKey isEmpty -> replay
+        if (stageKey != "")
+        {
+            switchSceneFsm.FsmVariables.GetFsmString("selectedStageName").Value = stageKey;
+            selectedStageName = stageKey;
+        }
         switchSceneFsm.FsmVariables.GetFsmString("targetSceneName").Value = "Play Game";
-        switchSceneFsm.FsmVariables.GetFsmString("selectedStageName").Value = stageKey;
         switchSceneFsm.enabled = true;
     }
 
     public StageData GetPlayingStageData()
     {
-        string selectedStageName = switchSceneFsm.FsmVariables.GetFsmString("selectedStageName").Value;
         return playerSaveData.stageData.Find((stageDataItem) => stageDataItem.stageName == selectedStageName);
+    }
+
+    public string GetSelectedStageName()
+    {
+        return selectedStageName;
     }
 }
 

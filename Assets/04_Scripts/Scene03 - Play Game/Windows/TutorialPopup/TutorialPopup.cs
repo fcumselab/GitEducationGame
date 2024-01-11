@@ -42,6 +42,15 @@ public class TutorialPopup : SerializedMonoBehaviour
         Lua.RegisterFunction("HighLightObj", this, SymbolExtensions.GetMethodInfo(() => HighLightObj(string.Empty)));
     }
 
+    public void UnregisterFunction()
+    {
+        Lua.UnregisterFunction("HighlightWindow");
+        Lua.UnregisterFunction("ShowImage");
+        Lua.UnregisterFunction("CloseImageWindow");
+        Lua.UnregisterFunction("BlackPanelControl");
+        Lua.UnregisterFunction("HighLightObj");
+    }
+
     public void ShowImage(string imageKey)
     {
         ResetWindowLayer();

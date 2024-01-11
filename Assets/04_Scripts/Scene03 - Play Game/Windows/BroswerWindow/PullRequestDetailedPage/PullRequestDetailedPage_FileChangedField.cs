@@ -122,7 +122,7 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
         //Comment, Approve, RequestChanges
         string buttonType = SelectBtn.name.Split('_')[1];
         Transform firstMsg = RepoQuest_ConversationField.GetChild(0);
-        int currentQuestNum = QuestFilterManager.Instance.GetCurrentQuestNum();
+        int currentQuestNum = QuestTrackerManager.Instance.GetCurrentQuestNum();
 
         switch (firstMsg.tag)
         {
@@ -155,7 +155,7 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
 
         //Success will do this
         ReviewChangeInputFieldText.TranslationName = "";
-        QuestFilterManager.Instance.RunQuestValider(ReviewChangeButton, "Button");
+        QuestTrackerManager.Instance.RunQuestValider(ReviewChangeButton, "Button");
     }
 
     #endregion

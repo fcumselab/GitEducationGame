@@ -155,7 +155,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		BrowserURLFsm.FsmVariables.GetFsmGameObject("OpenPage").Value = PRListPageObj;
 		BrowserURLFsm.enabled = true;
 
-		QuestFilterManager.Instance.RunQuestValider(MergePRActionButton, "Button");
+		QuestTrackerManager.Instance.RunQuestValider(MergePRActionButton, "Button");
 	}
 	#endregion
 }

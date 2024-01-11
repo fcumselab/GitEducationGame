@@ -34,6 +34,7 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
         InitializeStageCategoryAndStageItem();
 
         gameManualWindow = Instantiate(gameManualWindowPrefab).GetComponent<GameManual>();
+        gameManualWindow.InitializeGameManualData();
 
         switch (lastSceneName)
         {

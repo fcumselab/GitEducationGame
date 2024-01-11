@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PauseMenuPopup : SerializedMonoBehaviour
 {
+    [FoldoutGroup("Managers")]
+    [SerializeField] GameManagerPlayGame gameManager;
 
     [FoldoutGroup("PauseMenuPopup")]
     [SerializeField] PlayMakerFSM WindowFsm;
@@ -17,6 +19,14 @@ public class PauseMenuPopup : SerializedMonoBehaviour
     [FoldoutGroup("Popup Panels")]
     [SerializeField] StageIntroductionPanel stageIntroductionPanel;
 
+    [FoldoutGroup("Button")]
+    [SerializeField] Button swtichSceneButton;
+    [FoldoutGroup("Button")]
+    [SerializeField] Button replayButton;
+    [FoldoutGroup("Button")]
+    [SerializeField] Button backToStageSelectionButton;
+
+    [SerializeField] string switchSceneKey;
     public void InitializePauseMenuPopupContent(StageData stageData)
     {
         selfLeaderboard.SetSelectedStageData(stageData);
@@ -32,5 +42,30 @@ public class PauseMenuPopup : SerializedMonoBehaviour
     void Start()
     {
         pauseMenuButton.onClick.AddListener(() => OpenWindow());
+        swtichSceneButton.onClick.AddListener(() => ClickSwtichSceneButtonAction());
+        replayButton.onClick.AddListener(() => SetSwitchsceneTarget("replay"));
+        backToStageSelectionButton.onClick.AddListener(() => SetSwitchsceneTarget("stageSelection"));
+    }
+
+    void ClickSwtichSceneButtonAction()
+    {
+        swtichSceneButton.interactable = false;
+        switch (switchSceneKey)
+        {
+            case "replay":
+                gameManager.GoToPlayGameScene();
+                break;
+            case "stageSelection":
+                gameManager.GoToStageSelectScene();
+                break;
+            default:
+                Debug.LogError("Not found Correct switchSceneKey");
+                break;
+        }
+    }
+
+    void SetSwitchsceneTarget(string key)
+    {
+        switchSceneKey = key;
     }
 }
