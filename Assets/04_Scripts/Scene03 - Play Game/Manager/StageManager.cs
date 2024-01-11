@@ -114,4 +114,16 @@ public class StageManager : SerializedMonoBehaviour
                 return false;
         }
     }
+
+    public bool CheckGameManualContentItemUseInStage(string key, int commandPageNum)
+    {
+        if (UsedCommandDict.ContainsKey(key))
+        {
+            return (UsedCommandDict[key] >= commandPageNum);
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

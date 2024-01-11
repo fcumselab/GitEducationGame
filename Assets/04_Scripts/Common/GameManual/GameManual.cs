@@ -89,15 +89,19 @@ public class GameManual : SerializedMonoBehaviour
                 }
                 else
                 {
+                    //Add new ListItem
+                    newItem = Instantiate(UnlockGameManualItem);
+                    Button button = newItem.GetComponent<GameManualListItemButton>().InitializeButton(GetComponent<GameManual>(), item.listName, categoryKey);
+
+                    //Add new ContentItem
                     GameObject ItemContent = Instantiate(GameManualContentDict[item.listName]);
                     ItemContent.name = item.listName;
                     ItemContent.transform.SetParent(ItemContentLocation.transform);
                     ItemContent.transform.localScale = new(1, 1, 1);
                     ItemContent.SetActive(false);
-                    //Add new ListItem
-                    newItem = Instantiate(UnlockGameManualItem);
-                    Button button = newItem.GetComponent<GameManualListItemButton>().InitializeButton(GetComponent<GameManual>(), item.listName, categoryKey);
+                    ItemContent.GetComponent<GameManualContentItem>().InitializeContent(GetComponent<GameManual>(), item.listName, categoryKey);
 
+                    //Add two into Dict
                     UnlockGameManualItemDict.Add(button, ItemContent);
                 }
             }
@@ -112,6 +116,18 @@ public class GameManual : SerializedMonoBehaviour
 
     }
     #endregion
+
+    public bool CheckPlayerHasUnlockCommand(string contentKey, int currentPageNum)
+    {
+        GameManualItem foundItem = playerGameManualData[0].items.Find((item) => item.listName == contentKey);
+        if (foundItem != null)
+        {
+            return (foundItem.listUnlockProgress >= currentPageNum);
+        }
+        
+        return false;
+    }
+
 
     #region Button Action
     public void SwitchGameManualCategory(Button clickCategoryButton)
