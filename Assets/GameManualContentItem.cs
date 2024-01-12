@@ -78,7 +78,9 @@ public class GameManualContentItem : SerializedMonoBehaviour
                 buttonType = ButtonType.VersionControl;
                 break;
         }
-       
+
+        Debug.Log("End!!");
+
         isInitial = true;
     }
 
@@ -97,7 +99,7 @@ public class GameManualContentItem : SerializedMonoBehaviour
     void SwitchContent(int targetPageNum)
     {
         CurrentPageNumText.text = $"{targetPageNum}";
-        CommnandDetailedText.TranslationName = ("GameManualItem/content/git/commandDetail/" + targetPageNum);
+        CommnandDetailedText.TranslationName = ($"GameManualItem/content/{contentKey}/commandDetail/{targetPageNum}");
 
         if (lastOpenCommand)
         {
