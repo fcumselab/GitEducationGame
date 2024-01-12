@@ -416,3 +416,86 @@ The reasons for command execution failure might include:
 
 To avoid failure due to 'the status of the current path',
 please ensure that there is no folder in the current path with the same name as the remote repository and that the folder is empty."
+GameManualItem/content/git remote/1,"'git remote' is a command type related to 'Remote Management'.
+
+This command is used to confirm whether a project is connected to other remote repositories,
+and display the URLs and aliases of the connected remote repositories.
+
+In actual use of Git,
+this command can also be used to add or delete connections with other remote repositories."
+GameManualItem/content/git remote/commandDetail/1,git remote <color=#CF001C>-v or --verbose</color>
+GameManualItem/content/git remote/commandDetail/1/use,"Confirm whether the local project has established connections with other remote repositories,
+and display the URLs and aliases of the connected repositories."
+GameManualItem/content/git remote/commandDetail/1/scenario,1. When you need to confirm the current project's remote connection status.
+GameManualItem/content/git remote/commandDetail/1/example,"When User A has successfully cloned a remote repository from a Git service platform to their local device.
+To confirm if it is correctly connected to the corresponding remote repository,
+they can execute the following command:"
+GameManualItem/content/git remote/commandDetail/1/exampleBox,git remote <color=#CF001C>-v</color>
+GameManualItem/content/git remote/commandDetail/1/hint,"1. No response when not connected to any remote repository:
+If the project has not established a connection with other remote repositories yet.
+Executing this command will not return any message."
+GameManualItem/content/git push/1,"'git push' is a command type related to 'Remote Management'.
+
+This command is used to upload the contents of a local branch to a specified remote repository,
+and the remote repository creates and updates the corresponding remote branch."
+GameManualItem/content/git push/commandDetail/1,"git push <color=#CF001C>remote_repository_alias</color> <color=""#173D91"">local_branch_name</color>"
+GameManualItem/content/git push/commandDetail/1/use,"Upload a targeted local branch to a targeted remote repository.
+It will create a remote branch with the same name in the remote repository.
+And synchronize the 'commit history' of the local branch."
+GameManualItem/content/git push/commandDetail/1/scenario,"1. When a part of the feature is completed.
+2. When needing to backup the contents of a local branch.
+3. When the feature has been fully developed."
+GameManualItem/content/git push/commandDetail/1/example,"When User A has completed a feature on the 'new-feature' branch
+and wants to upload the branch contents to the remote repository.
+They can execute the following command:"
+GameManualItem/content/git push/commandDetail/1/exampleBox,"git push <color=#CF001C>origin</color> <color=""#173D91"">new-feature</color>"
+GameManualItem/content/git push/commandDetail/1/hint,"1. Confirm the name of the remote repository:
+In common project development, we only need one connected remote repository, which is named 'origin' in Git.
+
+However, if you are connected to multiple remote repositories.
+Before uploading changes, 
+please use the 'git remote -v' command to check the correct remote repository name."
+GameManualItem/content/git push/commandDetail/2,"git push <color=#CF001C>-d or --delete</color> <color=""#173D91"">remote_repository_alias</color> <color=#244B0E>local_branch_name</color>"
+GameManualItem/content/git push/commandDetail/2/use,Delete a targeted remote branch in the targeted remote repository.
+GameManualItem/content/git push/commandDetail/2/scenario,1. When a targeted remote branch has already been merged into the main remote branch.
+GameManualItem/content/git push/commandDetail/2/example,"When User A created a Pull Request,
+it has successfully merged the 'new-feature' branch into the remote 'master' branch.
+They can execute the following command to delete the remote branch:"
+GameManualItem/content/git push/commandDetail/2/exampleBox,"git push <color=#CF001C>-d</color> <color=""#173D91"">origin</color> <color=#244B0E>new-feature</color>"
+GameManualItem/content/git push/commandDetail/2/hint,"1. Confirm the name of the remote repository:
+In common project development, we only need one connected remote repository, which is named 'origin' in Git.
+
+However, if you are connected to multiple remote repositories.
+Before deleting the branch,
+please use the 'git remote -v' command to check the correct remote repository name."
+GameManualItem/content/git pull/1,"'git pull' is a command type related to 'Remote Management'.
+
+This command is used to synchronize your local branch with the branch in the remote repository.
+To ensure that your local branch remains up-to-date.
+
+When executing this command, it performs the following two operations in sequence:
+1. Download the latest 'commit history' from the remote repository.
+2. Merge these new 'commits' into your local branch.
+
+The second operation is similar to the feature of the 'git merge' command,
+where Git automatically chooses one of the merge modes based on the differences between the branches."
+GameManualItem/content/git pull/commandDetail/1,"git pull <color=#CF001C>remote_repository_alias </color> <color=""#173D91"">branch_name</color>"
+GameManualItem/content/git pull/commandDetail/1/use,Synchronize the current local branch with the targeted remote branch in the targeted remote repository.
+GameManualItem/content/git pull/commandDetail/1/scenario,"1. When needing to develop the project on other local devices.
+2. One of the steps in confirming the merging process before creating a Pull Request."
+GameManualItem/content/git pull/commandDetail/1/example,"When User A needs to develop the project on another device,
+and the local repository has not been updated for a long time.
+They can execute the following command to update the local 'new-feature' branch:"
+GameManualItem/content/git pull/commandDetail/1/exampleBox,"git pull <color=#CF001C>origin</color> <color=""#173D91"">new-feature</color>"
+GameManualItem/content/git pull/commandDetail/1/hint,"1. Confirm the name of the remote repository:
+In common project development, we only need one connected remote repository, which is named 'origin' in Git.
+
+However, if you are connected to multiple remote repositories.
+Before updating content,
+please use the 'git remote -v' command to check the correct remote repository name.
+
+2. Ensure you are on the correct branch:
+Before executing this command, please ensure you are on the correct branch.
+If you execute 'git pull origin new-feature' while on the 'master' branch,
+the 'master' branch will receive the 'commit history' of the remote 'new-feature'.
+This could cause unnecessary confusion."

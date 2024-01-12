@@ -70,6 +70,9 @@ public class GameManualContentItem : SerializedMonoBehaviour
                     CommandList.Add(Command.gameObject);
                 }
                 MaxPageNumText.text = $"{CommandDetailedPageGroup.transform.childCount}";
+
+                currentPageNum = 1;
+                SwitchContent(currentPageNum);
                 break;
             case "RuleAndWindow":
                 buttonType = ButtonType.RuleAndWindow;
@@ -128,6 +131,7 @@ public class GameManualContentItem : SerializedMonoBehaviour
         if (currentPageNum == CommandList.Count)
         {
             PageDownButton.interactable = false;
+            LockIcon.SetActive(false);
         }
         else
         {
