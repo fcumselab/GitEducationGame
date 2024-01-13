@@ -12,6 +12,9 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
 
     [SerializeField] GameManual gameManual;
 
+    [FoldoutGroup("For other scripts to Register/Unregister")]
+    [SerializeField] List<string> registerFunctionList = new();
+
     #region instance
     //Singleton instantation
     private static DialogueSystemFeatureManager instance;
@@ -45,12 +48,22 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
         //GameManual
         Lua.UnregisterFunction("UnlockGameManualItem");
 
+        foreach(string key in registerFunctionList)
+        {
+            Lua.UnregisterFunction(key);
+        }
     }
 
     public void RegisterFunctionGameManual(GameManual gameManual)
     {
         this.gameManual = gameManual;
         this.gameManual.RegisterFunction(true);
+    }
+
+    // For other scripts to Register/Unregister
+    public void AddNewRegisterFunctionKey(string key)
+    {
+        registerFunctionList.Add(key);
     }
 
     //Hint_xxxxx  key = xxxxx

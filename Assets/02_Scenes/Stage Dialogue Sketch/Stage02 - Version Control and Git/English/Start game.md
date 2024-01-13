@@ -52,6 +52,7 @@ Do you need to take a break?
 Chapter 2 - 'What is Version Control'
 
 First, let's get to know what is version control.
+
 Version control is one of the main roles in software development.
 But is not limited to programming-related fields.
 
@@ -102,20 +103,22 @@ executing Git commands in the Command Line.
 
 Here are some advantages of using Git:
 
-Team Collaboration: 
+1. Team Collaboration: 
 Git allows team members to develop a project at the same time without interfering with each other's work.
 And members can easily merge files.
 
-Branch Strategy: 
+2. Branch Strategy: 
 Git's branch management feature smoothens the project development process. 
-You can create different branches, each focused on specific goals. Once the development branches are complete, they can be merged into the main branch.
+You can create different branches, each focused on specific goals. 
+
+Once the development branches are complete, they can be merged into the main branch.
 It enhances project stability.
 
-Version Tracking: 
+3. Version Tracking: 
 Every file submission is recorded and stored in Git.
 You can easily view each submission content.
 
-Easy to Learn:
+4. Easy to Learn:
 Even if you are not a programmer or never touched programming,
 Git's concepts are relatively simple. 
 You can execute simple Git commands to control the system.

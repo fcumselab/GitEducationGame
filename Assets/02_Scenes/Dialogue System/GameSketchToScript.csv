@@ -279,7 +279,7 @@ NPC_19_41,19,41,2,2,,圖片file&不顯示Hint_FileManagerWindow,,FALSE,Block,Nor
 NPC_19_42,19,42,2,2,,圖片gitIcon,,FALSE,Block,Normal,,"ShowImage(""gitIcon"")",,,,"In the next stage, \r\nwe will start learning about version control and Git.",下一關卡，我們將正式開始學習版本控制和 Git,658.049;824.1973
 NPC_19_43,19,43,2,2,,圖片Listx3,,FALSE,Block,Normal,,"ShowImage(""Listx3"")",,,,"We will understand their definitions, advantages, and features.\r\nAt the same time, we will compare\r\nthe differences between using 'file backup' and 'version control'.",我們會了解它們的定義、優點和特色\r\n同時，我們將會比較\r\n使用備份檔案和版本控制、Git 的不同之處,658.049;874.1973
 NPC_19_44,19,44,2,2,,圖片crownStar,,FALSE,Block,Normal,,"ShowImage(""crownStar"")",,,,"Finally, congratulations on completing the stage.\r\nYou did a great job!",最後，恭喜您通過了本次的關卡\r\n您做得很棒！,656.2308;924.1973
-NPC_22_0,22,0,2,2,START,,,,,,,,None(),,,,,1168.449;38.03548
+NPC_22_0,22,0,2,2,START,,,FALSE,,Normal,,,None(),,,,,1168.449;38.03548
 NPC_22_31,22,31,2,1,,,我們在下一個關卡裡面再來實際的操作系統吧！,FALSE,Block,Normal,,,,,,,,1476.625;2614.207
 NPC_22_72,22,72,2,1,,12 31,"我們可以藉由上方的目標知道\r\n我們需要開啟 ""檔案管理"" 視窗",FALSE,Block,Normal,"CurrentQuestState(""Game Introduction/1"") == ""active""","\nFSMEvent(""Hint/Tutorial Highlight/show highlight"", ""Quest & Title Hint"", ""Hint"");",,,,,,764.6393;194.5904
 NPC_22_73,22,73,2,1,,,"為了打開 ""檔案管理"" 視窗\n我們可以在 ""工具欄"" 中尋找到對應的按鈕",FALSE,Block,Normal,,"FSMEvent(""Hint/Tutorial Highlight/close highlight"", ""Quest & Title Hint"", ""Hint"");\nFSMEvent(""Hint/Tutorial Highlight/show highlight"", ""Toolbar Panel Hint"", ""Hint"");",,,,,,762.4555;264.6253
@@ -412,77 +412,67 @@ NPC_34_47,34,47,2,1,,pencil,所以我們決定先把這份簡報重新命名,FAL
 NPC_34_48,34,48,2,1,,,這代表您完成了本次關卡的教學部分\r,FALSE,Block,Normal,,,,,,,,561.8794;868.5318
 NPC_34_49,34,49,2,1,,tools,在後半部的關卡中\r\n需要您自行跟著目標完成,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""tools"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,557.624;917.468
 NPC_34_50,34,50,2,1,,lightBulb,<color=#CF001C>正在進行的步驟：</color>\n現在就請您靠著學到的知識\r\n動手操作完成目標吧！,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""lightBulb"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,755.5689;1003.711
-NPC_35_0,35,0,2,2,START,,,FALSE,Block,Normal,,,None(),,,,,945.0831;218.1764
-NPC_35_65,35,65,2,1,,BlackOn happyFace,"歡迎來到關卡 ""版本控制 與 Git 的介紹"" ！\r",FALSE,Block,Normal,"Variable[""isReplay""] == false and (Variable[""tag""] == """")","FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\n\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChat Fold Icon"", ""Button"");\n\nVariable[""ImageKey""] = ""happyFace"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\n",,,,,,946.6873;287.4428
-NPC_35_66,35,66,2,1,,speechSquare,本次關卡將會注重在概念的解釋上\n並沒有實際操作的部分,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""speechSquare"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,950.101;338.4906
-NPC_35_67,35,67,2,1,,,但是在觀看完了關卡中的對話後\r\n為了確認您對本關卡的理解\r\n關卡最後會進行一次小測驗！\r,FALSE,Block,Normal,,,,,,,,954.8358;389.8164
-NPC_35_68,35,68,2,1,,star,在這類型的關卡中\r\n連續答對的計數並不會追加分數,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""star"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,956.2759;442.7812
-NPC_35_69,35,69,2,1,,,如果回答正確可以獲得 1000 分\r\n而回答錯誤不會得分,FALSE,Block,Normal,,,,,,,,953.7522;488.3608
-NPC_35_70,35,70,2,1,,,最後將會根據您所得到的分數高低\r\n給予 1 到 3 顆星的評價,FALSE,Block,Normal,,,,,,,,944.21;529.9977
-NPC_35_71,35,71,2,1,,Listx4,本關卡中我們將內容分為四個章節：\r\n1. 回顧第一關卡\r\n2. 什麼是版本控制\r\n3. 什麼是 Git\r\n4. 總結,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""Listx4"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,939.5498;576.0209
-NPC_35_72,35,72,2,1,,file,我們透過備份檔案的方式來完成期中簡報\r,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""file"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,919.9284;867.4984
-NPC_35_73,35,73,2,1,,,雖然這是一種直接且快速的方式,FALSE,Block,Normal,,,,,,,,926.2333;913.7134
-NPC_35_74,35,74,2,1,,,由於您在開發過程中備份了大量的檔案\r\n導致難以去追蹤版本之間的差異,FALSE,Block,Normal,,,,,,,,928.0742;1003.413
-NPC_35_75,35,75,2,1,,,萬一在開發過程中遇到了嚴重的錯誤\r\n需要您回到過去的版本以修復錯誤時\r\n上面的問題將會嚴重的影響您的開發進度,FALSE,Block,Normal,,,,,,,,921.3658;1041.469
-NPC_35_76,35,76,2,1,,,而複製檔案也會導致您的工作環境變得雜亂,FALSE,Block,Normal,,,,,,,,913.1626;1073.293
-NPC_35_77,35,77,2,1,,,甚至，您可能還會遇到以下的情況：\r\n1. 不小心在舊版本的文件中進行專案開發\r\n2. 備份檔案時覆蓋了現在正在開發的檔案,FALSE,Block,Normal,,,,,,,,917.3857;1122.807
-NPC_35_78,35,78,2,1,,Listx3,為了避免這些問題的發生\r\n我們可以使用版本控制系統來協助我們管理專案！,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""Listx3"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,916.6528;1166.578
-NPC_35_79,35,79,2,1,,,首先，讓我們先來了解什麼是版本控制吧\r,FALSE,Block,Normal,,,,,,,,1291.656;757.459
-NPC_35_80,35,80,2,1,,crownStar,版本控制在程式開發領域中有著非常重要的地位,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""crownStar"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1294.847;798.3568
-NPC_35_81,35,81,2,1,,alert,但是它不只能管理程式相關的檔案,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""alert"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1296.467;837.0287
-NPC_35_82,35,82,2,1,,image,例如：\r\n美術設計、網頁設計師在圖片編輯的過程中\r\n由於圖片可能有多次的改動\r\n所以透過版本控制來管理圖片也是非常合適的,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""image"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1286.911;908.2731
-NPC_35_83,35,83,2,1,,file,版本控制的主要目標是\n讓您能夠更好地管理檔案的變化,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""file"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1278.823;946.86
-NPC_35_84,35,84,2,1,,happyFace,以下是版本控制的好處：,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""happyFace"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1286.601;1022.28
-NPC_35_85,35,85,2,1,,analyticsCircle,只要是需要長期經營、開發的專案\r\n都可以透過版本控制來進行管理,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""analyticsCircle"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1296.708;869.8175
-NPC_35_86,35,86,2,1,,file,1. 歷史追蹤： \r\n版本控制允許您查看檔案的每一次變化\r\n其中包括誰進行了修改、何時進行了修改\r\n以及具體的修改內容,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""file"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1281.048;1076.594
-NPC_35_87,35,87,2,1,,reload,2. 回溯功能： \r\n如果您遇到錯誤，或者您需要回到以前的版本時\r\n版本控制可以讓您輕鬆地回到先前的狀態\r\n並且您正在開發的內容不會被影響,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""reload"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1282.99;1122.63
-NPC_35_88,35,88,2,1,,share,3. 分支管理： \r\n版本控制允許您創建分支來進行開發\r\n這使得不同功能的開發可以同時進行\r\n並且分支之間不會互相干擾,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""share"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1279.107;1168.402
-NPC_35_89,35,89,2,1,,,以上版本控制的好處\r\n在後面的關卡中都會進行更詳細的解說與實際操作,FALSE,Block,Normal,,,,,,,,1272.268;1216.878
-NPC_35_90,35,90,2,1,,,在了解了什麼是版本控制之後\n讓我們更進一步的了解什麼是 Git 吧！,FALSE,Block,Normal,,,,,,,,1636.333;750.703
-NPC_35_91,35,91,2,1,,,Git 是一個非常強大的版本控制工具\r\n它對於軟體開發領域來說是非常受歡迎的,FALSE,Block,Normal,,,,,,,,1631.567;785.1501
-NPC_35_92,35,92,2,1,,windowOutline,使用者需要透過在命令行 (Command Line) \r\n輸入 Git 指令的方式來操作版本控制的相關功能,FALSE,Block,Normal,,"\nVariable[""ImageKey""] = ""windowOutline"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1630.12;862.4757
-NPC_35_93,35,93,2,1,,happyFace,接下來，我將告訴您使用 Git 所帶來的一些好處：\r,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""happyFace"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1623.591;904.8102
-NPC_35_94,35,94,2,1,,group,1. 團隊協作：\r\nGit 可以讓團隊成員同時進行專案開發\r\n成員間的的工作並不會受到影響\r\n同時也能夠輕鬆地將彼此的檔案合併在一起,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""group"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1617.62;956.7938
-NPC_35_95,35,95,2,1,,share,2. 分支策略： \r\n繼承了版本控制的分支管理功能\r\nGit 的分支功能讓專案的發展過程更加流暢\r\n創建的分支可以各自專注於不同的目標\r\n\r\n當分支確定功能沒問題後\r\n才將檔案合併到主要分支中的方式\r\n可以提升專案的穩定度,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""share"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1623.148;1013.893
-NPC_35_96,35,96,2,1,,file,3. 版本追蹤：\r\n每一次的檔案提交都會轉成一份記錄並放入 Git 中\r\n這代表著您可以清楚地看到每一次記錄的內容,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""file"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1623.148;1065.728
-NPC_35_97,35,97,2,1,,coffee,4. 容易學習： \r\n即使您不是程式開發人員或從未接觸過程式\r\nGit 的概念其實是相對簡單的\r\n透過較為簡單的命令可以讓您快速的上手,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""coffee"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1623.148;1113.893
-NPC_35_98,35,98,2,1,,,而對於第 4 點容易學習的內容\r\n本遊戲將會把 Git 指令更加精簡化,FALSE,Block,Normal,,,,,,,,1629.962;1175.562
-NPC_35_99,35,99,2,1,,,我們將注重在幾個非常實用的指令上\r\n並去除掉幾個相對不重要的指令,FALSE,Block,Normal,,,,,,,,1629.962;1225.562
-NPC_35_100,35,100,2,1,,,讓您可以更快上手 Git 指令\r\n並集中學習最常用的指令,FALSE,Block,Normal,,,,,,,,1629.962;1275.562
-NPC_35_101,35,101,2,1,,Listx3,總結下來\r\n版本控制大幅提升了我們在開發專案的效率\r\n也讓專案的管理更加的有系統,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""Listx3"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1991.19;761.3155
-NPC_35_102,35,102,2,1,,file,歷史與版本追蹤功能讓我們更清楚版本之間的差異\r,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""file"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1992.781;807.8344
-NPC_35_103,35,103,2,1,,reload,回溯功能讓我們更容易的回到先前的歷史記錄,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""reload"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1981.3;849.2275
-NPC_35_104,35,104,2,1,,share,分支系統讓系統的開發變得更加穩定\r\n並提升開發效率,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""share"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1985.386;899.4412
-NPC_35_105,35,105,2,1,,group,最後版本控制支持團隊協作\r\n讓團隊成員可以獨自開發功能\r\n完成功能後將功能整合到共同的專案中,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""group"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1985.387;940.216
-NPC_35_106,35,106,2,1,,speechSquare  Q,在講解了什麼是版本控制與 Git 後\r\n本關卡的後半部分要進行一個小測驗,FALSE,Block,Normal,"Variable[""isReplay""] == false","Variable[""ImageKey""] = ""speechSquare"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\n\nFSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,1985.878;1088.366
-NPC_35_107,35,107,2,1,,(建構)\r,"讓我們來模擬一個背景故事\n您將扮演選修了 ""版本控制"" 課程的學生\r\n並透過剛才學習到的知識來進行題目的作答",FALSE,Block,Normal,,"FSMEvent(""Tutorial Popup/Close Tutorial Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\n\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");\n",,,,,,1972.015;1348.09
-NPC_35_108,35,108,2,1,,book 高亮粒子,在開始作答之前\r\n您可以透過對話視窗\n以及翻閱遊戲手冊再次複習先前的知識,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""book"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\n\nFSMEvent(""Hint/Particle/Show Particle"", ""Help Button"", ""Highlight Particle"");\n\nFSMEvent(""Hint/Particle/Show Particle"", ""GameManualButton"", ""Highlight Particle"");",,,,,,1977.865;1411.151
-NPC_35_111,35,111,2,1,,happyFace,問答系統已經新增到這台電腦當中了\r\n當您準備好要作答時就點選問答系統吧！,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""happyFace"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1963.296;1464.506
-NPC_35_112,35,112,2,1,,,請加油吧！,FALSE,Block,Normal,,"Variable[""ReadChapter""] = 5",,,,,,1971.11;1521.139
-NPC_35_113,35,113,2,1,,alert,但是，不知道您是否曾經做過\n更為複雜的簡報或專案\r,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""alert"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,920.3239;957.316
-NPC_35_114,35,114,2,1,,,版本控制將開發過程中的每一次修改都記錄了下來,FALSE,Block,Normal,,,,,,,,1285.294;985.8048
-NPC_35_115,35,115,2,1,,,開發者將版本控制的概念引入到了 Git 中\r,FALSE,Block,Normal,,,,,,,,1617.931;825.0524
-NPC_35_116,35,116,2,1,,speechSquare,在每一章節開始前\r\n您可以選擇要不要停止對話\r\n讓您可以消化剛學到的知識,FALSE,Block,Normal,,"Variable[""ImageKey""] = ""speechSquare"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,932.5243;641.0309
-NPC_35_117,35,117,2,1,,off 高亮粒子,如果在想要繼續學習的話就點擊這裡來繼續！\r,FALSE,Block,Normal,,"FSMEvent(""Hint/Particle/Show Particle"", ""Help Button"", ""Highlight Particle"");\n",,,,,,933.6215;689.3299
-NPC_35_118,35,118,2,1,,speechSquare,第 1 章 - 回顧第一關卡\r,FALSE,Block,Normal,"((Variable[""isReplay""] == false) and (Variable[""tag""] == """")) or (Variable[""tag""] == ""1"")","FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\n\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChat Fold Icon"", ""Button"");\n\nFSMEvent(""Hint/Particle/Close Particle"", ""Help Button"", ""Highlight Particle"");\n\nVariable[""ImageKey""] = ""speechSquare"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,749.9843;771.3558
-NPC_35_119,35,119,2,1,,,在介紹版本控制和 Git 之前\r\n讓我們先來回顧第一關卡,FALSE,Block,Normal,,,,,,,,918.5825;834.4573
-NPC_35_120,35,120,2,1,,Listx3,第 2 章 - 什麼是版本控制\r,FALSE,Block,Normal,"((Variable[""isReplay""] == false) and (Variable[""tag""] == """")) or (Variable[""tag""] == ""2"")","FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\n\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChat Fold Icon"", ""Button"");\n\nFSMEvent(""Hint/Particle/Close Particle"", ""Help Button"", ""Highlight Particle"");\n\n\nVariable[""ImageKey""] = ""Listx3"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1289.595;703.3123
-NPC_35_121,35,121,2,1,,gitIcon,第 3 章 - 什麼是 Git\r,FALSE,Block,Normal,"((Variable[""isReplay""] == false) and (Variable[""tag""] == """")) or (Variable[""tag""] == ""3"")","FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\n\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChat Fold Icon"", ""Button"");\n\nFSMEvent(""Hint/Particle/Close Particle"", ""Help Button"", ""Highlight Particle"");\n\nVariable[""ImageKey""] = ""gitIcon"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1635.252;713.7192
-NPC_35_122,35,122,2,1,,flyShoes,第 4 章 - 總結,FALSE,Block,Normal,"((Variable[""isReplay""] == false) and (Variable[""tag""] == """")) or (Variable[""tag""] == ""4"")","FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\n\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChat Fold Icon"", ""Button"");\n\nFSMEvent(""Hint/Particle/Close Particle"", ""Help Button"", ""Highlight Particle"");\n\n\nVariable[""ImageKey""] = ""flyShoes"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1994.251;717.4777
-NPC_35_123,35,123,2,1,,coffee,接下來要進入第 2 章 - 什麼是版本控制\r\n您需要休息一下嗎？,FALSE,Block,Normal,"Variable[""isReplay""] == false","Variable[""tag""] = """"\n\nVariable[""ImageKey""] = ""coffee"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,919.3242;1232.366
-Player_35_124,35,124,1,2,,,好的,FALSE,Block,Normal,,"Variable[""ReadChapter""] = 2",,,,,,809.5681;1292.66
-Player_35_125,35,125,1,2,,,不需要,FALSE,Block,Normal,,,,,,,,1010.966;1297.227
-NPC_35_126,35,126,2,1,,,接下來要進入第 3 章 - 什麼是 Git\r\n您需要休息一下嗎？,FALSE,Block,Normal,"Variable[""isReplay""] == false","Variable[""tag""] = """"\n\nVariable[""ImageKey""] = ""coffee"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1278.099;1327.609
-Player_35_127,35,127,1,2,,,好的,FALSE,Block,Normal,,"Variable[""ReadChapter""] = 3",,,,,,1166.867;1383.951
-Player_35_128,35,128,1,2,,,不需要,FALSE,Block,Normal,,,,,,,,1366.949;1389.834
-NPC_35_129,35,129,2,1,,,接下來要進入第 4 章 - 總結\n您需要休息一下嗎？,FALSE,Block,Normal,"Variable[""isReplay""] == false","Variable[""tag""] = """"\n\nVariable[""ImageKey""] = ""coffee"";\nFSMEvent(""Tutorial Popup/Change Image"", ""Tutorial Popup Parent"", ""Tutorial Popup"");",,,,,,1634.28;1370.225
-Player_35_130,35,130,1,2,,,好的,FALSE,Block,Normal,,"Variable[""ReadChapter""] = 4",,,,,,1527.803;1438.39
-Player_35_131,35,131,1,2,,,不需要,FALSE,Block,Normal,,,,,,,,1729.201;1442.958
-NPC_35_132,35,132,2,1,,,在測驗中\n無論回答的是否正確,FALSE,Block,Normal,,,,,,,,1983.82;1145.602
-NPC_35_133,35,133,2,1,,happyFace,題目中的問題與選項\n都可以幫助您複習剛才學到的知識,FALSE,Block,Normal,,,,,,,,1991.893;1198.378
-NPC_35_134,35,134,2,1,,,所以就當做是課後的複習吧！,FALSE,Block,Normal,,,,,,,,1987.187;1265.396
+NPC_35_0,35,0,2,2,START,(展開視窗 + 黑屏),,FALSE,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,933.2664;25.54934
+NPC_35_65,35,65,2,1,,圖片happyFace,版本控制 與 Git 的介紹（之後要改程式）\r,FALSE,Block,Normal,"Variable[""isReplay""] == false and (Variable[""tag""] == """")","ShowImage(""happyFace"")",,,,Welcome to the 'Introduction to Version Control and Git' stage!,歡迎來到\r\n'版本控制與 Git 的介紹' 關卡！,937.5964;97.08846
+NPC_35_66,35,66,2,1,,圖片speechSquare,,FALSE,Block,Normal,,"ShowImage(""speechSquare"")",,,,"In this stage, we will focus on explaining concepts without practical operations.\r\nHowever, in the end, there’s a quiz to enhance your understanding.",本次關卡將專注於概念的解釋而不包含實際操作\r\n然而，在關卡的最後會有一個測驗來鞏固您學到的知識,941.0101;148.1362
+NPC_35_67,35,67,2,1,,圖片star,,FALSE,Block,Normal,,"ShowImage(""star"")",,,,Correct answers will give you 1000 points.\r\nIncorrect answers will not get any points.,當回答問題正確就可以獲得 1000 分\r\n而回答錯誤，就無法獲得分數,945.7449;201.1569
+NPC_35_68,35,68,2,1,,圖片Listx4,,FALSE,Block,Normal,,"ShowImage(""Listx4"")",,,,There are four chapters in this stage:\r\n1. Review the Stage 1\r\n2. What is Version Control?\r\n3. What is Git?\r\n4. Summary,本次關卡將分為四個章節：\r\n1. 回顧第 1 關卡\r\n2. 什麼是版本控制？\r\n3. 什麼是 Git？\r\n4. 總結,947.1849;252.4268
+NPC_35_69,35,69,2,1,,圖片coffee,,FALSE,Block,Normal,,"ShowImage(""coffee"")",,,,"At the end of each chapter, you can choose whether to continue to the next chapter.",在每一章節結束後\r\n您可以選擇是否繼續下一章節\r\n以便更好地吸收所學知識,944.6613;296.3115
+NPC_35_70,35,70,2,1,,高亮粒子 幫助,,FALSE,Block,Normal,,"FSMEvent(""Hint/Particle/Show Particle"", ""DialogueButton"", ""Highlight Particle"");",,,,"If you have already taken a break and want to continue, please click here to learn.",當您已經休息完成後，請點擊這裡來繼續學習,940.1893;364.9797
+NPC_35_72,35,72,2,1,,圖片file,,FALSE,Block,Normal,,"ShowImage(""file"")",,,,"In Stage 1, we used the 'backup file' method to complete the midterm presentation.",在第 1 關卡中\r\n我們使用 '備份檔案' 的方法來完成期中簡報,922.46;850.83
+NPC_35_73,35,73,2,1,,圖片alert,,FALSE,Block,Normal,,"ShowImage(""alert"")",,,,"Although this method is direct and fast, \r\nit can cause problems when dealing with more complex presentations or projects.",儘管這是一種直接且快速的方法\r\n但是這種方式在處理更為複雜的簡報或專案時會造成問題,921.1699;908.6501
+NPC_35_74,35,74,2,1,,,,FALSE,Block,Normal,,,,,,"First, if there’s a large number of backup files during development, \r\nit will be difficult to track the differences between files.",第一，如果您在開發過程中備份了大量的檔案\r\n會導致難以去追蹤檔案之間的差異,924.2768;955.3705
+NPC_35_75,35,75,2,1,,圖片timePlus,,FALSE,Block,Normal,,"ShowImage(""timePlus"")",,,,"If a serious error occurs and you have to go back to the previous versions, \r\nyou will spend a lot of time on fixing errors.",萬一在過程中遇到了嚴重的錯誤必須回到過去的版本時\r\n您需要花費很多時間去修正錯誤,910.6459;1006.619
+NPC_35_76,35,76,2,1,,圖片alert,,FALSE,Block,Normal,,"ShowImage(""alert"")",,,,"Second, your work environment becomes messy \r\nbecause of multiple backup files.",第二，您的工作環境會因為備份多個檔案而變得雜亂,918.226;1042.616
+NPC_35_77,35,77,2,1,,,,FALSE,Block,Normal,,,,,,You might even encounter situations like:\r\n1. Developed the content on old versions of files\r\n2. Overwriting the current development file while backing up files.,甚至，您可能還會遇到以下情況：\r\n1. 不小心在舊版本的文件中進行專案開發\r\n2. 備份檔案時覆蓋了目前正在開發的檔案,921.35;1092.427
+NPC_35_78,35,78,2,1,,圖片gitIcon,,FALSE,Block,Normal,,"ShowImage(""gitIcon"")",,,,"To avoid these issues, \r\nwe can use a version control system to help us manage projects.",為了避免這些問題的發生\r\n我們可以使用版本控制系統來協助管理我們的專案,916.6528;1161.891
+NPC_35_79,35,79,2,1,,圖片gitIcon,,FALSE,Block,Normal,,"ShowImage(""gitIcon"")",,,,"First, let's get to know what is version control.",首先，讓我們來了解什麼是版本控制吧,1290.228;703.1733
+NPC_35_80,35,80,2,1,,圖片lightBulb,,FALSE,Block,Normal,,"ShowImage(""lightBulb"")",,,,Version control is one of the main roles in software development.\r\nBut is not limited to programming-related fields.,版本控制在程式開發領域中是重要的角色之一\r\n但它不僅僅適用於程式相關領域,1286.276;756.9283
+NPC_35_81,35,81,2,1,,,,FALSE,Block,Normal,,,,,,"In fact, if there’s a project that requires long-term operation and development.\r\nIt can be effectively managed with version control.",實際上，只要是需要長期運營和開發的專案\r\n都可以透過版本控制來有效管理,1289.324;806.8948
+NPC_35_83,35,83,2,1,,圖片lightBulb,,FALSE,Block,Normal,,"ShowImage(""lightBulb"")",,,,The main goal of version control is to better manage changes in files. \r\nIt records every modification during the development.,版本控制的主要目標是為了更好地管理檔案的變化\r\n它會記錄開發過程中的每一次修改,1285.966;912.4404
+NPC_35_84,35,84,2,1,,圖片reload,,FALSE,Block,Normal,,"ShowImage(""reload"")",,,,"1. History Tracking: \r\nIt allows you to view every change made to files, \r\nincluding who made the changes, when they were made, \r\nand the specific content of the changes.",1. 歷史追蹤： \r\n版本控制允許您查看檔案的每一次變化\r\n包括誰進行了修改、何時進行了修改以及具體的修改內容,1288.03;1002.28
+NPC_35_85,35,85,2,1,,圖片image,,FALSE,Block,Normal,,"ShowImage(""image"")",,,,"For example, graphic designers or web designers might modify images several times while editing.\r\nIn this scenario, version control can be appropriate to help people manage the images.",舉例來說，美術設計師或網頁設計師\r\n在進行圖片編輯時可能會多次修改圖片\r\n這個情況下，通過版本控制來管理圖片是非常合適的,1286.708;859.9514
+NPC_35_86,35,86,2,1,,圖片reload,,FALSE,Block,Normal,,"ShowImage(""reload"")",,,,"2. Rollback Function: \r\nIf you encounter errors or need to go back to the previous version, \r\nversion control can easily return to a previous version without affecting the current development.",2. 回溯功能： \r\n如果您遇到錯誤、需要回到以前的版本時\r\n版本控制可以輕鬆地返回先前的版本\r\n不會影響到正在開發的內容,1281.048;1046.594
+NPC_35_87,35,87,2,1,,圖片share,,FALSE,Block,Normal,,"ShowImage(""share"")",,,,"3. Branch Management: \r\nIt allows you to create branches for development, \r\nand lets different features be developed at the same time without interference.",3. 分支管理： \r\n版本控制允許您創建分支來進行開發\r\n這使得不同功能的開發可以同時進行\r\n而不會互相干擾,1281.562;1091.068
+NPC_35_88,35,88,2,1,,圖片hammer,,FALSE,Block,Normal,,"ShowImage(""hammer"")",,,,"The benefits of version control above,\r\nwe will further understand and practically operate in later stages.\r",以上版本控制的優勢\r\n在後面的關卡中會更進一步地了解並進行實際操作,1277.678;1141.259
+NPC_35_90,35,90,2,1,,圖片gitIcon,,FALSE,Block,Normal,,"ShowImage(""gitIcon"")",,,,"After understanding what version control is, let's learn about Git.",在知道什麼是版本控制後\r\n讓我們來了解什麼是 Git,1760.399;667.6115
+NPC_35_91,35,91,2,1,,,,FALSE,Block,Normal,,,,,,"Git is a powerful version control tool, \r\nit’s highly popular in software development.",Git 是一個非常強大的版本控制工具\r\n它在軟體開發領域非常受歡迎,1759.294;746.741
+NPC_35_92,35,92,2,1,,圖片windowOutline,,FALSE,Block,Normal,,"ShowImage(""windowOutline"")",,,,Users will operate version control functions through \nexecuting Git commands in the Command Line.,使用者需要通過命令行（Command Line）\r\n輸入 Git 指令來操作版本控制的相關功能,1757.847;844.0667
+NPC_35_93,35,93,2,1,,圖片Listx4,,FALSE,Block,Normal,,"ShowImage(""Listx4"")",,,,Here are some advantages of using Git:,以下是使用 Git 帶來的一些優勢：,1753.855;890.0375
+NPC_35_94,35,94,2,1,,圖片group,,FALSE,Block,Normal,,"ShowImage(""group"")",,,,1. Team Collaboration: \r\nGit allows team members to develop a project at the same time without interfering with each other's work.\r\nAnd members can easily merge files.,1. 團隊協作：\r\nGit 允許團隊成員同時進行專案開發\r\n而彼此的工作不會互相干擾\r\n同時，它也能夠輕鬆地將各成員的檔案合併在一起,1752.62;932.9302
+NPC_35_95,35,95,2,1,,圖片share,,FALSE,Block,Normal,,"ShowImage(""share"")",,,,"2. Branch Strategy: \r\nGit's branch management feature smoothens the project development process. \r\nYou can create different branches, each focused on specific goals. ",2. 分支策略： \r\nGit 的分支管理功能使專案的發展過程更加流暢\r\n您可以創建不同的分支，每個分支將專注於不同的目標,1752.693;986.393
+NPC_35_96,35,96,2,1,,,,FALSE,Block,Normal,,,,,,"Once the development branches are complete, they can be merged into the main branch.\r\nIt enhances project stability.",當開發分支的內容確認完成後\r\n將該分支合併到主要分支\r\n上述流程將提高專案的穩定性,1759.966;1034.592
+NPC_35_97,35,97,2,1,,圖片reload,,FALSE,Block,Normal,,"ShowImage(""reload"")",,,,3. Version Tracking: \r\nEvery file submission is recorded and stored in Git.\r\nYou can easily view each submission content.,3. 版本追蹤：\r\n每次的檔案提交都會被記錄並儲存在 Git 中\r\n您可以方便地查看每一次提交的內容,1754.511;1084.575
+NPC_35_98,35,98,2,1,,圖片coffee,,FALSE,Block,Normal,,"ShowImage(""coffee"")",,,,"4. Easy to Learn:\r\nEven if you are not a programmer or never touched programming,\r\nGit's concepts are relatively simple. \r\nYou can execute simple Git commands to control the system.",4. 容易學習： \r\n即使您不是程式開發人員，或者從未接觸過程式\r\nGit 的概念其實是相對簡單的\r\n只需要透過簡單的命令，就可以操作此系統,1756.341;1124.958
+NPC_35_99,35,99,2,1,,圖片lightBulb,,FALSE,Block,Normal,,"ShowImage(""lightBulb"")",,,,"In this game, Git commands are adjusted.\r\nWe will focus on practical commands and remove difficult ones.",而在本遊戲中，會對 Git 指令做調整\r\n我們將專注學習實用的指令，並移除困難的指令,1749.445;1176.683
+NPC_35_101,35,101,2,1,,圖片lightBulb,,FALSE,Block,Normal,,"ShowImage(""lightBulb"")",,,,"In conclusion, version control significantly enhances project development efficiency and organizes content management.",總結來說\r\n版本控制大幅提升了專案的開發效率\r\n並能有組織的管理內容,2122.081;697.6511
+NPC_35_102,35,102,2,1,,圖片reload,,FALSE,Block,Normal,,"ShowImage(""reload"")",,,,"For historical records and version tracking features,\r\nwe can clearly see the differences between file versions.",歷史記錄和版本追蹤功能\r\n能夠清楚地查看版本之間的差異,2119.562;748.2797
+NPC_35_103,35,103,2,1,,,,FALSE,Block,Normal,,,,,,"The rollback function allows us to go back to the previous version, \r\nit helps us view historical content and fix problems.",回溯功能允許我們返回先前的歷史版本\r\n以便於查看歷史內容、修復問題,2120.41;793.7823
+NPC_35_104,35,104,2,1,,圖片share,,FALSE,Block,Normal,,"ShowImage(""share"")",,,,The branching system increases stability and efficiency for project development.,分支系統提升了專案開發的穩定性和效率,2120.386;842.6262
+NPC_35_105,35,105,2,1,,圖片group,,FALSE,Block,Normal,,"ShowImage(""group"")",,,,"Finally, version control supports team collaboration, \r\nallowing team members to develop features together and \r\nintegrate completed content into the project.",最後，版本控制支持團隊協作\r\n團隊成員能夠共同開發功能\r\n並將完成的內容整合到專案中,2123.228;912.3467
+NPC_35_106,35,106,2,1,,圖片speechSquare,,FALSE,Block,Normal,"Variable[""isReplay""] == false","ShowImage(""speechSquare"")",,,,"After understanding what version control and Git are,\r\nlet's have a quiz.",在了解什麼是版本控制與 Git 之後\r\n我們來進行測驗吧,2122.44;1079.55
+NPC_35_107,35,107,2,1,,(新增任務)對話5,,FALSE,Block,Normal,,"Variable[""ReadChapter""] = 5;\nFSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,"The quiz system has been added to this computer. \r\nWhen you're ready to answer, click on the quiz system to begin.\r\nGood luck!",測驗系統已經新增到這台電腦中了\r\n當您準備好要作答時，點選測驗系統即可開始\r\n請加油！,2124.202;1312.712
+NPC_35_114,35,114,2,1,,圖片Listx4,,FALSE,Block,Normal,,"ShowImage(""Listx4"")",,,,Here are the benefits of version control:,而以下是版本控制的好處：,1285.294;960.2244
+NPC_35_115,35,115,2,1,,圖片gitIcon,,FALSE,Block,Normal,,"ShowImage(""gitIcon"")",,,,The developers of Git integrated the concept of version control into it.,製作 Git 的開發人員將版本控制的概念引入其中,1756.567;795.7343
+NPC_35_118,35,118,2,1,,關閉粒子 幫助&圖片reload,,FALSE,Block,Normal,"((Variable[""isReplay""] == false) and (Variable[""tag""] == """")) or (Variable[""tag""] == ""1"")","FSMEvent(""Hint/Particle/Close Particle"", ""DialogueButton"", ""Highlight Particle"");\nShowImage(""reload"")",,,,Chapter 1 - 'Review of Level 1',第 1 章 - '回顧第 1 關卡',933.2906;490.5344
+NPC_35_119,35,119,2,1,,,,FALSE,Block,Normal,,,,,,"Before introducing version control and Git, let's review Stage 1 first.",在介紹版本控制和 Git 之前\r\n讓我們先來回顧第 1 關卡,919.8483;701.4418
+NPC_35_120,35,120,2,1,,圖片gitIcon,,FALSE,Block,Normal,"((Variable[""isReplay""] == false) and (Variable[""tag""] == """")) or (Variable[""tag""] == ""2"")","ShowImage(""gitIcon"")",,,,Chapter 2 - 'What is Version Control',第 2 章 - '什麼是版本控制？',1279.595;497.5981
+NPC_35_121,35,121,2,1,,圖片gitIcon,,FALSE,Block,Normal,"((Variable[""isReplay""] == false) and (Variable[""tag""] == """")) or (Variable[""tag""] == ""3"")","ShowImage(""gitIcon"")",,,,Chapter 3 - 'What is Git?',第 3 章 - '什麼是 Git？',1753.888;488.7568
+NPC_35_122,35,122,2,1,,圖片lightBulb,,FALSE,Block,Normal,"((Variable[""isReplay""] == false) and (Variable[""tag""] == """")) or (Variable[""tag""] == ""4"")","ShowImage(""lightBulb"")",,,,Chapter 4 - 'Summary',第 4 章 - '總結',2122.95;491.3726
+NPC_35_123,35,123,2,1,,圖片coffee&Tag空,,FALSE,Block,Normal,"Variable[""isReplay""] == false","ShowImage(""coffee"");\nVariable[""tag""] = """"",,,,"Next, let's go to Chapter 2 - 'What is Version Control?'\r\nDo you need to take a break?\r",接下來，讓我們繼續進入第 2 章 - '什麼是版本控制？'\r\n請問您需要休息一下嗎？,919.3242;1230.803
+Player_35_124,35,124,1,2,,,,FALSE,Block,Normal,,"Variable[""ReadChapter""] = 2",,,,Yes,好的,808.2523;1304.102
+Player_35_125,35,125,1,2,,,,FALSE,Block,Normal,,,,,,No,不需要,1016.355;1304.981
+NPC_35_126,35,126,2,1,,圖片coffee&Tag空,,FALSE,Block,Normal,"Variable[""isReplay""] == false","ShowImage(""coffee"");\nVariable[""tag""] = """"",,,,"Next, let's go to Chapter 3 - 'What is Git?'\r\nDo you need to take a break?",接下來，讓我們繼續進入第 3 章 - '什麼是 Git？'\r\n請問您需要休息一下嗎？,1278.099;1327.609
+Player_35_127,35,127,1,2,,,,FALSE,Block,Normal,,"Variable[""ReadChapter""] = 3",,,,Yes,好的,1169.499;1401.056
+Player_35_128,35,128,1,2,,,,FALSE,Block,Normal,,,,,,No,不需要,1366.949;1413.176
+NPC_35_129,35,129,2,1,,圖片coffee&Tag空,,FALSE,Block,Normal,"Variable[""isReplay""] == false","ShowImage(""coffee"");\nVariable[""tag""] = """"",,,,"Next, let's go to Chapter 4 - 'Summary'.\r\nDo you need to take a break?",接下來，讓我們繼續進入第 4 章 - '總結'\r\n請問您需要休息一下嗎？,1762.383;1345.484
+Player_35_130,35,130,1,2,,,,FALSE,Block,Normal,,"Variable[""ReadChapter""] = 4",,,,Yes,好的,1662.803;1430.89
+Player_35_131,35,131,1,2,,,,FALSE,Block,Normal,,,,,,No,不需要,1864.201;1435.458
+NPC_35_132,35,132,2,1,,圖片lightBulb,,FALSE,Block,Normal,,"ShowImage(""lightBulb"")",,,,"In the quiz, the questions and options will help you review the knowledge you've just learned.",在測驗中，題目中的問題和選項\r\n都將有助於您複習剛才學到的知識,2118.82;1138.102
+NPC_35_133,35,133,2,1,,(建構開始\r),,FALSE,Block,Normal,,"CloseImageWindow();\nBlackPanelControl(false);\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");",,,,"Now, let's simulate a background story. \r\nYou are a student in the 'Project Management' course.\r\nPlease use the knowledge you've just learned to answer quiz questions.",現在，讓我們來模擬一個背景故事\r\n您現在是一位 '專案管理' 課程中的學生\r\n請運用剛學到的知識來回答測驗題目,2126.893;1190.878
+NPC_35_134,35,134,2,1,,高亮粒子 手冊&高亮粒子 幫助&圖片book,,FALSE,Block,Normal,,"FSMEvent(""Hint/Particle/Show Particle"", ""DialogueButton"", ""Highlight Particle"");\nFSMEvent(""Hint/Particle/Show Particle"", ""GameManualBtn"", ""Highlight Particle"");\nShowImage(""happyFace"")",,,,"Before starting, you can review the content again \r\nthrough the 'Assistant feature' and 'Game Manual'.",在開始作答之前\r\n您可以透過 '協助功能' 和 '遊戲手冊' 再次複習內容,2122.187;1257.896
 Player_36_0,36,0,1,2,START,,,FALSE,Block,Normal,,,None(),,,,,52;47
-NPC_36_18,36,18,2,1,,,您好，請問您需要怎麼樣的幫助呢？,FALSE,Block,Normal,,,,,,,,51.38967;104.4099
+NPC_36_18,36,18,2,1,,,,FALSE,Block,Normal,,,,,,"Hello, what can I do for you?",您好，我能夠為您做些什麼？,51.38967;104.4099
 Player_36_19,36,19,1,2,,,繼續閱讀第 2 章,FALSE,Block,Normal,"Variable[""ReadChapter""] == 2","Variable[""SelectionType""] = ""next"";\nVariable[""tag""] = ""2"";",,回顧過程中所有的教學內容,,,,252.5936;210.2805
 Player_36_20,36,20,1,2,,,回顧已經閱讀的章節,FALSE,Block,Normal,,"Variable[""SelectionType""] = ""Replay""",,關於本步驟的一些提示,,,,52.23071;205.5648
 NPC_36_23,36,23,2,1,,,請選擇想要閱讀的章節：,FALSE,Block,Normal,,,,,,,,58.1561;277.8747
@@ -491,15 +481,15 @@ Player_36_25,36,25,1,2,,,繼續閱讀第 4 章,FALSE,Block,Normal,"Variable[""Re
 Player_36_26,36,26,1,2,,,第 2 章 - 什麼是版本控制\r,FALSE,Block,Normal,"Variable[""ReadChapter""] > 2","Variable[""SelectionType""] = ""Replay"";\nVariable[""tag""] = ""2"";",,回顧過程中所有的教學內容,,,,218.0615;373.6091
 Player_36_27,36,27,1,2,,,第 3 章 - 什麼是 Git\r,FALSE,Block,Normal,"Variable[""ReadChapter""] > 3","Variable[""SelectionType""] = ""Replay"";\nVariable[""tag""] = ""3"";",,回顧過程中所有的教學內容,,,,404.8902;370.4465
 Player_36_28,36,28,1,2,,,第 4 章 - 總結,FALSE,Block,Normal,"Variable[""ReadChapter""] > 4","Variable[""SelectionType""] = ""Replay"";\nVariable[""tag""] = ""4"";",,回顧過程中所有的教學內容,,,,577.131;372.9336
-Player_36_29,36,29,1,2,,,第 1 章 - 回顧第一關卡\r,FALSE,Block,Normal,"Variable[""ReadChapter""] > 1","Variable[""SelectionType""] = ""Replay"";\nVariable[""tag""] = ""1"";",,回顧過程中所有的教學內容,,,,34.71518;381.4797
-Player_36_31,36,31,1,2,,,沒有問題,FALSE,Block,Normal,,"Variable[""SelectionType""] = ""Bye""",,,,,,816.4354;205.5697
-Player_37_0,37,0,1,2,START,,,FALSE,Block,Normal,,,None(),,,,,814.1747;71.25842
-NPC_37_18,37,18,2,1,,,以下哪個描述「不是」版本控制的特點？\r\nA. 容易追蹤檔案之間的變化\r\nB. 需要在工作環境中備份檔案來協助管理\r\nC. 經常在大型專案中使用\r\nD. 方便比較版本間的不同,FALSE,Block,Normal,"Variable[""tag""] == ""1""",,,,,,,322.6211;264.3067
-Player_37_19,37,19,1,2,,,A,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,回顧過程中所有的教學內容,,,,24.18799;423.0606
-Player_37_24,37,24,1,2,,,B,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""v"";",,回顧過程中所有的教學內容,,,,194.4152;420.3478
-Player_37_25,37,25,1,2,,,C,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,回顧過程中所有的教學內容,,,,337.0876;417.1645
-Player_37_31,37,31,1,2,,,D,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,,,,,480.2762;409.6328
-NPC_37_32,37,32,2,1,,,第 [var=Counter] 題,FALSE,Block,Normal,,,,,,,,803.0981;109.8002
+Player_36_29,36,29,1,2,,,第 1 章 - 回顧第一關卡\r,FALSE,Block,Normal,"Variable[""ReadChapter""] > 1","Variable[""SelectionType""] = ""Replay"";\nVariable[""tag""] = ""1"";",,回顧過程中所有的教學內容,,,,36.9879;371.2524
+Player_36_31,36,31,1,2,,,沒有問題,FALSE,Block,Normal,,"Variable[""SelectionType""] = ""Bye""",,,,,,813.0263;210.1151
+Player_37_0,37,0,1,2,START,,,FALSE,Block,Normal,,,None(),,,,,814.1747;72.68698
+NPC_37_18,37,18,2,1,,,以下哪個描述「不是」版本控制的特點？\r\nA. 容易追蹤檔案之間的變化\r\nB. 需要在工作環境中備份檔案來協助管理\r\nC. 經常在大型專案中使用\r\nD. 方便比較版本間的不同,FALSE,Block,Normal,"Variable[""tag""] == ""1""",,,,,,,127.0988;219.5306
+Player_37_19,37,19,1,2,,,A,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,回顧過程中所有的教學內容,,,,1;408.5279
+Player_37_24,37,24,1,2,,,B,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""v"";",,回顧過程中所有的教學內容,,,,165.2404;389.3595
+Player_37_25,37,25,1,2,,,C,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,回顧過程中所有的教學內容,,,,256.3184;419.0875
+Player_37_31,37,31,1,2,,,D,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,,,,,399.507;411.5558
+NPC_37_32,37,32,2,1,,,第 [var=Counter] 題,FALSE,Block,Normal,,,,,,,,811.1051;134.7695
 NPC_37_33,37,33,2,1,,,版本控制的主要目的是什麼？\r\nA. 分析專案的市場需求\r\nB. 透過AI協助開發者開發專案\r\nC. 確認版本運作沒有錯誤\r\nD. 管理檔案之間的變化,FALSE,Block,Normal,"Variable[""tag""] == ""2""",,,,,,,798.287;261.6778
 Player_37_34,37,34,1,2,,,A,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,回顧過程中所有的教學內容,,,,660.5618;407.907
 Player_37_35,37,35,1,2,,,B,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,回顧過程中所有的教學內容,,,,736.213;408.0843
@@ -515,7 +505,7 @@ Player_37_44,37,44,1,2,,,A,FALSE,Block,Normal,,"Variable[""playerDecision""] = "
 Player_37_45,37,45,1,2,,,B,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,回顧過程中所有的教學內容,,,,1599.184;403.4268
 Player_37_46,37,46,1,2,,,C,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""v"";",,回顧過程中所有的教學內容,,,,1690.263;403.3002
 Player_37_47,37,47,1,2,,,D,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,,,,,1767.542;403.2262
-NPC_37_48,37,48,2,1,,,回答正確！,FALSE,Block,Normal,,,,,,,,212.1738;482.6451
+NPC_37_48,37,48,2,1,,,回答正確！,FALSE,Block,Normal,,,,,,,,131.4046;484.5681
 NPC_37_49,37,49,2,1,,,回答正確！,FALSE,Block,Normal,,,,,,,,930.506;482.3528
 NPC_37_50,37,50,2,1,,,回答正確！,FALSE,Block,Normal,,,,,,,,1290.354;470.8401
 NPC_37_52,37,52,2,1,,,版本控制中的回溯功能，以下敘述哪個是正確的？\r\nA. 可以輕易移動到不同的版本中\r\nB. 移動後會將正在開發的內容捨棄掉\r\nC. 和備份檔案的回復版本的方式相似\r\nD. 移動不同版本花費時間成本高,FALSE,Block,Normal,"Variable[""tag""] == ""5""",,,,,,,2109.741;272.7332
@@ -534,9 +524,9 @@ Player_37_64,37,64,1,2,,,B,FALSE,Block,Normal,,"Variable[""playerDecision""] = "
 Player_37_65,37,65,1,2,,,C,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,回顧過程中所有的教學內容,,,,3188.576;401.0129
 Player_37_66,37,66,1,2,,,D,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""x"";",,,,,,3265.854;400.9388
 NPC_37_68,37,68,2,1,,,另外還有：\n提交的註解、誰做的修改、以及修改的時間,FALSE,Block,Normal,,,,,,,,2823.351;711.2812
-NPC_37_70,37,70,2,1,,,請再嘗試選擇一次答案吧！,FALSE,Block,Normal,,,,,,,,1478.871;1012.455
-NPC_37_71,37,71,2,1,,,,FALSE,Block,Normal,"Variable[""tag""] == ""1""",,Continue(),,,,,275.5451;332.9461
-NPC_37_72,37,72,2,1,,,恭喜您答對了這題！\n讓我們繼續吧,FALSE,Block,Normal,,,,,,,,1678.453;1047.613
+NPC_37_70,37,70,2,1,,,請再嘗試選擇一次答案吧！,FALSE,Block,Normal,,,,,,,,1367.106;1047.749
+NPC_37_71,37,71,2,1,,,,FALSE,Block,Normal,"Variable[""tag""] == ""1""",,Continue(),,,,,104.6957;298.308
+NPC_37_72,37,72,2,1,,,恭喜您答對了這題！\n讓我們繼續吧,FALSE,Block,Normal,,,,,,,,1679.63;1047.613
 NPC_37_73,37,73,2,1,,next,,FALSE,Block,Normal,,"Variable[""playerDecision""] = ""next""",Continue(),,,,,1677.516;1135.51
 NPC_37_74,37,74,2,1,,,,FALSE,Block,Normal,"Variable[""tag""] == ""2""",,Continue(),,,,,791.0674;327.2985
 NPC_37_75,37,75,2,1,,,,FALSE,Block,Normal,"Variable[""tag""] == ""3""",,Continue(),,,,,1238.309;332.6133
@@ -544,22 +534,22 @@ NPC_37_76,37,76,2,1,,,,FALSE,Block,Normal,"Variable[""tag""] == ""4""",,Continue
 NPC_37_77,37,77,2,1,,,,FALSE,Block,Normal,"Variable[""tag""] == ""7""",,Continue(),,,,,3145.349;331.0518
 NPC_37_78,37,78,2,1,,,,FALSE,Block,Normal,"Variable[""tag""] == ""6""",,Continue(),,,,,2632.894;327.3507
 NPC_37_79,37,79,2,1,,,,FALSE,Block,Normal,"Variable[""tag""] == ""5""",,Continue(),,,,,2102.541;341.9696
-NPC_37_80,37,80,2,1,,,回答不正確,FALSE,Block,Normal,,,,,,,,35.74631;488.7957
-NPC_37_81,37,81,2,1,,,在版本控制的特點中\n是能夠容易地追蹤檔案之間的變化的！,FALSE,Block,Normal,,,,,,,,53.15356;568.361
-NPC_37_82,37,82,2,1,,,這是版本控制中的歷史與版本追蹤功能,FALSE,Block,Normal,,,,,,,,28.94083;640.2878
-NPC_37_83,37,83,2,1,,,透過版本控制\n就不再需要在工作環境中複製多份檔案了！,FALSE,Block,Normal,,,,,,,,217.5305;554.9105
-NPC_37_84,37,84,2,1,,,這也保持您工作環境上的整潔！,FALSE,Block,Normal,,,,,,,,217.5305;636.2537
-NPC_37_85,37,85,2,1,,,回答不正確,FALSE,Block,Normal,,,,,,,,325.304;485.4654
-NPC_37_86,37,86,2,1,,,回答不正確,FALSE,Block,Normal,,,,,,,,456.7325;485.4654
+NPC_37_80,37,80,2,1,,,回答不正確,FALSE,Block,Normal,,,,,,,,5.310303;482.0981
+NPC_37_81,37,81,2,1,,,在版本控制的特點中\n是能夠容易地追蹤檔案之間的變化的！,FALSE,Block,Normal,,,,,,,,8.758583;559.9393
+NPC_37_82,37,82,2,1,,,這是版本控制中的歷史與版本追蹤功能,FALSE,Block,Normal,,,,,,,,1;637.0384
+NPC_37_83,37,83,2,1,,,透過版本控制\n就不再需要在工作環境中複製多份檔案了！,FALSE,Block,Normal,,,,,,,,141.9338;565.4542
+NPC_37_84,37,84,2,1,,,這也保持您工作環境上的整潔！,FALSE,Block,Normal,,,,,,,,155.7269;645.0733
+NPC_37_85,37,85,2,1,,,回答不正確,FALSE,Block,Normal,,,,,,,,244.5349;487.3884
+NPC_37_86,37,86,2,1,,,回答不正確,FALSE,Block,Normal,,,,,,,,375.9633;487.3884
 NPC_37_87,37,87,2,1,,,回答不正確,FALSE,Block,Normal,,,,,,,,664.2514;489.3
 NPC_37_88,37,88,2,1,,,回答不正確,FALSE,Block,Normal,,,,,,,,718.955;489.3
 NPC_37_89,37,89,2,1,,,回答不正確,FALSE,Block,Normal,,,,,,,,803.0612;490.4276
 NPC_37_90,37,90,2,1,,,回答不正確,FALSE,Block,Normal,,,,,,,,1079.38;472.4302
-NPC_37_91,37,91,2,1,,,版本控制不只可以在小型的專案上使用,FALSE,Block,Normal,,,,,,,,366.3453;553.7116
-NPC_37_92,37,92,2,1,,,只是越大型、複雜、需要長期管理的專案\n就更適合使用版本控制！,FALSE,Block,Normal,,,,,,,,378.2171;630.478
-NPC_37_93,37,93,2,1,,,在版本控制的特點中\n可以存儲每一次更改的記錄,FALSE,Block,Normal,,,,,,,,463.629;554.4309
-NPC_37_95,37,95,2,1,,,故能方便的比較版本間的不同,FALSE,Block,Normal,,,,,,,,469.3791;633.6472
-NPC_37_96,37,96,2,1,,,雖然版本控制聽起來\n好像與觀察與分析市場需求有關,FALSE,Block,Normal,,,,,,,,648.6849;560.8979
+NPC_37_91,37,91,2,1,,,版本控制不只可以在小型的專案上使用,FALSE,Block,Normal,,,,,,,,285.5761;555.6346
+NPC_37_92,37,92,2,1,,,只是越大型、複雜、需要長期管理的專案\n就更適合使用版本控制！,FALSE,Block,Normal,,,,,,,,297.4479;632.4011
+NPC_37_93,37,93,2,1,,,在版本控制的特點中\n可以存儲每一次更改的記錄,FALSE,Block,Normal,,,,,,,,382.8598;556.3539
+NPC_37_95,37,95,2,1,,,故能方便的比較版本間的不同,FALSE,Block,Normal,,,,,,,,388.6099;635.5703
+NPC_37_96,37,96,2,1,,,雖然版本控制聽起來\n好像與觀察與分析市場需求有關,FALSE,Block,Normal,,,,,,,,567.9158;562.8209
 NPC_37_97,37,97,2,1,,,但是版本控制的主要目標不是這個！,FALSE,Block,Normal,,,,,,,,663.8973;637.3104
 NPC_37_98,37,98,2,1,,,版本控制與 AI 之間或許有關聯\n或許可以使用 AI 來協助使用者開發,FALSE,Block,Normal,,,,,,,,719.4187;562.2422
 NPC_37_99,37,99,2,1,,,但是這不是版本控制的主要目標！,FALSE,Block,Normal,,,,,,,,709.9747;638.3174
@@ -625,17 +615,11 @@ NPC_37_159,37,159,2,1,,,版本控制和 Git 之間有著密切的關係,FALSE,Bl
 NPC_37_161,37,161,2,1,,,版本控制擁有支持團隊開發的功能,FALSE,Block,Normal,,,,,,,,3372.894;559.7718
 NPC_37_162,37,162,2,1,,,而 Git 作為以版本控制概念製作的工具\nGit 同時也支持團隊上的協同開發,FALSE,Block,Normal,,,,,,,,3355.219;643.1526
 NPC_38_0,38,0,2,2,START,,,FALSE,Block,Normal,,,None(),,,,,460.5454;41.51452
-NPC_38_31,38,31,2,2,,,恭喜您完成了本關卡的回顧測驗！\r\n您的表現非常出色！,FALSE,Block,Normal,,,,,,,,458.9198;119.5758
-NPC_38_32,38,32,2,2,,,通過這次小測驗\r\n您成功地複習了本關卡介紹的重要知識,FALSE,Block,Normal,,,,,,,,458.9198;169.5758
-NPC_38_33,38,33,2,2,,,讓我們總結一下您在這個關卡中學到的重要知識：,FALSE,Block,Normal,,,,,,,,458.9198;219.5758
-NPC_38_34,38,34,2,2,,,首先，我們了解了版本控制和 Git 的基本概念\r\n深入探討了它們所提供的各種優勢,FALSE,Block,Normal,,,,,,,,458.9198;270.6396
-NPC_38_35,38,35,2,2,,,同時，我們對比了\r\n版本控制與第一關中使用的備份檔案方式,FALSE,Block,Normal,,,,,,,,458.9198;319.5759
-NPC_38_36,38,36,2,2,,,從結果中，可以更清楚地看到了版本控制的強大,FALSE,Block,Normal,,,,,,,,462.1113;410.0014
-NPC_38_37,38,37,2,2,,,在版本控制的實際應用中\r\n我們不僅可以追蹤文件的變化\r\n和了解不同版本之間的差異,FALSE,Block,Normal,,,,,,,,459.9836;457.8737
-NPC_38_38,38,38,2,2,,,還可以促進團隊協作、減少錯誤\r\n以及更輕鬆地回溯歷史記錄等功能,FALSE,Block,Normal,,,,,,,,459.9836;509.0501
-NPC_38_39,38,39,2,2,,,接下來，我們即將進入下一關卡\r\n開始來學習如何實際使用 Git,FALSE,Block,Normal,,,,,,,,459.9836;557.8738
-NPC_38_40,38,40,2,2,,,我們將探索各種 Git 指令\r\n並透過實際輸入指令的方式來進行操作\r\n這將有助於您更好地掌握 Git 技能,FALSE,Block,Normal,,,,,,,,459.9836;607.8738
-NPC_38_41,38,41,2,2,,,最後，恭喜您通過了本次的關卡\r\n您做得很棒！,FALSE,Block,Normal,,,,,,,,459.9836;702.5546
+NPC_38_31,38,31,2,2,,,,FALSE,Block,Normal,,,,,,,恭喜您完成測驗\r\n做的很好！,458.9198;119.5758
+NPC_38_32,38,32,2,2,,,,FALSE,Block,Normal,,,,,,,通過這次測驗，您複習了本關卡介紹的知識,458.9198;170.7523
+NPC_38_33,38,33,2,2,,,,FALSE,Block,Normal,,,,,,,接下來，我們將進入下一關卡\r\n開始來學習如何實際使用 Git,460.0963;219.5758
+NPC_38_34,38,34,2,2,,,,FALSE,Block,Normal,,,,,,,在之後的關卡中，我們將探索各種 Git 指令\r\n並通過實際輸入指令的方式來進行操作\r\n這將幫助您更好地提升 Git 技能,458.9198;269.4631
+NPC_38_35,38,35,2,2,,,,FALSE,Block,Normal,,,,,,,最後，恭喜您通過了本次的關卡\r\n您做得很棒！,458.9198;319.5759
 NPC_39_0,39,0,2,2,START,,,FALSE,Block,Normal,,,None(),,,,,1392.786;47.56312
 NPC_39_31,39,31,2,1,,,我們在下一個關卡裡面再來實際的操作系統吧！,FALSE,Block,Normal,,,,,,,,1476.625;2614.207
 NPC_39_65,39,65,2,1,,,,FALSE,Block,Normal,,,,,,,,1403.421;136.2581
@@ -2398,10 +2382,9 @@ Number,Number,Number,Number,Special,,,,,,,,,,,,,,
 35,67,35,68,Normal,,,,,,,,,,,,,,
 35,68,35,69,Normal,,,,,,,,,,,,,,
 35,69,35,70,Normal,,,,,,,,,,,,,,
-35,70,35,71,Normal,,,,,,,,,,,,,,
-35,71,35,116,Normal,,,,,,,,,,,,,,
+35,70,35,118,Normal,,,,,,,,,,,,,,
 35,72,35,73,Normal,,,,,,,,,,,,,,
-35,73,35,113,Normal,,,,,,,,,,,,,,
+35,73,35,74,Normal,,,,,,,,,,,,,,
 35,74,35,75,Normal,,,,,,,,,,,,,,
 35,75,35,76,Normal,,,,,,,,,,,,,,
 35,76,35,77,Normal,,,,,,,,,,,,,,
@@ -2410,14 +2393,12 @@ Number,Number,Number,Number,Special,,,,,,,,,,,,,,
 35,79,35,80,Normal,,,,,,,,,,,,,,
 35,80,35,81,Normal,,,,,,,,,,,,,,
 35,81,35,85,Normal,,,,,,,,,,,,,,
-35,82,35,83,Normal,,,,,,,,,,,,,,
 35,83,35,114,Normal,,,,,,,,,,,,,,
 35,84,35,86,Normal,,,,,,,,,,,,,,
-35,85,35,82,Normal,,,,,,,,,,,,,,
+35,85,35,83,Normal,,,,,,,,,,,,,,
 35,86,35,87,Normal,,,,,,,,,,,,,,
 35,87,35,88,Normal,,,,,,,,,,,,,,
-35,88,35,89,Normal,,,,,,,,,,,,,,
-35,89,35,126,Normal,,,,,,,,,,,,,,
+35,88,35,126,Normal,,,,,,,,,,,,,,
 35,90,35,91,Normal,,,,,,,,,,,,,,
 35,91,35,115,Normal,,,,,,,,,,,,,,
 35,92,35,93,Normal,,,,,,,,,,,,,,
@@ -2427,22 +2408,15 @@ Number,Number,Number,Number,Special,,,,,,,,,,,,,,
 35,96,35,97,Normal,,,,,,,,,,,,,,
 35,97,35,98,Normal,,,,,,,,,,,,,,
 35,98,35,99,Normal,,,,,,,,,,,,,,
-35,99,35,100,Normal,,,,,,,,,,,,,,
-35,100,35,129,Normal,,,,,,,,,,,,,,
+35,99,35,129,Normal,,,,,,,,,,,,,,
 35,101,35,102,Normal,,,,,,,,,,,,,,
 35,102,35,103,Normal,,,,,,,,,,,,,,
 35,103,35,104,Normal,,,,,,,,,,,,,,
 35,104,35,105,Normal,,,,,,,,,,,,,,
 35,105,35,106,Normal,,,,,,,,,,,,,,
 35,106,35,132,Normal,,,,,,,,,,,,,,
-35,107,35,108,Normal,,,,,,,,,,,,,,
-35,108,35,111,Normal,,,,,,,,,,,,,,
-35,111,35,112,Normal,,,,,,,,,,,,,,
-35,113,35,74,Normal,,,,,,,,,,,,,,
 35,114,35,84,Normal,,,,,,,,,,,,,,
 35,115,35,92,Normal,,,,,,,,,,,,,,
-35,116,35,117,Normal,,,,,,,,,,,,,,
-35,117,35,118,Normal,,,,,,,,,,,,,,
 35,118,35,119,Normal,,,,,,,,,,,,,,
 35,119,35,72,Normal,,,,,,,,,,,,,,
 35,120,35,79,Normal,,,,,,,,,,,,,,
@@ -2660,12 +2634,6 @@ Number,Number,Number,Number,Special,,,,,,,,,,,,,,
 38,32,38,33,Normal,,,,,,,,,,,,,,
 38,33,38,34,Normal,,,,,,,,,,,,,,
 38,34,38,35,Normal,,,,,,,,,,,,,,
-38,35,38,36,Normal,,,,,,,,,,,,,,
-38,36,38,37,Normal,,,,,,,,,,,,,,
-38,37,38,38,Normal,,,,,,,,,,,,,,
-38,38,38,39,Normal,,,,,,,,,,,,,,
-38,39,38,40,Normal,,,,,,,,,,,,,,
-38,40,38,41,Normal,,,,,,,,,,,,,,
 39,0,39,65,Normal,,,,,,,,,,,,,,
 39,0,39,75,Normal,,,,,,,,,,,,,,
 39,0,39,96,Normal,,,,,,,,,,,,,,
@@ -4049,6 +4017,38 @@ Number,Number,Number,Number,Special,,,,,,,,,,,,,,
 168,20,168,21,Normal,,,,,,,,,,,,,,
 168,21,168,22,Normal,,,,,,,,,,,,,,
 168,22,168,23,Normal,,,,,,,,,,,,,,
+168,23,168,24,Normal,,,,,,,,,,,,,,
+168,24,168,25,Normal,,,,,,,,,,,,,,
+169,0,169,1,Normal,,,,,,,,,,,,,,
+169,1,169,2,Normal,,,,,,,,,,,,,,
+169,2,169,3,Normal,,,,,,,,,,,,,,
+169,3,169,4,Normal,,,,,,,,,,,,,,
+169,4,169,5,Normal,,,,,,,,,,,,,,
+169,5,169,6,Normal,,,,,,,,,,,,,,
+169,6,169,7,Normal,,,,,,,,,,,,,,
+169,7,169,8,Normal,,,,,,,,,,,,,,
+169,8,169,9,Normal,,,,,,,,,,,,,,
+169,9,169,10,Normal,,,,,,,,,,,,,,
+169,10,169,11,Normal,,,,,,,,,,,,,,
+169,11,169,12,Normal,,,,,,,,,,,,,,
+169,12,169,13,Normal,,,,,,,,,,,,,,
+169,13,169,14,Normal,,,,,,,,,,,,,,
+169,14,169,15,Normal,,,,,,,,,,,,,,
+169,15,169,16,Normal,,,,,,,,,,,,,,
+169,16,169,17,Normal,,,,,,,,,,,,,,
+169,17,169,18,Normal,,,,,,,,,,,,,,
+169,18,169,19,Normal,,,,,,,,,,,,,,
+169,19,169,20,Normal,,,,,,,,,,,,,,
+169,20,169,21,Normal,,,,,,,,,,,,,,
+169,20,169,21,Normal,,,,,,,,,,,,,,
+169,21,169,22,Normal,,,,,,,,,,,,,,
+169,21,169,22,Normal,,,,,,,,,,,,,,
+169,22,169,23,Normal,,,,,,,,,,,,,,
+169,22,169,23,Normal,,,,,,,,,,,,,,
+169,23,169,24,Normal,,,,,,,,,,,,,,
+169,23,169,24,Normal,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
 168,23,168,24,Normal,,,,,,,,,,,,,,
 168,24,168,25,Normal,,,,,,,,,,,,,,
 169,0,169,1,Normal,,,,,,,,,,,,,,
