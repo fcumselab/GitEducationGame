@@ -31,6 +31,7 @@ public class GameManagerPlayGame : SerializedMonoBehaviour
         stageData = SaveManager.Instance.GetPlayingStageData();
         stageManagerController.Initialize(stageData.stageName);
         questTrackerManager.Initialize(stageData.stageName);
+
         dialogueSystemManager.InitializeReference(stageData.stageName);
         dialogueSystemFeatureManager.RegisterFunction();
 

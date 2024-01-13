@@ -2953,7 +2953,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "\u9AD8\u4EAE\u7C92\u5B50 \u624B\u518A&\u5716\u7247book&\u89E3\u9396\u624B\u518AIntroduceGameManualWindow"
+        value: "\u89E3\u9396\u624B\u518AIntroduceGameManualWindow&\u9AD8\u4EAE\u7C92\u5B50
+          \u624B\u518A&\u5716\u7247book"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -3004,11 +3005,7 @@ MonoBehaviour:
 
         ShowImage("book");
 
-        Variable["UnlockKey"] =
-        "RAW/Introduce GameManualWindow/1"
-
-        FSMEvent("GameManualWindow/Unlock
-        List", "GameManualWindow", "UnlockMessage");'
+        UnlockGameManualItem("RAW/IntroGameManual/1");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -5725,7 +5722,7 @@ MonoBehaviour:
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: "\u63D0\u793A\u7576\u524D\u76EE\u6A19\n\uFF08\u4F7F\u7528\u63D0\u793A\u529F\u80FD\uFF09"
+        value: "\u63D0\u793A\u7576\u524D\u76EE\u6A19"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 18
@@ -5792,7 +5789,7 @@ MonoBehaviour:
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: "\u5728\u7576\u524D\u76EE\u6A19\u4E2D\u5361\u95DC\u4E86\n\uFF08\u4F7F\u7528\u89E3\u7B54\u529F\u80FD\uFF09"
+        value: "\u6211\u5728\u7576\u524D\u76EE\u6A19\u4E2D\u5361\u95DC\u4E86"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 18

@@ -10,7 +10,20 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
     [SerializeField] Dictionary<string, PlayMakerFSM> hintDict = new();
     [SerializeField] List<PlayMakerFSM> enableHintList = new();
 
-    [SerializeField] GameObject GameManualWindow;
+    [SerializeField] GameManual gameManual;
+
+    #region instance
+    //Singleton instantation
+    private static DialogueSystemFeatureManager instance;
+    public static DialogueSystemFeatureManager Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<DialogueSystemFeatureManager>();
+            return instance;
+        }
+    }
+    #endregion
 
     public void RegisterFunction()
     {
@@ -27,6 +40,17 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
         Lua.UnregisterFunction("ResetAllTutorialObj");
 
         tutorialPopup.UnregisterFunction();
+        gameManual.RegisterFunction(false);
+
+        //GameManual
+        Lua.UnregisterFunction("UnlockGameManualItem");
+
+    }
+
+    public void RegisterFunctionGameManual(GameManual gameManual)
+    {
+        this.gameManual = gameManual;
+        this.gameManual.RegisterFunction(true);
     }
 
     //Hint_xxxxx  key = xxxxx
