@@ -7,12 +7,23 @@ using PixelCrushers.DialogueSystem;
 
 public class DialogueSystemManager : SerializedMonoBehaviour
 {
+    [SerializeField] bool isFirstDialog = true;
+
     [SerializeField] string selectStageKey;
     [SerializeField] string lastDialogKey;
 
+    [FoldoutGroup("Dialogue")]
+    [SerializeField] GameObject responseButtonPanel;
+    PlayMakerFSM panelControllerFsm;
+    PlayMakerFSM answerButtonDetectorFsm;
+    [FoldoutGroup("Dialogue/Button")]
+    [SerializeField] Button DialogueButton;
+    PlayMakerFSM dialogueButtonFsm;
+    PlayMakerFSM highlightParticleFsm;
+
+
     [Header("Reference")]
     [SerializeField] PlayMakerFSM StarIcon;
-    [SerializeField] Button DialogueButton;
     [SerializeField] Transform GameManager;
     [SerializeField] Transform StageManagerParent;
     [SerializeField] DialogueSystemFeatureManager dialogueSystemFeatureManager;
@@ -21,11 +32,14 @@ public class DialogueSystemManager : SerializedMonoBehaviour
 
     public void InitializeReference(string selectedStageName)
     {
+        
         GameManager = transform.parent;
         StageManagerParent = GameManager.Find("Stage Manager Parent");
         StageManagerParentFsm = MyPlayMakerScriptHelper.GetFsmByName(StageManagerParent.gameObject, "Loading StageManager");
         selectStageKey = selectedStageName;
         selectStageKey = BuildDialogKey();
+
+        InitializeButton();
     }
 
     public void EnableDialog(string runType)
@@ -131,5 +145,42 @@ public class DialogueSystemManager : SerializedMonoBehaviour
             buildKey = splitArr[0];
         }
         return buildKey;
+    }
+
+    public void InitializeButton()
+    {
+        isFirstDialog = true;
+        string stageType = StageManager.Instance.GetStageType();
+        highlightParticleFsm = MyPlayMakerScriptHelper.GetFsmByName(DialogueButton.gameObject, "Highlight Particle");
+        dialogueButtonFsm = MyPlayMakerScriptHelper.GetFsmByName(DialogueButton.gameObject, "Button");
+        panelControllerFsm = MyPlayMakerScriptHelper.GetFsmByName(responseButtonPanel.gameObject, "Panel Controller");
+        answerButtonDetectorFsm = MyPlayMakerScriptHelper.GetFsmByName(responseButtonPanel.gameObject, "Answer Button Detector");
+        DialogueButton.onClick.AddListener(() => ClickButtonActionDialogue());
+        DialogueButton.interactable = true;
+    }
+
+    void ClickButtonActionDialogue()
+    {
+        Debug.Log("Click Dialogue");
+        if (!DialogueManager.isConversationActive)
+        {
+            isFirstDialog = dialogueButtonFsm.FsmVariables.GetFsmBool("pressFirstTime").Value;
+            if (isFirstDialog)
+            {
+                Debug.Log("First Dialogue");
+
+                EnableDialog("First");
+            }
+            else
+            {
+                Debug.Log("Help Dialogue");
+
+                panelControllerFsm.FsmVariables.GetFsmString("runType").Value = "Show";
+                panelControllerFsm.enabled = true;
+                answerButtonDetectorFsm.SendEvent("Help Dialogue System/Answer/Count Points");
+                EnableDialog("Help");
+            }
+            highlightParticleFsm.SendEvent("Hint/Particle/Close Particle");
+        }
     }
 }

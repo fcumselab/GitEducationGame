@@ -5,6 +5,9 @@ using Sirenix.OdinInspector;
 
 public class StageManager : SerializedMonoBehaviour
 {
+    enum StageType {Action, Quiz, Summary};
+    [SerializeField] StageType stageType;
+
     [SerializeField] List<string> renderWindowList = new();
 
     [SerializeField] Dictionary<string, GameObject> AllWindowDict = new();
@@ -125,5 +128,10 @@ public class StageManager : SerializedMonoBehaviour
         {
             return false;
         }
+    }
+
+    public string GetStageType()
+    {
+        return stageType.ToString();
     }
 }
