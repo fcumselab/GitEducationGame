@@ -15,16 +15,32 @@ GameManualItem/list/git clone,git clone
 GameManualItem/list/git remote,git remote
 GameManualItem/list/git push,git push
 GameManualItem/list/git pull,git pull
+GameManualItem/list/IntroGame,遊戲玩法和目標
+GameManualItem/list/IntroGameScore,遊戲得分介紹
+GameManualItem/list/IntroGetPerfect,如何完美達成目標
+GameManualItem/list/IntroGetPerfect,協助功能
 GameManualItem/list/IntroGameManual,視窗介紹：遊戲手冊
 GameManualItem/list/IntroFileManager,視窗介紹：檔案管理
 GameManualItem/list/IntroFileContent,視窗介紹：檔案內容
 GameManualItem/list/IntroResultsScreen,視窗介紹：結算畫面
 GameManualItem/list/IntroCommandLine,視窗介紹：命令行
 GameManualItem/list/IntroStagingArea,視窗介紹：暫存區域
-GameManualItem/list/IntroCommitHistory,視窗介紹：暫存區域
+GameManualItem/list/IntroCommitHistory,視窗介紹：提交記錄
+GameManualItem/list/IssuesBackupFile,備份檔案的問題
+GameManualItem/list/IntroVersionControl,版本控制的介紹
+GameManualItem/list/IntroGit,Git 的介紹
+GameManualItem/list/.gitAndGitCoreAreas,.git 與 Git 的核心區域
+GameManualItem/list/ProcessCreateCommit,創建提交的流程
+GameManualItem/list/RuleNameBranch,命名分支的原則
+GameManualItem/list/RuleCommitMessage,提交訊息的原則
+GameManualItem/list/DetachedHEAD,分離 HEAD
+GameManualItem/list/gitMergeModes,git merge 的合併模式
+GameManualItem/list/ResolveMergeConflict,解決合併衝突
+GameManualItem/list/CheckBeforeMergeMainBrach,合併至遠端主分支前的確認
 GameManualWindow/content/DefaultContent,"點擊左方列表
 來觀看教學內容"
 GameManualItem/content/common/windowTitle,視 窗 介 紹
+GameManualItem/content/common/knowledgeTitle,知 識 介 紹
 GameManualItem/content/common/errorMsgTitle,錯誤操作提示訊息
 GameManualItem/content/common/commandTitle,指 令 類 型 介 紹
 GameManualItem/content/common/commandDetailedTitle,指 令 細 節
@@ -187,7 +203,7 @@ GameManualItem/content/git commit/1,"'git commit' 是與 '提交記錄' 有關�
    
 這個指令有助於開發者整理工作，
 以便更好地追蹤不同版本修改內容和目的。"
-GameManualItem/content/git commit/commandDetail/1,"git commit <color=#CF001C>-m 或 --message</color> <color=""#173D91"">""commit message""</color>"
+GameManualItem/content/git commit/commandDetail/1,"git commit <color=#CF001C>-m 或 --message</color> <color=""#173D91"">""提交訊息""</color>"
 GameManualItem/content/git commit/commandDetail/1/use,"用於將 '暫存區域' 中的修改整合成一個新的 '提交'，
 同時提供提交訊息以說明修改的內容。"
 GameManualItem/content/git commit/commandDetail/1/scenario,1. 已確定要將 '暫存區域' 中的修改保存為一個 '提交' 時。
@@ -259,7 +275,7 @@ GameManualItem/content/git checkout/1,"'git checkout' 是一個廣泛使用的�
 
 這個指令允許您切換到不同的 '提交' 和 '分支'，
 同時還會同步 '工作目錄' 中的檔案內容。"
-GameManualItem/content/git checkout/commandDetail/1,git checkout <color=#CF001C>commit_ID</color>
+GameManualItem/content/git checkout/commandDetail/1,git checkout <color=#CF001C>提交ID</color>
 GameManualItem/content/git checkout/commandDetail/1/use,將 HEAD 移動到指定的 '提交'，以恢復專案到該 '提交' 的版本。
 GameManualItem/content/git checkout/commandDetail/1/scenario,"1. 檢查不同 '提交' 的修改內容。
 2. 在最新版本中發現錯誤，需要進行問題修復時。
@@ -450,7 +466,7 @@ GameManualItem/content/git push/1,"'git push' 是與 '遠端管理' 有關的指
 
 這個指令用於將本地分支的內容上傳到指定的遠端儲存庫，
 同時遠端儲存庫將創建並更新相對應的遠端分支。"
-GameManualItem/content/git push/commandDetail/1,"git push <color=#CF001C>remote_repository_alias</color> <color=""#173D91"">local_branch_name</color>"
+GameManualItem/content/git push/commandDetail/1,"git push <color=#CF001C>遠端儲存庫別名</color> <color=""#173D91"">本地分支</color>"
 GameManualItem/content/git push/commandDetail/1/use,"將指定的本地分支上傳到指定的遠端儲存庫。
 在遠端儲存庫上創建同名的遠端分支，
 並同步本地分支的 '提交記錄'。"
@@ -597,3 +613,166 @@ GameManualItem/content/IntroFileManager/6,"如果您在遊戲過程中執行了�
 
 想要了解如何避免操作錯誤發生
 可以參考遊戲手冊中的 '如何完美達成目標'。"
+GameManualItem/content/IssuesBackupFile/1,"備份檔案雖然能夠簡單快速的管理專案。
+但是長期下來會產生大量問題，
+導致專案變得難以管理，進而影響開發效率。
+
+以下將介紹幾個常見的問題：
+1. 專案資料夾出現不相關的文件
+如果需要備份檔案，就需要複製文件並命名成方便辨識的名稱。
+時間一長，資料夾中會多出大量不相關的文件，造成管理上的不便。
+
+2. 難以查看不同版本的差異：
+如果想要知道某個版本的檔案做了什麼修改時，
+需要將整個文件內容瀏覽一遍才行。
+當開發過程中發生嚴重錯誤時，會花費大量時間和精力去尋找發生錯誤的來源。
+
+3. 修改到錯誤的檔案上
+當專案中出現過多不相關的檔案時，
+可能會不小心在舊版本文件上改動內容。
+造成專案記錄錯亂。
+
+4. 團隊開發的不便
+當我們想要與其他人合作開發專案時，
+備份檔案的方式會嚴重破壞開發流程。
+例如：備份檔案的數量、查看版本差異的時間、如何將團隊的內容合併在一起等系列問題。
+
+以上只是較為常見的問題，
+使用備份檔案來管理專案，可能會造成許多意想不到的麻煩。
+
+使用 Git 來管理專案，
+能夠解決上述問題，進而提升專案的穩定性和效率。
+讓您可以花費更多時間在開發專案上。"
+GameManualItem/content/DetachedHEAD/1,"分離 HEAD（Detached HEAD）是一種情況，
+指的是當目前 HEAD 位於某個提交上，而不在 Git 儲存庫中的任何分支上時。
+
+這種情況通常發生在我們使用以下指令時："
+GameManualItem/content/DetachedHEAD/1/Command,git checkout <color=#CF001C>提交ID</color>
+GameManualItem/content/DetachedHEAD/2,"這個指令會將 HEAD 移動到指定的提交，此時 HEAD 會處於 '分離 HEAD' 狀態。
+
+如果在這種情況下創建新的提交，它將不屬於任何分支。
+這些提交不僅存在丟失的風險，還會引起專案管理上的麻煩。
+
+因此，當我們切換到其他提交以查看檔案內容後。
+請不要忘記要切換回要進行開發的分支上。
+您可以使用以下指令來切換回指定分支："
+GameManualItem/content/DetachedHEAD/2/Command,git checkout <color=#CF001C>分支名稱</color>
+GameManualItem/content/DetachedHEAD/2/tip,"在遊戲中，當分離 HEAD 的情況發生時，
+提交記錄視窗的 HEAD 旗子圖示將變為透明。
+此外，遊戲會提醒您在分離 HEAD 情況下無法進行提交。"
+GameManualItem/content/.gitAndGitCoreAreas/1/Title,.git 資料夾介紹
+GameManualItem/content/.gitAndGitCoreAreas/1,"當您確定好要管理的專案後，
+我們需要在專案資料夾路徑下執行以下指令來創建 Git 管理系統："
+GameManualItem/content/.gitAndGitCoreAreas/1/Command,git init
+GameManualItem/content/.gitAndGitCoreAreas/2,執行成功後，專案資料夾中將會生成一個名為 '.git' 的隱藏資料夾。
+GameManualItem/content/.gitAndGitCoreAreas/3,".git' 是 Git 的核心組成部份，它將儲存與專案相關的所有資料，
+包括所有版本修改歷史等信息。
+如果沒有這個資料夾，您將無法執行大部分的 Git 指令。"
+GameManualItem/content/.gitAndGitCoreAreas/4/Title,Git 的核心區域
+GameManualItem/content/.gitAndGitCoreAreas/5,"Git 基本是由三個重要的區域所組成，
+這些區域將幫助我們使用 Git 來管理專案：
+
+1. 工作目錄 (Working Directory)：
+專案資料夾內的區域都稱作工作目錄，
+包括專案中的文字、圖片檔案。
+在工作目錄中，我們將新增、編輯檔案內容來開發專案。
+
+2. 暫存區域 (Staging Area)：
+暫存區域作為 '工作目錄' 與 '儲存庫' 之間的橋樑，
+我們將 '工作目錄' 中已修改的檔案移動到此區域。
+在準備完成後，通過指令一次性地將它們移動到 '儲存庫' 中，
+來創建一個新的 '提交'。
+
+3. 儲存庫 (Repository)：
+儲存庫是 Git 的核心區域，它保存了專案中的所有記錄。
+當完成提交後，它將存放至 '儲存庫' 中的 '提交記錄' 區域中。
+這個區域有助於追蹤版本之間的變化。"
+GameManualItem/content/.gitAndGitCoreAreas/5/tip,"實際上，'.git' 資料夾其實就是 '儲存庫'，
+而 '暫存區域' 也位於這個資料夾中。"
+GameManualItem/content/RuleNameBranch/1,"學習如何命名分支是非常重要的，
+因為清晰明確的分支名稱有助於更有效地管理專案。
+並讓團隊更容易理解每個分支間的用途。
+
+以下是命名分支的一些原則：
+1. 保持簡潔明確： 
+分支名稱應該簡單而明確，
+包含足夠的信息以描述創建分支的目的。"
+GameManualItem/content/RuleNameBranch/1/tip,"例如：使用 'fix-login-bug' 比 'fix-login-bug-in-homepage' 更好。
+避免使用過長的分支名稱。"
+GameManualItem/content/RuleNameBranch/2,"
+2. 避免使用特殊符號、空格、中文：
+分支名稱應該避免使用特殊符號、空格和中文字。
+以確保專案能在不同語言環境下使用和閱讀。
+
+正確的命名應該使用小寫英文字母，
+並使用短劃線（-）或正斜杠（/）來區分單字。
+這樣可以增加分支命名的可讀性。"
+GameManualItem/content/RuleNameBranch/2/tip,例如：'new-system-feature' 或 'new/system/feature'
+GameManualItem/content/RuleNameBranch/3,"
+3. 包括作者名稱：
+在團隊開發中，將作者名稱寫入分支名稱。
+有助於追蹤團隊成員的開發進度，並能夠識別出負責開發的人。"
+GameManualItem/content/RuleNameBranch/3/tip,例如：'john-bugfix-quest'
+GameManualItem/content/RuleNameBranch/4,"
+4. 添加事件ID：
+專案開發的過程中，開發者通常會建立多個討論區以解決問題。
+當修復特定問題時，
+將事件 ID 寫入分支名稱有助於追蹤對應問題。"
+GameManualItem/content/RuleNameBranch/4/tip,例如：'pan-3759-trade'
+GameManualItem/content/RuleNameBranch/5,"以上的分支命名原則有助於了解每個分支的用途。
+
+如果您參與了團隊開發，
+請遵循團隊的分支命名原則，以保持一致性，
+這有助於團隊更好地理解和管理分支。"
+GameManualItem/content/ProcessCreateCommit/1,"當成功完成特定功能的開發，或者需要備份開發中的內容時。
+我們就需要在本地儲存庫中創建提交。
+以下是創建提交的流程：
+1. 確定要上傳的檔案：
+我們需要將檔案移到暫存區域，才能將檔案內容推送到儲存庫以創建提交。
+請通過指令來確認暫存區域中包含了需要保存的檔案，
+而不相關的檔案則不應該放入暫存區域中。
+
+2. 填寫提交訊息並創建提交：
+在確認完成後，通過以下指令來創建提交。"
+GameManualItem/content/ProcessCreateCommit/1/Command,"git commit <color=#CF001C>-m 或 --message</color> <color=""#173D91"">""提交訊息""</color>"
+GameManualItem/content/ProcessCreateCommit/2,"提交訊息應該清晰地描述你所做的更改，
+這有助於以後追蹤和理解提交的目的。
+
+執行指令後，表示您已完成創建提交，
+您也可以透過以下指令來確認操作是否成功。"
+GameManualItem/content/ProcessCreateCommit/2/Command,git log
+GameManualItem/content/ProcessCreateCommit/3,"
+3. 將提交上傳至遠端儲存庫（可選）
+在本地分支上完成開發後，
+可以通過以下指令來推送到連結的遠端儲存庫："
+GameManualItem/content/ProcessCreateCommit/3/Command,"git push <color=#CF001C>遠端儲存庫別名</color> <color=""#173D91"">本地分支</color>"
+GameManualItem/content/RuleCommitMessage/1,"學習如何填寫 Git 提交訊息是非常重要的，
+因為清晰明確的提交訊息可以更好地管理專案，
+並讓團隊和個人更容易理解每個提交的目的。
+
+以下是填寫提交訊息的一些原則：
+1. 保持簡潔明確： 
+良好的提交訊息應該能夠用一句話清楚說明本次提交的目的，
+以幫助其他開發者快速理解。"
+GameManualItem/content/RuleCommitMessage/1/tip,例如：'新增網頁登入界面結構'。
+GameManualItem/content/RuleCommitMessage/2,"
+2. 使用關鍵訊息： 
+根據提交的目的，可以在訊息的開頭使用動詞。"
+GameManualItem/content/RuleCommitMessage/2/tip,"加上 '新增'、'更新'、'刪除' 等動詞以增加可讀性。
+例如：'修復錯誤：登入後未顯示歡迎訊息'。"
+GameManualItem/content/RuleCommitMessage/3,"
+3. 避免無意義的訊息： 
+在填寫提交信息時，避免使用模糊或無意義的訊息。
+因為這會讓其他開發者難以理解提交的目的。"
+GameManualItem/content/RuleCommitMessage/3/tip,"例如：只填寫 '新增提交' 或 '修復錯誤'
+簡短且沒有特定意義的訊息。"
+GameManualItem/content/RuleCommitMessage/4,"
+4. 專注於單一主題： 
+良好的開發流程中，應該專注於一個特定目標，
+並將目標填寫在提交訊息中。
+這樣不僅能夠讓每個提交更加明確，也減少了開發風險。"
+GameManualItem/content/RuleCommitMessage/4/tip,"例如，如果同時開發功能 A 和功能 B，但它們之間關聯不大。
+就可以考慮將它們分為兩次提交。"
+GameManualItem/content/RuleCommitMessage/5,"這些提交訊息原則，
+有助於團隊和個人更好地理解提交之間的目的，
+提高專案管理的穩定性和效率。"
