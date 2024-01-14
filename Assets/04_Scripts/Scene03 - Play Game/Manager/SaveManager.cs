@@ -234,7 +234,6 @@ public class SaveManager : SerializedMonoBehaviour
     //Switch Scene Fsm
     public void InitializeGameManagerInScene(string currentSceneName, string lastSceneName)
     {
-        Debug.Log("Changing... cur: " + currentSceneName + "last:" + lastSceneName);
         switch (currentSceneName)
         {
             case "Stage Select":

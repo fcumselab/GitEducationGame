@@ -80,7 +80,6 @@ public class DialogueSystemManager : SerializedMonoBehaviour
 
     public void EnableDialog(string runType)
     {
-        Debug.Log("EnableDialog: " + runType);
         if (stageType == "Quiz")
         {
             switch (runType)
@@ -130,7 +129,6 @@ public class DialogueSystemManager : SerializedMonoBehaviour
     //If panelControllerFsm enable -> click reply button will trigger this
     public string HelpDialogAction(string runType)
     {
-        Debug.Log("ryb:" + runType);
         if (stageType == "Quiz")
         {
             switch (runType)

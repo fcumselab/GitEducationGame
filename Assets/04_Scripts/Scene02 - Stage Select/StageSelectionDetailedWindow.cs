@@ -97,7 +97,6 @@ public class StageSelectionDetailedWindow : SerializedMonoBehaviour
     {
         switch (modeType) {
             case "Tutorial":
-                Debug.Log("type Tutorial");
                 if (modeButtonPracticeInitialFsm.FsmVariables.GetFsmBool("isStageUnlock").Value == true)
                 {
                     modeButtonPracticeUpdateFsm.FsmVariables.GetFsmString("runType").Value = "unselect";

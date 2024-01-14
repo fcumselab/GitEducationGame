@@ -59,12 +59,8 @@ public class GameManual : SerializedMonoBehaviour
     #region Initialize
     public void InitializeGameManualData()
     {
-        Debug.Log("InitializeGameManualData..");
-        Debug.Log(SceneManager.GetActiveScene().name);
-
         if(SceneManager.GetActiveScene().name == "Play Game")
         {
-            Debug.Log("h");
             DialogueSystemFeatureManager.Instance.RegisterFunctionGameManual(GetComponent<GameManual>());
         }
 
@@ -199,7 +195,6 @@ public class GameManual : SerializedMonoBehaviour
         {
             GameManualData RuleAndWindowItemList = playerGameManualData[1];
             GameManualItem introduceManualItem = RuleAndWindowItemList.items.Find((item) => item.listName == "IntroGameManual");
-            Debug.Log("Found : " + introduceManualItem);
             if (introduceManualItem.listUnlockProgress > 0)
             {
                 gameManualButtonFsm.FsmVariables.GetFsmString("runType").Value = "open";
@@ -257,14 +252,11 @@ public class GameManual : SerializedMonoBehaviour
             if (fouundItem != null)
             {
                 int unlockNum = int.Parse(type[2]);
-                Debug.Log("Translate: " + unlockNum);
                 if(unlockNum > fouundItem.listUnlockProgress)
                 {
-                    Debug.Log("New ! Change: " + unlockNum + " to: " + fouundItem.listUnlockProgress);
                     newUnlockItem = true;
                     if (fouundItem.listUnlockProgress == 0)
                     {
-                        Debug.Log("New GameManualButton !!!");
                         GameObject newItem = UnlockItemContent(categoryKey, generateLocation, type[1]);
                         SetNewItemLocation(newItem, type[1], generateLocation, false);
                     }

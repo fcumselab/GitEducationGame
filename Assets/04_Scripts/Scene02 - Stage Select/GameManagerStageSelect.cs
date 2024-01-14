@@ -104,7 +104,6 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
     
     void InitializeStageCategoryAndStageItem()
     {
-        Debug.Log("Start InitializeStageCategoryAndStageItem...");
         List<StageData> stageData = SaveManager.Instance.GetStageDataListFromPlayerData();
         InitializeStageCategory("Basic", stageData);
         InitializeStageCategory("Branch", stageData);
