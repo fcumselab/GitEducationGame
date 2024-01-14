@@ -82,7 +82,7 @@ public class GameManualContentItem : SerializedMonoBehaviour
                 break;
         }
 
-        Debug.Log("End!!");
+        //Debug.Log("End!!");
 
         isInitial = true;
     }

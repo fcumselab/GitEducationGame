@@ -105,7 +105,7 @@ public class GameManual : SerializedMonoBehaviour
                 else
                 {
                     string listName = item.listName;
-                    newItem = UnlockItemContent(categoryKey, createLocation, listName, true);
+                    newItem = UnlockItemContent(categoryKey, createLocation, listName);
                 }
             }
             else
@@ -113,7 +113,7 @@ public class GameManual : SerializedMonoBehaviour
                 newItem = Instantiate(LockGameManualItem);
             }
 
-            SetNewItemLocation(newItem, item.listName, createLocation);
+            SetNewItemLocation(newItem, item.listName, createLocation, true);
         }
 
     }
@@ -265,8 +265,8 @@ public class GameManual : SerializedMonoBehaviour
                     if (fouundItem.listUnlockProgress == 0)
                     {
                         Debug.Log("New GameManualButton !!!");
-                        GameObject newItem = UnlockItemContent(categoryKey, generateLocation, type[1], false);
-                        SetNewItemLocation(newItem, type[1], generateLocation);
+                        GameObject newItem = UnlockItemContent(categoryKey, generateLocation, type[1]);
+                        SetNewItemLocation(newItem, type[1], generateLocation, false);
                     }
                     fouundItem.listUnlockProgress = unlockNum;
                 }
@@ -281,28 +281,37 @@ public class GameManual : SerializedMonoBehaviour
         {
             UnlockAnimationFsm.SendEvent("GameManualWindow/Popup Notification");
             UpdateButtonStatus();
+
+            if (!gitCommandValider)
+            {
+                gitCommandValider = GameObject.Find("GitCommandValider").GetComponent<GitCommandValider>();
+            }
+
+            gitCommandValider.UpdatePlayerUnlockDict();
         }
     }
 
-    void SetNewItemLocation(GameObject newItem, string listName, GameObject createLocation)
+    void SetNewItemLocation(GameObject newItem, string listName, GameObject createLocation, bool isInitial)
     {
+        int newItemIndex = -1;
+
+        if (!isInitial)
+        {
+            Debug.Log("is not Initial");
+            Transform oldItem = createLocation.transform.Find(listName);
+            newItemIndex = oldItem.GetSiblingIndex();
+            Destroy(oldItem.gameObject);
+        }
+
         newItem.name = listName;
         newItem.transform.SetParent(createLocation.transform);
         newItem.transform.localScale = new(1, 1, 1);
+
+        newItem.transform.SetSiblingIndex(newItemIndex);
     }
 
-    GameObject UnlockItemContent(string categoryKey, GameObject createLocation, string listName, bool isInitial)
+    GameObject UnlockItemContent(string categoryKey, GameObject createLocation, string listName)
     {
-        int newItemIndex = -1;
-        if (!isInitial)
-        {
-            Transform oldItem = createLocation.transform.Find(listName);
-            if(oldItem != null)
-            {
-                newItemIndex = oldItem.GetSiblingIndex();
-                Destroy(oldItem.gameObject);
-            }
-        }
 
         //Add new ListItem
         GameObject newItem = Instantiate(UnlockGameManualItem);
@@ -319,48 +328,13 @@ public class GameManual : SerializedMonoBehaviour
         //Add two into Dict
         UnlockGameManualItemDict.Add(button, ItemContent);
 
-        if (!isInitial)
-        {
-            ItemContent.transform.SetSiblingIndex(newItemIndex);
-        }
-
         return newItem;
     }
 
-    public void SaveGameManualData(string[] typeList, string[] nameList, int[] unlockProgressList)
+    public void SetIndex(Button button)
     {
-        if (!gitCommandValider)
-        {
-            gitCommandValider = GameObject.Find("GitCommandValider").GetComponent<GitCommandValider>();
-        }
-        GameManualData CommandManual = playerGameManualData[0];
-        GameManualData RuleAndWindowManual = playerGameManualData[1];
-        GameManualData VersionControlManual = playerGameManualData[2];
-
-        for (int i = 0; i < typeList.Length; i++)
-        {
-            GameManualItem findItem;
-            switch (typeList[i])
-            {
-                case "C":
-                    findItem = CommandManual.items.Find((item) => item.listName == nameList[i]);
-                    break;
-                case "RAW":
-                    findItem = RuleAndWindowManual.items.Find((item) => item.listName == nameList[i]);
-                    break;
-                case "VC":
-                    findItem = VersionControlManual.items.Find((item) => item.listName == nameList[i]);
-                    break;
-                default:
-                    Debug.Log("SaveGameManualData Error!");
-                    return;
-            }
-
-            findItem.listUnlockProgress = unlockProgressList[i];
-        }
-
-        gitCommandValider.UpdatePlayerUnlockDict();
-        UpdateButtonStatus();
+        button.transform.SetSiblingIndex(0);
     }
+
     #endregion
 }

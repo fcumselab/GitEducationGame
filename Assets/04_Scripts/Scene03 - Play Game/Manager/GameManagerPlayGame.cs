@@ -15,6 +15,8 @@ public class GameManagerPlayGame : SerializedMonoBehaviour
     [SerializeField] DialogueSystemManager dialogueSystemManager;
     [FoldoutGroup("Managers")]
     [SerializeField] DialogueSystemFeatureManager dialogueSystemFeatureManager;
+    [FoldoutGroup("Managers")]
+    [SerializeField] GitCommandValider gitCommandValider;
 
     [FoldoutGroup("Windows")]
     [SerializeField] PauseMenuPopup pauseMenuPopup;
@@ -37,6 +39,8 @@ public class GameManagerPlayGame : SerializedMonoBehaviour
 
         gameManualWindow = Instantiate(gameManualWindowPrefab).GetComponent<GameManual>();
         gameManualWindow.InitializeGameManualData();
+
+        gitCommandValider.InitializeUsableCommandList();
 
         pauseMenuPopup.InitializePauseMenuPopupContent(stageData);
     }

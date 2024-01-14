@@ -34,6 +34,7 @@ public class GitCommandValider : SerializedMonoBehaviour
 
     public void InitializeUsableCommandList()
     {
+        Debug.Log("InitializeUsableCommandList");
         saveManager = GameObject.Find("Save Manager (Main)").GetComponent<SaveManager>();
         stageManager = GameObject.Find("Stage Manager").GetComponent<StageManager>();
 
