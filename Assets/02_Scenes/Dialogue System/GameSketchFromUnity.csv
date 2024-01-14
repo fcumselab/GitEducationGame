@@ -22,11 +22,11 @@ Number,Text,Text,Text,Text
 3,ImageKey,,Show image according to the key.,Text
 6,UnlockButtonKey,none,Function which triggers Toolbar,Text
 7,playerDecision,none,Three button to add content (get),Text
-8,isReplay,FALSE,If use replay function it will be true,Boolean
+8,isReplay,False,If use replay function it will be true,Boolean
 9,tag,,use to identify different path,Text
-10,canReplay,FALSE,Can click Replay Current Scenario,Boolean
+10,canReplay,False,Can click Replay Current Scenario,Boolean
 11,UnlockKey,(category ) / (list name) / (unlockProgress),Unlock GameManualWindow List,Text
-12,TestingDialog,TRUE,For dialog system,Boolean
+12,TestingDialog,True,For dialog system,Boolean
 13,ReadChapter,0,Save Read Chapter,Number
 14,Counter,0,,Number
 15,Switch,,Control highlight panel spot,Text
@@ -317,31 +317,33 @@ NPC_23_105,23,105,2,1,,,"步驟 3 ：\r\n點擊之後會開啟 ""檔案編輯"" 
 NPC_23_106,23,106,2,1,,,"步驟 2 ：\n在 ""檔案管理"" 視窗中找到 ""期中報告v3.ppt"" 後\n使用滑鼠左鍵點擊 ""期中報告v3.ppt"" 文件",False,Block,Normal,,,,,,,,2099.543;274.0739
 NPC_23_107,23,107,2,1,,,"步驟 3 ：\r\n點擊之後會開啟 ""檔案編輯"" 視窗\n在文件內容中找到關鍵字 ""需要修改""\n點擊該行左方的鉛筆圖示，並且選擇確認修改\n即可完成目標",False,Block,Normal,,,,,,,,2104.806;349.0738
 NPC_24_0,24,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,580.8059;156.3024
-NPC_24_31,24,31,2,2,,圖片happyFace,歡迎來到\r\n'創建第一個本地儲存庫' 關卡！,False,Block,Normal,,"ShowImage(""happyFace"")",,,,,,583.287;236.8215
-NPC_24_32,24,32,2,2,,圖片reload,首先，讓我們快速回顧上一關卡中學到的知識,False,Block,Normal,,"ShowImage(""reload"")",,,,,,583.287;286.8215
-NPC_24_33,24,33,2,2,,圖片alert,在上一關中，我們提到了\r\n備份檔案這種方式可能會引發的問題,False,Block,Normal,,"ShowImage(""alert"")",,,,,,583.287;336.8215
-NPC_24_34,24,34,2,2,,,這些問題不僅影響開發專案時的效率\r\n還給專案管理帶來了困難,False,Block,Normal,,,,,,,,583.287;387.8853
-NPC_24_35,24,35,2,2,,圖片gitIcon,接著，我們介紹了版本控制和 Git\r\n以及它們的特點和優點,False,Block,Normal,,"ShowImage(""gitIcon"")",,,,,,583.287;436.8215
-NPC_24_36,24,36,2,2,,圖片lightBulb,由此可知，\r\n在專案管理中使用版本控制能夠帶來很大的幫助,False,Block,Normal,,"ShowImage(""lightBulb"")",,,,,,586.4785;527.2469
-NPC_24_37,24,37,2,2,,圖片gitIcon,因此，在本次關卡中\r\n我們要開始學習如何使用 Git,False,Block,Normal,,"ShowImage(""gitIcon"")",,,,,,584.3508;575.1194
-NPC_24_38,24,38,2,2,,(建構開始\r),首先，讓我們先來模擬本次的背景故事,False,Block,Normal,,"CloseImageWindow();\nBlackPanelControl(false);\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");",,,,,,584.3508;626.2958
-NPC_24_39,24,39,2,2,,黑屏&圖片cmd,在準備好了模擬背景後\r\n讓我們試著執行 Git 中的功能,False,Block,Normal,,"BlackPanelControl(true);\nShowImage(""cmd"");",,,,,,584.3508;675.1195
-NPC_24_40,24,40,2,2,,(新增任務)/(解鎖按鈕 - 命令行),首先，如果要在電腦中輸入 Git 指令\r\n需要開啟 '命令行' (Command Line) 視窗,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");\nVariable[""UnlockButtonKey""] = ""CommandLine""\nFSMEvent(""Dialogue System/WindowToolbar/Unlock Button"", ""WindowToolbar"", ""Panel"");",,,,,,584.3508;725.1195
+NPC_24_31,24,31,2,2,,圖片happyFace,,False,Block,Normal,,"ShowImage(""happyFace"")",,,,,歡迎來到\r\n'創建第一個本地儲存庫' 關卡！,583.287;236.8215
+NPC_24_32,24,32,2,2,,圖片reload,,False,Block,Normal,,"ShowImage(""reload"")",,,,,首先，讓我們快速回顧上一關卡中學到的知識,583.287;286.8215
+NPC_24_33,24,33,2,2,,圖片alert,,False,Block,Normal,,"ShowImage(""alert"")",,,,,在上一關中，我們提到了\r\n備份檔案這種方式可能會引發的問題,583.287;336.8215
+NPC_24_34,24,34,2,2,,,,False,Block,Normal,,,,,,,這些問題不僅影響開發專案時的效率\r\n還給專案管理帶來了困難,583.287;387.8853
+NPC_24_35,24,35,2,2,,圖片gitIcon,,False,Block,Normal,,"ShowImage(""gitIcon"")",,,,,接著，我們介紹了版本控制和 Git\r\n以及它們的特點和優點,583.287;436.8215
+NPC_24_36,24,36,2,2,,圖片lightBulb,,False,Block,Normal,,"ShowImage(""lightBulb"")",,,,,由此可知，\r\n在專案管理中使用版本控制能夠帶來很大的幫助,586.4785;527.2469
+NPC_24_37,24,37,2,2,,圖片gitIcon,,False,Block,Normal,,"ShowImage(""gitIcon"")",,,,,因此，在本次關卡中\r\n我們要開始學習如何使用 Git,584.3508;575.1194
+NPC_24_38,24,38,2,2,,(建構開始\r),,False,Block,Normal,,"CloseImageWindow();\nBlackPanelControl(false);\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");",,,,,首先，讓我們先來模擬本次的背景故事,584.3508;626.2958
+NPC_24_39,24,39,2,2,,黑屏&圖片cmd,,False,Block,Normal,,"BlackPanelControl(true);\nShowImage(""cmd"");",,,,,在準備好了模擬背景後\r\n讓我們試著執行 Git 中的功能,584.3508;675.1195
+NPC_24_40,24,40,2,2,,(新增任務)/(解鎖按鈕 - 命令行),,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");\nVariable[""UnlockButtonKey""] = ""CommandLine""\nFSMEvent(""Dialogue System/WindowToolbar/Unlock Button"", ""WindowToolbar"", ""Panel"");",,,,,首先，如果要在電腦中輸入 Git 指令\r\n需要開啟 '命令行' (Command Line) 視窗,584.3508;725.1195
 NPC_24_41,24,41,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,584.3508;819.8003
+NPC_24_42,24,42,2,2,,,,False,Block,Normal,,,,,,,,584.3508;869.8003
+NPC_24_43,24,43,2,2,,,,False,Block,Normal,,,,,,,,584.3508;919.8003
 NPC_25_0,25,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,560.7452;105.2667
-NPC_25_31,25,31,2,2,,高亮CommandLine視窗&顯示Hint_CommandLineWindow,很好！\r\n您成功開啟了 '命令行' 視窗,False,Block,Normal,,"HighlightWindow(""CommandLineWindow"","""");\nHintController(""CommandLineWindow"",true );",,,,,,557.8394;172.44
-NPC_25_32,25,32,2,2,,高亮粒子 手冊,接下來，讓我們了解一下視窗中的功能\r\n之後需要的話，可以參考遊戲手冊,False,Block,Normal,,"FSMEvent(""Hint/Particle/Show Particle"", ""GameManualBtn"", ""Highlight Particle"");",,,,,,557.8394;222.44
-NPC_25_33,25,33,2,2,,不顯示Hint_CommandLineWindow&顯示Hint_CommandHistoryPanel&關閉粒子 手冊,首先是 '指令記錄' 區域\r\n它記錄著您之前輸入的指令,False,Block,Normal,,"HintController(""CommandLineWindow"",false );\nHintController(""CommandHistoryPanel"",true);\nFSMEvent(""Hint/Particle/Close Particle"", ""GameManualBtn"", ""Highlight Particle"");",,,,,,557.8394;272.4401
-NPC_25_34,25,34,2,2,,不顯示Hint_CommandHistoryPanel&顯示Hint_CommandTopBar,視窗右上角的按鈕可以清除指令記錄\r\n方便您在需要時進行清理,False,Block,Normal,,"HintController(""CommandHistoryPanel"",false );\nHintController(""CommandTopBar"",true);",,,,,,557.8394;323.5038
-NPC_25_35,25,35,2,2,,不顯示Hint_CommandTopBar&顯示Hint_CommandHistoryDetailed,接下來是 '指令細節' 區域\r\n指令執行後的結果會顯示在這裡,False,Block,Normal,,"HintController(""CommandTopBar"",false );\nHintController(""CommandHistoryDetailed"",true);",,,,,,557.8394;372.44
-NPC_25_36,25,36,2,2,,不顯示Hint_CommandHistoryDetailed&顯示Hint_CommandHistoryPanel,此外，將滑鼠移到 '指令記錄' 中的指令上\r\n您也可以看到執行後的訊息,False,Block,Normal,,"HintController(""CommandHistoryDetailed"",false );\nHintController(""CommandHistoryPanel"",true);",,,,,,561.0309;462.8655
-NPC_25_37,25,37,2,2,,不顯示Hint_CommandHistoryPanel&顯示Hint_CommandFooter,然後，下方的是 '輸入指令' 區域\r\n這是 '命令行' 最重要的部分\r\n您可以在這裡輸入和執行指令,False,Block,Normal,,"HintController(""CommandHistoryPanel"",false );\nHintController(""CommandFooter"",true);",,,,,,558.9032;510.7379
-NPC_25_38,25,38,2,2,,,第一行顯示的是當前資料夾位置\r\n就和 '檔案管理' 視窗一樣\r\n命令行也有它們現在所在的位置,False,Block,Normal,,,,,,,,558.9032;561.9143
-NPC_25_39,25,39,2,2,,,為了方便您學習 Git 指令\r\n您只需要在 '檔案管理' 視窗中移動路徑\r\n'命令行' 視窗也會同步移動,False,Block,Normal,,,,,,,,558.9032;610.738
-NPC_25_40,25,40,2,2,,,最後一欄是輸入指令的區域,False,Block,Normal,,,,,,,,558.9032;660.738
-NPC_25_41,25,41,2,2,,不顯示Hint_CommandFooter,在介紹完 '命令行' 視窗的功能後\r\n讓我們立即嘗試輸入指令吧,False,Block,Normal,,"HintController(""CommandFooter"",false );",,,,,,558.9032;755.4189
-NPC_25_42,25,42,2,2,,,請注意\r\n'輸入指令時需要保持大小寫一致'\r\nGit 才能識別指令,False,Block,Normal,,,,,,,,558.9032;805.4189
-NPC_25_43,25,43,2,2,,(新增任務)&解鎖手冊git2,現在，請點擊輸入欄\r\n輸入 '<color=#CF001C>git --version</color>' 或 '<color=#CF001C>git -v</color>'\r\n然後按下鍵盤上的 Enter 鍵\r\n或輸入欄旁的箭頭來執行您的第一個指令吧,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");\nUnlockGameManualItem(""C/git/2"");",,,,,,558.9032;855.4189
+NPC_25_31,25,31,2,2,,高亮CommandLine視窗&顯示Hint_CommandLineWindow,,False,Block,Normal,,"HighlightWindow(""CommandLineWindow"","""");\nHintController(""CommandLineWindow"",true );",,,,,很好！\r\n您成功開啟了 '命令行' 視窗,557.8394;172.44
+NPC_25_32,25,32,2,2,,高亮粒子 手冊,,False,Block,Normal,,"FSMEvent(""Hint/Particle/Show Particle"", ""GameManualBtn"", ""Highlight Particle"");",,,,,接下來，讓我們了解一下視窗中的功能\r\n之後需要的話，可以參考遊戲手冊,557.8394;222.44
+NPC_25_33,25,33,2,2,,不顯示Hint_CommandLineWindow&顯示Hint_CommandHistoryPanel&關閉粒子 手冊,,False,Block,Normal,,"HintController(""CommandLineWindow"",false );\nHintController(""CommandHistoryPanel"",true);\nFSMEvent(""Hint/Particle/Close Particle"", ""GameManualBtn"", ""Highlight Particle"");",,,,,首先是 '指令記錄' 區域\r\n它記錄著您之前輸入的指令,557.8394;272.4401
+NPC_25_34,25,34,2,2,,不顯示Hint_CommandHistoryPanel&顯示Hint_CommandTopBar,,False,Block,Normal,,"HintController(""CommandHistoryPanel"",false );\nHintController(""CommandTopBar"",true);",,,,,視窗右上角的按鈕可以清除指令記錄\r\n方便您在需要時進行清理,557.8394;323.5038
+NPC_25_35,25,35,2,2,,不顯示Hint_CommandTopBar&顯示Hint_CommandHistoryDetailed,,False,Block,Normal,,"HintController(""CommandTopBar"",false );\nHintController(""CommandHistoryDetailed"",true);",,,,,接下來是 '指令細節' 區域\r\n指令執行後的結果會顯示在這裡,557.8394;372.44
+NPC_25_36,25,36,2,2,,不顯示Hint_CommandHistoryDetailed&顯示Hint_CommandHistoryPanel,,False,Block,Normal,,"HintController(""CommandHistoryDetailed"",false );\nHintController(""CommandHistoryPanel"",true);",,,,,此外，將滑鼠移到 '指令記錄' 中的指令上\r\n您也可以看到執行後的訊息,561.0309;462.8655
+NPC_25_37,25,37,2,2,,不顯示Hint_CommandHistoryPanel&顯示Hint_CommandFooter,,False,Block,Normal,,"HintController(""CommandHistoryPanel"",false );\nHintController(""CommandFooter"",true);",,,,,然後，下方的是 '輸入指令' 區域\r\n這是 '命令行' 最重要的部分\r\n您可以在這裡輸入和執行指令,558.9032;510.7379
+NPC_25_38,25,38,2,2,,,,False,Block,Normal,,,,,,,第一行顯示的是當前資料夾位置\r\n就和 '檔案管理' 視窗一樣\r\n命令行也有它們現在所在的位置,558.9032;561.9143
+NPC_25_39,25,39,2,2,,,,False,Block,Normal,,,,,,,為了方便您學習 Git 指令\r\n您只需要在 '檔案管理' 視窗中移動路徑\r\n'命令行' 視窗也會同步移動,558.9032;610.738
+NPC_25_40,25,40,2,2,,,,False,Block,Normal,,,,,,,最後一欄是輸入指令的區域,558.9032;660.738
+NPC_25_41,25,41,2,2,,不顯示Hint_CommandFooter,,False,Block,Normal,,"HintController(""CommandFooter"",false );",,,,,在介紹完 '命令行' 視窗的功能後\r\n讓我們立即嘗試輸入指令吧,558.9032;755.4189
+NPC_25_42,25,42,2,2,,,,False,Block,Normal,,,,,,,請注意\r\n'輸入指令時需要保持大小寫一致'\r\nGit 才能識別指令,558.9032;805.4189
+NPC_25_43,25,43,2,2,,(新增任務)&解鎖手冊git2,,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");\nUnlockGameManualItem(""C/git/2"");",,,,,現在，請點擊輸入欄\r\n輸入 '<color=#CF001C>git --version</color>' 或 '<color=#CF001C>git -v</color>'\r\n然後按下鍵盤上的 Enter 鍵\r\n或輸入欄旁的箭頭來執行您的第一個指令吧,558.9032;855.4189
 NPC_25_44,25,44,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,558.9032;905.4189
 NPC_29_0,29,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,554.0438;191.9298
 NPC_29_31,29,31,2,2,,圖片happyFace,非常好！\r\n您成功地運行了第一個 Git 指令,False,Block,Normal,,"ShowImage(""happyFace"")",,,,,,552.2886;266.9925
@@ -363,7 +365,7 @@ NPC_30_33,30,33,2,2,,高亮CommandLine視窗&顯示Hint_CommandLineWindow,在開
 NPC_30_34,30,34,2,2,,不顯示Hint_CommandLineWindow&顯示Hint_CommandFooter,首先，請注意在輸入欄旁的放大鏡圖標\r\n您可以通過鍵盤上的 Tab 鍵或者點擊圖標\r\n來使用搜尋功能,False,Block,Normal,,"HintController(""CommandLineWindow"",false );\nHintController(""CommandFooter"",true);",,,,,,578.2239;378.1913
 NPC_30_35,30,35,2,2,,,這對於在還沒有記住 Git 指令\r\n或著是需要快速完成指令時特別有用,False,Block,Normal,,,,,,,,578.2239;427.1275
 NPC_30_36,30,36,2,2,,,另外，在點擊輸入欄後\r\n使用鍵盤上的方向鍵 '上' 和 '下'\r\n來快速填入以前執行過的指令,False,Block,Normal,,,,,,,,581.4154;517.553
-NPC_30_37,30,37,2,2,,(新增任務)&不顯示Hint_CommandFooter&解鎖手冊git init1,接下來，請您在專案位置上執行 '<color=#CF001C>git init</color>'\r\n來創建您的第一個 Git 管理系統,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");\nHintController(""Hint_CommandFooter"",false );\nUnlockGameManualItem(""C/git init/1"");",,,,,,579.2877;565.4254
+NPC_30_37,30,37,2,2,,(新增任務)&不顯示Hint_CommandFooter&解鎖手冊git init1,接下來，請您在專案位置上執行 '<color=#CF001C>git init</color>'\r\n來創建您的第一個 Git 管理系統,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");\nHintController(""CommandFooter"",false );\nUnlockGameManualItem(""C/git init/1"");",,,,,,579.2877;565.4254
 NPC_30_38,30,38,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,579.2877;614.2059
 NPC_31_0,31,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,419.7465;149.5771
 NPC_31_31,31,31,2,2,,高亮FileManager視窗&顯示Hint_FileManagerWindow,做得好！\r\n當您執行了 'git init' 指令之後\r\n專案位置上多了一個新資料夾,False,Block,Normal,,"HighlightWindow(""FileManagerWindow"","""");\nHintController(""FileManagerWindow"",true );",,,,,,420.5319;223.5562
@@ -385,7 +387,7 @@ NPC_31_46,31,46,2,2,,圖片windowOutline,通過新解鎖的 '命令行' 視窗\r
 NPC_31_47,31,47,2,2,,圖片lightBulb,我們也了解 '.git' 資料夾的作用和裡面的結構,False,Block,Normal,,"ShowImage(""lightBulb"")",,,,,,668.4043;271.4286
 NPC_31_48,31,48,2,2,,圖片cmd,在下一關卡\r\n我們將進一步瞭解 '暫存區域' 的內容\r\n並通過指令來操作它,False,Block,Normal,,"ShowImage(""cmd"")",,,,,,668.4043;321.4286
 NPC_31_49,31,49,2,2,,圖片happyFace,最後，恭喜您順利完成本次教學關卡\r\n做得好！,False,Block,Normal,,"ShowImage(""happyFace"")",,,,,,668.4043;371.4286
-NPC_31_50,31,50,2,2,,,,False,Block,Normal,,,,,,,,668.4043;421.4286
+NPC_31_50,31,50,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,668.4043;421.4286
 NPC_34_0,34,0,2,2,START,,"當您遇到困難時\r\n可以點擊 ""協助功能"" 或者查閱遊戲手冊\r\n請加油！",False,Block,Normal,,,None(),,,,,1362.878;24.12481
 NPC_34_1,34,1,2,2,,file,"<color=#CF001C>第 2 步：</color>\n我們成功的開啟了 ""檔案管理"" 視窗\r\n並看到了這台電腦中的檔案",False,Block,Normal,"CurrentQuestState(""Game Introduction/1"") == ""success""",,,,,,,1183.45;304.4144
 NPC_34_31,34,31,2,1,,,我們在下一個關卡裡面再來實際的操作系統吧！,False,Block,Normal,,,,,,,,1476.625;2614.207
@@ -2272,6 +2274,8 @@ Number,Number,Number,Number,Special
 24,38,24,39,Normal
 24,39,24,40,Normal
 24,40,24,41,Normal
+24,41,24,42,Normal
+24,42,24,43,Normal
 25,0,25,31,Normal
 25,31,25,32,Normal
 25,32,25,33,Normal
