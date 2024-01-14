@@ -24,8 +24,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 171.95312
-        y: 546.5781
+        x: 178.25
+        y: 546.5469
         width: 100
         height: 48
       isBreakpoint: 0
@@ -45,22 +45,22 @@ MonoBehaviour:
           name: false
           isSystemEvent: 0
           isGlobal: 0
-        toState: Get z Position
+        toState: 'Animation End? '
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
         colorIndex: 9
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.RectTransformGetLocalPosition
-        - HutongGames.PlayMaker.Actions.FloatCompare
+        - HutongGames.PlayMaker.Actions.GetFsmBool
+        - HutongGames.PlayMaker.Actions.BoolTest
         customNames:
         - 
         - 
         actionEnabled: 0101
         actionIsOpen: 0101
-        actionStartIndex: 0000000009000000
-        actionHashCodes: 2196c3001bcdca04
+        actionStartIndex: 0000000005000000
+        actionHashCodes: 68fece05a4c8bf00
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -78,96 +78,64 @@ MonoBehaviour:
         fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: zPos
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: zPos
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: hidePosZ
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: 1000
+        fsmStringParams:
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 0
+          value: Window
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: isOpen
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params:
+        fsmBoolParams:
         - useVariable: 1
-          name: 
+          name: flag
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: {x: 0, y: 0}
-        fsmVector3Params:
+          value: 0
         - useVariable: 1
-          name: 
+          name: flag
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: {x: 0, y: 0, z: 0}
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
+        - true
         - false
-        - true
-        - true
-        byteData: 00000000000000000000
+        byteData: 0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000070000001c000000250000000f0000000f0000000f00000001000000070000000f0000000f0000000f00000017000000170000001700000001000000
+        paramDataType: 140000001200000012000000110000000100000011000000170000001700000001000000
         paramName:
         - gameObject
-        - reference
-        - position
-        - position2d
-        - x
-        - y
-        - z
+        - fsmName
+        - variableName
+        - storeValue
         - everyFrame
-        - updateType
-        - float1
-        - float2
-        - tolerance
-        - equal
-        - lessThan
-        - greaterThan
+        - boolVariable
+        - isTrue
+        - isFalse
         - everyFrame
-        paramDataPos: 00000000000000000000000000000000000000000100000002000000040000000500000003000000040000000500000000000000010000000200000009000000
-        paramByteDataSize: 00000000040000000000000000000000000000000000000000000000010000000400000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 000000000000000001000000000000000000000001000000000000000100000001000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000001000000
     - name: Enable Quest Valider
       description: 
       colorIndex: 12
@@ -266,8 +234,8 @@ MonoBehaviour:
       colorIndex: 18
       position:
         serializedVersion: 2
-        x: 219.875
-        y: 400.09375
+        x: 219.84375
+        y: 410.1875
         width: 174
         height: 32
       isBreakpoint: 0
@@ -531,155 +499,6 @@ MonoBehaviour:
         - resetOnExit
         paramDataPos: 000000000000000001000000
         paramByteDataSize: 000000000000000000000000
-    - name: Get z Position
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 509.4297
-        y: 745.28125
-        width: 111
-        height: 48
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: next
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: 'Animation End? '
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 8
-      - fsmEvent:
-          name: back
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: 'UI Button On Click Event '
-        linkStyle: 0
-        linkConstraint: 0
-        linkTarget: 0
-        colorIndex: 18
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.RectTransformGetLocalPosition
-        - HutongGames.PlayMaker.Actions.FloatCompare
-        customNames:
-        - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000009000000
-        actionHashCodes: 2196c3001bcdca04
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 1
-          gameObject:
-            useVariable: 1
-            name: Target Window
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: zPos
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: zPos
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: hidePosZ
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: 1000
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        fsmIntParams: []
-        fsmBoolParams: []
-        fsmVector2Params:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {x: 0, y: 0}
-        fsmVector3Params:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {x: 0, y: 0, z: 0}
-        fsmColorParams: []
-        fsmRectParams: []
-        fsmQuaternionParams: []
-        stringParams:
-        - next
-        - back
-        - back
-        byteData: 00000000000000000000
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 14000000070000001c000000250000000f0000000f0000000f00000001000000070000000f0000000f0000000f00000017000000170000001700000001000000
-        paramName:
-        - gameObject
-        - reference
-        - position
-        - position2d
-        - x
-        - y
-        - z
-        - everyFrame
-        - updateType
-        - float1
-        - float2
-        - tolerance
-        - equal
-        - lessThan
-        - greaterThan
-        - everyFrame
-        paramDataPos: 00000000000000000000000000000000000000000100000002000000040000000500000003000000040000000500000000000000010000000200000009000000
-        paramByteDataSize: 00000000040000000000000000000000000000000000000000000000010000000400000000000000000000000000000000000000000000000000000001000000
     - name: Hide Window
       description: 
       colorIndex: 10
@@ -1100,8 +919,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 62
-        y: 330
+        x: 58.171875
+        y: 290.72656
         width: 129
         height: 32
       isBreakpoint: 0
@@ -1199,8 +1018,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 246.17188
-        y: 333.5703
+        x: 241.07812
+        y: 293.03125
         width: 139
         height: 32
       isBreakpoint: 0
@@ -1298,8 +1117,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 435.17188
-        y: 339.5703
+        x: 437.67188
+        y: 290.17188
         width: 140
         height: 32
       isBreakpoint: 0
@@ -1538,8 +1357,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 662.4922
-        y: 743.02344
+        x: 644.89844
+        y: 732.02344
         width: 124
         height: 48
       isBreakpoint: 0
@@ -2135,7 +1954,13 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: 0
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: flag
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       stringVariables:
       - useVariable: 1
         name: ItselfName
@@ -2187,7 +2012,7 @@ MonoBehaviour:
       - Reference
       - Tooltip
       - Parent
-      variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -2196,7 +2021,7 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 0100000005000000
+    outVariableIndices: 0100000006000000
     keepDelayedEventsOnStateExit: 0
     preprocessed: 0
     ExposedEvents: []

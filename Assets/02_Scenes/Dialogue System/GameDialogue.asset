@@ -11741,7 +11741,7 @@ MonoBehaviour:
         value: 'The first line shows the current folder location.
 
           Just
-          like the ''File Management'' window, the command line also has its current
+          like the ''File Manager'' window, the command line also has its current
           location.'
         type: 4
         typeString: CustomFieldType_Localization
@@ -14528,7 +14528,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "\u5716\u7247shuffle"
+        value: "\u5716\u7247crossing"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -14572,7 +14572,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: ShowImage("shuffle")
+      userScript: ShowImage("crossing")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -15334,8 +15334,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 668.4043
-        y: 421.4286
+        x: 669.8329
+        y: 478.5714
         width: 160
         height: 30
     entryGroups: []
@@ -39370,11 +39370,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -39399,12 +39398,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247happyFace"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6B61\u8FCE\u4F86\u5230\r\n\"Git \u66AB\u5B58\u5340\u57DF\u7684\u57FA\u790E\u64CD\u4F5C\"
-          \u95DC\u5361\uFF01"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -39420,11 +39418,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: Welcome to the 'Basic Operations in Git Staging Area' stage!
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u6B61\u8FCE\u4F86\u5230\r\n'Git \u66AB\u5B58\u5340\u57DF\u7684\u57FA\u790E\u64CD\u4F5C'
+          \u95DC\u5361\uFF01"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -39442,7 +39441,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("happyFace")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -39467,11 +39466,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247reload"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u9996\u5148\uFF0C\u8B93\u6211\u5011\u5FEB\u901F\u56DE\u9867\u4E00\u4E0B\u4E0A\u4E00\u95DC\u4E2D\u6211\u5011\u5B78\u5230\u7684\u77E5\u8B58\u548C\u6307\u4EE4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -39487,11 +39486,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: First, let's quickly review the knowledge and commands we learned
+          in the previous stage.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u9996\u5148\uFF0C\u8B93\u6211\u5011\u5FEB\u901F\u56DE\u9867\u4E0A\u4E00\u95DC\u5361\u4E2D\u5B78\u5230\u7684\u77E5\u8B58\u548C\u6307\u4EE4"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -39509,7 +39509,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("reload")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -39534,12 +39534,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247cmd"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u4E0A\u4E00\u95DC\u5361\u4E2D\uFF0C\r\n\u6211\u5011\u4F7F\u7528\u4E86\u5169\u500B
-          Git \u6307\u4EE4\uFF1A\r\n\"git --version\" \u548C \"git init\" "
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -39555,11 +39554,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "In the last stage, \r\nwe used two Git commands: \r\n'git --version'
+          and 'git init'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u4E0A\u4E00\u95DC\u5361\u4E2D\uFF0C\r\n\u6211\u5011\u4F7F\u7528\u4E86\u5169\u500B
+          Git \u6307\u4EE4\uFF1A\r\n'git --version' \u548C 'git init'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -39577,7 +39578,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("cmd")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -39602,12 +39603,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247hammer"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5176\u4E2D\uFF0C\"git init\" \u4F5C\u70BA\u5275\u5EFA Git \u7BA1\u7406\u7CFB\u7D71\u7684\u57FA\u790E\r\n\u662F\u6211\u5011\u958B\u59CB\u4F7F\u7528
-          Git \u7CFB\u7D71\u6642\u9700\u8981\u8F38\u5165\u7684\u7B2C\u4E00\u500B\u6307\u4EE4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -39623,11 +39623,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'The ''git init'' command is the basis for creating the Git management
+          system.
+
+          It is the first command to execute when starting to
+          use Git.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "'git init' \u4F5C\u70BA\u5275\u5EFA Git \u7BA1\u7406\u7CFB\u7D71\u7684\u57FA\u790E\r\n\u662F\u958B\u59CB\u4F7F\u7528
+          Git \u7CFB\u7D71\u6642\u9700\u8981\u8F38\u5165\u7684\u7B2C\u4E00\u500B\u6307\u4EE4"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -39645,7 +39650,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("hammer")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -39670,12 +39675,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247heart"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u57F7\u884C\u6307\u4EE4\u5F8C\u5275\u5EFA\u7684 \".git\" \u8CC7\u6599\u593E
-          \r\n\u5C31\u662F\u6211\u5011 Git \u7CFB\u7D71\u7684\u6838\u5FC3"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -39691,11 +39695,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'The ''.git'' folder, which was created by this command.
+
+          It
+          is the core of the Git system.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u57F7\u884C\u6307\u4EE4\u5F8C\u5275\u5EFA\u7684 '.git' \u8CC7\u6599\u593E\r\n\u662F
+          Git \u7CFB\u7D71\u7684\u6838\u5FC3"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -39713,7 +39721,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("heart")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -39738,12 +39746,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247gitIcon"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u63A5\u8457\uFF0C\u6211\u5011\u4ECB\u7D39\u4E86 \".git\" \u8CC7\u6599\u593E\u7684\u529F\u80FD\r\n\u4E26\u63D0\u5230\u7D44\u6210
-          Git \u7684\u4E09\u500B\u91CD\u8981\u5340\u57DF"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -39759,11 +39766,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "We introduced what the '.git' folder is \r\nand mentioned the three
+          important areas that are contained in Git:"
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u4E4B\u5F8C\u4ECB\u7D39\u4E86 '.git' \u8CC7\u6599\u593E\u662F\u4EC0\u9EBC\r\n\u4E26\u63D0\u5230\u7D44\u6210
+          Git \u7684\u4E09\u500B\u91CD\u8981\u5340\u57DF"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -39781,7 +39790,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("gitIcon")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -39806,13 +39815,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247listx3"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5206\u5225\u662F\uFF1A\r\n\"\u5DE5\u4F5C\u76EE\u9304\" (Working
-          Directory)\r\n\"\u66AB\u5B58\u5340\u57DF\" (Staging Area)\r\n\"\u5132\u5B58\u5EAB\"
-          (Repository)"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -39828,11 +39835,18 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'which is:
+
+          Working Directory
+
+          Staging Area
+
+          Repository'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5206\u5225\u662F\uFF1A\r\n'\u5DE5\u4F5C\u76EE\u9304' (Working Directory)\r\n'\u66AB\u5B58\u5340\u57DF'
+          (Staging Area)\r\n'\u5132\u5B58\u5EAB' (Repository)"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -39850,7 +39864,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("Listx3")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -39875,13 +39889,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247lightBulb"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u672C\u6B21\u95DC\u5361\u4E2D\r\n\u6211\u5011\u5C07\u66F4\u9032\u4E00\u6B65\u5730\u4ECB\u7D39
-          \"\u66AB\u5B58\u5340\u57DF\" \u7684\u529F\u80FD\r\n\u4E26\u901A\u904E\u5E7E\u500B
-          Git \u6307\u4EE4\u4F86\u8207\u5B83\u4E92\u52D5"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -39897,11 +39909,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'In this stage, we will go further into the ''Staging Area''
+
+          and
+          control it with several Git commands.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u672C\u6B21\u95DC\u5361\u4E2D\uFF0C\u5C07\u9032\u4E00\u6B65\u4ECB\u7D39
+          '\u66AB\u5B58\u5340\u57DF'\r\n\u4E26\u901A\u904E\u5E7E\u500B Git \u6307\u4EE4\u4F86\u8207\u5B83\u4E92\u52D5"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -39919,7 +39935,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("lightBulb")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -39948,7 +39964,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u63A5\u4E0B\u4F86\uFF0C\u8B93\u6211\u5011\u5148\u4F86\u6A21\u64EC\u672C\u6B21\u7684\u904A\u6232\u80CC\u666F"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -39964,11 +39980,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: Next, let's simulate the background story for this stage.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u8B93\u6211\u5011\u5148\u4F86\u6A21\u64EC\u672C\u6B21\u7684\u904A\u6232\u80CC\u666F"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -39986,11 +40002,13 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Close Tutorial Panel", "Tutorial Popup
-        Parent", "Tutorial Popup");
+      userScript: 'CloseImageWindow();
 
-        FSMEvent("Stage Manager/Load Default
-        Background Story", "Stage Manager Parent", "Background Controller");'
+        BlackPanelControl(false);
+
+        FSMEvent("Stage
+        Manager/Load Default Background Story", "Stage Manager Parent", "Background
+        Controller");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -40015,12 +40033,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9ED1\u5C4F&\u5716\u7247reload"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u5B8C\u6210\u6A21\u64EC\u5F8C\r\n\u6211\u5011\u5148\u56DE\u9867
-          \"\u66AB\u5B58\u5340\u57DF\" \u7684\u4F5C\u7528\u5427"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40036,11 +40053,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "After setting up the simulation, \r\nwe'll review the use of the
+          'Staging Area'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u5B8C\u6210\u6A21\u64EC\u5F8C\r\n\u6211\u5011\u5148\u56DE\u9867
+          '\u66AB\u5B58\u5340\u57DF' \u7684\u4F5C\u7528"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -40058,7 +40077,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'BlackPanelControl(true);
+
+        ShowImage("reload");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -40083,12 +40104,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247crossing"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\"\u66AB\u5B58\u5340\u57DF\" \u5728 Git \u7CFB\u7D71\u4E2D\u626E\u6F14\u4E86\u91CD\u8981\u7684\u89D2\u8272\r\n\u5B83\u4F5C\u70BA
-          \"\u5DE5\u4F5C\u76EE\u9304\" \u548C \"\u5132\u5B58\u5EAB\" \u4E4B\u9593\u7684\u6A4B\u6A11"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40104,11 +40124,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "The 'Staging Area' plays an important role in the Git system, \r\nIt
+          acts as a bridge between the 'Working Directory' and the 'Repository'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u66AB\u5B58\u5340\u57DF' \u5728 Git \u7CFB\u7D71\u4E2D\u626E\u6F14\u4E86\u91CD\u8981\u7684\u89D2\u8272\r\n\u5B83\u4F5C\u70BA
+          '\u5DE5\u4F5C\u76EE\u9304' \u548C '\u5132\u5B58\u5EAB' \u4E4B\u9593\u7684\u6A4B\u6A11"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -40126,7 +40148,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("crossing")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -40151,13 +40173,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247cmd"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728 \"\u5DE5\u4F5C\u76EE\u9304\" \u4E2D\u4FEE\u6539\u6A94\u6848\u5167\u5BB9\u5F8C\r\n\u9700\u8981\u901A\u904E
-          Git \u6307\u4EE4\u5C07\u6A94\u6848\u79FB\u52D5 \"\u66AB\u5B58\u5340\u57DF\"
-          \u4E2D"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40173,11 +40193,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "After modifying files in the 'Working Directory', \r\nyou move them
+          to the 'Staging Area' using Git commands."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728 '\u5DE5\u4F5C\u76EE\u9304' \u4E2D\u4FEE\u6539\u6A94\u6848\u5167\u5BB9\u5F8C\r\n\u901A\u904E
+          Git \u6307\u4EE4\u5C07\u6A94\u6848\u79FB\u52D5\u81F3 '\u66AB\u5B58\u5340\u57DF'
+          \u4E2D"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -40195,7 +40218,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("cmd")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -40224,9 +40247,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7576\u78BA\u5B9A\u597D\u4FEE\u6539\u5167\u5BB9\u5F8C\r\n\u53EF\u4EE5\u901A\u904E\u53E6\u4E00\u500B
-          Git \u6307\u4EE4\u5C07\u6A94\u6848\u5B58\u5165\u5230 \"\u5132\u5B58\u5EAB\"
-          \u4E2D"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40242,11 +40263,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Once you moved all the changes, \r\nwe'll use another Git command
+          to store all the modifications in the 'Repository'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u78BA\u5B9A\u597D\u4FEE\u6539\u5167\u5BB9\u5F8C\r\n\u6211\u5011\u6703\u901A\u904E\u53E6\u4E00\u500B
+          Git \u6307\u4EE4\u5C07\u6240\u6709\u4FEE\u6539\u5167\u5BB9\u5B58\u5165
+          '\u5132\u5B58\u5EAB' \u4E2D"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -40289,11 +40313,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247boxOpen"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\"\u5132\u5B58\u5EAB\" \u6703\u628A\u9019\u4E9B\u6A94\u6848\u7D44\u5408\u6210\u4E00\u6B21\u8A18\u9304\r\n\u9019\u5C31\u662F\u4E00\u6B21\u63D0\u4EA4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40309,11 +40333,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "The 'Repository' combines them into a record known as a 'commit',
+          \r\nit means we create a new version."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "'\u5132\u5B58\u5EAB' \u6703\u628A\u5B83\u5011\u6574\u5408\u6210\u4E00\u6B21\u8A18\u9304\r\n\u9019\u500B\u8A18\u9304\u7A31\u70BA
+          '\u63D0\u4EA4'\uFF0C\u8868\u793A\u6211\u5011\u5275\u5EFA\u4E86\u4E00\u500B\u65B0\u7248\u672C"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -40331,7 +40357,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("boxOpen")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -40356,14 +40382,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247alert"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4F46\u662F\uFF0C\u6211\u5011\u7121\u6CD5\u76F4\u63A5\u5728 \"\u6A94\u6848\u7BA1\u7406\"
-          \u8996\u7A97\u4E2D\r\n\u770B\u5230 \"\u66AB\u5B58\u5340\u57DF\" \u548C
-          \"\u5132\u5B58\u5EAB\" \u9019\u5169\u500B\u5340\u57DF\r\n\u5FC5\u9808\u8981\u900F\u904E\u7279\u5B9A\u7684
-          Git \u6307\u4EE4\u4F86\u67E5\u770B\u5B83\u5011"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40379,11 +40402,17 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'However, we can''t directly see the ''Staging Area'' and ''Repository''
+          in the ''File Manager'' window.
+
+          They need to be viewed through
+          Git commands.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u4F46\u662F\uFF0C\u6211\u5011\u7121\u6CD5\u76F4\u63A5\u5728 '\u6A94\u6848\u7BA1\u7406'
+          \u8996\u7A97\u4E2D\r\n\u770B\u5230 '\u66AB\u5B58\u5340\u57DF' \u548C '\u5132\u5B58\u5EAB'
+          \u9019\u5169\u500B\u5340\u57DF\r\n\u9700\u8981\u901A\u904E Git \u6307\u4EE4\u4F86\u67E5\u770B\u5B83\u5011"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -40401,7 +40430,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("alert")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -40426,13 +40455,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247windowOutline"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u73FE\u5728\uFF0C\u8B93\u6211\u5011\u4F86\u5B78\u7FD2\u5982\u4F55\u6253\u958B
-          \"\u66AB\u5B58\u5340\u57DF\"\r\n\u540C\u6A23\uFF0C\u6211\u5011\u9700\u8981\u901A\u904E
-          \"\u547D\u4EE4\u884C\" \u4F86\u8F38\u5165\u5C0D\u61C9\u7684\u6307\u4EE4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40448,11 +40475,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Now, let''s learn how to open the ''Staging Area''.
+
+          We''ll
+          use the ''Command Line'' window to execute commands for this purpose.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u8B93\u6211\u5011\u4F86\u5B78\u7FD2\u5982\u4F55\u6253\u958B
+          '\u66AB\u5B58\u5340\u57DF'\r\n\u672C\u6B21\u4E5F\u9700\u8981\u4F7F\u7528
+          '\u547D\u4EE4\u884C' \u8996\u7A97\u4F86\u57F7\u884C\u6307\u4EE4"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 44
@@ -40470,7 +40502,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("windowOutline")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -40495,16 +40527,89 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "(\u65B0\u589E\u4EFB\u52D9)"
+        value: "(\u65B0\u589E\u4EFB\u52D9)/(\u89E3\u9396\u6309\u9215 - \u547D\u4EE4\u884C)"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u90A3\u9EBC\uFF0C\u8ACB\u60A8\u5148\u6253\u958B \"\u547D\u4EE4\u884C\"
-          \u8996\u7A97\u5427"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
         value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: en
+        value: Now, please open the 'Command Line' window first.
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: zh
+        value: "\u90A3\u9EBC\uFF0C\u8ACB\u60A8\u5148\u6253\u958B '\u547D\u4EE4\u884C'
+          \u8996\u7A97\u5427"
+        type: 4
+        typeString: CustomFieldType_Localization
+      conversationID: 44
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 44
+        originDialogueID: 47
+        destinationConversationID: 44
+        destinationDialogueID: 48
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
+
+        Variable["UnlockButtonKey"] = "CommandLine"
+
+        FSMEvent("Dialogue
+        System/WindowToolbar/Unlock Button", "WindowToolbar", "Panel");'
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 424.771
+        y: 208.3256
+        width: 160
+        height: 30
+    - id: 48
+      fields:
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Menu Text
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: Continue()
         type: 0
         typeString: 
       - title: Description
@@ -40532,15 +40637,16 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
-        "Quest Tracker");
+      userScript: 'ResetAllTutorialObj();
+
+        Variable["SelectionType"] = "";'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 424.771
-        y: 208.3256
+        y: 258.3256
         width: 160
         height: 30
     entryGroups: []
@@ -40649,11 +40755,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -40678,12 +40783,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAECommandLine\u8996\u7A97&\u986F\u793AHint_CommandLineWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u597D\u7684\uFF0C\u60A8\u5DF2\u7D93\u6210\u529F\u5730\u6253\u958B\u4E86
-          \"\u547D\u4EE4\u884C\" \u8996\u7A97"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40699,11 +40803,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: Great, you've opened the 'Command Line' window.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u597D\u7684\uFF0C\u60A8\u5DF2\u958B\u555F '\u547D\u4EE4\u884C' \u8996\u7A97"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 45
@@ -40721,7 +40825,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("CommandLineWindow","");
+
+        HintController("CommandLineWindow",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -40746,12 +40853,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247cmd&\u4E0D\u986F\u793AHint_CommandLineWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u9019\u500B\u95DC\u5361\u4E2D\uFF0C\u6211\u5011\u8981\u5B78\u7FD2\u7684\u7B2C\u4E00\u500B\u6307\u4EE4\u662F
-          \"<color=#CF001C>git status</color>\""
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40767,11 +40873,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'In this stage,
+
+          the first command we need to learn is
+          ''<color=#CF001C>git status</color>''.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u9019\u500B\u95DC\u5361\u4E2D\uFF0C\r\n\u8981\u5B78\u7FD2\u7684\u7B2C\u4E00\u500B\u6307\u4EE4\u662F
+          '<color=#CF001C>git status</color>'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 45
@@ -40789,7 +40899,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'ShowImage("cmd");
+
+        HintController("CommandLineWindow",false
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -40814,12 +40927,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247windowOutline"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u901A\u904E\u9019\u500B\u6307\u4EE4\r\nGit \u6703\u5C07 \"\u66AB\u5B58\u5340\u57DF\"
-          \u4E2D\u7684\u5167\u5BB9\r\n\u986F\u793A\u5728 \"\u547D\u4EE4\u884C\" \u8996\u7A97\u4E0A"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40835,11 +40947,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: This command displays the contents of the 'Staging Area' in the 'Command
+          Line' window.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u901A\u904E\u9019\u500B\u6307\u4EE4\r\nGit \u6703\u5C07 '\u66AB\u5B58\u5340\u57DF'
+          \u4E2D\u7684\u5167\u5BB9\r\n\u986F\u793A\u5728 '\u547D\u4EE4\u884C' \u8996\u7A97\u4E0A"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 45
@@ -40857,14 +40971,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("windowOutline")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 507.1598
-        y: 246.3136
+        y: 245.2147
         width: 160
         height: 30
     - id: 34
@@ -40886,9 +41000,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7136\u800C\uFF0C\u70BA\u4E86\u8B93\u60A8\u4EE5\u66F4\u7C21\u6F54\u3001\u4FBF\u5229\u7684\u65B9\u5F0F\u89C0\u770B\u8F38\u51FA\u5167\u5BB9\r\n\u672C\u904A\u6232\u5C07
-          \"git status\" \u6307\u4EE4\u7684\u904B\u884C\u7D50\u679C\r\n\u7368\u7ACB\u6210\u4E86\u4E00\u500B\u8996\u7A97
-          \u2014\u2014 \"\u66AB\u5B58\u5340\u57DF\" \u8996\u7A97"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40904,11 +41016,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "In this game, \r\nto let you view the output clearly and easily,
+          \r\nthe output has been separated into the window \u2014 the 'Staging Area'
+          window."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u672C\u904A\u6232\u88E1\uFF0C\r\n\u70BA\u4E86\u8B93\u60A8\u80FD\u4EE5\u7C21\u6F54\u4FBF\u5229\u7684\u65B9\u5F0F\u89C0\u770B\u8F38\u51FA\u5167\u5BB9\r\n\u8F38\u51FA\u7D50\u679C\u7368\u7ACB\u6210\u4E86\u8996\u7A97
+          \u2014\u2014 '\u66AB\u5B58\u5340\u57DF' \u8996\u7A97"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 45
@@ -40951,12 +41066,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)&\u89E3\u9396\u624B\u518Agitstatus1&\u9AD8\u4EAECommandLine\u8996\u7A97&\u986F\u793AHint_CommandLineWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u8996\u7A97\u4E2D\u7684\u8A2D\u8A08\u6703\u4FDD\u6301\u76F8\u540C\u7684\u57F7\u884C\u7D50\u679C\r\n\u4E26\u4E14\u7C21\u5316\u4E86\u539F\u5148\u8F03\u70BA\u96E3\u61C2\u7684\u754C\u9762\r\n\u5E0C\u671B\u9019\u7A2E\u8A2D\u8A08\u65B9\u5F0F\u80FD\u63D0\u5347\u60A8\u5C0D
-          \"\u66AB\u5B58\u5340\u57DF\" \u7684\u7406\u89E3"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -40972,11 +41086,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Next, please execute the ''<color=#CF001C>git status</color>'' command
+
+          to
+          view the contents of the ''Staging Area''.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u63A5\u4E0B\u4F86\uFF0C\u8ACB\u60A8\u57F7\u884C '<color=#CF001C>git
+          status</color>' \u6307\u4EE4\r\n\u4F86\u67E5\u770B '\u66AB\u5B58\u5340\u57DF'
+          \u7684\u5167\u5BB9"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 45
@@ -40994,13 +41113,21 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
+
+        UnlockGameManualItem("C/git status/1");
+
+        HighlightWindow("CommandLineWindow","");
+
+        HintController("CommandLineWindow",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 507.1598
+        x: 508.2587
         y: 346.3136
         width: 160
         height: 30
@@ -41019,17 +41146,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "(\u65B0\u589E\u4EFB\u52D9)"
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u90A3\u9EBC\uFF0C\u8ACB\u60A8\u57F7\u884C \"<color=#CF001C>git status</color>\"
-          \u6307\u4EE4\r\n\u6211\u5011\u4F86\u67E5\u770B \"\u66AB\u5B58\u5340\u57DF\"
-          \u7684\u5167\u5BB9"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: Continue()
         type: 0
         typeString: 
       - title: Description
@@ -41057,8 +41182,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
-        "Quest Tracker");
+      userScript: 'ResetAllTutorialObj();
+
+        Variable["SelectionType"] = "";'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -41174,11 +41300,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -41203,12 +41328,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEstagingArea\u8996\u7A97&\u986F\u793AHint_StagingAreaWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5F88\u597D\uFF01\r\n\u60A8\u5DF2\u6210\u529F\u57F7\u884C\u4E86
-          \"git status\" \u6307\u4EE4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41224,11 +41348,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Great job!
+
+          You have successfully executed the ''git status''
+          command.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5F88\u597D\uFF01\r\n\u60A8\u5DF2\u6210\u529F\u57F7\u884C 'git status'
+          \u6307\u4EE4"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41246,7 +41374,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("StagingAreaWindow","");
+
+        HintController("StagingAreaWindow",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -41275,7 +41406,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u57F7\u884C\u5F8C\uFF0C\"\u66AB\u5B58\u5340\u57DF\" \u8996\u7A97\u986F\u793A\u5728\u4E86\u756B\u9762\u4E0A\r\n\u8B93\u6211\u5011\u4F86\u4E86\u89E3\u4E00\u4E0B\u9019\u500B\u8996\u7A97\u4E2D\u7684\u5167\u5BB9\u5427"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41291,11 +41422,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'After execution, the ''Staging Area'' window appeared on the screen.
+
+          Let''s
+          understand the contents of it.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u57F7\u884C\u5F8C\uFF0C'\u66AB\u5B58\u5340\u57DF' \u8996\u7A97\u986F\u793A\u5728\u4E86\u756B\u9762\u4E0A\r\n\u6211\u5011\u4F86\u4E86\u89E3\u8996\u7A97\u4E2D\u7684\u5167\u5BB9\u5427"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41338,12 +41472,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_StagingAreaWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u9019\u500B\u8996\u7A97\u4E2D\r\n\u986F\u793A\u4E86 \"\u5DE5\u4F5C\u76EE\u9304\"
-          \u8207 \"\u66AB\u5B58\u5340\u57DF\" \u6A94\u6848\u4E4B\u9593\u7684\u5DEE\u7570"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41359,11 +41492,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "In this window, it shows the file differences \r\nbetween the 'Working
+          Directory' and the 'Staging Area'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u9019\u500B\u8996\u7A97\u4E2D\r\n\u986F\u793A\u4E86 '\u5DE5\u4F5C\u76EE\u9304'
+          \u8207 '\u66AB\u5B58\u5340\u57DF' \u6A94\u6848\u4E4B\u9593\u7684\u5DEE\u7570"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41381,7 +41516,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("StagingAreaWindow",false);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -41406,12 +41541,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u986F\u793AHint_UnstagedFiles"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728 \"\u672A\u8FFD\u8E64\" (Unstaged Files) \u5340\u57DF\u4E2D\r\n\u662F\u6211\u5011\u5728
-          \"\u5DE5\u4F5C\u76EE\u9304\" \u88E1\u65B0\u589E\u3001\u4FEE\u6539\u3001\u522A\u9664\u7684\u6A94\u6848"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41427,11 +41561,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "In the 'Unstaged Files' area, \r\nyou'll find files that have been
+          added, modified, or deleted in the 'Working Directory'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728 '\u672A\u8FFD\u8E64' (Unstaged Files) \u5340\u57DF\u4E2D\r\n\u662F\u6211\u5011\u5728
+          '\u5DE5\u4F5C\u76EE\u9304' \u88E1\u65B0\u589E\u3001\u4FEE\u6539\u3001\u522A\u9664\u7684\u6A94\u6848"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41449,7 +41585,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("UnstagedFiles",true);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -41478,10 +41614,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7576\u9019\u4E9B\u6A94\u6848\u5728 \"<color=#CF001C>\u8B8A\u66F4</color>\"
-          \u5F8C\r\n\u4F46\u9084\u6C92\u6709\u653E\u5165 \"\u66AB\u5B58\u5340\u57DF\"
-          \u6642\r\nGit \u7CFB\u7D71\u5C07\u6703\u8996\u5B83\u5011\u70BA \"<color=#CF001C>\u672A\u8FFD\u8E64</color>\"
-          \u6A94\u6848"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41497,11 +41630,18 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'These files are seen as ''untracked'' by the Git system
+
+          when
+          the content has been ''<color=#CF001C>changed</color>'' but not moved to
+          the ''Staging Area'' yet.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u7576\u9019\u4E9B\u6A94\u6848\u5728 '<color=#CF001C>\u8B8A\u66F4</color>'
+          \u5F8C\r\n\u4F46\u9084\u6C92\u6709\u653E\u5165 '\u66AB\u5B58\u5340\u57DF'
+          \u6642\r\nGit \u7CFB\u7D71\u5C07\u6703\u8996\u5B83\u5011\u70BA '\u672A\u8FFD\u8E64'
+          \u6A94\u6848"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41548,7 +41688,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7531\u65BC\u5728 Git \u7BA1\u7406\u7CFB\u7D71\u88AB\u5275\u5EFA\u6642\r\n\u521D\u59CB\u72C0\u614B\u662F\u6C92\u6709\u8FFD\u8E64\u4EFB\u4F55\u6A94\u6848\u7684"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41564,11 +41704,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'Also, the plus icon is in the first line of the list.
+
+          This
+          means the file ''Class_Notes.txt'' is being tracked for the first time
+          for the Git management system,'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u6B64\u5916\uFF0C\u5217\u8868\u7B2C\u4E00\u884C\u7684\u52A0\u865F\u5716\u793A\r\n\u8868\u793A
+          '\u8AB2\u5802\u7B46\u8A18.txt' \u5C0D\u65BC Git \u7BA1\u7406\u7CFB\u7D71\u4F86\u8AAA\r\n\u662F\u7B2C\u4E00\u6B21\u88AB\u8FFD\u8E64"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41611,12 +41756,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_UnstagedFiles&\u986F\u793AHint_StagedFiles"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6240\u4EE5\u5728\u9019\u500B\u6A21\u64EC\u80CC\u666F\u88E1\r\n\"\u5BE6\u9A57\u6587\u4EF6.txt\"
-          \u662F\u5C6C\u65BC \"<color=#CF001C>\u672A\u8FFD\u8E64</color>\" \u7684\u6A94\u6848"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41632,11 +41776,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'The ''Staged Files'' area represents the files we''ve added to the
+          ''Staging Area''.
+
+          They are ready to save as a record.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u800C '\u5DF2\u8FFD\u8E64' (Staged Files) \u5340\u57DF\r\n\u8868\u793A\u6211\u5011\u52A0\u5165\u5230
+          '\u66AB\u5B58\u5340\u57DF' \u7684\u6A94\u6848\r\n\u5B83\u5011\u6E96\u5099\u8981\u5132\u5B58\u6210\u4E00\u4EFD\u8A18\u9304"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41654,7 +41802,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("UnstagedFiles",false );
+
+        HintController("StagedFiles",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -41683,8 +41833,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6B64\u5916\uFF0C\u60A8\u6703\u6CE8\u610F\u5230\u5217\u8868\u4E2D\u7684\u7B2C\u4E00\u884C\u986F\u793A\u7684\u662F\u52A0\u865F\u5716\u793A\r\n\u8868\u793A
-          \"\u5BE6\u9A57\u6587\u4EF6.txt\" \u5C0D\u65BC Git \u7BA1\u7406\u7CFB\u7D71\u4F86\u8AAA\r\n\u6703\u65B0\u589E\u6A94\u6848\u5230\u7CFB\u7D71\u88E1"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41700,11 +41849,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "After confirming all the files we want to record, \r\nwe can move
+          the 'Staged' content to the 'Repository' at once to create a 'commit'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u6211\u5011\u78BA\u8A8D\u597D\u6240\u6709\u8981\u8A18\u9304\u7684\u6A94\u6848\u5F8C\r\n\u5C31\u53EF\u4EE5\u4E00\u6B21\u6027\u5730\u5C07
+          '\u5DF2\u8FFD\u8E64' \u7684\u5167\u5BB9\u653E\u5230 '\u5132\u5B58\u5EAB'
+          \u4E2D \r\n\u9019\u4E9B\u5167\u5BB9\u5C07\u5275\u5EFA\u70BA\u4E00\u4EFD
+          '\u63D0\u4EA4'\uFF08\u8A18\u9304\uFF09"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41747,13 +41900,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247cmd&\u4E0D\u986F\u793AHint_StagedFiles"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u800C \"\u5DF2\u8FFD\u8E64\" (Staged Files) \u5340\u57DF\r\n\u8868\u793A\u5DF2\u7D93\u5C07
-          \"\u672A\u8FFD\u8E64\" \u5340\u57DF\u7684\u6A94\u6848\r\n\u653E\u5165\u5230\u4E86
-          \"\u66AB\u5B58\u5340\u57DF\" \u4E2D"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41769,11 +41920,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "After we understand the structure of the 'Staging Area', \r\nlet's
+          try to add files to it. \r\nWe'll use the command '<color=#CF001C>git add</color>'
+          to achieve this."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u4E86\u89E3\u5B8C '\u66AB\u5B58\u5340\u57DF' \u7684\u7D50\u69CB\u5F8C\r\n\u4F86\u8A66\u8457\u5C07\u6A94\u6848\u52A0\u5165\u5230
+          '\u5DF2\u8FFD\u8E64' \u5427\r\n\u6211\u5011\u8981\u901A\u904E\u6307\u4EE4
+          '<color=#CF001C>git add</color>' \u4F86\u9054\u6210\u76EE\u6A19"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41791,7 +41946,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'ShowImage("cmd");
+
+        HintController("StagedFiles",false
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -41816,13 +41974,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u89E3\u9396\u624B\u518Agitadd1"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7576\u78BA\u5B9A\u597D\u8981\u79FB\u52D5\u81F3\u7BA1\u7406\u7CFB\u7D71\u7684\u6A94\u6848\u5F8C\r\n\u5C31\u53EF\u4EE5\u5C07
-          \"\u5DF2\u8FFD\u8E64\" \u7684\u6A94\u6848\u653E\u5165\u5230 \"\u5132\u5B58\u5EAB\"
-          \u4E2D\r\n\u9019\u6A23\u5C31\u5B8C\u6210\u4E86\u4E00\u6B21\u63D0\u4EA4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41838,11 +41994,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "In the 'git add' command, \r\nyou need to include the filename you
+          want to upload."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728 'git add' \u6307\u4EE4\u4E2D\r\n\u60A8\u9700\u8981\u5728\u6307\u4EE4\u524D\u65B9\u52A0\u5165\u60F3\u8981\u4E0A\u50B3\u7684\u6587\u4EF6\u540D\u7A31"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41860,7 +42017,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: UnlockGameManualItem("C/git add/1");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -41885,13 +42042,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEFileManager\u8996\u7A97"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u4E86\u89E3\u5B8C \"\u66AB\u5B58\u5340\u57DF\" \u8996\u7A97\u7684\u7D50\u69CB\u5F8C\r\n\u6211\u5011\u8981\u4F7F\u7528\u65B0\u7684
-          Git \u6307\u4EE4\r\n\u5C07 \"\u672A\u8FFD\u8E64\" \u7684\u6A94\u6848\u79FB\u52D5\u5230
-          \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41907,11 +42062,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'There''s a file on the computer.
+
+          We can add it using
+          ''<color=#CF001C>git add Class_Notes.txt</color>''.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u672C\u6B21\u96FB\u8166\u4E2D\u6709\u4E00\u4EFD\u6587\u4EF6\r\n\u6211\u5011\u53EF\u4EE5\u4F7F\u7528
+          '<color=#CF001C>git add \u8AB2\u5802\u7B46\u8A18.txt</color>'\r\n\u52A0\u5165\u5230
+          '\u5DF2\u8FFD\u8E64'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41929,7 +42089,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HighlightWindow("FileManagerWindow","");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -41954,12 +42114,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEFileManager\u8996\u7A97&\u9AD8\u4EAECommandLine\u8996\u7A97"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6211\u5011\u6703\u901A\u904E\u6307\u4EE4 \"<color=#CF001C>git add</color>\"
-          \u4F86\u9054\u6210\u76EE\u6A19"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -41975,11 +42134,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Before we start, \r\nlet me introduce another feature in the 'Command
+          Line' window."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u4F46\u662F\uFF0C\u5728\u958B\u59CB\u64CD\u4F5C\u4E4B\u524D\r\n\u8ACB\u8B93\u6211\u518D\u4ECB\u7D39\u4E00\u500B
+          '\u547D\u4EE4\u884C' \u8996\u7A97\u4E2D\u7684\u529F\u80FD"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -41997,7 +42158,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HighlightWindow("FileManagerWindow","CommandLineWindow");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -42022,11 +42183,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u986F\u793AHint_CommandFooter"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728 \"git add\" \u6307\u4EE4\u4E2D\r\n\u9700\u8981\u5728\u6307\u4EE4\u524D\u65B9\u6307\u5B9A\u60F3\u8981\u4E0A\u50B3\u7684\u6587\u4EF6\u540D\u7A31"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -42042,11 +42203,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "The search function of the 'Command Line' window, \r\nit can also
+          fill in the file name in the input field quickly."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "'\u547D\u4EE4\u884C' \u8996\u7A97\u7684\u641C\u5C0B\u529F\u80FD\r\n\u5B83\u4E5F\u53EF\u4EE5\u5FEB\u901F\u586B\u5165\u6A94\u6848\u540D\u7A31"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -42064,7 +42226,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("CommandFooter",true);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -42089,12 +42251,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_CommandFooter"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u60A8\u53EF\u4EE5\u770B\u5230\u5728\u96FB\u8166\u4E2D\u6709\u4E00\u4EFD\u6587\u4EF6\r\n\u8B93\u6211\u5011\u8A66\u8457\u8F38\u5165
-          \"<color=#CF001C>git add \u5BE6\u9A57\u6587\u4EF6.txt</color>\" \u5427"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -42110,11 +42271,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'To use this feature, please follow these steps:'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5982\u679C\u8981\u4F7F\u7528\u9019\u500B\u529F\u80FD\r\n\u8ACB\u60A8\u6309\u7167\u4EE5\u4E0B\u6307\u793A\u64CD\u4F5C\uFF1A"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -42132,7 +42293,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("CommandFooter",false );
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -42161,8 +42322,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4F46\u662F\uFF0C\u5728\u8B93\u60A8\u958B\u59CB\u64CD\u4F5C\u4E4B\u524D\r\n\u8ACB\u8B93\u6211\u518D\u4ECB\u7D39\u4E00\u500B
-          \"\u547D\u4EE4\u884C\" \u8996\u7A97\u4E2D\u7684\u529F\u80FD"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -42178,11 +42338,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 1. Enter '<color=#CF001C>git add</color>' in the input field.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u7B2C 1 \u6B65\uFF1A\r\n\u5728\u8F38\u5165\u6B04\u4E2D\u8F38\u5165
+          '<color=#CF001C>git add</color>'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -42229,8 +42390,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\"\u547D\u4EE4\u884C\" \u8996\u7A97\u7684\u641C\u5C0B\u529F\u80FD\r\n\u9664\u4E86\u53EF\u4EE5\u641C\u7D22\u3001\u5FEB\u901F\u5B8C\u6210
-          Git \u6307\u4EE4\u5916"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -42246,11 +42406,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: '2. Add a space after the command, become:
+
+          ''<color=#CF001C>git
+          add </color>''.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u7B2C 2 \u6B65\uFF1A\r\n\u5728\u6307\u4EE4\u524D\u65B9\u52A0\u4E00\u500B\u7A7A\u683C\r\n\u8B8A\u6210
+          '<color=#CF001C>git add </color>'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -42297,8 +42461,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5B83\u4E5F\u540C\u6A23\u9069\u7528\u65BC \"\u6A94\u6848\u7BA1\u7406\"
-          \u7684\u6587\u4EF6\u4E0A"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -42314,11 +42477,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "3. Press the search feature button or the Tab key. \r\nThe system
+          will display all file names in the current path.\r\nChoose the file you
+          want to add."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u7B2C 3 \u6B65\uFF1A\r\n\u6309\u4E0B\u641C\u5C0B\u529F\u80FD\u6309\u9215\u6216
+          Tab \u9375\r\n\u7CFB\u7D71\u6703\u986F\u793A\u7576\u524D\u8DEF\u5F91\u4E0B\u7684\u6240\u6709\u6A94\u6848\u540D\u7A31\r\n\u5F9E\u4E2D\u9078\u64C7\u8981\u52A0\u5165\u7684\u6A94\u6848"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -42361,11 +42527,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u8981\u4F7F\u7528\u9019\u500B\u529F\u80FD\r\n\u8ACB\u60A8\u6309\u7167\u4EE5\u4E0B\u6307\u793A\u64CD\u4F5C\uFF1A"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -42381,11 +42547,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Now, please follow the above steps and execute the \r\n'<color=#CF001C>git
+          add Class_Notes.txt</color>' command."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u90A3\u9EBC\uFF0C\u8ACB\u60A8\u6309\u7167\u4EE5\u4E0A\u64CD\u4F5C\r\n\u57F7\u884C
+          '<color=#CF001C>git add \u8AB2\u5802\u7B46\u8A18.txt</color>' \u6307\u4EE4\u5427"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 46
@@ -42403,7 +42571,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -42428,220 +42597,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7B2C 1 \u6B65\uFF1A\r\n\u5728\u8F38\u5165\u6B04\u4E2D\u8F38\u5165
-          \"<color=#CF001C>git add</color>\""
+        value: 
         type: 0
         typeString: 
       - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 46
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 46
-        originDialogueID: 49
-        destinationConversationID: 46
-        destinationDialogueID: 50
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 381.7606
-        y: 293.8357
-        width: 160
-        height: 30
-    - id: 50
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u7B2C 2 \u6B65\uFF1A\r\n\u5728\u6307\u4EE4\u524D\u65B9\u52A0\u4E00\u500B\u7A7A\u683C
-          \r\n\u8B8A\u6210 \"<color=#CF001C>git add </color>\" "
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 46
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 46
-        originDialogueID: 50
-        destinationConversationID: 46
-        destinationDialogueID: 51
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 381.7606
-        y: 343.8357
-        width: 160
-        height: 30
-    - id: 51
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u7B2C 3 \u6B65\uFF1A\r\n\u6309\u4E0B\u641C\u5C0B\u529F\u80FD\u6309\u9215\u6216
-          Tab \u9375\u4F86\u57F7\u884C\u64CD\u4F5C\r\n\u7CFB\u7D71\u6703\u986F\u793A\u7576\u524D\u8DEF\u5F91\u4E0B\u7684\u6240\u6709\u6A94\u6848\u540D\u7A31\r\n\u5F9E\u4E2D\u9078\u64C7\u8981\u52A0\u5165\u7684\u6A94\u6848"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 46
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 46
-        originDialogueID: 51
-        destinationConversationID: 46
-        destinationDialogueID: 52
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 382.8243
-        y: 432.1335
-        width: 160
-        height: 30
-    - id: 52
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: "(\u65B0\u589E\u4EFB\u52D9)"
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u90A3\u9EBC\uFF0C\u8ACB\u60A8\u6309\u7167\u4EE5\u4E0A\u64CD\u4F5C\r\n\u57F7\u884C
-          \"<color=#CF001C>git add \u5BE6\u9A57\u6587\u4EF6.txt</color>\" \u6307\u4EE4\u5427"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
+        value: Continue()
         type: 0
         typeString: 
       - title: Description
@@ -42669,15 +42633,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
-        "Quest Tracker");
+      userScript: ResetAllTutorialObj()
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 382.8243
-        y: 482.1335
+        x: 381.7606
+        y: 347.567
         width: 160
         height: 30
     entryGroups: []
@@ -42786,11 +42749,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -42815,12 +42777,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEstagingArea\u8996\u7A97"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u606D\u559C\u60A8\uFF01\r\n\u60A8\u5DF2\u6210\u529F\u57F7\u884C\u4E86
-          \"git add\" \u6307\u4EE4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -42836,11 +42797,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Excellent! \r\nYou have successfully executed the 'git add' command."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u975E\u5E38\u597D\uFF01\r\n\u60A8\u5DF2\u6210\u529F\u57F7\u884C
+          'git add' \u6307\u4EE4"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 47
@@ -42858,7 +42820,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HighlightWindow("StagingAreaWindow","");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -42883,12 +42845,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u986F\u793AHint_UnstagedFiles"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7136\u800C\uFF0C\u5118\u7BA1\u6211\u5011\u5DF2\u7D93\u57F7\u884C\u4E86\u6307\u4EE4\r\n\"\u547D\u4EE4\u884C\"
-          \u8FD4\u56DE\u4E86\u6210\u529F\u63D0\u793A"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -42904,11 +42865,17 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'However, although we executed the command and the ''Command Line''
+          returned a success message.
+
+          The ''Staging Area'' window has
+          not updated its content yet.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u7136\u800C\uFF0C\u5118\u7BA1\u6211\u5011\u5DF2\u7D93\u57F7\u884C\u4E86\u6307\u4EE4\r\n'\u547D\u4EE4\u884C'
+          \u4E5F\u8FD4\u56DE\u6210\u529F\u63D0\u793A\r\n\u4F46\u662F '\u66AB\u5B58\u5340\u57DF'
+          \u8996\u7A97\u537B\u9084\u6C92\u6709\u66F4\u65B0\u5167\u5BB9"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 47
@@ -42926,7 +42893,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("UnstagedFiles",true);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -42951,11 +42918,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247alert"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u4F46\u662F \"\u66AB\u5B58\u5340\u57DF\" \u8996\u7A97\u537B\u9084\u6C92\u6709\u66F4\u65B0\u5167\u5BB9"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -42971,11 +42938,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "This is because when we interact with the 'Staging Area', \r\nwe
+          cannot see the results of the execution '<color=#CF001C>immediately</color>'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u539F\u56E0\u5728\u65BC\uFF1A\r\n\u7576\u6211\u5011\u8207 '\u66AB\u5B58\u5340\u57DF'
+          \u505A\u4E92\u52D5\u6642\r\n\u662F '<color=#CF001C>\u7121\u6CD5\u5373\u6642</color>'
+          \u770B\u5230\u57F7\u884C\u5F8C\u7684\u7D50\u679C\u7684"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 47
@@ -42993,7 +42963,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("alert")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43022,9 +42992,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u9020\u6210\u9019\u500B\u554F\u984C\u7684\u539F\u56E0\u5728\u65BC\uFF1A\r\n\u7576\u6211\u5011\u8207
-          \"\u66AB\u5B58\u5340\u57DF\" \u505A\u4E92\u52D5\u6642\r\n\u662F \"<color=#CF001C>\u7121\u6CD5\u5373\u6642</color>\"
-          \u770B\u5230\u57F7\u884C\u5F8C\u7684\u7D50\u679C\u7684"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -43040,11 +43008,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Therefore, after moving files in or out of the 'Staging Area', \r\nremember
+          to execute the 'git status' command to update the content."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u56E0\u6B64\uFF0C\u7576\u6211\u5011\u5F9E '\u66AB\u5B58\u5340\u57DF'
+          \u653E\u5165\u6216\u79FB\u51FA\u6A94\u6848\u5F8C\r\n\u8ACB\u8A18\u5F97\u57F7\u884C
+          'git status' \u6307\u4EE4\u66F4\u65B0\u5167\u5BB9"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 47
@@ -43087,13 +43058,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u56E0\u6B64\uFF0C\u7576\u6211\u5011\u5F9E \"\u66AB\u5B58\u5340\u57DF\"
-          \u653E\u5165\u6216\u79FB\u51FA\u6A94\u6848\u5F8C\r\n\u8ACB\u8A18\u5F97\u900F\u904E
-          \"git status\" \u6307\u4EE4\r\n\u518D\u6B21\u78BA\u8A8D\u88E1\u9762\u7684\u5167\u5BB9"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -43109,11 +43078,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Just like before, \r\nplease use the 'git status' command to confirm
+          \r\nwhether '<color=#CF001C>Class_Notes.txt</color>' has been added to
+          the 'Staging Area'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u90A3\u9EBC\uFF0C\u5C31\u548C\u4E4B\u524D\u7684\u6B65\u9A5F\u4E00\u6A23\r\n\u4F7F\u7528
+          '<color=#CF001C>git status</color>' \u6307\u4EE4\r\n\u4F86\u78BA\u8A8D
+          '\u8AB2\u5802\u7B46\u8A18.txt' \u662F\u5426\u52A0\u5165\u5230 '\u66AB\u5B58\u5340\u57DF'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 47
@@ -43131,7 +43104,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43156,85 +43130,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u9019\u9EBC\u505A\u4E0D\u50C5\u80FD\u5920\u78BA\u4FDD\u6BCF\u4E00\u6B21\u904B\u884C\u6307\u4EE4\u7684\u7D50\u679C\r\n\u540C\u6642\u4E5F\u53EF\u4EE5\u78BA\u5B9A\u4E0B\u4E00\u6B65\u61C9\u8A72\u505A\u4EC0\u9EBC"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 47
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 47
-        originDialogueID: 36
-        destinationConversationID: 47
-        destinationDialogueID: 37
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 256.1947
-        y: 399.4498
-        width: 160
-        height: 30
-    - id: 37
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: "(\u65B0\u589E\u4EFB\u52D9)"
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u90A3\u9EBC\uFF0C\u5C31\u548C\u4E4B\u524D\u7684\u6B65\u9A5F\u4E00\u6A23\r\n\u4F7F\u7528
-          \"<color=#CF001C>git status</color>\" \u6307\u4EE4\r\n\u4F86\u78BA\u8A8D
-          \"\u5BE6\u9A57\u6587\u4EF6.txt\" \u662F\u5426\u5DF2\u7D93\u79FB\u52D5\u5230\u4E86
-          \"\u66AB\u5B58\u5340\u57DF\" \u4E2D"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
+        value: Continue()
         type: 0
         typeString: 
       - title: Description
@@ -43262,15 +43166,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
-        "Quest Tracker");
+      userScript: ResetAllTutorialObj()
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 254.067
-        y: 447.3221
+        x: 256.1947
+        y: 399.4498
         width: 160
         height: 30
     entryGroups: []
@@ -43379,11 +43282,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43408,12 +43310,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEstagingArea\u8996\u7A97"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u975E\u5E38\u597D\uFF01\r\n\u901A\u904E\u4F7F\u7528 \"git status\"
-          \u6307\u4EE4\r\n\u6211\u5011\u770B\u5230\u4E86\u66F4\u65B0\u5F8C\u7684\u7D50\u679C"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -43429,11 +43330,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Alright, through the 'git status' command, \r\nwe can see the updated
+          results."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u597D\u7684\uFF0C\u901A\u904E 'git status' \u6307\u4EE4\r\n\u6211\u5011\u770B\u5230\u4E86\u66F4\u65B0\u5F8C\u7684\u7D50\u679C"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 48
@@ -43451,7 +43353,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HighlightWindow("StagingAreaWindow","");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43476,13 +43378,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u986F\u793AHint_UnstagedFiles&\u986F\u793AHint_StagedFiles"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u60A8\u53EF\u80FD\u5DF2\u7D93\u6CE8\u610F\u5230\uFF0C\r\n\"\u5BE6\u9A57\u6587\u4EF6.txt\"
-          \u5DF2\u7D93\u5F9E \"\u672A\u8FFD\u8E64\" \u5340\u57DF\u79FB\u52D5\u5230\u4E86
-          \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -43498,11 +43398,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: The specified file has been moved from 'Unstaged' to 'Staged'.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u6307\u5B9A\u6A94\u6848\u5DF2\u7D93\u5F9E '\u672A\u8FFD\u8E64' \u52A0\u5165\u5230
+          '\u5DF2\u8FFD\u8E64'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 48
@@ -43520,7 +43421,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("UnstagedFiles",true );
+
+        HintController("StagedFiles",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43545,12 +43449,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAECommandLine\u8996\u7A97&\u9AD8\u4EAEstagingArea\u8996\u7A97&\u4E0D\u986F\u793AHint_UnstagedFiles&\u4E0D\u986F\u793AHint_StagedFiles&\u986F\u793AHint_CommandHistoryPanel"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u60A8\u53EF\u4EE5\u9EDE\u64CA\u4E4B\u524D\u8F38\u5165\u7684 \"git
-          status\" \u6307\u4EE4\r\n\u4F86\u89C0\u5BDF\u57F7\u884C\u6307\u4EE4\u524D\u5F8C\u6240\u7522\u751F\u7684\u5F71\u97FF"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -43566,11 +43469,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'You can click on the previously executed ''git status'' command
+
+          to
+          observe the impact caused before and after execution.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u60A8\u53EF\u4EE5\u9EDE\u64CA\u4E4B\u524D\u57F7\u884C\u7684 'git
+          status' \u6307\u4EE4\r\n\u4F86\u89C0\u5BDF\u57F7\u884C\u524D\u5F8C\u9020\u6210\u7684\u5F71\u97FF"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 48
@@ -43588,7 +43495,13 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("StagingAreaWindow","CommandLineWindow");
+
+        HintController("UnstagedFiles",false);
+
+        HintController("StagedFiles",false);
+
+        HintController("CommandHistoryPanel",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43613,13 +43526,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247cmd"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u5B78\u7FD2\u4E86\u5982\u4F55\u5C07\u6A94\u6848\u79FB\u52D5\u5230
-          \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF\u5F8C\r\n\u63A5\u4E0B\u4F86\uFF0C\u6211\u5011\u4F86\u5B78\u7FD2\u8207
-          \"git add\" \u76F8\u53CD\u7684\u6307\u4EE4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -43635,11 +43546,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "After learning how to add files to 'Staged', \r\nlet's learn the
+          opposite command of 'git add'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u5B78\u7FD2\u5982\u4F55\u5C07\u6A94\u6848\u52A0\u5165 '\u5DF2\u8FFD\u8E64'
+          \u5F8C\r\n\u63A5\u4E0B\u4F86\u4F86\u5B78\u7FD2\u8207 'git add' \u76F8\u53CD\u7684\u6307\u4EE4"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 48
@@ -43657,7 +43570,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("cmd")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43682,13 +43595,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u89E3\u9396\u624B\u518Agitreset1"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u9019\u6B21\u8981\u4F7F\u7528\u7684\u662F \"<color=#CF001C>git reset</color>\"
-          \u6307\u4EE4\r\n\u5B83\u53EF\u4EE5\u5C07 \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF\u7684\u6A94\u6848\u79FB\u52D5\u56DE
-          \"\u672A\u8FFD\u8E64\" \u5340\u57DF"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -43704,11 +43615,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "The '<color=#CF001C>git reset</color>' command allows us to move
+          files \r\nfrom 'Staged' back to 'Unstaged'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u901A\u904E '<color=#CF001C>git reset</color>' \u6307\u4EE4\r\n\u53EF\u4EE5\u5C07
+          '\u5DF2\u8FFD\u8E64' \u7684\u6A94\u6848\u79FB\u52D5\u70BA '\u672A\u8FFD\u8E64'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 48
@@ -43726,7 +43639,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: UnlockGameManualItem("C/git reset/1");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43755,8 +43668,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u7576\u60A8\u4E0D\u60F3\u5C07\u6A94\u6848\u63D0\u4EA4\u5230 \"\u5132\u5B58\u5EAB\"
-          \u6642\r\n\u53EF\u4EE5\u4F7F\u7528\u9019\u500B\u6307\u4EE4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -43772,11 +43684,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'When you do not want to commit the file to the ''Repository'',
+
+          you
+          can use this command.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u7576\u60A8\u4E0D\u60F3\u5C07\u6A94\u6848\u63D0\u4EA4\u5230 '\u5132\u5B58\u5EAB'
+          \u6642\r\n\u53EF\u4EE5\u4F7F\u7528\u9019\u500B\u6307\u4EE4"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 48
@@ -43819,12 +43735,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247alert"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u8981\u57F7\u884C \"git reset\" \u6307\u4EE4\r\n\u8207\u8F38\u5165
-          \"git add\" \u6307\u4EE4\u6642\u7684\u65B9\u5F0F\u76F8\u540C\r\n\u60A8\u9700\u8981\u5728\u6307\u4EE4\u524D\u65B9\u6307\u5B9A\u6A94\u6848\u7684\u540D\u7A31"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -43840,11 +43755,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: To execute 'git reset', the method is similar to entering the 'git
+          add' command.You need to add the filename before the command.
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u8981\u57F7\u884C 'git reset' \u6307\u4EE4\r\n\u8207\u8F38\u5165
+          'git add' \u6307\u4EE4\u6642\u7684\u65B9\u5F0F\u76F8\u540C\r\n\u60A8\u9700\u8981\u5728\u6307\u4EE4\u524D\u65B9\u52A0\u5165\u6A94\u6848\u540D\u7A31"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 48
@@ -43862,7 +43779,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("alert")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43887,13 +43804,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: "(\u65B0\u589E\u4EFB\u52D9)"
+        value: "(\u65B0\u589E\u4EFB\u52D9)&\u9AD8\u4EAEstagingArea\u8996\u7A97&\u986F\u793AHint_UnstagedFiles&\u986F\u793AHint_StagedFiles"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u9019\u6B21\uFF0C\u8ACB\u60A8\u5C07 \"\u5BE6\u9A57\u8A18\u9304.txt\"
-          \u5F9E \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF\u79FB\u51FA\r\n\u7136\u5F8C\u78BA\u4FDD\u6A94\u6848\u5DF2\u6210\u529F\u5F9E
-          \"\u66AB\u5B58\u5340\u57DF\" \u4E2D\u79FB\u9664"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -43909,11 +43824,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'This time, please move ''Class_Notes.txt'' out of ''Staged''
+
+          And
+          ensure the file is removed from the ''Staging Area''.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u9019\u6B21\uFF0C\u8ACB\u60A8\u5C07 '\u8AB2\u5802\u7B46\u8A18.txt'
+          \u79FB\u51FA '\u5DF2\u8FFD\u8E64' \r\n\u4E26\u78BA\u4FDD\u6A94\u6848\u5DF2\u79FB\u51FA
+          '\u66AB\u5B58\u5340\u57DF'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 48
@@ -43931,8 +43851,15 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+      userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
         "Quest Tracker");
+
+        HighlightWindow("StagingAreaWindow","");
+
+        HintController("UnstagedFiles",true
+        );
+
+        HintController("StagedFiles",true );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43957,15 +43884,84 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAE\u7C92\u5B50 \u624B\u518A"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u60A8\u5FD8\u8A18\u4E86\u5982\u4F55\u5FEB\u901F\u8F38\u5165\u6307\u4EE4\r\n\u6216\u8005\u662F\u6307\u4EE4\u7684\u683C\u5F0F\r\n\u8ACB\u67E5\u95B1\u904A\u6232\u624B\u518A\u4EE5\u9032\u884C\u78BA\u8A8D"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
         value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
+        value: 
+        type: 0
+        typeString: 
+      - title: en
+        value: "If you forget how to use the command, \r\nplease refer to the game
+          manual."
+        type: 4
+        typeString: CustomFieldType_Localization
+      - title: zh
+        value: "\u5982\u679C\u60A8\u5FD8\u8A18\u4E86\u5982\u4F55\u4F7F\u7528\u6307\u4EE4\r\n\u8ACB\u67E5\u95B1\u904A\u6232\u624B\u518A\u4F86\u78BA\u8A8D"
+        type: 4
+        typeString: CustomFieldType_Localization
+      conversationID: 48
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 48
+        originDialogueID: 39
+        destinationConversationID: 48
+        destinationDialogueID: 40
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: FSMEvent("Hint/Particle/Show Particle", "GameManualBtn", "Highlight
+        Particle");
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 348.5957
+        y: 560.4256
+        width: 160
+        height: 30
+    - id: 40
+      fields:
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Menu Text
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: Continue()
         type: 0
         typeString: 
       - title: Description
@@ -43993,20 +43989,20 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: ResetAllTutorialObj()
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 348.5957
-        y: 560.4256
+        x: 347.4193
+        y: 662.1903
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
-  - id: 49
+  - id: 50
     fields:
     - title: Title
       value: Basic Staging Area/Tutorial/End
@@ -44094,1207 +44090,6 @@ MonoBehaviour:
         value: 
         type: 4
         typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 0
-        destinationConversationID: 49
-        destinationDialogueID: 31
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
-
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 311.235
-        y: 80.33714
-        width: 160
-        height: 30
-    - id: 31
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u975E\u5E38\u597D\uFF01\r\n\u60A8\u6210\u529F\u5730\u5B8C\u6210\u4E86\u6A21\u64EC\u80CC\u666F\u4E2D\u7684\u76EE\u6A19"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 31
-        destinationConversationID: 49
-        destinationDialogueID: 32
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 307.7768
-        y: 140.9031
-        width: 160
-        height: 30
-    - id: 32
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5728\u9019\u500B\u7DF4\u7FD2\u904E\u7A0B\u4E2D\uFF0C\u60A8\u61C9\u8A72\u66F4\u52A0\u719F\u6089\u4E86\r\n\"git
-          add\"\u3001\"git reset\" \u548C \"git status\"\r\n\u9019\u4E09\u500B\u8207
-          \"\u66AB\u5B58\u5340\u57DF\" \u4E92\u52D5\u7684\u6307\u4EE4"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 32
-        destinationConversationID: 49
-        destinationDialogueID: 33
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 307.7768
-        y: 190.9031
-        width: 160
-        height: 30
-    - id: 33
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u63A5\u4E0B\u4F86\uFF0C\u8B93\u6211\u5011\u56DE\u9867\u4E00\u4E0B\u672C\u6B21\u95DC\u5361\u5B78\u5230\u7684\u77E5\u8B58\u548C\u6307\u4EE4\u5427"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 33
-        destinationConversationID: 49
-        destinationDialogueID: 34
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 307.7768
-        y: 240.9031
-        width: 160
-        height: 30
-    - id: 34
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u9996\u5148\uFF0C\u60A8\u5B78\u6703\u4E86\u4F7F\u7528 \"git status\"
-          \u6307\u4EE4 \r\n\u4F86\u67E5\u770B \"\u66AB\u5B58\u5340\u57DF\" \u7684\u5167\u5BB9"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 34
-        destinationConversationID: 49
-        destinationDialogueID: 35
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 307.7768
-        y: 291.9669
-        width: 160
-        height: 30
-    - id: 35
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5728 \"\u66AB\u5B58\u5340\u57DF\" \u8996\u7A97\u4E2D\r\nGit \u6839\u64DA
-          \"\u5DE5\u4F5C\u76EE\u9304\" \u8207 \"\u66AB\u5B58\u5340\u57DF\" \u4E2D\u6A94\u6848\u7684\u5DEE\u7570\r\n\u5C07\u5B83\u5011\u5206\u6210\u4E86
-          \"\u672A\u8FFD\u8E64\" \u548C \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 35
-        destinationConversationID: 49
-        destinationDialogueID: 36
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 307.7768
-        y: 340.9031
-        width: 160
-        height: 30
-    - id: 36
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\"\u672A\u8FFD\u8E64\" \u5340\u57DF\uFF1A\r\n\u8868\u793A\u5728 \"\u5DE5\u4F5C\u76EE\u9304\"
-          \u4E2D\u767C\u751F\u66F4\u6539\u7684\u6A94\u6848\r\n\u4F46\u5B83\u5011\u5C1A\u672A\u6DFB\u52A0\u5230
-          \"\u66AB\u5B58\u5340\u57DF\""
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 36
-        destinationConversationID: 49
-        destinationDialogueID: 37
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 310.9684
-        y: 431.3286
-        width: 160
-        height: 30
-    - id: 37
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\"\u5DF2\u8FFD\u8E64\" \u5340\u57DF\uFF1A\r\n\u8868\u793A\u5DF2\u7D93\u6DFB\u52A0\u5230
-          \"\u66AB\u5B58\u5340\u57DF\" \u7684\u6A94\u6848\r\n\u9019\u4E9B\u6A94\u6848\u5728\u78BA\u8A8D\u5F8C\u5C07\u79FB\u81F3
-          \"\u5132\u5B58\u5EAB\" \u4E2D"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 37
-        destinationConversationID: 49
-        destinationDialogueID: 38
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 308.8406
-        y: 479.201
-        width: 160
-        height: 30
-    - id: 38
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u7136\u5F8C\uFF0C\u6211\u5011\u4F7F\u7528\u4E86 \"git add\" \u548C
-          \"git reset\" \u6307\u4EE4\r\n\u4F86\u8207 \"\u66AB\u5B58\u5340\u57DF\"
-          \u4E92\u52D5"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 38
-        destinationConversationID: 49
-        destinationDialogueID: 39
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 308.8406
-        y: 530.3774
-        width: 160
-        height: 30
-    - id: 39
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\"git add\" \u7528\u65BC\u5C07\u6307\u5B9A\u6A94\u6848\u79FB\u52D5\u5230
-          \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 39
-        destinationConversationID: 49
-        destinationDialogueID: 40
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 308.8406
-        y: 579.2011
-        width: 160
-        height: 30
-    - id: 40
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\"git reset\" \u8207 \"git add\" \u76F8\u53CD\r\n\u7528\u65BC\u5C07\u6307\u5B9A\u6A94\u6848\u79FB\u52D5\u56DE
-          \"\u672A\u8FFD\u8E64\" \u5340\u57DF"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 40
-        destinationConversationID: 49
-        destinationDialogueID: 41
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 308.8406
-        y: 629.2011
-        width: 160
-        height: 30
-    - id: 41
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5B83\u5011\u90FD\u9700\u8981\u5728\u6307\u4EE4\u524D\u65B9\u6307\u5B9A\u6A94\u6848\u540D\u7A31\u624D\u80FD\u57F7\u884C"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 41
-        destinationConversationID: 49
-        destinationDialogueID: 42
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 308.8406
-        y: 723.8819
-        width: 160
-        height: 30
-    - id: 42
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5728\u56DE\u9867\u4E86\u672C\u95DC\u5361\u7684\u5167\u5BB9\u5F8C"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 42
-        destinationConversationID: 49
-        destinationDialogueID: 43
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 308.8406
-        y: 773.8819
-        width: 160
-        height: 30
-    - id: 43
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5728\u7DF4\u7FD2\u7684\u904E\u7A0B\u4E2D\uFF0C\u60A8\u53EF\u80FD\u6703\u60F3\u5230\u4E00\u500B\u554F\u984C\uFF1A\r\n\u300C\u662F\u5426\u53EF\u4EE5\u4E00\u6B21\u6027\u5C07\u6240\u6709\u6A94\u6848\u63A8\u9001\u5230
-          \"\u66AB\u5B58\u5340\u57DF\" \u5462\uFF1F\u300D"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 43
-        destinationConversationID: 49
-        destinationDialogueID: 44
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 308.8406
-        y: 823.8819
-        width: 160
-        height: 30
-    - id: 44
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u5C0D\u65BC\u9019\u500B\u554F\u984C\r\n\u6211\u5011\u5C07\u5728\u4E0B\u4E00\u95DC\u4E2D\u9032\u884C\u4ECB\u7D39\u548C\u5BE6\u8E10\r\n\u60A8\u5C07\u5C0D
-          \"\u66AB\u5B58\u5340\u57DF\" \u6709\u66F4\u6DF1\u5165\u7684\u7406\u89E3"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 44
-        destinationConversationID: 49
-        destinationDialogueID: 45
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 308.8406
-        y: 873.8819
-        width: 160
-        height: 30
-    - id: 45
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u60A8\u5728\u672C\u95DC\u5361\u4E2D\u5DF2\u7D93\u638C\u63E1\u4E86\u8C50\u5BCC\u7684\u77E5\u8B58\r\n\u4E0D\u59A8\u5148\u4F11\u606F\u4E00\u4E0B\uFF0C\u4E4B\u5F8C\u518D\u7E7C\u7E8C\u6311\u6230\u4E0B\u4E00\u95DC\u5427"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 49
-        originDialogueID: 45
-        destinationConversationID: 49
-        destinationDialogueID: 46
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 308.8406
-        y: 923.8819
-        width: 160
-        height: 30
-    - id: 46
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u6700\u5F8C\uFF0C\u606D\u559C\u60A8\u5B8C\u6210\u672C\u6B21\u7684\u95DC\u5361\r\n\u60A8\u505A\u7684\u5F88\u68D2\uFF01"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 49
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 555.6492
-        y: 138.7755
-        width: 160
-        height: 30
-    entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
-  - id: 50
-    fields:
-    - title: Title
-      value: Basic Staging Area/Tutorial/Quest 6
-      type: 0
-      typeString: 
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
-    - title: Actor
-      value: 2
-      type: 5
-      typeString: CustomFieldType_Actor
-    - title: Conversant
-      value: 2
-      type: 5
-      typeString: CustomFieldType_Actor
-    overrideSettings:
-      useOverrides: 0
-      overrideSubtitleSettings: 0
-      showNPCSubtitlesDuringLine: 1
-      showNPCSubtitlesWithResponses: 1
-      showPCSubtitlesDuringLine: 0
-      skipPCSubtitleAfterResponseMenu: 0
-      subtitleCharsPerSecond: 30
-      minSubtitleSeconds: 2
-      continueButton: 0
-      overrideSequenceSettings: 0
-      defaultSequence: 
-      defaultPlayerSequence: 
-      defaultResponseMenuSequence: 
-      overrideInputSettings: 0
-      alwaysForceResponseMenu: 1
-      includeInvalidEntries: 0
-      responseTimeout: 0
-      emTagForOldResponses: 0
-      emTagForInvalidResponses: 0
-      cancelSubtitle:
-        key: 27
-        buttonName: 
-      cancelConversation:
-        key: 27
-        buttonName: 
-    nodeColor: 
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: START
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: "(\u5C55\u958B\u8996\u7A97 + \u9ED1\u5C4F)"
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: None()
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
       conversationID: 50
       isRoot: 0
       isGroup: 0
@@ -45310,11 +44105,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45339,12 +44133,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEstagingArea\u8996\u7A97"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u975E\u5E38\u51FA\u8272\uFF01\r\n\u60A8\u6210\u529F\u5730\u4F7F\u7528\u4E86
-          \"git reset\" \u6307\u4EE4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -45360,11 +44153,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Excellent! \r\nYou have executed the 'git reset' command."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u975E\u5E38\u597D\uFF01\r\n\u60A8\u57F7\u884C\u4E86 'git reset'
+          \u6307\u4EE4"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 50
@@ -45382,7 +44176,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HighlightWindow("StagingAreaWindow","");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45407,13 +44201,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u986F\u793AHint_UnstagedFiles"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u66F4\u65B0\u5F8C\u7684 \"\u66AB\u5B58\u5340\u57DF\" \u8996\u7A97\u4E2D\r\n\u60A8\u6703\u6CE8\u610F\u5230
-          \"\u5BE6\u9A57\u6587\u4EF6.txt\" \u5DF2\u7D93\u6210\u529F\u79FB\u52D5\u56DE
-          \"\u672A\u8FFD\u8E64\" \u5340\u57DF"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -45429,11 +44221,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "In the updated 'Staging Area' window, \r\n'Class_Notes.txt' is now
+          'Unstaged'."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u66F4\u65B0\u5F8C\u7684 '\u66AB\u5B58\u5340\u57DF' \u8996\u7A97\u4E2D\r\n'\u8AB2\u5802\u7B46\u8A18.txt'
+          \u73FE\u5728\u662F '\u672A\u8FFD\u8E64'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 50
@@ -45451,7 +44245,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("UnstagedFiles",true);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45476,12 +44270,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247happyFace"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u672C\u6B21\u95DC\u5361\u88E1\r\n\u60A8\u5DF2\u7D93\u9806\u5229\u5B78\u6703\u4E86\u4E09\u500B\u8207
-          \"\u66AB\u5B58\u5340\u57DF\" \u4E92\u52D5\u7684\u6307\u4EE4"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -45497,11 +44290,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Through the operation of commands, \r\nyou have achieved the simulation
+          goal of this stage."
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u7D93\u904E\u6307\u4EE4\u7684\u64CD\u4F5C\uFF0C\r\n\u60A8\u9054\u6210\u4E86\u672C\u6B21\u7684\u6A21\u64EC\u80CC\u666F\u76EE\u6A19"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 50
@@ -45519,7 +44313,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("happyFace")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45544,14 +44338,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247lightBulb"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "1. \"git status\" \u7528\u65BC\u67E5\u770B \"\u66AB\u5B58\u5340\u57DF\"
-          \u8996\u7A97\r\n2. \"git add\" \u7528\u65BC\u5C07\u6A94\u6848\u63A8\u9001\u5230
-          \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF\r\n3. \"git reset\" \u7528\u65BC\u5C07\u6A94\u6848\u79FB\u56DE
-          \"\u672A\u8FFD\u8E64\" \u5340\u57DF"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -45567,11 +44358,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'In this stage, you understood the structure of the ''Staging Area''
+
+          and
+          learned three commands:'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u672C\u6B21\u95DC\u5361\u88E1\uFF0C\r\n\u60A8\u4E86\u89E3\u4E86
+          '\u66AB\u5B58\u5340\u57DF' \u7684\u7D50\u69CB\r\n\u4E26\u5B78\u6703\u4E09\u500B\u5176\u4E92\u52D5\u7684\u6307\u4EE4"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 50
@@ -45589,7 +44384,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("lightBulb")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45614,11 +44409,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247cmd"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u63A5\u4E0B\u4F86\uFF0C\u70BA\u4E86\u8B93\u60A8\u9032\u4E00\u6B65\u719F\u6089\u9019\u4E9B\u6307\u4EE4\u7684\u4F7F\u7528\u65B9\u5F0F\r\n\u8B93\u6211\u5011\u518D\u505A\u5E7E\u6B21\u7DF4\u7FD2\u5427"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -45634,11 +44429,19 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: '''git status'' is to view the ''Staging Area'' window.
+
+          ''''git
+          add'' is to add files to ''Staged''.
+
+          ''''git reset'' is to
+          revert files to ''Unstaged''.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "'git status' \u7528\u65BC\u67E5\u770B '\u66AB\u5B58\u5340\u57DF'
+          \u8996\u7A97\r\n''git add' \u5C07\u6A94\u6848\u52A0\u5165 '\u5DF2\u8FFD\u8E64'\r\n''git
+          reset' \u5C07\u6A94\u6848\u8B8A\u56DE '\u672A\u8FFD\u8E64'"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 50
@@ -45656,7 +44459,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("cmd")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45681,12 +44484,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247hammer"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5728\u63A5\u4E0B\u4F86\u7684\u6A21\u64EC\u80CC\u666F\u4E2D\r\n\u60A8\u9700\u8981\u5C07\u6307\u5B9A\u7684\u6A94\u6848\u63A8\u9001\u5230
-          \"\u5DF2\u8FFD\u8E64\" \u5340\u57DF"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -45702,11 +44504,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'You can practice using these commands again in the practice mode.
+
+          Or
+          you can continue to the next tutorial stage.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u60A8\u53EF\u4EE5\u901A\u904E\u7DF4\u7FD2\u6A21\u5F0F\u518D\u6B21\u719F\u6089\u9019\u4E9B\u6307\u4EE4\r\n\u4E5F\u80FD\u5920\u7E7C\u7E8C\u9032\u884C\u4E0B\u4E00\u500B\u6559\u5B78\u95DC\u5361"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 50
@@ -45724,7 +44529,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("hammer")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45749,12 +44554,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247crossing"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u60A8\u4E0D\u60F3\u8981\u63D0\u4EA4\u5B83\u5011\r\n\u5247\u5C07\u6A94\u6848\u79FB\u52D5\u56DE
-          \"\u672A\u8FFD\u8E64\" \u5340\u57DF\u5373\u53EF"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -45770,11 +44574,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: 'In the next stage, you will learn how to use more advanced commands
+
+          to
+          control the status of the ''Staging Area''.'
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u5728\u4E0B\u4E00\u95DC\u5361\u4E2D\uFF0C\r\n\u5C07\u6559\u6703\u60A8\u5982\u4F55\u4F7F\u7528\u66F4\u9032\u968E\u7684\u6307\u4EE4\r\n\u4F86\u63A7\u5236
+          '\u66AB\u5B58\u5340\u57DF' \u72C0\u614B"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 50
@@ -45792,7 +44600,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("crossing")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45817,11 +44625,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247happyFace"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u6BCF\u7576\u60A8\u4F7F\u7528 \"git status\" \u6307\u4EE4\u6642\r\n\u7CFB\u7D71\u5C07\u6AA2\u67E5\u76EE\u6A19\u662F\u5426\u9054\u6210"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
@@ -45837,11 +44645,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: en
-        value: 
+        value: "Finally, congratulations on completing this stage. \r\nYou did a
+          great job!"
         type: 4
         typeString: CustomFieldType_Localization
       - title: zh
-        value: 
+        value: "\u6700\u5F8C\uFF0C\u606D\u559C\u60A8\u5B8C\u6210\u672C\u6B21\u7684\u95DC\u5361\r\n\u60A8\u505A\u7684\u5F88\u68D2\uFF01"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 50
@@ -45859,7 +44668,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("happyFace")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -45884,82 +44693,15 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u91CD\u7F6E\u5C0D\u8A71)"
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5982\u679C\u4E0D\u7B26\u5408\u6B63\u78BA\u7B54\u6848\r\n\u7CFB\u7D71\u5C07\u5224\u5B9A\u70BA\u5931\u6557\r\n\u4F46\u8ACB\u4E0D\u7528\u64D4\u5FC3\uFF0C\u60A8\u7684\u904A\u6232\u5206\u6578\u4E0D\u6703\u53D7\u5230\u5F71\u97FF\uFF01"
+        value: 
         type: 0
         typeString: 
       - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: en
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      - title: zh
-        value: 
-        type: 4
-        typeString: CustomFieldType_Localization
-      conversationID: 50
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 50
-        originDialogueID: 39
-        destinationConversationID: 50
-        destinationDialogueID: 40
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 182.5333
-        y: 584.1757
-        width: 160
-        height: 30
-    - id: 40
-      fields:
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "\u56E0\u6B64\uFF0C\u8ACB\u60A8\u591A\u52A0\u5617\u8A66\r\n\u4EE5\u9054\u6210\u6A21\u64EC\u80CC\u666F\u4E2D\u7684\u76EE\u6A19\r\n\u52A0\u6CB9\uFF01"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
+        value: Continue()
         type: 0
         typeString: 
       - title: Description
@@ -45987,14 +44729,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: ResetAllTutorialObj()
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 182.5333
-        y: 634.1757
+        y: 703.1602
         width: 160
         height: 30
     entryGroups: []
@@ -46103,11 +44845,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 'FSMEvent("Tutorial Popup/Open Black Panel", "Tutorial Popup Parent",
-        "Tutorial Popup");
+      userScript: 'BlackPanelControl(true);
 
-        FSMEvent("DialogueChatWindow/expand window",
-        "DialogueChatWindow", "Fold Button");'
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []

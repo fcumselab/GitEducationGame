@@ -100,9 +100,11 @@ public class TutorialPopup : SerializedMonoBehaviour
             TargetWindow = GameObject.Find(windowName1);
             WindowDict.Add(windowName1, TargetWindow);
         }
-        
+        Debug.Log("TargetWindow" + TargetWindow.name);
         HighlightPos1.GetComponent<RectTransform>().sizeDelta = TargetWindow.GetComponent<RectTransform>().sizeDelta;
         TargetWindow.transform.SetParent(HighlightPos1.transform);
+        PlayMakerFSM WindowFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetWindow, "Window");
+        WindowFsm.SendEvent("Common/Window/Show Window");
 
         if (windowName2 == "")
         {
@@ -124,6 +126,8 @@ public class TutorialPopup : SerializedMonoBehaviour
             }
             HighlightPos2.GetComponent<RectTransform>().sizeDelta = TargetWindow.GetComponent<RectTransform>().sizeDelta;
             TargetWindow.transform.SetParent(HighlightPos2.transform);
+            WindowFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetWindow, "Window");
+            WindowFsm.SendEvent("Common/Window/Show Window");
         }
     }
 

@@ -33,6 +33,7 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
         Debug.Log("RegisterFunction");
         Lua.RegisterFunction("HintController", this, SymbolExtensions.GetMethodInfo(() => HintController(string.Empty, false)));
         Lua.RegisterFunction("ResetAllTutorialObj", this, SymbolExtensions.GetMethodInfo(() => ResetAllTutorialObj()));
+        Lua.RegisterFunction("UpdateButtonStatus", this, SymbolExtensions.GetMethodInfo(() => UpdateButtonStatus(string.Empty, false)));
         
         tutorialPopup.RegisterFunction();
     }
@@ -91,6 +92,23 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
             TargetHint.SendEvent("Hint/Tutorial Highlight/close highlight");
         }
     }
+    
+    public void UpdateButtonStatus(string key, bool enable)
+    {
+        string eventKey;
+        switch (key)
+        {
+            case "All":
+                eventKey = (enable) ? "DialogueFeature/FileButton/Enable" : "DialogueFeature/FileButton/Disable";
+                PlayMakerFSM.BroadcastEvent(eventKey);
+                break;
+            case "FileButton":
+                eventKey = (enable) ? "DialogueFeature/FileButton/Enable" : "DialogueFeature/FileButton/Disable";
+                PlayMakerFSM.BroadcastEvent(eventKey);
+                break;
+        }
+    }
+
 
     public void ResetHintStatus()
     {
@@ -110,5 +128,6 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
         PlayMakerFSM.BroadcastEvent("Hint/Particle/Close Particle");
         DialogueLua.SetVariable("isReplay", false);
         ResetHintStatus();
+        UpdateButtonStatus("All", true);
     }
 }
