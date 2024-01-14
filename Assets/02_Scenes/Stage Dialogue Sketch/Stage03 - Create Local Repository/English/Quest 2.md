@@ -20,7 +20,7 @@ This is the most important part of the 'Command Line',
 where you can enter and execute commands.
 
 The first line shows the current folder location.
-Just like the 'File Management' window, the command line also has its current location.
+Just like the 'File Manager' window, the command line also has its current location.
 
 To help your learning of Git commands, 
 you only need to move the path in the 'File Manager' window, 
