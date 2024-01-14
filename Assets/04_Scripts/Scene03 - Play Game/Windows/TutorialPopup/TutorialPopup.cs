@@ -54,7 +54,7 @@ public class TutorialPopup : SerializedMonoBehaviour
     public void ShowImage(string imageKey)
     {
         ResetWindowLayer();
-        Debug.Log("Show Image");
+        //Debug.Log("Show Image");
         if (ImageWindow.GetComponent<CanvasGroup>().alpha != 1)
         {
             ImageWindowAnimationFsm.FsmVariables.GetFsmString("runType").Value = "open";
