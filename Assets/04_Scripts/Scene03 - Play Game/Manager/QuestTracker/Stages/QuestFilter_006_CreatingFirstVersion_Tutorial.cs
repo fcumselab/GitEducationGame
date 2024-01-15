@@ -49,19 +49,27 @@ public class QuestFilter_006_CreatingFirstVersion_Tutorial : SerializedMonoBehav
 
     public string StartQuestFilter(GameObject Sender, string SenderFSMName, int currentQuestNum)
     {
+        Debug.Log("StartQuestFilter");
         Initializei18nList();
+        Debug.Log("i18nLis");
 
         //Run Git Command
         if (Sender.CompareTag("Window/CommandLineWindow/InputField"))
         {
+            Debug.Log("InputField");
+
             string allCommand = CommandEnterFunction.FsmVariables.GetFsmString("command").Value;
             string commandType = CommandEnterFunction.FsmVariables.GetFsmString("commandType").Value;
             if(commandActionDict.ContainsKey(commandType))
             {
+                Debug.Log("ContainsKey");
+
                 return "Continue";
             }
             else
             {
+                Debug.Log("not ContainsKey");
+
                 return "Continue";
             }
         }

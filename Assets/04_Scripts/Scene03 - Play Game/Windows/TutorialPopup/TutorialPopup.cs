@@ -90,17 +90,14 @@ public class TutorialPopup : SerializedMonoBehaviour
         GameObject TargetWindow;
         if (WindowDict.ContainsKey(windowName1))
         {
-            Debug.Log("found");
-
             TargetWindow = WindowDict[windowName1];
         }
         else
         {
-            Debug.Log("Not found");
             TargetWindow = GameObject.Find(windowName1);
             WindowDict.Add(windowName1, TargetWindow);
         }
-        Debug.Log("TargetWindow" + TargetWindow.name);
+        //Debug.Log("TargetWindow" + TargetWindow.name);
         HighlightPos1.GetComponent<RectTransform>().sizeDelta = TargetWindow.GetComponent<RectTransform>().sizeDelta;
         TargetWindow.transform.SetParent(HighlightPos1.transform);
         PlayMakerFSM WindowFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetWindow, "Window");

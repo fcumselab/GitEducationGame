@@ -219,7 +219,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
     #region Button Action
     void ClickButtonActionDialogue()
     {
-        Debug.Log("Click Dialogue");
+        //Debug.Log("Click Dialogue");
         if (!DialogueManager.isConversationActive)
         {
             isFirstDialog = dialogueButtonFsm.FsmVariables.GetFsmBool("pressFirstTime").Value;

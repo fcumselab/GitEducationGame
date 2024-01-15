@@ -265,7 +265,7 @@ public class GameManual : SerializedMonoBehaviour
             }
             else
             {
-                Debug.LogError("Not found target manual key.");
+                Debug.LogError("Not found target manual key:\n type: " + type[0] + "\n key: " + type[1]);
             }
         }
 
@@ -289,7 +289,7 @@ public class GameManual : SerializedMonoBehaviour
 
         if (!isInitial)
         {
-            Debug.Log("is not Initial");
+            //Debug.Log("is not Initial");
             Transform oldItem = createLocation.transform.Find(listName);
             newItemIndex = oldItem.GetSiblingIndex();
             Destroy(oldItem.gameObject);
