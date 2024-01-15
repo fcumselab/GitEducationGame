@@ -802,7 +802,7 @@ NPC_51_31,51,31,2,2,,圖片happyFace,,False,Block,Normal,,"ShowImage(""happyFace
 NPC_51_32,51,32,2,2,,圖片reload,,False,Block,Normal,,"ShowImage(""reload"")",,,,"First, let's quickly review the knowledge and commands learned in the previous stage.",首先，讓我們快速回顧上一關卡中學到的知識和指令,337.8869;183.7679
 NPC_51_33,51,33,2,2,,圖片crossing,,False,Block,Normal,,"ShowImage(""crossing"")",,,,"In the last stage, we further learned the 'Staging Area'.",在上一關卡中\r\n我們進一步地介紹了 '暫存區域' 的功能,337.8869;233.7679
 NPC_51_34,51,34,2,2,,圖片cmd,,False,Block,Normal,,"ShowImage(""cmd"")",,,,"We use three commands: 'git status', 'git add', and 'git reset'.\nTo interact with the 'Staging Area'.",並通過 'git status'、'git add'、'git reset' \r\n這三個指令來與 '暫存區域' 互動,337.8869;284.8317
-NPC_51_35,51,35,2,2,,,,False,Block,Normal,,,,,,"The 'git status' command opened the 'Staging Area' window,\nand see the structure and contents in it.",'git status' 指令開啟了 '暫存區域' 視窗\r\n並了解了該區域的結構和內容,337.8869;333.7679
+NPC_51_35,51,35,2,2,,,,False,Block,Normal,,,,,,"The 'git status' command opened the 'Staging Area' window,\nand see the structure and contents in it.",git status' 指令開啟了 '暫存區域' 視窗\r\n並了解了該區域的結構和內容,337.8869;333.7679
 NPC_51_36,51,36,2,2,,,,False,Block,Normal,,,,,,We used the 'git add' and 'git reset' commands\nto move specific files into or out of the 'Staging Area'.,通過 'git add' 和 'git reset' 指令\r\n來將指定檔案移入或移出 '暫存區域',341.0784;424.1934
 NPC_51_37,51,37,2,2,,圖片lightBulb,,False,Block,Normal,,"ShowImage(""lightBulb"")",,,,"In this stage, \r\nwe will learn more advanced commands to operate the 'Staging Area'.",在本次關卡中\r\n我們將學習更進階的指令來操作 '暫存區域',338.9507;472.0659
 NPC_51_38,51,38,2,2,,(建構開始\r),,False,Block,Normal,,"CloseImageWindow();\nBlackPanelControl(false);\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");",,,,"Next, let's simulate the background story for this stage.",接下來，讓我們先來模擬本次的遊戲背景,338.9507;523.2423
@@ -815,12 +815,12 @@ NPC_52_33,52,33,2,2,,(新增任務)&圖片crossing,,False,Block,Normal,,"ShowIma
 NPC_52_34,52,34,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,631.3145;513.2145
 NPC_53_0,53,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"BlackPanelControl(true);\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,353.1125;368.647
 NPC_53_31,53,31,2,2,,高亮stagingArea視窗&顯示Hint_StagingAreaWindow,,False,Block,Normal,,"HighlightWindow(""StagingAreaWindow"","""");\nHintController(""StagingAreaWindow"",true );",,,,"Alright, you've opened the 'Staging Area' window. \r\nNow, let's observe its contents.",好的，您已開啟 '暫存區域' 視窗\r\n現在，讓我們來觀察視窗中的內容,352.0536;455.6494
-NPC_53_32,53,32,2,2,,不顯示Hint_StagingAreaWindow&顯示Hint_UnstagedFiles,,False,Block,Normal,,"HintController(""StagingAreaWindow"",false);\nHintController(""UnstagedFiles"",true);",,,,"You may have noticed that in the 'Untracked' area,\nthere are only two items: 'Folder B/' and 'File C.txt'.",您或許已經注意到\r\n在 '未追蹤' 區域中\r\n只有 '資料夾B/' 和 '文件C.txt' 這兩個列表,352.0536;505.6494
+NPC_53_32,53,32,2,2,,不顯示Hint_StagingAreaWindow&顯示Hint_UnstagedFiles,,False,Block,Normal,,"HintController(""StagingAreaWindow"",false);\nHintController(""UnstagedFiles"",true);",,,,"You may have noticed that in the 'Untracked' area,\nthere are only two items: 'Folder B' and 'File C.txt'.",您或許已經注意到\r\n在 '未追蹤' 區域中\r\n只有 '資料夾B' 和 '文件C.txt' 這兩個列表,352.0536;505.6494
 NPC_53_33,53,33,2,2,,圖片lightBulb,,False,Block,Normal,,"ShowImage(""lightBulb"")",,,,"Next, let's understand how Git determines whether a file should be tracked.",接下來，讓我們來了解\r\nGit 是如何判斷檔案是否要被追蹤的,352.0536;555.6494
-NPC_53_34,53,34,2,2,,高亮stagingArea視窗&高亮FileManager視窗&顯示Hint_FileManagerWindow,,False,Block,Normal,,"HighlightWindow(""FileManagerWindow"",""StagingAreaWindow"");\nHintController(""FileManagerWindow"",true);",,,,"First, let's start with 'Folder A'. \r\nIt doesn't have files.",首先，從 '資料夾A' 開始\r\n資料夾中沒有任何檔案,352.0536;606.7131
+NPC_53_34,53,34,2,2,,高亮stagingArea視窗&高亮FileManager視窗&顯示Hint_FileManagerWindow&不顯示Hint_UnstagedFiles,,False,Block,Normal,,"HighlightWindow(""FileManagerWindow"",""StagingAreaWindow"");\nHintController(""FileManagerWindow"",true);\nHintController(""UnstagedFiles"",false);",,,,"First, let's start with 'Folder A'. \r\nIt doesn't have files.",首先，從 '資料夾A' 開始\r\n資料夾中沒有任何檔案,352.0536;606.7131
 NPC_53_35,53,35,2,2,,不顯示Hint_FileManagerWindow&顯示Hint_StagingAreaWindow,,False,Block,Normal,,"HintController(""FileManagerWindow"",false);\nHintController(""StagingAreaWindow"",true);",,,,"Git's primary purpose is to track and manage files, \r\nso it doesn't need to track an empty folder.",Git 主要目的是追蹤和管理檔案\r\n所以 Git 不需要追蹤它,352.0536;655.6494
 NPC_53_36,53,36,2,2,,不顯示Hint_StagingAreaWindow&顯示Hint_FileManagerWindow,,False,Block,Normal,,"HintController(""FileManagerWindow"",true);\nHintController(""StagingAreaWindow"",false);",,,,"Next is 'Folder B', which contains other untracked files.",接下來是 '資料夾B'\r\n資料夾裡面含有其他未追蹤的檔案,355.2451;746.0748
-NPC_53_37,53,37,2,2,,不顯示Hint_FileManagerWindow&顯示Hint_StagingAreaWindow,,False,Block,Normal,,"HintController(""FileManagerWindow"",false);\nHintController(""StagingAreaWindow"",true);",,,,"When there are no tracked files in 'Folder B', \r\nit is simply displayed as 'Folder B/'.",當 '資料夾B' 裡面沒有任何被追蹤的檔案時\r\n就會簡單顯示為 '資料夾B/',353.1174;793.9473
+NPC_53_37,53,37,2,2,,不顯示Hint_FileManagerWindow&顯示Hint_StagingAreaWindow,,False,Block,Normal,,"HintController(""FileManagerWindow"",false);\nHintController(""StagingAreaWindow"",true);",,,,"When there are no tracked files in 'Folder B', \r\nit is simply displayed as 'Folder B'.",當 '資料夾B' 裡面沒有任何被追蹤的檔案時\r\n就會簡單顯示為 '資料夾B',353.1174;793.9473
 NPC_53_38,53,38,2,2,,不顯示Hint_StagingAreaWindow&顯示Hint_FileManagerWindow,,False,Block,Normal,,"HintController(""FileManagerWindow"",true);\nHintController(""StagingAreaWindow"",false);",,,,"The final, file 'File C.txt'. \r\nAccording to Git's default rules,\r\nall '<color=#CF001C>non-folder type</color>' files will be tracked.",最後，'文件C.txt' 檔案\r\n在 Git 默認規則下\r\n所有 '<color=#CF001C>非資料夾類型</color>' 的檔案都會被追蹤,353.1174;845.1237
 NPC_53_39,53,39,2,2,,圖片cmd,,False,Block,Normal,,"ShowImage(""cmd"")",,,,"After understanding how Git tracks files,\nlet's move on to learning about Git commands.",在了解 Git 追蹤檔案的規則後\r\n讓我們開始進入學習 Git 指令的部分吧,353.1174;893.9473
 NPC_53_40,53,40,2,2,,圖片lightBulb,,False,Block,Normal,,"ShowImage(""lightBulb"")",,,,"The 'git add' and 'git reset' commands we learned in the previous stage.\nThey are not only can add '<color=#CF001C>target file name</color>', but also add '<color=#CF001C>folder name</color>'.",我們在前一關卡學習的 'git add'、'git reset' 指令\r\n它們不只可以加入 '<color=#CF001C>指定檔案名稱</color>'\r\n還可以加入 '<color=#CF001C>資料夾名稱</color>',353.1174;943.9475
@@ -834,7 +834,7 @@ NPC_54_31,54,31,2,2,,圖片happyFace,,False,Block,Normal,,"ShowImage(""happyFace
 NPC_54_32,54,32,2,2,,高亮stagingArea視窗&顯示Hint_StagedFiles,,False,Block,Normal,,"HighlightWindow(""StagingAreaWindow"","""");\nHintController(""StagedFiles"",true );",,,,"Looking at the 'Staging Area' window, \r\nyou can notice that all files in 'Folder B' have been added to 'Staged'.",查看 '暫存區域' 視窗\r\n能夠注意到 '資料夾B' 中的所有檔案已加入至 '已追蹤',216.9599;291.413
 NPC_54_33,54,33,2,2,,圖片cmd,,False,Block,Normal,,"ShowImage(""cmd"")",,,,You could still use 'git add file_name' to add files from the folder to 'Staged' one by one.,雖然您也可以使用 'git add 指定的檔案名稱' \r\n來將資料夾中的檔案一一加入至 '已追蹤',216.9599;341.413
 NPC_54_34,54,34,2,2,,圖片lightBulb,,False,Block,Normal,,"ShowImage(""lightBulb"")",,,,"But if you learn how to use this command,\nyou can control the system more conveniently.",但是只要掌握這個指令\r\n您就能更便利地操作系統,216.9599;392.4768
-NPC_54_35,54,35,2,2,,高亮stagingArea視窗&顯示Hint_UnstagedFiles,,False,Block,Normal,,"HighlightWindow(""StagingAreaWindow"","""");\nHintController(""UnstagedFiles"",true );",,,,"Now, let's move all files in 'Folder B' back to 'Untracked'.",那麼，這次讓我們把 '資料夾B' 中的檔案\r\n全部移動回 '未追蹤' 吧,216.9599;441.413
+NPC_54_35,54,35,2,2,,高亮stagingArea視窗&顯示Hint_UnstagedFiles&不顯示Hint_StagedFiles,,False,Block,Normal,,"HighlightWindow(""StagingAreaWindow"","""");\nHintController(""UnstagedFiles"",true );\nHintController(""StagedFiles"",false);",,,,"Now, let's move all files in 'Folder B' back to 'Untracked'.",那麼，這次讓我們把 '資料夾B' 中的檔案\r\n全部移動回 '未追蹤' 吧,216.9599;441.413
 NPC_54_36,54,36,2,2,,解鎖手冊gitreset2&(新增任務)&圖片cmd,,False,Block,Normal,,"UnlockGameManualItem(""C/git reset/2"");\nShowImage(""cmd"");\nFSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,By adding 'folder name' in front of 'git reset'.\n'<color=#CF001C>git reset folder_name</color>' can move all files in the folder to 'Untracked' at once.,在 'git reset' 前方加入 '資料夾名稱'\r\n組成 '<color=#CF001C>git reset 資料夾名稱</color>'\r\n就可以一次性移動資料夾中的檔案至 '未追蹤',220.1514;531.8385
 NPC_54_37,54,37,2,2,,高亮粒子 手冊,,False,Block,Normal,,"FSMEvent(""Hint/Particle/Show Particle"", ""GameManualBtn"", ""Highlight Particle"");",,,,"If you forget the function of the 'git reset' command, \r\nplease refer to the game manual.",如果忘記 'git reset' 指令的作用\r\n請查閱遊戲手冊來複習,218.0237;579.7109
 NPC_54_38,54,38,2,2,,(重置對話),,False,Block,Normal,,ResetAllTutorialObj(),Continue(),,,,,218.0237;630.8873
@@ -873,6 +873,7 @@ NPC_59_35,59,35,2,2,,,"我們學會了在指令前加入 ""資料夾名稱"" 或
 NPC_59_36,59,36,2,2,,,在回顧完了上一個關卡的內容後\r\n讓我們開始本次的教學,False,Block,Normal,,,,,,,,323.0533;439.2047
 NPC_59_37,59,37,2,2,,(建構開始\r),首先，我們先來模擬本次的遊戲背景,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Close Tutorial Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""Stage Manager/Load Default Background Story"", ""Stage Manager Parent"", ""Background Controller"");",,,,,,320.9256;487.0771
 NPC_59_38,59,38,2,2,,(新增任務),"在建立好了關卡場景後\r\n請您先開啟 ""檔案管理"" 視窗\r\n我們來確認電腦中的檔案",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,320.9256;538.2535
+NPC_59_39,59,39,2,2,,,,False,Block,Normal,,,,,,,,320.9256;588.2535
 NPC_60_0,60,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,175.2694;107.6667
 NPC_60_31,60,31,2,2,,,"好的，在開啟 ""檔案管理"" 視窗後\r\n您會注意到電腦中的檔案\r\n這與第一個關卡中的模擬背景相同",False,Block,Normal,,,,,,,,173.8653;173.0099
 NPC_60_32,60,32,2,2,,,我們要來完成課程需要準備的期中報告\r\n但這次我們將使用 Git 系統來管理檔案,False,Block,Normal,,,,,,,,173.8653;223.0099
@@ -880,6 +881,7 @@ NPC_60_33,60,33,2,2,,,"在我們創建了 Git 管理系統\r\n""儲存庫"" 的�
 NPC_60_34,60,34,2,2,,,"因此，在通常情況下\r\n我們的第一個版本都是將\r\n需要管理的檔案新增至 ""儲存庫"" 中",False,Block,Normal,,,,,,,,173.8653;324.0738
 NPC_60_35,60,35,2,2,,(新增任務),"接下來，為了讓期中報告能夠透過 Git 進行管理\r\n讓我們透過指令將檔案移動到 ""暫存區域"" 吧",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,173.8653;373.0099
 NPC_60_36,60,36,2,2,,,"一旦我們將檔案放入 ""暫存區域"" 中\r\n就可以準備將其推送到 ""儲存庫"" 中了",False,Block,Normal,,,,,,,,177.0568;463.4355
+NPC_60_37,60,37,2,2,,,,False,Block,Normal,,,,,,,,177.0568;513.4355
 NPC_61_0,61,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,225.936;113
 NPC_61_31,61,31,2,2,,,"非常好！\r\n您已成功將簡報推送到 ""暫存區域"" 中",False,Block,Normal,,,,,,,,223.0102;177.7798
 NPC_61_32,61,32,2,2,,,在確定好要提交的內容後,False,Block,Normal,,,,,,,,223.0102;227.7798
@@ -897,12 +899,10 @@ NPC_61_43,61,43,2,2,,,"第 1 步：\r\n在輸入欄中輸入 ""<color=#CF001C>gi
 NPC_61_44,61,44,2,2,,,"第 2 步：\r\n在指令前方加入一個空格\r\n指令會變成 ""<color=#CF001C>git commit -m </color>""",False,Block,Normal,,,,,,,,224.074;910.7585
 NPC_61_45,61,45,2,2,,,"第 3 步：\r\n由於 Git 指令是按照空格區分不同的部分\r\n所以在撰寫提交訊息時\r\n我們需要通過 <color=#CF001C>""</color> 符號將訊息括起來\r\n現在，指令應該是：「<color=#CF001C>git commit -m """"</color>」",False,Block,Normal,,,,,,,,224.074;960.7585
 NPC_61_46,61,46,2,2,,,第 4 步：\r\n在本遊戲中，您不需要手動輸入提交訊息,False,Block,Normal,,,,,,,,470.8826;175.6522
-NPC_61_47,61,47,2,2,,,在完成第 3 步後，按下 Tab 鍵或搜尋功能按鈕\r\n來開啟提交訊息選項\r\n並從選項中<color=#CF001C>選擇一個最合適的提交訊息</color>,False,Block,Normal,,,,,,,,470.8826;225.6522
-NPC_61_48,61,48,2,2,,,"第 5 步：\r\n選擇完後，輸入欄中的內容應該是：\r\n「<color=#CF001C>git commit -m ""選擇的提交訊息""</color>」",False,Block,Normal,,,,,,,,470.8826;275.6522
-NPC_61_49,61,49,2,2,,(新增任務),請您按照以上步驟\r\n創建您的第一個專案版本吧,False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,470.8826;325.6522
 NPC_62_0,62,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,149.436;119.75
 NPC_62_31,62,31,2,2,,,"非常好！\r\n您已成功提交期中簡報的第一個版本\r\n並且 ""命令行"" 返回了成功訊息",False,Block,Normal,,,,,,,,146.5523;191.9236
 NPC_62_32,62,32,2,2,,(新增任務),"不過，在提交成功後\r\n讓我們先來確認 ""暫存區域"" 的狀態\r\n以確保指令 ""git commit -m"" 是否成功執行",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,146.5523;241.9236
+NPC_62_33,62,33,2,2,,,,False,Block,Normal,,,,,,,,147.5523;340.9236
 NPC_63_0,63,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,200.0313;110.5238
 NPC_63_31,63,31,2,2,,,"好的，在打開了 ""暫存區域"" 視窗後",False,Block,Normal,,,,,,,,197.1986;168.7943
 NPC_63_32,63,32,2,2,,,"您會注意到 ""期中報告"" 檔案\r\n並未出現在 ""未追蹤"" 和 ""已追蹤"" 區域中",False,Block,Normal,,,,,,,,197.1986;218.7943
@@ -936,9 +936,6 @@ NPC_64_47,64,47,2,2,,,"在 ""提交"" 詳細訊息中顯示的 ""HEAD -> master"
 NPC_64_48,64,48,2,2,,,當我們有多個版本時\r\n可以使用特定的指令來切換到不同的版本,False,Block,Normal,,,,,,,,390.3724;227.5
 NPC_64_49,64,49,2,2,,,"這將使 ""HEAD"" 移動到所選擇的 ""提交"" 版本\r\n同時 ""工作目錄"" 中的檔案將恢復到該版本的內容",False,Block,Normal,,,,,,,,390.3724;277.5
 NPC_64_50,64,50,2,2,,,"接下來，讓我們再次使用 ""git commit -m"" 指令\r\n提交簡報的第二個版本吧",False,Block,Normal,,,,,,,,390.3724;327.5
-NPC_64_51,64,51,2,2,,,不過，在這之前\r\n我們需要先修改簡報的內容,False,Block,Normal,,,,,,,,391.4362;415.7979
-NPC_64_52,64,52,2,2,,,"然後將這些變更再次移動到 ""暫存區域"" 中\r\n才能夠使用 ""git commit -m"" 指令新增第二個提交",False,Block,Normal,,,,,,,,391.4362;465.7979
-NPC_64_53,64,53,2,2,,(新增任務),"請您開啟 ""期中報告.ppt""\r\n並修正檔案中錯誤的內容吧",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,391.4362;515.7979
 NPC_65_0,65,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,166.1026;105.1667
 NPC_65_31,65,31,2,2,,,"很好！\r\n您已成功修正了 ""期中報告"" 中錯誤內容 ",False,Block,Normal,,,,,,,,163.953;179.7592
 NPC_65_32,65,32,2,2,,,"由於我們已經變更了檔案內容\r\n""暫存區域"" 應該也更新了内容",False,Block,Normal,,,,,,,,163.953;229.7592
@@ -949,22 +946,21 @@ NPC_66_32,66,32,2,2,,,"在修改檔案之後\r\n""期中報告"" 檔案再次出
 NPC_66_33,66,33,2,2,,,"這是因為 Git 系統會比較\r\n""工作目錄"" 與 ""第一個提交版本"" 的檔案差異\r\n並發現 ""期中報告"" 檔案的內容已經有所變動",False,Block,Normal,,,,,,,,229.0971;305.345
 NPC_66_34,66,34,2,2,,,此外，您會注意到列表中的第一行顯示的是鉛筆圖示\r\n表示這個檔案的內容已經變動,False,Block,Normal,,,,,,,,229.0971;356.4088
 NPC_66_35,66,35,2,2,,(新增任務),"接下來，讓我們將簡報推入到 ""暫存區域"" 中吧",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,229.0971;405.345
-NPC_66_36,66,36,2,2,,,"完成這個步驟後\r\n請您再次確認 ""暫存區域"" 的狀態\r\n以確保檔案已經放入到 ""已追蹤"" 區域",False,Block,Normal,,,,,,,,232.2886;495.7704
 NPC_67_0,67,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,226.4521;126.8065
 NPC_67_31,67,31,2,2,,,"做得很好！\r\n您已經將修改好的 ""期中報告"" 檔案\r\n成功推入到了 ""已追蹤"" 區域",False,Block,Normal,,,,,,,,227.79;208.5793
 NPC_67_32,67,32,2,2,,(新增任務),"在確定好要推送到 ""儲存庫"" 的檔案後\r\n現在讓我們再一次使用 ""git commit -m"" 指令\r\n來提交簡報的第二個版本",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,227.79;258.5793
 NPC_67_33,67,33,2,2,,,"如果您忘記了 ""git commit -m"" 指令的輸入結構\r\n或者需要快速了解如何填入提交訊息\r\n請隨時查閱遊戲手冊中的相關內容",False,Block,Normal,,,,,,,,227.79;308.5793
+NPC_67_34,67,34,2,2,,,,False,Block,Normal,,,,,,,,228.79;405.5793
 NPC_68_0,68,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,276.936;126
 NPC_68_31,68,31,2,2,,,"很好！\r\n您已經成功記住了 ""git commit -m"" 的用法\r\n並成功提交了簡報的第二個版本",False,Block,Normal,,,,,,,,275.5319;199.6276
 NPC_68_32,68,32,2,2,,,"現在，為了確保我們的操作是正確無誤的\r\n請您再次確認 ""暫存區域"" 的狀態",False,Block,Normal,,,,,,,,278.0319;254.6276
 NPC_68_33,68,33,2,2,,,"在實際工作中\r\n確認 ""暫存區域"" 和 ""提交記錄"" 不一定是必要的步驟\r\n但確認指令執行後的狀態是一個很好的習慣",False,Block,Normal,,,,,,,,278.0319;304.6276
 NPC_68_34,68,34,2,2,,,在本關卡中\r\n我們希望您可以確實了解指令之間的用途,False,Block,Normal,,,,,,,,278.0319;355.6914
 NPC_68_35,68,35,2,2,,,因此在教學過程中\r\n需要您去確認執行後的內容,False,Block,Normal,,,,,,,,278.0319;404.6276
-NPC_68_36,68,36,2,2,,,"當您已經熟練了 ""新增提交"" 流程後\r\n後面的關卡將會縮短確認的過程",False,Block,Normal,,,,,,,,281.2234;495.0531
-NPC_68_37,68,37,2,2,,(新增任務),"接下來，請再麻煩您確認 ""期中簡報""\r\n是否已成功從 ""暫存區域"" 移動到 ""儲存庫"" 中",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,279.0957;542.9255
 NPC_69_0,69,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,150.825;84.33331
 NPC_69_31,69,31,2,2,,,"好的，執行了 ""git status"" 指令後\r\n我們確認了 ""期中報告"" 已經\r\n從 ""暫存區域"" 移動到了 ""儲存庫"" 中",False,Block,Normal,,,,,,,,147.2222;157.6832
-NPC_69_32,69,32,2,2,,(新增任務),"現在，讓我們再次使用 ""git log"" 指令\r\n來觀看新增了第二個 ""提交"" 後\r\n""提交記錄"" 視窗有了什麼樣的變化吧",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,147.2222;207.6832
+NPC_69_32,69,32,2,2,,(新增任務),"現在，讓我們再次使用 ""git log"" 指令\r\n來觀看新增了第二個 ""提交"" 後\r\n""提交記錄"" 視窗有了什麼樣的變化吧",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,144.2222;205.6832
+NPC_69_33,69,33,2,2,,,,False,Block,Normal,,,,,,,,147.2222;312.6832
 NPC_70_0,70,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,425.6106;110.6073
 NPC_70_31,70,31,2,2,,,"非常好！\r\n您再次使用了 ""git log"" 指令\r\n""提交記錄"" 視窗的內容更新了",False,Block,Normal,,,,,,,,431.4166;185.9285
 NPC_70_32,70,32,2,2,,,"您會注意到 ""提交記錄"" 視窗中\r\n又新增了一個 ""提交""\r\n這個 ""提交"" 與第一個 ""提交"" 相連在了一起",False,Block,Normal,,,,,,,,431.4166;235.9285
@@ -974,7 +970,6 @@ NPC_70_35,70,35,2,2,,,"最新的 ""提交"" 位於時間軸的頂部\r\n而最�
 NPC_70_36,70,36,2,2,,,"此外，""提交"" 之間的連線\r\n告訴了我們 ""提交"" 之間的關係\r\n就像時間軸上的箭頭指示了時間的流向",False,Block,Normal,,,,,,,,434.6081;476.354
 NPC_70_37,70,37,2,2,,,"通過 ""提交記錄"" 的內容\r\n您可以更好地理解 Git 系統\r\n是如何記錄版本之間的不同",False,Block,Normal,,,,,,,,432.4803;524.226
 NPC_70_38,70,38,2,2,,(新增任務),"接下來，讓您自行嘗試創建第三個 ""提交"" 吧！",False,Block,Normal,,"FSMEvent(""Quest Tracker/Add New Quest"", ""Quest Tracker Parent"", ""Quest Tracker"");",,,,,,432.4803;575.4023
-NPC_70_39,70,39,2,2,,,"希望透過本次的練習\r\n能夠幫助您熟練 ""新增提交"" 的流程\r\n請加油！",False,Block,Normal,,,,,,,,432.4803;624.2261
 NPC_71_0,71,0,2,2,START,(展開視窗 + 黑屏),,False,Block,Normal,,"FSMEvent(""Tutorial Popup/Open Black Panel"", ""Tutorial Popup Parent"", ""Tutorial Popup"");\nFSMEvent(""DialogueChatWindow/expand window"", ""DialogueChatWindow"", ""Fold Button"");",None(),,,,,250;59
 NPC_71_31,71,31,2,2,,,"非常出色！\r\n您成功地新增了第三個 ""提交""\r\n並且確認了 ""暫存區域"" 和 ""提交記錄"" 的狀態",False,Block,Normal,,,,,,,,245.5317;128.2145
 NPC_71_32,71,32,2,2,,,"相信透過本關卡的練習\r\n您應該更加熟悉 ""新建提交"" 流程了",False,Block,Normal,,,,,,,,245.5317;178.2145
@@ -986,14 +981,6 @@ NPC_71_37,71,37,2,2,,,"之後，我們學會了 ""git log"" 指令\r\n用來確�
 NPC_71_38,71,38,2,2,,,"在視窗中\r\n圓形圖示的 ""提交"" 就如同時間軸一般",False,Block,Normal,,,,,,,,246.5955;517.6887
 NPC_71_39,71,39,2,2,,,"每次新增了 ""提交""\r\n就會顯示在時間軸的頂部\r\n底部的 ""提交"" 表示為最早的 ""提交""",False,Block,Normal,,,,,,,,246.5955;566.5123
 NPC_71_40,71,40,2,2,,,"而 ""提交"" 們會透過連接線\r\n來讓使用者辨別它們之間的關係",False,Block,Normal,,,,,,,,246.5955;616.5123
-NPC_71_41,71,41,2,2,,,"旗子圖示 HEAD 所表示的\r\n就是目前所在的 ""提交"" ",False,Block,Normal,,,,,,,,246.5955;711.1932
-NPC_71_42,71,42,2,2,,,透過本次的關卡\r\n您已經可以正式開始\r\n使用 Git 指令來管理開發中的專案了！,False,Block,Normal,,,,,,,,246.5955;761.1932
-NPC_71_43,71,43,2,2,,,"不過，雖然您可以新增 ""提交""\r\n來記錄多個專案版本",False,Block,Normal,,,,,,,,246.5955;811.1932
-NPC_71_44,71,44,2,2,,,但是，如果我們想要回到之前的版本\r\n來解決最新版本遇到的問題\r\n又應該怎麼做呢？,False,Block,Normal,,,,,,,,246.5955;861.1932
-NPC_71_45,71,45,2,2,,,在下一個關卡裡\r\n我們要學習如何切換到不同的版本,False,Block,Normal,,,,,,,,246.5955;911.1932
-NPC_71_46,71,46,2,2,,,"讓 ""提交記錄"" 中的 HEAD 旗子\r\n能夠移動到其他 ""提交"" 上\r\n並讓 ""工作目錄"" 的檔案回到之前的版本",False,Block,Normal,,,,,,,,493.4041;126.0869
-NPC_71_47,71,47,2,2,,,本次的關卡相比前面的關卡來說比較複雜\r\n但是您堅持到了這裡！,False,Block,Normal,,,,,,,,492.4041;176.0869
-NPC_71_48,71,48,2,2,,,最後，恭喜您通過了本次關卡\r\n您做得很好！,False,Block,Normal,,,,,,,,493.4041;226.0869
 NPC_72_0,72,0,2,2,START,,,False,Block,Normal,,,Continue(),,,,,139.8235;38.82352
 NPC_72_1,72,1,2,2,,,,False,Block,Normal,,,,,,,,141;90
 NPC_72_2,72,2,2,2,,,,False,Block,Normal,,,,,,,,141;140
@@ -2812,12 +2799,14 @@ Number,Number,Number,Number,Special
 59,35,59,36,Normal
 59,36,59,37,Normal
 59,37,59,38,Normal
+59,38,59,39,Normal
 60,0,60,31,Normal
 60,31,60,32,Normal
 60,32,60,33,Normal
 60,33,60,34,Normal
 60,34,60,35,Normal
 60,35,60,36,Normal
+60,36,60,37,Normal
 61,0,61,31,Normal
 61,31,61,32,Normal
 61,32,61,33,Normal
@@ -2834,11 +2823,9 @@ Number,Number,Number,Number,Special
 61,43,61,44,Normal
 61,44,61,45,Normal
 61,45,61,46,Normal
-61,46,61,47,Normal
-61,47,61,48,Normal
-61,48,61,49,Normal
 62,0,62,31,Normal
 62,31,62,32,Normal
+62,32,62,33,Normal
 63,0,63,31,Normal
 63,31,63,32,Normal
 63,32,63,33,Normal
@@ -2870,9 +2857,6 @@ Number,Number,Number,Number,Special
 64,47,64,48,Normal
 64,48,64,49,Normal
 64,49,64,50,Normal
-64,50,64,51,Normal
-64,51,64,52,Normal
-64,52,64,53,Normal
 65,0,65,31,Normal
 65,31,65,32,Normal
 65,32,65,33,Normal
@@ -2881,19 +2865,18 @@ Number,Number,Number,Number,Special
 66,32,66,33,Normal
 66,33,66,34,Normal
 66,34,66,35,Normal
-66,35,66,36,Normal
 67,0,67,31,Normal
 67,31,67,32,Normal
 67,32,67,33,Normal
+67,33,67,34,Normal
 68,0,68,31,Normal
 68,31,68,32,Normal
 68,32,68,33,Normal
 68,33,68,34,Normal
 68,34,68,35,Normal
-68,35,68,36,Normal
-68,36,68,37,Normal
 69,0,69,31,Normal
 69,31,69,32,Normal
+69,32,69,33,Normal
 70,0,70,31,Normal
 70,31,70,32,Normal
 70,32,70,33,Normal
@@ -2902,7 +2885,6 @@ Number,Number,Number,Number,Special
 70,35,70,36,Normal
 70,36,70,37,Normal
 70,37,70,38,Normal
-70,38,70,39,Normal
 71,0,71,31,Normal
 71,31,71,32,Normal
 71,32,71,33,Normal
@@ -2913,14 +2895,6 @@ Number,Number,Number,Number,Special
 71,37,71,38,Normal
 71,38,71,39,Normal
 71,39,71,40,Normal
-71,40,71,41,Normal
-71,41,71,42,Normal
-71,42,71,43,Normal
-71,43,71,44,Normal
-71,44,71,45,Normal
-71,45,71,46,Normal
-71,46,71,47,Normal
-71,47,71,48,Normal
 72,0,72,1,Normal
 72,1,72,2,Normal
 72,2,72,3,Normal
