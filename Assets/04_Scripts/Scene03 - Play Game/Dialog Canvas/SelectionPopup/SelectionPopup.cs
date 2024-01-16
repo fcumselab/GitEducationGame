@@ -40,9 +40,15 @@ public class SelectionPopup : SerializedMonoBehaviour
 
     #endregion
 
+    [SerializeField] InputField commandInputField;
+
     [FoldoutGroup("Popup Content")]
     [SerializeField] Dictionary<int, List<Selection>> SelectionDict = new();
+    [FoldoutGroup("Popup Content")]
+    [SerializeField] SelectionPopupButton correctAnswerButton;
+    [FoldoutGroup("Popup Content")]
     [SerializeField] List<int> numList = new() { 0, 1, 2 };
+
     PlayMakerFSM targetContentFsm;
     bool needUpdate;
 
@@ -52,10 +58,21 @@ public class SelectionPopup : SerializedMonoBehaviour
         needUpdate = targetContentFsm.enabled;
         if (needUpdate)
         {
-            for (int i = 0; i < targetContentFsm.FsmVariables.GetFsmArray("commitMessageActiveList").Length; i++)
+            if(selectionType == SelectionType.BranchName)
             {
-                int questNum = (int)targetContentFsm.FsmVariables.GetFsmArray("commitMessageActiveList").Get(i);
-                SelectionDict.Add(questNum, GetValuesFromFsm(i));
+                for (int i = 0; i < targetContentFsm.FsmVariables.GetFsmArray("branchNameActiveList").Length; i++)
+                {
+                    int questNum = (int)targetContentFsm.FsmVariables.GetFsmArray("branchNameActiveList").Get(i);
+                    SelectionDict.Add(questNum, GetValuesFromFsm(i));
+                }
+            }
+            else if (selectionType == SelectionType.CommitMessage)
+            {
+                for (int i = 0; i < targetContentFsm.FsmVariables.GetFsmArray("commitMessageActiveList").Length; i++)
+                {
+                    int questNum = (int)targetContentFsm.FsmVariables.GetFsmArray("commitMessageActiveList").Get(i);
+                    SelectionDict.Add(questNum, GetValuesFromFsm(i));
+                }
             }
         }
 
@@ -63,6 +80,8 @@ public class SelectionPopup : SerializedMonoBehaviour
         {
             SelectionButtonList.Add(SelectionButtonGroup.transform.GetChild(i).gameObject);
         }
+
+        
     }
 
     List<Selection> GetValuesFromFsm(int index)
@@ -74,9 +93,9 @@ public class SelectionPopup : SerializedMonoBehaviour
             Selection newSelection = new();
             if (selectionType == SelectionType.BranchName)
             {
-                newSelection.isCorrect = (bool)targetContentFsm.FsmVariables.GetFsmArray("commitMessageAnswerList").Get(index * 4 + n);
-                newSelection.message = targetContentFsm.FsmVariables.GetFsmArray("commitMessageList").Get(index * 4 + n).ToString();
-                newSelection.reason = targetContentFsm.FsmVariables.GetFsmArray("commitMessageReasonList").Get(index * 4 + n).ToString();
+                newSelection.isCorrect = (bool)targetContentFsm.FsmVariables.GetFsmArray("branchNameAnswerList").Get(index * 4 + n);
+                newSelection.message = targetContentFsm.FsmVariables.GetFsmArray("branchNameList").Get(index * 4 + n).ToString();
+                newSelection.reason = targetContentFsm.FsmVariables.GetFsmArray("branchNameReasonList").Get(index * 4 + n).ToString();
             }
             else if (selectionType == SelectionType.CommitMessage)
             {
@@ -110,7 +129,14 @@ public class SelectionPopup : SerializedMonoBehaviour
             {
                 Selection selection = SelectionDict[currentQuestnum][numList[i]];
                 SelectionButtonList[i].SetActive(true);
-                SelectionButtonList[i].GetComponent<SelectionPopupButton>().SetValue(this, selection.isCorrect, selection.message, selection.reason);
+                if (selection.isCorrect)
+                {
+                    correctAnswerButton = SelectionButtonList[i].GetComponent<SelectionPopupButton>().SetValue(this, selection.isCorrect, selection.message, selection.reason);
+                }
+                else
+                {
+                    SelectionButtonList[i].GetComponent<SelectionPopupButton>().SetValue(this, selection.isCorrect, selection.message, selection.reason);
+                }
             }
 
             ChangeIcon(IconSelection);
@@ -118,6 +144,7 @@ public class SelectionPopup : SerializedMonoBehaviour
         }
         else
         {
+            correctAnswerButton = null;
             foreach (GameObject item in SelectionButtonList)
             {
                 item.SetActive(false);
@@ -152,7 +179,20 @@ public class SelectionPopup : SerializedMonoBehaviour
             }
 
             //Send to inputField
-            //correctText.text 
+            if (!commandInputField)
+            {
+                commandInputField = GameObject.Find("CommandInputField").GetComponent<InputField>();
+            }
+
+            if (selectionType == SelectionType.BranchName)
+            {
+                commandInputField.text = $"git branch {correctText.text}";
+            }
+            else if (selectionType == SelectionType.CommitMessage)
+            {
+                commandInputField.text = $"git commit -m \"{correctText.text}\"";
+            }
+                
             BackButton.interactable = true;
         }
         else
@@ -162,19 +202,23 @@ public class SelectionPopup : SerializedMonoBehaviour
     }
 
     //For Run Command
-    public bool CheckSelectItemIsCorrectAnswer()
+    public bool CheckSelectItemIsCorrectAnswer(string command)
     {
+        Debug.Log("command\n" + command);
         int currentQuestnum = QuestTrackerManager.Instance.GetCurrentQuestNum();
         if (SelectionDict.ContainsKey(currentQuestnum))
         {
-            //Input
+            if (selectionType == SelectionType.BranchName)
+            {
+                return (command == $"git branch {correctAnswerButton.GetCorrectText()}");
+            }
+            else if (selectionType == SelectionType.CommitMessage)
+            {
+                return (command == $"git commit -m \"{correctAnswerButton.GetCorrectText()}\"");
+            }
+        }
 
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
 }

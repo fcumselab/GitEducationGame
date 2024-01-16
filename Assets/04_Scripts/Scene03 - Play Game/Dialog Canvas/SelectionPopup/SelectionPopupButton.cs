@@ -42,7 +42,7 @@ public class SelectionPopupButton : SerializedMonoBehaviour
         }
     }
 
-    public void SetValue(SelectionPopup script, bool isCorrect, string content, string reason)
+    public SelectionPopupButton SetValue(SelectionPopup script, bool isCorrect, string content, string reason)
     {
         ResetStatus();
         textMessage = content;
@@ -53,6 +53,8 @@ public class SelectionPopupButton : SerializedMonoBehaviour
         this.isCorrect = isCorrect;
         i18nText.TranslationName = textMessage;
         mouseTooltipTrigger.tooltipText = tooltipMessage;
+
+        return this;
     }
 
     public void ShowResult()
@@ -80,5 +82,10 @@ public class SelectionPopupButton : SerializedMonoBehaviour
         mouseTooltipTrigger.triggerMode = MouseTooltipTrigger.TriggerMode.ClickButton;
         button.interactable = true;
         IconPanel.SetActive(false);
+    }
+
+    public string GetCorrectText()
+    {
+        return ShowText.text;
     }
 }
