@@ -61,7 +61,7 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
         
         totalStage = foundTypeData.Count;
 
-        PlayMakerFSM fsm;
+        
         int buttonItemIndex = 0;
         foreach (StageData stageItem in foundTypeData)
         {
@@ -73,8 +73,11 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
 
                 if (stageItem.isStageUnlock)
                 {
-                    totalStar += stageItem.stageLeaderboardData[0].playerStar;
-                    totalClearStage++;
+                    if(stageItem.stageClearTimes > 0)
+                    {
+                        totalStar += stageItem.stageLeaderboardData[0].playerStar;
+                        totalClearStage++;
+                    }
                     stageSelectionDetailedWindow.InitializeStageItem(stageItemButton, stageItem, true);
                 }
                 else
@@ -94,12 +97,13 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
             }
         }
 
-        fsm = MyPlayMakerScriptHelper.GetFsmByName(targetStageCategoryButton.gameObject, "Update Content");
-        fsm.FsmVariables.FindFsmInt("totalStar").Value = totalStar;
-        fsm.FsmVariables.FindFsmInt("totalStage").Value = totalStage;
-        fsm.FsmVariables.FindFsmInt("totalClearStage").Value = totalClearStage;
-        if (type == "Basic") fsm.FsmVariables.FindFsmBool("isStageCategoryUnlock").Value = true;
-        fsm.enabled = true;
+        PlayMakerFSM categoryFsm = MyPlayMakerScriptHelper.GetFsmByName(targetStageCategoryButton.gameObject, "Update Content");
+
+        categoryFsm.FsmVariables.FindFsmInt("totalStar").Value = totalStar;
+        categoryFsm.FsmVariables.FindFsmInt("totalStage").Value = totalStage;
+        categoryFsm.FsmVariables.FindFsmInt("totalClearStage").Value = totalClearStage;
+        UpdateStageCategoryButtonStatus(categoryFsm, type, stageData);
+        categoryFsm.enabled = true;
     }
     
     void InitializeStageCategoryAndStageItem()
@@ -108,5 +112,23 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
         InitializeStageCategory("Basic", stageData);
         InitializeStageCategory("Branch", stageData);
         InitializeStageCategory("Remote", stageData);
+    }
+
+    void UpdateStageCategoryButtonStatus(PlayMakerFSM categoryFsm, string categoryType, List<StageData> stageData)
+    {
+        bool isUnlock = false;
+        switch (categoryType)
+        {
+            case "Basic":
+                isUnlock = (stageData.FindIndex((item) => item.stageName == "Game Introduction (Tutorial)" && item.isStageUnlock == true) != -1);
+                break;
+            case "Branch":
+                isUnlock = (stageData.FindIndex((item) => item.stageName == "Git Branching Basics (Tutorial)" && item.isStageUnlock == true) != -1);
+                break;
+            case "Remote":
+                isUnlock = (stageData.FindIndex((item) => item.stageName == "Create Remote Repository (Tutorial)" && item.isStageUnlock == true) != -1);
+                break;
+        }
+        categoryFsm.FsmVariables.FindFsmBool("isStageCategoryUnlock").Value = isUnlock;
     }
 }

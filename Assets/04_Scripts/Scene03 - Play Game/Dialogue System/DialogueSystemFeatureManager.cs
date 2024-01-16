@@ -12,7 +12,7 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
 
     [SerializeField] GameManual gameManual;
 
-    [FoldoutGroup("For other scripts to Register/Unregister")]
+    [Header("For other scripts to Register/Unregister")]
     [SerializeField] List<string> registerFunctionList = new();
 
     #region instance
