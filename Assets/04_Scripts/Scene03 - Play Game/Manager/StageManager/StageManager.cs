@@ -9,6 +9,7 @@ public class StageManager : SerializedMonoBehaviour
     [SerializeField] StageType stageType;
     [SerializeField] string stageName;
 
+    
     #region Initial Variable
     [FoldoutGroup("Window")]
     [SerializeField] List<string> renderWindowList = new();
@@ -24,12 +25,22 @@ public class StageManager : SerializedMonoBehaviour
     [SerializeField] Dictionary<string, int> UsedVersionControlDict = new();
     #endregion
 
-    [Header("Reference/ExistGameObject")]
-    [SerializeField] GameObject RenderWindowLayer;
-    [SerializeField] GameObject GameScreen;
-    public GameObject StageManagerParent;
-    public GameObject QuestTrackerParent;
+    [SerializeField] GameObject DefaultData;
+    [SerializeField] PlayMakerFSM defaultCommitDataFsm;
+    [SerializeField] PlayMakerFSM defaultBranchNameDataFsm;
+    [FoldoutGroup("Reference")]
     public GameObject GameManager;
+    [SerializeField] GameObject RenderWindowLayer;
+    [FoldoutGroup("Reference")]
+    [SerializeField] GameObject GameScreen;
+    [FoldoutGroup("Reference")]
+    public GameObject StageManagerParent;
+    [FoldoutGroup("Reference")]
+    public GameObject QuestTrackerParent;
+    [FoldoutGroup("Reference/SelectionPopup")]
+    [SerializeField] SelectionPopup BranchNamingPopup;
+    [FoldoutGroup("Reference/SelectionPopup")]
+    [SerializeField] SelectionPopup CommitMessagePopup;
 
     [Header("MessageForPlayMaker")]
     public bool isFinishInitialize;
@@ -61,10 +72,27 @@ public class StageManager : SerializedMonoBehaviour
         GameManager = StageManagerParent.transform.parent.gameObject;
         QuestTrackerParent = GameManager.transform.Find("Quest Tracker Parent").gameObject;
 
+        if(stageType == StageType.Action) { 
+            InitializeSelectionPopup();
+        }
+
         RenderWindowLayer = GameObject.Find("Layer 2");
         GameScreen = GameObject.Find("GameScreen");
 
         RenderTargetWindow();
+    }
+
+    void InitializeSelectionPopup()
+    {
+        DefaultData = transform.Find("DefaultData").gameObject;
+        defaultCommitDataFsm = MyPlayMakerScriptHelper.GetFsmByName(DefaultData, "Commit data");
+        defaultBranchNameDataFsm = MyPlayMakerScriptHelper.GetFsmByName(DefaultData, "BranchName data");
+
+        BranchNamingPopup = GameObject.Find("BranchNamingPopup").GetComponent<SelectionPopup>();
+        CommitMessagePopup = GameObject.Find("CommitMessagePopup").GetComponent<SelectionPopup>();
+
+        BranchNamingPopup.InitializePopup(defaultBranchNameDataFsm);
+        CommitMessagePopup.InitializePopup(defaultCommitDataFsm);
     }
 
     public void RenderTargetWindow()

@@ -12,6 +12,7 @@ public class StageManagerController : SerializedMonoBehaviour
     [SerializeField] Dictionary<string, GameObject> StageManagerDict = new();
     [SerializeField] GameObject selectedStageManager;
 
+
     public void Initialize(string selectedStageName)
     {
         if (StageManagerDict.ContainsKey(selectedStageName))
