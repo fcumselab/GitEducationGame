@@ -204,7 +204,6 @@ public class SelectionPopup : SerializedMonoBehaviour
     //For Run Command
     public bool CheckSelectItemIsCorrectAnswer(string command)
     {
-        Debug.Log("command\n" + command);
         int currentQuestnum = QuestTrackerManager.Instance.GetCurrentQuestNum();
         if (SelectionDict.ContainsKey(currentQuestnum))
         {
