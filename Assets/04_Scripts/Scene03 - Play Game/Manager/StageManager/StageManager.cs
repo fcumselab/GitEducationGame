@@ -25,9 +25,9 @@ public class StageManager : SerializedMonoBehaviour
     [SerializeField] Dictionary<string, int> UsedVersionControlDict = new();
     #endregion
 
-    [SerializeField] GameObject DefaultData;
-    [SerializeField] PlayMakerFSM defaultCommitDataFsm;
-    [SerializeField] PlayMakerFSM defaultBranchNameDataFsm;
+    GameObject DefaultData;
+    PlayMakerFSM defaultCommitDataFsm;
+    PlayMakerFSM defaultBranchNameDataFsm;
     [FoldoutGroup("Reference")]
     public GameObject GameManager;
     [SerializeField] GameObject RenderWindowLayer;
