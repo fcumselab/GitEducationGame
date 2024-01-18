@@ -53,9 +53,9 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		}
         else
         {
-			if (isInitial)
-			{
-				PRDetailedPage.SetActive(true);
+			if (isInitial && actionType == "Initial")
+            {
+                PRDetailedPage.SetActive(true);
 
 				string[] branchList = conversationField.InitializePullRequestPage(createByPlayer);
 
@@ -71,9 +71,13 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 				isInitial = false;
 				UpdatePullRequestPage("Initial", currentQuestNum);
 			}
-			else
+			else if(!isInitial)
 			{
 				UpdatePullRequestPage(actionType, currentQuestNum);
+            }
+            else
+            {
+				isLoading = false;
 			}
 		}
 	}

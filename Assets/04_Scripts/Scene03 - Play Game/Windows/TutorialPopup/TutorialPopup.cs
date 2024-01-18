@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using PixelCrushers.DialogueSystem;
+using Lean.Gui;
 
 public class TutorialPopup : SerializedMonoBehaviour
 {
@@ -22,6 +23,10 @@ public class TutorialPopup : SerializedMonoBehaviour
 
     [SerializeField] GameObject HighlightPos1;
     [SerializeField] GameObject HighlightPos2;
+
+    [SerializeField] List<GameObject> saveWindowObjList;
+    [SerializeField] List<PlayMakerFSM> saveWindowScriptList;
+
 
     [SerializeField] GameObject BlackPanel;
     [SerializeField] PlayMakerFSM BlackPanelFsm;
@@ -97,12 +102,16 @@ public class TutorialPopup : SerializedMonoBehaviour
             TargetWindow = GameObject.Find(windowName1);
             WindowDict.Add(windowName1, TargetWindow);
         }
-        //Debug.Log("TargetWindow" + TargetWindow.name);
-        HighlightPos1.GetComponent<RectTransform>().sizeDelta = TargetWindow.GetComponent<RectTransform>().sizeDelta;
-        TargetWindow.transform.SetParent(HighlightPos1.transform);
+
         PlayMakerFSM WindowFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetWindow, "Window");
         WindowFsm.SendEvent("Common/Window/Show Window");
+        PlayMakerFSM WindowDisplayFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetWindow, "Window Display");
+        saveWindowObjList.Add(TargetWindow);
+        saveWindowScriptList.Add(WindowDisplayFsm);
+        WindowDisplayFsm.SendEvent("Highlight Panel/Highlight Panel");
 
+        TargetWindow.transform.SetParent(HighlightPos1.transform);
+        TargetWindow.transform.position = HighlightPos1.transform.position;
         if (windowName2 == "")
         {
             HighlightPos2.SetActive(false);
@@ -121,10 +130,15 @@ public class TutorialPopup : SerializedMonoBehaviour
                 TargetWindow = GameObject.Find(windowName2);
                 WindowDict.Add(windowName2, TargetWindow);
             }
-            HighlightPos2.GetComponent<RectTransform>().sizeDelta = TargetWindow.GetComponent<RectTransform>().sizeDelta;
-            TargetWindow.transform.SetParent(HighlightPos2.transform);
+            TargetWindow.GetComponent<LeanConstrainToParent>().enabled = false;
             WindowFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetWindow, "Window");
             WindowFsm.SendEvent("Common/Window/Show Window");
+            WindowDisplayFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetWindow, "Window Display");
+            WindowDisplayFsm.SendEvent("Highlight Panel/Highlight Panel");
+            saveWindowObjList.Add(TargetWindow);
+            saveWindowScriptList.Add(WindowDisplayFsm);
+            TargetWindow.transform.SetParent(HighlightPos2.transform);
+            TargetWindow.transform.position = HighlightPos2.transform.position;
         }
     }
 
@@ -154,14 +168,13 @@ public class TutorialPopup : SerializedMonoBehaviour
 
     public void ResetWindowLayer()
     {
-        if (HighlightPos1.transform.childCount != 0)
+        for (int i=0;i< saveWindowObjList.Count;i++)
         {
-            HighlightPos1.transform.GetChild(0).SetParent(WindowLayer);
+            Debug.Log("Clear");
+            saveWindowObjList[i].transform.SetParent(WindowLayer);
+            saveWindowScriptList[i].SendEvent("Highlight Panel/Reset");
         }
-
-        if (HighlightPos2.transform.childCount != 0)
-        {
-            HighlightPos2.transform.GetChild(0).SetParent(WindowLayer);
-        }
+        saveWindowObjList.Clear();
+        saveWindowScriptList.Clear();
     }
 }
