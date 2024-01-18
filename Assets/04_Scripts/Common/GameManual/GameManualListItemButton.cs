@@ -77,17 +77,17 @@ public class GameManualListItemButton : SerializedMonoBehaviour
                 border.color = new Color32(108, 159, 79, 255);
                 buttonColor.normalColor = new Color32(194, 236, 170, 255);
                 buttonColor.selectedColor = new Color32(194, 236, 170, 255);
-                buttonColor.highlightedColor = new Color32(178, 227, 151, 255);
-                buttonColor.pressedColor = new Color32(164, 224, 130, 255);
-                buttonColor.disabledColor = new Color32(164, 224, 130, 255);
+                buttonColor.highlightedColor = new Color32(164, 224, 130, 255);
+                buttonColor.pressedColor = new Color32(137, 200, 101, 255);
+                buttonColor.disabledColor = new Color32(137, 200, 101, 255);
                 break;
             case "VersionControl":
                 border.color = new Color32(61, 84, 108, 255);
                 buttonColor.normalColor = new Color32(167, 195, 255, 255);
                 buttonColor.selectedColor = new Color32(167, 195, 255, 255);
-                buttonColor.highlightedColor = new Color32(153, 186, 255, 255);
-                buttonColor.pressedColor = new Color32(132, 170, 255, 255);
-                buttonColor.disabledColor = new Color32(132, 170, 255, 255);
+                buttonColor.highlightedColor = new Color32(134, 173, 255, 255);
+                buttonColor.pressedColor = new Color32(119, 161, 255, 255);
+                buttonColor.disabledColor = new Color32(119, 161, 255, 255);
                 break;
         }
         button.colors = buttonColor;
