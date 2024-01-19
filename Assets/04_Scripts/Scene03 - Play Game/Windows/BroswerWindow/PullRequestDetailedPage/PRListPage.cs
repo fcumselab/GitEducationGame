@@ -35,7 +35,6 @@ public class PRListPage : SerializedMonoBehaviour
 	[SerializeField] List<PRList> ClosePRList = new();
 	
 	[Header("Reference")]
-	Transform QuestTracker;
 	Transform StageManager;
 	Transform RepoQuestData;
 	PlayMakerFSM RepoQuestFsm;
@@ -46,7 +45,6 @@ public class PRListPage : SerializedMonoBehaviour
 		if (isInitial)
 		{
 			//Get All values	
-			QuestTracker = GameObject.Find("Quest Tracker").transform;
 			StageManager = GameObject.Find("Stage Manager").transform;
 
 			//Only Stage like Create/Review PR will use them.
