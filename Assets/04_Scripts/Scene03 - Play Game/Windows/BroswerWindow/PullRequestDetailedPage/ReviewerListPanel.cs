@@ -27,12 +27,14 @@ public class ReviewerListPanel : SerializedMonoBehaviour
 	}
 
     //If clicked button it's not the reviewer, add it to Repo data.
-    public void ClickButtonAction(string targetReviewerName)
+    public void ClickButtonAction(GameObject NameText)
     {
 		object[] reviewerList = RepoQuestFsm.FsmVariables.GetFsmArray("ReviewerNameList").Values;
+		Debug.Log("Click!!");
+		
 		for (int i = 0; i < reviewerList.Length; i++)
 		{
-			if(targetReviewerName == reviewerList[i].ToString())
+			if(NameText.GetComponent<LeanLocalizedText>().TranslationName == reviewerList[i].ToString())
             {
 				RepoQuestFsm.FsmVariables.GetFsmArray("ReviewerShowList").Set(i, true);
 				break;

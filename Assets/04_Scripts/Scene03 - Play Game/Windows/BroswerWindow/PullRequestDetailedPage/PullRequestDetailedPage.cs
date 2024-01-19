@@ -53,7 +53,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		}
         else
         {
-			if (isInitial && actionType == "Initial")
+			if (isInitial && actionType == "EnterPRList")
             {
                 PRDetailedPage.SetActive(true);
 

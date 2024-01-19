@@ -1,11 +1,13 @@
-好的，在您同步 "master" 分支後
-您會注意到 "master" 分支
-獲得了 "update-readme" 分支的 "提交記錄"
+好的，在更新本地 'master' 分支後
+發現 'master' 分支
+得到了 'update-readme' 分支的 '提交記錄'
 
-並且在 "master" 分支上新增了一個 "提交"
-用於顯示您創建的 Pull Request 已經合併至 "master" 分支中
+並且 'master' 分支上多了一個提交
+用於顯示您創建的 Pull Request 
+已被合併至 'master' 分支中
 
-最後，請您將我們創建的 "update-readme" 分支
-透過刪除本地分支的指令 "git branch -d 分支名稱" 
-以及刪除遠端分支的指令 "git push origin -d 分支名稱" 
-來將已經完成目標的分支刪除吧
+最後，當 'update-readme' 分支已經完成合併後
+就可以將本地和遠端的 'update-readme' 分支刪除
+
+請您將分支刪除後
+再更新 '提交記錄' 視窗吧
