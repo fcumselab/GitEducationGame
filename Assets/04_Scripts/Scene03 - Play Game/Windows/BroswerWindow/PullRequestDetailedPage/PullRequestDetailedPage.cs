@@ -94,6 +94,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 
 		conversationField.AddNewMsg(actionType, currentQuestNum);
 		conversationField.UpdatePRProgressField();
+		conversationField.UpdateFieldText();
 
 		commitsField.UpdateCommitsField();
 		

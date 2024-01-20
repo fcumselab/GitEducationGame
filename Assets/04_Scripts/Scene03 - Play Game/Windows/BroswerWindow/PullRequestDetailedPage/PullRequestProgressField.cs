@@ -66,6 +66,8 @@ public class PullRequestProgressField : SerializedMonoBehaviour
     #region Reference
 
     [FoldoutGroup("Reference")]
+    GameObject CurrentQuestBar;
+    PlayMakerFSM CurrentQuestBarFsm;
     PullRequestDetailedPage pullRequestDetailedPage;
     PullRequestDetailedPage_ConversationField pullRequestDetailedPage_ConversationField;
     [Header("NPC Action")]
@@ -94,6 +96,7 @@ public class PullRequestProgressField : SerializedMonoBehaviour
     [SerializeField] GameObject PRContentText;
     [FoldoutGroup("MergePRInputField/Content")]
     [SerializeField] GameObject MergePRActionButton;
+    MouseTooltipTrigger MergePRActionButtonTooltip;
 
     [FoldoutGroup("SaveValue")]
     [SerializeField] Text playerText;
@@ -103,6 +106,9 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
     public void InitializePRProgressField(PlayMakerFSM RepoQuestFsm)
     {
+        CurrentQuestBar = GameObject.Find("CurrentQuestBar");
+        CurrentQuestBarFsm = MyPlayMakerScriptHelper.GetFsmByName(CurrentQuestBar, "Quest");
+
         PRContentText.GetComponent<LeanLocalizedText>().TranslationName = RepoQuestFsm.FsmVariables.GetFsmString("createPR1Title").Value;
         PRTitleTextToken.GetComponent<LeanLocalToken>().Value = RepoQuestFsm.FsmVariables.GetFsmInt("createPRNum").Value.ToString();
 
@@ -171,17 +177,28 @@ public class PullRequestProgressField : SerializedMonoBehaviour
 
     public void ButtonClickActionMergePullRequest(string authorName)
     {
-        SwitchToMergeInputField();
-        string titleText = PRTitleText.GetComponent<Text>().text;
-        string desText = PRContentText.GetComponent<Text>().text;
-        string commitMsg = (titleText + "\n" + desText);
-        CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("commitMessage").Value = commitMsg;
-        CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("commitAuthor").Value = authorName;
+        if (!MergePRActionButtonTooltip) { MergePRActionButtonTooltip = MergePRActionButton.GetComponent<MouseTooltipTrigger>(); }
 
-        CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("runType").Value = "PRMerge";
-        CommitHisotryWindowNPCActionFsm.enabled = true;
+        if (CurrentQuestBarFsm.FsmVariables.GetFsmBool("isQuestEnable").Value)
+        {
+            SwitchToMergeInputField();
+            string titleText = PRTitleText.GetComponent<Text>().text;
+            string desText = PRContentText.GetComponent<Text>().text;
+            string commitMsg = (titleText + "\n" + desText);
+            CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("commitMessage").Value = commitMsg;
+            CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("commitAuthor").Value = authorName;
 
-        StartCoroutine(pullRequestDetailedPage.WaitForMergePullRequestFinish(MergePRActionButton, CommitHisotryWindowNPCActionFsm));
+            CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("runType").Value = "PRMerge";
+            CommitHisotryWindowNPCActionFsm.enabled = true;
+
+            StartCoroutine(pullRequestDetailedPage.WaitForMergePullRequestFinish(MergePRActionButton, CommitHisotryWindowNPCActionFsm));
+        }
+        else
+        {
+            MergePRActionButtonTooltip.ClickButtonAction("BrowserWindow/Common/AfterQuestActiveMsg", true);
+            return;
+        }
+        
     }
 
     #endregion

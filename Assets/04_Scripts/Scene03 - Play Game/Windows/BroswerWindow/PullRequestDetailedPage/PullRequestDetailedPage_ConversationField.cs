@@ -140,7 +140,10 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
         {
             script.UpdateReplyMsg(actionType, currentQuestNum);
         }
+    }
 
+    public void UpdateFieldText()
+    {
         //Update SelectionNumButton Text
         FieldSelectionNumText.text = $"{TextMessageGroup_Conversation.transform.childCount}";
     }

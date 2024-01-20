@@ -12,6 +12,8 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
     [SerializeField] Text FieldSelectionNumText;
 
     [Header("Reference")]
+    GameObject CurrentQuestBar;
+    PlayMakerFSM CurrentQuestBarFsm;
     Transform StageManager;
     Transform RepoQuestData;
     Transform RepoQuest_FilesChangedField;
@@ -21,6 +23,9 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
 
     public void InitializeField()
     {
+        CurrentQuestBar = GameObject.Find("CurrentQuestBar");
+        CurrentQuestBarFsm = MyPlayMakerScriptHelper.GetFsmByName(CurrentQuestBar, "Quest");
+
         StageManager = GameObject.Find("Stage Manager").transform;
         RepoQuestData = StageManager.Find("DefaultData/RepoQuestData");
         RepoQuest_FilesChangedField = RepoQuestData.Find("FilesChangedField");
@@ -105,6 +110,12 @@ public class PullRequestDetailedPage_FileChangedField : SerializedMonoBehaviour
     void ButtonClickActionSubmitReview()
     {
         if (!ReviewChangeButtonTooltip) { ReviewChangeButtonTooltip = ReviewChangeButton.GetComponent<MouseTooltipTrigger>(); }
+
+        if (!CurrentQuestBarFsm.FsmVariables.GetFsmBool("isQuestEnable").Value)
+        {
+            ReviewChangeButtonTooltip.ClickButtonAction("BrowserWindow/Common/AfterQuestActiveMsg", true);
+            return;
+        }
 
         if (!CurrentTextBoxGroup.CheckAllPendingReplyMsgActive()) //check file change
         {

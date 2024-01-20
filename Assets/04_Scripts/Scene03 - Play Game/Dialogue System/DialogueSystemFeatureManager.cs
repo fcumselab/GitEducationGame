@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using PixelCrushers.DialogueSystem;
 
@@ -92,7 +93,9 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
         else
         {
             enableHintList.Remove(TargetHint);
-            TargetHint.SendEvent("Hint/Tutorial Highlight/close highlight");
+            //TargetHint.SendEvent("Hint/Tutorial Highlight/close highlight");
+            TargetHint.gameObject.GetComponent<Image>().color = new(255, 0, 0, 0);
+            TargetHint.enabled = false;
         }
     }
     
@@ -125,7 +128,9 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
     {
         foreach(var item in enableHintList)
         {
-            item.SendEvent("Hint/Tutorial Highlight/close highlight");
+            Debug.Log("dd");
+            item.gameObject.GetComponent<Image>().color = new(255, 0, 0, 0);
+            item.enabled = false;
         }
         enableHintList.Clear();
     }
