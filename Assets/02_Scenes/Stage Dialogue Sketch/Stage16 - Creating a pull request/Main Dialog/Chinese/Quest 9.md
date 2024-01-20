@@ -13,7 +13,7 @@ Pull Request 頁面也隨之更新了
 來提醒我們已經完成修改，並要求他們再審核一次
 
 回覆訊息後
-請點擊 '標記為已解決'（Resolved Conversation） 按鈕
+請點擊 '解決對話'（Resolved Conversation） 按鈕
 
 這是一種標記功能
 用於表示審核人員提出的建議已被處理

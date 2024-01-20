@@ -161,7 +161,6 @@ public class DialogueSystemManager : SerializedMonoBehaviour
             switch (runType)
             {
                 case "Bye":
-                    Debug.Log("Bye enable ");
                     return "End";
                 case "Hint":
                 case "Answer":
