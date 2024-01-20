@@ -110759,7 +110759,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247happyFace"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -110801,7 +110801,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("happyFace")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -110826,7 +110826,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247userManage"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -110874,7 +110874,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("userManage")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -110969,7 +110969,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247reload"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -111014,7 +111014,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("reload")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -111039,7 +111039,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247listx4"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -111087,7 +111087,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("Listx4")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -111112,7 +111112,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247lightBulb"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -111158,7 +111158,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("lightBulb")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -111254,7 +111254,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u5EFA\u69CB\u958B\u59CB\r)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -111303,7 +111303,13 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'CloseImageWindow();
+
+        BlackPanelControl(false);
+
+        FSMEvent("Stage
+        Manager/Load Default Background Story", "Stage Manager Parent", "Background
+        Controller");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -111328,7 +111334,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)&\u5716\u7247windowOutline&\u9ED1\u5C4F"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -111378,7 +111384,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
+
+        ShowImage("windowOutline");
+
+        BlackPanelControl(true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -111555,7 +111566,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'BlackPanelControl(true);
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -111580,7 +111594,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAECommitHistory\u8996\u7A97&\u986F\u793AHint_CommitHistoryWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -111625,7 +111639,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("CommitHistoryWindow","");
+
+        HintController("CommitHistoryWindow",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -111650,7 +111667,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_CommitHistoryWindow&\u986F\u793AHint_RemoteField&\u986F\u793AHint_LocalField"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -111694,7 +111711,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("RemoteField",true);
+
+        HintController("LocalField",true
+        );
+
+        HintController("CommitHistoryWindow",false);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -111719,7 +111741,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_RemoteField"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -111765,7 +111787,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("RemoteField",false);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -111860,7 +111882,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_LocalField&\u5716\u7247userManage"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -111910,7 +111932,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'ShowImage("userManage");
+
+        HintController("LocalField",false);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -112074,7 +112098,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247giftPlus"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -112124,7 +112148,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("giftPlus")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -112149,7 +112173,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247cmd"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -112197,7 +112221,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("cmd")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -112222,7 +112246,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247userManage"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -112270,7 +112294,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("userManage")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -112435,7 +112459,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)&\u5716\u7247global&(\u89E3\u9396\u6309\u9215
+          - \u700F\u89BD\u5668)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -112481,7 +112506,16 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
+
+        ShowImage("global");
+
+        Variable["UnlockButtonKey"]
+        = "Browser"
+
+        FSMEvent("Dialogue System/WindowToolbar/Unlock Button",
+        "WindowToolbar", "Panel");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -112658,7 +112692,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'BlackPanelControl(true);
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -112683,7 +112720,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEBrowser\u8996\u7A97&\u986F\u793AHint_BrowserWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -112729,7 +112766,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("BrowserWindow","");
+
+        HintController("BrowserWindow",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -112754,7 +112794,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_BrowserWindow&\u986F\u793AHint_PullRequestsButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -112800,7 +112840,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("BrowserWindow",false);
+
+        HintController("PullRequestsButton",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -112825,7 +112867,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_PullRequestsButton&\u986F\u793AHint_PRList"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -112874,7 +112916,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("PullRequestsButton",false);
+
+        HintController("PRList",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -112899,7 +112943,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_PRList&\u986F\u793AHint_CreatePRButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -112944,7 +112988,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("PRList",false);
+
+        HintController("CreatePRButton",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -112969,7 +113015,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_CreatePRButton&\u986F\u793AHint_CompareBranch"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -113014,7 +113060,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("CreatePRButton",false);
+
+        HintController("CompareBranch",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -113186,7 +113234,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_CompareBranch"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -113234,7 +113282,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("CompareBranch",false);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -113362,7 +113410,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Localization
       - title: zh
         value: "\u9078\u64C7\u6B63\u78BA\u7684\u5169\u500B\u76EE\u6A19\u5206\u652F\u5F8C\n\u8ACB\u9EDE\u64CA
-          '\u65B0\u5EFA Pull Request' \u6309\u9215\nGit \u6703\u8981\u6C42\u60A8\u8F38\u5165\u5408\u4F75\u8ACB\u6C42\u8A0A\u606F"
+          '\u5275\u5EFA Pull Request' \u6309\u9215\nGit \u6703\u8981\u6C42\u60A8\u8F38\u5165\u5408\u4F75\u8ACB\u6C42\u8A0A\u606F"
         type: 4
         typeString: CustomFieldType_Localization
       conversationID: 153
@@ -113478,7 +113526,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)&\u986F\u793AHint_CreatePRButton(Action)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -113526,7 +113574,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
+
+        HintController("CreatePRButton(Action)",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -113703,7 +113754,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'BlackPanelControl(true);
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -113728,7 +113782,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEBrowser\u8996\u7A97&\u986F\u793AHint_BrowserWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -113776,7 +113830,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("BrowserWindow","");
+
+        HintController("BrowserWindow",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -113801,7 +113858,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_BrowserWindow&\u986F\u793AHint_ConversationButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -113846,7 +113903,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("BrowserWindow",false);
+
+        HintController("ConversationButton",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -113941,7 +114000,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_ConversationButton&\u986F\u793AHint_MergeStatus"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -113986,7 +114045,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("ConversationButton",false);
+
+        HintController("MergeStatus",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -114151,7 +114212,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)&\u4E0D\u986F\u793AHint_MergeStatus&\u986F\u793AHint_ReviewerList"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -114200,7 +114261,12 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
+
+        HintController("MergeStatus",false);
+
+        HintController("ReviewerList",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -114377,7 +114443,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'BlackPanelControl(true);
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -114402,7 +114471,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEBrowser\u8996\u7A97&\u986F\u793AHint_ReviewerList"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -114449,7 +114518,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("BrowserWindow","");
+
+        HintController("ReviewerList",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -114474,7 +114546,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_ReviewerList"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -114519,7 +114591,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("ReviewerList",false);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -114544,7 +114616,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u986F\u793ARefreshButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -114590,7 +114662,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("RefreshButton",true);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -114615,7 +114687,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793ARefreshButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -114663,7 +114735,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("RefreshButton",false);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -115113,7 +115185,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -115161,7 +115233,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -115338,7 +115411,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'BlackPanelControl(true);
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -115363,7 +115439,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEFileManager\u8996\u7A97&\u9AD8\u4EAEFileContent\u8996\u7A97&\u986F\u793AHint_FileContentWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -115410,7 +115486,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("FileManagerWindow","FileContentWindow");
+
+        HintController("FileContentWindow",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -115435,7 +115514,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_FileContentWindow&\u9AD8\u4EAEBrowser\u8996\u7A97&\u986F\u793AHint_BrowserWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -115481,7 +115560,11 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("BrowserWindow","");
+
+        HintController("FileContentWindow",false);
+
+        HintController("BrowserWindow",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -115506,7 +115589,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_BrowserWindow&\u986F\u793AHint_CommitsButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -115552,7 +115635,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("BrowserWindow",false);
+
+        HintController("CommitsButton",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -115577,7 +115662,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_CommitsButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -115625,7 +115710,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("CommitsButton",false);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -115791,7 +115876,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -115837,7 +115922,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116014,7 +116100,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'BlackPanelControl(true);
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116039,7 +116128,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u9AD8\u4EAEBrowser\u8996\u7A97&\u986F\u793AHint_BrowserWindow"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -116087,7 +116176,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("BrowserWindow","");
+
+        HintController("BrowserWindow",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116112,7 +116204,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_BrowserWindow&\u986F\u793AHint_ConversationButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -116160,7 +116252,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("BrowserWindow",false);
+
+        HintController("ConversationButton",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116185,7 +116279,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_ConversationButton&\u986F\u793AHint_MergeStatus"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -116231,7 +116325,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("ConversationButton",false);
+
+        HintController("MergeStatus",true);'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116256,7 +116352,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_MergeStatus"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -116303,7 +116399,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("MergeStatus",false);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116328,7 +116424,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u986F\u793ARefreshButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -116373,7 +116469,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("RefreshButton",true);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116398,7 +116494,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793ARefreshButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -116447,7 +116543,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("RefreshButton",false);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116472,7 +116568,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u986F\u793AClosePRButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -116520,7 +116616,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("ClosePRButton",true);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116545,7 +116641,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AClosePRButton"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -116594,7 +116690,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: HintController("ClosePRButton",false);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116694,7 +116790,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -116742,7 +116838,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116919,7 +117016,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'BlackPanelControl(true);
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -116944,7 +117044,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u986F\u793AHint_CommitHistoryWindow&\u986F\u793AHint_LocalField"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -116993,7 +117093,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HighlightWindow("CommitHistoryWindow","");
+
+        HintController("LocalField",true
+        );'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -117092,7 +117195,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u4E0D\u986F\u793AHint_LocalField&\u5716\u7247xBig"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -117138,7 +117241,9 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'HintController("LocalField",false);
+
+        ShowImage("xBig");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -117163,7 +117268,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -117209,7 +117314,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: FSMEvent("Quest Tracker/Add New Quest", "Quest Tracker Parent",
+        "Quest Tracker");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -117386,7 +117492,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'BlackPanelControl(true);
+
+        FSMEvent("DialogueChatWindow/expand
+        window", "DialogueChatWindow", "Fold Button");'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -117411,7 +117520,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247happyFace"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -117458,7 +117567,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("happyFace")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -117483,7 +117592,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247userManage"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -117531,7 +117640,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("userManage")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -117702,7 +117811,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "\u5716\u7247happyFace"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -117747,7 +117856,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowImage("happyFace")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -118586,7 +118695,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -120474,7 +120583,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -121640,7 +121749,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -122245,7 +122354,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Menu Text
-        value: 
+        value: "(\u65B0\u589E\u4EFB\u52D9)"
         type: 0
         typeString: 
       - title: Dialogue Text

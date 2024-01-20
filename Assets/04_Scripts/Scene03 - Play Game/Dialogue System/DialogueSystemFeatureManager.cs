@@ -7,10 +7,13 @@ using PixelCrushers.DialogueSystem;
 public class DialogueSystemFeatureManager : SerializedMonoBehaviour
 {
     [SerializeField] TutorialPopup tutorialPopup;
-    [SerializeField] Dictionary<string, PlayMakerFSM> hintDict = new();
-    [SerializeField] List<PlayMakerFSM> enableHintList = new();
 
     [SerializeField] GameManual gameManual;
+    
+    [FoldoutGroup("Hint")]
+    [SerializeField] List<PlayMakerFSM> enableHintList = new();
+    [FoldoutGroup("Hint")]
+    [SerializeField] Dictionary<string, PlayMakerFSM> hintDict = new();
 
     [Header("For other scripts to Register/Unregister")]
     [SerializeField] List<string> registerFunctionList = new();
@@ -109,6 +112,14 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
         }
     }
 
+    public void RegisterHintDict(Dictionary<string, PlayMakerFSM> newDict)
+    {
+        Debug.Log("RegisterHintDict");
+        foreach (var item in newDict)
+        {
+            hintDict.Add(item.Key, item.Value);
+        }
+    }
 
     public void ResetHintStatus()
     {
