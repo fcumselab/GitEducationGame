@@ -29,7 +29,7 @@ GameManualItem/list/IntroCommitHistory,Window Introduction: Commit History
 GameManualItem/list/IssuesBackupFile,Issues with the backup file method
 GameManualItem/list/IntroVersionControl,Introduction to Version Control
 GameManualItem/list/IntroGit,Introduction to Git
-GameManualItem/list/.gitAndGitCoreAreas,.git and Git’s Core Areas
+GameManualItem/list/.gitAndGitCoreAreas,.git and Git's Core Areas
 GameManualItem/list/ProcessCreateCommit,Process of Creating a Commit
 GameManualItem/list/RuleNameBranch,Principles of Naming Branches
 GameManualItem/list/RuleCommitMessage,Principles of Commit Messages
@@ -661,7 +661,7 @@ you need to execute the following command in the project folder path to create t
 GameManualItem/content/.gitAndGitCoreAreas/1/Command,git init
 GameManualItem/content/.gitAndGitCoreAreas/2,"After execution is successful, 
 a hidden folder named '.git' will be created in the project folder."
-GameManualItem/content/.gitAndGitCoreAreas/3,".git' is a core component of Git. 
+GameManualItem/content/.gitAndGitCoreAreas/3,"'.git' is a core component of Git. 
 It stores all data related to the project, including the entire version history. 
 Without this folder, most Git commands cannot be executed."
 GameManualItem/content/.gitAndGitCoreAreas/4/Title,Git's Core Areas
@@ -716,8 +716,8 @@ If you are part of a team, adhere to the team's branch naming rules to maintain 
 It helps the team better understand and manage branches."
 GameManualItem/content/ProcessCreateCommit/1,"When you have completed the development of a specific feature, or when you need to back up content in development.
 It's time to create a commit in your local repository. 
-Here's the process for creating a commit:
 
+Here's the process for creating a commit:
 1. Determine the Files to Upload:
 You need to move files to the staging area before you can push the file content to the repository to create a commit. 
 Use commands to ensure that the staging area contains the files you want to save, while irrelevant files should not be included in the staging area.
@@ -764,3 +764,160 @@ GameManualItem/content/RuleCommitMessage/4/tip,"For example, if developing Featu
 But they are not closely related, consider splitting them into two separate commits."
 GameManualItem/content/RuleCommitMessage/5,"These principles of commit messages help teams and individuals better understand the purpose of each commit. 
 This improves the stability and efficiency of project management."
+GameManualItem/content/ResolveMergeConflict/1,"Merge conflicts can occur during branch merging, 
+especially common in collaborative work involving multiple people.
+
+Conflicts happen when two branches make different changes to the same file. 
+Git cannot automatically determine which content should be kept and which should be discarded.
+So Git will ask developers to manually resolve these conflicts.
+
+Here are the steps to resolve merge conflicts:
+1. Identify the Conflicted Files:
+When a conflict occurs, the command line will display all files with conflicts. 
+These files will also appear as 'unstaged' in the staging area.
+
+2. Understand the Contents of the Conflicted Files:
+The conflicted file will have three special symbols added: '<', '=', and '>'. 
+The modifications from both merging branches are included between these symbols."
+GameManualItem/content/ResolveMergeConflict/2,"For example, in the file shown above, 
+a conflict occurred when attempting to merge the 'new-feature' branch into the 'master' branch.
+
+The special symbols divide the modifications of the 'new-feature' and 'master' branches.
+The content from lines 1 to 3 shows HEAD, 
+representing the modifications from the current branch 'master'.
+The content from lines 3 to 5 shows the modifications from the 'new-feature' branch.
+
+3. Resolve the File Conflict:
+Resolving the file conflict involves deciding which content to keep or delete."
+GameManualItem/content/ResolveMergeConflict/3,"For example:
+If you want to keep the modifications from the 'new-feature' branch 
+and remove those from the 'master' branch.
+
+Please delete the following content:
+1. The three lines of special delimiter symbols (lines 1, 3, 5).
+2. The modification content from the 'master' branch (line 2).
+
+4. Create a Commit to Continue Merging:
+After resolving all conflicts in the files, please create a new commit with the resolved content. 
+After committing, the merging process will continue. 
+Finally, the 'master' branch will receive the newly resolved commit."
+GameManualItem/content/gitMergeModes/1,"When executing a branch merge command, 
+Git compares the commit histories of the two target branches 
+and apply one of the following merge modes:
+
+Here are the three merge modes in Git:
+1. Fast-Forward Merge
+2. Auto Merge
+3. Merge Conflict"
+GameManualItem/content/gitMergeModes/2/Title,Fast-Forward Merge
+GameManualItem/content/gitMergeModes/2,"Fast-Forward Merge
+When comparing the commit histories of the two branches, 
+if their paths are linear without any forks, 
+Git performs a fast-forward merge.
+
+A fast-forward merge updates the current branch's commit history to match the targeted merging branch's commit history. 
+There's no new commits are created, only update the commit history."
+GameManualItem/content/gitMergeModes/3/Title,Auto Merge
+GameManualItem/content/gitMergeModes/3,"When comparing the commit histories of the two branches, 
+if they diverge into two separate development paths, 
+Git compares the modifications in both branches.
+
+If Git finds that the modifications in the branches do not cause conflicts.
+It will use auto-merge.
+
+After merging the contents of the specified branch into the current branch, a new commit is created. 
+It means the merge action was successful, 
+and the commit message will display the names of the two merged branches."
+GameManualItem/content/gitMergeModes/4/Title,Merge Conflict
+GameManualItem/content/gitMergeModes/4,"Similar to auto-merge.
+When the two target branches diverge into separate development paths with their own commits.
+Git compares the modifications in both branches.
+
+If modifications are made to the same file and the content is different, 
+Git will alert developers that a merge conflict has occurred, 
+requiring them to resolve the conflict manually. 
+This scenario is the merge conflict mode.
+
+When a conflict occurs, the merging process is paused. 
+Developers need to go into the conflicted files and decide 
+which content should be kept and which should be deleted.
+
+After resolving all conflicts and creating a new commit with these contents, the merging process will continue. 
+Finally, the content of the specified branch will be merged into the current branch, 
+and the current branch will receive a new commit. 
+This commit contains the resolved conflict file content."
+GameManualItem/content/gitMergeModes/4/tip,"Auto merge and merge conflict are related. 
+In this game, merging is categorized into three modes for better understanding."
+GameManualItem/content/IntroGameScore/1/Title,Scoring Introduction
+GameManualItem/content/IntroGameScore/1,"In the game stages, 
+you need to perform the correct operations to complete the current objective.
+
+Every time you complete the objective will be rated based on your action.
+You can understand what rate you will get by the star icon on the scoreboard.
+
+There are four ratings:
+1. Completed the objective perfectly (1000 points):"
+GameManualItem/content/IntroGameScore/2,"This rating is given when you complete the current objective 
+without making any mistakes.
+
+2. Completed the objective, but made mistakes (750 points):"
+GameManualItem/content/IntroGameScore/3,"This rating is given when you complete the current objective 
+but make mistakes in the process."
+GameManualItem/content/IntroGameScore/3/tip,"For how to get a perfect rating, 
+please refer to 'How to complete objectives Perfectly.'"
+GameManualItem/content/IntroGameScore/4,3. Completed the objective with Hints (500 points):
+GameManualItem/content/IntroGameScore/5,"This rating is given when you complete the current objective 
+using hints during the process.
+
+4. Completed the objective using the answer feature (0 points):"
+GameManualItem/content/IntroGameScore/6,"After completing the game stages, 
+you can view the rating for each achieved objective on the results screen."
+GameManualItem/content/IntroGame/1/Title,Game Introduction
+GameManualItem/content/IntroGame/1,"Welcome to the world of Git Education Game! 
+This game will teach you how to effectively manage projects using Git.
+
+Git is a powerful project management tool that helps you track the development history of your project.
+It enhances the stability and efficiency of project development. 
+
+It's an essential tool for software developers 
+and is also effective for managing any long-term project.
+
+In this game, you will learn the basic concepts and usage of Git. 
+It's designed for those who have no experience in programming or are new to Git. 
+By completing the game, you will gain the ability to use Git."
+GameManualItem/content/IntroGame/2/Title,Git Theme stages:
+GameManualItem/content/IntroGame/2,"The core knowledge of Git is divided into several stages.
+They form three theme stages:
+
+1. Basics of Git:
+Learn the core concepts and basic commands of Git.
+After completing this theme stage, 
+you will have the basic ability to manage projects with Git.
+
+2. Branch Management:
+Learn about Git's branch system 
+to develop projects more stably and efficiently.
+
+3. Remote Management:
+Learn Git's remote management features 
+to develop projects collaboratively with a team on the Internet."
+GameManualItem/content/IntroGame/3/Title,"Simulated Scenario Objectives"
+GameManualItem/content/IntroGame/3,"Each stage generates a scenario that fits the learning goal.
+You solve practical problems within a storyline.
+
+Each scenario has a main objective.
+It breaks down into several smaller objectives. 
+
+You can simply follow the current objective and instructions to do actions. 
+When you complete all objectives, you pass the stage.
+
+In the upper left corner of the game screen, it shows the current objective. 
+Please follow it to complete the objectives and pass the stage."
+GameManualItem/content/IntroGame/4/Title,Game Scoring
+GameManualItem/content/IntroGame/4,"During the game, 
+each completed objective will be rated based on your action.
+Game points in each stage show your performance on the stage.
+
+After completing a stage, the game will give you a final rating of 1 to 4 stars. 
+Your score and completion time for the stage will be uploaded to the global leaderboard. 
+Try to get high scores and become one of the top 10 Git learners in the world!"

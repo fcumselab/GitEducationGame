@@ -665,7 +665,7 @@ GameManualItem/content/.gitAndGitCoreAreas/1,"當您確定好要管理的專案�
 我們需要在專案資料夾路徑下執行以下指令來創建 Git 管理系統："
 GameManualItem/content/.gitAndGitCoreAreas/1/Command,git init
 GameManualItem/content/.gitAndGitCoreAreas/2,執行成功後，專案資料夾中將會生成一個名為 '.git' 的隱藏資料夾。
-GameManualItem/content/.gitAndGitCoreAreas/3,".git' 是 Git 的核心組成部份，它將儲存與專案相關的所有資料，
+GameManualItem/content/.gitAndGitCoreAreas/3,"'.git' 是 Git 的核心組成部份，它將儲存與專案相關的所有資料，
 包括所有版本修改歷史等信息。
 如果沒有這個資料夾，您將無法執行大部分的 Git 指令。"
 GameManualItem/content/.gitAndGitCoreAreas/4/Title,Git 的核心區域
@@ -726,6 +726,7 @@ GameManualItem/content/RuleNameBranch/5,"以上的分支命名原則有助於了
 這有助於團隊更好地理解和管理分支。"
 GameManualItem/content/ProcessCreateCommit/1,"當成功完成特定功能的開發，或者需要備份開發中的內容時。
 我們就需要在本地儲存庫中創建提交。
+
 以下是創建提交的流程：
 1. 確定要上傳的檔案：
 我們需要將檔案移到暫存區域，才能將檔案內容推送到儲存庫以創建提交。
@@ -776,3 +777,164 @@ GameManualItem/content/RuleCommitMessage/4/tip,"例如，如果同時開發功�
 GameManualItem/content/RuleCommitMessage/5,"這些提交訊息原則，
 有助於團隊和個人更好地理解提交之間的目的，
 提高專案管理的穩定性和效率。"
+GameManualItem/content/ResolveMergeConflict/1,"在進行分支合併時，可能會出現合併衝突。
+尤其在多人協作裡更為常見。
+
+當兩個分支對同一文件做了修改，但修改內容不同時。
+Git 無法自行判斷哪些內容應該要留下、哪些要捨棄，
+因此會提醒開發者需要手動解決衝突。
+
+以下是解決合併衝突的步驟：
+1. 確認發生衝突的檔案：
+當發生衝突時，命令行會顯示所有發生衝突的檔案。
+這些檔案在暫存區域裡也會變成 '未追蹤'
+
+2. 了解衝突文件內容：
+衝突的檔案內容會新增三行特殊符號  '<'，'='，和 '>'。
+兩個合併分支的修改內容也包含在其中。"
+GameManualItem/content/ResolveMergeConflict/2,"例如：上圖的檔案裡，
+想要將 'new-feature' 分支合併至 'master' 分支，
+但是發生了文件衝突。
+
+特殊符號將區分 new-feature 與 master 分支的修改內容
+第 1 到第 3 行的內容顯示的是 HEAD，
+表示所在分支 'master' 的修改內容。
+而第 3 到第 5 行的內容，
+表示分支 'new-feature' 的修改內容。
+
+3. 解決文件衝突：
+解決文件衝突需要去判斷要保留、刪除的內容。"
+GameManualItem/content/ResolveMergeConflict/3,"例如:
+如何需要保留 'new-feature' 分支的修改內容，
+移除 master 分支的內容的話。
+
+請刪除以下內容：
+1. 三行的特殊分隔符號（第 1、3、5 行）
+2. 'master' 分支的修改內容（第 2 行）
+
+4. 創建提交以繼續進行合併
+當確認並解決所有衝突文件後，需要將解決衝突後的內容新建一個提交。
+提交後，合併將會繼續進行。
+最後，'master' 分支會獲得剛才解決衝突後的提交。"
+GameManualItem/content/gitMergeModes/1,"當執行分支合併指令時，
+Git 會比較兩個目標分支的提交記錄，
+並採用其中一種合併模式。
+
+以下是 Git 的三種合併模式：
+1. 快速合併（Fast-Forward Merge）
+2. 自動合併（Auto Merge）
+3. 合併衝突（Merge Conflict）"
+GameManualItem/content/gitMergeModes/2/Title,快速合併
+GameManualItem/content/gitMergeModes/2,"比較兩個分支的提交記錄，
+發現兩個分支的路徑沒有分叉，保持成一條直線，
+Git 將執行快速合併。
+
+快速合併會更新當前分支的提交記錄，
+最終與指定合併分支的提交記錄相同。
+並且過程中不會新增提交，只有提交記錄被更新。"
+GameManualItem/content/gitMergeModes/3/Title,自動合併
+GameManualItem/content/gitMergeModes/3,"比較兩個分支的提交記錄，
+發現提交記錄分成兩條路徑，它們有各自的開發提交。
+Git 將比較兩個分支的修改內容。
+
+檢查後如果發現分支的修改內容不會造成衝突，
+則使用自動合併。
+
+在將指定分支的內容合併到當前分支後
+會多新增一個提交。
+表示合併已成功，提交訊息會顯示進行合併的兩個分支名稱。"
+GameManualItem/content/gitMergeModes/4/Title,合併衝突
+GameManualItem/content/gitMergeModes/4,"與自動合併相似，
+當兩個目標分支分成兩條路徑，有各自的開發提交時。
+Git 將比較兩個分支的修改內容。
+
+如果都在同個文件上修改內容，並且有不同的修改時，
+Git 會提醒開發者合併發生衝突，需要手動解決。
+這時採用的是合併衝突模式。
+
+當衝突發生時，合併過程將會暫停。
+開發者需要進入發生衝突的檔案，
+決定哪些內容需要保留，哪些需要刪除。
+
+解決所有衝突後，將這些內容新建提交，合併將會繼續進行。
+最後，指定分支的內容將合併到當前分支
+並且當前分支會新增一個提交。
+這個提交包含著我們解決衝突後的檔案內容。"
+GameManualItem/content/gitMergeModes/4/tip,"自動合併與合併衝突是相關的，
+而本遊戲將合併分為三種模式，以提高辨認度。"
+GameManualItem/content/IntroGameScore/1/Title,得 分 介 紹
+GameManualItem/content/IntroGameScore/1,"在遊戲關卡中，
+您需要執行正確的操作來達成當前目標。
+
+完成目標時會根據您的表現給予評價，
+您可以通過計分表中的星星圖示
+來得知當前目標完成後可以獲得的評價。
+
+評價分為以下四種：
+1. 完美達成目標 (1000 分)："
+GameManualItem/content/IntroGameScore/2,"在完成當前目標的過程中，
+沒有執行任何錯誤操作時得到的評價。
+
+2. 完成目標，但過程中有錯誤操作 (750 分)："
+GameManualItem/content/IntroGameScore/3,"完成當前目標，
+但在過程中執行了錯誤操作得到的評價。"
+GameManualItem/content/IntroGameScore/3/tip,"關於如何得到完美評價，
+可以參考遊戲手冊中的 '如何完美達成目標'。"
+GameManualItem/content/IntroGameScore/4,3. 使用提示功能達成目標 (500 分)：
+GameManualItem/content/IntroGameScore/5,"完成當前目標的過程中，
+曾使用過提示功能得到的評價
+
+4. 使用解答功能達成目標 (0 分)："
+GameManualItem/content/IntroGameScore/6,"完成當前目標時的過程中，
+曾使用過解答功能得到的評價。
+
+通過遊戲關卡後，
+可以在結算畫面中查看每一個完成目標的評價。"
+GameManualItem/content/IntroGame/1/Title,遊 戲 介 紹
+GameManualItem/content/IntroGame/1,"歡迎來到 Git Education Game 的遊戲世界！
+本遊戲將教會您如何使用 Git 來有效管理專案。
+
+Git 是一個強大的專案管理工具，
+它能幫助您追蹤專案的開發歷程，
+提高專案的穩定性和開發效率。
+
+它對軟體開發人員來說是很重要的工具，
+同時，只要是長期需要進行管理的專案
+都能夠通過 Git 來有效管理它們
+
+在遊戲中，您將學習到 Git 的基本概念和用法。
+即使您沒有寫程式的經驗或從未接觸過 Git。
+完成遊戲後，您將具備使用 Git 的能力。"
+GameManualItem/content/IntroGame/2/Title,Git 主題關卡
+GameManualItem/content/IntroGame/2,"本遊戲將 Git 的核心知識分成了多個關卡，
+並組成三個主題關卡：
+1. Git 的基礎：
+學習 Git 的核心概念和基本指令。
+完成主題關卡後，
+將具備使用 Git 進行專案管理的基本能力。
+
+2. 分支管理：
+學習 Git 的分支系統，
+讓專案能以更穩定和有效的方式進行開發。
+
+3. 遠端管理：
+學習 Git 的遠端管理功能，
+讓專案能夠通過網絡與團隊共同開發專案。"
+GameManualItem/content/IntroGame/3/Title,模擬場景目標
+GameManualItem/content/IntroGame/3,"每個關卡會生成符合學習目標的場景，讓您在故事情節中解決實際問題。
+
+每個場景都有一個主要目標，
+本遊戲將它細分成了多個小目標。
+
+您只需按照當前目標和指示執行動作，
+當所有目標都完成後即可通過關卡。
+
+在遊戲畫面左上方，顯示著當前目標的要求。
+請按照指示一一完成任務，來完成關卡吧"
+GameManualItem/content/IntroGame/4/Title,遊戲得分
+GameManualItem/content/IntroGame/4,"遊戲過程中，每個完成的目標會根據您的表現獲得不同評價。
+關卡分數表示對關卡的熟練程度。
+
+完成關卡後，遊戲將給予您 1 到 4 顆星的最後評價。
+並且，您在關卡的得分和通過時間將上傳至全球排行榜。
+請試著獲得高分來成為全球前 10 名的 Git 學習者吧！"
