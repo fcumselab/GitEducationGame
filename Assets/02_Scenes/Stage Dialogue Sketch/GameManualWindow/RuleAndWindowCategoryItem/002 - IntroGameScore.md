@@ -36,3 +36,7 @@
 
 通過遊戲關卡後，
 可以在結算畫面中查看每一個完成目標的評價。
+
+2. Completed the objective, but made mistakes (750 points):
+3. 3. Completed the objective with Hints (500 points):
+4.  Completed the objective using the answer feature (0 points):

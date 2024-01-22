@@ -18,7 +18,7 @@ GameManualItem/list/git pull,git pull
 GameManualItem/list/IntroGame,Gameplay and Objectives
 GameManualItem/list/IntroGameScore,Introduction to Game Score
 GameManualItem/list/IntroGetPerfect,How to complete objectives Perfectly
-GameManualItem/list/IntroGetPerfect,Assistance Features
+GameManualItem/list/IntroAssistance,Assistance Features
 GameManualItem/list/IntroGameManual,Window Introduction: Game Manual
 GameManualItem/list/IntroFileManager,Window Introduction: File Manager
 GameManualItem/list/IntroFileContent,Window Introduction: File Content
@@ -27,8 +27,7 @@ GameManualItem/list/IntroCommandLine,Window Introduction: Command Line
 GameManualItem/list/IntroStagingArea,Window Introduction: Staging Area
 GameManualItem/list/IntroCommitHistory,Window Introduction: Commit History
 GameManualItem/list/IssuesBackupFile,Issues with the backup file method
-GameManualItem/list/IntroVersionControl,Introduction to Version Control
-GameManualItem/list/IntroGit,Introduction to Git
+GameManualItem/list/VersionControlAndGit,Version Control and Git
 GameManualItem/list/.gitAndGitCoreAreas,.git and Git's Core Areas
 GameManualItem/list/ProcessCreateCommit,Process of Creating a Commit
 GameManualItem/list/RuleNameBranch,Principles of Naming Branches
@@ -590,7 +589,7 @@ It displays the contents of the computer in the current simulation background.
 During the use of Git, 
 the File Management Window remains open 
 because some Git commands require you to enter the names of specific files."
-GameManualItem/content/IntroFileManager/2/Title,Toolbar Introduction
+GameManualItem/content/IntroFileManager/2/Title,Toolbar introduction
 GameManualItem/content/IntroFileManager/2,"Left Button: Return to the previous folder.
 Right Text Box: Displays the current folder location/path (Home is the home page)."
 GameManualItem/content/IntroFileManager/3/Title,File Type Introduction
@@ -921,3 +920,192 @@ Game points in each stage show your performance on the stage.
 After completing a stage, the game will give you a final rating of 1 to 4 stars. 
 Your score and completion time for the stage will be uploaded to the global leaderboard. 
 Try to get high scores and become one of the top 10 Git learners in the world!"
+GameManualItem/content/CheckBeforeMergeMainBrach/1,"Before merging a completed development branch into the remote main branch,
+we should go through the 'Preparation for Merging' process.
+It helps ensure the merged project works fine and avoids merge conflicts.
+
+Here are the steps for confirmation:
+1. Check branch commit records
+First, please confirm the commit history of both the 'development branch' and 'main branch'. 
+Make sure they are consistent with the remote repository.
+This ensures the actions below are valid.
+
+2. Merge local main branch
+Merge the 'main branch' in your local computer into the 'development branch'.
+This integrates the changes from both branches.
+
+3. Verify project status after merge
+After merging, check if the project encounters any issues.
+If there are problems, we should resolve them locally.
+
+4. Upload the merged 'development branch' to the remote repository
+Once the merged project runs smoothly,
+or after resolving any issues caused by the merge,
+the branch can be uploaded to the remote repository.
+
+After completing the above steps,
+you can create a Pull Request for merging,
+let the merged 'development branch' can be merged into the remote main branch."
+GameManualItem/content/VersionControlAndGit/1/Title,Version Control
+GameManualItem/content/VersionControlAndGit/1,"Version Control is a system for managing documents, code, and other content. 
+It's particularly suited for projects requiring long-term operation and development.
+It plays an important role in the field of software development.
+
+It has the following features:
+1. File content tracking:
+Each change is recorded. 
+You can use these records to see 
+who made the changes when they were made, and the specific changes.
+
+2. Version rollback:
+When errors occur during development, 
+this feature allows you to revert to a version before the error occurs. 
+But current developments and all records won't lost. 
+You can easily switch to the version you want.
+
+3. Branch Management:
+You can divide the development content into multiple branches. 
+The main advantage of branch management is that 
+branches do not interfere with each other, enhancing development efficiency and stability."
+GameManualItem/content/VersionControlAndGit/2,"Git is a widely used version control tool, especially popular in software development. 
+
+It contains the principles of version control, 
+allowing users to perform various operations through the command line. 
+
+These commands are typically user-friendly, 
+and you will learn and use them in this game to achieve scenario goals.
+
+In addition to the advantages of version control, Git also supports team collaboration. 
+There are many Git service platforms online (e.g., GitHub, GitLab). 
+These platforms allow you to upload your projects and collaborate with other members."
+GameManualItem/content/IntroStagingArea/1,"The Staging Area Window is designed to 
+replicate the output of the 'git status' command in a new window.
+It shows the results of the command execution."
+GameManualItem/content/IntroStagingArea/2/Title,Current display content
+GameManualItem/content/IntroStagingArea/2,"You can click on previously executed commands 
+to view the staging area's status at different points in time. 
+The corresponding command ID will be displayed here."
+GameManualItem/content/IntroStagingArea/3/Title,Staged and Unstaged Areas
+GameManualItem/content/IntroStagingArea/3,"The game simplifies the content of the staging area into two file statuses:
+1. Unstaged Area:
+Compares the current commit and the working directory files, 
+and found files are different in the working directory.
+But they are not moved to the staging area.
+
+2. Staged Area:
+Compares the current commit and the working directory files, 
+and found files are different in the working directory.
+And they have been added to the staging area."
+GameManualItem/content/IntroStagingArea/4/Title,File status
+GameManualItem/content/IntroStagingArea/4,"From left to right, the display includes:
+1. File status
+2. File location in the project
+3. File name
+
+File status is categorized into:
+1. New File Icon"
+GameManualItem/content/IntroStagingArea/5,"Shows a file is being tracked for the first time.
+
+2. The modified file icon"
+GameManualItem/content/IntroStagingArea/6,"Shows a tracked file has been modified.
+
+3. The Deleted file icon"
+GameManualItem/content/IntroStagingArea/7,"Shows a file’s tracking has been removed, 
+which typically means that the file has been deleted."
+GameManualItem/content/IntroAssistance/1,"The dialogue window is frequently used in the game. 
+Before starting the game, you need to click this button to proceed to the next step. 
+There're multiple dialogues will appear during the stage.
+They will guide you on what to do next.
+
+When the system allows you to start an action by yourself, 
+you can click the button again to use the assistance feature. 
+The system will pop up options."
+GameManualItem/content/IntroAssistance/2/Title,Review previous conversations
+GameManualItem/content/IntroAssistance/2,"The dialogue usually contains instructional content and guidance. 
+You can choose this option when you forget what you should be doing."
+GameManualItem/content/IntroAssistance/3/Title,Use hint feature
+GameManualItem/content/IntroAssistance/3,"The hint feature will provide guidance based on the current stage objective. 
+After using the hint feature, 
+the rating for completing the current objective will change to 'Completed the objective with hints'."
+GameManualItem/content/IntroAssistance/4/Title,Use answer feature
+GameManualItem/content/IntroAssistance/4,"The answer feature assists you through dialogue until the current objective is completed. 
+After using the answer feature, 
+the rating for completing the current objective will change to 'Completed objective with answer feature'.
+
+To use this feature, it needs to meet some conditions so you can use it.
+To better learn Git commands and version control knowledge, 
+please try to complete objectives in other ways."
+GameManualItem/content/IntroResultsScreen/1,"This window will display after completing the stage. 
+The system records your actions during the stage, 
+and the window will show the summarized results, allowing you to understand your performance on the stage."
+GameManualItem/content/IntroResultsScreen/2/Title,Stage rating and detailed statistics
+GameManualItem/content/IntroResultsScreen/2,"Displays the total score and rating for the stage, 
+The system will give a rating from 1 to 4 stars. 
+You can use the rating to gauge your performance on the stage.
+
+The bottom section will also display a count of actions performed during the stage."
+GameManualItem/content/IntroResultsScreen/3/Title,Leaderboard
+GameManualItem/content/IntroResultsScreen/3,"The personal leaderboard shows your best record for the current stage. 
+Use the leaderboard to track your progress. 
+Try to break your records to increase your performance on the stage.
+
+Moreover, your score and completion time for the stage will be uploaded to the global leaderboard. 
+You can view the global leaderboard for the stage using the button in the top-right corner."
+GameManualItem/content/IntroResultsScreen/4/Title,Completed objectives list
+GameManualItem/content/IntroResultsScreen/4,"Displays all the objectives completed at the current stage. 
+Each objective includes a task description and the time taken to complete it.
+
+The completed objectives are categorized into four ratings:
+1. Completed the objective perfectly"
+GameManualItem/content/IntroResultsScreen/5,"2. Completed the objective, but made mistakes"
+GameManualItem/content/IntroResultsScreen/6,3. Completed the objective with Hints
+GameManualItem/content/IntroResultsScreen/7,4. Completed the objective using the answer feature
+GameManualItem/content/IntroCommandLine/1,"The command line window simulates the command prompt (CMD) window in real computers. 
+Users can execute system commands and Git commands in this window.
+
+In using Git in real life,
+most of the Git command execution results are displayed in this window."
+GameManualItem/content/IntroCommandLine/2/Title,Toolbar introduction
+GameManualItem/content/IntroCommandLine/2,Right-side trash bin icon: Clears the content of command history.
+GameManualItem/content/IntroCommandLine/3/Title,Command history
+GameManualItem/content/IntroCommandLine/3,"Used to record previously executed commands. 
+Click on a command to view its execution result, 
+or hover over a command to quickly preview the result.
+
+After executing a command, there are three types of results:
+1. Command executed successfully:"
+GameManualItem/content/IntroCommandLine/4,"When the executed command is correct 
+and doesn’t cause problems for the project.
+
+2. Warning:"
+GameManualItem/content/IntroCommandLine/5,"Command execution is interrupted, 
+it usually means there's an error during the execution. 
+The game will alert you to the reason for the failure.
+
+3. Command execution aborted:"
+GameManualItem/content/IntroCommandLine/6,"The executed command might cause problems for the project. 
+If the command is successfully executed, it may require additional time and effort to resolve issues. 
+In the game, the execution will be forcibly stopped and considered an operation error."
+GameManualItem/content/IntroCommandLine/7/Title,Command execution details
+GameManualItem/content/IntroCommandLine/7,"After executing a command, the result is displayed here."
+GameManualItem/content/IntroCommandLine/8/Title,Current location
+GameManualItem/content/IntroCommandLine/8,"Hover over the left-side pointer icon: Current command line location.
+Hover over the right-side branch icon: Current branch, commit."
+GameManualItem/content/IntroCommandLine/8/tip,"In the game, 
+the command line window syncs with the path in the file manager window. 
+If you move the path in the file manager window, the command line will also update the path."
+GameManualItem/content/IntroCommandLine/9/Title,Input command field
+GameManualItem/content/IntroCommandLine/9,"Used to execute Git commands.
+During command input, the following operations can be performed:
+1. Click the Tab key or lens icon for the quick search feature.
+2. Press Enter or click the arrow icon to execute the command.
+3. Use the up and down arrow keys to quickly fill in previously executed commands.
+4. Right-click in the input field to paste the copied content."
+GameManualItem/content/IntroCommandLine/10/Title,Quick complete feature
+GameManualItem/content/IntroCommandLine/10,"Search for appropriate results based on current input to quickly fill in the input field. 
+It is useful in the following scenarios:
+1. Quick command input.
+2. Unfamiliarity with command structure.
+3. Use in-game systems: Filling in commit messages, and naming branches."
+GameManualItem/content/IntroCommandLine/10/tip,"For how to use the quick fill for commit messages and branch naming,
+please see the 'git commit', and 'git branch' commands."

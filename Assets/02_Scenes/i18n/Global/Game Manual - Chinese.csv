@@ -18,7 +18,7 @@ GameManualItem/list/git pull,git pull
 GameManualItem/list/IntroGame,遊戲玩法和目標
 GameManualItem/list/IntroGameScore,遊戲得分介紹
 GameManualItem/list/IntroGetPerfect,如何完美達成目標
-GameManualItem/list/IntroGetPerfect,協助功能
+GameManualItem/list/IntroAssistance,協助功能
 GameManualItem/list/IntroGameManual,視窗介紹：遊戲手冊
 GameManualItem/list/IntroFileManager,視窗介紹：檔案管理
 GameManualItem/list/IntroFileContent,視窗介紹：檔案內容
@@ -27,8 +27,7 @@ GameManualItem/list/IntroCommandLine,視窗介紹：命令行
 GameManualItem/list/IntroStagingArea,視窗介紹：暫存區域
 GameManualItem/list/IntroCommitHistory,視窗介紹：提交記錄
 GameManualItem/list/IssuesBackupFile,備份檔案的問題
-GameManualItem/list/IntroVersionControl,版本控制的介紹
-GameManualItem/list/IntroGit,Git 的介紹
+GameManualItem/list/VersionControlAndGit,版本控制 和 Git
 GameManualItem/list/.gitAndGitCoreAreas,.git 與 Git 的核心區域
 GameManualItem/list/ProcessCreateCommit,創建提交的流程
 GameManualItem/list/RuleNameBranch,命名分支的原則
@@ -341,7 +340,9 @@ GameManualItem/content/git branch/commandDetail/2/hint,"1. 創建分支後需要
 
 2. 分支名稱要具體而清晰：
 為了讓自己和團隊能夠快速了解分支的內容和目的，
-請確保分支名稱具體而清晰。"
+請確保分支名稱具體而清晰。
+
+"
 GameManualItem/content/git branch/commandDetail/3,"git branch <color=#CF001C>-d 或 --delete</color> <color=""#173D91"">分支名稱</color>"
 GameManualItem/content/git branch/commandDetail/3/use,將指定的本地分支從本地儲存庫中刪除。
 GameManualItem/content/git branch/commandDetail/3/scenario,1. 當分支已經完成目標並合併到主分支時
@@ -938,3 +939,187 @@ GameManualItem/content/IntroGame/4,"遊戲過程中，每個完成的目標會�
 完成關卡後，遊戲將給予您 1 到 4 顆星的最後評價。
 並且，您在關卡的得分和通過時間將上傳至全球排行榜。
 請試著獲得高分來成為全球前 10 名的 Git 學習者吧！"
+GameManualItem/content/CheckBeforeMergeMainBrach/1,"在準備將開發完成的分支合併至遠端主分支前
+通過 '合併前的確認' 流程
+有助於確保合併後專案的完整性和避免合併衝突。
+
+以下是應該進行確認的流程：
+1. 檢查分支的提交記錄
+首先，請確認 '開發分支' 和 '主分支' 的提交記錄與遠端儲存庫一致。
+以確保後續的動作是有效的。
+
+2. 合併本地主分支
+將本地電腦中的 '主分支' 合併至 '開發分支' 中，
+通過這種方式來整合兩個分支的修改內容。
+
+3. 驗證合併後專案的運行狀態
+在合併後，需要檢查專案是否出現問題。
+如果發生問題，需要在本地將問題解決。
+
+4. 將合併後的 '開發分支' 上傳至遠端儲存庫
+當合併後的專案可以順利運行，
+或是將合併後造成的問題解決後
+就可以將這個分支上傳至遠端
+
+當完成以上流程後，
+就能創建 Pull Request 合併請求，
+讓合併後的 '開發分支' 合併至遠端主分支上。"
+GameManualItem/content/VersionControlAndGit/1/Title,版 本 控 制
+GameManualItem/content/VersionControlAndGit/1,"版本控制是一個用於管理文件、程式碼和其他內容的系統。
+它非常適合應用在需要長期運營和開發的專案。
+對於程式開發領域來說是不可缺少的工具。
+
+版本控制提供了以下的功能：
+1. 檔案內容追蹤： 
+每一次的更改都會被記錄下來，
+您能夠通過這些記錄得知
+誰做了修改、何時修改的以及具體的修改內容。
+
+2. 回溯版本：
+當開發過程發生錯誤時，
+這個功能可以切換回錯誤發生之前的版本。
+而您目前開發的內容以及所有記錄都不會遺失。
+您可以輕易地移動到想要的版本上。
+
+3. 分支管理：
+您可以將開發中的內容分成多個分支進行。
+分支管理最大的長處，就是分支間不會互相影響。
+以此來提升開發效率和穩定性。"
+GameManualItem/content/VersionControlAndGit/2,"Git 是一個廣泛使用的版本控制工具，
+尤其在軟體開發領域上很受歡迎。
+
+它結合了版本控制的原理，
+允許使用者通過命令行（Command Line）輸入 Git 指令來執行各種操作。
+
+這些指令通常是簡單易使用的，
+您將會在本遊戲中學習並實際使用它們來完成場景目標。
+
+Git 除了有上述版本控制提到的優點外，
+它也支持團隊協作。
+網絡上有很多的 Git 服務平台（例如：GitHub、GitLab 等）。
+這些平台允許您將專案上傳上去，並與其他成員共同開發它。"
+GameManualItem/content/IntroStagingArea/1,"暫存區域視窗是一個
+將 'git status' 指令的輸出結果獨立出來的視窗，
+視窗將還原指令執行的內容。"
+GameManualItem/content/IntroStagingArea/2/Title,當前顯示內容
+GameManualItem/content/IntroStagingArea/2,"您可以點擊之前執行過的指令
+來查看不同時期的暫存區域狀態。
+這裡將顯示對應的指令 ID。"
+GameManualItem/content/IntroStagingArea/3/Title,已追蹤與未追蹤區域
+GameManualItem/content/IntroStagingArea/3,"遊戲將暫存區域內容簡化成了兩種檔案狀態：
+1. 未追蹤區域：
+比較當前提交和工作目錄的檔案內容，
+發現工作目錄的內容不同，但尚未移動至暫存區域的檔案
+
+2. 已追蹤區域：
+比較當前提交和工作目錄的檔案內容，
+發現工作目錄的內容不同，並加入至暫存區域的檔案"
+GameManualItem/content/IntroStagingArea/4/Title,檔案狀態
+GameManualItem/content/IntroStagingArea/4,"從左到右分別是：
+1. 檔案狀態
+2. 檔案在專案中的位置
+3. 檔案名稱
+
+其中，檔案狀態分成下列幾種：
+1. 新增圖示"
+GameManualItem/content/IntroStagingArea/5,"這個檔案是第一次被追蹤。
+
+2. 修改圖示"
+GameManualItem/content/IntroStagingArea/6,"檔案已被追蹤，但是內容有做修改。
+
+3. 刪除圖示"
+GameManualItem/content/IntroStagingArea/7,移除檔案的追蹤，通常表示該檔案已被刪除
+GameManualItem/content/IntroAssistance/1,"對話視窗是遊戲中經常使用的視窗。
+在遊戲開始前，需要點擊此按鈕來進行下一步。
+關卡中會出現多個對話來引導您目前應該做什麼。
+
+當系統允許您自由操作時，
+再次點擊按鈕來啟動協助功能。
+系統會跳出選項。"
+GameManualItem/content/IntroAssistance/2/Title,回顧上一次的對話
+GameManualItem/content/IntroAssistance/2,"對話中通常會包含教學內容和引導，
+在忘記應該做什麼事情時就可以選擇這個選項。"
+GameManualItem/content/IntroAssistance/3/Title,使用提示功能
+GameManualItem/content/IntroAssistance/3,"提示功能將會根據當前的關卡目標，給予對應的提示。
+使用了提示功能後，
+本次完成目標的評價將會變為 '使用提示功能達成目標'。"
+GameManualItem/content/IntroAssistance/4/Title,使用解答功能
+GameManualItem/content/IntroAssistance/4,"解答功能會通過對話來協助您，直至當前目標完成。
+使用了提示功能後，
+本次完成目標的評價將會變為 '使用解答功能達成目標'。
+
+如果要使用本功能，需要達成一定條件才能解鎖。
+為了更好地學習 Git 指令與版本控制的知識，
+請盡量通過其他方式來完成目標吧。"
+GameManualItem/content/IntroResultsScreen/1,"在通過關卡時顯示的視窗。
+系統會記錄您在關卡中執行的操作，
+視窗中將統計它們，讓您了解自己在關卡中的熟練度。"
+GameManualItem/content/IntroResultsScreen/2/Title,關卡評價與細節統計
+GameManualItem/content/IntroResultsScreen/2,"顯示本次關卡的總得分和關卡評價，
+每個關卡都有 1 到 4 顆星的評價。
+您可以通過評價來驗證在關卡中的熟練度。
+
+另外，下方將顯示在關卡中執行動作的次數統計。"
+GameManualItem/content/IntroResultsScreen/3/Title,排行榜
+GameManualItem/content/IntroResultsScreen/3,"個人排行榜是您在本次關卡的最佳記錄
+通過排行榜來追蹤自己的進步，
+請嘗試打破自己的記錄，來加強對關卡的熟練度吧。
+
+另外，關卡的得分和通過時間將上傳至全球排行榜。
+您可以通過右上方的按鈕來查看本關卡的全球排行榜。"
+GameManualItem/content/IntroResultsScreen/4/Title,完成目標列表
+GameManualItem/content/IntroResultsScreen/4,"顯示本次關卡中已完成的所有目標。
+每個目標都包括任務描述和完成目標花費的時間。
+
+完成的目標會分為四種評價：
+1. 完美達成目標"
+GameManualItem/content/IntroResultsScreen/5,2. 完成目標，但過程中有錯誤操作
+GameManualItem/content/IntroResultsScreen/6,3. 使用提示功能達成目標
+GameManualItem/content/IntroResultsScreen/7,4. 使用解答功能達成目標
+GameManualItem/content/IntroCommandLine/1,"命令行視窗模擬了現實電腦中的命令提示字元（CMD）視窗。
+使用者能在視窗上執行系統指令和 Git 指令。
+
+在實際執行 Git 指令時，
+大部分的指令執行結果都會顯示在這個視窗中。"
+GameManualItem/content/IntroCommandLine/2/Title,工具欄介紹
+GameManualItem/content/IntroCommandLine/2,右側垃圾桶圖示：清除指令歷史記錄的內容
+GameManualItem/content/IntroCommandLine/3/Title,指令歷史記錄
+GameManualItem/content/IntroCommandLine/3,"用於記錄之前執行過的指令。
+點擊其中一個指令，來查看執行後的結果。
+或者將滑鼠移到指令上，來快速預覽結果。
+
+執行指令後，會有三種結果：
+1. 執行成功："
+GameManualItem/content/IntroCommandLine/4,"執行的指令正確且不會對專案造成問題時。
+
+2. 警告："
+GameManualItem/content/IntroCommandLine/5,"指令執行中斷，通常表示執行的內容有誤。
+遊戲會提醒您執行失敗的原因。
+
+3. 指令執行中止："
+GameManualItem/content/IntroCommandLine/6,"執行的指令可能對專案造成問題。
+如果指令執行成功，需要花費額外時間和精力來解決問題。
+在遊戲中，執行的內容會強制中止，並視為操作錯誤。"
+GameManualItem/content/IntroCommandLine/7/Title,指令執行細節
+GameManualItem/content/IntroCommandLine/7,執行指令後，其結果會顯示在這裡。
+GameManualItem/content/IntroCommandLine/8/Title,當前位置
+GameManualItem/content/IntroCommandLine/8,"滑鼠移到左側指針圖示：當前命令行位置
+滑鼠移到右側分支圖示：當前所在分支、提交"
+GameManualItem/content/IntroCommandLine/8/tip,"在本遊戲裡，
+命令行視窗將同步檔案管理視窗的路徑，
+如果在檔案管理視窗中移動路徑，命令行也會更新路徑。"
+GameManualItem/content/IntroCommandLine/9/Title,輸入指令欄
+GameManualItem/content/IntroCommandLine/9,"用於執行 Git 指令，
+在輸入指令的過程中能進行以下操作：
+1. 點擊 Tab 鍵或放大鏡圖示來使用快速搜尋功能
+2. 點擊 Enter 鍵或箭頭圖示來執行指令。
+3. 按下方向鍵上下來快速填入之前執行過的指令。
+4. 選取輸入欄時，點擊右鍵來貼上複製的內容。"
+GameManualItem/content/IntroCommandLine/10/Title,快速完成功能
+GameManualItem/content/IntroCommandLine/10,"根據目前輸入的內容搜尋合適的結果，以快速填入到輸入欄中。
+適用於以下情景：
+1. 快速填入指令
+2. 不熟悉指令的結構
+3. 使用遊戲中的系統：填入提交訊息、命名分支"
+GameManualItem/content/IntroCommandLine/10/tip,"關於如何使用快速填入提交訊息、命名分支功能
+請查看 'git commit'、'git branch' 指令"
