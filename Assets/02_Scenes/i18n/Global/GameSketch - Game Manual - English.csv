@@ -1,6 +1,7 @@
 TooltipMessage/GameManualButton/Unlock,Game Manual
 TooltipMessage/GameManualButton/Lock,Lock Window: Game Manual
 TooltipMessage/GameManualItem/content/commandDetail/Lock,後面的指令尚未解鎖
+GameManualItem/list/IntroGitCommand,Introduction to Git commands
 GameManualItem/list/git,git
 GameManualItem/list/git init,git init
 GameManualItem/list/git status,git status
@@ -609,156 +610,171 @@ the system will display an error message here and provide the reason for the err
 To learn how to avoid operation errors,
 please refer to 'How to complete objectives Perfectly' in the Game Manual."
 GameManualItem/content/IssuesBackupFile/1,"While backing up files can be a simple and quick way to manage a project.
-It can cause many problems over time, making the project difficult to manage and negatively impacting development efficiency.
+It can cause many problems over time, 
+making the project difficult to manage and negatively impacting development efficiency.
 
 Here are a few common issues:
-1. Irrelevant Files in Project Folder
-To back up files, you must copy and rename them with clear names. 
-Over time, there are many irrelevant files in the folder, making it not easy to manage.
 
-2. Difficulty in finding the difference between versions
-To understand the modifications made in a particular version, 
-you have to go through the entire file content. 
-When there are serious errors occur during development, 
-it takes a lot of time and effort to locate the source of the error.
+<b>1. Irrelevant files in project folder</b>
+     To back up files, you must copy and rename them with clear names. 
+     Over time, there are many irrelevant files in the folder, making it not easy to manage.
 
-3. Modify the Wrong Files
-When there are too many irrelevant files in the project, 
-you might accidentally make changes to an old version of a file, 
-it confused the project records.
+<b>2. Difficulty in finding the difference between versions</b>
+     To understand the modifications made in a particular version, 
+     you have to go through the entire file content. 
+     When there are serious errors occur during development, 
+     it takes a lot of time and effort to locate the source of the error.
 
-4. Inconvenience in Team Development
-When collaborating with others on a project, 
-the method of file backup can confuse the development process.
-For example, issues like the number of backup files, time spent finding file differences, and how to merge team content.
+<b>3. Modify the wrong files</b>
+     When there are too many irrelevant files in the project, 
+     you might accidentally make changes to an old version of a file, 
+     it confused the project records.
+
+<b>4. Inconvenience in team development</b>
+     When collaborating with others on a project, 
+     the method of file backup can confuse the development process.
+     For example, issues like the number of backup files, time spent finding file differences, 
+     and how to merge team content.
 
 These are the common problems above.
 Managing projects with backup files can lead to many unexpected troubles.
 
-Using Git to manage projects can solve these problems, 
-it enhances the stability and efficiency of the project. 
+Using Git to manage projects can solve these problems.
+It enhances the stability and efficiency of the project.
 Allows you to spend more time on project development."
 GameManualItem/content/DetachedHEAD/1,"Detached HEAD is a state in Git.
-When the current HEAD is positioned at a specific commit, rather than on any branch in the Git repository.
+When the current HEAD is positioned at a specific commit, 
+rather than on any branch in the Git repository.
 
 This situation usually occurs when we use the following command:"
 GameManualItem/content/DetachedHEAD/1/Command,git checkout <color=#CF001C>commit_ID</color>
-GameManualItem/content/DetachedHEAD/2,"This command moves the HEAD to the specified commit, at which point the HEAD is in a 'Detached HEAD' state.
+GameManualItem/content/DetachedHEAD/2,"This command moves the HEAD to the specified commit, HEAD is in a 'Detached HEAD' state.
 
 If new commits are created in this state, they will not belong to any branch. 
 These commits not only risk being lost but can also cause management issues in the project.
 
-Therefore, after switching to another commit to view file contents, don't forget to switch back to the branch where you intend to continue development. 
+Therefore, after switching to another commit to view file contents.
+If you want to develop new features, please don't forget to switch back to the target branch. 
 You can use the following command to switch back to a specific branch:"
 GameManualItem/content/DetachedHEAD/2/Command,git checkout <color=#CF001C>branch_name</color>
 GameManualItem/content/DetachedHEAD/2/tip,"In the game, when a Detached HEAD situation occurs, 
 the HEAD flag icon in the Commit History window will become transparent.
 Additionally, the game will remind you that can not commit while in a Detached HEAD state."
-GameManualItem/content/.gitAndGitCoreAreas/1/Title,.git Folder Introduction
+GameManualItem/content/.gitAndGitCoreAreas/1/Title,.git folder introduction
 GameManualItem/content/.gitAndGitCoreAreas/1,"When you have decided the project you want to manage, 
 you need to execute the following command in the project folder path to create the Git management system:"
 GameManualItem/content/.gitAndGitCoreAreas/1/Command,git init
 GameManualItem/content/.gitAndGitCoreAreas/2,"After execution is successful, 
-a hidden folder named '.git' will be created in the project folder."
-GameManualItem/content/.gitAndGitCoreAreas/3,"'.git' is a core component of Git. 
+a hidden folder named <color=#CF001C>.git</color> will be created in the project folder."
+GameManualItem/content/.gitAndGitCoreAreas/3,"<color=#CF001C>.git</color> is a core component of Git. 
 It stores all data related to the project, including the entire version history. 
 Without this folder, most Git commands cannot be executed."
-GameManualItem/content/.gitAndGitCoreAreas/4/Title,Git's Core Areas
+GameManualItem/content/.gitAndGitCoreAreas/4/Title,Git's core areas
 GameManualItem/content/.gitAndGitCoreAreas/5,"Git consists of three important areas that help us manage projects using Git:
 
-1. Working Directory:
-The area inside the project folder is known as the working directory, 
-including text, images, and other project files. 
-In the working directory, we add and edit files to develop the project.
+<b>1. Working Directory:</b>
+     The area inside the project folder is known as the working directory, 
+     including text, images, and other project files. 
+     In the working directory, we add and edit files to develop the project.
 
-2. Staging Area:
-The staging area acts as a bridge between the 'working directory' and the 'repository'. 
-We move modified files from the 'working directory' to this area. 
-Once ready, these files are moved to the 'repository' through a command to create a new 'commit'.
+<b>2. Staging Area:</b>
+     The staging area acts as a bridge between the 'working directory' and the 'repository'. 
+     We move modified files from the 'working directory' to this area. 
+     Once ready, these files are moved to the 'repository' through a command 
+     to create a new 'commit'.
 
-3. Repository:
-The repository is the core area of Git, storing all records of the project. 
-After adding a new commit, it is stored in the 'commit history' area of the 'repository'. 
-This area helps track the version of changes."
-GameManualItem/content/.gitAndGitCoreAreas/5/tip,"In fact, the '.git' folder is actually the 'repository', 
+<b>3. Repository:</b>
+     The repository is the core area of Git, storing all records of the project. 
+     After adding a new commit, it is stored in the 'commit history' area of the 'repository'. 
+     This area helps track the version of changes."
+GameManualItem/content/.gitAndGitCoreAreas/5/tip,"In fact, the <color=#CF001C>.git</color> folder is actually the 'repository', 
 and the 'staging area' is also contained in the folder."
 GameManualItem/content/RuleNameBranch/1,"Learning how to name branches is important.
 Clear and specific branch names help manage the project more effectively.
 And make it easier for the team to understand the purpose of each branch.
 
 Here are some principles for naming branches:
-1. Keep It Concise and Clear:
-The branch name should be simple and clear, 
-containing enough information to describe the purpose of creating the branch."
-GameManualItem/content/RuleNameBranch/1/tip,"For example, using 'fix-login-bug' is better than 'fix-login-bug-in-homepage'
-to avoid overly long branch names."
-GameManualItem/content/RuleNameBranch/2,"
-2. Avoid Special Symbols, Spaces, and other language characters:
-Branch names should avoid special symbols, spaces, and other language characters.
-Ensure the project can be used and read in different language environments.
 
-Proper naming should use lowercase English letters and
-separate words with hyphens (-) or slashes (/) to enhance readability."
-GameManualItem/content/RuleNameBranch/2/tip,For example: 'new-system-feature' or 'new/system/feature'.
+<b>1. Keep it concise and clear:</b>
+     The branch name should be simple and clear, 
+     containing enough information to describe the purpose of creating the branch."
+GameManualItem/content/RuleNameBranch/1/tip,"For example, using <color=#CF001C>fix-login-bug</color> is better than <color=#CF001C>fix-login-bug-in-homepage</color>.
+To avoid overly long branch names."
+GameManualItem/content/RuleNameBranch/2,"
+<b>2. Avoid special symbols, spaces, and other language characters:</b>
+     Branch names should avoid special symbols, spaces, and other language characters.
+     Ensure the project can be used and read in different language environments.
+
+     Proper naming should use lowercase English letters and
+     separate words with hyphens (-) or slashes (/) to enhance readability."
+GameManualItem/content/RuleNameBranch/2/tip,For example: <color=#CF001C>new-system-feature</color> or <color=#CF001C>new/system/feature</color>.
 GameManualItem/content/RuleNameBranch/3,"
-3. Include Author's Name:
-In team development, include the author's name in the branch name.
-It helps track the development progress of team members and identify the person responsible for the development."
-GameManualItem/content/RuleNameBranch/3/tip,For example: 'john-bugfix-quest'.
+<b>3. Include author's name:</b>
+     In team development, include the author's name in the branch name.
+     It helps track the development progress of team members and 
+     identify the person responsible for the development."
+GameManualItem/content/RuleNameBranch/3/tip,For example: <color=#CF001C>john-bugfix-quest</color>.
 GameManualItem/content/RuleNameBranch/4,"
-4. Add Issue ID:
-During project development, developers often create multiple discussion forums to solve problems. 
-Including the issue ID in the branch name when fixing a specific problem helps track the corresponding issue."
-GameManualItem/content/RuleNameBranch/4/tip,"For example: ""pan-3759-trade""."
+<b>4. Add Issue ID:</b>
+     In team project, developers often create discussion forums to solve problems. 
+     Including the issue ID in the branch name helps track the corresponding issue."
+GameManualItem/content/RuleNameBranch/4/tip,For example: <color=#CF001C>pan-3759-trade</color>.
 GameManualItem/content/RuleNameBranch/5,"Following these principles for branch naming helps to understand the purpose of each branch. 
 If you are part of a team, adhere to the team's branch naming rules to maintain consistency. 
 It helps the team better understand and manage branches."
-GameManualItem/content/ProcessCreateCommit/1,"When you have completed the development of a specific feature, or when you need to back up content in development.
+GameManualItem/content/ProcessCreateCommit/1,"When you have completed the development of a specific feature, 
+or when you need to back up content in development.
 It's time to create a commit in your local repository. 
 
 Here's the process for creating a commit:
-1. Determine the Files to Upload:
-You need to move files to the staging area before you can push the file content to the repository to create a commit. 
-Use commands to ensure that the staging area contains the files you want to save, while irrelevant files should not be included in the staging area.
 
-2. Write a Commit Message and Create the Commit:
-After confirmation, create a commit using the following command:"
+<b>1. Determine the files to upload:</b>
+     You need to move files to the staging area 
+     before you can push the file content to the repository to create a commit. 
+     Please use commands to ensure that the staging area contains the files you want to save, 
+     while irrelevant files should not be included in the staging area.
+
+<b>2. Write a commit message and create the commit:</b>
+     After confirmation, create a commit using the following command:"
 GameManualItem/content/ProcessCreateCommit/1/Command,"git commit <color=#CF001C>-m or --message</color> <color=""#173D91"">""commit message""</color>"
-GameManualItem/content/ProcessCreateCommit/2,"The commit message should clearly describe the changes you made. 
-This helps track and understand the purpose of the commit.
+GameManualItem/content/ProcessCreateCommit/2,"     The commit message should clearly describe the changes you made. 
+     This helps track and understand the purpose of the commit.
 
-Executing this command means that you have completed the creation of the commit.
-You can also use the following command to verify if the operation was successful:"
+     Executing this command means that you have completed the creation of the commit.
+     You can also use the following command to verify if the operation was successful:"
 GameManualItem/content/ProcessCreateCommit/2/Command,git log
 GameManualItem/content/ProcessCreateCommit/3,"
-3. Upload the Commit to the Remote Repository (Optional):
-After completing the development on your local branch, 
-you can push it to the linked remote repository using the following command:"
+<b>3. Upload the commit to the remote repository (optional):</b>
+     After completing the development on your local branch, 
+     you can push it to the linked remote repository using the following command:"
 GameManualItem/content/ProcessCreateCommit/3/Command,"git push <color=#CF001C>remote_repository_alias</color> <color=""#173D91"">local_branch</color>"
 GameManualItem/content/RuleCommitMessage/1,"Learning how to write Git commit messages is very important.
 Clear and concise commit messages can better manage a project.
 And make it easier for both teams and individuals to understand the purpose of each commit.
 
 Here are some principles for writing commit messages:
-1. Keep it Short and Clear:
-A good commit message should be able to declare the purpose of the commit in one sentence. 
-This helps other developers to quickly understand the changes."
-GameManualItem/content/RuleCommitMessage/1/tip,"For example, 'Added structure for web page login interface'."
+
+<b>1. Keep it short and clear:</b>
+     A good commit message should be able to declare the purpose of the commit 
+     in one sentence. 
+     This helps other developers to quickly understand the changes."
+GameManualItem/content/RuleCommitMessage/1/tip,For example: <color=#CF001C>Added structure for web page login interface</color>.
 GameManualItem/content/RuleCommitMessage/2,"
-2. Use Key Information:
-Depending on the purpose of the commit, use verbs at the beginning of the message."
+<b>2. Use key information:</b>
+     Depending on the purpose of the commit, use verbs at the beginning of the message."
 GameManualItem/content/RuleCommitMessage/2/tip,"Add verbs like 'Add', 'Update', and 'Delete' to enhance readability. 
-For example, 'Fix error: Welcome message not displayed after login'."
+For example: <color=#CF001C>Fix error: Welcome message not displayed after login</color>."
 GameManualItem/content/RuleCommitMessage/3,"
-3. Avoid Meaningless Messages:
-When writing commit messages, avoid vague or meaningless content.
-This behavior can make it difficult for other developers to understand the purpose of the commit."
-GameManualItem/content/RuleCommitMessage/3/tip,"For instance, avoid generic messages like 'New commit' or 'Fixed error'.
+<b>3. Avoid meaningless messages:</b>
+     When writing commit messages, avoid vague or meaningless content.
+     It can make it difficult for other developers to understand the purpose of the commit."
+GameManualItem/content/RuleCommitMessage/3/tip,"For instance, avoid generic messages like <color=#CF001C>New commit</color> or <color=#CF001C>Fixed error</color>.
 These messages are short and lack specific meaning."
 GameManualItem/content/RuleCommitMessage/4,"
-4. Focus on a Single Topic:
-Good development practice should focus on a specific goal and include that goal in the commit message. 
-This not only makes each commit clearer but also reduces development risks."
+<b>4. Focus on a single topic:</b>
+     Good development practice should focus on a specific goal 
+     and include it in the commit message. 
+     This not only makes each commit clearer but also reduces development risks."
 GameManualItem/content/RuleCommitMessage/4/tip,"For example, if developing Feature A and Feature B at the same time.
 But they are not closely related, consider splitting them into two separate commits."
 GameManualItem/content/RuleCommitMessage/5,"These principles of commit messages help teams and individuals better understand the purpose of each commit. 
@@ -771,35 +787,34 @@ Git cannot automatically determine which content should be kept and which should
 So Git will ask developers to manually resolve these conflicts.
 
 Here are the steps to resolve merge conflicts:
-1. Identify the Conflicted Files:
-When a conflict occurs, the command line will display all files with conflicts. 
-These files will also appear as 'unstaged' in the staging area.
+<b>1. Identify the conflicted files:</b>
+     When a conflict occurs, the command line will display all files with conflicts. 
+     These files will also appear as 'unstaged' in the staging area.
 
-2. Understand the Contents of the Conflicted Files:
-The conflicted file will have three special symbols added: '<', '=', and '>'. 
-The modifications from both merging branches are included between these symbols."
-GameManualItem/content/ResolveMergeConflict/2,"For example, in the file shown above, 
-a conflict occurred when attempting to merge the 'new-feature' branch into the 'master' branch.
+<b>2. Understand the contents of the conflicted files:</b>
+     The conflicted file will have three special symbols added: <color=#CF001C><</color>, <color=#CF001C>=</color>, and <color=#CF001C>></color>。
+     The modifications from both merging branches are included between these symbols."
+GameManualItem/content/ResolveMergeConflict/2,"     For example, in the file shown above, 
+     a conflict occurred when attempting to merge the <color=#CF001C>new-feature</color> branch into the <color=#CF001C>master</color> branch.
 
-The special symbols divide the modifications of the 'new-feature' and 'master' branches.
-The content from lines 1 to 3 shows HEAD, 
-representing the modifications from the current branch 'master'.
-The content from lines 3 to 5 shows the modifications from the 'new-feature' branch.
+     The special symbols divide the modifications of these branches.
+     The content from lines 1 to 3 shows HEAD, 
+     representing the modifications from the current branch <color=#CF001C>master</color>.
+     The content from lines 3 to 5 shows the modifications from the <color=#CF001C>new-feature</color> branch.
 
-3. Resolve the File Conflict:
-Resolving the file conflict involves deciding which content to keep or delete."
-GameManualItem/content/ResolveMergeConflict/3,"For example:
-If you want to keep the modifications from the 'new-feature' branch 
-and remove those from the 'master' branch.
+<b>3. Resolve the file conflict:</b>
+     Resolving the file conflict involves deciding which content to keep or delete."
+GameManualItem/content/ResolveMergeConflict/3,"     For example:
+     If you want to keep the modifications from the <color=#CF001C>new-feature</color> branch 
+     and remove those from the <color=#CF001C>master</color> branch.
+     Please delete the following content:
+     1. The three lines of special delimiter symbols (lines 1, 3, 5).
+     2. The modification content from the <color=#CF001C>master</color> branch (line 2).
 
-Please delete the following content:
-1. The three lines of special delimiter symbols (lines 1, 3, 5).
-2. The modification content from the 'master' branch (line 2).
-
-4. Create a Commit to Continue Merging:
-After resolving all conflicts in the files, please create a new commit with the resolved content. 
-After committing, the merging process will continue. 
-Finally, the 'master' branch will receive the newly resolved commit."
+<b>4. Create a commit to continue merging:</b>
+     After resolving all file conflicts, please create a new commit with the resolved content. 
+     After committing, the merging process will continue. 
+     Finally, the <color=#CF001C>master</color> branch will receive the newly resolved commit."
 GameManualItem/content/gitMergeModes/1,"When executing a branch merge command, 
 Git compares the commit histories of the two target branches 
 and apply one of the following merge modes:
@@ -809,12 +824,12 @@ Here are the three merge modes in Git:
 2. Auto Merge
 3. Merge Conflict"
 GameManualItem/content/gitMergeModes/2/Title,Fast-Forward Merge
-GameManualItem/content/gitMergeModes/2,"Fast-Forward Merge
-When comparing the commit histories of the two branches, 
+GameManualItem/content/gitMergeModes/2,"When comparing the commit histories of the two branches, 
 if their paths are linear without any forks, 
 Git performs a fast-forward merge.
 
-A fast-forward merge updates the current branch's commit history to match the targeted merging branch's commit history. 
+A fast-forward merge updates the current branch's commit history 
+until the records are the same as the targeted merge branch.
 There's no new commits are created, only update the commit history."
 GameManualItem/content/gitMergeModes/3/Title,Auto Merge
 GameManualItem/content/gitMergeModes/3,"When comparing the commit histories of the two branches, 
@@ -925,23 +940,24 @@ we should go through the 'Preparation for Merging' process.
 It helps ensure the merged project works fine and avoids merge conflicts.
 
 Here are the steps for confirmation:
-1. Check branch commit records
-First, please confirm the commit history of both the 'development branch' and 'main branch'. 
-Make sure they are consistent with the remote repository.
-This ensures the actions below are valid.
 
-2. Merge local main branch
-Merge the 'main branch' in your local computer into the 'development branch'.
-This integrates the changes from both branches.
+<b>1. Check branch commit records</b>
+     Check the commit history of both the 'development branch' and 'main branch'. 
+     Make sure they are consistent with the remote repository.
+     This ensures the actions below are valid.
 
-3. Verify project status after merge
-After merging, check if the project encounters any issues.
-If there are problems, we should resolve them locally.
+<b>2. Merge local main branch</b>
+     Merge the 'main branch' in your local computer into the 'development branch'.
+     This integrates the changes from both branches.
 
-4. Upload the merged 'development branch' to the remote repository
-Once the merged project runs smoothly,
-or after resolving any issues caused by the merge,
-the branch can be uploaded to the remote repository.
+<b>3. Verify project status after merge</b>
+     After merging, check if the project encounters any issues.
+     If there are problems, we should resolve them locally.
+
+<b>4. Upload the merged 'development branch' to the remote repository</b>
+     Once the merged project runs smoothly,
+     or after resolving any issues caused by the merge,
+     the branch can be uploaded to the remote repository.
 
 After completing the above steps,
 you can create a Pull Request for merging,
@@ -952,21 +968,22 @@ It's particularly suited for projects requiring long-term operation and developm
 It plays an important role in the field of software development.
 
 It has the following features:
-1. File content tracking:
-Each change is recorded. 
-You can use these records to see 
-who made the changes when they were made, and the specific changes.
 
-2. Version rollback:
-When errors occur during development, 
-this feature allows you to revert to a version before the error occurs. 
-But current developments and all records won't lost. 
-You can easily switch to the version you want.
+<b>1. File content tracking:</b>
+     Each change is recorded. 
+     You can use these records to see 
+     who made the changes when they were made, and the specific changes.
 
-3. Branch Management:
-You can divide the development content into multiple branches. 
-The main advantage of branch management is that 
-branches do not interfere with each other, enhancing development efficiency and stability."
+<b>2. Version rollback:</b>
+     When errors occur during development, 
+     this feature allows you to revert to a version before the error occurs. 
+     But current developments and all records won't lost. 
+     You can easily switch to the version you want.
+
+<b>3. Branch Management:</b>
+     You can divide the development content into multiple branches. 
+     The main advantage of branch management is that branches do not interfere with each 
+     other, enhancing development efficiency and stability."
 GameManualItem/content/VersionControlAndGit/2,"Git is a widely used version control tool, especially popular in software development. 
 
 It contains the principles of version control, 
@@ -978,14 +995,13 @@ and you will learn and use them in this game to achieve scenario goals.
 In addition to the advantages of version control, Git also supports team collaboration. 
 There are many Git service platforms online (e.g., GitHub, GitLab). 
 These platforms allow you to upload your projects and collaborate with other members."
-GameManualItem/content/IntroStagingArea/1,"The Staging Area Window is designed to 
-replicate the output of the 'git status' command in a new window.
+GameManualItem/content/IntroStagingArea/1,"The Staging Area window is a separate display for the output of the 'git status' command. 
 It shows the results of the command execution."
 GameManualItem/content/IntroStagingArea/2/Title,Current display content
 GameManualItem/content/IntroStagingArea/2,"You can click on previously executed commands 
 to view the staging area's status at different points in time. 
 The corresponding command ID will be displayed here."
-GameManualItem/content/IntroStagingArea/3/Title,Staged and Unstaged Areas
+GameManualItem/content/IntroStagingArea/3/Title,Staged and Unstaged areas
 GameManualItem/content/IntroStagingArea/3,"The game simplifies the content of the staging area into two file statuses:
 1. Unstaged Area:
 Compares the current commit and the working directory files, 
@@ -1109,3 +1125,80 @@ It is useful in the following scenarios:
 3. Use in-game systems: Filling in commit messages, and naming branches."
 GameManualItem/content/IntroCommandLine/10/tip,"For how to use the quick fill for commit messages and branch naming,
 please see the 'git commit', and 'git branch' commands."
+GameManualItem/content/IntroGitCommand/1/Title,Introduction to Git command structure
+GameManualItem/content/IntroGitCommand/1,"Git is a widely used version control tool. 
+Users need to enter Git commands in the command line to perform various operations.
+
+The structure of a Git command consists of several keywords.
+They are separated by spaces.
+
+For example:"
+GameManualItem/content/IntroGitCommand/1/exampleBox,"git <color=#CF001C>add</color> <color=""#173D91"">Text_File.txt</color>"
+GameManualItem/content/IntroGitCommand/2,"This command has 3 command fields:
+
+<b>First command field 'git':</b>
+This is a keyword that must be entered when executing Git commands. 
+Commands related to Git need to begin with 'git'.
+
+<b>Second command field 'add':</b>
+This content is usually used to determine the type of Git command.
+The 'add' command type is used to move files to the staging area.
+
+<b>Third command field 'Text_File.txt':</b>
+Depending on the type of command, 
+some commands can add other keywords in front to achieve various features. 
+Check Git's official website to learn how to use a particular command type."
+GameManualItem/content/IntroGitCommand/3/Title,Notes
+GameManualItem/content/IntroGitCommand/3,"This game will focus on the most basic and practical Git commands. 
+You only need to learn the commands mentioned in the game manual and stage.
+
+Here are some key points to note when executing Git commands:
+
+<b>1. Use spaces to separate command fields:</b>
+Git needs spaces to recognize the content of each field to execute different functions.
+
+<b>2. Pay attention to the case of the command:</b>
+Git commands need to ensure the case are same as the command format.
+It can avoid accidental errors.
+
+<b>3. Enter commands according to the format mentioned in the game manual and stage:</b>
+The game simplifies the diverse structure of Git commands. 
+By following the methods mentioned in the tutorials, 
+you can execute the command successfully."
+GameManualItem/content/IntroCommitHistory/1,"The Commit History window is a separate display for the output of the 'git log' command. 
+
+This window recreates the content of the command execution 
+and makes some improvements to enhance your understanding of the commit history."
+GameManualItem/content/IntroCommitHistory/2/Title,Current display content
+GameManualItem/content/IntroCommitHistory/2,"You can click on previously executed commands 
+to view the commit history's status at different points in time. 
+The corresponding command ID will be displayed here."
+GameManualItem/content/IntroCommitHistory/3/Title,Commit History area
+GameManualItem/content/IntroCommitHistory/3,"The commit history is divided into two parts: local and remote. 
+If the current scenario has a remote repository, 
+you can expand or collapse the content using the remote fold button."
+GameManualItem/content/IntroCommitHistory/4/Title,Commit History branch list and HEAD
+GameManualItem/content/IntroCommitHistory/4,"This area displays the list of branches in the local and remote repositories. 
+Based on the color on the list, and the color shown on the commits.
+You can define which branch a commit belongs to.
+
+Besides, when you click on a branch in the list, 
+all commits belonging to that clicked branch will switch to the color representing that branch.
+
+The flag icon represents HEAD.
+It shows the current commit where Git is located. 
+Clicking HEAD on the branch list will display all the commit history on HEAD."
+GameManualItem/content/IntroCommitHistory/5/Title,Commit detail content
+GameManualItem/content/IntroCommitHistory/5,"When running the 'git log' command in the real scenario.
+Details like the author, time, and message of the commit are displayed in the command line.
+
+In this game, these details are hidden. 
+To view this information, please click on a specific commit. 
+A pop-up will show all the detailed information about that commit."
+GameManualItem/content/IntroCommitHistory/6/Title,Locked commits
+GameManualItem/content/IntroCommitHistory/6,"When running the 'git log' command in the real scenario.
+If we have not updated the remote repository with commands like 'git pull', 
+we cannot see the information on these locked commits.
+
+In the game, this feature reminds you. 
+please use 'git pull' to update the content of the remote repository if you need it."

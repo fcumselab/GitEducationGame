@@ -1,4 +1,4 @@
-**IntroStagingArea - 暫存區域視窗**
+**IntroStagingArea - 視窗介紹：暫存區域**
 
 **視窗介紹**
 （圖）

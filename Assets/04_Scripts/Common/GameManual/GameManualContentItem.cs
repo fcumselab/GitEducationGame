@@ -45,7 +45,7 @@ public class GameManualContentItem : SerializedMonoBehaviour
     {
         if (isInitial)
         {
-            if (buttonType == ButtonType.Command)
+            if (buttonType == ButtonType.Command && name.Contains("git"))
             {
                 currentPageNum = 1;
                 SwitchContent(currentPageNum);
@@ -61,18 +61,21 @@ public class GameManualContentItem : SerializedMonoBehaviour
         {
             case "Command":
                 buttonType = ButtonType.Command;
-                currentSceneName = SceneManager.GetActiveScene().name;
-                PageUpButton.onClick.AddListener(() => PageUp());
-                PageDownButton.onClick.AddListener(() => PageDown());
-                for (int i = 0; i < CommandDetailedPageGroup.transform.childCount; i++)
+                if (name.Contains("git"))
                 {
-                    Transform Command = CommandDetailedPageGroup.transform.GetChild(i);
-                    CommandList.Add(Command.gameObject);
-                }
-                MaxPageNumText.text = $"{CommandDetailedPageGroup.transform.childCount}";
+                    currentSceneName = SceneManager.GetActiveScene().name;
+                    PageUpButton.onClick.AddListener(() => PageUp());
+                    PageDownButton.onClick.AddListener(() => PageDown());
+                    for (int i = 0; i < CommandDetailedPageGroup.transform.childCount; i++)
+                    {
+                        Transform Command = CommandDetailedPageGroup.transform.GetChild(i);
+                        CommandList.Add(Command.gameObject);
+                    }
+                    MaxPageNumText.text = $"{CommandDetailedPageGroup.transform.childCount}";
 
-                currentPageNum = 1;
-                SwitchContent(currentPageNum);
+                    currentPageNum = 1;
+                    SwitchContent(currentPageNum);
+                }
                 break;
             case "RuleAndWindow":
                 buttonType = ButtonType.RuleAndWindow;
