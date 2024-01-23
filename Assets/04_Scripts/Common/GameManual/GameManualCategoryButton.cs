@@ -8,11 +8,7 @@ using Lean.Localization;
 public class GameManualCategoryButton : SerializedMonoBehaviour
 {
     [SerializeField] GameManual gameManual;
-
     [SerializeField] GameObject CategoryList;
-
-    [SerializeField] GameObject CategoryListTitle;
-    LeanLocalizedText CategoryListTitlei18n;
 
     [SerializeField] Image ListPanelTopBar;
     [SerializeField] Image ContentPanelTopBar;
@@ -28,24 +24,35 @@ public class GameManualCategoryButton : SerializedMonoBehaviour
 
     public void ApplyColor()
     {
-        if (!CategoryListTitlei18n) CategoryListTitlei18n = CategoryListTitle.GetComponent<LeanLocalizedText>();
-
         switch (categoryType) {
             case CategoryType.Command:
-                CategoryListTitlei18n.TranslationName = "GameManualWindow/ListTitle/Command";
                 ListPanelTopBar.color = new Color32(255, 186, 148, 255);
                 ContentPanelTopBar.color = new Color32(255, 186, 148, 255);
                 break;
             case CategoryType.RuleAndWindow:
-                CategoryListTitlei18n.TranslationName = "GameManualWindow/ListTitle/RuleAndWindow";
                 ListPanelTopBar.color = new Color32(194, 236, 170, 255);
                 ContentPanelTopBar.color = new Color32(194, 236, 170, 255);
                 break;
             case CategoryType.VersionControl:
-                CategoryListTitlei18n.TranslationName = "GameManualWindow/ListTitle/VersionControl";
                 ListPanelTopBar.color = new Color32(167, 195, 255, 255);
                 ContentPanelTopBar.color = new Color32(167, 195, 255, 255);
                 break;
         }
+    }
+
+    public string GetCategoryType()
+    {
+        switch (categoryType)
+        {
+            case CategoryType.Command:
+                return "Command";
+            case CategoryType.RuleAndWindow:
+                return "RuleAndWindow";
+            case CategoryType.VersionControl:
+                return "VersionControl";
+            default:
+                break;
+        }
+        return "";
     }
 }

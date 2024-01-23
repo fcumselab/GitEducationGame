@@ -84,9 +84,6 @@ public class GameManualContentItem : SerializedMonoBehaviour
                 buttonType = ButtonType.VersionControl;
                 break;
         }
-
-        //Debug.Log("End!!");
-
         isInitial = true;
     }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using System;
+using Lean.Localization;
 using UnityEngine.SceneManagement;
 using PixelCrushers.DialogueSystem;
 
@@ -13,7 +13,6 @@ public class GameManual : SerializedMonoBehaviour
     #region Variables
     [FoldoutGroup("Data")]
     [SerializeField] List<GameManualData> playerGameManualData;
-    string currentSceneName = "";
     [FoldoutGroup("Fsms")]
     PlayMakerFSM WindowFsm;
     [FoldoutGroup("Fsms")]
@@ -22,10 +21,15 @@ public class GameManual : SerializedMonoBehaviour
     [FoldoutGroup("Game Manual Items")]
     [SerializeField] GameObject gameManualButton;
     PlayMakerFSM gameManualButtonFsm;
-    [FoldoutGroup("Game Manual Items")]
+    [FoldoutGroup("Game Manual Items/Category Button")]
     [SerializeField] Button CommandCategoryButton;
-    [FoldoutGroup("Game Manual Items")]
+    [FoldoutGroup("Game Manual Items/Default Item")]
     [SerializeField] GameObject DefaultContent;
+    [FoldoutGroup("Game Manual Items/Title Text")]
+    [SerializeField] LeanLocalizedText categoryListTitleText;
+    [FoldoutGroup("Game Manual Items/Title Text")]
+    [SerializeField] LeanLocalizedText manualItemTitleText;
+
 
     [FoldoutGroup("Reference")]
     GitCommandValider gitCommandValider;
@@ -81,7 +85,7 @@ public class GameManual : SerializedMonoBehaviour
         InitializeCategoryItem("Command", CommandCategoryList);
         InitializeCategoryItem("RuleAndWindow", RuleAndWindowCategoryList);
         InitializeCategoryItem("VersionControl", VersionControlCategoryList);
-        UpdateButtonStatus();
+        UpdateGameManualButtonStatus();
     }
 
     void InitializeCategoryItem(string categoryKey, GameObject createLocation)
@@ -95,7 +99,6 @@ public class GameManual : SerializedMonoBehaviour
                 //Add new ItemContent
                 if (!GameManualContentDict.ContainsKey(item.listName)) //Debug
                 {
-                    //Debug.Log("Please add new prefab:" + item.listName);
                     newItem = Instantiate(LockGameManualItem);
                 }
                 else
@@ -108,10 +111,8 @@ public class GameManual : SerializedMonoBehaviour
             {
                 newItem = Instantiate(LockGameManualItem);
             }
-
             SetNewItemLocation(newItem, item.listName, createLocation, true);
         }
-
     }
     
     public void RegisterFunction(bool enable)
@@ -141,6 +142,8 @@ public class GameManual : SerializedMonoBehaviour
 
 
     #region Button Action
+
+
     public void SwitchGameManualCategory(Button clickCategoryButton)
     {
         if (SelectedButton)
@@ -156,23 +159,24 @@ public class GameManual : SerializedMonoBehaviour
             SelectedCategoryButton.GetComponent<GameManualCategoryButton>().ActivateCategoryList(false);
         }
 
-        if (!DefaultContent.activeSelf)
-        {
-            DefaultContent.SetActive(true);
-        }
         clickCategoryButton.interactable = false;
         SelectedCategoryButton = clickCategoryButton;
         clickCategoryButton.GetComponent<GameManualCategoryButton>().ApplyColor();
+        UpdateCategoryTitleText(clickCategoryButton.GetComponent<GameManualCategoryButton>());
         SelectedCategoryButton.GetComponent<GameManualCategoryButton>().ActivateCategoryList(true);
+
+        UpdateManualItemTitleText(true, "");
     }
+
+    void UpdateCategoryTitleText(GameManualCategoryButton clickButton)
+    {
+        string keyword = clickButton.GetCategoryType();
+        categoryListTitleText.TranslationName = $"GameManualWindow/ListTitle/{keyword}";
+    }
+    
 
     public void SwitchGameManualItem(Button clickButton)
     {
-        if (DefaultContent.activeSelf)
-        {
-            DefaultContent.SetActive(false);
-        }
-
         if (SelectedButton)
         {
             SelectedButton.interactable = true;
@@ -181,7 +185,33 @@ public class GameManual : SerializedMonoBehaviour
         clickButton.interactable = false;
         UnlockGameManualItemDict[clickButton].SetActive(true);
         SelectedButton = clickButton;
+
+        UpdateManualItemTitleText(false, clickButton.name);
     }
+
+    void UpdateManualItemTitleText(bool enableDefault, string keyword)
+    {
+        if (enableDefault)
+        {
+            if (!DefaultContent.activeSelf)
+            {
+                DefaultContent.SetActive(true);
+                manualItemTitleText.enabled = false;
+                manualItemTitleText.GetComponent<Text>().text = "";
+            }
+        }
+        else
+        {
+            if (DefaultContent.activeSelf)
+            {
+                DefaultContent.SetActive(false);
+                manualItemTitleText.enabled = true;
+            }
+            manualItemTitleText.TranslationName = $"GameManualItem/list/{keyword}";
+        }
+    }
+
+    #region Button Action - Game Manual Button
 
     void OpenWindow()
     {
@@ -189,7 +219,7 @@ public class GameManual : SerializedMonoBehaviour
         SwitchGameManualCategory(CommandCategoryButton);
     }
 
-    public void UpdateButtonStatus()
+    public void UpdateGameManualButtonStatus()
     {
         if (gameManualButtonFsm.FsmVariables.GetFsmString("runType").Value != "open")
         {
@@ -207,6 +237,8 @@ public class GameManual : SerializedMonoBehaviour
             gameManualButtonFsm.enabled = true;
         }
     }
+
+    #endregion
 
     #endregion
 
@@ -272,12 +304,9 @@ public class GameManual : SerializedMonoBehaviour
         if (newUnlockItem)
         {
             UnlockAnimationFsm.SendEvent("GameManualWindow/Popup Notification");
-            UpdateButtonStatus();
+            UpdateGameManualButtonStatus();
 
-            if (!gitCommandValider)
-            {
-                gitCommandValider = GameObject.Find("GitCommandValider").GetComponent<GitCommandValider>();
-            }
+            if (!gitCommandValider) gitCommandValider = GameObject.Find("GitCommandValider").GetComponent<GitCommandValider>();
 
             gitCommandValider.UpdatePlayerUnlockDict();
         }
@@ -304,7 +333,6 @@ public class GameManual : SerializedMonoBehaviour
 
     GameObject UnlockItemContent(string categoryKey, GameObject createLocation, string listName)
     {
-
         //Add new ListItem
         GameObject newItem = Instantiate(UnlockGameManualItem);
         Button button = newItem.GetComponent<GameManualListItemButton>().InitializeButton(GetComponent<GameManual>(), listName, categoryKey);
@@ -321,11 +349,6 @@ public class GameManual : SerializedMonoBehaviour
         UnlockGameManualItemDict.Add(button, ItemContent);
 
         return newItem;
-    }
-
-    public void SetIndex(Button button)
-    {
-        button.transform.SetSiblingIndex(0);
     }
 
     #endregion

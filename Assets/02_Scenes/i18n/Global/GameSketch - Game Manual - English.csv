@@ -1,6 +1,6 @@
 TooltipMessage/GameManualButton/Unlock,Game Manual
 TooltipMessage/GameManualButton/Lock,Lock Window: Game Manual
-TooltipMessage/GameManualItem/content/commandDetail/Lock,後面的指令尚未解鎖
+TooltipMessage/GameManualItem/content/commandDetail/Lock,The next command is not unlocked
 GameManualItem/list/IntroGitCommand,Introduction to Git commands
 GameManualItem/list/git,git
 GameManualItem/list/git init,git init
@@ -37,11 +37,11 @@ GameManualItem/list/DetachedHEAD,Detached HEAD
 GameManualItem/list/gitMergeModes,Merge Modes in git merge
 GameManualItem/list/ResolveMergeConflict,Resolving Merge Conflicts
 GameManualItem/list/CheckBeforeMergeMainBrach,Preparation Before Merging into the Main Remote Branch
-GameManualWindow/content/DefaultContent,"點擊左方列表
-來觀看教學內容"
-GameManualItem/content/common/windowTitle,視 窗 介 紹E
+GameManualWindow/content/DefaultContent,"Click the item on the left list
+to view tutorial content"
+GameManualItem/content/common/windowTitle,Window Introduction
 GameManualItem/content/common/knowledgeTitle,Knowledge Introduction
-GameManualItem/content/common/errorMsgTitle,錯誤操作提示訊息
+GameManualItem/content/common/errorMsgTitle,Error message popup
 GameManualItem/content/common/commandTitle,Introduction to command type
 GameManualItem/content/common/commandDetailedTitle,Command format
 GameManualItem/content/common/command/use,Purpose
@@ -53,9 +53,9 @@ GameManualWindow/Title,Game Manual
 GameManualWindow/CategoryButton/Command,Commands
 GameManualWindow/CategoryButton/RuleAndWindow,Rule and Window
 GameManualWindow/CategoryButton/VersionControl,Version Control
-GameManualWindow/ListTitle/Command,Git 指 令 列 表
-GameManualWindow/ListTitle/RuleAndWindow,遊 戲 規 則 與 視 窗 教 學 列 表
-GameManualWindow/ListTitle/VersionControl,版 本 控 制 教 學 列 表
+GameManualWindow/ListTitle/Command,Git Command List
+GameManualWindow/ListTitle/RuleAndWindow,Game Rules and Window List
+GameManualWindow/ListTitle/VersionControl,Version Control List
 GameManualItem/content/git/1,"<color=#CF001C>git</color> is one of the most basic command types in Git.
 
 When executing Git commands, you need to add <color=#CF001C>git</color> in the first command field,
@@ -210,7 +210,7 @@ GameManualItem/content/git commit/commandDetail/1/scenario,1. When you have deci
 GameManualItem/content/git commit/commandDetail/1/example,"User A recently developed a new feature, and added the files to the 'Staging Area',
 Executed the following command to create a new 'commit':"
 GameManualItem/content/git commit/commandDetail/1/exampleBox,"git commit <color=#CF001C>-m</color> <color=""#173D91"">""Added search keyword feature.""</color>"
-GameManualItem/content/git commit/commandDetail/1/hint/1,"<b>1. The commit message should be enclosed in double quotes (""):</b>
+GameManualItem/content/git commit/commandDetail/1/hint/1,"<b>1. The commit message should be enclosed in double quotes <color=#CF001C>""</color>:</b>
      Git commands use spaces to separate different command fields.
      Using double quotes ensures the commit message is seen as one command field.
 
@@ -220,109 +220,105 @@ GameManualItem/content/git commit/commandDetail/1/hint/1,"<b>1. The commit messa
 
 <b>3. How to quickly fill in a commit message in this game:</b>
      This game provides a way to quickly fill in commit messages,
-     please follow these steps to execute the correct command:
-"
+     please follow these steps to execute the correct command:"
 GameManualItem/content/git commit/commandDetail/1/hint/2,        1. Enter the following command in the command line:
 GameManualItem/content/git commit/commandDetail/1/hint/3,"git commit <color=#CF001C>-m</color> <color=""#173D91"">""""</color>"
-GameManualItem/content/git commit/commandDetail/1/hint/4,"        2. Press the Tab key or the search feature button to open the commit message selection window.
+GameManualItem/content/git commit/commandDetail/1/hint/4,"        2. Press the Tab key or the search feature button to open the selection window.
         3. Choose the most suitable commit message option from the selection window.
         4. After selection, the commit message will automatically fill into the command."
 GameManualItem/content/git commit/commandDetail/1/hint/5,"     Following the above steps,
      you can easily execute the <color=#CF001C>git commit</color> command and submit your modifications."
-GameManualItem/content/git log/1,"'git log' is a widely used command type.
+GameManualItem/content/git log/1,"<color=#CF001C>git log</color> is a widely used command type.
 It related to the 'Commit History', 'Branch Management', and 'Remote Management'.
 
-The primary function of this command type is 
-to let you understand the 'Commit History' status in the current Git management system.
+The primary function of this command type is to 
+let you understand the 'Commit History' status in the current Git management system.
 
-'Commit History' is an area in the 'Repository' used to store all 'commits' of a project."
-GameManualItem/content/git log/1/tip,"In actual use of Git, the 'Commit History' status is displayed in the command line window.
+'Commit History' is an area in the 'Repository' used to store all commits of a project."
+GameManualItem/content/git log/1/tip,"Use Git in the real scenario, the result is displayed in the command line window.
 This game integrates the output content into the 'Commit History' window.
 This makes it easier to view content, and the window's design is similar to the actual output.
-It also integrates different output results of 'git log' parameters."
+It also integrates different output results of <color=#CF001C>git log</color> parameters."
 GameManualItem/content/git log/commandDetail/1,git log
 GameManualItem/content/git log/commandDetail/1/use,Open the 'Commit History' window and display the current 'Commit History' status.
 GameManualItem/content/git log/commandDetail/1/scenario,"1. When you want to check the current status of 'Commit History'.
-2. After creating a new 'commit'.
-3. After switching to another 'commit'.
+2. After creating a new commit.
+3. After switching to another commit.
 4. To view the status of local repository branches.
 5. To view the status of remote repository branches."
 GameManualItem/content/git log/commandDetail/1/example,"When User A completes a new feature and successfully commits it,
-they can execute the following command to view the current 'Commit History' status:"
+execute the following command to view the current 'Commit History' status:"
 GameManualItem/content/git log/commandDetail/1/exampleBox,git log
-GameManualItem/content/git log/commandDetail/1/hint/1,"1. Cannot update content immediately:
-When executing commands that affect 'Commit History'
-(e.g., git commit, git checkout, etc.).
-Although the command is successfully executed, you cannot immediately see the update in the window.
+GameManualItem/content/git log/commandDetail/1/hint/1,"<b>1. Cannot update content immediately:</b>
+     When executing commands that affect 'Commit History'
+     (e.g., git commit, git checkout, etc.).
+     Although it is successfully executed, can't see the update in the window right away.
 
-Therefore, after executing these commands,
-use 'git log' again to check the latest status.
+     Therefore, after executing these commands, use <color=#CF001C>git log</color> again to check the latest status.
 
-2. Design of the 'Commit History' Window:
-In this game, the output results of the 'git log' command
-are integrated into a window named 'Commit History'.
-
-In actual use of Git, you need to enter the following command to achieve the same effect:"
+<b>2. Design of the 'Commit History' window:</b>
+     In this game, the output results of the <color=#CF001C>git log</color> command
+     are integrated into a window named 'Commit History'.
+     Use Git in the real scenario, 
+     you need to enter the following command to achieve the same effect:"
 GameManualItem/content/git log/commandDetail/1/hint/2,"git log <color=#CF001C>--oneline</color> <color=""#173D91"">--all</color> <color=#244B0E>--graph</color>"
-GameManualItem/content/git log/commandDetail/1/hint/3,"The functions of these parameters are as follows:
-'--oneline' only displays 'commit ID' and 'commit message'.
-'--all' displays 'Commit History' of all branches.
-'--graph' displays relationships between 'commits' graphically."
-GameManualItem/content/git checkout/1,"'git checkout' is a widely used command type.
+GameManualItem/content/git log/commandDetail/1/hint/3,"     The functions of these parameters are as follows:
+     <color=#CF001C>--oneline</color> only displays 'commit ID' and 'commit message'.
+     <color=""#173D91"">--all</color> displays 'Commit History' of all branches.
+     <color=#244B0E>--graph</color> displays relationships between 'commits' graphically."
+GameManualItem/content/git checkout/1,"<color=#CF001C>git checkout</color> is a widely used command type.
 It is related to 'Commit History' and 'Branch Management'.
 
-This command allows you to switch between different 'commits' and 'branches',
+This command allows you to switch between different commits or branches,
 and also synchronizes the file contents in the 'Working Directory'."
 GameManualItem/content/git checkout/commandDetail/1,git checkout <color=#CF001C>commit_ID</color>
 GameManualItem/content/git checkout/commandDetail/1/use,"Move HEAD to a specified 'commit', restoring the project to that commit's version."
 GameManualItem/content/git checkout/commandDetail/1/scenario,"1. To check the changes in different 'commits'.
-2. To fix errors found in the latest version.
-3. To revert to a previous version and discard the content of the new version."
+2. To fix errors found in the latest version."
 GameManualItem/content/git checkout/commandDetail/1/example,"When User A needs to return to a previous version to check the place cause of an error.
-After confirming the specific commit ID (e.g., '123abc').
-They can execute the following command:"
+After confirming the specific commit ID (e.g., 123abc),
+execute the following command:"
 GameManualItem/content/git checkout/commandDetail/1/exampleBox,git checkout <color=#CF001C>123abc</color>
-GameManualItem/content/git checkout/commandDetail/1/hint,"1. After viewing, return to the correct branch to continue development:
-When HEAD points to a 'commit', rather than a 'branch',
-This is called the 'detached HEAD' state.
-In this state, new 'commits' are not created on any branch.
-This could lead to the loss of 'commits'.
+GameManualItem/content/git checkout/commandDetail/1/hint,"<b>1. After viewing, return to the correct branch to continue development:</b>
+     When HEAD points to a 'commit', rather than a 'branch'.
+     This is called the 'detached HEAD' state.
+     In this state, new 'commits' are not created on any branch.
+     This could lead to the loss of 'commits'.
 
-To maintain project management, after viewing the content,
-please use the 'git checkout branch_name' command to re-point HEAD to a branch."
+     To maintain project management, after viewing the content,
+     please use the <color=#CF001C>git checkout branch_name</color> command to re-point HEAD to a branch."
 GameManualItem/content/git checkout/commandDetail/2,git checkout <color=#CF001C>branch_name</color>
 GameManualItem/content/git checkout/commandDetail/2/use,"Point HEAD to a specified 'branch'.
 HEAD will move to the latest 'commit' of that branch, allowing you to continue project development."
 GameManualItem/content/git checkout/commandDetail/2/scenario,"1. To continue development on a specific branch.
 2. When preparing to perform branch merging operations."
 GameManualItem/content/git checkout/commandDetail/2/example,"When User A completes reviewing the previous version's content,
-and needs to continue development on the 'master' branch.
-They can execute the following command:"
+and needs to continue development on the 'master' branch,
+execute the following command to switch branch:"
 GameManualItem/content/git checkout/commandDetail/2/exampleBox,git checkout <color=#CF001C>master</color>
-GameManualItem/content/git checkout/commandDetail/2/hint,"1. Be aware of the current branch:
-During project development, it's common to develop features on the incorrect branch.
-To avoid unnecessary confusion,
-please ensure you are on the correct branch before developing features."
-GameManualItem/content/git branch/1,"'git branch' is a command type related to 'Branch Management' and 'Remote Management'.
+GameManualItem/content/git checkout/commandDetail/2/hint,"<b>1. Be aware of the current branch:</b>
+     During project development, it's common to develop features on the incorrect branch.
+     To avoid unnecessary confusion,
+     please ensure you are on the correct branch before developing features."
+GameManualItem/content/git branch/1,"<color=#CF001C>git branch</color> is a command type related to 'Branch Management' and 'Remote Management'.
 
 This command performs various branch management operations,
 including viewing, adding, deleting, etc.
 
-Additionally, with specific parameters, you can view remote branches in the remote repository.
-It is often used in combination with the 'git checkout' command type."
+Also, with specific parameters, you can view remote branches in the remote repository.
+It is often used in combination with the <color=#CF001C>git checkout</color> command type."
 GameManualItem/content/git branch/commandDetail/1,git branch
 GameManualItem/content/git branch/commandDetail/1/use,"To view the names of all local branches in the current local repository.
 It also displays the current HEAD locate in which 'branch' or 'commit'."
 GameManualItem/content/git branch/commandDetail/1/scenario,"1. To confirm the current location of HEAD.
 2. To view which local branches are in the repository."
-GameManualItem/content/git branch/commandDetail/1/example,"When User A needs to view all branches in the local repository,
-and which branch HEAD is currently on.
-They can execute the following command:"
+GameManualItem/content/git branch/commandDetail/1/example,"When User A needs to view all branches in the local repository, and where the HEAD is located.
+User A can execute the following command:"
 GameManualItem/content/git branch/commandDetail/1/exampleBox,git branch
-GameManualItem/content/git branch/commandDetail/1/hint,"1. Difference from the 'git log' command:
-Although both commands can view branches, their purposes are different.
-'git branch' is used to view all branches in the repository,
-'git log' is used to view the 'Commit History' of branches."
+GameManualItem/content/git branch/commandDetail/1/hint,"<b>1. Difference from the <color=#CF001C>git log</color> command:</b>
+     Although both commands can view branches, their purposes are different.
+     <color=#CF001C>git log</color> is used to view the 'Commit History' of branches.
+     <color=#173D91>git branch</color> is used to view all branches in the repository."
 GameManualItem/content/git branch/commandDetail/2,git branch <color=#CF001C>branch_name</color>
 GameManualItem/content/git branch/commandDetail/2/use,"To create a new local branch.
 This branch will be based on the current HEAD's 'commit',
@@ -330,58 +326,54 @@ and will contain all older commits before it."
 GameManualItem/content/git branch/commandDetail/2/scenario,"1. When needing to fix an issue in a project.
 2. When needing to develop new features in a project."
 GameManualItem/content/git branch/commandDetail/2/example,"When User A needs to develop a new feature in the project,
-they can execute the following command to create a new branch:"
+execute the following command to create a new branch:"
 GameManualItem/content/git branch/commandDetail/2/exampleBox,git branch <color=#CF001C>new-feature</color>
-GameManualItem/content/git branch/commandDetail/2/hint,"1. After creating a branch, switch to that branch:
-This command is only used to create branches.
-To develop on the newly created branch,
-please use the 'git checkout' command to switch to that branch.
+GameManualItem/content/git branch/commandDetail/2/hint,"<b>1. After creating a branch, switch to that branch:</b>
+     This command is only used to create branches.
+     To develop on the newly created branch,
+     please use the <color=#CF001C>git checkout</color> command to switch to that branch.
 
-2. The branch name should be specific and clear:
-To help yourself and your team quickly understand the content and purpose of the branch,
-please ensure the branch name is specific and clear."
+<b>2. The branch name should be specific and clear:</b>
+     To help yourself and your team quickly understand the content and purpose of the branch,
+     please ensure the branch name is specific and clear."
 GameManualItem/content/git branch/commandDetail/3,"git branch <color=#CF001C>-d or --delete</color> <color=""#173D91"">branch_name</color>"
 GameManualItem/content/git branch/commandDetail/3/use,To delete a specified local branch from the local repository.
-GameManualItem/content/git branch/commandDetail/3/scenario,When the branch has been completed its goal and merged into the main branch.
+GameManualItem/content/git branch/commandDetail/3/scenario,1. When the branch has been completed its goal and merged into the main branch.
 GameManualItem/content/git branch/commandDetail/3/example,"When User A has merged the feature development branch into the main branch,
-they can execute the following command to delete the branch:"
+execute the following command to delete the branch:"
 GameManualItem/content/git branch/commandDetail/3/exampleBox,"git branch <color=#CF001C>-d</color> <color=""#173D91"">new-feature</color>"
-GameManualItem/content/git branch/commandDetail/3/hint,"1. Before deleting a branch, ensure HEAD has moved to another location:
-To successfully execute the delete branch command,
-please ensure HEAD is moved to another branch or commit."
+GameManualItem/content/git branch/commandDetail/3/hint,"<b>1. Before deleting a branch, ensure HEAD has moved to another location:</b>
+     To successfully execute the delete branch command,
+     please ensure HEAD is moved to another branch or commit."
 GameManualItem/content/git branch/commandDetail/4,git branch <color=#CF001C>-r or --remote</color>
 GameManualItem/content/git branch/commandDetail/4/use,"To view the names of all remote branches, which are named in the format:
-'remote_repository_alias/branch name'."
+<color=#CF001C>remote_repository_alias/branch name</color>."
 GameManualItem/content/git branch/commandDetail/4/scenario,1. When you need to know the names of remote branches in the remote repository.
 GameManualItem/content/git branch/commandDetail/4/example,"When User A wants to know the remote branch names developed by User B,
-they can execute the following command:"
+execute the following command:"
 GameManualItem/content/git branch/commandDetail/4/exampleBox,git branch <color=#CF001C>-r</color>
-GameManualItem/content/git branch/commandDetail/4/hint,"1. Difference from the 'git branch' command:
-Although both commands can view branch names, their purposes are different.
-'git branch' is used to view local branches,
-'git branch -r' is used to view all remote branch names."
+GameManualItem/content/git branch/commandDetail/4/hint,"<b>1. Difference from the <color=#CF001C>git branch</color> command:</b>
+     Although both commands can view branch names, their purposes are different:
+     <color=#CF001C>git branch</color> is used to view local branches.
+     <color=#173D91>git branch -r</color> is used to view all remote branch names."
 GameManualItem/content/git branch/commandDetail/5,"git branch <color=#CF001C>local_branch_name</color> <color=""#173D91"">remote_branch_name</color>"
-GameManualItem/content/git branch/commandDetail/5/use,"Copy the 'commit history' of a specified remote branch 
-to a newly created local branch, then connect together."
+GameManualItem/content/git branch/commandDetail/5/use,Copy the 'commit history' of a specified remote branch to a newly created local branch.
 GameManualItem/content/git branch/commandDetail/5/scenario,"1. When you need to get a specific branch from a remote repository. 
 2. When you need to view other developers' or your own remote branches."
-GameManualItem/content/git branch/commandDetail/5/example,"When User A needs to view the development progress of the 'member-branch' created by User B.
-They can execute the following command:"
+GameManualItem/content/git branch/commandDetail/5/example,"When User A needs to view the 'member-branch' created by User B.
+Use the following command to get the remote 'member-branch' branch to the local device:"
 GameManualItem/content/git branch/commandDetail/5/exampleBox,"git branch <color=#CF001C>member-branch</color> <color=""#173D91"">origin/member-branch</color>"
-GameManualItem/content/git branch/commandDetail/5/hint,"1. Local branch names should generally match remote branch names:
-Normally, local branch names should correspond to remote branches.
-This can avoid confusion.
+GameManualItem/content/git branch/commandDetail/5/hint,"<b>1. Local branch names should generally match remote branch names:</b>
+     Normally, local branch names should be the same as remote branches.
+     This can avoid confusion.
 
-2. Ensure the specified branch name does not exist when executing this command:
-Similar to the 'git branch' command, this command creates branches on the local repository.
-If the created branch name already exists, the command will stop running."
-GameManualItem/content/git merge/1,"'git merge' is an important command type.
+<b>2. Ensure the specified branch name does not exist when executing this command:</b>
+     Similar to the <color=#CF001C>git branch</color> command, it creates branches on the local repository.
+     If the created branch name already exists, the command will stop running."
+GameManualItem/content/git merge/1,"<color=#CF001C>git merge</color> is an important command type.
 It is related to the 'Commit History' and 'Branch Management'.
 
-This command performs branch merging operations.
-'Moving the changes from one branch to another'. 
-This action was called 'merging'.
-
+This command can merge branch.
 During the merging process,
 Git automatically selects the merging mode based on the 'commit history' of the two target branches.
 There are three types of merging modes:
@@ -392,31 +384,31 @@ There are three types of merging modes:
 For detailed explanations of these merge modes,
 please refer to the 'Merge Modes in git merge' in the game manual."
 GameManualItem/content/git merge/commandDetail/1,git merge <color=#CF001C>branch_name</color>
-GameManualItem/content/git merge/commandDetail/1/use,"Merge the targeted branch into the current branch,
+GameManualItem/content/git merge/commandDetail/1/use,"Merge the targeted branch content into the current branch,
 let the current branch get all 'commit history' from the targeted branch."
 GameManualItem/content/git merge/commandDetail/1/scenario,"1. When preparing to merge a completed branch into the main branch.
 2. One of the steps in confirming the merging process before creating a Pull Request."
 GameManualItem/content/git merge/commandDetail/1/example,"When User A completes development on the 'new-feature' branch,
 and wants to merge its contents into the 'master' branch.
-They can switch to the 'master' branch and execute the following command:"
+User A can switch to the 'master' branch and execute the following command:"
 GameManualItem/content/git merge/commandDetail/1/exampleBox,git merge <color=#CF001C>new-feature</color>
-GameManualItem/content/git merge/commandDetail/1/hint,"1. Confirm the current branch:
-Before performing the merge, ensure the current branch is correct.
-To avoid merging into the wrong branch and causing unnecessary issues.
+GameManualItem/content/git merge/commandDetail/1/hint,"<b>1. Confirm the current branch:</b>
+     Before performing the merge, ensure the current branch is correct.
+     To avoid merging into the wrong branch and causing unnecessary issues.
 
-2. Confirm the roles of the specified branch and the current branch:
-Merging branch A into branch B may result differently from merging branch B into branch A.
+<b>2. Confirm the roles of the specified branch and the current branch:</b>
+     Merging branch A into branch B may result differently from merging branch B into branch A.
 
-Therefore, before starting the merge. 
-Please determine the roles of both branches first to avoid merging into the wrong branch."
-GameManualItem/content/git clone/1,"'git clone' is a command type related to 'Remote Management'.
+     Therefore, before starting the merge. 
+     Please determine the roles of both branches first to avoid merging into the wrong branch."
+GameManualItem/content/git clone/1,"<color=#CF001C>git clone</color> is a command type related to 'Remote Management'.
 It is the first command to execute when using a remote repository.
 
-This command type allows you to copy the contents of a remote repository to your local device, 
+This command type is to copy the contents of a remote repository to your local device, 
 and create a connection between your local device and the remote repository.
 
-Typically, a successfully cloned remote repository is named 'origin' by Git.
-These connected remote repositories have an alias, which corresponds to the remote repository's URL."
+A successfully cloned remote repository is named 'origin' by Git.
+Part of Git commands will use these repository aliases to do actions."
 GameManualItem/content/git clone/commandDetail/1,git clone <color=#CF001C>remote_repository_URL</color>
 GameManualItem/content/git clone/commandDetail/1/use,Copy the contents of a remote repository into your local device.
 GameManualItem/content/git clone/commandDetail/1/scenario,"1. When preparing to start development using a remote repository.
@@ -424,41 +416,41 @@ GameManualItem/content/git clone/commandDetail/1/scenario,"1. When preparing to 
 GameManualItem/content/git clone/commandDetail/1/example,"When User A creates a new remote repository (e.g., https://github.com/user/New-Project.git) 
 on a Git service platform (such as GitHub, GitLab, etc.).
 
-To develop the project on their local device,
-they can execute the following command:"
+To develop the project on their local device, execute the following command:"
 GameManualItem/content/git clone/commandDetail/1/exampleBox,git clone <color=#CF001C>https://github.com/user/New-Project.git</color>
-GameManualItem/content/git clone/commandDetail/1/hint,"1. Confirm the current command line path:
-After executing this command,
-Git will create a folder with the same name as the remote repository in the command line path.
-The folder contains all files from the remote repository.
+GameManualItem/content/git clone/commandDetail/1/hint,"<b>1. Confirm the current command line path:</b>
+     After executing this command, Git will create a folder with the same name as the remote 
+     repository in the command line path.
+     The folder contains all files from the remote repository.
 
-2. Understand the reasons for command execution failure:
-The reasons for command execution failure might include:
-        1. Network connection issues.
-        2. Permission issues.
-        3. The status of the current path.
+<b>2. Understand the reasons for command execution failure:</b>
+     The reasons for command execution failure might include:
+          1. Network connection issues.
+          2. Permission issues.
+          3. The status of the current path.
 
-To avoid failure due to 'the status of the current path',
-please ensure that there is no folder in the current path with the same name as the remote repository and that the folder is empty."
-GameManualItem/content/git remote/1,"'git remote' is a command type related to 'Remote Management'.
+     To avoid failure due to 'the status of the current path',
+     please ensure that there is no folder in the current path with the same name
+      as the remote repository and that the folder is empty."
+GameManualItem/content/git remote/1,"<color=#CF001C>git remote</color> is a command type related to 'Remote Management'.
 
-This command is used to confirm whether a project is connected to other remote repositories,
+It is used to confirm whether a project is connected to other remote repositories,
 and display the URLs and aliases of the connected remote repositories.
 
 In actual use of Git,
 this command can also be used to add or delete connections with other remote repositories."
 GameManualItem/content/git remote/commandDetail/1,git remote <color=#CF001C>-v or --verbose</color>
-GameManualItem/content/git remote/commandDetail/1/use,"Confirm whether the local project has established connections with other remote repositories,
+GameManualItem/content/git remote/commandDetail/1/use,"Confirm whether the local project has connected with other remote repositories,
 and display the URLs and aliases of the connected repositories."
 GameManualItem/content/git remote/commandDetail/1/scenario,1. When you need to confirm the current project's remote connection status.
-GameManualItem/content/git remote/commandDetail/1/example,"When User A has successfully cloned a remote repository from a Git service platform to their local device.
+GameManualItem/content/git remote/commandDetail/1/example,"When User A cloned a remote repository from a Git service platform to their local device.
 To confirm if it is correctly connected to the corresponding remote repository,
 they can execute the following command:"
 GameManualItem/content/git remote/commandDetail/1/exampleBox,git remote <color=#CF001C>-v</color>
-GameManualItem/content/git remote/commandDetail/1/hint,"1. No response when not connected to any remote repository:
-If the project has not established a connection with other remote repositories yet.
-Executing this command will not return any message."
-GameManualItem/content/git push/1,"'git push' is a command type related to 'Remote Management'.
+GameManualItem/content/git remote/commandDetail/1/hint,"<b>1. No response when not connected to any remote repository:</b>
+     If the project does not connect to other remote repositories.
+     Executing this command will not return any message."
+GameManualItem/content/git push/1,"<color=#CF001C>git push</color> is a command type related to 'Remote Management'.
 
 This command is used to upload the contents of a local branch to a specified remote repository,
 and the remote repository creates and updates the corresponding remote branch."
@@ -471,37 +463,39 @@ GameManualItem/content/git push/commandDetail/1/scenario,"1. When a part of the 
 3. When the feature has been fully developed."
 GameManualItem/content/git push/commandDetail/1/example,"When User A has completed a feature on the 'new-feature' branch
 and wants to upload the branch contents to the remote repository.
-They can execute the following command:"
+User A can execute the following command:"
 GameManualItem/content/git push/commandDetail/1/exampleBox,"git push <color=#CF001C>origin</color> <color=""#173D91"">new-feature</color>"
-GameManualItem/content/git push/commandDetail/1/hint,"1. Confirm the name of the remote repository:
-In common project development, we only need one connected remote repository, which is named 'origin' in Git.
+GameManualItem/content/git push/commandDetail/1/hint,"<b>1. Confirm the name of the remote repository:</b>
+     In common project development, we only need one connected remote repository, 
+     which is named 'origin' in Git.
 
-However, if you are connected to multiple remote repositories.
-Before uploading changes, 
-please use the 'git remote -v' command to check the correct remote repository name."
+     However, if you are connected to multiple remote repositories.
+     Before uploading changes, 
+     please use the <color=#CF001C>git remote</color> command to check the correct remote repository."
 GameManualItem/content/git push/commandDetail/2,"git push <color=#CF001C>-d or --delete</color> <color=""#173D91"">remote_repository_alias</color> <color=#244B0E>local_branch_name</color>"
 GameManualItem/content/git push/commandDetail/2/use,Delete a targeted remote branch in the targeted remote repository.
 GameManualItem/content/git push/commandDetail/2/scenario,1. When a targeted remote branch has already been merged into the main remote branch.
 GameManualItem/content/git push/commandDetail/2/example,"When User A created a Pull Request,
 it has successfully merged the 'new-feature' branch into the remote 'master' branch.
-They can execute the following command to delete the remote branch:"
+User A can execute the following command to delete the remote branch:"
 GameManualItem/content/git push/commandDetail/2/exampleBox,"git push <color=#CF001C>-d</color> <color=""#173D91"">origin</color> <color=#244B0E>new-feature</color>"
-GameManualItem/content/git push/commandDetail/2/hint,"1. Confirm the name of the remote repository:
-In common project development, we only need one connected remote repository, which is named 'origin' in Git.
+GameManualItem/content/git push/commandDetail/2/hint,"<b>1. Confirm the name of the remote repository:</b>
+     In common project development, we only need one connected remote repository, 
+     which is named 'origin' in Git.
 
-However, if you are connected to multiple remote repositories.
-Before deleting the branch,
-please use the 'git remote -v' command to check the correct remote repository name."
-GameManualItem/content/git pull/1,"'git pull' is a command type related to 'Remote Management'.
+     However, if you are connected to multiple remote repositories.
+     Before deleting the branch,
+     please use the <color=#CF001C>git remote</color> command to check the correct remote repository."
+GameManualItem/content/git pull/1,"<color=#CF001C>git pull</color> is a command type related to 'Remote Management'.
 
-This command is used to synchronize your local branch with the branch in the remote repository.
+It is used to synchronize your local branch with the branch in the remote repository.
 To ensure that your local branch remains up-to-date.
 
 When executing this command, it performs the following two operations in sequence:
 1. Download the latest 'commit history' from the remote repository.
-2. Merge these new 'commits' into your local branch.
+2. Merge these new commits into your local branch.
 
-The second operation is similar to the feature of the 'git merge' command,
+The second operation is similar to the feature of the <color=#CF001C>git merge</color> command,
 where Git automatically chooses one of the merge modes based on the differences between the branches."
 GameManualItem/content/git pull/commandDetail/1,"git pull <color=#CF001C>remote_repository_alias </color> <color=""#173D91"">branch_name</color>"
 GameManualItem/content/git pull/commandDetail/1/use,Synchronize the current local branch with the targeted remote branch in the targeted remote repository.
@@ -509,20 +503,21 @@ GameManualItem/content/git pull/commandDetail/1/scenario,"1. When needing to dev
 2. One of the steps in confirming the merging process before creating a Pull Request."
 GameManualItem/content/git pull/commandDetail/1/example,"When User A needs to develop the project on another device,
 and the local repository has not been updated for a long time.
-They can execute the following command to update the local 'new-feature' branch:"
+User A can execute the following command to update the local 'new-feature' branch:"
 GameManualItem/content/git pull/commandDetail/1/exampleBox,"git pull <color=#CF001C>origin</color> <color=""#173D91"">new-feature</color>"
-GameManualItem/content/git pull/commandDetail/1/hint,"1. Confirm the name of the remote repository:
-In common project development, we only need one connected remote repository, which is named 'origin' in Git.
+GameManualItem/content/git pull/commandDetail/1/hint,"<b>1. Confirm the name of the remote repository:</b>
+     In common project development, we only need one connected remote repository, 
+     which is named 'origin' in Git.
 
-However, if you are connected to multiple remote repositories.
-Before updating content,
-please use the 'git remote -v' command to check the correct remote repository name.
+     However, if you are connected to multiple remote repositories.
+     Before synchronizing the content,
+     please use the <color=#CF001C>git remote</color> command to check the correct remote repository.
 
-2. Ensure you are on the correct branch:
-Before executing this command, please ensure you are on the correct branch.
-If you execute 'git pull origin new-feature' while on the 'master' branch,
-the 'master' branch will receive the 'commit history' of the remote 'new-feature'.
-This could cause unnecessary confusion."
+<b>2. Ensure you are on the correct branch:</b>
+     Before executing this command, please ensure you are on the correct branch.
+     If you execute <color=#CF001C>git pull origin new-feature</color> while on the 'master' branch,
+     the 'master' branch will receive the 'commit history' of the remote 'new-feature'.
+     This could cause unnecessary confusion."
 GameManualItem/content/IntroGameManual/1,"The Game Manual can help you review the content you have learned previously in the game. 
 You can open and view its contents at any time during the stage selection screen or while playing a stage.
 

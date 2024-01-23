@@ -54,7 +54,7 @@ GameManualItem/content/common/command/scenario,使用情境
 GameManualItem/content/common/command/use,用途
 GameManualItem/content/common/commandDetailedTitle,指 令 細 節
 GameManualItem/content/common/commandTitle,指 令 類 型 介 紹
-GameManualItem/content/common/errorMsgTitle,錯誤操作提示訊息
+GameManualItem/content/common/errorMsgTitle,錯誤訊息彈窗
 GameManualItem/content/common/knowledgeTitle,知 識 介 紹
 GameManualItem/content/common/tipTitle,小提醒：
 GameManualItem/content/common/windowTitle,視 窗 介 紹
@@ -103,144 +103,129 @@ GameManualItem/content/git add/commandDetail/3/exampleBox,git add <color=#CF001C
 GameManualItem/content/git add/commandDetail/3/scenario,"1. 想要一次性將整個工作目錄下的所有檔案加入到 '已追蹤' 中。
 2. 第一次建立 Git 管理系統時，用於初始化專案。"
 GameManualItem/content/git add/commandDetail/3/use,一次性將命令行所在路徑下的所有檔案加入到 '已追蹤' 中。
-GameManualItem/content/git branch/1,"'git branch' 是與 '分支管理'、'遠端管理' 有關的指令類型
+GameManualItem/content/git branch/1,"<color=#CF001C>git branch</color> 是與 '分支管理'、'遠端管理' 有關的指令類型。
 
-這個指令可以執行各種分支管理操作，
-包括查看、新增、刪除等。
+這個指令可以執行各種分支管理操作，包括查看、新增、刪除等。
 
 此外，加入特定參數可以查看遠端儲存庫中的遠端分支。
-通常會與 'git checkout' 指令類型結合使用。"
+通常會與 <color=#CF001C>git checkout</color> 指令類型結合使用。"
 GameManualItem/content/git branch/commandDetail/1,git branch
-GameManualItem/content/git branch/commandDetail/1/example,"當使用者 A 需要查看本地儲存庫中的所有分支，
-以及 HEAD 目前所在的分支時。
+GameManualItem/content/git branch/commandDetail/1/example,"當使用者 A 需要查看本地儲存庫中的所有分支，以及 HEAD 所在的位置時。
 可以執行以下指令："
 GameManualItem/content/git branch/commandDetail/1/exampleBox,git branch
-GameManualItem/content/git branch/commandDetail/1/hint,"1. 與 'git log' 指令的區別：
-雖然這兩個指令都可以查看分支，但它們的用途不同。
-'git branch' 用於查看儲存庫中的所有分支，
-'git log' 用於查看分支的 '提交記錄'。"
-GameManualItem/content/git branch/commandDetail/1/scenario,"1. 確認當前 HEAD 所在位置
-2. 查看儲存庫中有哪些本地分支"
+GameManualItem/content/git branch/commandDetail/1/hint,"<b>1. 與 <color=#CF001C>git log</color> 指令的區別：</b>
+     雖然這兩個指令都可以查看分支，但它們的用途不同。
+     <color=#CF001C>git log</color> 用於查看分支的 '提交記錄'。
+     <color=#173D91>git branch</color> 用於查看儲存庫中的所有分支。"
+GameManualItem/content/git branch/commandDetail/1/scenario,"1. 確認當前 HEAD 所在位置。
+2. 查看儲存庫中有哪些本地分支。"
 GameManualItem/content/git branch/commandDetail/1/use,"查看當前本地儲存庫中所有本地分支的名稱。
 同時也會顯示目前 HEAD 位於哪一個 '分支' 或 '提交'。"
 GameManualItem/content/git branch/commandDetail/2,git branch <color=#CF001C>分支名稱</color>
 GameManualItem/content/git branch/commandDetail/2/example,"當使用者 A 需要在專案中開發新功能時，
 可以執行以下指令以創建新的分支："
 GameManualItem/content/git branch/commandDetail/2/exampleBox,git branch <color=#CF001C>new-feature</color>
-GameManualItem/content/git branch/commandDetail/2/hint,"1. 創建分支後需要切換到該分支：
-這個指令僅用於創建分支。
-如果要在新創建的分支上進行開發，
-還需要使用 'git checkout' 指令切換到該分支。
+GameManualItem/content/git branch/commandDetail/2/hint,"<b>1. 創建分支後需要切換到該分支：</b>
+     這個指令僅用於創建分支。
+     如果要在新創建的分支上進行開發，還需要使用 <color=#CF001C>git checkout</color> 指令切換到該分支。
 
-2. 分支名稱要具體而清晰：
-為了讓自己和團隊能夠快速了解分支的內容和目的，
-請確保分支名稱具體而清晰。
-
-"
-GameManualItem/content/git branch/commandDetail/2/scenario,"1. 需要在專案上修復問題
-2. 需要在專案上開發新功能"
+<b>2. 分支名稱要具體而清晰：</b>
+     為了讓自己和團隊能夠快速了解分支的內容和目的，請確保分支名稱具體而清晰。"
+GameManualItem/content/git branch/commandDetail/2/scenario,"1. 需要在專案上修復問題。
+2. 需要在專案上開發新功能。"
 GameManualItem/content/git branch/commandDetail/2/use,"創建一個新的本地分支。
-這個分支將基於當前 HEAD 指向的 '提交' 創建，
-並含有其他舊的 '提交'。"
+這個分支將基於當前 HEAD 指向的 '提交' 創建，並含有其他舊的 '提交'。"
 GameManualItem/content/git branch/commandDetail/3,"git branch <color=#CF001C>-d 或 --delete</color> <color=""#173D91"">分支名稱</color>"
 GameManualItem/content/git branch/commandDetail/3/example,"當使用者 A 已將開發功能的分支合併到主分支時，
-可以執行以下指令來刪除分支："
+執行以下指令來刪除分支："
 GameManualItem/content/git branch/commandDetail/3/exampleBox,"git branch <color=#CF001C>-d</color> <color=""#173D91"">new-feature</color>"
-GameManualItem/content/git branch/commandDetail/3/hint,"1. 刪除分支前，請確保已將 HEAD 移動到其他位置：
-為了成功執行刪除分支指令，
-請確保 HEAD 已經移動到其他分支或提交上。"
-GameManualItem/content/git branch/commandDetail/3/scenario,1. 當分支已經完成目標並合併到主分支時
+GameManualItem/content/git branch/commandDetail/3/hint,"<b>1. 刪除分支前，請確保已將 HEAD 移動到其他位置：</b>
+     為了成功執行刪除分支指令，請確保 HEAD 已經移動到其他分支或提交上。"
+GameManualItem/content/git branch/commandDetail/3/scenario,1. 當分支已經完成目標並合併到主分支時。
 GameManualItem/content/git branch/commandDetail/3/use,將指定的本地分支從本地儲存庫中刪除。
 GameManualItem/content/git branch/commandDetail/4,git branch <color=#CF001C>-r 或 --remote</color>
 GameManualItem/content/git branch/commandDetail/4/example,"當使用者 A 想要得知使用者 B 開發的遠端分支名稱時，
 可以執行以下指令："
 GameManualItem/content/git branch/commandDetail/4/exampleBox,git branch <color=#CF001C>-r</color>
-GameManualItem/content/git branch/commandDetail/4/hint,"1. 與 'git branch' 指令的不同處：
-雖然這兩個指令都能夠查看分支名稱，但是作用不同
-'git branch' 用於查看本地分支，
-'git branch -r' 用於查看所有遠端分支名稱。"
+GameManualItem/content/git branch/commandDetail/4/hint,"<b>1. 與 <color=#CF001C>git branch</color> 指令的不同處：</b>
+     雖然這兩個指令都能夠查看分支名稱，但是作用不同：
+     <color=#CF001C>git branch</color> 用於查看本地分支。
+     <color=#173D91>git branch -r</color> 用於查看所有遠端分支名稱。"
 GameManualItem/content/git branch/commandDetail/4/scenario,1. 需要知道遠端儲存庫中的遠端分支名稱。
-GameManualItem/content/git branch/commandDetail/4/use,"查看所有遠端分支的名稱，這些遠端分支會以以下格式命名：
-'遠端儲存庫別名/分支名稱'"
+GameManualItem/content/git branch/commandDetail/4/use,"查看所有遠端分支的名稱，它們會以以下格式命名：
+<color=#CF001C>遠端儲存庫別名/分支名稱</color> "
 GameManualItem/content/git branch/commandDetail/5,"git branch <color=#CF001C>本地分支名</color> <color=""#173D91"">遠端分支名</color>"
-GameManualItem/content/git branch/commandDetail/5/example,"當使用者 A 需要從使用者 B 開發的 'member-branch' 分支
-查看開發進度時，可以執行以下指令："
+GameManualItem/content/git branch/commandDetail/5/example,"當使用者 A 需要查看使用者 B 開發的 'member-branch' 分支時，
+執行以下指令來獲得遠端 'member-branch' 分支的內容到本地設備中："
 GameManualItem/content/git branch/commandDetail/5/exampleBox,"git branch <color=#CF001C>member-branch</color> <color=""#173D91"">origin/member-branch</color>"
-GameManualItem/content/git branch/commandDetail/5/hint,"1. 本地分支盡量與遠端分支名稱一致：
-通常情況下，本地分支的名稱應與遠端分支相對應。
-以減少混淆。
+GameManualItem/content/git branch/commandDetail/5/hint,"<b>1. 本地分支盡量與遠端分支名稱一致：</b>
+     通常情況下，本地分支的名稱應與遠端分支相對應。
+     以減少混淆。
 
-2. 確保執行此指令時，指定的分支名稱不存在：
-和 'git branch' 指令相同，這個指令會在本地儲存庫上創建分支。
-如果創建的分支名稱已存在，將停止運行。"
+<b>2. 確保執行此指令時，指定的分支名稱不存在：</b>
+     和 <color=#CF001C>git branch</color> 指令相同，它會在本地儲存庫上創建分支。
+     如果創建的分支名稱已存在，將停止運行。"
 GameManualItem/content/git branch/commandDetail/5/scenario,"1. 需要從遠端獲取特定分支。
 2. 需要查看其他開發者或自己的遠端分支時。"
-GameManualItem/content/git branch/commandDetail/5/use,"將指定遠端分支的 '提交記錄' 複製到一個新創建的本地分支上，
-然後連接在一起。"
-GameManualItem/content/git checkout/1,"'git checkout' 是一個廣泛使用的指令類型。
+GameManualItem/content/git branch/commandDetail/5/use,將指定遠端分支的 '提交記錄' 複製到一個新創建的本地分支上。
+GameManualItem/content/git checkout/1,"<color=#CF001C>git checkout</color> 是一個廣泛使用的指令類型。
 它涵蓋了 '提交記錄'、'分支管理' 這些領域。
 
-這個指令允許您切換到不同的 '提交' 和 '分支'，
-同時還會同步 '工作目錄' 中的檔案內容。"
+這個指令允許您切換到不同的 '提交' 或 '分支'，同時還會同步 '工作目錄' 中的檔案內容。"
 GameManualItem/content/git checkout/commandDetail/1,git checkout <color=#CF001C>提交ID</color>
 GameManualItem/content/git checkout/commandDetail/1/example,"當使用者 A 需要回到先前的版本以檢查錯誤的根本原因時。
-在確認了指定提交的 ID 後（例如：'123abc'）。
+在確認了指定提交的 ID 後（例如：123abc），
 可以執行以下指令："
 GameManualItem/content/git checkout/commandDetail/1/exampleBox,git checkout <color=#CF001C>123abc</color>
-GameManualItem/content/git checkout/commandDetail/1/hint,"1. 查看完成後，需要返回到正確的分支以繼續開發：
-當 HEAD 指向 '提交'，而不是指向 '分支' 時，
-這被稱為 '分離 HEAD' 狀態。
+GameManualItem/content/git checkout/commandDetail/1/hint,"<b>1. 查看完成後，需要返回到正確的分支以繼續開發：</b>
+     當 HEAD 指向 '提交'，而不是指向 '分支' 時，這被稱為 '分離 HEAD' 狀態。
+     在這種狀態下，新的 '提交' 不會新建在任何分支上。
+     這可能導致 '提交' 的遺失。
 
-在這種狀態下，新的 '提交' 不會新建在任何分支上。
-這可能導致 '提交' 的遺失。
-
-為了維護專案的管理，請在查看完內容後。
-使用 'git checkout 分支名稱' 指令將 HEAD 重新指向分支。"
+     為了維護專案的管理，請在查看完內容後。
+     使用 <color=#CF001C>git checkout 分支名稱</color> 指令將 HEAD 重新指向分支。"
 GameManualItem/content/git checkout/commandDetail/1/scenario,"1. 檢查不同 '提交' 的修改內容。
-2. 在最新版本中發現錯誤，需要進行問題修復時。
-3. 想要回到之前的版本，放棄新版本的內容時。"
+2. 在最新版本中發現錯誤，需要進行問題修復時。"
 GameManualItem/content/git checkout/commandDetail/1/use,將 HEAD 移動到指定的 '提交'，以恢復專案到該 '提交' 的版本。
 GameManualItem/content/git checkout/commandDetail/2,git checkout <color=#CF001C>分支名稱</color>
 GameManualItem/content/git checkout/commandDetail/2/example,"當使用者 A 完成查看之前版本的內容後，需要繼續在 'master' 分支上開發時。
-可以執行以下指令："
+可以執行以下指令來切換分支："
 GameManualItem/content/git checkout/commandDetail/2/exampleBox,git checkout <color=#CF001C>master</color>
-GameManualItem/content/git checkout/commandDetail/2/hint,"1. 注意當前所在分支：
-在專案開發過程中，經常會在不正確的分支開發功能。
-為了造成避免不必要的混淆。
-請在開發功能前，確保位於正確的分支。"
+GameManualItem/content/git checkout/commandDetail/2/hint,"<b>1. 注意當前所在分支：</b>
+     在專案開發過程中，經常會在不正確的分支開發功能。
+     為了造成避免不必要的混淆。
+     請在開發功能前，確保位於正確的分支。"
 GameManualItem/content/git checkout/commandDetail/2/scenario,"1. 繼續在特定分支上進行開發。
 2. 準備進行分支合併操作時。"
 GameManualItem/content/git checkout/commandDetail/2/use,"將 HEAD 指向指定的 '分支'。
 HEAD 將移動到該分支的最新 '提交'，以便繼續專案開發。"
-GameManualItem/content/git clone/1,"'git clone' 是與 '遠端管理' 有關的指令類型，
+GameManualItem/content/git clone/1,"<color=#CF001C>git clone</color> 是與 '遠端管理' 有關的指令類型，
 在使用遠端儲存庫時要執行的第一個指令。
 
 這個指令類型允許您將遠端儲存庫的內容複製到本地設備，
 同時創建本地設備和遠端儲存庫之間的連接。
 
-通常情況下，複製成功的遠端儲存庫會被 Git 命名為 'origin'，
-這些連接的遠端儲存庫會有一個別名，對應著遠端儲存庫的網址。"
+複製成功的遠端儲存庫會被 Git 命名為 'origin'，
+部分 Git 指令會使用這些別名來執行功能。"
 GameManualItem/content/git clone/commandDetail/1,git clone <color=#CF001C>remote_repository_URL</color>
 GameManualItem/content/git clone/commandDetail/1/example,"當使用者 A 在 Git 服務平台（例如：GitHub、GitLab 等）上
 創建了一個新的遠端儲存庫（例如：https://github.com/user/New-Project.git）。
 
-如果要在自己的本地設備上開發專案時，
-可以執行以下指令："
+如果要在自己的本地設備上開發專案時，可以執行以下指令："
 GameManualItem/content/git clone/commandDetail/1/exampleBox,git clone <color=#CF001C>https://github.com/user/New-Project.git</color>
-GameManualItem/content/git clone/commandDetail/1/hint,"1. 確認當前命令行的路徑：
-當執行此指令後，
-Git 會在命令行路徑下創建一個與遠端儲存庫相同名稱的資料夾。
-資料夾內包含了遠端儲存庫的所有檔案。
+GameManualItem/content/git clone/commandDetail/1/hint,"<b>1. 確認當前命令行的路徑：</b>
+     當執行此指令後，
+     Git 會在命令行路徑下創建一個與遠端儲存庫相同名稱的資料夾。
+     資料夾內包含了遠端儲存庫的所有檔案。
 
-2. 了解指令執行失敗的原因：
-指令執行失敗的原因可能是：
-        1. 網路連接問題
-        2. 權限問題
-        3. 當前路徑的狀態
+<b>2. 了解指令執行失敗的原因：</b>
+     指令執行失敗的原因可能是：
+          1. 網路連接問題
+          2. 權限問題
+          3. 當前路徑的狀態
 
-如果想要避免 '當前路徑的狀態' 造成指令執行失敗。
-請您確保當前路徑中不包含與遠端儲存庫同名的資料夾，
-並且該資料夾內容為空。"
+     如果想要避免 '當前路徑的狀態' 造成指令執行失敗。
+     請確保當前路徑中不包含與遠端儲存庫同名的資料夾，並且該資料夾內容為空。"
 GameManualItem/content/git clone/commandDetail/1/scenario,"1. 準備開始使用遠端儲存庫進行開發時。
 2. 需要在新的設備上繼續專案開發時。"
 GameManualItem/content/git clone/commandDetail/1/use,將遠端儲存庫的內容複製到本地設備中。
@@ -258,7 +243,7 @@ GameManualItem/content/git commit/commandDetail/1,"git commit <color=#CF001C>-m 
 GameManualItem/content/git commit/commandDetail/1/example,"使用者 A 最近開發了一個新的功能，並將檔案加入至 '暫存區域'。
 執行以下指令來創建新的 '提交'："
 GameManualItem/content/git commit/commandDetail/1/exampleBox,"git commit <color=#CF001C>-m</color> <color=""#173D91"">""新增搜尋關鍵字功能""</color>"
-GameManualItem/content/git commit/commandDetail/1/hint/1,"<b>1. 提交訊息需要使用雙引號（""）包裹：</b>
+GameManualItem/content/git commit/commandDetail/1/hint/1,"<b>1. 提交訊息需要使用雙引號 <color=#CF001C>""</color> 包裹：</b>
      Git 指令使用空格來區分不同的指令欄位。
      使用雙引號可以確保提交訊息被視為一個指令欄位。
 
@@ -271,7 +256,7 @@ GameManualItem/content/git commit/commandDetail/1/hint/1,"<b>1. 提交訊息需�
      請按照以下步驟執行正確的指令："
 GameManualItem/content/git commit/commandDetail/1/hint/2,          1. 在命令行中輸入以下指令：
 GameManualItem/content/git commit/commandDetail/1/hint/3,"git commit <color=#CF001C>-m</color> <color=""#173D91"">""""</color>"
-GameManualItem/content/git commit/commandDetail/1/hint/4,"          2. 按下 Tab 鍵或搜尋功能按鈕，以開啟提交訊息的選擇視窗。
+GameManualItem/content/git commit/commandDetail/1/hint/4,"          2. 按下 Tab 鍵或搜尋功能按鈕，以開啟選擇視窗。
           3. 從選擇視窗中選擇最適合的提交訊息選項。
           4. 選擇後，提交訊息將自動填入指令中。"
 GameManualItem/content/git commit/commandDetail/1/hint/5,     按照上述步驟，您就可以輕鬆執行 <color=#CF001C>git commit</color> 指令並提交您的修改。
@@ -297,115 +282,104 @@ GameManualItem/content/git init/commandDetail/1/hint,"<b>1. 確保執行指令�
      請確保這個路徑與您要管理的專案相符，以避免不必要的混淆和困擾。"
 GameManualItem/content/git init/commandDetail/1/scenario,1. 想要開始使用 Git 管理專案時。
 GameManualItem/content/git init/commandDetail/1/use,在命令行所在的路徑下創建一個 <color=#CF001C>.git</color> 隱藏資料夾。
-GameManualItem/content/git log/1,"'git log' 是一個廣泛使用的指令類型。
+GameManualItem/content/git log/1,"<color=#CF001C>git log</color> 是一個廣泛使用的指令類型。
 它涵蓋了 '提交記錄'、'分支管理'、'遠端管理' 領域。
 
 這個指令類型的主要作用
 是讓您了解目前 Git 管理系統中的 '提交記錄' 狀態。
 
-'提交記錄' 是 '儲存庫' 中的一個區域，用來存放專案的所有 '提交'。"
-GameManualItem/content/git log/1/tip,"在實際使用 Git 時，'提交記錄' 狀態會顯示在命令行視窗中。
+'提交記錄' 是 '儲存庫' 中的一個區域，用來存放專案的所有提交。"
+GameManualItem/content/git log/1/tip,"在實際使用 Git 時，結果會顯示在命令行視窗中。
 本遊戲將輸出內容，整合到 '提交記錄' 視窗中。
 以便更容易查看內容，視窗的設計和實際輸出相似。
-並整合了 'git log' 不同參數的輸出結果。"
+並整合了 <color=#CF001C>git log</color> 不同參數的輸出結果。"
 GameManualItem/content/git log/commandDetail/1,git log
 GameManualItem/content/git log/commandDetail/1/example,"當使用者完成一個新的功能並成功提交後，
 可以執行以下指令來查看目前 '提交記錄' 狀態："
 GameManualItem/content/git log/commandDetail/1/exampleBox,git log
-GameManualItem/content/git log/commandDetail/1/hint/1,"1. 無法即時更新內容：
-在執行會影響 '提交記錄' 的指令時
-（例如：git commit、git checkout 等）。
+GameManualItem/content/git log/commandDetail/1/hint/1,"<b>1. 無法即時更新內容：</b>
+     在執行會影響 '提交記錄' 的指令時（例如：git commit、git checkout 等）。
+     雖然成功執行了指令，您無法立即看到視窗中的更新。
 
-雖然成功執行了指令，您無法立即看到視窗中的更新。
+     因此，在執行這些指令後，請再次使用 <color=#CF001C>git log</color> 以查看最新的狀態。
 
-因此，在執行這些指令後，
-請再次使用 'git log' 以查看最新的狀態。
-
-2. '提交記錄' 視窗的設計：
-在本遊戲中，將 'git log' 指令的輸出結果
-整合到一個名為 '提交記錄' 的視窗中。
-
-如果您在實際使用 Git 時需要輸入以下指令以達到相同效果："
+<b>2. '提交記錄' 視窗的設計：</b>
+     在本遊戲中，將 <color=#CF001C>git log</color> 指令的輸出結果整合到一個名為 '提交記錄' 的視窗中。
+     如果您在實際使用 Git 時需要輸入以下指令以達到相同效果："
 GameManualItem/content/git log/commandDetail/1/hint/2,"git log <color=#CF001C>--oneline</color> <color=""#173D91"">--all</color> <color=#244B0E>--graph</color>"
-GameManualItem/content/git log/commandDetail/1/hint/3,"以下是這些參數的功能：
-'--oneline' 僅顯示 '提交ID' 和 '提交訊息'。
-'--all'：顯示所有分支的 '提交記錄'。
-'--graph'：通過圖示來顯示 '提交' 間關係。"
+GameManualItem/content/git log/commandDetail/1/hint/3,"     以下是這些參數的功能：
+     <color=#CF001C>--oneline</color> 僅顯示 '提交ID' 和 '提交訊息'。
+     <color=""#173D91"">--all</color> 顯示所有分支的 '提交記錄'。
+     <color=#244B0E>--graph</color> 通過圖示來顯示 '提交' 間關係。"
 GameManualItem/content/git log/commandDetail/1/scenario,"1. 想要確認當前 '提交記錄' 的狀態。
-2. 剛剛新建一個 '提交'。
-3. 切換到其他 '提交' 後。
+2. 剛剛新建一個提交。
+3. 切換到其他提交後。
 4. 查看本地儲存庫分支的狀態。
 5. 查看遠端儲存庫分支的狀態。"
 GameManualItem/content/git log/commandDetail/1/use,開啟 '提交記錄' 視窗，以顯示當前的 '提交記錄' 內容。
-GameManualItem/content/git merge/1,"'git merge' 是一個重要的指令類型。
+GameManualItem/content/git merge/1,"<color=#CF001C>git merge</color> 是一個重要的指令類型。
 它涵蓋了 '提交記錄'、'分支管理' 這些領域。
 
-這個指令能夠執行分支合併操作。
-'將一個分支的修改內容移動到另一個分支中'。
-這個動作稱為 '合併'。
-
-在合併過程中，
-Git 根據兩個目標分支的 '提交記錄' 自動選擇合併模式。
+這個指令能夠合併分支。
+在合併過程中，Git 根據兩個目標分支的 '提交記錄' 自動選擇合併模式。
 合併模式有以下三種：
 1. 快進合併（Fast-Forward Merge）
 2. 自動合併（Auto Merge）
 3. 合併衝突（Merge Conflict）
 
-關於這些合併模式的詳細說明，
+關於合併模式的詳細說明，
 可以參考遊戲手冊中的 'git merge 的合併模式'。"
 GameManualItem/content/git merge/commandDetail/1,git merge <color=#CF001C>分支名稱</color>
 GameManualItem/content/git merge/commandDetail/1/example,"當使用者 A 在 'new-feature' 分支上完成開發後，
 想要將其內容合併到 'master' 分支上。
-可以切換到 'master' 分支，然後執行以下指令："
+使用者 A 可以切換到 'master' 分支，然後執行以下指令："
 GameManualItem/content/git merge/commandDetail/1/exampleBox,git merge <color=#CF001C>new-feature</color>
-GameManualItem/content/git merge/commandDetail/1/hint,"1. 確認當前分支：
-在執行合併之前，請確保當前分支是正確的。
-以避免合併到錯誤的分支上，造成不必要的困擾。
+GameManualItem/content/git merge/commandDetail/1/hint,"<b>1. 確認當前分支：</b>
+     在執行合併之前，請確保當前分支是正確的。
+     以避免合併到錯誤的分支上，造成不必要的困擾。
 
-2. 了解指定分支和當前所在分支的角色：
-合併分支 A 到分支 B 的結果，
-可能會不同於合併分支 B 到分支 A。
+<b>2. 了解指定分支和當前所在分支的角色：</b>
+     合併分支 A 到分支 B 的結果，可能會不同於合併分支 B 到分支 A。
 
-因此在進行合併之前，請先確定兩個分支的角色，
-以避免合併到錯誤的分支。"
+     因此在進行合併之前，請先確定兩個分支的角色，
+     以避免合併到錯誤的分支。"
 GameManualItem/content/git merge/commandDetail/1/scenario,"1. 準備將已完成的分支合併到主分支時。
 2. 在準備創建 Pull Request 之前，確認合併流程的步驟之一。"
-GameManualItem/content/git merge/commandDetail/1/use,"將指定分支合併到當前分支上，
+GameManualItem/content/git merge/commandDetail/1/use,"將指定分支的內容合併到當前分支上，
 使得當前分支獲得指定分支的所有 '提交記錄'。"
-GameManualItem/content/git pull/1,"'git pull' 是與 '遠端管理' 有關的指令類型
+GameManualItem/content/git pull/1,"<color=#CF001C>git pull</color> 是與 '遠端管理' 有關的指令類型。
 
 這個指令用於將本地分支與遠端儲存庫中的分支同步，
 以確保您的本地分支保持最新的狀態。
 
 當執行這個指令時，它會依序執行以下兩個操作：
 1. 從遠端儲存庫下載最新的 '提交記錄'
-2. 將這些新的 '提交記錄' 合併到您的本地分支
+2. 將這些新的 '提交記錄' 合併到您的本地分支。
 
-其中，第 2 個操作和 'git merge' 指令的功能相似，
+其中，第 2 個操作和 <color=#CF001C>git merge</color> 指令的功能相似，
 Git 將根據分支之間的差異自動選擇合併模式之一。"
 GameManualItem/content/git pull/commandDetail/1,"git pull <color=#CF001C>遠端儲存庫別名</color> <color=""#173D91"">分支名稱</color>"
 GameManualItem/content/git pull/commandDetail/1/example,"當使用者 A 需要在其他設備上開發專案，
 但本地儲存庫已經很長時間沒有更新時，
 可以執行以下指令來更新本地 'new-feature' 分支："
 GameManualItem/content/git pull/commandDetail/1/exampleBox,"git pull <color=#CF001C>origin</color> <color=""#173D91"">new-feature</color>"
-GameManualItem/content/git pull/commandDetail/1/hint,"1. 確認遠端儲存庫的名稱：
-通常情況下，在開發專案時只需要連接一個遠端儲存庫
-這個遠端儲存庫在 Git 中被命名為 'origin'。
+GameManualItem/content/git pull/commandDetail/1/hint,"<b>1. 確認遠端儲存庫的名稱：</b>
+     通常情況下，開發專案只需要連接一個遠端儲存庫即可。
+     這個遠端儲存庫在 Git 中被命名為 'origin'。
 
-但是，如果您有連接到多個遠端儲存庫。
-在更新內容之前，
-請使用 'git remote -v' 指令檢查正確的遠端儲存庫名稱。
+     但是，如果您有連接到多個遠端儲存庫。
+     在同步內容之前，請使用 <color=#CF001C>git remote</color> 指令來確認正確遠端儲存庫。
 
-2. 確保切換到正確的分支：
-在執行這個指令之前，請確保您位於正確的分支上。
+<b>2. 確保切換到正確的分支：</b>
+     在執行這個指令之前，請確保您位於正確的分支上。
 
-假如您在 'master' 分支上執行 'git pull origin new-feature'，
-'master' 分支會獲得遠端 'new-feature'的 '提交記錄'。
-這會造成不必要的困擾。"
+     假如您在 'master' 分支上執行 <color=#CF001C>git pull origin new-feature</color>。
+     'master' 分支會獲得遠端 'new-feature'的 '提交記錄'。
+     這會造成不必要的困擾。"
 GameManualItem/content/git pull/commandDetail/1/scenario,"1. 需要在其他本地設備上開發專案時。
 2. 在準備創建 Pull Request 之前，確認合併流程的步驟之一"
 GameManualItem/content/git pull/commandDetail/1/use,將當前本地分支同步至指定遠端儲存庫中的指定遠端分支。
-GameManualItem/content/git push/1,"'git push' 是與 '遠端管理' 有關的指令類型
+GameManualItem/content/git push/1,"<color=#CF001C>git push</color> 是與 '遠端管理' 有關的指令類型。
 
 這個指令用於將本地分支的內容上傳到指定的遠端儲存庫，
 同時遠端儲存庫將創建並更新相對應的遠端分支。"
@@ -413,34 +387,31 @@ GameManualItem/content/git push/commandDetail/1,"git push <color=#CF001C>遠端�
 GameManualItem/content/git push/commandDetail/1/example,"當使用者 A 已經在 'new-feature' 分支上完成功能。
 想要上傳分支的內容到遠端儲存庫，可以執行以下指令："
 GameManualItem/content/git push/commandDetail/1/exampleBox,"git push <color=#CF001C>origin</color> <color=""#173D91"">new-feature</color>"
-GameManualItem/content/git push/commandDetail/1/hint,"1. 確認遠端儲存庫的名稱：
-通常情況下，在開發專案時只需要連接一個遠端儲存庫
-這個遠端儲存庫在 Git 中被命名為 'origin'。
+GameManualItem/content/git push/commandDetail/1/hint,"<b>1. 確認遠端儲存庫的名稱：</b>
+     通常情況下，開發專案只需要連接一個遠端儲存庫即可。
+     這個遠端儲存庫在 Git 中被命名為 'origin'。
 
-但是，如果您有連接到多個遠端儲存庫。
-在上傳修改內容之前，
-請使用 'git remote -v' 指令檢查正確的遠端儲存庫名稱。"
-GameManualItem/content/git push/commandDetail/1/scenario,"1. 當已完成部分功能時。
-2. 需要備份本地分支的內容時。
-3. 當功能已經完全開發完畢時。"
+     但是，如果您有連接到多個遠端儲存庫。
+     在上傳修改內容之前，請使用 <color=#CF001C>git remote</color> 指令來確認正確遠端儲存庫。"
+GameManualItem/content/git push/commandDetail/1/scenario,"1. 已完成部分功能。
+2. 需要備份本地分支的內容。
+3. 功能已經完全開發完畢。"
 GameManualItem/content/git push/commandDetail/1/use,"將指定的本地分支上傳到指定的遠端儲存庫。
-在遠端儲存庫上創建同名的遠端分支，
-並同步本地分支的 '提交記錄'。"
+在遠端儲存庫上創建同名的遠端分支，並同步本地分支的 '提交記錄'。"
 GameManualItem/content/git push/commandDetail/2,"git push <color=#CF001C>-d 或 --delete</color> <color=""#173D91"">遠端儲存庫別名</color> <color=#244B0E>分支名稱</color>"
 GameManualItem/content/git push/commandDetail/2/example,"當使用者 A 創建的 Pull Request 
-已經將 'new-feature' 分支成功合併到遠端的 'master' 分支時，
-可以執行以下指令來刪除遠端分支："
+已經將 'new-feature' 分支成功合併到遠端 'master' 分支時，
+執行以下指令來刪除遠端分支："
 GameManualItem/content/git push/commandDetail/2/exampleBox,"git push <color=#CF001C>-d</color> <color=""#173D91"">origin</color> <color=#244B0E>new-feature</color>"
-GameManualItem/content/git push/commandDetail/2/hint,"1. 確認遠端儲存庫的名稱：
-通常情況下，在開發專案時只需要連接一個遠端儲存庫
-這個遠端儲存庫在 Git 中被命名為 'origin'。
+GameManualItem/content/git push/commandDetail/2/hint,"<b>1. 確認遠端儲存庫的名稱：</b>
+     通常情況下，開發專案只需要連接一個遠端儲存庫即可。
+     這個遠端儲存庫在 Git 中被命名為 'origin'。
 
-但是，如果您有連接到多個遠端儲存庫。
-在刪除分支之前，
-請使用 'git remote -v' 指令檢查正確的遠端儲存庫名稱。"
+     但是，如果您有連接到多個遠端儲存庫。
+     在刪除分支之前，請使用 <color=#CF001C>git remote</color> 指令來確認正確遠端儲存庫。"
 GameManualItem/content/git push/commandDetail/2/scenario,1. 當特定遠端分支已經被合併到遠端主分支時。
 GameManualItem/content/git push/commandDetail/2/use,刪除指定遠端儲存庫中的特定遠端分支。
-GameManualItem/content/git remote/1,"'git remote' 是與 '遠端管理' 有關的指令類型。
+GameManualItem/content/git remote/1,"<color=#CF001C>git remote</color> 是與 '遠端管理' 有關的指令類型。
 
 這個指令用於確認專案是否已連接到其他遠端儲存庫，
 並顯示已連接遠端儲存庫的網址和別名。
@@ -448,13 +419,12 @@ GameManualItem/content/git remote/1,"'git remote' 是與 '遠端管理' 有關�
 在實際使用 Git 時，
 這個指令還可以用來新增或刪除與其他遠端儲存庫的連接。"
 GameManualItem/content/git remote/commandDetail/1,git remote <color=#CF001C>-v 或 --verbose</color>
-GameManualItem/content/git remote/commandDetail/1/example,"當使用者 A 已經成功將遠端儲存庫從 Git 服務平台複製到本地設備中。
+GameManualItem/content/git remote/commandDetail/1/example,"當使用者 A 將遠端儲存庫從 Git 服務平台複製到本地設備中。
 如果想要確認是否已經正確連接到對應的遠端儲存庫，
 可以執行以下指令："
 GameManualItem/content/git remote/commandDetail/1/exampleBox,git remote <color=#CF001C>-v</color>
-GameManualItem/content/git remote/commandDetail/1/hint,"1. 沒有與任何遠端儲存庫連接時不會有回應：
-如果專案尚未建立與其他遠端儲存庫的連接。
-執行指令後將不會返回任何訊息。"
+GameManualItem/content/git remote/commandDetail/1/hint,"<b>1. 沒有與任何遠端儲存庫連接時不會有回應：</b>
+     如果專案尚未連接其他遠端儲存庫，執行指令後將不會返回任何訊息。"
 GameManualItem/content/git remote/commandDetail/1/scenario,1. 當需要確認當前專案的遠端連接狀態時。
 GameManualItem/content/git remote/commandDetail/1/use,"確認本地專案是否已與其他遠端儲存庫建立連接，
 同時顯示連接儲存庫的網址和別名。"
@@ -1142,8 +1112,7 @@ GameManualItem/list/VersionControlAndGit,版本控制 和 Git
 GameManualWindow/CategoryButton/Command,指 令
 GameManualWindow/CategoryButton/RuleAndWindow,遊 戲 規 則 與 視 窗
 GameManualWindow/CategoryButton/VersionControl,版 本 控 制
-GameManualWindow/content/DefaultContent,"點擊左方列表
-來觀看教學內容"
+GameManualWindow/content/DefaultContent,點擊左方條目來觀看教學內容
 GameManualWindow/ListTitle/Command,Git 指 令 列 表
 GameManualWindow/ListTitle/RuleAndWindow,遊 戲 規 則 與 視 窗 教 學 列 表
 GameManualWindow/ListTitle/VersionControl,版 本 控 制 教 學 列 表
