@@ -41,12 +41,10 @@ public class GitCommandValider : SerializedMonoBehaviour
         CurrentStageUsableDict = stageManager.GetUsedCommandDict();
 
         List<GameManualItem> commandGameManualDatas = saveManager.GetCommandDataListInGameManual();
-        int index = 0;
-        foreach(GameManualItem commandData in commandGameManualDatas)
+        for(int i=0; i<AllCommandList.Count; i++)
         {
-            int foundIndex = commandGameManualDatas.FindIndex((item) => item.listName == AllCommandList[index]);
-            PlayerUnlockDict.Add(AllCommandList[index], commandGameManualDatas[foundIndex].listUnlockProgress);
-            index++;
+            int foundIndex = commandGameManualDatas.FindIndex((item) => item.listName == AllCommandList[i]);
+            PlayerUnlockDict.Add(AllCommandList[i], commandGameManualDatas[foundIndex].listUnlockProgress);
         }
     }
 
