@@ -82,7 +82,7 @@ public class QuestFilter_003_CreateLocalRepository_Tutorial : SerializedMonoBeha
                 }
                 else
                 {
-                    return $"Git Commands/git {commandType}/Wrong Quest";
+                    return $"Git Commands/git {commandType}/Wrong Quest(Failed)";
                 }
             }
             else
