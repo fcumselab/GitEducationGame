@@ -170,7 +170,6 @@ public class TutorialPopup : SerializedMonoBehaviour
     {
         for (int i=0;i< saveWindowObjList.Count;i++)
         {
-            Debug.Log("Clear");
             saveWindowObjList[i].transform.SetParent(WindowLayer);
             saveWindowScriptList[i].SendEvent("Highlight Panel/Reset");
         }

@@ -75,6 +75,10 @@ public class StageSummaryPopup : SerializedMonoBehaviour
     }
     #endregion
 
+    public void Initialize(StageData stageData)
+    {
+        selfLeaderboard.SetSelectedStageData(stageData);
+    }
 
     public void RunSummaryFunc(string stageName, float time, int playerScore)
     {
@@ -90,7 +94,6 @@ public class StageSummaryPopup : SerializedMonoBehaviour
 
         //Update Right Bottom Panel
         CreateQuestHistoryTextBoxes();
-
 
 
         StageLeaderboardData newData = new StageLeaderboardData

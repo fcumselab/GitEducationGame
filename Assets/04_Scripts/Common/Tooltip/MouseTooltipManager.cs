@@ -45,8 +45,8 @@ public class MouseTooltipManager : SerializedMonoBehaviour
         if (isActivate)
         {
             UpdateTooltipAlpha();
-            float x = (float)Screen.width / 3840;
-            float y = (float)Screen.height / 2160;
+            float x = (float)Screen.width / 1920;
+            float y = (float)Screen.height / 1080;
 
             Vector2 ScreenSize = new (x, y);
             Vector2 anchoredPos = Input.mousePosition / ScreenSize;

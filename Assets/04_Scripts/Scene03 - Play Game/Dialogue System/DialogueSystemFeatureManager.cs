@@ -117,7 +117,6 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
 
     public void RegisterHintDict(Dictionary<string, PlayMakerFSM> newDict)
     {
-        Debug.Log("RegisterHintDict");
         foreach (var item in newDict)
         {
             hintDict.Add(item.Key, item.Value);
@@ -128,7 +127,6 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
     {
         foreach(var item in enableHintList)
         {
-            Debug.Log("dd");
             item.gameObject.GetComponent<Image>().color = new(255, 0, 0, 0);
             item.enabled = false;
         }

@@ -21,7 +21,7 @@ public class SelfLeaderboard : SerializedMonoBehaviour
 
     public void UpdateSelfLeaderBoardContent(int highlightIndex = -1)
     {
-        
+        Debug.Log("UPdaet self LB");
         List<StageLeaderboardData> stageLeaderboardData = selectedStageData.stageLeaderboardData;
         ClearTimesContent.GetComponent<Text>().text = selectedStageData.stageClearTimes.ToString();
 
