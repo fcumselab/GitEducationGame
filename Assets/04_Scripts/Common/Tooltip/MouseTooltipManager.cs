@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,8 +8,10 @@ using UnityEngine.EventSystems;
 
 public class MouseTooltipManager : SerializedMonoBehaviour
 {
-    
+    [FoldoutGroup("Game Screen")]
     [SerializeField] RectTransform GameScreenRectTransform;
+    [FoldoutGroup("Game Screen")]
+    [SerializeField] Canvas gameScreenCanvas;
 
     [SerializeField] float alphaTime = 0.15f;
     [SerializeField] bool isActivate = false;
@@ -45,20 +47,18 @@ public class MouseTooltipManager : SerializedMonoBehaviour
         if (isActivate)
         {
             UpdateTooltipAlpha();
+            Vector2 anchoredPos = Input.mousePosition / gameScreenCanvas.scaleFactor;
             float x = (float)Screen.width / 1920;
             float y = (float)Screen.height / 1080;
 
-            Vector2 ScreenSize = new (x, y);
-            Vector2 anchoredPos = Input.mousePosition / ScreenSize;
-
-            if (anchoredPos.x + tooltipRectTransform.rect.width > GameScreenRectTransform.rect.width)
+            if (anchoredPos.x + (tooltipRectTransform.rect.width * gameScreenCanvas.scaleFactor) > GameScreenRectTransform.rect.width)
             {
-                anchoredPos.x = GameScreenRectTransform.rect.width - tooltipRectTransform.rect.width;
+                anchoredPos.x = GameScreenRectTransform.rect.width - (tooltipRectTransform.rect.width * gameScreenCanvas.scaleFactor);
             }
 
-            if (anchoredPos.y + tooltipRectTransform.rect.height > GameScreenRectTransform.rect.height)
+            if (anchoredPos.y + (tooltipRectTransform.rect.height * gameScreenCanvas.scaleFactor) > GameScreenRectTransform.rect.height)
             {
-                anchoredPos.y = GameScreenRectTransform.rect.height - tooltipRectTransform.rect.height;
+                anchoredPos.y = GameScreenRectTransform.rect.height - (tooltipRectTransform.rect.height * gameScreenCanvas.scaleFactor);
             }
 
             rectTransform.anchoredPosition = anchoredPos;
