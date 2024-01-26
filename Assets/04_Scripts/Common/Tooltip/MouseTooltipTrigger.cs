@@ -32,5 +32,10 @@ public class MouseTooltipTrigger : SerializedMonoBehaviour, IPointerEnterHandler
     {
         MouseTooltipManager.Instance.ShowTooltip(targetTooltipText, targetIsI18nKey);
     }
+
+    public void CloseTooltip()
+    {
+        MouseTooltipManager.Instance.HideTooltip();
+    }
 }
 

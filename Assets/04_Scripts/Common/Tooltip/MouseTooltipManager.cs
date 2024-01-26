@@ -48,17 +48,14 @@ public class MouseTooltipManager : SerializedMonoBehaviour
         {
             UpdateTooltipAlpha();
             Vector2 anchoredPos = Input.mousePosition / gameScreenCanvas.scaleFactor;
-            float x = (float)Screen.width / 1920;
-            float y = (float)Screen.height / 1080;
-
-            if (anchoredPos.x + (tooltipRectTransform.rect.width * gameScreenCanvas.scaleFactor) > GameScreenRectTransform.rect.width)
+            if (anchoredPos.x + (tooltipRectTransform.rect.width ) > GameScreenRectTransform.rect.width)
             {
-                anchoredPos.x = GameScreenRectTransform.rect.width - (tooltipRectTransform.rect.width * gameScreenCanvas.scaleFactor);
+                anchoredPos.x = GameScreenRectTransform.rect.width - (tooltipRectTransform.rect.width );
             }
 
-            if (anchoredPos.y + (tooltipRectTransform.rect.height * gameScreenCanvas.scaleFactor) > GameScreenRectTransform.rect.height)
+            if (anchoredPos.y + (tooltipRectTransform.rect.height) > GameScreenRectTransform.rect.height)
             {
-                anchoredPos.y = GameScreenRectTransform.rect.height - (tooltipRectTransform.rect.height * gameScreenCanvas.scaleFactor);
+                anchoredPos.y = GameScreenRectTransform.rect.height - (tooltipRectTransform.rect.height);
             }
 
             rectTransform.anchoredPosition = anchoredPos;
