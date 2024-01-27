@@ -23,7 +23,7 @@ public class SaveManager : SerializedMonoBehaviour
     [Header("Current PlayerSaveData")]
     public string userName;
     [SerializeField] PlayerSaveData playerSaveData;
-
+    public string testSaveJson;
     #region instance
     //Singleton instantation
     private static SaveManager instance;
@@ -37,6 +37,7 @@ public class SaveManager : SerializedMonoBehaviour
     }
     #endregion
 
+    #region Initial
     private void Start()
     {
         isInitialFinish = false;
@@ -54,6 +55,12 @@ public class SaveManager : SerializedMonoBehaviour
             }
         }
         isInitialFinish = true;
+    }
+    #endregion
+
+    public void SaveToJson()
+    {
+        testSaveJson = JsonUtility.ToJson(playerSaveData, true);
     }
 
     //LoadPlayerData - from LoginManager.cs
@@ -231,6 +238,7 @@ public class SaveManager : SerializedMonoBehaviour
         playerSaveData.gameRecordData.totalTimesStageClear++;
     }
 
+    #region Scene
     //Switch Scene Fsm
     public void InitializeGameManagerInScene(string currentSceneName, string lastSceneName)
     {
@@ -265,6 +273,8 @@ public class SaveManager : SerializedMonoBehaviour
         switchSceneFsm.FsmVariables.GetFsmString("targetSceneName").Value = "Play Game";
         switchSceneFsm.enabled = true;
     }
+
+    #endregion
 
     public StageData GetPlayingStageData()
     {

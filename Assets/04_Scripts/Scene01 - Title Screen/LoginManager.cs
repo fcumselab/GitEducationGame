@@ -37,6 +37,12 @@ public class LoginManager : SerializedMonoBehaviour
             else if (result.Contains("already sign up"))
             {
                 runResult = "failed";
+                warningMessage = "already sign up";
+            }
+            else if (result.Contains("Cannot connect to destination host"))
+            {
+                runResult = "failed";
+                warningMessage = "Cannot connect";
             }
         }));
     }
@@ -49,6 +55,7 @@ public class LoginManager : SerializedMonoBehaviour
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(www.error);
+            callback(www.error);
         }
         else
         {
@@ -67,8 +74,11 @@ public class LoginManager : SerializedMonoBehaviour
 
         string encoderPassword = PasswordEncoder.GetMd5Hash(password);
         form.AddField("password", encoderPassword);
+        Debug.Log("Login Start");
 
         StartCoroutine(LoginRequest(form, (result) => {
+
+            Debug.Log("LogResult \n" + result);
             if (result.Contains("successful"))
             {
                 LoginResultData loginResultData = JsonUtility.FromJson<LoginResultData>(result);
@@ -83,21 +93,30 @@ public class LoginManager : SerializedMonoBehaviour
             else if (result.Contains("password incorrect")){
                 runResult = "failed";
                 warningMessage = "password incorrect";
+            }else if (result.Contains("Cannot connect to destination host"))
+            {
+                runResult = "failed";
+                warningMessage = "Cannot connect";
             }
         }));
+
+        Debug.Log("Login END");
+
     }
 
     IEnumerator LoginRequest(WWWForm form, Action<string> callback)
     {
         UnityWebRequest www = UnityWebRequest.Post("localhost:5050/login", form);
         yield return www.SendWebRequest();
-
+        Debug.Log("Send Losin");
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log(www.error);
+            callback(www.error);
         }
         else
         {
+            Debug.Log("END");
+
             callback(www.downloadHandler.text);
         }
         www.Dispose();

@@ -61,9 +61,7 @@ public class StageSelectionDetailedWindow : SerializedMonoBehaviour
             //Only Tutorial has Button
             if (stageItem.stageName.Contains("(Tutorial)"))
             {
-                Button itemButton = stageItemButton.Find("Button").GetComponent<Button>();
-
-                itemButton.onClick.AddListener(() => OpenWindow(stageItem.stageName));
+                stageItemButton.GetComponent<StageItemButton>().Initialize(this, stageItem.stageName);
             }
             UnlockStageDict.Add(stageItem.stageName, stageItem);
         }
@@ -136,5 +134,15 @@ public class StageSelectionDetailedWindow : SerializedMonoBehaviour
         GoToPlayGameSceneButton.interactable = false;
         string key = clickedStageName + " (" + selectedModeType + ")";
         SaveManager.Instance.GoToPlayGameScene(key);
+    }
+
+    public string GetSelectedModeType()
+    {
+        return selectedModeType;
+    }
+
+    public string GetClickedStageName()
+    {
+        return clickedStageName;
     }
 }
