@@ -245,7 +245,15 @@ public class SaveManager : SerializedMonoBehaviour
         switch (currentSceneName)
         {
             case "Stage Select":
-                GameObject.Find("Game Manager").GetComponent<GameManagerStageSelect>().InitializeScene(lastSceneName);
+                if (lastSceneName == "Play Game")
+                {
+                    GameObject.Find("Game Manager").GetComponent<GameManagerStageSelect>().InitializeScene(lastSceneName, selectedStageName);
+                    selectedStageName = "";
+                }
+                else
+                {
+                    GameObject.Find("Game Manager").GetComponent<GameManagerStageSelect>().InitializeScene(lastSceneName, "");
+                }
                 break;
             case "Play Game":
                 GameObject.Find("Game Manager").GetComponent<GameManagerPlayGame>().InitializeScene(lastSceneName);
@@ -257,7 +265,6 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void GoToStageSelectScene()
     {
-
         switchSceneFsm.FsmVariables.GetFsmString("targetSceneName").Value = "Stage Select";
         switchSceneFsm.enabled = true;
     }

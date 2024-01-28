@@ -8,27 +8,38 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
     [FoldoutGroup("ButtonGroup")]
     [SerializeField] GameObject SelectStageCategory;
     [FoldoutGroup("ButtonGroup")]
-    [SerializeField] GameObject StageItemsContent;
-    [FoldoutGroup("ButtonGroup")]
     [SerializeField] GameObject SelectStageItemPanel;
+    [FoldoutGroup("ButtonGroup/StageItemsContent")]
+    [SerializeField] GameObject StageItemsBasic;
+    [FoldoutGroup("ButtonGroup/StageItemsContent")]
+    [SerializeField] GameObject StageItemsBranch;
+    [FoldoutGroup("ButtonGroup/StageItemsContent")]
+    [SerializeField] GameObject StageItemsRemote;
 
-    [FoldoutGroup("StageItemDetailedPopup")]
+    [FoldoutGroup("Main System")]
+    [SerializeField] PlayMakerFSM LoadingBG;
+    [FoldoutGroup("Main System/StageSelectionDetailed")]
     [SerializeField] StageSelectionDetailedWindow stageSelectionDetailedWindow;
-
-    [FoldoutGroup("PlayerGameRecordsWindow")]
+    [FoldoutGroup("Main System/PlayerGameRecords")]
     [SerializeField] PlayerGameRecordsWindow playerGameRecordsWindow;
-
-    [FoldoutGroup("GameManualWindow")]
-    [SerializeField] GameManual gameManualWindow;
+    [FoldoutGroup("Main System/SelectStageCategoryPopup")]
+    [SerializeField] PlayMakerFSM categoryPopupUpdateContentFsm;
 
     [FoldoutGroup("Prefabs")]
     [SerializeField] GameObject gameManualWindowPrefab;
 
-    [Header("Reference")]
+    [FoldoutGroup("Reference")]
     [SerializeField] SaveManager saveManager;
+    [FoldoutGroup("Reference")]
+    [SerializeField] GameManual gameManualWindow;
 
-    public void InitializeScene(string lastSceneName)
+    #region Initialize
+    #region Category and Items
+    public void InitializeScene(string lastSceneName, string selectedStageName)
     {
+        SelectStageItemPanel.SetActive(true);
+        SelectStageCategory.SetActive(true);
+
         saveManager = GameObject.Find("Save Manager (Main)").GetComponent<SaveManager>();
         playerGameRecordsWindow.InitializeGameProgressData(saveManager);
         InitializeStageCategoryAndStageItem();
@@ -39,41 +50,43 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
         switch (lastSceneName)
         {
             case "Play Game":
+                SelectStageCategory.SetActive(false);
+                ShowLastStageItemButton();
                 break;
             case "Title Screen":
                 SelectStageItemPanel.SetActive(false);
-                SelectStageCategory.SetActive(true);
                 break;
         }
+
+        LoadingBG.SendEvent("Common/Window/Hide Window");
     }
 
-    void InitializeStageCategory(string type, List<StageData> stageData)
+    void InitializeStageCategory(string type, List<StageData> stageData, GameObject targetStageItems)
     {
         int totalStar = 0;
         int totalStage = 0;
         int totalClearStage = 0;
 
         Transform targetStageCategoryButton = SelectStageCategory.transform.Find($"StageCategoryButton - {type}");
-        Transform targetStageItems = StageItemsContent.transform.Find($"StageItems - {type}");
 
         //Stage01 (Tutorial) -> Stage01 (Practice) -> Stage02 (Tutorial) -> Stage02 (Practice)....
         List<StageData> foundTypeData = stageData.FindAll((stageItem) => stageItem.stageType == type);
-        
+
         totalStage = foundTypeData.Count;
 
-        
+
         int buttonItemIndex = 0;
         foreach (StageData stageItem in foundTypeData)
         {
             //Debug.Log("it is turn for: " + stageItem.stageName);
             if (stageItem.stageName.Contains("(Tutorial)"))
             {
-                Transform stageItemButton = targetStageItems.GetChild(buttonItemIndex);
+                Transform stageItemButton = targetStageItems.transform.GetChild(buttonItemIndex);
                 //Debug.Log("index: " + buttonItemIndex + "-> Button: " + stageItemButton);
 
                 if (stageItem.isStageUnlock)
                 {
-                    if(stageItem.stageClearTimes > 0)
+                    if (stageItem.stageClearTimes > 0)
                     {
                         totalStar += stageItem.stageLeaderboardData[0].playerStar;
                         totalClearStage++;
@@ -105,13 +118,13 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
         UpdateStageCategoryButtonStatus(categoryFsm, type, stageData);
         categoryFsm.enabled = true;
     }
-    
+
     void InitializeStageCategoryAndStageItem()
     {
         List<StageData> stageData = SaveManager.Instance.GetStageDataListFromPlayerData();
-        InitializeStageCategory("Basic", stageData);
-        InitializeStageCategory("Branch", stageData);
-        InitializeStageCategory("Remote", stageData);
+        InitializeStageCategory("Basic", stageData, StageItemsBasic);
+        InitializeStageCategory("Branch", stageData, StageItemsBranch);
+        InitializeStageCategory("Remote", stageData, StageItemsRemote);
     }
 
     void UpdateStageCategoryButtonStatus(PlayMakerFSM categoryFsm, string categoryType, List<StageData> stageData)
@@ -131,4 +144,32 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
         }
         categoryFsm.FsmVariables.FindFsmBool("isStageCategoryUnlock").Value = isUnlock;
     }
+    #endregion
+
+    #region Display
+
+    void ShowLastStageItemButton()
+    {
+        StageItemsBasic.SetActive(false);
+        StageItemsBranch.SetActive(false);
+        StageItemsRemote.SetActive(false);
+
+        switch (saveManager.GetPlayingStageData().stageType)
+        {
+            case "Basic":
+                StageItemsBasic.SetActive(true);
+                break;
+            case "Branch":
+                StageItemsBranch.SetActive(true);
+                break;
+            case "Remote":
+                StageItemsRemote.SetActive(true);
+                break;
+        }
+        categoryPopupUpdateContentFsm.enabled = true;
+    }
+
+    #endregion
+
+    #endregion
 }

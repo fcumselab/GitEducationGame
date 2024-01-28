@@ -16,6 +16,9 @@ public class LoginResultData
 
 public class LoginManager : SerializedMonoBehaviour
 {
+    // http:/xxx.xxx.xxx.xxx:xxx/ 
+    [SerializeField] string baseUrl;
+
     public string runResult;
     public string warningMessage;
     
@@ -49,12 +52,11 @@ public class LoginManager : SerializedMonoBehaviour
 
     IEnumerator SignUpRequest(WWWForm form, Action<string> callback)
     {
-        UnityWebRequest www = UnityWebRequest.Post("localhost:5050/signUp", form);
+        UnityWebRequest www = UnityWebRequest.Post($"{baseUrl}signUp", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log(www.error);
             callback(www.error);
         }
         else
@@ -74,11 +76,9 @@ public class LoginManager : SerializedMonoBehaviour
 
         string encoderPassword = PasswordEncoder.GetMd5Hash(password);
         form.AddField("password", encoderPassword);
-        Debug.Log("Login Start");
 
         StartCoroutine(LoginRequest(form, (result) => {
 
-            Debug.Log("LogResult \n" + result);
             if (result.Contains("successful"))
             {
                 LoginResultData loginResultData = JsonUtility.FromJson<LoginResultData>(result);
@@ -100,23 +100,20 @@ public class LoginManager : SerializedMonoBehaviour
             }
         }));
 
-        Debug.Log("Login END");
 
     }
 
     IEnumerator LoginRequest(WWWForm form, Action<string> callback)
     {
-        UnityWebRequest www = UnityWebRequest.Post("localhost:5050/login", form);
+        UnityWebRequest www = UnityWebRequest.Post($"{baseUrl}login", form);
         yield return www.SendWebRequest();
-        Debug.Log("Send Losin");
+
         if (www.result != UnityWebRequest.Result.Success)
         {
             callback(www.error);
         }
         else
         {
-            Debug.Log("END");
-
             callback(www.downloadHandler.text);
         }
         www.Dispose();

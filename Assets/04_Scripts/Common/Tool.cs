@@ -56,17 +56,29 @@ public class Tool : MonoBehaviour
         fsm.FsmVariables.FindFsmArray("playerClearTimeList").Resize(3);
     }
 
-    public void ScrollRectLockTargetContent(GameObject Target, GameObject Scroll, GameObject ContentPanel)
+    public void ScrollRectLockTargetContent(GameObject Target, GameObject Scroll, GameObject ContentPanel, string mode)
     {
         RectTransform targetRect = Target.GetComponent<RectTransform>();
         ScrollRect scrollRect = Scroll.GetComponent<ScrollRect>();
-        RectTransform contentPanelRect = ContentPanel.GetComponent<RectTransform>();
+        RectTransform contentPanelRect = ContentPanel.GetComponent<RectTransform>();    
 
         Canvas.ForceUpdateCanvases();
 
-        contentPanelRect.anchoredPosition =
+        switch (mode) {
+            case "x":
+                float x = ((Vector2)scrollRect.transform.InverseTransformPoint(contentPanelRect.position) - (Vector2)scrollRect.transform.InverseTransformPoint(targetRect.position)).x;
+                contentPanelRect.anchoredPosition = new(x, contentPanelRect.anchoredPosition.y);
+                break;
+            case "y":
+                float y = ((Vector2)scrollRect.transform.InverseTransformPoint(contentPanelRect.position) - (Vector2)scrollRect.transform.InverseTransformPoint(targetRect.position)).y;
+                contentPanelRect.anchoredPosition = new(contentPanelRect.anchoredPosition.x, y);
+                break;
+            case "xy":
+                contentPanelRect.anchoredPosition = 
                 (Vector2)scrollRect.transform.InverseTransformPoint(contentPanelRect.position)
                 - (Vector2)scrollRect.transform.InverseTransformPoint(targetRect.position);
+                break;
+        }
     }
 
     

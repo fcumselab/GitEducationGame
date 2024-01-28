@@ -9,242 +9,275 @@ using UnityEngine.UI;
 
 public class GlobalLeaderBoard : SerializedMonoBehaviour
 {
-    [Header("Prefab")]
+    #region Variable
+
+    // http:/xxx.xxx.xxx.xxx:xxx/ 
+    [SerializeField] string baseUrl;
+
+    [FoldoutGroup("Process Popup")]
+    [SerializeField] GameObject WebsiteLoadingPanel;
+    [FoldoutGroup("Process Popup")]
+    [SerializeField] GameObject OopsPage;
+
+    [FoldoutGroup("Prefab")]
     [SerializeField] GameObject ClearStageItem;
+    [FoldoutGroup("Prefab")]
     [SerializeField] GameObject ScoreItem;
+    [FoldoutGroup("Prefab")]
     [SerializeField] GameObject GameProgressItem;
 
-    [Header("PlayerPlace")]
+    [FoldoutGroup("PlayerPlace")]
     [SerializeField] GameObject PlayerClearStageItem;
+    [FoldoutGroup("PlayerPlace")]
     [SerializeField] GameObject PlayerScoreItem;
+    [FoldoutGroup("PlayerPlace")]
     [SerializeField] GameObject PlayerGameProgressItem;
 
-    [Header("generate location")]
+    [FoldoutGroup("Generate Location")]
     [SerializeField] Transform ClearStageItems;
+    [FoldoutGroup("Generate Location")]
     [SerializeField] Transform TotalScoreItems;
+    [FoldoutGroup("Generate Location")]
     [SerializeField] Transform TotalGameProgressItems;
 
-    [Header("Save")]
+    [FoldoutGroup("Data")]
     [SerializeField] List<GameObject> ClearStageItemList;
+    [FoldoutGroup("Data")]
     [SerializeField] List<GameObject> ScoreItemList;
+    [FoldoutGroup("Data")]
     [SerializeField] List<GameObject> GameProgressItemList;
+    #endregion 
 
     public void GetLeaderBoardData(string leaderBoardType, string stageName = "")
     {
+        OopsPage.SetActive(false);
+        WebsiteLoadingPanel.SetActive(true);
+
         Text text;
         PlayMakerFSM fsm;
-        StartCoroutine(GetWebData(leaderBoardType, stageName, (result) =>
+        StartCoroutine(GetWebData(leaderBoardType, stageName, (result, runResult) =>
         {
-            switch (leaderBoardType)
+            switch (runResult)
             {
-                case "GameProgress":
+                case "Failed":
+                    OopsPage.SetActive(true);
+                    break;
+                case "Success":
+                    switch (leaderBoardType)
                     {
-                        ReturnGlobalLeaderBoardData<GlobalTotalGameProgressData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<GlobalTotalGameProgressData>>(result);
-                        
-                        int saveListSize = GameProgressItemList.Count;
-                        GameObject Item;
-
-                        //Count Player own place index
-                        int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
-                        GlobalTotalGameProgressData playerData = null;
-                        if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
-                        bool isFoundPlayerData = (playerData != null);
-
-                        //Deactivate all gameObject.
-                        foreach (GameObject item in GameProgressItemList)
-                        {
-                            item.SetActive(false);
-                        }
-
-                        for (int i = 0; i < returnData.returnLeaderBoardData.Count; i++)
-                        {
-                            if (saveListSize < i + 1)
+                        case "GameProgress":
                             {
-                                Item = Instantiate(GameProgressItem, TotalGameProgressItems);
-                                GameProgressItemList.Add(Item);
+                                ReturnGlobalLeaderBoardData<GlobalTotalGameProgressData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<GlobalTotalGameProgressData>>(result);
+
+                                int saveListSize = GameProgressItemList.Count;
+                                GameObject Item;
+
+                                //Count Player own place index
+                                int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
+                                GlobalTotalGameProgressData playerData = null;
+                                if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
+                                bool isFoundPlayerData = (playerData != null);
+
+                                //Deactivate all gameObject.
+                                foreach (GameObject item in GameProgressItemList)
+                                {
+                                    item.SetActive(false);
+                                }
+
+                                for (int i = 0; i < returnData.returnLeaderBoardData.Count; i++)
+                                {
+                                    if (saveListSize < i + 1)
+                                    {
+                                        Item = Instantiate(GameProgressItem, TotalGameProgressItems);
+                                        GameProgressItemList.Add(Item);
+                                    }
+                                    else
+                                    {
+                                        Item = GameProgressItemList[i];
+                                    }
+
+                                    Item.SetActive(true);
+
+                                    text = Item.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
+                                    text.text = $"{returnData.placeList[i]}";
+                                    text = Item.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
+                                    text.text = returnData.returnLeaderBoardData[i].playerName;
+                                    text = Item.transform.Find("PlayerDetailed/ProgressPanel/Progress Text").GetComponent<Text>();
+                                    text.text = $"{returnData.returnLeaderBoardData[i].gameProgress} %";
+                                    text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
+                                    text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playTime);
+
+                                    if (foundPlayerDataIndex == i)
+                                    {
+                                        fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
+                                        fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
+                                        fsm.enabled = true;
+                                    }
+                                }
+
+                                //Update player own place textBox
+                                text = PlayerGameProgressItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
+                                text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
+                                text = PlayerGameProgressItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
+                                text.text = SaveManager.Instance.userName;
+                                text = PlayerGameProgressItem.transform.Find("PlayerDetailed/ProgressPanel/Progress Text").GetComponent<Text>();
+                                text.text = isFoundPlayerData ? $"{playerData.gameProgress} %" : "0 %";
+                                text = PlayerGameProgressItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
+                                text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playTime) : "00:00";
+                                break;
                             }
-                            else
+                        case "ClearStageBestRecord":
                             {
-                                Item = GameProgressItemList[i];
-                            }
+                                Transform Stars;
 
-                            Item.SetActive(true);
+                                ReturnGlobalLeaderBoardData<StageLeaderboardData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<StageLeaderboardData>>(result);
+                                int saveListSize = ClearStageItemList.Count;
+                                GameObject Item;
 
-                            text = Item.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                            text.text = $"{returnData.placeList[i]}";
-                            text = Item.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
-                            text.text = returnData.returnLeaderBoardData[i].playerName;
-                            text = Item.transform.Find("PlayerDetailed/ProgressPanel/Progress Text").GetComponent<Text>();
-                            text.text = $"{returnData.returnLeaderBoardData[i].gameProgress} %";
-                            text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
-                            text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playTime);
+                                //Count Player own place index
+                                int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
+                                StageLeaderboardData playerData = null;
+                                if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
+                                bool isFoundPlayerData = (playerData != null);
 
-                            if (foundPlayerDataIndex == i)
-                            {
-                                fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
-                                fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
+                                foreach (GameObject item in ClearStageItemList)
+                                {
+                                    item.SetActive(false);
+                                }
+
+                                for (int i = 0; i < returnData.returnLeaderBoardData.Count; i++)
+                                {
+                                    if (saveListSize < i + 1)
+                                    {
+                                        Item = Instantiate(ClearStageItem, ClearStageItems);
+                                        ClearStageItemList.Add(Item);
+                                    }
+                                    else
+                                    {
+                                        Item = ClearStageItemList[i];
+                                    }
+
+                                    Item.SetActive(true);
+
+                                    Text text = Item.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
+                                    text.text = $"{returnData.placeList[i]}";
+                                    text = Item.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
+                                    text.text = returnData.returnLeaderBoardData[i].playerName;
+
+                                    Stars = Item.transform.Find("PlayerDetailed/Stars");
+                                    fsm = MyPlayMakerScriptHelper.GetFsmByName(Stars.gameObject, "Update Star");
+                                    fsm.FsmVariables.GetFsmInt("getStarNum").Value = returnData.returnLeaderBoardData[i].playerStar;
+                                    fsm.enabled = true;
+
+                                    text = Item.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
+                                    text.text = $"{returnData.returnLeaderBoardData[i].playerScore}";
+                                    text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
+                                    text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playerClearTime);
+
+                                    if (foundPlayerDataIndex == i)
+                                    {
+                                        fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
+                                        fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
+                                        fsm.enabled = true;
+                                    }
+                                }
+
+                                text = PlayerClearStageItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
+                                text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
+                                text = PlayerClearStageItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
+                                text.text = SaveManager.Instance.userName;
+
+                                Stars = PlayerClearStageItem.transform.Find("PlayerDetailed/Stars");
+                                fsm = MyPlayMakerScriptHelper.GetFsmByName(Stars.gameObject, "Update Star");
+                                fsm.FsmVariables.GetFsmInt("getStarNum").Value = isFoundPlayerData ? playerData.playerStar : 0;
                                 fsm.enabled = true;
-                            }
-                        }
 
-                        //Update player own place textBox
-                        text = PlayerGameProgressItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
-                        text = PlayerGameProgressItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
-                        text.text = SaveManager.Instance.userName;
-                        text = PlayerGameProgressItem.transform.Find("PlayerDetailed/ProgressPanel/Progress Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{playerData.gameProgress} %" : "0 %";
-                        text = PlayerGameProgressItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playTime) : "00:00" ;
-                        break;
+                                text = PlayerClearStageItem.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
+                                text.text = isFoundPlayerData ? $"{playerData.playerScore}" : "0";
+                                text = PlayerClearStageItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
+                                text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playerClearTime) : "00:00";
+                                break;
+                            }
+                        case "TotalScore":
+                            {
+                                ReturnGlobalLeaderBoardData<GlobalTotalScoreData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<GlobalTotalScoreData>>(result);
+                                int saveListSize = ScoreItemList.Count;
+                                GameObject Item;
+
+                                //Player own place item
+                                int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
+                                GlobalTotalScoreData playerData = null;
+                                if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
+                                bool isFoundPlayerData = (playerData != null);
+
+                                foreach (GameObject item in ScoreItemList)
+                                {
+                                    item.SetActive(false);
+                                }
+
+                                for (int i = 0; i < returnData.returnLeaderBoardData.Count; i++)
+                                {
+                                    if (saveListSize < i + 1)
+                                    {
+                                        Item = Instantiate(ScoreItem, TotalScoreItems);
+                                        ScoreItemList.Add(Item);
+                                    }
+                                    else
+                                    {
+                                        Item = ScoreItemList[i];
+                                    }
+
+                                    Item.SetActive(true);
+
+                                    Text text = Item.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
+                                    text.text = $"{returnData.placeList[i]}";
+                                    text = Item.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
+                                    text.text = returnData.returnLeaderBoardData[i].playerName;
+                                    text = Item.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
+                                    text.text = $"{returnData.returnLeaderBoardData[i].totalScore}";
+                                    text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
+                                    text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playTime);
+
+                                    if (foundPlayerDataIndex == i)
+                                    {
+                                        fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
+                                        fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
+                                        fsm.enabled = true;
+                                    }
+                                }
+
+                                text = PlayerScoreItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
+                                text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
+                                text = PlayerScoreItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
+                                text.text = SaveManager.Instance.userName;
+                                text = PlayerScoreItem.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
+                                text.text = isFoundPlayerData ? $"{playerData.totalScore}" : "0";
+                                text = PlayerScoreItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
+                                text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playTime) : "00:00";
+
+                                break;
+                            }
                     }
-                case "ClearStageBestRecord":
-                    {
-                        Transform Stars;
-                        
-                        ReturnGlobalLeaderBoardData<StageLeaderboardData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<StageLeaderboardData>>(result);
-                        int saveListSize = ClearStageItemList.Count;
-                        GameObject Item;
-
-                        //Count Player own place index
-                        int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
-                        StageLeaderboardData playerData = null;
-                        if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
-                        bool isFoundPlayerData = (playerData != null);
-
-                        foreach (GameObject item in ClearStageItemList)
-                        {
-                            item.SetActive(false);
-                        }
-
-                        for (int i = 0; i < returnData.returnLeaderBoardData.Count; i++)
-                        {
-                            if (saveListSize < i + 1)
-                            {
-                                Item = Instantiate(ClearStageItem, ClearStageItems);
-                                ClearStageItemList.Add(Item);
-                            }
-                            else
-                            {
-                                Item = ClearStageItemList[i];
-                            }
-
-                            Item.SetActive(true);
-
-                            Text text = Item.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                            text.text = $"{returnData.placeList[i]}";
-                            text = Item.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
-                            text.text = returnData.returnLeaderBoardData[i].playerName;
-
-                            Stars = Item.transform.Find("PlayerDetailed/Stars");
-                            fsm = MyPlayMakerScriptHelper.GetFsmByName(Stars.gameObject, "Update Star");
-                            fsm.FsmVariables.GetFsmInt("getStarNum").Value = returnData.returnLeaderBoardData[i].playerStar;
-                            fsm.enabled = true;
-
-                            text = Item.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
-                            text.text = $"{returnData.returnLeaderBoardData[i].playerScore}";
-                            text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
-                            text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playerClearTime);
-
-                            if (foundPlayerDataIndex == i)
-                            {
-                                fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
-                                fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
-                                fsm.enabled = true;
-                            }
-                        }
-
-                        text = PlayerClearStageItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
-                        text = PlayerClearStageItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
-                        text.text = SaveManager.Instance.userName;
-
-                        Stars = PlayerClearStageItem.transform.Find("PlayerDetailed/Stars");
-                        fsm = MyPlayMakerScriptHelper.GetFsmByName(Stars.gameObject, "Update Star");
-                        fsm.FsmVariables.GetFsmInt("getStarNum").Value = isFoundPlayerData ? playerData.playerStar : 0;
-                        fsm.enabled = true;
-
-                        text = PlayerClearStageItem.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{playerData.playerScore}" : "0";
-                        text = PlayerClearStageItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playerClearTime) : "00:00";
-                        break;
-                    }
-                case "TotalScore":
-                    {
-                        ReturnGlobalLeaderBoardData<GlobalTotalScoreData> returnData = JsonUtility.FromJson<ReturnGlobalLeaderBoardData<GlobalTotalScoreData>>(result);
-                        int saveListSize = ScoreItemList.Count;
-                        GameObject Item;
-
-                        //Player own place item
-                        int foundPlayerDataIndex = returnData.returnLeaderBoardData.FindIndex((item) => { return item.playerName == SaveManager.Instance.userName; });
-                        GlobalTotalScoreData playerData = null;
-                        if (foundPlayerDataIndex != -1) playerData = returnData.returnLeaderBoardData[foundPlayerDataIndex];
-                        bool isFoundPlayerData = (playerData != null);
-
-                        foreach (GameObject item in ScoreItemList)
-                        {
-                            item.SetActive(false);
-                        }
-
-                        for (int i = 0; i < returnData.returnLeaderBoardData.Count; i++)
-                        {
-                            if (saveListSize < i + 1)
-                            {
-                                Item = Instantiate(ScoreItem, TotalScoreItems);
-                                ScoreItemList.Add(Item);
-                            }
-                            else
-                            {
-                                Item = ScoreItemList[i];
-                            }
-
-                            Item.SetActive(true);
-
-                            Text text = Item.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                            text.text = $"{returnData.placeList[i]}";
-                            text = Item.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
-                            text.text = returnData.returnLeaderBoardData[i].playerName;
-                            text = Item.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
-                            text.text = $"{returnData.returnLeaderBoardData[i].totalScore}";
-                            text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
-                            text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playTime);
-
-                            if (foundPlayerDataIndex == i)
-                            {
-                                fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
-                                fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
-                                fsm.enabled = true;
-                            }
-                        }
-
-                        text = PlayerScoreItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{returnData.placeList[foundPlayerDataIndex]}" : "0";
-                        text = PlayerScoreItem.transform.Find("PlayerDetailed/PlayerNamePanel/TextPanel/Name Text").GetComponent<Text>();
-                        text.text = SaveManager.Instance.userName;
-                        text = PlayerScoreItem.transform.Find("PlayerDetailed/Score/Score Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? $"{playerData.totalScore}" : "0";
-                        text = PlayerScoreItem.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
-                        text.text = isFoundPlayerData ? MyTimer.Instance.StopWatch(playerData.playTime) : "00:00";
-
-                        break;
-                    }
+                    break;
             }
+
+            WebsiteLoadingPanel.SetActive(false);
         }));
+
 
     }
 
-    IEnumerator GetWebData(string leaderBoardType, string stageName, Action<string> callback)
+    IEnumerator GetWebData(string leaderBoardType, string stageName, Action<string, string> callback)
     {
         string url;
 
         if (stageName == "")
         {
-            url = $"localhost:5050/getGlobalLeaderBoardData?type={leaderBoardType}";
+            url = $"{baseUrl}getGlobalLeaderBoardData?type={leaderBoardType}";
         }
         else
         {
-            url = $"localhost:5050/getGlobalLeaderBoardData?type={leaderBoardType}&stageName={stageName}";
+            url = $"{baseUrl}getGlobalLeaderBoardData?type={leaderBoardType}&stageName={stageName}";
         }
 
         UnityWebRequest www = UnityWebRequest.Get(url);
@@ -252,15 +285,16 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
 
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log(www.error);
+            callback(www.downloadHandler.text, "Failed");
         }
         else
         {
-            callback(www.downloadHandler.text);
+            callback(www.downloadHandler.text, "Success");
         }
     }
 }
 
+#region Variables
 [Serializable]
 public class ReturnGlobalLeaderBoardData<T>
 {
@@ -306,7 +340,6 @@ public class GlobalTotalScoreData
     public int playTime;
 }
 
-
 //GlobalClearStageBestRecord
 [Serializable]
 public class GlobalClearStageBestRecord
@@ -315,4 +348,4 @@ public class GlobalClearStageBestRecord
     public string stageName;
     public List<StageLeaderboardData> stageLeaderboardData;
 }
-
+#endregion
