@@ -6,9 +6,10 @@ using PixelCrushers.DialogueSystem;
 
 public class QuizGameManager : SerializedMonoBehaviour
 {
+    public bool isQuizMode = false;
+
     //Manual count how many question in this quiz dialog
     [SerializeField] int maxQuizNum;
-
     //How many questions player need to answer.
     [SerializeField] int needAnswerQuizNum;
 
@@ -35,6 +36,9 @@ public class QuizGameManager : SerializedMonoBehaviour
 
     public void StartQuizGame(string selectStageKey)
     {
+        isQuizMode = true;
+        DialogueSystemFeatureManager.Instance.UpdateButtonStatus("QuizMode", false);
+
         QuestTrackerParent = GameObject.Find("Quest Tracker Parent");
         questTrackerFsm = MyPlayMakerScriptHelper.GetFsmByName(QuestTrackerParent, "Quest Tracker");
         DialogueSystemFeatureManager.Instance.AddNewRegisterFunctionKey("LoadNewQuiz");
@@ -47,15 +51,12 @@ public class QuizGameManager : SerializedMonoBehaviour
     //Get by dialog
     public void LoadNewQuiz()
     {
-        Debug.Log("Load New Quiz!");
         currentQuizNum++;
         if (needAnswerQuizNum < currentQuizNum)
         {
-            Debug.Log("The Ebd QUize");
             waitForEndDialog = true;
             return;
         }
-
 
         DialogueLua.SetVariable("Counter", currentQuizNum);
         int nowQuizNum = RandomQuiz();
@@ -102,11 +103,14 @@ public class QuizGameManager : SerializedMonoBehaviour
     {
         if (waitForEndDialog)
         {
-            Debug.Log("Wait for finish...");
+            if (isQuizMode)
+            {
+                DialogueSystemFeatureManager.Instance.UpdateButtonStatus("QuizMode", true);
+                isQuizMode = false;
+            }
+
             if (!DialogueManager.IsConversationActive)
             {
-                Debug.Log("Wfinish!!!");
-
                 waitForEndDialog = false;
                 PlayMakerFSM.BroadcastEvent("Stage Manager/Start Count Result");
             }

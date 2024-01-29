@@ -107,12 +107,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                                     text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
                                     text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playTime);
 
-                                    if (foundPlayerDataIndex == i)
-                                    {
-                                        fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
-                                        fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
-                                        fsm.enabled = true;
-                                    }
+                                    HighLightItem(Item, foundPlayerDataIndex, i);
                                 }
 
                                 //Update player own place textBox
@@ -174,12 +169,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                                     text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
                                     text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playerClearTime);
 
-                                    if (foundPlayerDataIndex == i)
-                                    {
-                                        fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
-                                        fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
-                                        fsm.enabled = true;
-                                    }
+                                    HighLightItem(Item, foundPlayerDataIndex, i);
                                 }
 
                                 text = PlayerClearStageItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
@@ -238,12 +228,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
                                     text = Item.transform.Find("PlayerDetailed/Time/Time Text").GetComponent<Text>();
                                     text.text = MyTimer.Instance.StopWatch(returnData.returnLeaderBoardData[i].playTime);
 
-                                    if (foundPlayerDataIndex == i)
-                                    {
-                                        fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
-                                        fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
-                                        fsm.enabled = true;
-                                    }
+                                    HighLightItem(Item, foundPlayerDataIndex, i);
                                 }
 
                                 text = PlayerScoreItem.transform.Find("PlacePanel/Place Text").GetComponent<Text>();
@@ -265,6 +250,20 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
         }));
 
 
+    }
+
+    void HighLightItem(GameObject Item, int foundPlayerDataIndex, int currentIndex)
+    {
+        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(Item, "Highlight TextBox");
+        if (foundPlayerDataIndex == currentIndex)
+        {
+            fsm.FsmVariables.GetFsmBool("needHighlight").Value = true;
+        }
+        else
+        {
+            fsm.FsmVariables.GetFsmBool("needHighlight").Value = false;
+        }
+        fsm.enabled = true;
     }
 
     IEnumerator GetWebData(string leaderBoardType, string stageName, Action<string, string> callback)

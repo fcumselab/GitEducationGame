@@ -341,9 +341,9 @@ MonoBehaviour:
       colorIndex: 8
       position:
         serializedVersion: 2
-        x: 164.19531
-        y: 1069.3438
-        width: 235
+        x: 58.164062
+        y: 928.59375
+        width: 220
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -360,13 +360,13 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.UiSetIsInteractable
+        - HutongGames.PlayMaker.Actions.UiCanvasGroupSetProperties
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: a8a7c802
+        actionHashCodes: 14926f01
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -389,7 +389,13 @@ MonoBehaviour:
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
         fsmIntParams: []
         fsmBoolParams:
         - useVariable: 0
@@ -403,6 +409,18 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
+          value: 1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
           value: 0
         fsmVector2Params: []
         fsmVector3Params: []
@@ -410,26 +428,30 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 
+        byteData: 00
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001100000011000000
+        paramDataType: 140000000f0000001100000011000000110000001100000001000000
         paramName:
         - gameObject
-        - isInteractable
+        - alpha
+        - interactable
+        - blocksRaycasts
+        - ignoreParentGroup
         - resetOnExit
-        paramDataPos: 000000000000000001000000
-        paramByteDataSize: 000000000000000000000000
+        - everyFrame
+        paramDataPos: 00000000000000000000000001000000020000000300000000000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000001000000
     - name: Disable Button
       description: 
       colorIndex: 9
       position:
         serializedVersion: 2
-        x: 451.77344
-        y: 1079.8359
-        width: 240
+        x: 63.585938
+        y: 1091.6484
+        width: 225
         height: 16
       isBreakpoint: 0
       isSequence: 0
@@ -437,13 +459,13 @@ MonoBehaviour:
       transitions: []
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.UiSetIsInteractable
+        - HutongGames.PlayMaker.Actions.UiCanvasGroupSetProperties
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: a8a7c802
+        actionHashCodes: 14926f01
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -466,9 +488,27 @@ MonoBehaviour:
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0.85
         fsmIntParams: []
         fsmBoolParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
         - useVariable: 0
           name: 
           tooltip: 
@@ -487,18 +527,22 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 
+        byteData: 00
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001100000011000000
+        paramDataType: 140000000f0000001100000011000000110000001100000001000000
         paramName:
         - gameObject
-        - isInteractable
+        - alpha
+        - interactable
+        - blocksRaycasts
+        - ignoreParentGroup
         - resetOnExit
-        paramDataPos: 000000000000000001000000
-        paramByteDataSize: 000000000000000000000000
+        - everyFrame
+        paramDataPos: 00000000000000000000000001000000020000000300000000000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000001000000
     - name: Hide Window
       description: 
       colorIndex: 10
@@ -1908,9 +1952,18 @@ MonoBehaviour:
     - name: Window/Go to Top
       isSystemEvent: 0
       isGlobal: 1
+    - name: DialogueFeature/FileButton/Enable
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: DialogueFeature/Toolbar/Enable
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: DialogueFeature/Toolbar/Disable
+      isSystemEvent: 0
+      isGlobal: 1
     globalTransitions:
     - fsmEvent:
-        name: Common/Controller/Enable Control
+        name: DialogueFeature/Toolbar/Enable
         isSystemEvent: 0
         isGlobal: 1
       toState: Enable Button
@@ -1919,7 +1972,7 @@ MonoBehaviour:
       linkTarget: 0
       colorIndex: 0
     - fsmEvent:
-        name: Common/Controller/Disable Control
+        name: DialogueFeature/Toolbar/Disable
         isSystemEvent: 0
         isGlobal: 1
       toState: Disable Button

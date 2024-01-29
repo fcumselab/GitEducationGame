@@ -7,6 +7,9 @@ using PixelCrushers.DialogueSystem;
 
 public class DialogueSystemFeatureManager : SerializedMonoBehaviour
 {
+    //Only stage has Quiz will get reference
+    [SerializeField] GameObject quizGameManager;
+
     [SerializeField] TutorialPopup tutorialPopup;
 
     [SerializeField] GameManual gameManual;
@@ -105,11 +108,27 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
         switch (key)
         {
             case "All":
-                eventKey = (enable) ? "DialogueFeature/FileButton/Enable" : "DialogueFeature/FileButton/Disable";
-                PlayMakerFSM.BroadcastEvent(eventKey);
+                if (!quizGameManager)
+                {
+                    eventKey = (enable) ? "DialogueFeature/FileButton/Enable" : "DialogueFeature/FileButton/Disable";
+                    PlayMakerFSM.BroadcastEvent(eventKey);
+                    eventKey = (enable) ? "DialogueFeature/Toolbar/Enable" : "DialogueFeature/Toolbar/Disable";
+                    PlayMakerFSM.BroadcastEvent(eventKey);
+                }
                 break;
             case "FileButton":
                 eventKey = (enable) ? "DialogueFeature/FileButton/Enable" : "DialogueFeature/FileButton/Disable";
+                PlayMakerFSM.BroadcastEvent(eventKey);
+                break;
+            case "Toolbar":
+                eventKey = (enable) ? "DialogueFeature/Toolbar/Enable" : "DialogueFeature/Toolbar/Disable";
+                PlayMakerFSM.BroadcastEvent(eventKey);
+                break;
+            case "QuizMode":
+                quizGameManager = QuizGameManager.Instance.gameObject;
+                eventKey = (enable) ? "DialogueFeature/FileButton/Enable" : "DialogueFeature/FileButton/Disable";
+                PlayMakerFSM.BroadcastEvent(eventKey);
+                eventKey = (enable) ? "DialogueFeature/GameManual/Enable" : "DialogueFeature/GameManual/Disable";
                 PlayMakerFSM.BroadcastEvent(eventKey);
                 break;
         }
