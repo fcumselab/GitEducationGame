@@ -13,24 +13,22 @@ public class StageSummaryPopup : SerializedMonoBehaviour
     #region Children 
     [FoldoutGroup("Children")]
     [SerializeField] SelfLeaderboard selfLeaderboard;
-    [FoldoutGroup("Children/Left")]
-    //LeftTop
+    [FoldoutGroup("Children/Left Top")]
+    [SerializeField] GameObject GameModeImageTutorial;
+    [FoldoutGroup("Children/Left Top")]
+    [SerializeField] GameObject GameModeImagePractice;
+    [FoldoutGroup("Children/Left Top")]
     [SerializeField] GameObject StarsAndScorePanel;
-    [FoldoutGroup("Children/Left")]
-    //LeftBottom
+    [FoldoutGroup("Children/Left Button")]
     [SerializeField] GameObject ActionDetailGroup;
 
-    [FoldoutGroup("Children/Right")]
-    //RightBottom
+    [FoldoutGroup("Children/Right Bottom")]
     [SerializeField] GameObject StageQuestHistoryPanel;
-    [FoldoutGroup("Children/Right")]
-    //RightTop
+    [FoldoutGroup("Children/Right Top")]
     [SerializeField] GameObject ClearTimesContent;
-    [FoldoutGroup("Children/Right")]
-    //RightTop
+    [FoldoutGroup("Children/Right Top")]
     [SerializeField] GameObject SelfLeaderBoardGroup;
-    [FoldoutGroup("Children/Right")]
-    //RightTop
+    [FoldoutGroup("Children/Right Top")]
     [SerializeField] GameObject playerCurrentScoreTextBox;
 
     #endregion
@@ -83,6 +81,15 @@ public class StageSummaryPopup : SerializedMonoBehaviour
 
     public void RunSummaryFunc(string stageName, float time, int playerScore)
     {
+        if (stageName.Contains("Tutorial"))
+        {
+            GameModeImageTutorial.SetActive(true);
+        }
+        else if (stageName.Contains("Practice"))
+        {
+            GameModeImagePractice.SetActive(true);
+        }
+
         //Get Player Place & Star
         int playerPlace = CompareLeaderBoard(time, playerScore);
         int playerStar = GetPlayerStar(playerScore);

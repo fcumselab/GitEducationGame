@@ -21,7 +21,7 @@ public static class MyPlayMakerScriptHelper
             }
         }
 
-        Debug.Log("Cannot find Target Fsm!");
+        Debug.Log($"Cannot find Target Fsm! \nObjName: {TargetObj.name}\n fsmName: {fsmName}");
         return null;
     }
 }
