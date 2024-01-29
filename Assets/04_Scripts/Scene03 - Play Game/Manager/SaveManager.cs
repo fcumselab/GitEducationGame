@@ -117,30 +117,25 @@ public class SaveManager : SerializedMonoBehaviour
         {
             targetStageData.stageLeaderboardData.Insert(playerPlace - 1, newLeaderBoardData);
             targetStageData.stageLeaderboardData.RemoveAt(3);
+        }
 
-            UpdateGameRecordData(playTime);
+        //Common -> update playData -> Upload
+        UpdateGameRecordData(playTime);
+        form = BuildGlobalLeaderBoardForm("PlayerSaveData");
+        StartCoroutine(UploadPlayerSaveData(form));
 
-            form = BuildGlobalLeaderBoardForm("PlayerSaveData");
-            StartCoroutine(UploadPlayerSaveData(form));
-
-            Debug.Log("Start POST GameProgress");
+        //Beat self record -> upload to GlobalLeaderBoard
+        if (playerPlace == 1)
+        {
+            Debug.Log("New GlobalLeaderBoard Record");
             form = BuildGlobalLeaderBoardForm("GameProgress");
             StartCoroutine(UpdateGlobalLeaderBoard(form));
 
-            Debug.Log("Start POST ClearStageBestRecord");
             form = BuildGlobalLeaderBoardForm("ClearStageBestRecord", stageName, newLeaderBoardData);
             StartCoroutine(UpdateGlobalLeaderBoard(form));
 
-            Debug.Log("Start POST TotalScore");
             form = BuildGlobalLeaderBoardForm("TotalScore");
             StartCoroutine(UpdateGlobalLeaderBoard(form));
-        }
-        else
-        {
-            UpdateGameRecordData(playTime);
-
-            form = BuildGlobalLeaderBoardForm("PlayerSaveData");
-            StartCoroutine(UploadPlayerSaveData(form));
         }
     }
 
