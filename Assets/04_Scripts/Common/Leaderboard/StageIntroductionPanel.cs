@@ -7,10 +7,20 @@ using Lean.Localization;
 
 public class StageIntroductionPanel : SerializedMonoBehaviour
 {
+    [FoldoutGroup("Common")]
     [SerializeField] LeanLocalizedText StageTitleText;
+    [FoldoutGroup("Common")]
     [SerializeField] LeanLocalizedText StageOverviewContent;
+    [FoldoutGroup("Common")]
     [SerializeField] LeanLocalizedText StageObjectiveContent;
-    
+
+    [FoldoutGroup("Play Game Scene")]
+    [SerializeField] GameObject GameModeImagePanel;
+    [FoldoutGroup("Play Game Scene")]
+    [SerializeField] GameObject ImagePanelTutorial;
+    [FoldoutGroup("Play Game Scene")]
+    [SerializeField] GameObject ImagePanelPractice;
+
     public void UpdateContentInStageSelect(string stageKey)
     {
         StageTitleText.TranslationName = $"StageItemButton/DetailedPopup/{stageKey}";
@@ -20,6 +30,16 @@ public class StageIntroductionPanel : SerializedMonoBehaviour
 
     public void UpdateContentInPlayGameScene(string stageKey)
     {
+        GameModeImagePanel.SetActive(true);
+        if (stageKey.Contains("Tutorial"))
+        {
+            ImagePanelTutorial.SetActive(true);
+        }
+        else if (stageKey.Contains("Practice"))
+        {
+            ImagePanelPractice.SetActive(true);
+        }
+
         string trimKey = stageKey.Split("(")[0].Trim();
         StageTitleText.TranslationName = "StageTitle";
         StageOverviewContent.TranslationName = $"StageIntroductionPanel/StageOverview/{trimKey}";
