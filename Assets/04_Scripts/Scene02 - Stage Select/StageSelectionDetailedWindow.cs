@@ -71,7 +71,6 @@ public class StageSelectionDetailedWindow : SerializedMonoBehaviour
     public void OpenWindow(string clickStageName)
     {
         clickedStageName = clickStageName.Split("(Tutorial)")[0].Trim();
-        Debug.Log("OPen window: " + clickedStageName);
         WindowFsm.SendEvent("Common/Window/Show Window");
 
         stageIntroductionPanel.UpdateContentInStageSelect(clickedStageName);

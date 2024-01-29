@@ -36,11 +36,9 @@ public class SelfLeaderboard : SerializedMonoBehaviour
             if (hasRecord)
             {
                 text = selfLeaderBoardItem.transform.Find("TextPanel/Name Text").GetComponent<Text>();
-                Debug.Log("Has record" + text.name);
                 text.gameObject.SetActive(true);
                 text.text = item.playerName;
                 text = selfLeaderBoardItem.transform.Find("TextPanel/Name Text (None)").GetComponent<Text>();
-                Debug.Log("Has record" + text.name);
 
                 text.gameObject.SetActive(false);
             }

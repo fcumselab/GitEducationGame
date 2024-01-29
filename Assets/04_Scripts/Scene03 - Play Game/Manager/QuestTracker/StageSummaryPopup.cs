@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class StageSummaryPopup : SerializedMonoBehaviour
 {
+
     [Header("Prefab")]
     [SerializeField] GameObject PrefabQuestHistoryTextBox;
 
@@ -138,6 +139,11 @@ public class StageSummaryPopup : SerializedMonoBehaviour
             }
             else if (playerScore == item.playerScore)
             {
+                if(item.playerScore == 0 && item.playerClearTime == 0)
+                {
+                    break;
+                }
+
                 if (time < item.playerClearTime)
                 {
                     break;
