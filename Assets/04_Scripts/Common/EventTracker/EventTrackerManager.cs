@@ -64,13 +64,13 @@ public class EventTrackerManager : SerializedMonoBehaviour
     
     }
 
-    public void AddNewEvent(string eventName, string eventResult)
+    public void AddNewEvent(string eventName, string eventDetail)
     {
         if (!debugMode) {
             EventData newEventData = new();
             newEventData.player = SaveManager.Instance.userName;
             newEventData.eventName = eventName;
-            newEventData.eventResult = eventResult;
+            newEventData.eventDetail = eventDetail;
             newEventData.gameScene = SceneManager.GetActiveScene().name;
             newEventData.eventTime = DateTime.UtcNow.ToString("o");
         
@@ -107,7 +107,7 @@ class EventData
 {
     public string player;
     public string eventName;
-    public string eventResult;
+    public string eventDetail;
     public string gameScene;
     public string eventTime;
 }

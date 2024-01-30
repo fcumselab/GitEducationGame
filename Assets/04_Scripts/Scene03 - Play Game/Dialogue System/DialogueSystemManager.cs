@@ -25,19 +25,16 @@ public class DialogueSystemManager : SerializedMonoBehaviour
 
     [Header("Reference")]
     [SerializeField] PlayMakerFSM StarIcon;
-    [SerializeField] Transform GameManager;
-    [SerializeField] Transform StageManagerParent;
     [SerializeField] DialogueSystemFeatureManager dialogueSystemFeatureManager;
     [SerializeField] PlayMakerFSM ScoreFsm;
-    PlayMakerFSM StageManagerParentFsm;
+
+    [FoldoutGroup("Web Connection")]
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
     #endregion
 
     #region Initialize
     public void InitializeReference(string selectedStageName)
     {
-        GameManager = transform.parent;
-        StageManagerParent = GameManager.Find("Stage Manager Parent");
-        StageManagerParentFsm = MyPlayMakerScriptHelper.GetFsmByName(StageManagerParent.gameObject, "Loading StageManager");
         selectStageKey = selectedStageName;
         selectStageKey = BuildDialogKey();
         InitializeButton();
@@ -167,6 +164,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                     PlayMakerFSM.BroadcastEvent("Help Dialogue System/Help Message Popup/Open Popup");
                     break;
                 case "Hint(Action)":
+                    eventTrackerTrigger.SendEvent("Use Hint Feature", $"{SaveManager.Instance.GetSelectedStageName()}: Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
                     DialogueManager.StopConversation();
                     DialogueManager.StartConversation(selectStageKey + "Hint");
                     StarIcon.FsmVariables.GetFsmString("runType").Value = "usedHint";
@@ -174,17 +172,15 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                     ScoreFsm.FsmVariables.GetFsmBool("usedHint").Value = true;
                     break;
                 case "Answer(Action)":
+                    eventTrackerTrigger.SendEvent("Use Answer Feature", $"{SaveManager.Instance.GetSelectedStageName()}: Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
                     DialogueManager.StopConversation();
                     DialogueManager.StartConversation(selectStageKey + "Answer");
                     StarIcon.FsmVariables.GetFsmString("runType").Value = "usedAnswer";
                     StarIcon.enabled = true;
                     ScoreFsm.FsmVariables.GetFsmBool("usedAnswer").Value = true;
                     break;
-                case "Summary":
-                    DialogueManager.StopConversation();
-                    DialogueManager.StartConversation(selectStageKey + runType);
-                    break;
                 case "Current":
+                    eventTrackerTrigger.SendEvent("Last Conversation", $"{SaveManager.Instance.GetSelectedStageName()}: Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
                     lastDialogKey = DialogueLua.GetVariable("LastConversationKey").asString;
                     DialogueLua.SetVariable("isReplay", true);
                     DialogueManager.StopConversation();

@@ -138,7 +138,7 @@ public class StageSelectionDetailedWindow : SerializedMonoBehaviour
     {
         GoToPlayGameSceneButton.interactable = false;
         string key = clickedStageName + " (" + selectedModeType + ")";
-        eventTrackerTrigger.SendEvent($"StartStage: '{key}'", "Success");
+        eventTrackerTrigger.SendEvent("Start Stage", key);
         SaveManager.Instance.GoToPlayGameScene(key);
     }
 

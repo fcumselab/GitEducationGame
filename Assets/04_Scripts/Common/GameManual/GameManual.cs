@@ -34,6 +34,7 @@ public class GameManual : SerializedMonoBehaviour
     [SerializeField] EventTrackerTrigger eventTrackerTrigger;
     [FoldoutGroup("Web Connection")]
     [SerializeField] float isActualReadTime = 3f;
+    [FoldoutGroup("Web Connection")]
     [SerializeField] Coroutine readDetectorCoro;
 
     [FoldoutGroup("Reference")]
@@ -238,7 +239,7 @@ public class GameManual : SerializedMonoBehaviour
                     GameDataManager.Instance.AddGameManualUsedTimes();
                     break;
             }
-            eventTrackerTrigger.SendEvent($"ReadManual - {DetectSelectedButton.name}", "Success");
+            eventTrackerTrigger.SendEvent("Read Manual", DetectSelectedButton.name);
         }
     }
 
@@ -247,7 +248,7 @@ public class GameManual : SerializedMonoBehaviour
     void OpenWindow()
     {
         WindowFsm.SendEvent("Common/Window/Show Window");
-        eventTrackerTrigger.SendEvent("Open GameManual", "Success");
+        eventTrackerTrigger.SendEvent("Open Window", "GameManual");
         SwitchGameManualCategory(CommandCategoryButton);
     }
 

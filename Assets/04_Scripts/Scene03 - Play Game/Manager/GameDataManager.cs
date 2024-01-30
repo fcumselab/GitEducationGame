@@ -6,24 +6,41 @@ using UnityEngine.UI;
 
 public class GameDataManager : SerializedMonoBehaviour
 {
-    [Header("GameData")]
+    #region Game Data
+    [FoldoutGroup("GameData")]
     [SerializeField] string stageName;
+    [FoldoutGroup("GameData")]
     [SerializeField] int lastQuestCompletedTime;
+    [FoldoutGroup("GameData")]
     [SerializeField] int QuestCountPerfect { get; set; }
+    [FoldoutGroup("GameData")]
     [SerializeField] int QuestCountGood;
+    [FoldoutGroup("GameData")]
     [SerializeField] int QuestCountHint;
+    [FoldoutGroup("GameData")]
     [SerializeField] int QuestCountAnswer;
+    [FoldoutGroup("GameData")]
     [SerializeField] int GameManualUsedTimes;
+    [FoldoutGroup("GameData")]
     [SerializeField] int CommandExecuteTime;
+    #endregion
 
-    [Header("StageSummaryWindow")]
+    #region Stage Summary Window
+    [FoldoutGroup("StageSummaryWindow")]
     [SerializeField] List<string> completeQuestNameList;
+    [FoldoutGroup("StageSummaryWindow")]
     [SerializeField] List<int> completeQuestTimeList;
+    [FoldoutGroup("StageSummaryWindow")]
     [SerializeField] List<int> completeQuestUsedTimeList;
+    [FoldoutGroup("StageSummaryWindow")]
     [SerializeField] List<string> completeQuestTypeList;
+    #endregion
 
-    [Header("StageData")]
+    [FoldoutGroup("StageData")]
     [SerializeField] StageData selectedStageData;
+
+    [FoldoutGroup("Web Connection")]
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
 
     //Singleton instantation
     private static GameDataManager instance;
@@ -71,6 +88,8 @@ public class GameDataManager : SerializedMonoBehaviour
         }
 
         lastQuestCompletedTime = completedTimeInt;
+
+        eventTrackerTrigger.SendEvent($"Complete Quest ({type})", $"{SaveManager.Instance.GetSelectedStageName()}: Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
     }
 
     public void GetSelectedStageData(string stageName)

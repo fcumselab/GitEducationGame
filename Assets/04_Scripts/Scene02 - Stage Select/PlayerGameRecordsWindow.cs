@@ -18,6 +18,10 @@ public class PlayerGameRecordsWindow : SerializedMonoBehaviour
     [FoldoutGroup("PlayerGameRecordsWindow/Children")]
     [SerializeField] Text PlayerNameText;
 
+    [FoldoutGroup("Web Connection")]
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
+
+
     PlayerSaveData playerSaveData;
 
     private void Start()
@@ -28,6 +32,7 @@ public class PlayerGameRecordsWindow : SerializedMonoBehaviour
     void OpenWindow()
     {
         WindowFsm.SendEvent("Common/Window/Show Window");
+        eventTrackerTrigger.SendEvent("Open Window", "PlayerGameRecords");
         UpdateGameProgressData();
     }
 

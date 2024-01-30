@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 using HutongGames.PlayMaker;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GlobalLeaderBoard : SerializedMonoBehaviour
 {
@@ -46,12 +47,22 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
     [SerializeField] List<GameObject> ScoreItemList;
     [FoldoutGroup("Data")]
     [SerializeField] List<GameObject> GameProgressItemList;
+
+    [FoldoutGroup("Button")]
+    [SerializeField] Button closeGlobalPopupButton;
+
+    [FoldoutGroup("Web Connection")]
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
+    [FoldoutGroup("Web Connection")]
+    [SerializeField] Dictionary<string, bool> eventTrackerStatusDict = new();
     #endregion 
 
     public void GetLeaderBoardData(string leaderBoardType, string stageName = "")
     {
         OopsPage.SetActive(false);
         WebsiteLoadingPanel.SetActive(true);
+
+        SendEvent(leaderBoardType, stageName);
 
         Text text;
         PlayMakerFSM fsm;
@@ -289,6 +300,32 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
         else
         {
             callback(www.downloadHandler.text, "Success");
+        }
+    }
+    
+    public void SendEvent(string leaderBoardType, string stageName)
+    {
+        if (!eventTrackerStatusDict[leaderBoardType])
+        {
+            eventTrackerStatusDict[leaderBoardType] = true;
+            switch (leaderBoardType)
+            {
+                case "ClearStageBestRecord":
+                    eventTrackerTrigger.SendEvent("Check GlobalLeaderBoard", $"StageRecord: {stageName}");
+                    break;
+                case "GameProgress":
+                case "TotalScore":
+                    eventTrackerTrigger.SendEvent("Check GlobalLeaderBoard", leaderBoardType);
+                    break;
+            }
+        }
+    }
+
+    public void ResetEventTrackerStatus()
+    {
+        foreach(var item in eventTrackerStatusDict.ToList())
+        {
+            eventTrackerStatusDict[item.Key] = false;
         }
     }
 }

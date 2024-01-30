@@ -45,7 +45,9 @@ public class StageSummaryPopup : SerializedMonoBehaviour
     [FoldoutGroup("Button")]
     [SerializeField] Button backToStageSelectionButton;
 
-    // Start is called before the first frame update
+    [FoldoutGroup("Web Connection")]
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
+
     private void Start()
     {
         replayButton.onClick.AddListener(() => GoToSceneButtonAction("replay"));
@@ -62,9 +64,11 @@ public class StageSummaryPopup : SerializedMonoBehaviour
         switch (targetKey)
         {
             case "replay":
+                eventTrackerTrigger.SendEvent("Restart Stage(Clear)", $"Stage: {SaveManager.Instance.GetSelectedStageName()}");
                 gameManager.GoToPlayGameScene();
                 break;
             case "stageSelection":
+                eventTrackerTrigger.SendEvent("Back To Stage Select(Clear)", $"Stage: {SaveManager.Instance.GetSelectedStageName()}");
                 gameManager.GoToStageSelectScene();
                 break;
             default:
@@ -81,6 +85,8 @@ public class StageSummaryPopup : SerializedMonoBehaviour
 
     public void RunSummaryFunc(string stageName, float time, int playerScore)
     {
+        eventTrackerTrigger.SendEvent("Complete Stage", $"Stage: {SaveManager.Instance.GetSelectedStageName()}");
+
         if (stageName.Contains("Tutorial"))
         {
             GameModeImageTutorial.SetActive(true);

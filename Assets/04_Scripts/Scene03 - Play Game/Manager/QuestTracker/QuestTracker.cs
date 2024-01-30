@@ -35,4 +35,5 @@ public class QuestTracker : MonoBehaviour
         fsm = MyPlayMakerScriptHelper.GetFsmByName(gameObject, "Quest Tracker");
         fsm.FsmVariables.GetFsmGameObject("Stage Manager Parent").Value = StageManagerParent;
     }
+
 }

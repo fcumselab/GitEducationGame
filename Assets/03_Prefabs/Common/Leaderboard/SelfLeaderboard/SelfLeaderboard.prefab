@@ -331,7 +331,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &4206281105322295880
 CanvasGroup:
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -1405,14 +1405,14 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetFsmString
-        - HutongGames.PlayMaker.Actions.ActivateGameObject
+        - HutongGames.PlayMaker.Actions.EnableFSM
         customNames:
         - 
         - 
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000005000000
-        actionHashCodes: 52221a02b2cf1000
+        actionHashCodes: 52221a0287aa9700
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1457,6 +1457,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: stage
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Window
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -1482,12 +1488,12 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 000000
+        byteData: 00
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000120000001200000012000000010000001400000011000000110000000100000001000000
+        paramDataType: 140000001200000012000000120000000100000014000000120000001100000011000000
         paramName:
         - gameObject
         - fsmName
@@ -1495,12 +1501,11 @@ MonoBehaviour:
         - setValue
         - everyFrame
         - gameObject
-        - activate
-        - recursive
+        - fsmName
+        - enable
         - resetOnExit
-        - everyFrame
-        paramDataPos: 00000000000000000100000002000000000000000100000000000000010000000100000002000000
-        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000100000001000000
+        paramDataPos: 000000000000000001000000020000000000000001000000030000000000000001000000
+        paramByteDataSize: 000000000000000000000000000000000100000000000000000000000000000000000000
     - name: Find Game Object
       description: 
       colorIndex: 0
@@ -1679,7 +1684,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -1749,7 +1754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 

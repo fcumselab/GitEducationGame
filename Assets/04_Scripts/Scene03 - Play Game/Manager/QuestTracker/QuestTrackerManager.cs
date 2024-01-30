@@ -12,6 +12,9 @@ public class QuestTrackerManager : SerializedMonoBehaviour
     [SerializeField] PlayMakerFSM QuestTrackerFsm;
     [SerializeField] PlayMakerFSM QuestValiderFsm;
 
+    [FoldoutGroup("Web Connection")]
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
+
     //Singleton instantation
     private static QuestTrackerManager instance;
     public static QuestTrackerManager Instance
@@ -46,7 +49,13 @@ public class QuestTrackerManager : SerializedMonoBehaviour
         }
     }
 
-    public int GetCurrentQuestNum()
+    public void AddNewQuest()
+    {
+        eventTrackerTrigger.SendEvent("Add New Quest", $"{SaveManager.Instance.GetSelectedStageName()}: Quest{GetCurrentQuestNum()}");
+    }
+    
+
+public int GetCurrentQuestNum()
     {
         return QuestTrackerFsm.FsmVariables.GetFsmInt("CurrentQuestNum").Value;
     }
