@@ -11,7 +11,7 @@ public class EventTrackerManager : SerializedMonoBehaviour
     // http:/xxx.xxx.xxx.xxx:xxx/ 
     [SerializeField] string baseUrl;
 
-    [SerializeField] bool isUploading = false;
+    [SerializeField] bool debugMode;
     [SerializeField] float retryTriggerTime = 5f;
     [SerializeField] List<EventData> saveEventDataList = new();
 
@@ -30,7 +30,10 @@ public class EventTrackerManager : SerializedMonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(RetryPostEventData());    
+        if (!debugMode)
+        {
+            StartCoroutine(RetryPostEventData());
+        }
     }
 
     void Update()
@@ -63,16 +66,18 @@ public class EventTrackerManager : SerializedMonoBehaviour
 
     public void AddNewEvent(string eventName, string eventResult)
     {
-        EventData newEventData = new();
-        newEventData.player = SaveManager.Instance.userName;
-        newEventData.eventName = eventName;
-        newEventData.eventResult = eventResult;
-        newEventData.gameScene = SceneManager.GetActiveScene().name;
-        newEventData.eventTime = DateTime.UtcNow.ToString("o");
+        if (!debugMode) {
+            EventData newEventData = new();
+            newEventData.player = SaveManager.Instance.userName;
+            newEventData.eventName = eventName;
+            newEventData.eventResult = eventResult;
+            newEventData.gameScene = SceneManager.GetActiveScene().name;
+            newEventData.eventTime = DateTime.UtcNow.ToString("o");
         
-        saveEventDataList.Add(newEventData);
+            saveEventDataList.Add(newEventData);
 
-        StartCoroutine(PostEventData(newEventData));
+            StartCoroutine(PostEventData(newEventData));
+        }
     }
 
     IEnumerator PostEventData(EventData newEventData)

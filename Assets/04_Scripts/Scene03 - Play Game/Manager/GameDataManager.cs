@@ -31,7 +31,7 @@ public class GameDataManager : SerializedMonoBehaviour
     {
         get
         {
-            if (instance == null) instance = GameObject.FindObjectOfType<GameDataManager>();
+            if (instance == null) instance = FindObjectOfType<GameDataManager>();
             return instance;
         }
     }
@@ -139,6 +139,10 @@ public class GameDataManager : SerializedMonoBehaviour
     {
         return GameManualUsedTimes;
     }
-    
+
+    public void AddGameManualUsedTimes()
+    {
+        GameManualUsedTimes++;
+    }
 }
 

@@ -224,25 +224,21 @@ public class GameManual : SerializedMonoBehaviour
     IEnumerator DetectReadManual()
     {
         Button DetectSelectedButton = SelectedButton;
-        Debug.Log("Let's detect");
 
         yield return new WaitForSeconds(isActualReadTime);
 
         if (DetectSelectedButton == SelectedButton)
         {
-            Debug.Log("OKOK");
             switch (SceneManager.GetActiveScene().name)
             {
                 case "Stage Select":
                     SaveManager.Instance.AddGameManualUsedTimes();
                     break;
                 case "Play Game":
+                    GameDataManager.Instance.AddGameManualUsedTimes();
                     break;
             }
-        }
-        else
-        {
-            Debug.Log("Failed");
+            eventTrackerTrigger.SendEvent($"ReadManual - {DetectSelectedButton.name}", "Success");
         }
     }
 
