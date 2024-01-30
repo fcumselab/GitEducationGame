@@ -17,7 +17,10 @@ public class LoginResultData
 public class LoginManager : SerializedMonoBehaviour
 {
     // http:/xxx.xxx.xxx.xxx:xxx/ 
+    [FoldoutGroup("Web Connection")]
     [SerializeField] string baseUrl;
+    [FoldoutGroup("Web Connection")]
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
 
     public string runResult;
     public string warningMessage;
@@ -83,6 +86,7 @@ public class LoginManager : SerializedMonoBehaviour
             {
                 LoginResultData loginResultData = JsonUtility.FromJson<LoginResultData>(result);
                 SaveManager.Instance.LoadPlayerSaveData(username, loginResultData.playerSaveData);
+                eventTrackerTrigger.SendEvent("Login", "Success");
                 runResult = "successful";
             }
             else if (result.Contains("username not found"))

@@ -18,6 +18,8 @@ public class PlayerGameRecordsWindow : SerializedMonoBehaviour
     [FoldoutGroup("PlayerGameRecordsWindow/Children")]
     [SerializeField] Text PlayerNameText;
 
+    PlayerSaveData playerSaveData;
+
     private void Start()
     {
         PlayerGameRecordsButton.onClick.AddListener(() => OpenWindow());
@@ -26,11 +28,19 @@ public class PlayerGameRecordsWindow : SerializedMonoBehaviour
     void OpenWindow()
     {
         WindowFsm.SendEvent("Common/Window/Show Window");
+        UpdateGameProgressData();
+    }
+
+    public void UpdateGameProgressData()
+    {
+        Transform recordPanel = OtherRecords.transform.GetChild(1);
+        Text text = recordPanel.Find("Content").GetComponent<Text>();
+        text.text = $"{playerSaveData.gameRecordData.totalTimesUsedGameManual}";
     }
 
     public void InitializeGameProgressData(SaveManager saveManager)
     {
-        PlayerSaveData playerSaveData = saveManager.GetPlayerSaveData();
+        playerSaveData = saveManager.GetPlayerSaveData();
         PlayerNameText.text = saveManager.userName;
         for (int i = 0; i < MainRecords.transform.childCount; i++)
         {

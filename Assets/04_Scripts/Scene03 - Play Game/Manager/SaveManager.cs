@@ -95,6 +95,17 @@ public class SaveManager : SerializedMonoBehaviour
         return playerSaveData;
     }
 
+
+    #region Stage Select
+    public void AddGameManualUsedTimes()
+    {
+        playerSaveData.gameRecordData.totalTimesUsedGameManual++;
+    }
+    #endregion
+
+
+    #region Play Game Scene
+
     public void ClearTheStage(float playTime, string stageName, int playerPlace = 0, StageLeaderboardData newLeaderBoardData = null)
     {
         StageData targetStageData = playerSaveData.stageData.Find((item) => item.stageName == stageName);
@@ -217,7 +228,6 @@ public class SaveManager : SerializedMonoBehaviour
             playerSaveData.gameRecordData.totalStarCount += stageData.stageLeaderboardData[0].playerStar;
             if (stageData.stageClearTimes > 0)
             {
-
                 clearStageCount++;
             }
         }
@@ -234,7 +244,9 @@ public class SaveManager : SerializedMonoBehaviour
         playerSaveData.gameRecordData.totalTimesStageClear++;
     }
 
-    #region Scene
+    #endregion
+
+    #region Scene Switcher
     //Switch Scene Fsm
     public void InitializeGameManagerInScene(string currentSceneName, string lastSceneName)
     {

@@ -63,16 +63,13 @@ public class EventTrackerManager : SerializedMonoBehaviour
 
     public void AddNewEvent(string eventName, string eventResult)
     {
-        Debug.Log("Send Event");
-
         EventData newEventData = new();
-        //newEventData.player = SaveManager.Instance.userName;
-        newEventData.player = "tester";
+        newEventData.player = SaveManager.Instance.userName;
         newEventData.eventName = eventName;
         newEventData.eventResult = eventResult;
         newEventData.gameScene = SceneManager.GetActiveScene().name;
-        newEventData.eventTime = DateTime.UtcNow.ToString();
-
+        newEventData.eventTime = DateTime.UtcNow.ToString("o");
+        
         saveEventDataList.Add(newEventData);
 
         StartCoroutine(PostEventData(newEventData));
@@ -80,8 +77,6 @@ public class EventTrackerManager : SerializedMonoBehaviour
 
     IEnumerator PostEventData(EventData newEventData)
     {
-        Debug.Log("Post Event");
-
         WWWForm form = new();
         string json = JsonUtility.ToJson(newEventData);
         form.AddField("eventData", json);

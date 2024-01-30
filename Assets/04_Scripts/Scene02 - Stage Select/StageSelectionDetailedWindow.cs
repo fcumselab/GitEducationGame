@@ -8,12 +8,13 @@ using Lean.Localization;
 
 public class StageSelectionDetailedWindow : SerializedMonoBehaviour
 {
-    //If stage 
-    [SerializeField] Dictionary<string, StageData> UnlockStageDict = new();
-
     #region StageItemDetailedPopup
     [FoldoutGroup("StageItemDetailedPopup")]
     [SerializeField] PlayMakerFSM WindowFsm;
+    [FoldoutGroup("StageItemDetailedPopup/Main Elements")]
+    [SerializeField] SelfLeaderboard selfLeaderboard;
+    [FoldoutGroup("StageItemDetailedPopup/Main Elements")]
+    [SerializeField] StageIntroductionPanel stageIntroductionPanel;
     [FoldoutGroup("StageItemDetailedPopup/Button")]
     [SerializeField] Button modeButtonTutorial;
     [FoldoutGroup("StageItemDetailedPopup/Button")]
@@ -26,14 +27,19 @@ public class StageSelectionDetailedWindow : SerializedMonoBehaviour
     [SerializeField] PlayMakerFSM modeButtonPracticeUpdateFsm;
     [FoldoutGroup("StageItemDetailedPopup/Button")]
     [SerializeField] Button GoToPlayGameSceneButton;
-
     #endregion
 
-    [SerializeField] SelfLeaderboard selfLeaderboard;
-    [SerializeField] StageIntroductionPanel stageIntroductionPanel;
-
+    #region Data
+    [FoldoutGroup("Data")]
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
+    [FoldoutGroup("Data")]
     [SerializeField] string clickedStageName;
+    [FoldoutGroup("Data")]
     [SerializeField] string selectedModeType;
+    [FoldoutGroup("Data")]
+    [SerializeField] Dictionary<string, StageData> UnlockStageDict = new();
+    #endregion
+
     private void Start()
     {
         modeButtonTutorial.onClick.AddListener(() => SwitchModeAction("Tutorial"));
@@ -132,6 +138,7 @@ public class StageSelectionDetailedWindow : SerializedMonoBehaviour
     {
         GoToPlayGameSceneButton.interactable = false;
         string key = clickedStageName + " (" + selectedModeType + ")";
+        eventTrackerTrigger.SendEvent($"StartStage: '{key}'", "Success");
         SaveManager.Instance.GoToPlayGameScene(key);
     }
 

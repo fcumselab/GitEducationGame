@@ -30,6 +30,11 @@ public class GameManual : SerializedMonoBehaviour
     [FoldoutGroup("Game Manual Items/Title Text")]
     [SerializeField] LeanLocalizedText manualItemTitleText;
 
+    [FoldoutGroup("Web Connection")]
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
+    [FoldoutGroup("Web Connection")]
+    [SerializeField] float isActualReadTime = 3f;
+    [SerializeField] Coroutine readDetectorCoro;
 
     [FoldoutGroup("Reference")]
     GitCommandValider gitCommandValider;
@@ -56,7 +61,7 @@ public class GameManual : SerializedMonoBehaviour
 
     [SerializeField] Dictionary<Button, GameObject> UnlockGameManualItemDict = new();
 
-    Button SelectedButton;
+    [SerializeField] Button SelectedButton;
     Button SelectedCategoryButton;
     #endregion
 
@@ -142,8 +147,7 @@ public class GameManual : SerializedMonoBehaviour
 
 
     #region Button Action
-
-
+    
     public void SwitchGameManualCategory(Button clickCategoryButton)
     {
         if (SelectedButton)
@@ -186,6 +190,12 @@ public class GameManual : SerializedMonoBehaviour
         UnlockGameManualItemDict[clickButton].SetActive(true);
         SelectedButton = clickButton;
 
+        if (readDetectorCoro != null)
+        {
+            StopCoroutine(readDetectorCoro);
+        }
+        readDetectorCoro = StartCoroutine(DetectReadManual());
+
         UpdateManualItemTitleText(false, clickButton.name);
     }
 
@@ -210,13 +220,50 @@ public class GameManual : SerializedMonoBehaviour
             manualItemTitleText.TranslationName = $"GameManualItem/list/{keyword}";
         }
     }
+    
+    IEnumerator DetectReadManual()
+    {
+        Button DetectSelectedButton = SelectedButton;
+        Debug.Log("Let's detect");
+
+        yield return new WaitForSeconds(isActualReadTime);
+
+        if (DetectSelectedButton == SelectedButton)
+        {
+            Debug.Log("OKOK");
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "Stage Select":
+                    SaveManager.Instance.AddGameManualUsedTimes();
+                    break;
+                case "Play Game":
+                    break;
+            }
+        }
+        else
+        {
+            Debug.Log("Failed");
+        }
+    }
 
     #region Button Action - Game Manual Button
 
     void OpenWindow()
     {
         WindowFsm.SendEvent("Common/Window/Show Window");
+        eventTrackerTrigger.SendEvent("Open GameManual", "Success");
         SwitchGameManualCategory(CommandCategoryButton);
+    }
+
+    public void CloseWindow()
+    {
+        WindowFsm.SendEvent("Common/Window/Hide Window");
+        if (SelectedButton)
+        {
+            SelectedButton.interactable = true;
+            UnlockGameManualItemDict[SelectedButton].SetActive(false);
+            SelectedButton = null;
+        }
     }
 
     public void UpdateGameManualButtonStatus()
