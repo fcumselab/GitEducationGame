@@ -19,6 +19,12 @@ public class Tool : MonoBehaviour
         return word;
     }
     
+    public string JoinArray(string[] contentList)
+    {
+        string result = string.Join("\\n", contentList);
+        return result;
+    }
+
     public string GetGameVersion()
     {
         return Application.version;
