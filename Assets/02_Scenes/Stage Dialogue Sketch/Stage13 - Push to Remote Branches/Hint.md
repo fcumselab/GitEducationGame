@@ -157,7 +157,7 @@ Q5（提示）：
 
 Q5（解答）：
 本地 'update-readme' 分支的功能開發完畢後
-我們即可將上傳至遠端
+即可將本地分支上傳至遠端
 
 上傳遠端儲存庫的指令為：
 '<color=#CF001C>git push 遠端儲存庫別名 本地分支名稱</color>'
@@ -166,7 +166,7 @@ Q5（解答）：
 一般情況下要上傳的儲存庫別名應該是 'origin'
 
 接下來，請執行 '<color=#CF001C>git push origin update-readme</color>'
-即可將本地 'update-readme' 上傳至 'origin' 儲存庫中
+即可將本地 'update-readme' 分支上傳至 'origin' 儲存庫中
 
 當上傳完成後
 請使用 '<color=#CF001C>git log</color>' 來確認提交記錄的狀態
