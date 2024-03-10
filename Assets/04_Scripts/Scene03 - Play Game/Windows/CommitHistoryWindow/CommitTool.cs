@@ -19,12 +19,14 @@ public class CommitTool : SerializedMonoBehaviour
 
     public void GenerateNewCommitIDList()
     {
+       
         newCommitIdList = GenerateNewRandomId();
         UpdateCommitIDListCommitHistoryData();
         UpdateCommitIDListBranch();
         UpdateCommitIDListCommit();
         UpdateCommitIDListLines();
         generateCommitIdList = newCommitIdList;
+        
     }
     
     void UpdateCommitIDListCommitHistoryData()
@@ -64,12 +66,14 @@ public class CommitTool : SerializedMonoBehaviour
             string commitId = fsm.FsmVariables.GetFsmString("commitId").Value;
             fsm.FsmVariables.GetFsmString("commitId").Value = newCommitIdList[generateCommitIdList.FindIndex((item) => item == commitId)];
             Commit.name = fsm.FsmVariables.GetFsmString("commitId").Value;
-             
+            
             for (int n = 0; n < fsm.FsmVariables.GetFsmArray("commitParentList").Length; n++)
             {
+
                 commitId = fsm.FsmVariables.GetFsmArray("commitParentList").Get(n).ToString();
                 int foundIndex = generateCommitIdList.FindIndex((item) => item == commitId);
                 fsm.FsmVariables.GetFsmArray("commitParentList").Set(n, newCommitIdList[foundIndex]);
+                fsm.FsmVariables.GetFsmArray("commitParentList").SaveChanges();
             }
         }
     }
