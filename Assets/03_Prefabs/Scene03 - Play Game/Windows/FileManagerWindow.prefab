@@ -2550,7 +2550,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: nowParent
+          name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -2573,7 +2573,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: nowParent
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -3421,7 +3421,7 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
-        name: nowParent
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -6078,6 +6078,7 @@ GameObject:
   - component: {fileID: 2226029096169453033}
   - component: {fileID: 2226029096169453028}
   - component: {fileID: 2226029096169453031}
+  - component: {fileID: 4535657053101855513}
   m_Layer: 5
   m_Name: Current Folder Panel
   m_TagString: Untagged
@@ -9354,7 +9355,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 0500000007000000090000001100000012000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -11905,6 +11906,28 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 1
+--- !u!114 &4535657053101855513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226029096169453038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0396fddaf7927942a9a04a82d4d17ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  GitCommandValider: {fileID: 0}
 --- !u!1 &2226029096220956720
 GameObject:
   m_ObjectHideFlags: 0
@@ -14172,7 +14195,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 759.40625
-        y: 248.80469
+        y: 136.80469
         width: 105
         height: 64
       isBreakpoint: 0
@@ -14296,7 +14319,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 608.3672
-        y: 388.60938
+        y: 276.60938
         width: 122
         height: 32
       isBreakpoint: 0
@@ -14390,8 +14413,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 975.0703
-        y: 384.76562
+        x: 970.3281
+        y: 270.375
         width: 328
         height: 32
       isBreakpoint: 0
@@ -14580,7 +14603,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 51.875
-        y: 373.65625
+        y: 261.65625
         width: 174
         height: 32
       isBreakpoint: 0
@@ -14709,7 +14732,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 456.1172
-        y: 391.2422
+        y: 279.2422
         width: 122
         height: 48
       isBreakpoint: 0
@@ -14793,7 +14816,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 459.3125
-        y: 485.14062
+        y: 373.14062
         width: 129
         height: 48
       isBreakpoint: 0
@@ -14877,7 +14900,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 650.0078
-        y: 523.28125
+        y: 411.28125
         width: 147
         height: 32
       isBreakpoint: 0
@@ -14972,7 +14995,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 977.9844
-        y: 283.17188
+        y: 171.17188
         width: 362
         height: 32
       isBreakpoint: 0
@@ -15111,7 +15134,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1065.0938
-        y: 507.14062
+        y: 395.14062
         width: 123
         height: 32
       isBreakpoint: 0
@@ -15250,7 +15273,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 877.03125
-        y: 448.8672
+        y: 336.8672
         width: 115
         height: 48
       isBreakpoint: 0
@@ -15349,7 +15372,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 268.1172
-        y: 392.65625
+        y: 280.65625
         width: 126
         height: 32
       isBreakpoint: 0
@@ -15455,7 +15478,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 717.28125
-        y: 169.39844
+        y: 57.398438
         width: 187
         height: 32
       isBreakpoint: 0
@@ -15598,7 +15621,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 79.484375
-        y: 284.98438
+        y: 172.98438
         width: 134
         height: 32
       isBreakpoint: 0
@@ -15750,7 +15773,16 @@ MonoBehaviour:
     - name: txt
       isSystemEvent: 0
       isGlobal: 0
-    globalTransitions: []
+    globalTransitions:
+    - fsmEvent:
+        name: Current Folder Panel/Go Next Location
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: Send Event "Current Folder Panel/Go next location"
+      linkStyle: 0
+      linkConstraint: 0
+      linkTarget: 0
+      colorIndex: 0
     variables:
       floatVariables: []
       intVariables: []
