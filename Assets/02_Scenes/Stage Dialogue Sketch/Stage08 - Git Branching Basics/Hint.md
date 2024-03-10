@@ -231,7 +231,7 @@ Q9（解答）：
 來切換到 'master' 分支
 
 接下來，請執行 '<color=#CF001C>git branch -d new-feature</color>'
-這樣即可刪除 'new-feature' 指令
+這樣即可刪除 'new-feature' 分支
 
 當刪除掉分支後
-請使用 '<color=#CF001C>git branch -d new-feature</color>' 來確認提交記錄的狀態
+請使用 '<color=#CF001C>git log</color>' 來確認提交記錄的狀態

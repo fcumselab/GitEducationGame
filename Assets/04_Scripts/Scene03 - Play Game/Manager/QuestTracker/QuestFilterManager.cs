@@ -58,6 +58,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Game Introduction (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_001_GameIntroduction_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Game Introduction (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_001_GameIntroduction_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Create Local Repository (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_003_CreateLocalRepository_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
