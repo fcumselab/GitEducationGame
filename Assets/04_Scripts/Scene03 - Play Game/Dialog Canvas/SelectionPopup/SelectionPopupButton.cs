@@ -33,11 +33,11 @@ public class SelectionPopupButton : SerializedMonoBehaviour
     {
         if (isCorrect)
         {
-            selectionPopup.ShowResult(true, ShowText);
+            selectionPopup.ShowResult(true, ShowText, gameObject);
         }
         else
         {
-            ShowResult();
+            ShowResult(true);
             selectionPopup.ShowResult(false);
         }
     }
@@ -57,7 +57,7 @@ public class SelectionPopupButton : SerializedMonoBehaviour
         return this;
     }
 
-    public void ShowResult()
+    public void ShowResult(bool isClick)
     {
         IconPanel.SetActive(true);
 
@@ -72,7 +72,11 @@ public class SelectionPopupButton : SerializedMonoBehaviour
             VIcon.SetActive(true);
         }
 
-        mouseTooltipTrigger.ClickButtonAction(tooltipMessage, true);
+        if (isClick)
+        {
+            mouseTooltipTrigger.ClickButtonAction(tooltipMessage, true);
+        }
+
         mouseTooltipTrigger.triggerMode = MouseTooltipTrigger.TriggerMode.Hover;
         button.interactable = false;
     }

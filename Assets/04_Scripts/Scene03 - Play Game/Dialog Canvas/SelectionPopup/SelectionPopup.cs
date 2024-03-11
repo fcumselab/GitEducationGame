@@ -168,14 +168,21 @@ public class SelectionPopup : SerializedMonoBehaviour
         ActiveIcon = selectedIcon;
     }
 
-    public void ShowResult(bool isCorrect, Text correctText = null)
+    public void ShowResult(bool isCorrect, Text correctText = null, GameObject CorrectObj = null)
     {
         if (isCorrect)
         {
             ChangeIcon(IconCorrect);
             foreach(GameObject item in SelectionButtonList)
             {
-                item.GetComponent<SelectionPopupButton>().ShowResult();
+                if (CorrectObj == item)
+                {
+                    item.GetComponent<SelectionPopupButton>().ShowResult(true);
+                }
+                else
+                {
+                    item.GetComponent<SelectionPopupButton>().ShowResult(false);
+                }
             }
 
             //Send to inputField
