@@ -14,7 +14,10 @@ public class CurrentFolderPanel : SerializedMonoBehaviour
         GameObject gitCoreObj = gitFsm.FsmVariables.GetFsmGameObject("gitCoreObj").Value;
         
         Transform TargetLocationObj = gitCoreObj.transform.parent;
-        PlayMakerFSM fileFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetLocationObj.Find("file").gameObject, "file");
-        fileFsm.SendEvent("Current Folder Panel/Go Next Location");
+        if(TargetLocationObj.name != gameObject.name)
+        {
+            PlayMakerFSM fileFsm = MyPlayMakerScriptHelper.GetFsmByName(TargetLocationObj.Find("file").gameObject, "file");
+            fileFsm.SendEvent("Current Folder Panel/Go Next Location");
+        }
     }
 }

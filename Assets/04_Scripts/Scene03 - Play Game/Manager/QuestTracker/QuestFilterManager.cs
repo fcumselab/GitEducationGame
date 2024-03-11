@@ -84,6 +84,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Switching Project Versions (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_007_SwitchingProjectVersions_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Switching Project Versions (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_007_SwitchingProjectVersions_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Git Branching Basics (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_008_GitBranchingBasics_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
