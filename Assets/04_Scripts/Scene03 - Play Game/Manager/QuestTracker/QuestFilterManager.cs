@@ -64,6 +64,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Create Local Repository (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_003_CreateLocalRepository_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Create Local Repository (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_003_CreateLocalRepository_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Basic Staging Area (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_004_BasicStagingArea_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
@@ -107,7 +110,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 runResult = QuestTracker.GetComponent<QuestFilter_017_ReviewAndMergePullRequests_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             default:
-                Debug.Log("Cannot found target Quest Tracker Object !\n" + selectedStageName);
+                Debug.LogError("Cannot found target Quest Tracker Object !\n" + selectedStageName);
                 break;
         }
         Debug.Log("Result : " + runResult);
@@ -266,7 +269,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
             CurrentFolderPanel = GameObject.Find("Current Folder Panel");
         }
         string currentFolderLocation = CurrentFolderPanel.transform.parent.name;
-        Debug.Log("currentFolderLocation: " + currentFolderLocation + "\nwantedFolderLocation: " + wantedFolderLocation);
+        //Debug.Log("currentFolderLocation: " + currentFolderLocation + "\nwantedFolderLocation: " + wantedFolderLocation);
 
         return (currentFolderLocation == wantedFolderLocation) ? "Continue" : "Git Commands/git init/Wrong Location(Failed)";
     }
@@ -350,7 +353,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
             //If player enter branch = current branch 
             if (enterBranchName == currentBranchName)
             {
-                Debug.Log("enterBranchName == currentBranchName ");
+                //Debug.Log("enterBranchName == currentBranchName ");
 
                 return "Continue";
             }
@@ -394,7 +397,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
         string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
         if (!LocalBranches) { LocalBranches = fsm.FsmVariables.GetFsmGameObject("Local/Branches").Value; }
 
-        Debug.Log("currentBranchName :" + currentBranchName + "\nCreate local branch action: " + playerTargetBranchName + "\n wanted create loc : " + wantedCreateLocation + "\n wanted CreateBranchName : " + wantedCreateBranchName);
+        //Debug.Log("currentBranchName :" + currentBranchName + "\nCreate local branch action: " + playerTargetBranchName + "\n wanted create loc : " + wantedCreateLocation + "\n wanted CreateBranchName : " + wantedCreateBranchName);
 
         //Can find in current branch list. Or player enter the name not same as wanted branch name.
         if (LocalBranches.transform.Find(playerTargetBranchName) || (playerTargetBranchName != wantedCreateBranchName))
@@ -441,7 +444,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
             }
         }
 
-        Debug.Log("Resolved Conflict!");
+        //Debug.Log("Resolved Conflict!");
         return "Continue(Resolved)";
     }
 
