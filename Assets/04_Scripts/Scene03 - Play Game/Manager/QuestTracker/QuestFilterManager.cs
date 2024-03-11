@@ -68,7 +68,8 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 runResult = QuestTracker.GetComponent<QuestFilter_003_CreateLocalRepository_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Basic Staging Area (Tutorial)":
-                runResult = QuestTracker.GetComponent<QuestFilter_004_BasicStagingArea_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+            case "Basic Staging Area (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_004_BasicStagingArea>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Advanced Staging Area (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_005_AdvancedStagingArea_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
