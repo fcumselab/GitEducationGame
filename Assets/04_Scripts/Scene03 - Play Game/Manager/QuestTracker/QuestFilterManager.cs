@@ -90,6 +90,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Git Branching Basics (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_008_GitBranchingBasics_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Git Branching Basics (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_008_GitBranchingBasics_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Fast-Forward Merging (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_009_FastForwardMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
