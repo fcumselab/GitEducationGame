@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class QuestFilter_005_AdvancedStagingArea_Tutorial : SerializedMonoBehaviour
+public class QuestFilter_005_AdvancedStagingArea : SerializedMonoBehaviour
 {
     [Header("Need Give Values")]
     [SerializeField]
