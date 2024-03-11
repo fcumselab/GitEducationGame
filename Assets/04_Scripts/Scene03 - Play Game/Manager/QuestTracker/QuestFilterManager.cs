@@ -156,10 +156,30 @@ public class QuestFilterManager : SerializedMonoBehaviour
         return (fileName.Contains(wantedVersion)) ? "Continue" : "File/FileFunctionSelection/Wrong FileName";
     }
 
-    public string DetectAction_ModifyFile(string actionType, string wantedFileName)
+    public string DetectAction_ModifyFile(string actionType, string wantedFileName, string wantedBranchName = "")
     {
+        PlayMakerFSM fsm;
+        //If need to detect branchName
+        if (wantedBranchName != "")
+        {
+            if (!CommitHistoryWindow) { CommitHistoryWindow = GameObject.Find("CommitHistoryWindow"); }
+            fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
+            string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
+            //Debug.Log("add actionType: " + "\nwantedBranchName: " + wantedBranchName + "\ncurrentBranchName: " + currentBranchName);
+
+            if (currentBranchName.Contains("HEAD"))
+            {
+                return "FileContentWindow/ModifyButtonSelection/Detached HEAD";
+            }
+            else if (currentBranchName != wantedBranchName)
+            {
+                return "FileContentWindow/AddButtonSelection/Wrong Branch";
+            }
+        }
+
+
         if (!FileContentWindow) { FileContentWindow = GameObject.Find("FileContentWindow"); }
-        PlayMakerFSM fsm = MyPlayMakerScriptHelper.GetFsmByName(FileContentWindow, "File Content Window");
+        fsm = MyPlayMakerScriptHelper.GetFsmByName(FileContentWindow, "File Content Window");
         string currentFileName = fsm.FsmVariables.GetFsmString("fileName").Value;
 
         fsm = MyPlayMakerScriptHelper.GetFsmByName(Sender, SenderFSMName);

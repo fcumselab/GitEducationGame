@@ -89,7 +89,7 @@ public class QuestFilter_007_SwitchingProjectVersions_Practice : SerializedMonoB
                     case 7:
                         if (Sender.CompareTag("FileContentWindow/ModifyButtonSelection"))
                         {
-                            return questFilterManager.DetectAction_ModifyFile(i18nTranslateList[0], i18nTranslateList[1]);
+                            return questFilterManager.DetectAction_ModifyFile(i18nTranslateList[0], i18nTranslateList[1], "master");
                         }
                         else
                         {
