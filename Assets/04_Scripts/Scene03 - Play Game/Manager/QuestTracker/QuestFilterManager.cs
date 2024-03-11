@@ -78,6 +78,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Creating First Version (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_006_CreatingFirstVersion_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Creating First Version (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_006_CreatingFirstVersion_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Switching Project Versions (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_007_SwitchingProjectVersions_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
@@ -237,7 +240,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
             if (!CommitHistoryWindow) { CommitHistoryWindow = GameObject.Find("CommitHistoryWindow"); }
             fsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "Commit History");
             string currentBranchName = fsm.FsmVariables.GetFsmString("Local/currentBranch").Value;
-            Debug.Log("add actionType: " + "\nwantedBranchName: " + wantedBranchName + "\ncurrentBranchName: " + currentBranchName);
+            //Debug.Log("add actionType: " + "\nwantedBranchName: " + wantedBranchName + "\ncurrentBranchName: " + currentBranchName);
 
             if (currentBranchName.Contains("HEAD"))
             {
@@ -255,7 +258,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
 
         fsm = MyPlayMakerScriptHelper.GetFsmByName(Sender, SenderFSMName);
         string fileContent = fsm.FsmVariables.GetFsmString("text").Value;
-        Debug.Log("add actionType: " + "\nFileName: " + wantedFileName + "\ncurrentFileName: " + currentFileName + "\nfileContent: " + fileContent);
+        //Debug.Log("add actionType: " + "\nFileName: " + wantedFileName + "\ncurrentFileName: " + currentFileName + "\nfileContent: " + fileContent);
 
         return (currentFileName == wantedFileName) ? "Continue" : "FileContentWindow/AddButtonSelection/Wrong FileName";
     }
