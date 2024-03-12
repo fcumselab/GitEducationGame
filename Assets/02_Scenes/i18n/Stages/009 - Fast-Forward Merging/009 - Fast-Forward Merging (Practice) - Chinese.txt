@@ -1,42 +1,55 @@
-﻿StageTitle,"快進合併分支"
-Story Background/Content/Story,"您是一位學生。
-最近需要在課程中製作 '俄羅斯方塊' 遊戲，
-而您已順利地完成基本遊戲的製作。
+﻿StageTitle,"快進合併分支 P"
+Story Background/Content/Story,"您是一位剛加入的遊戲開發團隊成員，現在負責角色設計。
+團隊成員希望您為角色行為增加一個攻擊偵測程式。
 
-還有額外時間的您，決定為遊戲增加新的玩法。
-您通過分支管理的技術來協助開發，並順利地做出有趣的遊戲功能。
-
-不過您需要將開發分支的內容合併到主分支才行。
-試著通過 Git 指令來合併開發分支的內容吧。"
+為了遵從正確的開發原則，開發者應該在自己的分支上開發功能。
+試著建立一個新的分支，然後嘗試在分支上開發內容吧。"
 Stage Quest/1,"開啟 '提交記錄' 視窗"
-Stage Quest/2,"在 'new-feature' 分支上開發新功能"
-Stage Quest/3,"創建新的提交，並更新 '提交記錄' 視窗"
-Stage Quest/4,"切換到 'master' 分支
+Stage Quest/2,"在最新的提交上創建分支，並更新 '提交記錄' 視窗"
+Stage Quest/3,"在開發分支上增加角色攻擊行為偵測"
+Stage Quest/4,"創建新的提交，並更新 '提交記錄' 視窗"
+Stage Quest/5,"切換到 'master' 分支
 並更新 '提交記錄' 視窗"
-Stage Quest/5,"合併 'new-feature' 分支
+Stage Quest/6,"合併 'new-character-action' 分支
 並更新 '提交記錄' 視窗"
-Stage Quest/6,"刪除 'new-feature' 分支
+Stage Quest/7,"刪除 'new-character-action' 分支
 並更新 '提交記錄' 視窗"
-CommitHistoryData/File data/ListContent/0,"遊戲開始畫面"
-CommitHistoryData/File data/ListContent/1/v1,"遊戲開始畫面\n分數機制（有問題）\n連成一條線判斷\n遊戲結束"
-CommitHistoryData/File data/ListContent/1/v2,"遊戲開始畫面\n分數機制（已修復）\n連成一條線判斷\n遊戲結束"
-CommitHistoryData/File data/ListContent/1/v3,"遊戲開始畫面\n分數機制（已修復）\n連成一條線判斷\n遊戲結束\n敵人攻擊方式\a玩家能使用的技能"
-CommitHistoryData/File data/ListFileName/0,"主程式.c"
-CommitHistoryData/File data/ListLocation/0,"主程式.c"
-CommitHistoryData/CommitMessage/1,"初始化俄羅斯方塊遊戲"
-CommitHistoryData/CommitMessage/2,"遊戲基本機制完成"
-CommitHistoryData/CommitMessage/3,"修復分數機制計算錯誤"
-CommitHistoryData/CommitMessage/4,"增加遊戲機制：玩家與敵人戰鬥"
-Quest Filter/Valider/Target File Name/0,"主程式.c"
-DefaultData/Commit data/commitMessageList/0,"新增玩法：玩家可以在戰鬥中使用技能"
-DefaultData/Commit data/commitMessageList/1,"更新遊戲玩法"
-DefaultData/Commit data/commitMessageList/2,"在主程式中新增功能"
+CommitHistoryData/File data/ListFileName/0,"角色專案"
+CommitHistoryData/File data/ListLocation/0,"角色專案"
+CommitHistoryData/File data/ListContent/1,"圖片標題\n圖片內容"
+CommitHistoryData/File data/ListFileName/1,"角色圖片.png"
+CommitHistoryData/File data/ListLocation/1,"角色專案\角色圖片.png"
+CommitHistoryData/File data/ListFileName/2,"角色文本.txt"
+CommitHistoryData/File data/ListContent/2,"角色名字\n故事背景\n性格"
+CommitHistoryData/File data/ListLocation/2,"角色專案\角色文本.txt"
+CommitHistoryData/File data/ListFileName/3,"角色行為程式.cs"
+CommitHistoryData/File data/ListContent/3,"走路偵測\n對話偵測\a攻擊偵測"
+CommitHistoryData/File data/ListLocation/3,"角色專案\角色行為程式.cs"
+CommitHistoryData/File data/ListLocation/4,"角色專案\.git"
+CommitHistoryData/CommitMessage/1,"初始化角色專案"
+CommitHistoryData/CommitMessage/2,"為設計角色形象"
+CommitHistoryData/CommitMessage/3,"為角色設計故事背景"
+CommitHistoryData/CommitMessage/4,"設計角色基本行為"
+Quest Filter/Valider/Target File Name/0,"角色行為程式.cs"
+DefaultData/Commit data/commitMessageList/0,"增加角色行為：角色可以進行攻擊偵測"
+DefaultData/Commit data/commitMessageList/1,"新增程式碼"
+DefaultData/Commit data/commitMessageList/2,"新增提交"
 DefaultData/Commit data/commitMessageReasonList/0,"提交訊息分析：
-這個消息提到為遊戲新增技能
-讓人能夠快速了解此提交成功開發出了技能系統"
+提交訊息明確，可以幫助開發人員理解此提交的作用"
 DefaultData/Commit data/commitMessageReasonList/1,"提交訊息分析：
-這個消息雖然提到更新遊戲玩法
-但是沒有提到任何有關玩法的內容"
+提交訊息不夠明確"
 DefaultData/Commit data/commitMessageReasonList/2,"提交訊息分析：
-這個消息雖然提到了更新主程式
-但無法讓人知道更新程式的細節"
+提交訊息不夠明確"
+DefaultData/BranchName data/branchNameList/0,"new-character-action"
+DefaultData/BranchName data/branchNameList/1,"character"
+DefaultData/BranchName data/branchNameList/2,"角色新動作"
+DefaultData/BranchName data/branchNameReasonList/0,"命名分支分析：
+合適：使用小寫英文字母，並使用 '-' 符號區分單字"
+DefaultData/BranchName data/branchNameReasonList/1,"命名分支分析：
+合適：使用小寫英文字母
+不合適：過於單調，可能造成其他開發者的混淆"
+DefaultData/BranchName data/branchNameReasonList/2,"命名分支分析：
+不合適：使用中文字來命名分支"
+NPCCommitData/NPC1,"同事 A"
+NPCCommitData/NPC2,"同事 B"
+NPCCommitData/NPC3,"同事 C"

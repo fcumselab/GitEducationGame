@@ -96,6 +96,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Fast-Forward Merging (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_009_FastForwardMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Fast-Forward Merging (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_009_FastForwardMerging_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Auto Merging (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_010_AutoMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
