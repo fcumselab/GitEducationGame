@@ -10,7 +10,7 @@ public class QuestFilter_010_AutoMerging_Practice : SerializedMonoBehaviour
     Dictionary<string, List<int>> actionTagDict = new()
     {
         { "File/FileFunctionSelection", new List<int>() },
-        { "FileContentWindow/AddButtonSelection", new List<int>() { 3 } },
+        { "FileContentWindow/AddButtonSelection", new List<int>() { 2 } },
         { "FileContentWindow/RenameButtonSelection", new List<int>() },
         { "FileContentWindow/ModifyButtonSelection", new List<int>() },
         { "FileContentWindow/DeleteButtonSelection", new List<int>() },
@@ -20,9 +20,9 @@ public class QuestFilter_010_AutoMerging_Practice : SerializedMonoBehaviour
     //These action need to be restrict. (ex: git status don't need to, but git init need.)
     Dictionary<string, List<int>> commandActionDict = new()
     {
-        { "branch", new() { 2, 8 } },
-        { "checkout", new() { 2, 3, 4, 5, 6, 7, 8 } },
-        { "merge", new() { 6, 7 } }
+        { "branch", new() { 2, 6 } },
+        { "checkout", new() { 2, 3, 4, 5, 6 } },
+        { "merge", new() {4, 5 } }
     };
 
     [Header("status")]
@@ -84,7 +84,7 @@ public class QuestFilter_010_AutoMerging_Practice : SerializedMonoBehaviour
                                 }
                                 else
                                 {
-                                    return questFilterManager.DetectAction_GitCreateLocalBranch(splitList[2], "master", "new-article");
+                                    return "Git Commands/common/FollowQuest(Warning)";
                                 }
                             case 4:
                                 //if action is delete branch (git branch -d 'branchName')
@@ -92,11 +92,11 @@ public class QuestFilter_010_AutoMerging_Practice : SerializedMonoBehaviour
                                 {
                                     switch (currentQuestNum)
                                     {
-                                        case 8:
-                                            resultText = questFilterManager.DetectAction_GitDeleteLocalBranch(splitList[3], "new-article");
+                                        case 6:
+                                            resultText = questFilterManager.DetectAction_GitDeleteLocalBranch(splitList[3], "ui-design");
                                             if (resultText != "Continue")
                                             {
-                                                return questFilterManager.DetectAction_GitDeleteLocalBranch(splitList[3], "new-design");
+                                                return questFilterManager.DetectAction_GitDeleteLocalBranch(splitList[3], "java-activity");
                                             }
                                             else
                                             {
@@ -111,9 +111,9 @@ public class QuestFilter_010_AutoMerging_Practice : SerializedMonoBehaviour
                         return "Continue";
                     case "checkout":
                         Debug.Log("checkout foundIndex: " + foundIndex + "\ncurrentQuestNum: " + currentQuestNum);
-                        if (foundIndex != -1 && currentQuestNum == 4) //Give warning (use 'git log' first).
+                        if (foundIndex != -1 && currentQuestNum == 3) //Give warning (use 'git log' first).
                         {
-                            return questFilterManager.DetectAction_GitCheckout_InModifyContentQuest(3, isMergeConflict);
+                            return questFilterManager.DetectAction_GitCheckout_InModifyContentQuest(5, isMergeConflict);
                         }
                         else if (foundIndex != -1) //Not 4 
                         {
@@ -125,17 +125,17 @@ public class QuestFilter_010_AutoMerging_Practice : SerializedMonoBehaviour
                         }
                     case "merge":
                         //Todo
-                        if (splitList.Length == 3 && foundIndex != -1 && (currentQuestNum == 6 || currentQuestNum == 7)) //Give warning (use 'git log' first).
+                        if (splitList.Length == 3 && foundIndex != -1 && (currentQuestNum == 4 || currentQuestNum == 5)) //Give warning (use 'git log' first).
                         {
                             switch (currentQuestNum)
                             {
-                                case 6:
+                                case 4:
                                     //Fast Forward
-                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2],"master", "new-design", false, isMergeConflict);
+                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2],"master", "ui-design", false, isMergeConflict);
                                     break;
-                                case 7:
+                                case 5:
                                     //Auto Merge
-                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2], "master", "new-article", false, isMergeConflict);
+                                    resultText = questFilterManager.DetectAction_GitMerge(splitList[2], "master", "java-activity", false, isMergeConflict);
                                     break;
                             }
 
@@ -151,7 +151,7 @@ public class QuestFilter_010_AutoMerging_Practice : SerializedMonoBehaviour
                         }
                         else
                         {
-                            return (currentQuestNum == 6 || currentQuestNum == 7) ? "Continue" : "Git Commands/common/FollowQuest(Warning)";
+                            return (currentQuestNum == 4 || currentQuestNum == 5) ? "Continue" : "Git Commands/common/FollowQuest(Warning)";
                         }
                     default:
                         return "Continue";
@@ -173,10 +173,10 @@ public class QuestFilter_010_AutoMerging_Practice : SerializedMonoBehaviour
             {
                 switch (currentQuestNum)
                 {
-                    case 3:
+                    case 2:
                         if (Sender.CompareTag("FileContentWindow/AddButtonSelection"))
                         {
-                            return questFilterManager.DetectAction_AddContentFile(i18nTranslateList[0], "new-article");
+                            return questFilterManager.DetectAction_AddContentFile(i18nTranslateList[0], "java-activity");
                         }
                         else
                         {
