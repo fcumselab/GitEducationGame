@@ -102,6 +102,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Auto Merging (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_010_AutoMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Auto Merging (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_010_AutoMerging_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Merge Conflicts (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_011_MergeConflicts_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
