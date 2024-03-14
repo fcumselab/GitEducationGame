@@ -72,7 +72,7 @@ public class QuestFilter_013_PushToRemoteBranches_Tutorial : SerializedMonoBehav
                 switch (commandType)
                 {
                     case "branch":
-                        Debug.Log("branch action: \n command len: " + splitList.Length + "\ntarget branch:" + splitList[2]);
+                        // Debug.Log("branch action: \n command len: " + splitList.Length + "\ntarget branch:" + splitList[2]);
                         switch (splitList.Length)
                         {
                             case 3:

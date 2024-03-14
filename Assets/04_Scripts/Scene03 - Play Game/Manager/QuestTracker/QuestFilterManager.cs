@@ -108,6 +108,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Merge Conflicts (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_011_MergeConflicts_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Merge Conflicts (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_011_MergeConflicts_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Create Remote Repository (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_012_CreateRemoteRepository_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
@@ -182,7 +185,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
             }
             else if (currentBranchName != wantedBranchName)
             {
-                return "FileContentWindow/AddButtonSelection/Wrong Branch";
+                return "FileContentWindow/ModifyButtonSelection/Wrong Branch";
             }
         }
 
@@ -465,10 +468,15 @@ public class QuestFilterManager : SerializedMonoBehaviour
         {
             ListLocation.Add(a[i].ToString());
             ListFileStatus.Add(b[i].ToString());
+            Debug.Log(a[i]);
+            Debug.Log(b[i]);
+
         }
 
-        foreach(string targetLocation in wantedFileLocationList)
+        foreach (string targetLocation in wantedFileLocationList)
         {
+            Debug.Log(targetLocation);
+
             int foundIndex = ListLocation.FindIndex((loc) => loc == targetLocation);
             if(foundIndex == -1)
             {

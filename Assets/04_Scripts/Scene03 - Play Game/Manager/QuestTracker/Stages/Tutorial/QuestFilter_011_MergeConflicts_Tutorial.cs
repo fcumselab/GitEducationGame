@@ -100,7 +100,6 @@ public class QuestFilter_011_MergeConflicts_Tutorial : SerializedMonoBehaviour
                             return "Continue";
                         }
                     case "branch":
-                        Debug.Log("branch action: \n command len: " + splitList.Length + "\ntarget branch:" + splitList[2]);
                         switch (splitList.Length)
                         {
                             case 4:
