@@ -113,10 +113,13 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 break;
             case "Create Remote Repository (Tutorial)":
             case "Create Remote Repository (Practice)":
-                runResult = QuestTracker.GetComponent<QuestFilter_012_CreateRemoteRepository_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                runResult = QuestTracker.GetComponent<QuestFilter_012_CreateRemoteRepository>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Push to Remote Branches (Tutorial)":
                runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
+            case "Push to Remote Branches (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_013_PushToRemoteBranches_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
             case "Keep Branches in Sync (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_014_KeepBranchesInSync_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
@@ -522,7 +525,7 @@ public class QuestFilterManager : SerializedMonoBehaviour
 					if(runType == "add"){
 						return "Git Commands/common/FollowQuest(Warning)";
 					}
-					else if(splitList[2] == "origin" && (splitList[3] == "-d" || splitList[3] == "--delete")){
+					else if(splitList[3] == "origin" && (splitList[2] == "-d" || splitList[2] == "--delete")){
 						if(wantedBranchName != splitList[4]){
 							if(RemoteBranches.transform.Find(splitList[4])){
 								return "Git Commands/git push/WrongTargetBranch(Delete)(Failed)";
