@@ -130,6 +130,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Preparation for Merging (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_015_PreparationForMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Preparation for Merging (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_015_PreparationForMerging_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Creating a Pull Request (Tutorial)":
 	            runResult = QuestTracker.GetComponent<QuestFilter_016_CreatingAPullRequest_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;

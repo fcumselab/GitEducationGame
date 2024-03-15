@@ -1,0 +1,65 @@
+StageTitle,"Preparation for Merging"
+Story Background/Content/Story,"You are a student.
+In the 'Project Management' course,
+the teacher required students to team up and develop a website together.
+
+You and your team members are managing the project with Git.
+Each member develops features on their branches.
+
+You created the 'update-readme' branch on Friday,
+The branch is to add content to the 'README.md' file.
+
+There’s an exam from other courses next week, 
+so you decide to stop development temporarily.
+After the exams, you continue to work on the 'update-readme' branch.
+
+However, you found that team members have already merged 
+their development content into the remote main branch.
+
+In this case, your branch is an older version.
+It cannot be merged into the main branch.
+
+Please find a way to make sure your branch is 
+ready for merging into the remote main branch."
+Stage Quest/1,"Open the 'Commit History' window."
+Stage Quest/2,"Synchronize the content from the remote 'master' branch.
+Then update the 'Commit History' window."
+Stage Quest/3,"Synchronize the content from the remote 'update-readme' branch.
+update the 'Commit History' window."
+Stage Quest/4,"Merge the 'master' branch into the 'update-readme' branch."
+Stage Quest/5,"Resolve conflicts in the 'README.md' file."
+Stage Quest/6,"Create a commit which resolved the merge conflicts.
+Then update the 'Commit History' window."
+Stage Quest/7,"Make sure that the project run correctly after the merge action."
+Stage Quest/8,"Push the 'update-readme' branch to the remote repository.
+Then update the 'Commit History' window."
+DefaultData/Commit data/commitMessageList/0,"Resolved merge conflicts between 'update-readme' and 'master' branches."
+DefaultData/Commit data/commitMessageList/1,"Resolved merge conflicts."
+DefaultData/Commit data/commitMessageList/2,"Modified README file content."
+DefaultData/Commit data/commitMessageReasonList/0,"Commit message analysis:
+This commit message clearly shows the resolution of merge conflicts between two branches.
+Let other team members understand the meaning of the commit."
+DefaultData/Commit data/commitMessageReasonList/1,"Commit message analysis:
+This commit message mentions merge conflict resolution but it is not clear. 
+This is not the most appropriate commit message."
+DefaultData/Commit data/commitMessageReasonList/2,"Commit message analysis:
+This commit message changed the 'README.md' file content while resolving merge conflicts.
+But it does not mention the detailed of the file conflicts.
+This will lead other developers think this commit does not have merge conflict."
+CommitHistoryData/File data/ListContent/1/v1,"# Shopping Website Project"
+CommitHistoryData/File data/ListContent/1/v2,"# Shopping Website Project\nReason for creating the website"
+CommitHistoryData/File data/ListContent/1/v3,"# Shopping Website Project\nReason for creating the website\nWebsite operation instructions"
+CommitHistoryData/File data/ListLocation/0,"shopping-website"
+CommitHistoryData/File data/ListLocation/1,"shopping-website\README.md"
+CommitHistoryData/File data/ListLocation/2,"shopping-website\.git"
+CommitHistoryData/File data/ListFileName/0,"shopping-website"
+CommitHistoryData/File data/ListFileName/1,"README.md"
+AutoMergeData/Quest 4/ListContent/1,"# Shopping Website Project\n<<<<<<< HEAD\nReason for creating the website\nWebsite operation instructions\n=======\nWeb system architecture\nWebsite screenshots\n>>>>>>> master"
+NPCCommitData/NPC1,"Team Member A"
+NPCCommitData/CommitMessage/NPC1,"Added README content: Web system architecture and screenshots."
+NPCCommitData/NPC1/ListContent/1,"# Shopping Website Project\nWeb system architecture\nWebsite screenshots"
+CommitHistoryData/CommitMessage/1,"Added README file."
+CommitHistoryData/CommitMessage/2,"Added README content: Reason for creating the website."
+CommitHistoryData/CommitMessage/3,"Added README content: Operation instructions."
+Quest Filter/Valider/Target File Name/0,"README.md"
+Quest Filter/Valider/Target File Name/1,"shopping-website\README.md"
