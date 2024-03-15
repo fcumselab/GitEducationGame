@@ -47028,7 +47028,7 @@ GameObject:
   - component: {fileID: 5364009370855757085}
   m_Layer: 5
   m_Name: CommitHistoryWindow
-  m_TagString: Window/CommandLineWindow
+  m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87643,8 +87643,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 231.88281
-        y: 1172.1562
+        x: 238.375
+        y: 1109.7969
         width: 108
         height: 32
       isBreakpoint: 0
@@ -87655,7 +87655,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: 'Add Commit Event '
+        toState: Wait for branch color updated
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
@@ -87755,8 +87755,8 @@ MonoBehaviour:
       colorIndex: 10
       position:
         serializedVersion: 2
-        x: 221.66406
-        y: 1219.9609
+        x: 221.60156
+        y: 1354.3203
         width: 143
         height: 32
       isBreakpoint: 0
@@ -87943,8 +87943,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 216.07812
-        y: 1358.9609
+        x: 216.01562
+        y: 1493.3203
         width: 184.5
         height: 32
       isBreakpoint: 0
@@ -88231,8 +88231,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 685.2578
-        y: 1505.1953
+        x: 685.1953
+        y: 1639.5547
         width: 100
         height: 16
       isBreakpoint: 0
@@ -88315,8 +88315,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 679.2656
-        y: 1451.5156
+        x: 679.2031
+        y: 1585.875
         width: 100
         height: 32
       isBreakpoint: 0
@@ -88555,8 +88555,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 257.42188
-        y: 1434.8516
+        x: 257.35938
+        y: 1569.2109
         width: 108
         height: 32
       isBreakpoint: 0
@@ -90249,8 +90249,8 @@ MonoBehaviour:
       colorIndex: 12
       position:
         serializedVersion: 2
-        x: 220.82812
-        y: 1283.4453
+        x: 220.76562
+        y: 1417.8047
         width: 163.5
         height: 32
       isBreakpoint: 0
@@ -93628,6 +93628,128 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 00000000000000000000000001000000020000000000000001000000030000000000000002000000000000000100000002000000040000000500000001000000000000000100000000000000060000000100000007000000020000000200000003000000040000000b000000020000000c00000003000000050000000600000007000000100000000300000011000000080000000900000015000000040000000a0000000b0000000c00000016000000
         paramByteDataSize: 0000000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000010000000000000000000000000000000000000001000000000000000400000000000000000000000000000000000000010000000000000004000000000000000000000000000000000000000100000000000000040000000000000000000000010000000000000000000000000000000000000001000000
+    - name: Wait for branch color updated
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 251.52344
+        y: 1235.375
+        width: 206
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: next
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: 'Add Commit Event '
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.GetFsmColor
+        - HutongGames.PlayMaker.Actions.ColorCompare
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000005000000
+        actionHashCodes: d2122203ef74ef02
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: targetBranch/Remote
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Branch
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: branchColor
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams:
+        - useVariable: 1
+          name: targetBranchColor
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {r: 0, g: 0, b: 0, a: 1}
+        - useVariable: 1
+          name: targetBranchColor
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {r: 0, g: 0, b: 0, a: 1}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {r: 0, g: 0, b: 0, a: 1}
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - next
+        byteData: 0101
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001200000012000000190000000100000019000000190000000f000000170000001700000001000000
+        paramName:
+        - gameObject
+        - fsmName
+        - variableName
+        - storeValue
+        - everyFrame
+        - color1
+        - color2
+        - tolerance
+        - equal
+        - notEqual
+        - everyFrame
+        paramDataPos: 0000000000000000010000000000000000000000010000000200000000000000000000000100000001000000
+        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
     events:
     - name: commit
       isSystemEvent: 0
@@ -93817,7 +93939,13 @@ MonoBehaviour:
         networkSync: 0
         value: {x: 0, y: 0}
       vector3Variables: []
-      colorVariables: []
+      colorVariables:
+      - useVariable: 1
+        name: targetBranchColor
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {r: 0, g: 0, b: 0, a: 1}
       rectVariables: []
       quaternionVariables: []
       gameObjectVariables:
@@ -93982,7 +94110,7 @@ MonoBehaviour:
       - Local
       - Push Pull Command
       - Sent from other obj
-      variableCategoryIDs: 00000000000000000000000000000000020000000000000000000000000000000000000000000000030000000400000000000000040000000000000007000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000030000000000000000000000050000000000000000000000
+      variableCategoryIDs: 0000000000000000000000000000000002000000000000000000000000000000000000000000000003000000040000000000000004000000000000000700000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000003000000000000000000000000000000050000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -93991,9 +94119,9 @@ MonoBehaviour:
     password: 
     locked: 0
     manualUpdate: 0
-    outVariableIndices: 0a0000000b0000000d0000000f000000130000002500000028000000
+    outVariableIndices: 0a0000000b0000000d0000000f000000130000002500000029000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1

@@ -124,6 +124,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Keep Branches in Sync (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_014_KeepBranchesInSync_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Keep Branches in Sync (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_014_KeepBranchesInSync_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Preparation for Merging (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_015_PreparationForMerging_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;

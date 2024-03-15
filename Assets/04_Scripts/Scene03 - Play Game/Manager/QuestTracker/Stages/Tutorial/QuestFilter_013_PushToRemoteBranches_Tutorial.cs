@@ -95,6 +95,7 @@ public class QuestFilter_013_PushToRemoteBranches_Tutorial : SerializedMonoBehav
                         }
                         return "Continue";
                     case "push":
+                        return "Continue";
                         return (foundIndex != -1) ? "Continue" : "Git Commands/common/FollowQuest(Warning)";
                     case "checkout":
                         Debug.Log("checkout foundIndex: " + foundIndex + "\ncurrentQuestNum: " + currentQuestNum);
