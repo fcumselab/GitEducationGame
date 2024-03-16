@@ -136,6 +136,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Creating a Pull Request (Tutorial)":
 	            runResult = QuestTracker.GetComponent<QuestFilter_016_CreatingAPullRequest_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Creating a Pull Request (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_016_CreatingAPullRequest_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             case "Review and Merge Pull Requests (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_017_ReviewAndMergePullRequests_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
