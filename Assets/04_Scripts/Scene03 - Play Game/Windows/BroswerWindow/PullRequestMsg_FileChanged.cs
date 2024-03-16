@@ -53,7 +53,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
     {
         FoldButton.gameObject.SetActive(false);
 
-        ResolvedButtonTooltipFsm = MyPlayMakerScriptHelper.GetFsmByName(ResolvedButton.gameObject, "Tooltip");
+        ResolvedButtonTooltipTrigger = ResolvedButton.GetComponent<MouseTooltipTrigger>();
         InitialReplyButton();
         InitializeMainMsg();
         fileChangedTextBox.InitializeMsg("CoversationField", FileChangedTitleText, FileChangedLocation);
@@ -92,7 +92,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
 
     [FoldoutGroup("Children")]
     [SerializeField] Button ResolvedButton;
-    PlayMakerFSM ResolvedButtonTooltipFsm;
+    MouseTooltipTrigger ResolvedButtonTooltipTrigger;
 
     public void ResolveConversationAction()
     {
@@ -105,13 +105,11 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
 
             if (currentQuestNum != fileChangedTextBox.ReplyMsgList[replyMsgListCount - 1].renderQuestNum)
             {
-                ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(FollowQuest)";
-                ResolvedButtonTooltipFsm.enabled = true;
+                ResolvedButtonTooltipTrigger.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(FollowQuest)", true);
             }
             else if (allRenderMsgCount < replyMsgListCount)
             {
-                ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(ReplyFirst)";
-                ResolvedButtonTooltipFsm.enabled = true;
+                ResolvedButtonTooltipTrigger.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(ReplyFirst)", true);
             }
             else if (allRenderMsgCount == replyMsgListCount)
             {
@@ -139,8 +137,7 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
         }
         else
         {
-            ResolvedButtonTooltipFsm.FsmVariables.GetFsmString("tooltipMessage").Value = "BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(SolveMsg)";
-            ResolvedButtonTooltipFsm.enabled = true;
+            ResolvedButtonTooltipTrigger.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(SolveMsg)", true);
         }
     }
 
