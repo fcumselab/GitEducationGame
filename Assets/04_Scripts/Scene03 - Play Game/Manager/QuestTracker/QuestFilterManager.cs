@@ -142,6 +142,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
             case "Review and Merge Pull Requests (Tutorial)":
                 runResult = QuestTracker.GetComponent<QuestFilter_017_ReviewAndMergePullRequests_Tutorial>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
                 break;
+            case "Review and Merge Pull Requests (Practice)":
+                runResult = QuestTracker.GetComponent<QuestFilter_017_ReviewAndMergePullRequests_Practice>().StartQuestFilter(Sender, SenderFSMName, currentQuestNum);
+                break;
             default:
                 Debug.LogError("Cannot found target Quest Tracker Object !\n" + selectedStageName);
                 break;
