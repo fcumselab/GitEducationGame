@@ -5,6 +5,7 @@ using Lean.Localization;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using PixelCrushers.DialogueSystem;
+using System;
 
 public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
 {
@@ -63,8 +64,7 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
         }
         TimeText.text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-        //Action after generated.
-        DoActionByActionTypeForNPC();
+        StartCoroutine(DoActionByActionTypeForNPC());
     }
 
     void GetReferenceValues()
@@ -75,7 +75,7 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
         PRProgressFieldObj = BrowserWindow.transform.Find("ControllerGroup/PRDetailedPagePanel/PRProgressField");
     }
 
-    void DoActionByActionTypeForNPC()
+    IEnumerator DoActionByActionTypeForNPC()
     {
         switch (actionTypeForNPC)
         {
@@ -83,9 +83,12 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
                 DialogueLua.SetVariable("NPCCommitBranch", addCommitBranch);
                 CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("runType").Value = "NPC-Commit";
                 CommitHisotryWindowNPCActionFsm.enabled = true;
+                yield return StartCoroutine(WaitForFsmCompletion(CommitHisotryWindowNPCActionFsm));
+
                 int msgIndex = transform.GetSiblingIndex();
                 PullRequestMsg_FileChanged LastFileChangedMsg = transform.parent.GetChild(msgIndex - 1).GetComponent<PullRequestMsg_FileChanged>();
-                LastFileChangedMsg.ResolveConversationAction(); 
+                LastFileChangedMsg.ResolveConversationAction();
+
                 break;
             case "MergePullRequest":
                 PRProgressFieldObj.GetComponent<PullRequestProgressField>().ButtonClickActionMergePullRequest(AuthorText.text);
@@ -95,7 +98,10 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
                 break;
         }
     }
+
+    IEnumerator WaitForFsmCompletion(PlayMakerFSM fsm)
+    {
+        yield return new WaitUntil(() => !fsm.enabled);
+    }
     #endregion
 }
-
-
