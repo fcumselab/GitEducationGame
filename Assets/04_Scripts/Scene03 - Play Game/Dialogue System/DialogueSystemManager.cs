@@ -202,12 +202,19 @@ public class DialogueSystemManager : SerializedMonoBehaviour
         if (currentQuestNum == 1)
         {
             lastDialogKey = (selectStageKey + "Start game");
+            DialogueLua.SetVariable("LastConversationKey", lastDialogKey);
         }
         else
         {
+            var database = DialogueManager.MasterDatabase;
             lastDialogKey = (selectStageKey + "Quest " + currentQuestNum);
+            var conversation = database.GetConversation(lastDialogKey);
+
+            if (conversation != null)
+            {
+                DialogueLua.SetVariable("LastConversationKey", lastDialogKey);
+            }
         }
-        DialogueLua.SetVariable("LastConversationKey", lastDialogKey);
     }
 
 
