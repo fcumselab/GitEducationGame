@@ -20,15 +20,13 @@ Stage Quest/2,"在 Pull Request 上新增修改建議"
 Stage Quest/3,"批准 Pull Request"
 Stage Quest/4,"合併 Pull Request"
 Stage Quest/5,"同步遠端 'master' 分支的內容
-並更新 '提交記錄' 視窗" 
+並更新 '提交記錄' 視窗"
 NPCCommitData/NPC1,"同學 A"
-
-
-
 CommitHistoryData/File data/ListContent/1,"# snake-game"
 CommitHistoryData/File data/ListContent/2v1,"遊戲運行邏輯\n分數系統\n水果物件管理"
 CommitHistoryData/File data/ListContent/2v2,"遊戲運行邏輯\n分數系統\n水果物件管理\n炸彈物件管理"
 CommitHistoryData/File data/ListContent/2v3,"遊戲運行邏輯\n分數系統\n水果物件管理\n炸彈物件管理\n玩家衝刺系統\n精力條系統"
+CommitHistoryData/File data/ListContent/2v4(fixed),"遊戲運行邏輯\n分數系統\n水果物件管理\n炸彈物件管理 (調整炸彈爆炸範圍)\n玩家衝刺系統\n精力條系統"
 CommitHistoryData/File data/ListLocation/0,"snake-game"
 CommitHistoryData/File data/ListLocation/1,"snake-game\README.md"
 CommitHistoryData/File data/ListLocation/2,"snake-game\主程式.cpp"
@@ -41,11 +39,19 @@ CommitHistoryData/CommitMessage/1,"增加 README 檔案"
 CommitHistoryData/CommitMessage/2,"基本貪吃蛇遊戲完成"
 CommitHistoryData/CommitMessage/3,"炸彈功能設計完成"
 CommitHistoryData/CommitMessage/4,"玩家允許衝刺，並追加精力條系統"
+CommitHistoryData/CommitMessage/5,"調整炸彈爆炸範圍"
+RepoQuestData/Repo Quest/PRTitle,"遊戲功能開發: 完成 '貪吃蛇' 遊戲主程式開發"
+RepoQuestData/Repo Quest/PRDes,"這個 Pull Request 包含了我在 'main-script' 分支上所做的變更。
+我負責開發 '貪吃蛇' 遊戲的主程式，
+現在主要功能已經完成，並且為遊戲增加了多樣的元素。
 
-
-RepoQuestData/Repo Quest/PRTitle,"新增 README 內容: 貪吃蛇遊戲介紹和特色"
-RepoQuestData/Repo Quest/PRDes,"這個 Pull Request 包含了我在 'update-readme' 分支上所做的變更，
-它主要用於更新 README 檔案，我新增了貪吃蛇遊戲的基本介紹和遊戲特色。"
+主要更改：
+<b>· </b>遊戲運行邏輯：實現了貪吃蛇的基本操作和遊戲規則。
+<b>· </b>分數系統：添加了記分板，用於記錄玩家的得分。
+<b>· </b>水果物件管理：實現了水果的隨機生成和消失。
+<b>· </b>炸彈物件管理：實現了炸彈的隨機生成和爆炸效果，以及爆炸範圍。
+<b>· </b>玩家衝刺系統：添加了玩家衝刺的功能，消耗精力條。
+<b>· </b>精力條系統：實現了精力條的顯示和消耗機制。"
 BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/MainContent,"您好，我注意到 'README.md' 檔案中對於遊戲特色 '生成多個物件' 的地方可以做些改進。
 為了讓讀者更好地理解遊戲的玩法和挑戰，
 建議您增加生成物件相關的細節，例如生成時間、隨機功能等內容。
@@ -54,28 +60,17 @@ BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/FileName,"README.md"
 BrowserWindow/PRDetailed/FileContent1,"遊戲運行邏輯"
 BrowserWindow/PRDetailed/FileContent2,"分數系統"
 BrowserWindow/PRDetailed/FileContent3,"水果物件管理"
-BrowserWindow/PRDetailed/FileContent4,"炸彈物件管理"
+BrowserWindow/PRDetailed/FileContent4,"炸彈物件管理 <color=#CF001C>(需要修改)</color>"
 BrowserWindow/PRDetailed/FileContent5,"玩家衝刺系統"
 BrowserWindow/PRDetailed/FileContent6,"精力條系統"
-
-
-BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/ReplyMessage1,"請您為 '生成多個物件' 行數增加生成細節。"
-BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/ReplyMessage2,"謝謝您的建議，我會檢查並進行對應的修改。"
-BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/ReplyMessage3,"我已經為 '生成多個物件' 部分做出更詳細的描述。
-如果還有其他需要改進的地方。
-請隨時提出，謝謝。"
-BrowserWindow/PRDetailed/Msg_10_Refresh_Approve,"已審核並確認 'README.md' 內容沒有問題。
-批准本次合併請求。"
-
-
-
-BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/MainContent,"您好，我注意到在 '建立網站原因' 內容裡出現了錯別字。
-再請您修正一下。
+BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/MainContent,"您好，經過多次的遊戲測試，目前 '貪吃蛇' 遊戲運行良好。
+不過，我發現炸彈的爆炸範圍似乎有點太大，這可能會對玩家的遊戲體驗產生負面影響。
+為了保持遊戲的平衡和可玩性，我建議調整炸彈的爆炸範圍。
 謝謝。"
-BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage1,"請您將 '城市' 改成 '程式'。"
-BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage2,"謝謝您的建議，我會檢查並進行對應的修改。"
-BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage3,"您好，我已經將錯別字問題解決。
-如果還有其他需要改進的地方。
-請隨時提出，謝謝。"
-BrowserWindow/PRDetailed/Msg_3_ReviewChange(Approve)_Approve,"已審核並確認 'README.md' 內容沒有問題。
-批准本次合併請求。"
+BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage1,"請稍微調整炸彈爆炸範圍"
+BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage2,"謝謝您的建議，我會調整炸彈爆炸範圍至合理的數值"
+BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage3,"您好，我調整了炸彈爆炸範圍。
+目前應該可以讓玩家在有難度的遊戲過程中同時保持樂趣。
+再麻煩您審核本次的合併請求，謝謝。"
+BrowserWindow/PRDetailed/Msg_3_ReviewChange(Approve)_Approve,"已審核並確認炸彈爆炸範圍已經縮小到比較合適的範圍。
+並且目前遊戲運行正常，批准本次合併請求。"
