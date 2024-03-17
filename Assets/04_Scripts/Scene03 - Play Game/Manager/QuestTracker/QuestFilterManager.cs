@@ -26,6 +26,9 @@ public class QuestFilterManager : SerializedMonoBehaviour
     public string SenderFSMName;
     public int currentQuestNum;
 
+    [Header("Event Tracker")]
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
+
     //Singleton instantation
     private static QuestFilterManager instance;
     public static QuestFilterManager Instance
@@ -149,7 +152,30 @@ public class QuestFilterManager : SerializedMonoBehaviour
                 Debug.LogError("Cannot found target Quest Tracker Object !\n" + selectedStageName);
                 break;
         }
-        Debug.Log("Result : " + runResult);
+
+
+        if (Sender.CompareTag("Window/CommandLineWindow/InputField"))
+        {
+            Debug.Log("Result Command: " + runResult);
+            if(runResult != "Continue")
+            {
+                Debug.Log("Not ");
+                CommandLineInputField.Instance.SetRunResultKey(runResult);
+            }
+        }
+        else
+        {
+            if (runResult == "Continue")
+            {
+                Debug.Log("Correct Result : " + runResult);
+                eventTrackerTrigger.SendEvent("Correct Action", $"<{Sender.tag}>-<{runResult}>");
+            }
+            else
+            {
+                Debug.Log("Failed Result : " + runResult);
+                eventTrackerTrigger.SendEvent("Failed Action", $"<{Sender.tag}>-<{runResult}>");
+            }
+        }
         return runResult;
     }
 

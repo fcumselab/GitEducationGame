@@ -73,7 +73,7 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
         List<StageData> foundTypeData = stageData.FindAll((stageItem) => stageItem.stageType == type);
 
         totalStage = foundTypeData.Count;
-
+        Debug.Log("tatat" + totalStage);
 
         int buttonItemIndex = 0;
         foreach (StageData stageItem in foundTypeData)
@@ -103,8 +103,10 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
             {
                 if (stageItem.isStageUnlock)
                 {
-                    totalStar += stageItem.stageLeaderboardData[0].playerStar;
-                    totalClearStage++;
+                    if (stageItem.stageClearTimes > 0) { 
+                        totalStar += stageItem.stageLeaderboardData[0].playerStar;
+                        totalClearStage++;
+                    }
                     stageSelectionDetailedWindow.InitializeStageItem(null, stageItem, true);
                 }
             }
