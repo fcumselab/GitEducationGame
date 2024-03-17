@@ -156,10 +156,8 @@ public class QuestFilterManager : SerializedMonoBehaviour
 
         if (Sender.CompareTag("Window/CommandLineWindow/InputField"))
         {
-            Debug.Log("Result Command: " + runResult);
             if(runResult != "Continue")
             {
-                Debug.Log("Not ");
                 CommandLineInputField.Instance.SetRunResultKey(runResult);
             }
         }
@@ -167,12 +165,10 @@ public class QuestFilterManager : SerializedMonoBehaviour
         {
             if (runResult == "Continue")
             {
-                Debug.Log("Correct Result : " + runResult);
                 eventTrackerTrigger.SendEvent("Correct Action", $"<{Sender.tag}>-<{runResult}>");
             }
             else
             {
-                Debug.Log("Failed Result : " + runResult);
                 eventTrackerTrigger.SendEvent("Failed Action", $"<{Sender.tag}>-<{runResult}>");
             }
         }

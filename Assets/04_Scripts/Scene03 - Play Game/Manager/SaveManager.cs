@@ -136,7 +136,7 @@ public class SaveManager : SerializedMonoBehaviour
         //Beat self record -> upload to GlobalLeaderBoard
         if (playerPlace == 1)
         {
-            Debug.Log("New GlobalLeaderBoard Record");
+            //Debug.Log("New GlobalLeaderBoard Record");
             form = BuildGlobalLeaderBoardForm("GameProgress");
             StartCoroutine(UpdateGlobalLeaderBoard(form));
 

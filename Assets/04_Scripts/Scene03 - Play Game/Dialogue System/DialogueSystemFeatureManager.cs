@@ -37,7 +37,7 @@ public class DialogueSystemFeatureManager : SerializedMonoBehaviour
 
     public void RegisterFunction()
     {
-        Debug.Log("RegisterFunction");
+        //Debug.Log("RegisterFunction");
         Lua.RegisterFunction("HintController", this, SymbolExtensions.GetMethodInfo(() => HintController(string.Empty, false)));
         Lua.RegisterFunction("ResetAllTutorialObj", this, SymbolExtensions.GetMethodInfo(() => ResetAllTutorialObj()));
         Lua.RegisterFunction("UpdateButtonStatus", this, SymbolExtensions.GetMethodInfo(() => UpdateButtonStatus(string.Empty, false)));

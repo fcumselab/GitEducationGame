@@ -112,7 +112,7 @@ public class EventTrackerManager : SerializedMonoBehaviour
             else
             {
                 saveEventDataList.Remove(newEventData);
-                Debug.Log("Event upload success");
+                //Debug.Log("Event upload success");
             }
         }
     }

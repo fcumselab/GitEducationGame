@@ -44,7 +44,6 @@ public class QuestFilter_001_GameIntroduction_Practice : SerializedMonoBehaviour
 
         string runResult = "";
         //Run Git Command
-        Debug.Log(currentQuestNum);
 
         if (Sender.CompareTag("Window/CommandLineWindow/InputField"))
         {
@@ -52,7 +51,6 @@ public class QuestFilter_001_GameIntroduction_Practice : SerializedMonoBehaviour
         }
         else //Other action in File Manager/Content Window
         {
-            Debug.Log(Sender.tag);
             List<int> actionTagList = actionTagDict[Sender.tag];
             if (actionTagList.Count == 0 || (actionTagList.FindIndex((num) => num == currentQuestNum) == -1))
             {
@@ -85,7 +83,6 @@ public class QuestFilter_001_GameIntroduction_Practice : SerializedMonoBehaviour
                             return $"{Sender.tag}/Wrong Quest";
                         }
                     case 4:
-                        Debug.Log("ddd");
 
                         if (Sender.CompareTag("FileContentWindow/AddButtonSelection"))
                         {
