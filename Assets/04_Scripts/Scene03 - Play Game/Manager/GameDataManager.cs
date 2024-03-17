@@ -55,6 +55,8 @@ public class GameDataManager : SerializedMonoBehaviour
 
     private void Start()
     {
+        CommandExecuteTime = 0;
+        GameManualUsedTimes = 0;
         lastQuestCompletedTime = 0;
         QuestCountPerfect = 0;
         QuestCountGood = 0;
@@ -89,7 +91,7 @@ public class GameDataManager : SerializedMonoBehaviour
 
         lastQuestCompletedTime = completedTimeInt;
 
-        eventTrackerTrigger.SendEvent($"Complete Quest ({type})", $"{SaveManager.Instance.GetSelectedStageName()}: Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
+        eventTrackerTrigger.SendEvent($"Complete Quest", $"Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()} - {type}");
     }
 
     public void GetSelectedStageData(string stageName)
@@ -162,6 +164,11 @@ public class GameDataManager : SerializedMonoBehaviour
     public void AddGameManualUsedTimes()
     {
         GameManualUsedTimes++;
+    }
+
+    public void AddCommandExecuteTimes()
+    {
+        CommandExecuteTime++;
     }
 }
 

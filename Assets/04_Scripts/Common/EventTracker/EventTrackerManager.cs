@@ -71,7 +71,9 @@ public class EventTrackerManager : SerializedMonoBehaviour
             newEventData.player = SaveManager.Instance.userName;
             newEventData.eventName = eventName;
             newEventData.eventDetail = eventDetail;
-            newEventData.gameScene = SceneManager.GetActiveScene().name;
+
+
+            newEventData.gameScene = SetGameSceneVaule();
             newEventData.eventTime = DateTime.UtcNow.ToString("o");
         
             saveEventDataList.Add(newEventData);
@@ -79,6 +81,20 @@ public class EventTrackerManager : SerializedMonoBehaviour
             StartCoroutine(PostEventData(newEventData));
         }
     }
+
+    string SetGameSceneVaule()
+    {
+        string activeSceneName = SceneManager.GetActiveScene().name;
+        if (activeSceneName == "Play Game")
+        {
+            return $"Play Game - {SaveManager.Instance.GetSelectedStageName()}";
+        }
+        else
+        {
+            return activeSceneName;
+        }
+    }
+
 
     IEnumerator PostEventData(EventData newEventData)
     {

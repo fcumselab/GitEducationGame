@@ -239,7 +239,7 @@ public class GameManual : SerializedMonoBehaviour
                     GameDataManager.Instance.AddGameManualUsedTimes();
                     break;
             }
-            eventTrackerTrigger.SendEvent("Read Manual", DetectSelectedButton.name);
+            eventTrackerTrigger.SendEvent("Read GameManual", DetectSelectedButton.name);
         }
     }
 

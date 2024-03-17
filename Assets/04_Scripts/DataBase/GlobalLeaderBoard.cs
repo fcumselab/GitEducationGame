@@ -311,7 +311,7 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
             switch (leaderBoardType)
             {
                 case "ClearStageBestRecord":
-                    eventTrackerTrigger.SendEvent("Check GlobalLeaderBoard", $"StageRecord: {stageName}");
+                    eventTrackerTrigger.SendEvent("Check GlobalLeaderBoard", $"Stage: {stageName}");
                     break;
                 case "GameProgress":
                 case "TotalScore":

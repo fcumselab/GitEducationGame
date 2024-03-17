@@ -9,10 +9,9 @@ public class CommandLineInputField : SerializedMonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] InputField inputField;
-    void Start()
-    {
-        
-    }
+    [SerializeField] string runResultKey;
+    [SerializeField] EventTrackerTrigger eventTrackerTrigger;
+
 
     //Singleton instantation
     private static CommandLineInputField instance;
@@ -25,11 +24,18 @@ public class CommandLineInputField : SerializedMonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SendGitCommandExecuteResult(string inputCommand, string runResultType)
     {
-        
+        GameDataManager.Instance.AddCommandExecuteTimes();
+        Debug.Log($"{inputCommand} - {runResultKey} - {runResultType}");
+        eventTrackerTrigger.SendEvent("Execute Git Command", $"<{inputCommand}>-<{runResultKey}>-<{runResultType}>");
     }
+
+    public void SetRunResultKey(string i18nKey)
+    {
+        runResultKey = i18nKey;
+    }
+
 
     public void AutoCompleteCommand(List<string> findList)
     {

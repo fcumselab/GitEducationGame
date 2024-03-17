@@ -345,8 +345,8 @@ Q11（解答）：
 您可以通過 '<color=#CF001C>git checkout master</color>' 指令
 來切換到 'master' 分支
 
-接下來，請執行 '<color=#CF001C>git branch -d new-feature</color>'
-來刪除本地 'new-feature' 分支
+接下來，請執行 '<color=#CF001C>git branch -d update-readme</color>'
+來刪除本地 'update-readme' 分支
 
 接著，通過指令 '<color=#CF001C>git push -d 遠端存儲庫別名 分支名稱</color>'
 來刪除遠端儲存庫中的分支

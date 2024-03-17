@@ -51,7 +51,7 @@ public class QuestTrackerManager : SerializedMonoBehaviour
 
     public void AddNewQuest()
     {
-        eventTrackerTrigger.SendEvent("Add New Quest", $"{SaveManager.Instance.GetSelectedStageName()}: Quest{GetCurrentQuestNum()}");
+        eventTrackerTrigger.SendEvent("Add New Quest", $"Quest{GetCurrentQuestNum()}");
     }
     
 

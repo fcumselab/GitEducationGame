@@ -164,7 +164,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                     PlayMakerFSM.BroadcastEvent("Help Dialogue System/Help Message Popup/Open Popup");
                     break;
                 case "Hint(Action)":
-                    eventTrackerTrigger.SendEvent("Use Hint Feature", $"{SaveManager.Instance.GetSelectedStageName()}: Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
+                    eventTrackerTrigger.SendEvent("Use Hint", $"Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
                     DialogueManager.StopConversation();
                     DialogueManager.StartConversation(selectStageKey + "Hint");
                     StarIcon.FsmVariables.GetFsmString("runType").Value = "usedHint";
@@ -172,7 +172,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                     ScoreFsm.FsmVariables.GetFsmBool("usedHint").Value = true;
                     break;
                 case "Answer(Action)":
-                    eventTrackerTrigger.SendEvent("Use Answer Feature", $"{SaveManager.Instance.GetSelectedStageName()}: Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
+                    eventTrackerTrigger.SendEvent("Use Answer", $"Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
                     DialogueManager.StopConversation();
                     DialogueManager.StartConversation(selectStageKey + "Answer");
                     StarIcon.FsmVariables.GetFsmString("runType").Value = "usedAnswer";
@@ -180,7 +180,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                     ScoreFsm.FsmVariables.GetFsmBool("usedAnswer").Value = true;
                     break;
                 case "Current":
-                    eventTrackerTrigger.SendEvent("Last Conversation", $"{SaveManager.Instance.GetSelectedStageName()}: Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
+                    eventTrackerTrigger.SendEvent("Last Conversation", $"Quest{QuestTrackerManager.Instance.GetCurrentQuestNum()}");
                     lastDialogKey = DialogueLua.GetVariable("LastConversationKey").asString;
                     DialogueLua.SetVariable("isReplay", true);
                     DialogueManager.StopConversation();

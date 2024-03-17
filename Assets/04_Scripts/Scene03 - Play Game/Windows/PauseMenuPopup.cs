@@ -56,11 +56,11 @@ public class PauseMenuPopup : SerializedMonoBehaviour
         switch (switchSceneKey)
         {
             case "replay":
-                eventTrackerTrigger.SendEvent("Restart Stage(Not Clear)", $"Stage: {SaveManager.Instance.GetSelectedStageName()}");
+                eventTrackerTrigger.SendEvent("Restart Stage(Not Clear)", "");
                 gameManager.GoToPlayGameScene();
                 break;
             case "stageSelection":
-                eventTrackerTrigger.SendEvent("Back To Stage Select(Not Clear)", $"Stage: {SaveManager.Instance.GetSelectedStageName()}");
+                eventTrackerTrigger.SendEvent("Back To Stage Select(Not Clear)", "");
                 gameManager.GoToStageSelectScene();
                 break;
             default:

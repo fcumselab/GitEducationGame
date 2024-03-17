@@ -64,11 +64,11 @@ public class StageSummaryPopup : SerializedMonoBehaviour
         switch (targetKey)
         {
             case "replay":
-                eventTrackerTrigger.SendEvent("Restart Stage(Clear)", $"Stage: {SaveManager.Instance.GetSelectedStageName()}");
+                eventTrackerTrigger.SendEvent("Restart Stage(Clear)", "");
                 gameManager.GoToPlayGameScene();
                 break;
             case "stageSelection":
-                eventTrackerTrigger.SendEvent("Back To Stage Select(Clear)", $"Stage: {SaveManager.Instance.GetSelectedStageName()}");
+                eventTrackerTrigger.SendEvent("Back To Stage Select(Clear)", "");
                 gameManager.GoToStageSelectScene();
                 break;
             default:
@@ -85,7 +85,7 @@ public class StageSummaryPopup : SerializedMonoBehaviour
 
     public void RunSummaryFunc(string stageName, float time, int playerScore)
     {
-        eventTrackerTrigger.SendEvent("Complete Stage", $"Stage: {SaveManager.Instance.GetSelectedStageName()}");
+        eventTrackerTrigger.SendEvent("Complete Stage", "");
 
         if (stageName.Contains("Tutorial"))
         {
