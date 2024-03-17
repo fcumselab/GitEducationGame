@@ -109,7 +109,6 @@ public class PullRequestDetailed_FileChangedTextBox
 			CloneObj.transform.SetParent(CloneLocation.transform);
 			CloneObj.transform.localScale = new(1, 1, 1);
 			CloneObj.name = "FileChangedTextBox (Content)";
-
 			if (fileContent.type == "A")
 			{
 				CloneObj.transform.Find("TextBox/AddPanel/NumText").GetComponent<Text>().text = $"{fileContent.addLineNum}";

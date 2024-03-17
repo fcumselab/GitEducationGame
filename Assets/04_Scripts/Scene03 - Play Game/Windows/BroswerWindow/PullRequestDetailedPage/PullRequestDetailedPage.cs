@@ -25,6 +25,11 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 	[SerializeField] GameObject PRListPageObj;
 	[SerializeField] PRListPage PRListPageScript;
 
+	[Header("Field")]
+
+	[SerializeField] GameObject conversationFieldObj;
+
+
 	[Header("Page Content Script")]
 	[SerializeField] PullRequestDetailedPage_ConversationField conversationField;
 	[SerializeField] PullRequestDetailedPage_CommitsField commitsField;
@@ -74,8 +79,8 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 			else if(!isInitial)
 			{
 				UpdatePullRequestPage(actionType, currentQuestNum);
-            }
-            else
+			}
+			else
             {
 				isLoading = false;
 			}
@@ -93,7 +98,6 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		conversationField.UpdateFileChangedMsg(actionType, currentQuestNum);
 
 		conversationField.AddNewMsg(actionType, currentQuestNum);
-		Debug.Log("AddNewMsg fin");
 
 
 		conversationField.UpdatePRProgressField();
@@ -103,6 +107,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 		
 		fileChangedField.UpdateFileChangedField(actionType, currentQuestNum);
 		fileChangedField.UpdateReviewChangePopup();
+
 
 		isLoading = false;
 	}

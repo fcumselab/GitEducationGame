@@ -23,6 +23,7 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
     [SerializeField] GameObject ReviewerListPanel_Obj;
     ReviewerListPanel reviewerListPanel_Script;
 
+
     [Header("Reference")]
     [SerializeField] Transform BrowserWindowContentPanel;
     [SerializeField] Transform BrowserWindowScrollView;
@@ -75,6 +76,7 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
 
     public void AddNewMsg(string actionType, int currentQuestNum)
     {
+  
         while (true)
         {
             if (RepoQuest_ConversationField.childCount > 0)
@@ -115,9 +117,11 @@ public class PullRequestDetailedPage_ConversationField : SerializedMonoBehaviour
                         PullRequestMsg_ShortMsg shortMsg = Msg.GetComponent<PullRequestMsg_ShortMsg>();
                         if (shortMsg.ValidNeedRenderThisMsg(actionType, currentQuestNum))
                         {
+
                             Msg.SetParent(TextMessageGroup_Conversation.transform);
                             Msg.transform.localScale = new(1, 1, 1);
                             Msg.gameObject.SetActive(true);
+
                             shortMsg.InitializeMsg(actionType, currentQuestNum);
                             break;
                         }

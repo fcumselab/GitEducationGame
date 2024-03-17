@@ -33,6 +33,8 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
     [SerializeField] Text ActionText;
     [FoldoutGroup("Children")]
     [SerializeField] Text TimeText;
+    [FoldoutGroup("Children")]
+    [SerializeField] GameObject Loader;
 
     [Header("Reference")]
     GameObject CommitHistoryWindow;
@@ -50,6 +52,7 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
 
     public void InitializeMsg(string actionType, int currentQuestNum)
     {
+
         GetReferenceValues();
 
         //Initial Main Text
@@ -63,6 +66,7 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
                 break;
         }
         TimeText.text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+        Debug.LogError("acc");
 
         StartCoroutine(DoActionByActionTypeForNPC());
     }
@@ -77,6 +81,8 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
 
     IEnumerator DoActionByActionTypeForNPC()
     {
+        Debug.LogError(actionTypeForNPC);
+
         switch (actionTypeForNPC)
         {
             case "Push":
@@ -84,9 +90,14 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
                 CommitHisotryWindowNPCActionFsm.FsmVariables.GetFsmString("runType").Value = "NPC-Commit";
                 CommitHisotryWindowNPCActionFsm.enabled = true;
                 yield return StartCoroutine(WaitForFsmCompletion(CommitHisotryWindowNPCActionFsm));
+                Debug.LogError("s");
 
                 int msgIndex = transform.GetSiblingIndex();
+                Debug.LogError("x");
+
                 PullRequestMsg_FileChanged LastFileChangedMsg = transform.parent.GetChild(msgIndex - 1).GetComponent<PullRequestMsg_FileChanged>();
+                Debug.LogError(LastFileChangedMsg.name);
+
                 LastFileChangedMsg.ResolveConversationAction();
 
                 break;
