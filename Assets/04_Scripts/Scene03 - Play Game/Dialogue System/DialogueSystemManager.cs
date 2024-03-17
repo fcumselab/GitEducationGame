@@ -85,7 +85,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                     DialogueManager.StartConversation(selectStageKey + "Help Selection");
                     break;
                 case "StartQuiz":
-                    Debug.Log("Let's Start Quiz!!!");
+                    //Debug.Log("Let's Start Quiz!!!");
                     QuizGameManager.Instance.StartQuizGame(selectStageKey);
                     break;
                 case "First":
@@ -117,7 +117,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                     DialogueManager.StartConversation(selectStageKey + "End");
                     break;
                 default:
-                    Debug.Log("Not found HelpDialogueSystem Key : " + runType);
+                    //Debug.Log("Not found HelpDialogueSystem Key : " + runType);
                     break;
             }
         }
@@ -187,7 +187,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                     DialogueManager.StartConversation(lastDialogKey);
                     break;
                 default:
-                    Debug.Log("Not found HelpDialogueSystem Key : " + runType);
+                    //Debug.Log("Not found HelpDialogueSystem Key : " + runType);
                     break;
             }
         }
@@ -230,11 +230,11 @@ public class DialogueSystemManager : SerializedMonoBehaviour
                 switch (stageType)
                 {
                     case "Action":
-                        Debug.Log("ActionFirst Dialogue");
+                        //Debug.Log("ActionFirst Dialogue");
                         EnableDialog("First");
                         break;
                     case "Quiz":
-                        Debug.Log("QuizFirst Dialogue");
+                        //Debug.Log("QuizFirst Dialogue");
                         panelControllerFsm.FsmVariables.GetFsmString("runType").Value = "Show";
                         panelControllerFsm.enabled = true;
                         EnableDialog("First");
@@ -245,7 +245,7 @@ public class DialogueSystemManager : SerializedMonoBehaviour
             }
             else
             {
-                Debug.Log("Help Dialogue");
+                //Debug.Log("Help Dialogue");
                 switch (stageType)
                 {
                     case "Action":

@@ -73,7 +73,6 @@ public class GameManagerStageSelect : SerializedMonoBehaviour
         List<StageData> foundTypeData = stageData.FindAll((stageItem) => stageItem.stageType == type);
 
         totalStage = foundTypeData.Count;
-
         int buttonItemIndex = 0;
         foreach (StageData stageItem in foundTypeData)
         {

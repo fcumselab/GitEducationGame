@@ -66,7 +66,6 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
                 break;
         }
         TimeText.text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-
         StartCoroutine(DoActionByActionTypeForNPC());
     }
 
@@ -96,7 +95,7 @@ public class PullRequestMsg_ShortMsg : SerializedMonoBehaviour
 
                 break;
             case "MergePullRequest":
-                PRProgressFieldObj.GetComponent<PullRequestProgressField>().ButtonClickActionMergePullRequest(AuthorText.text);
+                PRProgressFieldObj.GetComponent<PullRequestProgressField>().ButtonClickActionMergePullRequest(AuthorText.text, true);
                 break;
             default:
                 //Skip the action

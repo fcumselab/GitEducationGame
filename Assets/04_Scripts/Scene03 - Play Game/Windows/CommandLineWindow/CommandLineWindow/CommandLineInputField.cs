@@ -27,7 +27,7 @@ public class CommandLineInputField : SerializedMonoBehaviour
     public void SendGitCommandExecuteResult(string inputCommand, string runResultType)
     {
         GameDataManager.Instance.AddCommandExecuteTimes();
-        Debug.Log($"{inputCommand} - {runResultKey} - {runResultType}");
+        //Debug.Log($"{inputCommand} - {runResultKey} - {runResultType}");
         eventTrackerTrigger.SendEvent("Execute Git Command", $"<{inputCommand}>-<{runResultKey}>-<{runResultType}>");
     }
 

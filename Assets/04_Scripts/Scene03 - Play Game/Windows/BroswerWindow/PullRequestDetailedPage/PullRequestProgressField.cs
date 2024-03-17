@@ -116,7 +116,7 @@ public class PullRequestProgressField : SerializedMonoBehaviour
         pullRequestDetailedPage_ConversationField = pullRequestDetailedPage.GetComponent<PullRequestDetailedPage_ConversationField>();
         MergePRButtonFsm = MyPlayMakerScriptHelper.GetFsmByName(MergePRButton, "Button Controller");
         MergePRButton.GetComponent<Button>().onClick.AddListener(() => SwitchToMergeInputField());
-        MergePRActionButton.GetComponent<Button>().onClick.AddListener(() => ButtonClickActionMergePullRequest(playerText.text));
+        MergePRActionButton.GetComponent<Button>().onClick.AddListener(() => ButtonClickActionMergePullRequest(playerText.text, false));
         CommitHistoryWindow = GameObject.Find("CommitHistoryWindow");
         CommitHisotryWindowNPCActionFsm = MyPlayMakerScriptHelper.GetFsmByName(CommitHistoryWindow, "NPC Action");
         initial = true;
@@ -175,11 +175,11 @@ public class PullRequestProgressField : SerializedMonoBehaviour
         MergePRInputField.SetActive(true);
     }
 
-    public void ButtonClickActionMergePullRequest(string authorName)
+    public void ButtonClickActionMergePullRequest(string authorName, bool isNPC)
     {
         if (!MergePRActionButtonTooltip) { MergePRActionButtonTooltip = MergePRActionButton.GetComponent<MouseTooltipTrigger>(); }
 
-        if (CurrentQuestBarFsm.FsmVariables.GetFsmBool("isQuestEnable").Value)
+        if (CurrentQuestBarFsm.FsmVariables.GetFsmBool("isQuestEnable").Value || isNPC)
         {
             SwitchToMergeInputField();
             string titleText = PRTitleText.GetComponent<Text>().text;
