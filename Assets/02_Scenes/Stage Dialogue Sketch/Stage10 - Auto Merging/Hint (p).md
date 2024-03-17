@@ -189,7 +189,7 @@ Q6（解答）：
 來切換到 'master' 分支
 
 接下來，請執行 '<color=#CF001C>git branch -d ui-design</color>'
-這樣即可刪除 'ui-design' 指令
+這樣即可刪除 'ui-design' 分支
 
 之後，請執行 '<color=#CF001C>git branch -d java-activity</color>'
 這樣即可刪除 'java-activity' 分支
