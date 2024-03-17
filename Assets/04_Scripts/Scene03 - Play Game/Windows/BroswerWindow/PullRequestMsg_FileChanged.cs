@@ -99,8 +99,6 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
         //solveByNPC -> run resolve directly.
         if (!isSolved)
         {
-            Debug.LogError("is");
-
             int currentQuestNum = QuestTrackerManager.Instance.GetCurrentQuestNum();
             int replyMsgListCount = fileChangedTextBox.ReplyMsgList.Count;
             int allRenderMsgCount = fileChangedTextBox.ReplyMsgList.FindAll((Msg) => (Msg.isRender == true)).Count;
@@ -139,8 +137,6 @@ public class PullRequestMsg_FileChanged : SerializedMonoBehaviour
         }
         else
         {
-            Debug.LogError("N");
-
             ResolvedButtonTooltipTrigger.ClickButtonAction("BrowserWindow/PRDetailed/FilesChanged/ResolvedButton(SolveMsg)", true);
         }
     }

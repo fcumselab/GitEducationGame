@@ -26,9 +26,7 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
 	[SerializeField] PRListPage PRListPageScript;
 
 	[Header("Field")]
-
-	[SerializeField] GameObject conversationFieldObj;
-
+	[SerializeField] List<GameObject> pageList = new();
 
 	[Header("Page Content Script")]
 	[SerializeField] PullRequestDetailedPage_ConversationField conversationField;
@@ -116,6 +114,35 @@ public class PullRequestDetailedPage : SerializedMonoBehaviour
     {
 		conversationField.UpdateFileChangedMsg(actionType, currentQuestNum);
 	}
+
+	public void UpdatePage(int num)
+    {
+		Debug.Log("update");
+		CanvasGroup canva;
+		LayoutElement layout;
+		for (int i=0; i< pageList.Count; i++)
+        {
+			canva = pageList[i].GetComponent<CanvasGroup>();
+			layout = pageList[i].GetComponent<LayoutElement>();
+
+			if (i == num)
+            {
+				layout.ignoreLayout = false;
+				canva.alpha = 1;
+				canva.blocksRaycasts = true;
+				canva.interactable = true;
+
+			}
+			else
+            {
+				layout.ignoreLayout = true;
+				canva.alpha = 0;
+				canva.blocksRaycasts = false;
+				canva.interactable = false;
+			}
+		}
+	}
+
 
 	#region Waiting Animation
 	IEnumerator WaitForFinish()
