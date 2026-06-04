@@ -12,9 +12,6 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
 {
     #region Variable
 
-    // http:/xxx.xxx.xxx.xxx:xxx/ 
-    [SerializeField] string baseUrl;
-
     [FoldoutGroup("Process Popup")]
     [SerializeField] GameObject WebsiteLoadingPanel;
     [FoldoutGroup("Process Popup")]
@@ -283,11 +280,11 @@ public class GlobalLeaderBoard : SerializedMonoBehaviour
 
         if (stageName == "")
         {
-            url = $"{baseUrl}getGlobalLeaderBoardData?type={leaderBoardType}";
+            url = $"{UrlSetting.Instance.GetUrl()}getGlobalLeaderBoardData?type={leaderBoardType}";
         }
         else
         {
-            url = $"{baseUrl}getGlobalLeaderBoardData?type={leaderBoardType}&stageName={stageName}";
+            url = $"{UrlSetting.Instance.GetUrl()}getGlobalLeaderBoardData?type={leaderBoardType}&stageName={stageName}";
         }
 
         UnityWebRequest www = UnityWebRequest.Get(url);
