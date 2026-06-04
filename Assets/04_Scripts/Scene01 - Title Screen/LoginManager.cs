@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 [Serializable]
 public class LoginResultData
@@ -16,9 +17,7 @@ public class LoginResultData
 
 public class LoginManager : SerializedMonoBehaviour
 {
-    // http:/xxx.xxx.xxx.xxx:xxx/ 
-    [FoldoutGroup("Web Connection")]
-    [SerializeField] string baseUrl;
+
     [FoldoutGroup("Web Connection")]
     [SerializeField] EventTrackerTrigger eventTrackerTrigger;
 
@@ -55,7 +54,7 @@ public class LoginManager : SerializedMonoBehaviour
 
     IEnumerator SignUpRequest(WWWForm form, Action<string> callback)
     {
-        UnityWebRequest www = UnityWebRequest.Post($"{baseUrl}signUp", form);
+        UnityWebRequest www = UnityWebRequest.Post($"{UrlSetting.Instance.GetUrl()}signUp", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -109,7 +108,9 @@ public class LoginManager : SerializedMonoBehaviour
 
     IEnumerator LoginRequest(WWWForm form, Action<string> callback)
     {
-        UnityWebRequest www = UnityWebRequest.Post($"{baseUrl}login", form);
+
+
+        UnityWebRequest www = UnityWebRequest.Post($"{UrlSetting.Instance.GetUrl()}login", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)

@@ -7,9 +7,6 @@ using UnityEngine.Networking;
 
 public class SaveManager : SerializedMonoBehaviour
 {
-    // http:/xxx.xxx.xxx.xxx:xxx/ 
-    [SerializeField] string baseUrl;
-
     [FoldoutGroup("Play Game")]
     [SerializeField] string selectedStageName;
 
@@ -150,7 +147,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     IEnumerator UploadPlayerSaveData(WWWForm form)
     {
-        UnityWebRequest www = UnityWebRequest.Post($"{baseUrl}UpdatePlayerData", form);
+        UnityWebRequest www = UnityWebRequest.Post($"{UrlSetting.Instance.GetUrl()}UpdatePlayerData", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -167,7 +164,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     IEnumerator UpdateGlobalLeaderBoard(WWWForm form)
     {
-        UnityWebRequest www = UnityWebRequest.Post($"{baseUrl}UpdateGlobalLeaderBoardData", form);
+        UnityWebRequest www = UnityWebRequest.Post($"{UrlSetting.Instance.GetUrl()}UpdateGlobalLeaderBoardData", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)

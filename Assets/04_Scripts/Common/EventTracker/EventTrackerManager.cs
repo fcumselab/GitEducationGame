@@ -8,9 +8,6 @@ using UnityEngine.Networking;
 
 public class EventTrackerManager : SerializedMonoBehaviour
 {
-    // http:/xxx.xxx.xxx.xxx:xxx/ 
-    [SerializeField] string baseUrl;
-
     [SerializeField] bool debugMode;
     [SerializeField] float retryTriggerTime = 5f;
     [SerializeField] List<EventData> saveEventDataList = new();
@@ -102,7 +99,7 @@ public class EventTrackerManager : SerializedMonoBehaviour
         string json = JsonUtility.ToJson(newEventData);
         form.AddField("eventData", json);
 
-        using (UnityWebRequest request = UnityWebRequest.Post($"{baseUrl}SendEventTracker", form))
+        using (UnityWebRequest request = UnityWebRequest.Post($"{UrlSetting.Instance.GetUrl()}SendEventTracker", form))
         {
             yield return request.SendWebRequest();
             if (request.result != UnityWebRequest.Result.Success)
