@@ -27,15 +27,16 @@ let is_debug_mode = false;
 async function insertGameDefaultData() {
   try {
     // Deploy Network Setting
-    // const username = process.env.MONGO_USERNAME;
-    // const password = process.env.MONGO_PASSWORD;
-    // const hostname = process.env.MONGO_HOST;
-    // const port = process.env.MONGO_PORT;
-    // const database = process.env.MONGO_DB;
-    // const url = `mongodb://${username}:${password}@${hostname}:${port}/${database}`;
+    const username = process.env.MONGO_USERNAME;
+    const password = process.env.MONGO_PASSWORD;
+    const hostname = process.env.MONGO_HOST;
+    const port = process.env.MONGO_PORT;
+    const database = process.env.MONGO_DB;
+
+    const url = `mongodb://${username}:${password}@${hostname}:${port}/${database}`;
 
     // Testing Local Setting
-    const url = `mongodb://localhost:27017/GEG-database`;
+    // const url = `mongodb://localhost:27017/GEG-database`;
 
     await mongoose.connect(url, {
       useNewUrlParser: true,
