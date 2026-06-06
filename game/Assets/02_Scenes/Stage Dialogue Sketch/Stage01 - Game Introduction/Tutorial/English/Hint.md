@@ -112,7 +112,7 @@ Here are some hints to help you reach your objective:
 2. In this game, content that needs to be modified will be marked with <color=#CF001C>(to be modified)</color>.
    Please find those lines and get ready to modify them.
 
-3. There is a cross icon on the right side of each line.
+3. There is a pencil icon on the left side of each line.
    Clicking it will modify the content of that line.
 
 4. Before modifying any content,
@@ -125,8 +125,8 @@ please first find and click it in the 'File Manager' window to open the 'File Co
 In the 'File Content' window,
 the content that needs to be modified
 will be marked with <color=#CF001C>(to be modified)</color>.
-Therefore, the line we need to delete is:
-'<color=#CF001C>Hher'</color>.
+Therefore, the line we need to modify is:
+'<color=#CF001C>Comparison of two methods</color>.
 
 There is a pencil icon on the left side of this line.
 It is used to modify specific lines of content.
