@@ -1,56 +1,84 @@
 StageTitle,"Reviewing and Merging Pull Requests"
-Story Background/Content/Story,"You are a student.
-In the 'Project Management' course,
-the teacher required students to team up and develop a website together.
+Story Background/Content/Story,"You are a student in the latter half of the 'Project Management' course. 
+The teacher has asked students to form groups and develop an application on a Git service platform.
 
-You and your team members are managing the project with Git.
-Each member develops features on their branches.
+You and your team members decided to develop a 'Snake Game' project. 
+The team will apply version control practices to boost development efficiency.
 
-Team member A has added content to the 'README.md' file on his 'member-branch' branch.
+Classmate A is responsible for developing the game's main program 
+and has been working on a branch named 'main-script'. 
+Now, the main features of the game have been completed, 
+and Classmate A has added various elements to the game.
 
-He has completed the development and created a Pull Request for merging,
-and you will be the reviewer to check his changed content.
+To ensure that the process of creating the Pull Request goes smoothly, 
+Classmate A completed the 'Preparation for Merging' workflow on their local computer. 
+Afterward, Classmate A created a Pull Request on the Git service platform.
 
-Now, please review this merge request.
-Then merge the Pull Request into the 'master' branch."
-Stage Quest/1,"Open the 'Web Browser' window."
-Stage Quest/2,"Add modification suggestions on Pull Request."
-Stage Quest/3,"Approve Pull Request."
-Stage Quest/4,"Merge Pull Request."
-NPCCommitData/NPC1,"Team Member A"
-CommitHistoryData/File data/ListContent/1/v1,"# Shopping Website Project"
-CommitHistoryData/File data/ListContent/1/v2,"# Shopping Website Project\nShopping website introduction"
-CommitHistoryData/File data/ListContent/1/v3,"# Happy Shopping Store - Shopping Website Project\nShopping website introduction"
-CommitHistoryData/File data/ListContent/1/v4,"# Happy Shopping Store - Shopping Website Project\nShopping website introduction\nReason for creating the website:\nThis website was created in the 'Programming' course.\nWe used Git to manage the project. \nWe want to improve our proranning skills by creating this website together."
-CommitHistoryData/File data/ListContent/1/v5,"# Happy Shopping Store - Shopping Website Project\nShopping website introduction\nReason for creating the website:\nThis website was created in the 'Programming' course.\nWe used Git to manage the project. \nWe want to improve our programming skills by creating this website together."
-CommitHistoryData/File data/ListLocation/0,"shopping-website"
-CommitHistoryData/File data/ListLocation/1,"shopping-website\README.md"
-CommitHistoryData/File data/ListLocation/2,"shopping-website\.git"
-CommitHistoryData/CommitMessage/1,"Added README file."
-CommitHistoryData/CommitMessage/2,"Added README content: Introduction to the shopping website."
-CommitHistoryData/CommitMessage/3,"Changed README title: Added shopping website project name."
-CommitHistoryData/CommitMessage/4,"Added README content: Reason for creating the website."
-CommitHistoryData/CommitMessage/5,"Corrected README content: Typo in the reason for creating the website."
-CommitHistoryData/File data/ListFileName/0,"shopping-website"
+As the reviewer for this Pull Request, 
+your mission is to discuss it with Classmate A to ensure all changes are appropriate. 
+After verifying everything is correct, 
+you will be responsible for merging the 'main-script' branch into the remote main branch."
+Stage Quest/1,"Open the 'Web Browser' window"
+Stage Quest/2,"Add modification suggestions to the Pull Request"
+Stage Quest/3,"Approve the Pull Request"
+Stage Quest/4,"Merge the Pull Request"
+Stage Quest/5,"Synchronize the content of the remote 'master' branch
+and update the 'Commit History' window"
+NPCCommitData/NPC1,"Classmate A"
+CommitHistoryData/File data/ListContent/1,"# snake-game"
+CommitHistoryData/File data/ListContent/2v1,"Game execution logic\nScore system\nFruit object management"
+CommitHistoryData/File data/ListContent/2v2,"Game execution logic\nScore system\nFruit object management\nBomb object management"
+CommitHistoryData/File data/ListContent/2v3,"Game execution logic\nScore system\nFruit object management\nBomb object management\nPlayer sprint system\nEnergy bar system"
+CommitHistoryData/File data/ListContent/2v4(fixed),"Game execution logic\nScore system\nFruit object management\nBomb object management (Adjusted bomb explosion radius)\nPlayer sprint system\nEnergy bar system"
+CommitHistoryData/File data/ListLocation/0,"snake-game"
+CommitHistoryData/File data/ListLocation/1,"snake-game\README.md"
+CommitHistoryData/File data/ListLocation/2,"snake-game\Main_Script.cpp"
+CommitHistoryData/File data/ListLocation/3,"snake-game\.git"
+CommitHistoryData/File data/ListFileName/0,"snake-game"
 CommitHistoryData/File data/ListFileName/1,"README.md"
-RepoQuestData/Repo Quest/PRTitle,"Added README content: Website name and reason for creation."
-RepoQuestData/Repo Quest/PRDes,"In this Pull Request, I made changes to the 'member-branch' branch.
-I've added the website name 'Happy Shopping Store'.
-Then I add the reason for creating this website."
-BrowserWindow/PRDetailed/FileContent1,"# Happy Shopping Store - Shopping Website Project"
-BrowserWindow/PRDetailed/FileContent2,"Shopping website introduction"
-BrowserWindow/PRDetailed/FileContent3,"Reason for creating the website:"
-BrowserWindow/PRDetailed/FileContent4,"This website was created in the 'Programming' course."
-BrowserWindow/PRDetailed/FileContent5,"We used Git to manage the project. "
-BrowserWindow/PRDetailed/FileContent6,"We want to improve our proranning skills by creating this website together."
-BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/MainContent,"Hello, I noticed there is a typo in the 'Reason for creating the website' section.
-Please make the correction. 
+CommitHistoryData/File data/ListFileName/2,"Main_Script.cpp"
+NPCCommitData/NPC1,"Classmate A"
+CommitHistoryData/CommitMessage/1,"Add README file"
+CommitHistoryData/CommitMessage/2,"Basic Snake Game completed"
+CommitHistoryData/CommitMessage/3,"Bomb feature design completed"
+CommitHistoryData/CommitMessage/4,"Player sprint allowed and energy bar system added"
+CommitHistoryData/CommitMessage/5,"Adjust bomb explosion radius"
+RepoQuestData/Repo Quest/PRTitle,"Game Feature Development: Completed the 'Snake' game main program development"
+RepoQuestData/Repo Quest/PRDes,"This Pull Request contains the changes I made on the 'main-script' branch. 
+I am responsible for developing the main program of the 'Snake Game'. 
+Now, the main features have been completed, 
+and various elements have been added to the game. 
+
+Main changes: 
+<b>· </b>Game execution logic: Implemented the basic controls and rules of the Snake game.
+<b>· </b>Score system: Added a scoreboard to keep track of the player's score.
+<b>· </b>Fruit object management: Implemented random spawning and despawning of fruits.
+<b>· </b>Bomb object management: Implemented random spawning, explosion effects, and explosion radius for bombs.
+<b>· </b>Player sprint system: Added a sprint function for players, which consumes the energy bar.
+<b>· </b>Energy bar system: Implemented the display and consumption mechanism of the energy bar."
+BrowserWindow/PRDetailed/FileContent1,"Game execution logic"
+BrowserWindow/PRDetailed/FileContent2,"Score system"
+BrowserWindow/PRDetailed/FileContent3,"Fruit object management"
+BrowserWindow/PRDetailed/FileContent4,"Bomb object management <color=#CF001C>(to be modified)</color>"
+BrowserWindow/PRDetailed/FileContent4(fixed),"Bomb object management (Adjusted bomb explosion radius)"
+BrowserWindow/PRDetailed/FileContent5,"Player sprint system"
+BrowserWindow/PRDetailed/FileContent6,"Energy bar system"
+BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/MainContent,"Hello, after multiple game playtests, 
+the 'Snake' game is currently running well. 
+
+However, I noticed that the bomb's explosion radius seems a bit too large,
+which might negatively impact the player's gaming experience. 
+
+To maintain game balance and replayability, 
+I suggest adjusting the bomb's explosion radius. 
 Thank you."
-BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage1,"Please change 'proranning' to 'programming'."
-BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage2,"Thank you for your suggestion,
-I will check and make the changes."
-BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage3,"Hello, I have resolved the typo issue. 
-Please let me know if any further changes are required.
-Thank you."
-BrowserWindow/PRDetailed/Msg_3_ReviewChange(Approve)_Approve,"Reviewed and confirmed that the 'README.md' content is fine. 
+BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage1,"Please slightly adjust the bomb explosion radius."
+BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage2,"Thank you for the suggestion. 
+I will adjust the bomb explosion radius to a reasonable value."
+BrowserWindow/PRDetailed/Msg_2_ReviewChange(FileChange)/ReplyMessage3,"Hello, I have adjusted the bomb explosion radius. 
+This should now keep the game fun while maintaining a challenging experience for players.
+Please review this merge request once again,
+thank you."
+BrowserWindow/PRDetailed/Msg_3_ReviewChange(Approve)_Approve,"Reviewed and confirmed that the bomb explosion radius has been scaled down to a more appropriate range.
+Furthermore, the game is currently running normally. 
 Approving this merge request."
