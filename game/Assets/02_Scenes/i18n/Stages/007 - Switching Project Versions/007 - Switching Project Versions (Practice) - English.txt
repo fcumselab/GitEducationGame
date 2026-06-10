@@ -1,30 +1,34 @@
 StageTitle,"Switching Project Versions"
-Story Background/Content/Story,"You are a student.
-Recently, you have been designing the content for a website.
+Story Background/Content/Story,"You are an excellent QA (Software Test Engineer).
+Recently, your colleague developed a BMI calculator.
+However, you discovered that the latest version of the program crashes during runtime.
 
-However, you found that it’s difficult to decide what color should apply to the web page text.
-And you have already created two commits with different text colors.
+You believe this bug might originate from the code written earlier,
+and switching back to older versions will speed up your investigation into the root cause.
 
-Is it possible to confirm which color is more suitable 
-without directly modifying it, using Git commands instead?"
-Stage Quest/1,"Open the 'Commit History' window."
-Stage Quest/2,"Open the 'File Manager' window."
-Stage Quest/3,"Verify the content of 'Web_Stylesheet.css'."
-Stage Quest/4,"Switch to the second commit version."
-Stage Quest/5,"Check the status of the 'Commit History' window."
-Stage Quest/6,"Verify the content of 'Web_Stylesheet.css'."
-Stage Quest/7,"Switch to the third commit version.
-Then update the 'Commit History' window."
-Stage Quest/8,"Switch to the 'master' branch.
-Then update the 'Commit History' window."
-CommitHistoryData/File data/ListContent/0,"Webpage Title\nWebpage Content\nWebpage Footer"
-CommitHistoryData/File data/ListContent/1/v1,"orange text"
-CommitHistoryData/File data/ListContent/1/v2,"blue text"
-CommitHistoryData/File data/ListFileName/0,"My_Homepage.html"
-CommitHistoryData/File data/ListFileName/1,"Web_Stylesheet.css"
-CommitHistoryData/File data/ListLocation/0,"My_Homepage.html"
-CommitHistoryData/File data/ListLocation/1,"Web_Stylesheet.css"
-CommitHistoryData/CommitMessage/1,"Added homepage file for the website."
-CommitHistoryData/CommitMessage/2,"Added webpage style: set text color to orange."
-CommitHistoryData/CommitMessage/3,"Added webpage style: set text color to blue."
-Quest Valider/Valider/0,"Web_Stylesheet.css"
+Your task is to use Git to track down the exact moment this error occurred.
+Once you find the bug, note down the line number,
+and return to the latest version to fix it."
+Stage Quest/1,"Verify the content of 'BMI_Calculator.c"
+Stage Quest/2,"Switch to the 2nd committed version
+and update the 'Commit History' window"
+Stage Quest/3,"Verify the content of 'BMI_Calculator.c"
+Stage Quest/4,"Switch to the 3rd committed version
+and update the 'Commit History' window"
+Stage Quest/5,"Verify the content of 'BMI_Calculator.c"
+Stage Quest/6,"Switch to the 'master' branch
+and update the 'Commit History' window"
+Stage Quest/7,"Fix the bug in the code content"
+CommitHistoryData/File data/ListContent/0,"BMI Calculator Main Program"
+CommitHistoryData/File data/ListContent/1,"BMI Calculator Main Program\nInput Detection Code <color=#173D91>(No Problems!)</color>"
+CommitHistoryData/File data/ListContent/2,"BMI Calculator Main Program\nInput Detection Code\nBMI Calculation Code <color=#CF001C>(Error!)</color>"
+CommitHistoryData/File data/ListContent/3,"BMI Calculator Main Program\nInput Detection Code\nBMI Calculation Code <color=#FFE6C6>(to be modified)</color>\mCorrect BMI Calculation Code (modified)\nDisplay BMI Results Code <color=#173D91>(No Problems!)</color>"
+CommitHistoryData/File data/ListFileName/0,"BMI_Calculator.c"
+CommitHistoryData/File data/ListLocation/0,"BMI_Calculator.c"
+Quest Filter/Valider/Target File Name/1,"BMI_Calculator.c"
+Quest Valider/Valider/0,"BMI_Calculator.c"
+CommitHistoryData/CommitMessage/1,"Initialize BMI Calculator"
+CommitHistoryData/CommitMessage/2,"Write 'Input Detection Code'"
+CommitHistoryData/CommitMessage/3,"Write 'BMI Calculation Code'"
+CommitHistoryData/CommitMessage/4,"Write 'Display BMI Results Code'"
+NPCCommitData/NPC1,"Colleague A"

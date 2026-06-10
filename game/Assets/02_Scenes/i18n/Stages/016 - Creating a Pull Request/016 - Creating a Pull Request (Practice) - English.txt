@@ -1,82 +1,88 @@
 StageTitle,"Creating a Pull Request"
-Story Background/Content/Story,"You are a student.
-In the 'Project Management' course,
-the teacher required students to team up and develop a website together.
+Story Background/Content/Story,"You are a student in the latter half of the 'Project Management' course. 
+The teacher has asked students to form groups and develop an application on a Git service platform.
 
-You and your team members are managing the project with Git.
-Each member develops features on their branches.
+You and your team members decided to develop a 'Snake Game' project.
+The team will apply version control practices to boost development efficiency.
 
-On your 'update-readme' branch, you added content to the 'README.md' file.
+Your responsible task is to write the 'README' file.
+You have already completed writing the 'README' file on the 'update-readme' branch.
 
-After completing development, 
-you check the 'preparations for merging into the remote main branch' process on your local computer.
-During the process, you resolved merge conflicts with the 'master' branch.
+To ensure that no merge conflicts occur during the Pull Request process later,
+you completed the 'Preparation for Merging' workflow on your local computer.
 
-Now, please create a Pull Request through the Git service platform.
-Merge the contents of the 'update-readme' branch into the 'master' branch."
-Stage Quest/1,"Open the 'Commit History' window."
-Stage Quest/2,"Open the 'Web Browser' window."
-Stage Quest/3,"Create a new Pull Request."
-Stage Quest/4,"Add a reviewer."
-Stage Quest/5,"Reply to reviewer's message."
-Stage Quest/6,"Modify file content based on suggestions."
-Stage Quest/7,"Create a new commit.
-Then update the 'Commit History' window."
-Stage Quest/8,"Push the 'update-readme' branch to the remote repository. 
-Then update the 'Commit History' window."
-Stage Quest/9,"Mark Pull Request conversation as resolved."
-Stage Quest/10,"Synchronize content from the remote 'master' branch.
-Then update the 'Commit History' window."
-Stage Quest/11,"Delete both local and remote 'update-readme' branches.
-Then update the 'Commit History' window."
-DefaultData/Commit data/commitMessageList/0,"Added README content: Steps of running project."
-DefaultData/Commit data/commitMessageList/1,"add-on the README file content."
-DefaultData/Commit data/commitMessageList/2,"Added file content."
-DefaultData/Commit data/commitMessageReasonList/0,"Commit message analysis:
-This message clearly tells team members about the added content.
-It shows that this commit is for resolving the pull request conversation."
-DefaultData/Commit data/commitMessageReasonList/1,"Commit message analysis:
-Although this message mentions add-on file content, it is not clear.
-It does not mention what content is changed."
-DefaultData/Commit data/commitMessageReasonList/2,"Commit message analysis:
-This message is not clear. 
-It does not mention what content is added."
-CommitHistoryData/File data/ListContent/1/v1,"# Shopping Website Project"
-CommitHistoryData/File data/ListContent/1/v2,"# Shopping Website Project\nReason for creating the website"
-CommitHistoryData/File data/ListContent/1/v3,"# Shopping Website Project\nReason for creating the website\nWebsite operation instruction"
-CommitHistoryData/File data/ListContent/1/v4,"# Shopping Website Project\nWeb system architecture\nWebsite screenshots"
-CommitHistoryData/File data/ListContent/1/v5,"# Shopping Website Project\nReason for creating the website\nWebsite operation instruction\nWeb system architecture\aSteps of running project\nWebsite screenshots"
-NPCCommitData/NPC1,"Team Member A"
-CommitHistoryData/File data/ListLocation/0,"shopping-website"
-CommitHistoryData/File data/ListLocation/1,"shopping-website\README.md"
-CommitHistoryData/File data/ListLocation/2,"shopping-website\.git"
-CommitHistoryData/File data/ListFileName/0,"shopping-website"
+Now, your mission is to create a Pull Request for your development branch.
+Please try to merge the 'update-readme' branch into the remote main branch,
+and discuss it with your team members to ensure the changes are appropriate."
+Stage Quest/1,"Open the 'Commit History' window"
+Stage Quest/2,"Open the 'Web Browser' window"
+Stage Quest/3,"Create a new Pull Request"
+Stage Quest/4,"Add reviewers"
+Stage Quest/5,"Reply to the reviewer's message"
+Stage Quest/6,"Modify file content based on suggestions"
+Stage Quest/7,"Create a new commit 
+and update the 'Commit History' window"
+Stage Quest/8,"Push the 'update-readme' branch to the remote repository
+and update the 'Commit History' window"
+Stage Quest/9,"Mark the Pull Request conversation as resolved"
+Stage Quest/10,"Synchronize the content of the remote 'master' branch
+and update the 'Commit History' window"
+Stage Quest/11,"Delete the 'update-readme' branch from both the local and remote repositories
+and update the 'Commit History' window"
+DefaultData/Commit data/commitMessageList/0,"Add more detailed descriptions for the 'Multiple object spawning' section"
+DefaultData/Commit data/commitMessageList/1,"Modify README content"
+DefaultData/Commit data/commitMessageList/2,"Fix issues occurring in the merge request"
+DefaultData/Commit data/commitMessageReasonList/0,"Commit Message Analysis:
+Clearly indicates the specific details of the modified commit."
+DefaultData/Commit data/commitMessageReasonList/1,"Commit Message Analysis:
+Although the README content was indeed modified, it is not specific enough."
+DefaultData/Commit data/commitMessageReasonList/2,"Commit Message Analysis:
+Fails to indicate which modification suggestion this commit fixes.
+Furthermore, it fails to indicate the file details of the modified commit."
+CommitHistoryData/File data/ListContent/1,"# snake-game"
+CommitHistoryData/File data/ListContent/2v1,"Game execution logic\nScore system\nFruit object management"
+CommitHistoryData/File data/ListContent/2v2,"Game execution logic\nScore system\nFruit object management\nBomb object management"
+CommitHistoryData/File data/ListContent/2v3,"Game execution logic\nScore system\nFruit object management\nBomb object management\nPlayer sprint system\nEnergy bar system"
+CommitHistoryData/File data/ListContent/1v2,"# snake-game\nThis is an improved version of the Snake Game.\nMultiple objects will appear in the game. Eating fruits will grant points, and the game ends if the player is blown up by a bomb."
+CommitHistoryData/File data/ListContent/1v3,"# snake-game\nThis is an improved version of the Snake Game.\nMultiple objects will appear in the game. Eating fruits will grant points, and the game ends if the player is blown up by a bomb.\nGame Features:\n<b>· </b>Multiple objects appear within a period of time\n<b>· </b>Bombs will explode after a period of time, and the game ends if the player is within the explosion radius\n<b>· </b>The game features an energy bar, allowing players to sprint"
+CommitHistoryData/File data/ListContent/1v4,"# snake-game\nThis is an improved version of the Snake Game.\nMultiple objects will appear in the game. Eating fruits will grant points, and the game ends if the player is blown up by a bomb.\nGame Features:\n<b>· </b>Multiple objects appear within a period of time<color=#FFE6C6>(to be modified)</color>\m<b>· </b>Random amounts of fruits and bombs will spawn every 5 seconds, and their spawn locations are also random. (modified)\n<b>· </b>Bombs will explode after a period of time, and the game ends if the player is within the explosion radius\n<b>· </b>The game features an energy bar, allowing players to sprint"
+CommitHistoryData/File data/ListLocation/0,"snake-game"
+CommitHistoryData/File data/ListLocation/1,"snake-game\README.md"
+CommitHistoryData/File data/ListLocation/2,"snake-game\Main_Script.cpp"
+CommitHistoryData/File data/ListLocation/3,"snake-game\.git"
+CommitHistoryData/File data/ListFileName/0,"snake-game"
 CommitHistoryData/File data/ListFileName/1,"README.md"
-CommitHistoryData/CommitMessage/1,"Added README file."
-CommitHistoryData/CommitMessage/2,"Added README content: Reason for creating the website."
-CommitHistoryData/CommitMessage/3,"Added README content: Operation instructions."
-CommitHistoryData/CommitMessage/4,"Added README content: Web system architecture and screenshots."
-CommitHistoryData/CommitMessage/5,"Resolved merge conflicts between 'update-readme' and 'master' branches."
-RepoQuestData/Repo Quest/RPTitle,"Added README content: reasons for creating website and operation instructions."
-RepoQuestData/Repo Quest/RPDes,"In this Pull Request, I made changes to the 'update-readme' branch.
-The main goal is to update the 'readme.md' file.
-I add the content about the 'reason for creating this website' and 'operation instructions'."
-BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/MainContent,"Hi, I noticed that the 'README.md' file missed the content of installing the project. 
-To ensure that teacher and other project members can run the project correctly.
-I suggest adding this content to the README file. 
+CommitHistoryData/File data/ListFileName/2,"Main_Script.cpp"
+NPCCommitData/NPC1,"Classmate A"
+CommitHistoryData/CommitMessage/1,"Add README file"
+CommitHistoryData/CommitMessage/2,"Basic Snake Game completed"
+CommitHistoryData/CommitMessage/5,"Snake Game introduction"
+CommitHistoryData/CommitMessage/6,"Snake Game features introduction"
+CommitHistoryData/CommitMessage/3,"Bomb feature design completed"
+CommitHistoryData/CommitMessage/4,"Player sprint allowed and energy bar system added"
+CommitHistoryData/CommitMessage/7,"Branch 'master' has been merged into branch 'update-readme'"
+RepoQuestData/Repo Quest/PRTitle,"Add README content: Snake Game introduction and features"
+RepoQuestData/Repo Quest/PRDes,"This Pull Request contains the changes I made on the 'update-readme' branch.
+It is mainly used to update the README file, 
+where I have added the basic introduction and game features of the Snake Game."
+BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/MainContent,"Hello, I noticed that some improvements can be made to the game feature 'Multiple object spawning' in the 'README.md' file.
+To help readers better understand the gameplay and challenges, 
+I suggest adding more details regarding object spawning, such as spawn times and randomization features.
 Thank you."
 BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/FileName,"README.md"
-BrowserWindow/PRDetailed/FileContent1,"# Shopping Website Project"
-BrowserWindow/PRDetailed/FileContent2,"Reason for creating the website"
-BrowserWindow/PRDetailed/FileContent3,"Website operation instruction"
-BrowserWindow/PRDetailed/FileContent4,"Web system architecture"
-BrowserWindow/PRDetailed/FileContent5,"Steps of running project"
-BrowserWindow/PRDetailed/FileContent6,"Website screenshots"
-BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/ReplyMessage1,"Please add the installation project steps right below the 'web system architecture'."
-BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/ReplyMessage2,"Thank you for your suggestion.
-I will check and make the changes."
-BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/ReplyMessage3,"I have added the steps of installing project to the 'README.md' file. 
-Please let me know if any further changes are required.
+BrowserWindow/PRDetailed/FileContent1,"# snake-game"
+BrowserWindow/PRDetailed/FileContent2,"This is an improved version of the Snake Game."
+BrowserWindow/PRDetailed/FileContent3,"Multiple objects will appear in the game. Eating fruits will grant points, and the game ends if the player is blown up by a bomb."
+BrowserWindow/PRDetailed/FileContent4,"Game Features:"
+BrowserWindow/PRDetailed/FileContent5,"<b>· </b>Multiple objects appear within a period of time"
+BrowserWindow/PRDetailed/FileContent5(fixed),"<b>· </b>Random amounts of fruits and bombs will spawn every 5 seconds, and their spawn locations are also random."
+BrowserWindow/PRDetailed/FileContent6,"<b>· </b>Bombs will explode after a period of time, and the game ends if the player is within the explosion radius"
+BrowserWindow/PRDetailed/FileContent7,"<b>· </b>The game features an energy bar, allowing players to sprint"
+BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/ReplyMessage1,"Please add spawning details to the line regarding 'Multiple object spawning'."
+BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/ReplyMessage2,"Thank you for the suggestion.
+I will review it and make the corresponding modifications."
+BrowserWindow/PRDetailed/Msg_5_Refresh_FileChanged/ReplyMessage3,"I have provided a more detailed description for the 'Multiple object spawning' section.
+Please let me know if there are any other areas that need improvement.
 Thank you."
-BrowserWindow/PRDetailed/Msg_10_Refresh_Approve,"Reviewed and confirmed that the 'README.md' content is fine. 
+BrowserWindow/PRDetailed/Msg_10_Refresh_Approve,"Reviewed and confirmed that the 'README.md' content has no issues.
 Approving this merge request."
