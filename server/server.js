@@ -33,10 +33,10 @@ async function insertGameDefaultData() {
     const port = process.env.MONGO_PORT;
     const database = process.env.MONGO_DB;
 
-    const url = `mongodb://${username}:${password}@${hostname}:${port}/${database}`;
+    // const url = `mongodb://${username}:${password}@${hostname}:${port}/${database}`;
 
     // Testing Local Setting
-    // const url = `mongodb://localhost:27017/GEG-database`;
+    const url = `mongodb://localhost:27017/GEG-database`;
 
     await mongoose.connect(url, {
       useNewUrlParser: true,
@@ -94,11 +94,11 @@ async function insertGameDefaultData() {
 }
 
 // 配置 CORS
-app.use(
-  cors({
-    origin: "http://" + process.env.MONGO_HOST + ":5050", // 允許 Unity 遊戲網頁的跨域請求
-  }),
-);
+app.use(cors({
+  // 只允許環境變數中設定的遊戲網址連入
+  origin: process.env.GAME_ORIGIN, 
+  credentials: true
+}));
 
 insertGameDefaultData();
 
