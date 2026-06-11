@@ -1150,7 +1150,7 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: Load Scene i18n CSV
-    startState: Destroy last CSV
+    startState: Destroy Tokens
     states:
     - name: get cur scene name
       description: 
@@ -1158,7 +1158,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 249
-        y: 244
+        y: 308
         width: 145
         height: 32
       isBreakpoint: 0
@@ -1270,7 +1270,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 60
-        y: 399
+        y: 463
         width: 161
         height: 32
       isBreakpoint: 0
@@ -1421,7 +1421,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 266.625
-        y: 299.8672
+        y: 363.8672
         width: 109
         height: 64
       isBreakpoint: 0
@@ -1541,7 +1541,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 319.47656
-        y: 1083.1797
+        y: 1147.1797
         width: 100
         height: 16
       isBreakpoint: 0
@@ -1625,7 +1625,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 60
-        y: 453
+        y: 517
         width: 164
         height: 32
       isBreakpoint: 0
@@ -1718,7 +1718,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 292.6172
-        y: 397.89062
+        y: 461.89062
         width: 166
         height: 32
       isBreakpoint: 0
@@ -1869,7 +1869,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 261
-        y: 171
+        y: 235
         width: 128
         height: 32
       isBreakpoint: 0
@@ -1974,7 +1974,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 255
-        y: 109
+        y: 173
         width: 131
         height: 32
       isBreakpoint: 0
@@ -2083,7 +2083,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 295.125
-        y: 449.41406
+        y: 513.41406
         width: 167
         height: 32
       isBreakpoint: 0
@@ -2234,7 +2234,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 298.3672
-        y: 501.32812
+        y: 565.3281
         width: 207
         height: 32
       isBreakpoint: 0
@@ -2385,7 +2385,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 303.34375
-        y: 547.90625
+        y: 611.90625
         width: 213
         height: 32
       isBreakpoint: 0
@@ -2536,7 +2536,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 704.6875
-        y: 763.3828
+        y: 827.3828
         width: 177
         height: 32
       isBreakpoint: 0
@@ -2687,7 +2687,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 707.9297
-        y: 815.2969
+        y: 879.2969
         width: 217
         height: 32
       isBreakpoint: 0
@@ -2838,7 +2838,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 712.90625
-        y: 861.875
+        y: 925.875
         width: 223
         height: 32
       isBreakpoint: 0
@@ -2989,7 +2989,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 707.8281
-        y: 589.71094
+        y: 653.71094
         width: 153
         height: 32
       isBreakpoint: 0
@@ -3140,7 +3140,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 699.8125
-        y: 529.7422
+        y: 593.7422
         width: 154
         height: 32
       isBreakpoint: 0
@@ -3247,7 +3247,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 703.78125
-        y: 348.0078
+        y: 412.0078
         width: 160
         height: 48
       isBreakpoint: 0
@@ -3485,7 +3485,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 594.3125
-        y: 439.8672
+        y: 503.8672
         width: 111
         height: 32
       isBreakpoint: 0
@@ -3555,7 +3555,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 848.8281
-        y: 440.5625
+        y: 504.5625
         width: 121
         height: 32
       isBreakpoint: 0
@@ -3625,7 +3625,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 700.9531
-        y: 708.15625
+        y: 772.15625
         width: 178
         height: 32
       isBreakpoint: 0
@@ -3776,7 +3776,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 702.58594
-        y: 655.9531
+        y: 719.9531
         width: 175
         height: 32
       isBreakpoint: 0
@@ -3921,6 +3921,82 @@ MonoBehaviour:
         - storeObject
         paramDataPos: 000000000100000002000000000000000100000003000000040000000500000006000000020000000300000007000000
         paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    - name: Destroy Tokens
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 257.64844
+        y: 100.5625
+        width: 123
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: finish
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Destroy last CSV
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.DestroyChildren
+        - HutongGames.PlayMaker.Actions.NextFrameEvent
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000001000000
+        actionHashCodes: 8d4bb50388611604
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Token
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 9163073068042851666}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - finish
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000017000000
+        paramName:
+        - gameObject
+        - sendEvent
+        paramDataPos: 0000000000000000
+        paramByteDataSize: 0000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -4124,6 +4200,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
+      - useVariable: 1
+        name: Token
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: {fileID: 9163073068042851666}
       objectVariables:
       - useVariable: 1
         name: 
@@ -4150,6 +4232,13 @@ MonoBehaviour:
         name: 
         tooltip: 
         showInInspector: 0
+        networkSync: 0
+        typeName: 
+        value: {fileID: 0}
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 1
         networkSync: 0
         typeName: 
         value: {fileID: 0}
@@ -4185,7 +4274,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
