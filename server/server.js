@@ -94,11 +94,14 @@ async function insertGameDefaultData() {
 }
 
 // 配置 CORS
-app.use(cors({
-  // 只允許環境變數中設定的遊戲網址連入
-  origin: process.env.GAME_ORIGIN, 
-  credentials: true
-}));
+app.use(
+  cors({
+    // 只允許環境變數中設定的遊戲網址連入
+    // origin: process.env.GAME_ORIGIN,
+    origin: true,
+    credentials: true,
+  }),
+);
 
 insertGameDefaultData();
 
