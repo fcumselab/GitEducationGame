@@ -21,10 +21,14 @@
 
 1. 開啟你的終端機（Windows 請用 `CMD` 或 `PowerShell`；Mac 請用 `Terminal`）。
 2. 輸入以下指令並按下 Enter：
-   `node -v`
+   ```bash
+   node -v
+   ```
 3. 如果安裝成功，終端機會顯示目前的 Node.js 版本號（例如：`v20.10.0`）。
 
-## ⚙️ 啟動設定：本地 (Local) 與 遠端 (Remote) 設定
+---
+
+## ⚙️ 步驟三：本地 (Local) 與 遠端 (Remote) 啟動設定
 
 在我們正式啟動伺服器之前，需要先了解本專案的環境設定。專案中通常包含兩種運行模式：
 
@@ -51,12 +55,14 @@ const database = process.env.MONGO_DB;
 const url = `mongodb://localhost:27017/GEG-database`;
 ```
 
-## 🚀 步驟三：安裝套件與啟動後端
+---
+
+## 🚀 步驟四：安裝套件與啟動後端
 
 確保 MongoDB 已在背景運行，且模式設定正確後，請開啟終端機並切換至 `server/` 資料夾路徑下：
 
 1.  **安裝專案所需套件：** 執行以下指令，下載後端伺服器需要的所有依賴套件：
-    ```
+    ```Bash
     npm install
     ```
     成功運行後，你應該可以在 `server/` 資料夾底下看見產生的 `node_modules/` 資料夾。
@@ -70,3 +76,5 @@ const url = `mongodb://localhost:27017/GEG-database`;
     資料庫連接、初始化成功
     歡迎使用 GEG-Server！目前版本: x.x.x
     ```
+
+---

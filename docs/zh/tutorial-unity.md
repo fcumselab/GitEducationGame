@@ -27,6 +27,8 @@
 > 💡 **提示：**
 > 如果你已經安裝了 Unity，也可以隨時在 Unity Hub 的 **Installs** 頁面，點擊該版本旁邊的「齒輪設定」按鈕，選擇 **Add modules** 來補裝 WebGL Build Support。
 
+---
+
 ## 📥 步驟三：將專案導入 Unity Hub
 
 因為專案已經透過 Git 下載到本機，我們只需要將它加進 Unity Hub 的列表中：
@@ -45,14 +47,14 @@
 
 ### 1. 確認與切換目標平台為 WebGL
 
-1. 在 Unity 上方選單點擊 **File ➔ Build Settings** 。
+1. 在 Unity 上方選單點擊 **File ➔ Build Settings...** 。
 2. 在 Platform 清單中找到 **WebGL** 並點擊它。
 3. 確認右下角的按鈕是否為 **Build**。如果不是，請點擊 **Switch Platform** 按鈕進行切換。
 4. 說明：當未來遊戲完成開發、需要更新網頁端時，需要點擊這裡的 **Build** 按鈕，將遊戲打包並覆蓋放入 `gegGame/` 中。
 
 ### 2. 載入專案開發環境 Layout
 
-1. 在 Unity 上方選單點擊 **Window ➔ Layouts ➔ Load Layout Form File..**
+1. 在 Unity 上方選單點擊 **Window ➔ Layouts ➔ Load Layout From File..**
 2. 選擇位於 `game/` 路徑底下的 **`GITainment layout.wlt`** 檔案。
 3. 上傳成功後，你會發現 Unity 編輯器的視窗分佈（環境配置）已經自動改變為本專案推薦的開發模式。
 
@@ -83,3 +85,5 @@
 4.  若實測過程一路順暢、完全沒有紅字報錯，則可以忽略該指南，直接開始開發遊戲。
 
 > 🚨 **遇到 Missing 報錯、畫面彈不出來、或是翻譯不見了嗎？** > 由於 Unity 與 Git 搭配時序列化偶爾會失效，若你在首次 Clone 專案實測時遇到了 Missing Reference 或 Error 報錯，請立刻點擊此處前往修復： > 👉 **[🔧 Unity 疑難排解與 Reference 缺失修復指南](unity-faq.md)** > \*
+
+---

@@ -37,8 +37,8 @@
 1. 開啟 MongoDB Compass 後，你會看到一個連接畫面，請點擊 **`Add new connection`**。
 2. 畫面上預設會有一行連接字串（URI）：
 
-   mongodb://localhost:27017
+   `mongodb://localhost:27017`
 
-這是預設的資料庫位址，也就是你的本機（Local）資料庫。如果未來需要連接到其他遠端資料庫，我們需要調整這個 URL 的內容。
+   這是預設的資料庫位址，也就是你的本機（Local）資料庫。如果未來需要連接到其他遠端資料庫，我們需要調整這個 URL 的內容。
 
 3. 點擊 **`Save & Connect`** 即可成功進入並看到 `localhost:27017` 的資料庫內部內容。
