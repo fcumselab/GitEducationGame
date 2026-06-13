@@ -1,51 +1,57 @@
-# 🎮 Gitainment - Git 互動教育遊戲
+# 🎮 Gitainment - Git Interactive Tutorial Game
 
 <p align="center">
   🌐 <b>Language Select / 語言切換</b>
   <br>
   <!-- 在 docs 資料夾內，所以用 ../ 跳回根目錄 -->
-  <a href="../README.md">🇬🇧 English</a>
+  ⭐️ <b>English</b> ⭐️
   <br>
-  ⭐️ <b>繁體中文</b> ⭐️
+  <a href="./docs/zh/README.md">繁體中文</a>
 </p>
 
-Gitainment 是一款專為程式設計初學者與學生設計的 Git 教育遊戲。本專案使用 Unity3D 開發前端遊戲畫面，結合 Node.js 後端與 MongoDB 資料庫，將抽象的 Git 指令與版本控制概念具現化。系統同時具備動態事件紀錄功能，協助教師分析學生的學習歷程與瓶頸。
+Gitainment is a Git tutorial game specifically designed for programming beginners and students. This project utilizes Unity Engine to develop the frontend game visuals, combined with a Node.js backend and a MongoDB database, to materialize abstract Git commands and version control concepts. The system also features a dynamic event tracking feature to assist teachers in analyzing students' learning processes and bottlenecks.
 
 ---
 
-## 🎯 系統目的
+## 🎯 System Objectives
 
-傳統的 Git 教學多依賴終端機指令（CLI），對初學者而言門檻較高且缺乏直觀回饋。
-Gitainment 旨在：
+Traditional Git teaching heavily relies on the Command Line Interface (CLI), which presents a higher entry barrier and lacks intuitive feedback for beginners.
+Gitainment aims to:
 
-- **提升學習動機**：將枯燥的指令操作轉化為遊戲關卡。
-- **強化學習效率**：透過視覺化圖形（如分支樹的生長），讓學生直觀理解 `commit`、`merge` 等概念。
-- **補足課堂缺失**：解決學校課程中缺乏即時回饋、無法重覆低成本嘗試的痛點。
-
----
-
-## ✨ 遊戲核心特色與好處
-
-- **內在動機強化**：基於遊戲化學習理論，將學習目標轉化為遊戲中的「任務挑戰」，提高自主學習意願。
-- **低失敗成本**：提供安全的模擬環境，鼓勵學生在「搞砸儲存庫」時不斷嘗試，克服對 Git 合併衝突（Merge Conflict）的恐懼。
-- **沉浸式體驗**：在有限的教學時間內，利用遊戲的競爭與挑戰特性，達成深度學習（Deep Learning）的效果。
-- **教師教學增能**：後端自動收集行為數據，教師可一目了然哪些 Git 指令是全班的共同盲點。
+- **Enhance Learning Motivation**: Transform tedious command operations into game levels.
+- **Improve Learning Efficiency**: Allow students to intuitively understand concepts like `commit` and `merge` through localized graphics (such as the growth of the branch tree).
+- **Address Classroom Deficiencies**: Resolve the pain points in school curricula, such as the lack of real-time feedback and the inability to make low-cost repeated attempts.
 
 ---
 
-## 🕹️ 遊戲化機制 (Gamification)
+## ✨ Core Game Features & Benefits
 
-為了激勵學生持續參與，遊戲內建以下機制：
+- **Intrinsic Motivation Enhancement**: Based on gamification learning theory, learning objectives are transformed into "in-game mission challenges" to increase the willingness for self-directed learning.
+- **Low Cost of Failure**: Provides a safe simulated environment, encouraging students to make repeated attempts when "screwing up the repository," thereby overcoming the fear of Git Merge Conflicts.
+- **Immersive Experience**: Utilizes the competitive and challenging nature of the game within limited instructional time to achieve Deep Learning effects.
+- **Empowering Teachers**: The backend automatically collects behavioral data, allowing teachers to see at a glance which Git commands represent common blind spots for the entire class.
 
-- **🏆 即時排行榜**：展示全班或關卡的通關時間與星星數量，激發良性競爭。
-- **⚡ 視覺化指令反饋**：當輸入指令時，遊戲角色會做出對應動作，且版本控制樹會即時動態更新。
+---
 
-## 📸 遊戲截圖 (Screenshots)
+## 🕹️ Gamification Mechanisms
 
-## 🛠️ 專案建置與部署 (Installation & Setup)
+To motivate students for continuous engagement, the game incorporates the following mechanisms:
 
-如果你想要共同開發本專案或在本地端進行測試，我們已經準備了非常完整的逐步教學，包含 Unity 前端配置、Node.js 後端安裝與 MongoDB 資料庫的連接指南。
+- **🏆 Real-time Leaderboard**: Displays completion times and star counts for the entire class or specific levels, stimulating healthy competition.
+- **⚡ Visualized Command Feedback**: When a command is entered, the in-game character performs a corresponding action, and the version control tree dynamically updates in real-time.
 
-詳細步驟請點擊下方連結前往參考：
+---
 
-🚀 **[🎮 GITainment 專案介紹及部署教學](./docs/DEPLOY.md)**
+## 📸 Screenshots
+
+---
+
+## 🛠️ Installation & Setup
+
+If you want to co-develop this project or conduct testing in a local environment, we have prepared a comprehensive step-by-step tutorial. This includes frontend configuration for Unity, backend installation for Node.js, and a connection guide for the MongoDB database.
+
+For detailed steps, please click the link below to refer to the guide:
+
+🚀 **[🎮 GITainment Project Introduction & Deployment Guide](./docs/en/tutorial.md)**
+
+---
