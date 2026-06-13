@@ -114,7 +114,7 @@ Once all files are uploaded, we can execute commands on the server to let Docker
    ```
 
 - 💡 **Command Breakdown:**
-  - `up`: Builds, creates, and starts all services defined in the configuration file (gegGame, server, mongo).
+  - `up`: Builds, creates, and starts all services defined in the configuration file (game, server, mongo).
   - `-d`: Runs in the background (Detached mode), ensuring the server continues to operate even after closing MobaXterm.
   - `--build`: Forces a recompilation of the latest backend code and WebGL static files, ensuring that your uploaded changes take effect.
 
@@ -148,7 +148,7 @@ If you need to check online player accounts or leaderboard data in the future, y
    mongodb://KUser:KPass@140.xxx.xx.xx:5052/?authSource=admin
    ```
 
-_(Please replace 140.xxx.xx.xx with the actual laboratory server IP)._
+   _(Please replace 140.xxx.xx.xx with the actual laboratory server IP)._
 
 4. Click **`Save & Connect`**, and you will be able to directly and visually manage the `GEG-database` database on the remote server!
 

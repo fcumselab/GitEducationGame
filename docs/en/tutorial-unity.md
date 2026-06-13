@@ -81,8 +81,8 @@ Now, we will perform an end-to-end connectivity test for the entire stack (Unity
 3. Try registering a new account, logging in, and playing through the Tutorial and Practice modes of the first stage.
 4. If the test run proceeds smoothly with absolutely no red error messages in the console, you can skip the troubleshooting guide and jump straight into game development!
 
-> 🚨 **Encountering Missing errors, frozen screens, or missing translations?**
-> Due to occasional serialization failures when pairing Unity with Git, if you encounter "Missing Reference" or other error messages during your first test after cloning, please immediately click here to fix them:
-> 👉 **[🔧 Unity Troubleshooting & Missing Reference Fix Guide](unity-faq.md)**
+> 🚨 **Encountering Missing errors, frozen screens, or missing translations?**  
+> Due to occasional serialization failures when pairing Unity with Git, if you encounter "Missing Reference" or other error messages during your first test after cloning, please immediately click here to fix them:  
+> **[🔧 Unity Troubleshooting & Missing Reference Fix Guide](unity-faq.md)**
 
 ---

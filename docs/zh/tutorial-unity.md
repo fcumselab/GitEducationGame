@@ -63,17 +63,15 @@
 在本地進行功能開發或 Debug 時，請務必將環境切換為 **Local 模式**（預設已設定好）。本專案透過切換場景中的物件開關來控管連線：
 
 1. 在 Unity 的 **Project 視窗** 中，找到 **`Assets ➔ 02_Scenes`**，你會看到本遊戲包含的三個核心場景：
-
-- **Title Screen：** 玩家進入遊戲時第一個看到的畫面，用來註冊與登入帳號。
-- **Stage Select：** 用於選擇遊戲關卡和模式。
-- **Play Game：** 根據選擇的關卡生成對應的遊玩內容。
+   - **Title Screen：** 玩家進入遊戲時第一個看到的畫面，用來註冊與登入帳號。
+   - **Stage Select：** 用於選擇遊戲關卡和模式。
+   - **Play Game：** 根據選擇的關卡生成對應的遊玩內容。
 
 2. **【重要】三個場景都需要執行以下檢查與設定：**
+   - 在場景的 Hierarchy 中，找到 **`URLSettings`** 物件並展開它，底下會包含 `URLSetting (Online Deploy)` 和 `URLSetting (Local Testing)` 兩個子物件。
 
-- 在場景的 Hierarchy 中，找到 **`URLSettings`** 物件並展開它，底下會包含 `URLSetting (Online Deploy)` 和 `URLSetting (Local Testing)` 兩個子物件。
-
-- 🛠️ **欲啟動 Local 模式（本地開發）：** 請 **Activate (點亮啟用) Local 物件**，並 **Deactivate (不啟用) Online 物件**。
-- 🌐 **欲啟動 Remote 模式（遠端測試）：** 請 **Activate Online 物件**，並 **Deactivate Local 物件**。同時，必須點擊 Online 物件，在右側 Inspector 的 `Url Setting (Script)` 組件中，將 URL 欄位修改為你部署的遠端網址（例如：`http://xxx.xxx.xx.xx:xxxx/`）。
+   - 🛠️ **欲啟動 Local 模式（本地開發）：** 請 **Activate (點亮啟用) Local 物件**，並 **Deactivate (不啟用) Online 物件**。
+   - 🌐 **欲啟動 Remote 模式（遠端測試）：** 請 **Activate Online 物件**，並 **Deactivate Local 物件**。同時，必須點擊 Online 物件，在右側 Inspector 的 `Url Setting (Script)` 組件中，將 URL 欄位修改為你部署的遠端網址（例如：`http://xxx.xxx.xx.xx:xxxx/`）。
 
 ### 4. 最後驗證：確認遊戲運行正常
 
@@ -84,6 +82,8 @@
 3.  嘗試在畫面中註冊一個新帳號、登入，並試著遊玩第一關卡的 Tutorial 與 Practice 模式。
 4.  若實測過程一路順暢、完全沒有紅字報錯，則可以忽略該指南，直接開始開發遊戲。
 
-> 🚨 **遇到 Missing 報錯、畫面彈不出來、或是翻譯不見了嗎？** > 由於 Unity 與 Git 搭配時序列化偶爾會失效，若你在首次 Clone 專案實測時遇到了 Missing Reference 或 Error 報錯，請立刻點擊此處前往修復： > 👉 **[🔧 Unity 疑難排解與 Reference 缺失修復指南](unity-faq.md)** > \*
+> 🚨 **遇到 Missing 報錯、畫面彈不出來、或是翻譯不見了嗎？**  
+> 由於 Unity 與 Git 搭配時序列化偶爾會失效，若你在首次 Clone 專案實測時遇到了 Missing Reference 或 Error 報錯，請立刻點擊此處前往修復：  
+> **[🔧 Unity 疑難排解與 Reference 缺失修復指南](unity-faq.md)**
 
 ---

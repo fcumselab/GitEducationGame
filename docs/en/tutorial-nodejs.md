@@ -80,3 +80,5 @@ After ensuring that MongoDB is running in the background and the mode is correct
    Database connected and initialized successfully
    Welcome to GEG-Server! Current version: x.x.x
    ```
+
+---
