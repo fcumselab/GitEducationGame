@@ -1,0 +1,32 @@
+version: "3"
+services:
+  game:
+    container_name: Kevin-GEG-game
+    build: ./gegGame
+    ports:
+      - "5050:80"
+  server:
+    container_name: Kevin-GEG-server
+    restart: unless-stopped
+    build: ./server
+    ports:
+      - "5051:3000"
+    environment:
+      - GAME_ORIGIN=http://your_ip:5050  # build game IP
+      - MONGO_USERNAME=KUser # mongoDB username.
+      - MONGO_PASSWORD=KPass # mongoDB PASSWORD.
+      - MONGO_HOST=Kevin-GEG-mongo # Replace with your mongoDB IP.
+      - MONGO_PORT=27017 # mongoDB port.
+      - MONGO_DB=GEG-database?authSource=admin # target DB name.
+    depends_on:
+      - Kevin-GEG-mongo # services name -> mongo.
+  Kevin-GEG-mongo:
+    container_name: Kevin-GEG-mongo
+    image: mongo:5.0.24
+    ports:
+      - "5052:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=KUser
+      - MONGO_INITDB_ROOT_PASSWORD=KPass
+    volumes:
+      - ./data:/data/db
