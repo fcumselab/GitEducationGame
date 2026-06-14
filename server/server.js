@@ -97,7 +97,9 @@ async function insertGameDefaultData() {
 app.use(
   cors({
     // 只允許環境變數中設定的遊戲網址連入
+    //For deploy, restrict some requests.
     // origin: process.env.GAME_ORIGIN,
+    //For testing.
     origin: true,
     credentials: true,
   }),

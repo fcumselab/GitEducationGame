@@ -53,6 +53,6 @@ Once you have read through and successfully established a well-running project e
 
 When game features are fully developed and the updated version needs to be released to the server, please click the link below and follow the steps to execute a one-click deployment:
 
-1. 👉 **[🚀 Server Docker Deployment Guide](tutorial-deploy.md)**: This guide will walk you through how to use the configurations in the `docker/` folder to pack and deploy the Unity web frontend, Node.js backend, and MongoDB all together.
+1. **[🚀 Server Docker Deployment Guide](tutorial-deploy.md)**: This guide will walk you through how to use the configurations in the `docker/` folder to pack and deploy the Unity web frontend, Node.js backend, and MongoDB all together.
 
 ---
