@@ -54,6 +54,6 @@ git clone https://github.com/kevin38645/GitEducationGame.git
 
 當遊戲功能開發完畢，需要將更新版本發布到伺服器時，請點擊下方連結，依照步驟執行一鍵部署：
 
-1. 👉 **[🚀 伺服器 Docker 部署指南](tutorial-deploy.md)**：此指南將引導你如何使用 `docker/` 資料夾中的設定，將 Unity 網頁端、Node.js 後端與 MongoDB 一併打包部署。)\*
+1. **[🚀 伺服器 Docker 部署指南](tutorial-deploy.md)**：此指南將引導你如何使用 `docker/` 資料夾中的設定，將 Unity 網頁端、Node.js 後端與 MongoDB 一併打包部署。)\*
 
 ---
