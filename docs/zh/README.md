@@ -40,7 +40,27 @@ Gitainment 旨在：
 - **🏆 即時排行榜**：展示全班或關卡的通關時間與星星數量，激發良性競爭。
 - **⚡ 視覺化指令反饋**：當輸入指令時，遊戲角色會做出對應動作，且版本控制樹會即時動態更新。
 
+---
+
 ## 📸 遊戲截圖 (Screenshots)
+
+![Title Screen](../imgs/title_screen.png)
+
+![Stage Selection](../imgs/stage_selection_main.png)
+
+![Description And Mode Selection](../imgs/description_and_mode_selection.png)
+
+![Game Manual Feature](../imgs/game_manual.png)
+
+![Game Stage: Merge Conflict](../imgs/game_merge_conflict.png)
+
+![Game Stage: Git Pull](../imgs/game_git_pull.png)
+
+![Game Stage: Pull Request](../imgs/pull_request.png)
+
+![Game Result](../imgs/game_result.png)
+
+---
 
 ## 🛠️ 專案建置與部署 (Installation & Setup)
 

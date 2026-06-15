@@ -44,6 +44,22 @@ To motivate students for continuous engagement, the game incorporates the follow
 
 ## 📸 Screenshots
 
+![Title Screen](./docs/imgs/title_screen.png)
+
+![Stage Selection](./docs/imgs/stage_selection_main.png)
+
+![Description And Mode Selection](./docs/imgs/description_and_mode_selection.png)
+
+![Game Manual Feature](./docs/imgs/game_manual.png)
+
+![Game Stage: Merge Conflict](./docs/imgs/game_merge_conflict.png)
+
+![Game Stage: Git Pull](./docs/imgs/game_git_pull.png)
+
+![Game Stage: Pull Request](./docs/imgs/pull_request.png)
+
+![Game Result](./docs/imgs/game_result.png)
+
 ---
 
 ## 🛠️ Installation & Setup
