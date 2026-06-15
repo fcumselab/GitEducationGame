@@ -19,7 +19,7 @@
 首先，請先將專案複製到你的本機環境：
 
 ```
-git clone https://github.com/kevin38645/GitEducationGame.git
+git clone https://github.com/fcumselab/GitEducationGame.git
 ```
 
 成功複製後，你會看到專案內包含以下四個主要核心資料夾：
