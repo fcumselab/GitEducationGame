@@ -19,7 +19,7 @@ Before getting your hands dirty, let's look at a simple blueprint to understand 
 First, please clone the project to your local environment:
 
 ```
-git clone https://github.com/kevin38645/GitEducationGame.git
+git clone https://github.com/fcumselab/GitEducationGame.git
 ```
 
 Upon successful cloning, you will see that the project contains the following four main core folders:
